@@ -3,7 +3,7 @@ import 'package:smile_simulation/core/services/localization_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/utils/app_translation.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/currentUserCircleIcon.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/custom_icon.dart';
 
 class ClickableSearchBar extends StatelessWidget {
@@ -20,7 +20,7 @@ class ClickableSearchBar extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       child: Row(
         children: [
-          Currentusercircleicon(color: AppColors.primaryColor, borderWidth: 6),
+          CurrentUserCircleImage(color: AppColors.primaryColor, borderWidth: 6),
           SizedBox(width: 4),
           Expanded(
             child: Container(

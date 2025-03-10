@@ -3,7 +3,7 @@ import 'package:smile_simulation/core/services/localization_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/utils/app_translation.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/currentUserCircleIcon.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/flexible_app_bar_icons_section.dart';
 
 import 'custom_to_pin_app_bar.dart';
@@ -25,7 +25,7 @@ class CustomFlexibleAppBar extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Currentusercircleicon(color: AppColors.whiteColor, borderWidth: 8,),
+          CurrentUserCircleImage(color: AppColors.whiteColor, borderWidth: 8),
           SizedBox(width: 12),
           Expanded(
             child: Text(

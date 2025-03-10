@@ -4,6 +4,8 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/utils/app_translation.dart';
 
+import 'posts/custom_post.dart';
+
 class HomeViewBodyContent extends StatelessWidget {
   const HomeViewBodyContent({super.key});
 
@@ -28,22 +30,10 @@ class HomeViewBodyContent extends StatelessWidget {
               context,
             ).copyWith(color: AppColors.blackColor),
           ),
-          SizedBox(height: 16,),
-          CustomPost()
-
+          SizedBox(height: 16),
+          CustomPost(),
         ],
       ),
     );
-  }
-}
-
-class CustomPost extends StatelessWidget {
-  const CustomPost({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

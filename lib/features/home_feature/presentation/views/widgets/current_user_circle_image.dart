@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_assets.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 
-class Currentusercircleicon extends StatelessWidget {
-  const Currentusercircleicon({
+class CurrentUserCircleImage extends StatelessWidget {
+  const CurrentUserCircleImage({
     super.key,
     required this.color,
     required this.borderWidth,
