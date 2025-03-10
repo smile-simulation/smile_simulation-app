@@ -11,14 +11,23 @@ class CustomPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 178,
+      height: 198,
       padding: EdgeInsets.all(8),
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.veryLightGreyColor,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Column(children: [PostHeader(), PostBody(), PostFooter()]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          PostHeader(userName: 'محمود مجدي', postDate: 'يومان'),
+          SizedBox(height: 4),
+          Expanded(child: PostBody()),
+          SizedBox(height: 8),
+          PostFooter(),
+        ],
+      ),
     );
   }
 }

@@ -30,8 +30,17 @@ class HomeViewBodyContent extends StatelessWidget {
               context,
             ).copyWith(color: AppColors.blackColor),
           ),
-          SizedBox(height: 16),
-          CustomPost(),
+          Expanded(
+            child: ListView.separated(
+              itemBuilder: (context, index) {
+                return CustomPost();
+              },
+              separatorBuilder: (context, index) {
+                return SizedBox(height: 28);
+              },
+              itemCount: 10,
+            ),
+          ),
         ],
       ),
     );
