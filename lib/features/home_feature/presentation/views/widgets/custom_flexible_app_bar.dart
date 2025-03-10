@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/utils/app_colors.dart';
+import 'package:smile_simulation/core/utils/app_translation.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/currentUserCircleIcon.dart';
+
+import 'custom_to_pin_app_bar.dart';
+import 'package:smile_simulation/main.dart';
+
+class CustomFlexibleAppBar extends StatelessWidget {
+  const CustomFlexibleAppBar({super.key});
+  final String name = 'محمد فوزي';
+  @override
+  Widget build(BuildContext context) {
+    return SliverAppBar(
+      expandedHeight: 124,
+      elevation: 0,
+      centerTitle: true,
+      floating: true,
+      pinned: true,
+      bottom: CustomToPinAppBar(),
+      backgroundColor: AppColors.primaryColor,
+
+      title: Row(
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Currentusercircleicon(radius: 20),
+          SizedBox(width: 12),
+          Text('${appTranslation[languageCode]['welcomeMsg']}، $name!'),
+        ],
+      ),
+    );
+  }
+}
