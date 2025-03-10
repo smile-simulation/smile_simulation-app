@@ -25,7 +25,7 @@ abstract class AppTextStyles {
   }
 
   static TextStyle style20W700(BuildContext context) {
-    return baseStyle(context, 20, FontWeight.w700);
+    return baseStyle(context, 20, FontWeight.w700, color: AppColors.whiteColor);
   }
 
   static TextStyle style12W700(BuildContext context) {
@@ -52,19 +52,17 @@ double getResponsiveScaleFactor(
   double scaleFactor = getScaleFactor(context);
   double responsiveFontSize = fontSize * scaleFactor;
 
-  double lowerLimit = responsiveFontSize * 0.8;
-  double upperLimit = responsiveFontSize * 1.2;
-
-  return responsiveFontSize.clamp(lowerLimit, upperLimit);
+  return responsiveFontSize.clamp(fontSize * 0.9, fontSize * 1.1);
 }
 
 double getScaleFactor(BuildContext context) {
   double width = MediaQuery.of(context).size.width;
-  if (width <= 1200) {
-    return width / 1750;
-  } else if (width <= 1400) {
-    return width / 1750;
+
+  if (width <= 600) {
+    return 1; // شاشات صغيرة (موبايل)
+  } else if (width <= 1200) {
+    return 1.2; // شاشات متوسطة (تابلت)
   } else {
-    return width / 1750;
+    return 1.4; // شاشات كبيرة (ديسكتوب)
   }
 }
