@@ -15,12 +15,14 @@ class PostFooter extends StatelessWidget {
           onTap: () {},
           actionText: TranslationKeys.like,
           icon: Icons.thumb_up,
+          isActive: true,
         ),
         SizedBox(height: 8),
         PostFooterActionItem(
           onTap: () {},
           actionText: TranslationKeys.comment,
           icon: Icons.message_outlined,
+          isActive: false,
         ),
       ],
     );
