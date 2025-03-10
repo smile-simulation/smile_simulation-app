@@ -12,16 +12,34 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  final List<Widget> views = [
+    HomeViewBody(),
+    Center(child: Text("النصائح")),
+    Center(child: Text("التذكيرات")),
+    Center(child: Text("السجل الطبي")),
+    Center(child: Text("المزيد")),
+  ];
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        bottomNavigationBar: CustomBottomNavigationBar(),
+        bottomNavigationBar: CustomBottomNavigationBar(
+          onTap: _onItemTapped,
+          selectedIndex: _selectedIndex,
+        ),
 
         extendBodyBehindAppBar: true,
         backgroundColor: AppColors.primaryColor,
-        body: HomeViewBody(),
+        body: views[_selectedIndex],
       ),
     );
   }

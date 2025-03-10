@@ -16,7 +16,7 @@ Map<String, dynamic> appTranslation = {
     "welcomeMsg": "مرحبًا",
     "like": "اعجبني",
     "comment": 'تعليق',
-    "posts": "منشورات",
+    "posts": "المنشورات",
     "createNewPost": "قم بإنشاء مشاركة جديدة",
     "home": "الصفحة الرئيسية",
     "advices": "النصائح",

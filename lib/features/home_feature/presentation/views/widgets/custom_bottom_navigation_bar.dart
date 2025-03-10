@@ -5,7 +5,13 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_translation.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({super.key});
+  const CustomBottomNavigationBar({
+    super.key,
+    required this.onTap,
+    required this.selectedIndex,
+  });
+  final Function(int) onTap;
+  final int selectedIndex;
 
   @override
   State<CustomBottomNavigationBar> createState() =>
@@ -13,11 +19,9 @@ class CustomBottomNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  int _selectedIndex = 0;
-
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      widget.onTap(index);
     });
   }
 
@@ -42,14 +46,14 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         children: [
           Positioned(
             right:
-                _selectedIndex * itemWidth +
+                widget.selectedIndex * itemWidth +
                 (itemWidth / 2) -
                 30, // ضبط مكان المؤشر
             bottom: 15,
-            child:Image.asset(AppAssets.bottomNavBarPointer),
+            child: Image.asset(AppAssets.bottomNavBarPointer),
           ),
           BottomNavigationBar(
-            currentIndex: _selectedIndex,
+            currentIndex: widget.selectedIndex,
             onTap: _onItemTapped,
             selectedItemColor: AppColors.primaryColor,
             unselectedItemColor: Colors.grey,
