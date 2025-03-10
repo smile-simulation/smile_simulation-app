@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/services/localization_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/currentUserCircleIcon.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/flexible_app_bar_icons_section.dart';
 
 import 'custom_to_pin_app_bar.dart';
 
@@ -28,6 +29,8 @@ class CustomFlexibleAppBar extends StatelessWidget {
             '${LocalizationHelper.translate('welcomeMsg')}، $name!',
             style: TextStyle(color: AppColors.whiteColor),
           ),
+          Spacer(),
+          FlexibleAppBarIconsSection(),
         ],
       ),
     );
