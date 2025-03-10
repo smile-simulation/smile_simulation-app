@@ -4,12 +4,13 @@ class CustomIcon extends StatelessWidget {
   final IconData icon;
   final Color color;
   final VoidCallback onTap;
-
+  final double iconSize;
   const CustomIcon({
     super.key,
     required this.icon,
     required this.color,
     required this.onTap,
+    this.iconSize = 30,
   });
 
   @override
@@ -22,7 +23,7 @@ class CustomIcon extends StatelessWidget {
         child: Icon(
           icon,
           color: color, // ✅ تخصيص اللون
-          size: 28,
+          size: iconSize,
         ),
       ),
     );
