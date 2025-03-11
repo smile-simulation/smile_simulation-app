@@ -39,6 +39,9 @@ abstract class AppTextStyles {
   static TextStyle style14W400(BuildContext context) {
     return baseStyle(context, 14, FontWeight.w400);
   }
+  static TextStyle style16W400(BuildContext context) {
+    return baseStyle(context, 16, FontWeight.w400);
+  }
 
   static TextStyle style10W400(BuildContext context) {
     return baseStyle(context, 10, FontWeight.w400, color: AppColors.greyColor);

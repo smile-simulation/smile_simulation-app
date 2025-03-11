@@ -7,7 +7,8 @@ class AddCommentFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        hintText: 'Add a comment...',
+        
+        hintText: 'التعليق...',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
       ),
     );

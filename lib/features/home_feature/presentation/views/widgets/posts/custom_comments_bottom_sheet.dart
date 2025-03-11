@@ -16,32 +16,35 @@ class CustomCommentsBottomSheet extends StatelessWidget {
     return AnimatedPadding(
       duration: Duration(milliseconds: 80),
       padding: EdgeInsets.only(bottom: isKeyboardActive ? keyboardHeight : 0),
-      child: Container(
-        width: double.infinity,
-        height: height,
-        padding: EdgeInsets.only(bottom: 22, left: 6, right: 6, top: 12),
-        decoration: BoxDecoration(
-          color: AppColors.lightGreyColor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(45),
-            topRight: Radius.circular(45),
-          ),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width / 3,
-              height: 6,
-              decoration: BoxDecoration(
-                color: AppColors.greyLightColor,
-                borderRadius: BorderRadius.circular(100),
-              ),
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Container(
+          width: double.infinity,
+          height: height,
+          padding: EdgeInsets.only(bottom: 22, left: 6, right: 6, top: 12),
+          decoration: BoxDecoration(
+            color: AppColors.lightGreyColor,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(45),
+              topRight: Radius.circular(45),
             ),
-            SizedBox(height: 40),
-            Expanded(child: CommentsListViewBuilder()),
-            AddCommentFormField(),
-          ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width / 3,
+                height: 6,
+                decoration: BoxDecoration(
+                  color: AppColors.greyLightColor,
+                  borderRadius: BorderRadius.circular(100),
+                ),
+              ),
+              SizedBox(height: 40),
+              Expanded(child: CommentsListViewBuilder()),
+              AddCommentFormField(),
+            ],
+          ),
         ),
       ),
     );
