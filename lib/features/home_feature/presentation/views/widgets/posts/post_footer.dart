@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/helper_functions/show_modal_bottom_sheet.dart';
 import 'package:smile_simulation/core/utils/app_translation.dart';
 
+import 'custom_comments_bottom_sheet.dart';
 import 'post_footer_action_item.dart';
 
 class PostFooter extends StatelessWidget {
@@ -19,7 +21,12 @@ class PostFooter extends StatelessWidget {
         ),
         SizedBox(height: 8),
         PostFooterActionItem(
-          onTap: () {},
+          onTap: () {
+            customShowModalBottomSheet(
+              context: context,
+              child: CustomCommentsBottomSheet(),
+            );
+          },
           actionText: TranslationKeys.comment,
           icon: Icons.message_outlined,
           isActive: false,
