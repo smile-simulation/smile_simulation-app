@@ -35,15 +35,13 @@ class SearchViewBody extends StatelessWidget {
                 Align(
                   alignment: Alignment.topRight,
                   child: Text(
-                  LocalizationHelper.translate(TranslationKeys.searchRecord),
-                  style: AppTextStyles.style20W700(
-                    context,
-                  ).copyWith(color: AppColors.blackColor),
-                            ),
+                    LocalizationHelper.translate(TranslationKeys.searchRecord),
+                    style: AppTextStyles.style20W700(
+                      context,
+                    ).copyWith(color: AppColors.blackColor),
+                  ),
                 ),
-                            Expanded(
-              child: SearchRecordListView(),
-            ),
+                Expanded(child: SearchRecordListView()),
               ],
             ),
           ),
@@ -52,4 +50,3 @@ class SearchViewBody extends StatelessWidget {
     );
   }
 }
-
