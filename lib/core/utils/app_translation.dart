@@ -11,6 +11,8 @@ class TranslationKeys {
   static const String more = "more";
   static const String post = "post";
   static const String comments = "comments";
+  static const String searchRecord = "searchRecord";
+  static const String mohamedHamed = "mohamedHamed";
 }
 
 Map<String, dynamic> appTranslation = {
@@ -27,6 +29,8 @@ Map<String, dynamic> appTranslation = {
     "more": "المزيد",
     "post": "المنشور",
     "comments": "التعليقات",
+    "searchRecord": "سجل البحث",
+    "mohamedHamed": "محمد حامد",
   },
   "en": {"welcomeMsg": "Welcome"},
 };
