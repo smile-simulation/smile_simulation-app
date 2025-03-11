@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/utils/app_colors.dart';
 
 import 'widgets/posts/post_view_body.dart';
 
@@ -7,6 +8,15 @@ class PostView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PostViewBody();
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: AppColors.primaryColor,
+          foregroundColor: AppColors.whiteColor,
+        ),
+        body: PostViewBody(),
+      ),
+    );
   }
 }

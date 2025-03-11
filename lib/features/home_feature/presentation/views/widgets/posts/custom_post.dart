@@ -6,27 +6,30 @@ import 'post_footer.dart';
 import 'post_header.dart';
 
 class CustomPost extends StatelessWidget {
-  const CustomPost({super.key});
-
+  const CustomPost({super.key, this.onTap});
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 198,
-      padding: EdgeInsets.all(8),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: AppColors.veryLightGreyColor,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          PostHeader(userName: 'محمود مجدي', postDate: 'يومان'),
-          SizedBox(height: 4),
-          Expanded(child: PostBody()),
-          SizedBox(height: 8),
-          PostFooter(),
-        ],
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        height: 198,
+        padding: EdgeInsets.all(8),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: AppColors.veryLightGreyColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            PostHeader(userName: 'محمود مجدي', postDate: 'يومان'),
+            SizedBox(height: 4),
+            Expanded(child: PostBody()),
+            SizedBox(height: 8),
+            PostFooter(),
+          ],
+        ),
       ),
     );
   }

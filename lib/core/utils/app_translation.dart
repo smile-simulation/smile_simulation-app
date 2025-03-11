@@ -9,6 +9,8 @@ class TranslationKeys {
   static const String reminders = "reminders";
   static const String medicalRecord = "medicalRecord";
   static const String more = "more";
+  static const String post = "post";
+  static const String comments = "comments";
 }
 
 Map<String, dynamic> appTranslation = {
@@ -23,6 +25,8 @@ Map<String, dynamic> appTranslation = {
     "reminders": "تذكيرات",
     "medicalRecord": "السجل الطبي",
     "more": "المزيد",
+    "post": "المنشور",
+    "comments": "التعليقات",
   },
   "en": {"welcomeMsg": "Welcome"},
 };
