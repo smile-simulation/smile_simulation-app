@@ -1,15 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/utils/app_colors.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 
 class AddCommentFormField extends StatelessWidget {
   const AddCommentFormField({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        
-        hintText: 'التعليق...',
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+    return Container(
+      height: 64,
+      padding: EdgeInsets.symmetric(horizontal: 8),
+      margin: EdgeInsets.all(6),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(32),
+        border: Border.all(color: AppColors.greyColor),
+      ),
+      child: Row(
+        children: [
+          CurrentUserCircleImage(color: AppColors.primaryColor, borderWidth: 4),
+          SizedBox(width: 8), // تباعد بين الصورة ومربع النص
+          Expanded(
+            child: TextFormField(
+              decoration: InputDecoration(
+                hintText: 'التعليق...',
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.symmetric(vertical: 10),
+              ),
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.send,
+              color: AppColors.primaryColor,
+              textDirection: TextDirection.rtl,
+              size: 28,
+            ),
+            onPressed: () {},
+          ),
+        ],
       ),
     );
   }
