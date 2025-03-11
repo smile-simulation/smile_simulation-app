@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 
+import 'add_comment_form_field.dart';
+import 'comments_list_view_builder.dart';
+
 class CustomCommentsBottomSheet extends StatelessWidget {
   const CustomCommentsBottomSheet({super.key});
 
@@ -8,7 +11,8 @@ class CustomCommentsBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
     final bool isKeyboardActive = keyboardHeight > 0;
-    final double height = MediaQuery.of(context).size.height * 0.7;
+    final double height =
+        MediaQuery.of(context).size.height * (isKeyboardActive ? 0.6 : 0.7);
     return AnimatedPadding(
       duration: Duration(milliseconds: 80),
       padding: EdgeInsets.only(bottom: isKeyboardActive ? keyboardHeight : 0),
@@ -34,15 +38,9 @@ class CustomCommentsBottomSheet extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100),
               ),
             ),
-            Spacer(),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: 'Add a comment...',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ),
+            SizedBox(height: 40),
+            Expanded(child: CommentsListViewBuilder()),
+            AddCommentFormField(),
           ],
         ),
       ),
