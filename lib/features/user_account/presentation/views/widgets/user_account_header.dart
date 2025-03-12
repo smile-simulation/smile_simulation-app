@@ -1,3 +1,7 @@
+// import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
+
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
@@ -10,19 +14,21 @@ class UserAccountHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 164 + kToolbarHeight + 32,
+      height: 164 + kToolbarHeight + 40,
       child: Column(
         children: [
-          SizedBox(height: kToolbarHeight + 32),
+          SizedBox(height: kToolbarHeight + 40),
           SizedBox(
             height: 120,
             width: 120,
             child:
                 currentUser
                     ? CurrentUserCircleImage(
-                      color: AppColors.primaryColor,
+                      color: AppColors.whiteColor,
                       borderWidth: 16,
-                      onTap: () {},
+                      onTap: () {
+                        log("current user account image");
+                      },
                     )
                     : OtherUserCircleImage(onTap: () {}),
           ),

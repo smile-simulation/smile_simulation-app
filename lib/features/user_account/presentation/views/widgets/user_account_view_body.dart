@@ -8,15 +8,21 @@ class UserAccountViewBody extends StatelessWidget {
   final bool currentUser;
   @override
   Widget build(BuildContext context) {
-    return NestedScrollView(
-      headerSliverBuilder: (context, innerBoxIsScrolled) {
-        return [
-          SliverToBoxAdapter(
-            child: UserAccountHeader(currentUser: currentUser),
-          ),
-        ];
-      },
-      body: UserAccountViewBodyContent(),
+    return Column(
+      children: [
+        UserAccountHeader(currentUser: currentUser),
+        UserAccountViewBodyContent(currentUser: currentUser),
+      ],
     );
+    // return NestedScrollView(
+    //   headerSliverBuilder: (context, innerBoxIsScrolled) {
+    //     return [
+    //       SliverToBoxAdapter(
+    //         child: UserAccountHeader(currentUser: currentUser),
+    //       ),
+    //     ];
+    //   },
+    //   body: UserAccountViewBodyContent(currentUser: currentUser),
+    // );
   }
 }

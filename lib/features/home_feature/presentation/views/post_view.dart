@@ -5,7 +5,7 @@ import 'widgets/posts/post_view_body.dart';
 
 class PostView extends StatelessWidget {
   const PostView({super.key});
-
+  final currentUser = false;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -15,7 +15,7 @@ class PostView extends StatelessWidget {
           backgroundColor: AppColors.primaryColor,
           foregroundColor: AppColors.whiteColor,
         ),
-        body: PostViewBody(),
+        body: PostViewBody(currentUser: currentUser),
       ),
     );
   }
