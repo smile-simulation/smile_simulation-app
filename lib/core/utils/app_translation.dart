@@ -11,10 +11,9 @@ class TranslationKeys {
   static const String more = "more";
   static const String post = "post";
   static const String comments = "comments";
-<<<<<<< HEAD
   static const String searchRecord = "searchRecord";
   static const String mohamedHamed = "mohamedHamed";
-=======
+
   static const String personalInfo = "personal_info";
   static const String practicalExperience = "practicalExperience";
   static const String location = "location";
@@ -23,7 +22,7 @@ class TranslationKeys {
   static const String female = "female";
   static const String dateOfBirth = "dateOfBirth";
   static const String editUserInformation = "editUserInformation";
->>>>>>> 9ab2485cb9ead76b5c76e14f7569b8e304731a94
+
 }
 
 Map<String, dynamic> appTranslation = {
@@ -40,10 +39,8 @@ Map<String, dynamic> appTranslation = {
     "more": "المزيد",
     "post": "المنشور",
     "comments": "التعليقات",
-<<<<<<< HEAD
     "searchRecord": "سجل البحث",
     "mohamedHamed": "محمد حامد",
-=======
     "personal_info": "البيانات الشخصية",
     "practicalExperience": "الخبرة العملية",
     "location": "العنوان",
@@ -52,7 +49,7 @@ Map<String, dynamic> appTranslation = {
     "female": "أنثى",
     "dateOfBirth": "تاريخ الميلاد",
     "editUserInformation": "تعديل المعلومات الشخصية",
->>>>>>> 9ab2485cb9ead76b5c76e14f7569b8e304731a94
+
   },
   "en": {"welcomeMsg": "Welcome"},
 };
