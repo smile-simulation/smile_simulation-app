@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/post_body.dart';
 import 'package:smile_simulation/features/search_feature/presentation/views/widgets/search_view_body.dart';
 
 
