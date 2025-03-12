@@ -16,9 +16,6 @@ class FlexibleAppBarIconsSection extends StatelessWidget {
           color: AppColors.whiteColor, // ✅ تحديد اللون
           onTap: () {
             // أكشن الأيقونة الأولى
-            Navigator.of(
-              context,
-            ).push(MaterialPageRoute(builder:(context)=> SearchView()));
           },
         ),
         SizedBox(width: 8),

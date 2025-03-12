@@ -69,6 +69,7 @@ flutter:
     - assets/images/Eng.MahmoudMagdy.jpeg
     - assets/images/bottom_nav_bar_pointer.png
     - assets/images/post_image.png
+    - assets/images/smiile_simulation_app_logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
