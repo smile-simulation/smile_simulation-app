@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
+import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
 import 'other_user_cirle_image.dart';
 
@@ -13,7 +14,18 @@ class PostHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        OtherUserCircleImage(),
+        OtherUserCircleImage(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return UserAccountView();
+                },
+              ),
+            );
+          },
+        ),
         SizedBox(width: 12),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

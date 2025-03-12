@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_assets.dart';
 
 class OtherUserCircleImage extends StatelessWidget {
-  const OtherUserCircleImage({super.key});
+  const OtherUserCircleImage({super.key, required this.onTap});
+  final Function() onTap;
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundImage: AssetImage(AppAssets.userImage),
-      radius: 24,
+    return InkWell(
+      onTap: onTap,
+      child: CircleAvatar(
+        backgroundImage: AssetImage(AppAssets.userImage),
+      ),
     );
   }
 }

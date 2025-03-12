@@ -4,13 +4,23 @@ import 'package:smile_simulation/features/user_account/presentation/views/widget
 
 class UserAccountView extends StatelessWidget {
   const UserAccountView({super.key});
-
+  final bool currentUser = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      backgroundColor: AppColors.primaryColor,
-      body: UserAccountViewBody(currentUser: false),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: AppColors.primaryColor,
+          foregroundColor: AppColors.whiteColor,
+          shadowColor: AppColors.transparent,
+          elevation: 0,
+          scrolledUnderElevation: 0,
+        ),
+        extendBodyBehindAppBar: true,
+        backgroundColor: AppColors.primaryColor,
+        body: UserAccountViewBody(currentUser: currentUser),
+      ),
     );
   }
 }

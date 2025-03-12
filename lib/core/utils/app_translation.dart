@@ -11,6 +11,13 @@ class TranslationKeys {
   static const String more = "more";
   static const String post = "post";
   static const String comments = "comments";
+  static const String personalInfo = "personal_info";
+  static const String practicalExperience = "practicalExperience";
+  static const String location = "location";
+  static const String gender = "gender";
+  static const String male = "male";
+  static const String female = "female";
+  static const String dateOfBirth = "dateOfBirth";
 }
 
 Map<String, dynamic> appTranslation = {
@@ -27,6 +34,13 @@ Map<String, dynamic> appTranslation = {
     "more": "المزيد",
     "post": "المنشور",
     "comments": "التعليقات",
+    "personal_info": "البيانات الشخصية",
+    "practicalExperience": "الخبرة العملية",
+    "location": "العنوان",
+    "gender": "النوع",
+    "male": "ذكر",
+    "female": "أنثى",
+    "dateOfBirth": "تاريخ الميلاد",
   },
   "en": {"welcomeMsg": "Welcome"},
 };

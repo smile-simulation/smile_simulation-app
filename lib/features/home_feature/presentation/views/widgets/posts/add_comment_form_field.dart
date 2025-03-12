@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
+import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
 class AddCommentFormField extends StatelessWidget {
   const AddCommentFormField({super.key});
@@ -18,7 +19,20 @@ class AddCommentFormField extends StatelessWidget {
       ),
       child: Row(
         children: [
-          CurrentUserCircleImage(color: AppColors.primaryColor, borderWidth: 4),
+          CurrentUserCircleImage(
+            color: AppColors.primaryColor,
+            borderWidth: 4,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return UserAccountView();
+                  },
+                ),
+              );
+            },
+          ),
           SizedBox(width: 8), // تباعد بين الصورة ومربع النص
           Expanded(
             child: TextFormField(

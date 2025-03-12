@@ -20,7 +20,20 @@ class ClickableSearchBar extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       child: Row(
         children: [
-          CurrentUserCircleImage(color: AppColors.primaryColor, borderWidth: 6),
+          CurrentUserCircleImage(
+            color: AppColors.primaryColor,
+            borderWidth: 6,
+            onTap: () {
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) {
+              //       return UserAccountView();
+              //     },
+              //   ),
+              // );
+            },
+          ),
           SizedBox(width: 4),
           Expanded(
             child: Container(

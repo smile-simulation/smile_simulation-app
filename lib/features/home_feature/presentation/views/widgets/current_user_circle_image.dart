@@ -7,25 +7,30 @@ class CurrentUserCircleImage extends StatelessWidget {
     super.key,
     required this.color,
     required this.borderWidth,
+    required this.onTap,
   });
   final Color color;
   final double borderWidth;
+  final void Function() onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(0),
-      padding: EdgeInsets.all(borderWidth),
-      decoration: BoxDecoration(
-        color: AppColors.grayHeavyText_1Color,
-        gradient: LinearGradient(
-          colors: [color.withAlpha(235), color.withAlpha(80)],
-          transform: GradientRotation(-90),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsets.all(0),
+        padding: EdgeInsets.all(borderWidth),
+        decoration: BoxDecoration(
+          color: AppColors.grayHeavyText_1Color,
+          gradient: LinearGradient(
+            colors: [color.withAlpha(235), color.withAlpha(80)],
+            transform: GradientRotation(-90),
+          ),
+          shape: BoxShape.circle,
         ),
-        shape: BoxShape.circle,
-      ),
-      child: CircleAvatar(
-        backgroundImage: AssetImage(AppAssets.userImage),
-        radius: 20,
+        child: CircleAvatar(
+          backgroundImage: AssetImage(AppAssets.userImage),
+          radius: 20,
+        ),
       ),
     );
   }
