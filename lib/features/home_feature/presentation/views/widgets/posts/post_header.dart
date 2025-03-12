@@ -30,7 +30,7 @@ class PostHeader extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return UserAccountView();
+                      return UserAccountView(currentUser: true);
                     },
                   ),
                 );
@@ -42,7 +42,7 @@ class PostHeader extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return UserAccountView();
+                      return UserAccountView(currentUser: false);
                     },
                   ),
                 );

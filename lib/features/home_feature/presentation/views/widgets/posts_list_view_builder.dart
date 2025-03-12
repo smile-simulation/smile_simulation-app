@@ -6,7 +6,7 @@ import 'posts/custom_post.dart';
 class PostsListViewBuilder extends StatelessWidget {
   const PostsListViewBuilder({super.key, this.isSliver = false});
   final bool isSliver;
-  final bool currentUser = true;
+  final bool currentUser = false;
   @override
   Widget build(BuildContext context) {
     return isSliver
