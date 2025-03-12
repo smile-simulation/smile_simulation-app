@@ -33,7 +33,14 @@ class UserAccountViewBodyContent extends StatelessWidget {
             CustomSliverSizedBox(height: 16),
             SliverToBoxAdapter(child: UserDetailsSection()),
             CustomSliverSizedBox(height: 16),
-            buildAccountActionsSection(currentUser),
+            SliverToBoxAdapter(
+              child: Visibility(
+                visible: currentUser,
+                child: Column(
+                  children: [EditDataButton(), SizedBox(height: 16), AddPost()],
+                ),
+              ),
+            ),
             CustomSliverSizedBox(height: 16),
             SliverToBoxAdapter(
               child: PostSectionsTitle(
@@ -46,15 +53,5 @@ class UserAccountViewBodyContent extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Widget buildAccountActionsSection(bool currentUser) {
-    return currentUser
-        ? SliverToBoxAdapter(
-          child: Column(
-            children: [EditDataButton(), SizedBox(height: 16), AddPost()],
-          ),
-        )
-        : CustomSliverSizedBox();
   }
 }
