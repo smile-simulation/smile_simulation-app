@@ -6,13 +6,13 @@ import 'package:smile_simulation/core/utils/app_translation.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/custom_icon.dart';
 
-class ClickableSearchBar extends StatelessWidget {
-  const ClickableSearchBar({super.key});
+class AddPost extends StatelessWidget {
+  const AddPost({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: ,
+      // height: double.minPositive,
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(10),
@@ -37,7 +37,7 @@ class ClickableSearchBar extends StatelessWidget {
           SizedBox(width: 4),
           Expanded(
             child: Container(
-              height: 36,
+              height: 52,
               padding: EdgeInsets.symmetric(horizontal: 8),
               alignment: Alignment.centerRight,
               decoration: BoxDecoration(

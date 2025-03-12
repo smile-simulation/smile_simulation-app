@@ -6,8 +6,9 @@ import 'post_footer.dart';
 import 'post_header.dart';
 
 class CustomPost extends StatelessWidget {
-  const CustomPost({super.key, this.onTap});
+  const CustomPost({super.key, this.onTap, required this.currentUser});
   final Function()? onTap;
+  final bool currentUser;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -23,7 +24,11 @@ class CustomPost extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            PostHeader(userName: 'محمود مجدي', postDate: 'يومان'),
+            PostHeader(
+              userName: 'محمود مجدي',
+              postDate: 'يومان',
+              currentUser: currentUser,
+            ),
             SizedBox(height: 4),
             Expanded(child: PostBody()),
             SizedBox(height: 8),

@@ -5,8 +5,8 @@ import 'package:smile_simulation/features/home_feature/presentation/views/widget
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/custom_post.dart';
 
 class PostViewBody extends StatelessWidget {
-  const PostViewBody({super.key});
-
+  const PostViewBody({super.key, required this.currentUser});
+  final bool currentUser;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,7 +19,7 @@ class PostViewBody extends StatelessWidget {
               children: [
                 const SizedBox(height: 16),
                 PostSectionsTitle(title: TranslationKeys.post),
-                CustomPost(),
+                CustomPost(currentUser: currentUser),
               ],
             ),
           ),

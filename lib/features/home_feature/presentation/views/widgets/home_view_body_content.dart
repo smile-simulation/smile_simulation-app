@@ -3,9 +3,7 @@ import 'package:smile_simulation/core/services/localization_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/utils/app_translation.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/post_view.dart';
-
-import 'posts/custom_post.dart';
+import 'posts_list_view_builder.dart';
 
 class HomeViewBodyContent extends StatelessWidget {
   const HomeViewBodyContent({super.key});
@@ -32,26 +30,7 @@ class HomeViewBodyContent extends StatelessWidget {
             ).copyWith(color: AppColors.blackColor),
           ),
           Expanded(
-            child: ListView.separated(
-              itemBuilder: (context, index) {
-                return CustomPost(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return PostView();
-                        },
-                      ),
-                    );
-                  },
-                );
-              },
-              separatorBuilder: (context, index) {
-                return SizedBox(height: 28);
-              },
-              itemCount: 10,
-            ),
+            child: PostsListViewBuilder(),
           ),
         ],
       ),
