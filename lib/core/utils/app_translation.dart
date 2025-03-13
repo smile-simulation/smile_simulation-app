@@ -22,6 +22,7 @@ class TranslationKeys {
   static const String female = "female";
   static const String dateOfBirth = "dateOfBirth";
   static const String editUserInformation = "editUserInformation";
+  static const String postContent = "postContent";
 
 }
 
@@ -49,6 +50,7 @@ Map<String, dynamic> appTranslation = {
     "female": "أنثى",
     "dateOfBirth": "تاريخ الميلاد",
     "editUserInformation": "تعديل المعلومات الشخصية",
+    "postContent": "محتوى المنشور........"
 
   },
   "en": {"welcomeMsg": "Welcome"},

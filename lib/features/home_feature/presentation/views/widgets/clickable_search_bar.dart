@@ -3,6 +3,8 @@ import 'package:smile_simulation/core/services/localization_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/utils/app_translation.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/create_post_view.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/post_view.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/custom_icon.dart';
 
@@ -44,11 +46,18 @@ class ClickableSearchBar extends StatelessWidget {
                 color: AppColors.veryLightGreyColor,
                 borderRadius: BorderRadius.circular(6),
               ),
-              child: Text(
-                LocalizationHelper.translate(TranslationKeys.createNewPost),
-                style: AppTextStyles.style14W400(
-                  context,
-                ).copyWith(color: AppColors.greyColor),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(
+                    context,
+                  ).push(MaterialPageRoute(builder: (context) => CreatePostView()));
+                },
+                child: Text(
+                  LocalizationHelper.translate(TranslationKeys.createNewPost),
+                  style: AppTextStyles.style14W400(
+                    context,
+                  ).copyWith(color: AppColors.greyColor),
+                ),
               ),
             ),
           ),
