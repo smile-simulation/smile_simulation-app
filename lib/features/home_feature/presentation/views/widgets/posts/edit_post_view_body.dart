@@ -5,15 +5,15 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/utils/app_translation.dart';
 import 'package:smile_simulation/core/utils/widgets/custom_button.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/edit_post_view.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/flexible_app_bar_icons_section.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/custom_post.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/other_user_cirle_image.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/text_field_of_creat_post_view.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/post_body.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
-class CreatePostViewBody extends StatelessWidget {
-  const CreatePostViewBody({super.key});
+class EditPostViewBody extends StatelessWidget {
+  const EditPostViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class CreatePostViewBody extends StatelessWidget {
                         return UserAccountView(currentUser: true);
                       },
                     ),
-                  );
+                  );  
                 },
               ),
               SizedBox(width: 12),
@@ -49,21 +49,19 @@ class CreatePostViewBody extends StatelessWidget {
                   ).copyWith(color: AppColors.blackColor),
                 ),
               ),
+              SizedBox(width: 50,),
+              Icon(Icons.image,color: AppColors.primaryColor,)
             ],
           ),
           SizedBox(height: 30),
-          TestField(),
+       PostBody(),
 
           Spacer(),
           CustomButton(
             text: 'نشر',
             buttonColor: AppColors.primaryColor,
             textColor: AppColors.whiteColor,
-            onPressed: () {
-              Navigator.of(
-                context,
-              ).push(MaterialPageRoute(builder: (context) => EditPostView()));
-            },
+            onPressed: () {},
           ),
           SizedBox(height: 20),
         ],
@@ -71,4 +69,3 @@ class CreatePostViewBody extends StatelessWidget {
     );
   }
 }
-
