@@ -38,7 +38,7 @@ class Comment extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return UserAccountView();
+                      return UserAccountView(currentUser: false);
                     },
                   ),
                 );
