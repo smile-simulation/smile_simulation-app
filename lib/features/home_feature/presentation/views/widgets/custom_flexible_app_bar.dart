@@ -47,7 +47,9 @@ class CustomFlexibleAppBar extends StatelessWidget {
               '${S.of(context).welcomeMsg}، $name!',
               overflow: TextOverflow.ellipsis,
 
-              style: AppTextStyles.style20W700(context),
+              style: AppTextStyles.heading2(
+                context,
+              ).copyWith(color: AppColors.whiteColor),
             ),
           ),
           FlexibleAppBarIconsSection(),

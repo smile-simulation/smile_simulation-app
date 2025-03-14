@@ -25,7 +25,7 @@ class PostBody extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 5,
                 softWrap: true,
-                style: AppTextStyles.style12W700(context),
+                style: AppTextStyles.textButton(context),
               ),
             ],
           ),
@@ -44,12 +44,12 @@ class PostBody extends StatelessWidget {
                 children: [
                   Text(
                     '425 ${S.of(context).likeCount}',
-                    style: AppTextStyles.style10W400(context),
+                    style: AppTextStyles.caption2(context),
                   ),
                   SizedBox(width: 8),
                   Text(
                     '56 ${S.of(context).commentCount}',
-                    style: AppTextStyles.style10W400(context),
+                    style: AppTextStyles.caption2(context),
                   ),
                 ],
               ),

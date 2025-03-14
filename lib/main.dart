@@ -16,7 +16,7 @@ class SmileSimulation extends StatelessWidget {
   const SmileSimulation({super.key});
   @override
   Widget build(BuildContext context) {
-    CacheHelper().saveData(key: AppKeys.languageCode, value: 'ar');
+    CacheHelper().saveData(key: AppKeys.languageCode, value: 'en');
     return MaterialApp(
       localizationsDelegates: [
         S.delegate,
@@ -25,7 +25,7 @@ class SmileSimulation extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      locale: Locale('ar'),
+      locale: Locale(CacheHelper().getData(key: AppKeys.languageCode)),
       title: 'Smile Simulation',
       color: AppColors.primaryColor,
       debugShowCheckedModeBanner: false,

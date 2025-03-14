@@ -66,11 +66,11 @@ class PostHeader extends StatelessWidget {
           children: [
             Text(
               userName,
-              style: AppTextStyles.style16W700(
+              style: AppTextStyles.heading3(
                 context,
               ).copyWith(color: AppColors.primaryColor),
             ),
-            Text(postDate, style: AppTextStyles.style10W400(context)),
+            Text(postDate, style: AppTextStyles.caption2(context)),
           ],
         ),
         Spacer(),
