@@ -28,7 +28,7 @@ class PostFooterActionItem extends StatelessWidget {
           SizedBox(width: 6),
           Text(
             actionText,
-            style: AppTextStyles.style14W400(context).copyWith(
+            style: AppTextStyles.bodyText1(context).copyWith(
               color: isActive ? AppColors.primaryColor : AppColors.greyColor,
             ),
           ),

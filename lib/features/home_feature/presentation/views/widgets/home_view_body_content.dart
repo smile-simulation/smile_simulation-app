@@ -24,9 +24,7 @@ class HomeViewBodyContent extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             S.of(context).posts,
-            style: AppTextStyles.style20W700(
-              context,
-            ).copyWith(color: AppColors.blackColor),
+            style: AppTextStyles.heading2(context).copyWith(color: AppColors.blackColor),
           ),
           Expanded(child: PostsListViewBuilder(currentUser: false)),
         ],

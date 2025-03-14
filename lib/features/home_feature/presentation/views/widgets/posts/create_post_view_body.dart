@@ -41,9 +41,7 @@ class CreatePostViewBody extends StatelessWidget {
                 S.of(context).mohamedHamed,
                 overflow: TextOverflow.ellipsis,
 
-                style: AppTextStyles.style20W700(
-                  context,
-                ).copyWith(color: AppColors.blackColor),
+                style: AppTextStyles.heading2(context).copyWith(color: AppColors.blackColor),
               ),
             ],
           ),

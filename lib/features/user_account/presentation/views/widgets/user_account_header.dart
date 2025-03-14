@@ -34,9 +34,7 @@ class UserAccountHeader extends StatelessWidget {
           ),
           Text(
             "محمود مجدي",
-            style: AppTextStyles.style20W700(
-              context,
-            ).copyWith(color: AppColors.whiteColor),
+            style: AppTextStyles.heading2(context).copyWith(color: AppColors.whiteColor),
           ),
         ],
       ),

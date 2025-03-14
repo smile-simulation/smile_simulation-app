@@ -15,10 +15,7 @@ class UserDetailsListTIle extends StatelessWidget {
     return ListTile(
       minTileHeight: 36,
       leading: Icon(icon, color: AppColors.primaryColor),
-      title: Text(
-        title,
-        style: AppTextStyles.style16W700(context),
-      ),
+      title: Text(title, style: AppTextStyles.subTitle1(context)),
     );
   }
 }

@@ -32,9 +32,7 @@ class EditDataButton extends StatelessWidget {
         // height: 40,
         child: Text(
           S.of(context).editUserInformation,
-          style: AppTextStyles.style14W700(
-            context,
-          ).copyWith(color: AppColors.primaryColor),
+          style: AppTextStyles.subTitle2(context).copyWith(color: AppColors.primaryColor),
         ),
       ),
     );

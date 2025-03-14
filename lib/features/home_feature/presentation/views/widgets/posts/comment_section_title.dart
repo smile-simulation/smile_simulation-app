@@ -9,9 +9,7 @@ class PostSectionsTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: AppTextStyles.style20W700(
-        context,
-      ).copyWith(color: AppColors.blackColor),
+      style: AppTextStyles.heading2(context).copyWith(color: AppColors.blackColor),
     );
   }
 }
