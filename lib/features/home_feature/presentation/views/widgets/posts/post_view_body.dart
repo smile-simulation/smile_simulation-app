@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/utils/app_translation.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/comment_section_title.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/comments_list_view_builder.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/custom_post.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class PostViewBody extends StatelessWidget {
   const PostViewBody({super.key, required this.currentUser});
@@ -18,7 +18,7 @@ class PostViewBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 16),
-                PostSectionsTitle(title: TranslationKeys.post),
+                PostSectionsTitle(title: S.of(context).posts),
                 CustomPost(currentUser: currentUser),
               ],
             ),
@@ -29,7 +29,7 @@ class PostViewBody extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: PostSectionsTitle(title: TranslationKeys.comments),
+            child: PostSectionsTitle(title: S.of(context).comments),
           ),
           CommentsListViewBuilder(isSliver: true),
         ],

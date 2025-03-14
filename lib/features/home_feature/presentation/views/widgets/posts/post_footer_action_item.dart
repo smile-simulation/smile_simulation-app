@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/services/localization_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
@@ -28,7 +27,7 @@ class PostFooterActionItem extends StatelessWidget {
           ),
           SizedBox(width: 6),
           Text(
-            LocalizationHelper.translate(actionText),
+            actionText,
             style: AppTextStyles.style14W400(context).copyWith(
               color: isActive ? AppColors.primaryColor : AppColors.greyColor,
             ),

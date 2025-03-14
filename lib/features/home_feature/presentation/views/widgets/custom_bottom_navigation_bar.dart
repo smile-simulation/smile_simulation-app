@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/services/localization_helper.dart';
 import 'package:smile_simulation/core/utils/app_assets.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
-import 'package:smile_simulation/core/utils/app_translation.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   const CustomBottomNavigationBar({
@@ -62,25 +61,23 @@ class CustomBottomNavigationBar extends StatelessWidget {
             items: [
               BottomNavigationBarItem(
                 icon: const Icon(Icons.home),
-                label: LocalizationHelper.translate(TranslationKeys.home),
+                label: S.of(context).home,
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.lightbulb),
-                label: LocalizationHelper.translate(TranslationKeys.advices),
+                label: S.of(context).advices,
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.notifications),
-                label: LocalizationHelper.translate(TranslationKeys.reminders),
+                label: S.of(context).reminders,
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.medical_services),
-                label: LocalizationHelper.translate(
-                  TranslationKeys.medicalRecord,
-                ),
+                label: S.of(context).medicalRecord,
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.more_horiz),
-                label: LocalizationHelper.translate(TranslationKeys.more),
+                label: S.of(context).more,
               ),
             ],
           ),

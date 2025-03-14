@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/services/localization_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/core/utils/app_translation.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class AddPostTextField extends StatelessWidget {
   const AddPostTextField({super.key});
@@ -17,11 +16,11 @@ class AddPostTextField extends StatelessWidget {
           onPressed: () {},
           icon: Icon(Icons.image, color: AppColors.primaryColor),
         ),
-        hintText: LocalizationHelper.translate(TranslationKeys.postContent),
+        hintText: S.of(context).postContent,
         hintStyle: AppTextStyles.style18W700(
           context,
         ).copyWith(color: AppColors.greyColor),
-    
+
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: AppColors.transparent),
         ),

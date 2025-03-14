@@ -29,18 +29,15 @@ class _HomeViewState extends State<HomeView> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        bottomNavigationBar: CustomBottomNavigationBar(
-          onTap: _onItemTapped,
-          selectedIndex: _selectedIndex,
-        ),
-
-        extendBodyBehindAppBar: true,
-        backgroundColor: AppColors.primaryColor,
-        body: views[_selectedIndex],
+    return Scaffold(
+      bottomNavigationBar: CustomBottomNavigationBar(
+        onTap: _onItemTapped,
+        selectedIndex: _selectedIndex,
       ),
+    
+      extendBodyBehindAppBar: true,
+      backgroundColor: AppColors.primaryColor,
+      body: views[_selectedIndex],
     );
   }
 }
