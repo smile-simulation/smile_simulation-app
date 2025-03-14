@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
@@ -12,10 +14,13 @@ class PostHeader extends StatelessWidget {
     required this.userName,
     required this.postDate,
     required this.currentUser,
+    this.clickablePostImage = true,
   });
   final String userName;
   final String postDate;
   final bool currentUser;
+  final bool clickablePostImage;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -26,26 +31,31 @@ class PostHeader extends StatelessWidget {
               color: AppColors.primaryColor,
               borderWidth: 4,
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return UserAccountView(currentUser: true);
-                    },
-                  ),
-                );
+                if (clickablePostImage) {
+                  log(clickablePostImage.toString());
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return UserAccountView(currentUser: true);
+                      },
+                    ),
+                  );
+                }
               },
             )
             : OtherUserCircleImage(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return UserAccountView(currentUser: false);
-                    },
-                  ),
-                );
+                if (clickablePostImage) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return UserAccountView(currentUser: false);
+                      },
+                    ),
+                  );
+                }
               },
             ),
         SizedBox(width: 12),

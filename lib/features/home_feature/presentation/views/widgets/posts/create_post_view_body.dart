@@ -7,9 +7,7 @@ import 'package:smile_simulation/core/utils/app_translation.dart';
 import 'package:smile_simulation/core/utils/widgets/custom_button.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/edit_post_view.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/flexible_app_bar_icons_section.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/other_user_cirle_image.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/text_field_of_creat_post_view.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/add_post_text_field.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
 class CreatePostViewBody extends StatelessWidget {
@@ -39,22 +37,20 @@ class CreatePostViewBody extends StatelessWidget {
                 },
               ),
               SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  LocalizationHelper.translate(TranslationKeys.mohamedHamed),
-                  overflow: TextOverflow.ellipsis,
+              Text(
+                LocalizationHelper.translate(TranslationKeys.mohamedHamed),
+                overflow: TextOverflow.ellipsis,
 
-                  style: AppTextStyles.style20W700(
-                    context,
-                  ).copyWith(color: AppColors.blackColor),
-                ),
+                style: AppTextStyles.style20W700(
+                  context,
+                ).copyWith(color: AppColors.blackColor),
               ),
             ],
           ),
           SizedBox(height: 30),
-          TestField(),
-
+          AddPostTextField(),
           Spacer(),
+          SizedBox(height: 30),
           CustomButton(
             text: 'نشر',
             buttonColor: AppColors.primaryColor,
@@ -71,4 +67,3 @@ class CreatePostViewBody extends StatelessWidget {
     );
   }
 }
-

@@ -29,9 +29,7 @@ class HomeViewBodyContent extends StatelessWidget {
               context,
             ).copyWith(color: AppColors.blackColor),
           ),
-          Expanded(
-            child: PostsListViewBuilder(),
-          ),
+          Expanded(child: PostsListViewBuilder(currentUser: false)),
         ],
       ),
     );

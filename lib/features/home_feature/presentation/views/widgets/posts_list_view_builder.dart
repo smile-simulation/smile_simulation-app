@@ -4,15 +4,22 @@ import '../post_view.dart';
 import 'posts/custom_post.dart';
 
 class PostsListViewBuilder extends StatelessWidget {
-  const PostsListViewBuilder({super.key, this.isSliver = false});
+  const PostsListViewBuilder({
+    super.key,
+    this.isSliver = false,
+    this.clickablePostImage = true,
+    required this.currentUser,
+  });
   final bool isSliver;
-  final bool currentUser = false;
+  final bool currentUser;
+  final bool clickablePostImage;
   @override
   Widget build(BuildContext context) {
     return isSliver
         ? SliverList.separated(
           itemBuilder: (context, index) {
             return CustomPost(
+              clickablePostImage: clickablePostImage,
               onTap: () {
                 Navigator.push(
                   context,
@@ -34,6 +41,7 @@ class PostsListViewBuilder extends StatelessWidget {
         : ListView.separated(
           itemBuilder: (context, index) {
             return CustomPost(
+              clickablePostImage: clickablePostImage,
               onTap: () {
                 Navigator.push(
                   context,
