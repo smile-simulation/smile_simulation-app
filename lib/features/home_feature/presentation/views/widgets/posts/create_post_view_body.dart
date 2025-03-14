@@ -8,7 +8,7 @@ import 'package:smile_simulation/core/utils/widgets/custom_button.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/add_post_text_field.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
-
+ 
 class CreatePostViewBody extends StatelessWidget {
   const CreatePostViewBody({super.key});
 
