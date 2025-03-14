@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "advices": MessageLookupByLibrary.simpleMessage("النصائح"),
         "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
+        "commentCount": MessageLookupByLibrary.simpleMessage("تعليقاً"),
         "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
         "createNewPost":
             MessageLookupByLibrary.simpleMessage("قم بإنشاء مشاركة جديدة"),
@@ -36,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gender": MessageLookupByLibrary.simpleMessage("النوع"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "like": MessageLookupByLibrary.simpleMessage("اعجبني"),
+        "likeCount": MessageLookupByLibrary.simpleMessage("إعجاباً"),
         "location": MessageLookupByLibrary.simpleMessage("العنوان"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("السجل الطبي"),

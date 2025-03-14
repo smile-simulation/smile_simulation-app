@@ -70,11 +70,31 @@ class S {
     );
   }
 
+  /// `Likes`
+  String get likeCount {
+    return Intl.message(
+      'Likes',
+      name: 'likeCount',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Comment`
   String get comment {
     return Intl.message(
       'Comment',
       name: 'comment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comments`
+  String get commentCount {
+    return Intl.message(
+      'Comments',
+      name: 'commentCount',
       desc: '',
       args: [],
     );

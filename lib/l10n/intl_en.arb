@@ -1,7 +1,9 @@
 {
     "welcomeMsg": "Welcome",
     "like": "Like",
+    "likeCount": "Likes",
     "comment": "Comment",
+    "commentCount": "Comments",
     "posts": "Posts",
     "createNewPost": "Create a new post",
     "home": "Home",
