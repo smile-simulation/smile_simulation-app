@@ -21,5 +21,36 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "advices": MessageLookupByLibrary.simpleMessage("النصائح"),
+        "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
+        "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
+        "createNewPost":
+            MessageLookupByLibrary.simpleMessage("قم بإنشاء مشاركة جديدة"),
+        "createPost": MessageLookupByLibrary.simpleMessage("انشاء المنشور "),
+        "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+        "editPost": MessageLookupByLibrary.simpleMessage("تعديل المنشور"),
+        "editUserInformation":
+            MessageLookupByLibrary.simpleMessage("تعديل المعلومات الشخصية"),
+        "female": MessageLookupByLibrary.simpleMessage("أنثى"),
+        "gender": MessageLookupByLibrary.simpleMessage("النوع"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "like": MessageLookupByLibrary.simpleMessage("اعجبني"),
+        "location": MessageLookupByLibrary.simpleMessage("العنوان"),
+        "male": MessageLookupByLibrary.simpleMessage("ذكر"),
+        "medicalRecord": MessageLookupByLibrary.simpleMessage("السجل الطبي"),
+        "mohamedHamed": MessageLookupByLibrary.simpleMessage("محمد حامد"),
+        "more": MessageLookupByLibrary.simpleMessage("المزيد"),
+        "personal_info":
+            MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
+        "post": MessageLookupByLibrary.simpleMessage("المنشور"),
+        "postContent":
+            MessageLookupByLibrary.simpleMessage("محتوى المنشور........"),
+        "posts": MessageLookupByLibrary.simpleMessage("المنشورات"),
+        "practicalExperience":
+            MessageLookupByLibrary.simpleMessage("الخبرة العملية"),
+        "reminders": MessageLookupByLibrary.simpleMessage("تذكيرات"),
+        "searchRecord": MessageLookupByLibrary.simpleMessage("سجل البحث"),
+        "welcomeMsg": MessageLookupByLibrary.simpleMessage("مرحبًا")
+      };
 }

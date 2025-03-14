@@ -1,1 +1,27 @@
-{}
+{
+    "welcomeMsg": "Welcome",
+    "like": "Like",
+    "comment": "Comment",
+    "posts": "Posts",
+    "createNewPost": "Create a new post",
+    "home": "Home",
+    "advices": "Advices",
+    "reminders": "Reminders",
+    "medicalRecord": "Medical Record",
+    "more": "More",
+    "post": "Post",
+    "comments": "Comments",
+    "searchRecord": "Search Record",
+    "mohamedHamed": "Mohamed Hamed",
+    "personal_info": "Personal Information",
+    "practicalExperience": "Practical Experience",
+    "location": "Location",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "dateOfBirth": "Date of Birth",
+    "editUserInformation": "Edit Personal Information",
+    "postContent": "Post Content........",
+    "createPost": "Create Post",
+    "editPost": "Edit Post"
+}
