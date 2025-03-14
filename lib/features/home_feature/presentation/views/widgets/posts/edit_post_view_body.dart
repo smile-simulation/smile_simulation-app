@@ -6,9 +6,6 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/utils/app_translation.dart';
 import 'package:smile_simulation/core/utils/widgets/custom_button.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/flexible_app_bar_icons_section.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/custom_post.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/other_user_cirle_image.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/post_body.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 

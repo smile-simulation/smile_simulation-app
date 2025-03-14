@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/services/localization_helper.dart';
-import 'package:smile_simulation/core/utils/app_translation.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
