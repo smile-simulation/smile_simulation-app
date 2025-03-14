@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/services/localization_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/core/utils/app_translation.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 import 'posts_list_view_builder.dart';
 
 class HomeViewBodyContent extends StatelessWidget {
@@ -24,7 +23,7 @@ class HomeViewBodyContent extends StatelessWidget {
         children: [
           const SizedBox(height: 16),
           Text(
-            LocalizationHelper.translate(TranslationKeys.posts),
+            S.of(context).posts,
             style: AppTextStyles.style20W700(
               context,
             ).copyWith(color: AppColors.blackColor),

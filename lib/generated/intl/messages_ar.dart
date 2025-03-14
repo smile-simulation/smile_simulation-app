@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "posts": MessageLookupByLibrary.simpleMessage("المنشورات"),
         "practicalExperience":
             MessageLookupByLibrary.simpleMessage("الخبرة العملية"),
+        "publish": MessageLookupByLibrary.simpleMessage("نشر"),
         "reminders": MessageLookupByLibrary.simpleMessage("تذكيرات"),
         "searchRecord": MessageLookupByLibrary.simpleMessage("سجل البحث"),
         "welcomeMsg": MessageLookupByLibrary.simpleMessage("مرحبًا")

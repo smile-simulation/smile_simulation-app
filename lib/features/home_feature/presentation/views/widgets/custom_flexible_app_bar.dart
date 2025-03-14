@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/services/localization_helper.dart';
 import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/core/utils/app_translation.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/flexible_app_bar_icons_section.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 import 'custom_to_pin_app_bar.dart';
 
@@ -45,7 +44,7 @@ class CustomFlexibleAppBar extends StatelessWidget {
           SizedBox(width: 12),
           Expanded(
             child: Text(
-              '${LocalizationHelper.translate(TranslationKeys.welcomeMsg)}، $name!',
+              '${S.of(context).welcomeMsg}، $name!',
               overflow: TextOverflow.ellipsis,
 
               style: AppTextStyles.style20W700(context),

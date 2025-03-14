@@ -23,5 +23,6 @@
     "editUserInformation": "تعديل المعلومات الشخصية",
     "postContent": "محتوى المنشور........",
     "createPost": "انشاء المنشور ",
-    "editPost": "تعديل المنشور"
+    "editPost": "تعديل المنشور",
+    "publish": "نشر"
 }

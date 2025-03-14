@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/services/localization_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
@@ -17,7 +16,7 @@ class UserDetailsListTIle extends StatelessWidget {
       minTileHeight: 36,
       leading: Icon(icon, color: AppColors.primaryColor),
       title: Text(
-        LocalizationHelper.translate(title),
+        title,
         style: AppTextStyles.style16W700(context),
       ),
     );
