@@ -48,7 +48,11 @@ class UserAccountViewBodyContent extends StatelessWidget {
               ),
             ),
             CustomSliverSizedBox(height: 16),
-            PostsListViewBuilder(isSliver: true),
+            PostsListViewBuilder(
+              isSliver: true,
+              clickablePostImage: false,
+              currentUser: true,
+            ),
           ],
         ),
       ),

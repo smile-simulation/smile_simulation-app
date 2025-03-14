@@ -6,9 +6,16 @@ import 'post_footer.dart';
 import 'post_header.dart';
 
 class CustomPost extends StatelessWidget {
-  const CustomPost({super.key, this.onTap, required this.currentUser});
+  const CustomPost({
+    super.key,
+    this.onTap,
+    required this.currentUser,
+    this.clickablePostImage = true,
+  });
   final Function()? onTap;
   final bool currentUser;
+  final bool clickablePostImage;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -28,6 +35,7 @@ class CustomPost extends StatelessWidget {
               userName: 'محمود مجدي',
               postDate: 'يومان',
               currentUser: currentUser,
+              clickablePostImage: clickablePostImage,
             ),
             SizedBox(height: 4),
             Expanded(child: PostBody()),
