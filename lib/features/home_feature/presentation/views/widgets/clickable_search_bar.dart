@@ -41,16 +41,19 @@ class ClickableSearchBar extends StatelessWidget {
               child: Container(
                 height: 36,
                 padding: EdgeInsets.symmetric(horizontal: 8),
-                alignment: Alignment.centerRight,
                 decoration: BoxDecoration(
                   color: AppColors.veryLightGreyColor,
                   borderRadius: BorderRadius.circular(6),
                 ),
-                child: Text(
-                  S.of(context).createPost,
-                  style: AppTextStyles.style14W400(
-                    context,
-                  ).copyWith(color: AppColors.greyColor),
+                child: Row(
+                  children: [
+                    Text(
+                      S.of(context).createPost,
+                      style: AppTextStyles.style14W400(
+                        context,
+                      ).copyWith(color: AppColors.greyColor),
+                    ),
+                  ],
                 ),
               ),
             ),

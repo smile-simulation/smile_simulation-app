@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 import 'custom_post_image.dart';
 
@@ -41,9 +42,15 @@ class PostBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('425 إعجاب', style: AppTextStyles.style10W400(context)),
+                  Text(
+                    '425 ${S.of(context).likeCount}',
+                    style: AppTextStyles.style10W400(context),
+                  ),
                   SizedBox(width: 8),
-                  Text('56 تعليقًا', style: AppTextStyles.style10W400(context)),
+                  Text(
+                    '56 ${S.of(context).commentCount}',
+                    style: AppTextStyles.style10W400(context),
+                  ),
                 ],
               ),
             ],

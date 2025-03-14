@@ -1,7 +1,9 @@
 {
     "welcomeMsg": "مرحبًا",
     "like": "اعجبني",
+    "likeCount": "إعجاباً",
     "comment": "تعليق",
+    "commentCount": "تعليقاً",
     "posts": "المنشورات",
     "createNewPost": "قم بإنشاء مشاركة جديدة",
     "home": "الرئيسية",
