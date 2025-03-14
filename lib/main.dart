@@ -16,6 +16,7 @@ class SmileSimulation extends StatelessWidget {
   Widget build(BuildContext context) {
     CacheHelper().saveData(key: AppKeys.languageCode, value: 'ar');
     return MaterialApp(
+      locale: Locale('ar'),
       title: 'Smile Simulation',
       color: AppColors.primaryColor,
       debugShowCheckedModeBanner: false,

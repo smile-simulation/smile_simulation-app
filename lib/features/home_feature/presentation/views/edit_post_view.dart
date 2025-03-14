@@ -11,25 +11,22 @@ class EditPostView extends StatelessWidget {
   final currentUser = false;
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        backgroundColor: AppColors.primaryColor,
-        appBar:   AppBar(
-          title:  Expanded(
-            child: Text(
-              '${LocalizationHelper.translate(TranslationKeys.editPost)}، ',
-              overflow: TextOverflow.ellipsis,
-
-              style: AppTextStyles.style20W700(context),
-            ),
+    return Scaffold(
+      backgroundColor: AppColors.primaryColor,
+      appBar:   AppBar(
+        title:  Expanded(
+          child: Text(
+            '${LocalizationHelper.translate(TranslationKeys.editPost)}، ',
+            overflow: TextOverflow.ellipsis,
+    
+            style: AppTextStyles.style20W700(context),
           ),
-          centerTitle: true,
-          backgroundColor: AppColors.primaryColor,
-          foregroundColor: AppColors.whiteColor,
         ),
-        body: EditPostViewBody(),
+        centerTitle: true,
+        backgroundColor: AppColors.primaryColor,
+        foregroundColor: AppColors.whiteColor,
       ),
+      body: EditPostViewBody(),
     );
   }
 }

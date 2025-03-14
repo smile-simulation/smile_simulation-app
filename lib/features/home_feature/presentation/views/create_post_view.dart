@@ -12,24 +12,21 @@ class CreatePostView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        backgroundColor: AppColors.primaryColor,
-        appBar: AppBar(
-          title:  Text(
-            '${LocalizationHelper.translate(TranslationKeys.createPost)}، ',
-            overflow: TextOverflow.ellipsis,
-          
-            style: AppTextStyles.style20W700(context),
-          ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          foregroundColor: AppColors.whiteColor,
+    return Scaffold(
+      backgroundColor: AppColors.primaryColor,
+      appBar: AppBar(
+        title:  Text(
+          '${LocalizationHelper.translate(TranslationKeys.createPost)}، ',
+          overflow: TextOverflow.ellipsis,
+        
+          style: AppTextStyles.style20W700(context),
         ),
-        body:
-        CreatePostViewBody(),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        foregroundColor: AppColors.whiteColor,
       ),
+      body:
+      CreatePostViewBody(),
     );
   }
 }
