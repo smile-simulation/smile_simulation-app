@@ -25,7 +25,7 @@ class SmileSimulation extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      locale: Locale('en'),
+      locale: Locale('ar'),
       title: 'Smile Simulation',
       color: AppColors.primaryColor,
       debugShowCheckedModeBanner: false,

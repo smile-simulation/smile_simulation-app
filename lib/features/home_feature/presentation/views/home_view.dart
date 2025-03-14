@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/home_view_body.dart';
 
-import 'widgets/custom_bottom_navigation_bar.dart';
+import 'widgets/bottom_navigation_bar/custom_bottom_navigation_bar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
