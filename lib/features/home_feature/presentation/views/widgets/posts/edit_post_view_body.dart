@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/helper_functions/custom_body_screen.dart';
 import 'package:smile_simulation/core/services/localization_helper.dart';
+import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/utils/app_translation.dart';
@@ -25,14 +26,15 @@ class EditPostViewBody extends StatelessWidget {
                 color: AppColors.primaryColor,
                 borderWidth: 8,
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return UserAccountView(currentUser: true);
-                      },
-                    ),
-                  );  
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) {
+                  //       return UserAccountView(currentUser: true);
+                  //     },
+                  //   ),
+                  // );
+                  navigateTo(context, UserAccountView(currentUser: true));
                 },
               ),
               SizedBox(width: 12),
@@ -46,12 +48,12 @@ class EditPostViewBody extends StatelessWidget {
                   ).copyWith(color: AppColors.blackColor),
                 ),
               ),
-              SizedBox(width: 50,),
-              Icon(Icons.image,color: AppColors.primaryColor,)
+              SizedBox(width: 50),
+              Icon(Icons.image, color: AppColors.primaryColor),
             ],
           ),
           SizedBox(height: 30),
-       PostBody(),
+          PostBody(),
 
           Spacer(),
           CustomButton(

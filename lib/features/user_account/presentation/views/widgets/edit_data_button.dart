@@ -13,15 +13,15 @@ class EditDataButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // navigateTo(context, EditUserAccountView());
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return EditUserAccountView();
-            },
-          ),
-        );
+        navigateTo(context, EditUserAccountView());
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) {
+        //       return EditUserAccountView();
+        //     },
+        //   ),
+        // );
       },
       child: Container(
         padding: EdgeInsets.all(10),
