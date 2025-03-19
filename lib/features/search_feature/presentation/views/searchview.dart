@@ -9,18 +9,15 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        backgroundColor: AppColors.primaryColor,
-        appBar: AppBar(
-          title: Text('البحث', ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          foregroundColor: AppColors.whiteColor,
-        ),
-        body:SearchViewBody() //PostViewBody(),
+    return Scaffold(
+      backgroundColor: AppColors.primaryColor,
+      appBar: AppBar(
+        title: Text('البحث', ),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        foregroundColor: AppColors.whiteColor,
       ),
+      body:SearchViewBody() //PostViewBody(),
     );
   }
 }

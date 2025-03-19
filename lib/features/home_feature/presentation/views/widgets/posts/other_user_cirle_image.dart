@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/utils/app_assets.dart';
+import 'package:smile_simulation/generated/assets.dart';
 
 class OtherUserCircleImage extends StatelessWidget {
   const OtherUserCircleImage({super.key, required this.onTap});
@@ -9,7 +9,7 @@ class OtherUserCircleImage extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: CircleAvatar(
-        backgroundImage: AssetImage(AppAssets.userImage),
+        backgroundImage: AssetImage(Assets.imagesEngMahmoudMagdy),
       ),
     );
   }

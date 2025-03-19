@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
@@ -34,14 +35,15 @@ class Comment extends StatelessWidget {
               color: AppColors.primaryColor,
               borderWidth: 6,
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return UserAccountView(currentUser: false);
-                    },
-                  ),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) {
+                //       return UserAccountView(currentUser: false);
+                //     },
+                //   ),
+                // );
+                navigateTo(context, UserAccountView(currentUser: false));
               },
             ),
           ),

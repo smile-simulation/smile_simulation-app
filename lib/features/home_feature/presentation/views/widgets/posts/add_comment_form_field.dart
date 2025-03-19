@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class AddCommentFormField extends StatelessWidget {
   const AddCommentFormField({super.key});
@@ -23,21 +25,22 @@ class AddCommentFormField extends StatelessWidget {
             color: AppColors.primaryColor,
             borderWidth: 4,
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return UserAccountView(currentUser: false,);
-                  },
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) {
+              //       return UserAccountView(currentUser: false,);
+              //     },
+              //   ),
+              // );
+              navigateTo(context, UserAccountView(currentUser: false));
             },
           ),
           SizedBox(width: 8), // تباعد بين الصورة ومربع النص
           Expanded(
             child: TextFormField(
               decoration: InputDecoration(
-                hintText: 'التعليق...',
+                hintText: '${S.of(context).comment} ...',
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.symmetric(vertical: 10),
               ),
@@ -48,7 +51,7 @@ class AddCommentFormField extends StatelessWidget {
             icon: Icon(
               Icons.send,
               color: AppColors.primaryColor,
-              textDirection: TextDirection.rtl,
+              // textDirection: TextDirection.rtl,
               size: 28,
             ),
             onPressed: () {},

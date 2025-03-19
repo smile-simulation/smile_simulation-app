@@ -7,20 +7,17 @@ class UserAccountView extends StatelessWidget {
   final bool currentUser;
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.primaryColor,
-          foregroundColor: AppColors.whiteColor,
-          shadowColor: AppColors.transparent,
-          elevation: 0,
-          scrolledUnderElevation: 0,
-        ),
-        extendBodyBehindAppBar: true,
+    return Scaffold(
+      appBar: AppBar(
         backgroundColor: AppColors.primaryColor,
-        body: UserAccountViewBody(currentUser: currentUser),
+        foregroundColor: AppColors.whiteColor,
+        shadowColor: AppColors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
       ),
+      extendBodyBehindAppBar: true,
+      backgroundColor: AppColors.primaryColor,
+      body: UserAccountViewBody(currentUser: currentUser),
     );
   }
 }

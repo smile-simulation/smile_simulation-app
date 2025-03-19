@@ -19,11 +19,11 @@ class CommentBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(userName, style: AppTextStyles.style16W700(context)),
+        Text(userName, style: AppTextStyles.subTitle1(context)),
         SizedBox(height: 2),
         Text(comment, style: AppTextStyles.style16W400(context)),
         SizedBox(height: 2),
-        Text(date, style: AppTextStyles.style10W400(context)),
+        Text(date, style: AppTextStyles.caption2(context)),
       ],
     );
   }

@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
@@ -33,14 +34,15 @@ class PostHeader extends StatelessWidget {
               onTap: () {
                 if (clickablePostImage) {
                   log(clickablePostImage.toString());
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return UserAccountView(currentUser: true);
-                      },
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) {
+                  //       return UserAccountView(currentUser: true);
+                  //     },
+                  //   ),
+                  // );
+                  navigateTo(context, UserAccountView(currentUser: true));
                 }
               },
             )
@@ -64,11 +66,11 @@ class PostHeader extends StatelessWidget {
           children: [
             Text(
               userName,
-              style: AppTextStyles.style16W700(
+              style: AppTextStyles.headline3(
                 context,
               ).copyWith(color: AppColors.primaryColor),
             ),
-            Text(postDate, style: AppTextStyles.style10W400(context)),
+            Text(postDate, style: AppTextStyles.caption2(context)),
           ],
         ),
         Spacer(),

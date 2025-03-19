@@ -8,15 +8,12 @@ class PostView extends StatelessWidget {
   final currentUser = false;
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.primaryColor,
-          foregroundColor: AppColors.whiteColor,
-        ),
-        body: PostViewBody(currentUser: currentUser),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColors.primaryColor,
+        foregroundColor: AppColors.whiteColor,
       ),
+      body: PostViewBody(currentUser: currentUser),
     );
   }
 }

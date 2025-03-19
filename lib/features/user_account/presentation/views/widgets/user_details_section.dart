@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/utils/app_translation.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 import 'user_details_list_tile.dart';
 
@@ -11,19 +11,19 @@ class UserDetailsSection extends StatelessWidget {
     return Column(
       children: [
         UserDetailsListTIle(
-          title: TranslationKeys.practicalExperience,
+          title: S.of(context).practicalExperience,
           icon: Icons.work_outline,
         ),
         UserDetailsListTIle(
-          title: TranslationKeys.location,
+          title: S.of(context).location,
           icon: Icons.location_on_outlined,
         ),
         UserDetailsListTIle(
-          title: TranslationKeys.gender,
+          title: S.of(context).gender,
           icon: Icons.person_outline,
         ),
         UserDetailsListTIle(
-          title: TranslationKeys.dateOfBirth,
+          title: S.of(context).dateOfBirth,
           icon: Icons.date_range,
         ),
       ],
