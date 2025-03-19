@@ -22,38 +22,39 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "advices": MessageLookupByLibrary.simpleMessage("Advices"),
-        "comment": MessageLookupByLibrary.simpleMessage("Comment"),
-        "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
-        "comments": MessageLookupByLibrary.simpleMessage("Comments"),
-        "createNewPost":
-            MessageLookupByLibrary.simpleMessage("Create a new post"),
-        "createPost": MessageLookupByLibrary.simpleMessage("Create Post"),
-        "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of Birth"),
-        "editPost": MessageLookupByLibrary.simpleMessage("Edit Post"),
-        "editUserInformation":
-            MessageLookupByLibrary.simpleMessage("Edit Personal Information"),
-        "female": MessageLookupByLibrary.simpleMessage("Female"),
-        "gender": MessageLookupByLibrary.simpleMessage("Gender"),
-        "home": MessageLookupByLibrary.simpleMessage("Home"),
-        "like": MessageLookupByLibrary.simpleMessage("Like"),
-        "likeCount": MessageLookupByLibrary.simpleMessage("Likes"),
-        "location": MessageLookupByLibrary.simpleMessage("Location"),
-        "male": MessageLookupByLibrary.simpleMessage("Male"),
-        "medicalRecord": MessageLookupByLibrary.simpleMessage("Medical Record"),
-        "mohamedHamed": MessageLookupByLibrary.simpleMessage("Mohamed Hamed"),
-        "more": MessageLookupByLibrary.simpleMessage("More"),
-        "personal_info":
-            MessageLookupByLibrary.simpleMessage("Personal Information"),
-        "post": MessageLookupByLibrary.simpleMessage("Post"),
-        "postContent":
-            MessageLookupByLibrary.simpleMessage("Post Content........"),
-        "posts": MessageLookupByLibrary.simpleMessage("Posts"),
-        "practicalExperience":
-            MessageLookupByLibrary.simpleMessage("Practical Experience"),
-        "publish": MessageLookupByLibrary.simpleMessage("publish"),
-        "reminders": MessageLookupByLibrary.simpleMessage("Reminders"),
-        "searchRecord": MessageLookupByLibrary.simpleMessage("Search Record"),
-        "welcomeMsg": MessageLookupByLibrary.simpleMessage("Welcome")
-      };
+    "advices": MessageLookupByLibrary.simpleMessage("Advices"),
+    "comment": MessageLookupByLibrary.simpleMessage("Comment"),
+    "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
+    "comments": MessageLookupByLibrary.simpleMessage("Comments"),
+    "createNewPost": MessageLookupByLibrary.simpleMessage("Create a new post"),
+    "createPost": MessageLookupByLibrary.simpleMessage("Create Post"),
+    "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of Birth"),
+    "editPost": MessageLookupByLibrary.simpleMessage("Edit Post"),
+    "editUserInformation": MessageLookupByLibrary.simpleMessage(
+      "Edit Personal Information",
+    ),
+    "female": MessageLookupByLibrary.simpleMessage("Female"),
+    "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "like": MessageLookupByLibrary.simpleMessage("Like"),
+    "likeCount": MessageLookupByLibrary.simpleMessage("Likes"),
+    "location": MessageLookupByLibrary.simpleMessage("Location"),
+    "male": MessageLookupByLibrary.simpleMessage("Male"),
+    "medicalRecord": MessageLookupByLibrary.simpleMessage("Medical Record"),
+    "mohamedHamed": MessageLookupByLibrary.simpleMessage("Mohamed Hamed"),
+    "more": MessageLookupByLibrary.simpleMessage("More"),
+    "personal_info": MessageLookupByLibrary.simpleMessage(
+      "Personal Information",
+    ),
+    "post": MessageLookupByLibrary.simpleMessage("Post"),
+    "postContent": MessageLookupByLibrary.simpleMessage("Post Content........"),
+    "posts": MessageLookupByLibrary.simpleMessage("Posts"),
+    "practicalExperience": MessageLookupByLibrary.simpleMessage(
+      "Practical Experience",
+    ),
+    "publish": MessageLookupByLibrary.simpleMessage("publish"),
+    "reminders": MessageLookupByLibrary.simpleMessage("Reminders"),
+    "searchRecord": MessageLookupByLibrary.simpleMessage("Search Record"),
+    "welcomeMsg": MessageLookupByLibrary.simpleMessage("Welcome"),
+  };
 }
