@@ -25,7 +25,7 @@ class PostBody extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 5,
                 softWrap: true,
-                style: AppTextStyles.textButton(context),
+                style: AppTextStyles.button2(context),
               ),
             ],
           ),

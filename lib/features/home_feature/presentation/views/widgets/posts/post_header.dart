@@ -66,7 +66,7 @@ class PostHeader extends StatelessWidget {
           children: [
             Text(
               userName,
-              style: AppTextStyles.heading3(
+              style: AppTextStyles.headline3(
                 context,
               ).copyWith(color: AppColors.primaryColor),
             ),
