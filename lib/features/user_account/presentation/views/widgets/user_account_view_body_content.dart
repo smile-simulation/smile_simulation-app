@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/widgets/custom_sliver_sized_box.dart';
+import 'package:smile_simulation/core/widgets/custom_sliver_sized_box.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/comment_section_title.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts_list_view_builder.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/widgets/add_post.dart';
