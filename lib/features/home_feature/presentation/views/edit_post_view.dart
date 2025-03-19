@@ -18,7 +18,7 @@ class EditPostView extends StatelessWidget {
             '${S.of(context).editPost}، ',
             overflow: TextOverflow.ellipsis,
     
-            style: AppTextStyles.heading2(context),
+            style: AppTextStyles.headline2(context),
           ),
         ),
         centerTitle: true,

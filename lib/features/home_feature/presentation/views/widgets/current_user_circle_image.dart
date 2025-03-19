@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/utils/app_assets.dart';
+import 'package:smile_simulation/generated/assets.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 
 class CurrentUserCircleImage extends StatelessWidget {
@@ -28,10 +28,12 @@ class CurrentUserCircleImage extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         child: CircleAvatar(
-          backgroundImage: AssetImage(AppAssets.userImage),
+          backgroundImage: AssetImage(Assets.imagesEngMahmoudMagdy),
           radius: 20,
         ),
       ),
     );
   }
 }
+
+

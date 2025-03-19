@@ -6,7 +6,7 @@ import 'widgets/bottom_navigation_bar/custom_bottom_navigation_bar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
-
+static const String routeName = 'home';
   @override
   State<HomeView> createState() => _HomeViewState();
 }

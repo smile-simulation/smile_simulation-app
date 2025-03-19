@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/utils/app_assets.dart';
+import 'package:smile_simulation/generated/assets.dart';
 
 class BottomNavPointer extends StatelessWidget {
   const BottomNavPointer({super.key, required this.selectedIndex});
@@ -24,7 +24,7 @@ class BottomNavPointer extends StatelessWidget {
             isArabic
                 ? AlignmentDirectional.bottomEnd
                 : AlignmentDirectional.bottomCenter,
-        child: Image.asset(AppAssets.bottomNavBarPointer, fit: BoxFit.fitWidth),
+        child: Image.asset(Assets.imagesBottomNavBarPointer, fit: BoxFit.fitWidth),
       ),
     );
   }
