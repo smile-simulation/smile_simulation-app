@@ -52,6 +52,7 @@ dependencies:
   dots_indicator: ^4.0.1
   flutter_svg: ^2.0.17
 
+  intl: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

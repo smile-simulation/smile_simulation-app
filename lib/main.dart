@@ -10,7 +10,6 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-import 'features/on_boarding/presentation/view/on_boarding_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/utils/app_colors.dart';
 
 abstract class AppTextStyles {
   static TextStyle headline1(BuildContext context) {

@@ -1,7 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../generated/assets.dart';
 import '../../../data/model/on_boarding_model.dart';
 
 class ImagesShape extends StatelessWidget {
