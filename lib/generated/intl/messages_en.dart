@@ -43,18 +43,36 @@ class MessageLookup extends MessageLookupByLibrary {
     "medicalRecord": MessageLookupByLibrary.simpleMessage("Medical Record"),
     "mohamedHamed": MessageLookupByLibrary.simpleMessage("Mohamed Hamed"),
     "more": MessageLookupByLibrary.simpleMessage("More"),
+    "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "onBoarding1": MessageLookupByLibrary.simpleMessage(
+      "A comprehensive forum that helps you discover medical tips and professional answers in one place.\nGet support and advice from dental experts and fellow patients with ease.",
+    ),
+    "onBoarding2": MessageLookupByLibrary.simpleMessage(
+      "All your medical information in one place, from diagnosis to treatment. Track your medical condition step by step.",
+    ),
+    "onBoarding3": MessageLookupByLibrary.simpleMessage(
+      "Everything you need—practical tips to ensure optimal oral and dental health.",
+    ),
+    "onBoarding4": MessageLookupByLibrary.simpleMessage(
+      "Managing your time has never been easier. Make your dental health a priority.",
+    ),
+    "onBoarding5": MessageLookupByLibrary.simpleMessage(
+      "Fast and secure chat to solve all your oral health-related questions.",
+    ),
     "personal_info": MessageLookupByLibrary.simpleMessage(
       "Personal Information",
     ),
     "post": MessageLookupByLibrary.simpleMessage("Post"),
-    "postContent": MessageLookupByLibrary.simpleMessage("Post Content........"),
+    "postContent": MessageLookupByLibrary.simpleMessage("Post content........"),
     "posts": MessageLookupByLibrary.simpleMessage("Posts"),
     "practicalExperience": MessageLookupByLibrary.simpleMessage(
       "Practical Experience",
     ),
-    "publish": MessageLookupByLibrary.simpleMessage("publish"),
+    "publish": MessageLookupByLibrary.simpleMessage("Publish"),
     "reminders": MessageLookupByLibrary.simpleMessage("Reminders"),
-    "searchRecord": MessageLookupByLibrary.simpleMessage("Search Record"),
+    "searchRecord": MessageLookupByLibrary.simpleMessage("Search History"),
+    "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "start": MessageLookupByLibrary.simpleMessage("Start"),
     "welcomeMsg": MessageLookupByLibrary.simpleMessage("Welcome"),
   };
 }

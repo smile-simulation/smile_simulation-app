@@ -55,6 +55,71 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `A comprehensive forum that helps you discover medical tips and professional answers in one place.\nGet support and advice from dental experts and fellow patients with ease.`
+  String get onBoarding1 {
+    return Intl.message(
+      'A comprehensive forum that helps you discover medical tips and professional answers in one place.\nGet support and advice from dental experts and fellow patients with ease.',
+      name: 'onBoarding1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All your medical information in one place, from diagnosis to treatment. Track your medical condition step by step.`
+  String get onBoarding2 {
+    return Intl.message(
+      'All your medical information in one place, from diagnosis to treatment. Track your medical condition step by step.',
+      name: 'onBoarding2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Everything you need—practical tips to ensure optimal oral and dental health.`
+  String get onBoarding3 {
+    return Intl.message(
+      'Everything you need—practical tips to ensure optimal oral and dental health.',
+      name: 'onBoarding3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Managing your time has never been easier. Make your dental health a priority.`
+  String get onBoarding4 {
+    return Intl.message(
+      'Managing your time has never been easier. Make your dental health a priority.',
+      name: 'onBoarding4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fast and secure chat to solve all your oral health-related questions.`
+  String get onBoarding5 {
+    return Intl.message(
+      'Fast and secure chat to solve all your oral health-related questions.',
+      name: 'onBoarding5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message('Skip', name: 'skip', desc: '', args: []);
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message('Next', name: 'next', desc: '', args: []);
+  }
+
+  /// `Start`
+  String get start {
+    return Intl.message('Start', name: 'start', desc: '', args: []);
+  }
+
   /// `Welcome`
   String get welcomeMsg {
     return Intl.message('Welcome', name: 'welcomeMsg', desc: '', args: []);
@@ -135,10 +200,10 @@ class S {
     return Intl.message('Comments', name: 'comments', desc: '', args: []);
   }
 
-  /// `Search Record`
+  /// `Search History`
   String get searchRecord {
     return Intl.message(
-      'Search Record',
+      'Search History',
       name: 'searchRecord',
       desc: '',
       args: [],
@@ -215,10 +280,10 @@ class S {
     );
   }
 
-  /// `Post Content........`
+  /// `Post content........`
   String get postContent {
     return Intl.message(
-      'Post Content........',
+      'Post content........',
       name: 'postContent',
       desc: '',
       args: [],
@@ -235,9 +300,9 @@ class S {
     return Intl.message('Edit Post', name: 'editPost', desc: '', args: []);
   }
 
-  /// `publish`
+  /// `Publish`
   String get publish {
-    return Intl.message('publish', name: 'publish', desc: '', args: []);
+    return Intl.message('Publish', name: 'publish', desc: '', args: []);
   }
 }
 

@@ -45,6 +45,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "medicalRecord": MessageLookupByLibrary.simpleMessage("السجل الطبي"),
     "mohamedHamed": MessageLookupByLibrary.simpleMessage("محمد حامد"),
     "more": MessageLookupByLibrary.simpleMessage("المزيد"),
+    "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "onBoarding1": MessageLookupByLibrary.simpleMessage(
+      "منتدى شامل يساعدك على اكتشاف نصائح طبية وإجابات احترافية في مكان واحد. \nاحصل على الدعم والمشورة من خبراء الأسنان وزملائك المرضى بسهولة.",
+    ),
+    "onBoarding2": MessageLookupByLibrary.simpleMessage(
+      "كل معلوماتك الطبية في مكان واحد، من التشخيص إلى العلاج، راقب حالتك الطبية خطوة بخطوة.",
+    ),
+    "onBoarding3": MessageLookupByLibrary.simpleMessage(
+      "كل ما تحتاجه من نصائح عملية لضمان صحة فم وأسنان مثالية.",
+    ),
+    "onBoarding4": MessageLookupByLibrary.simpleMessage(
+      "إدارة وقتك أصبحت أسهل اجعل صحة أسنانك أولوية.",
+    ),
+    "onBoarding5": MessageLookupByLibrary.simpleMessage(
+      "دردشة سريعة وآمنة لحل جميع أسئلتك المتعلقة بصحة الفم.",
+    ),
     "personal_info": MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
     "post": MessageLookupByLibrary.simpleMessage("المنشور"),
     "postContent": MessageLookupByLibrary.simpleMessage(
@@ -57,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "publish": MessageLookupByLibrary.simpleMessage("نشر"),
     "reminders": MessageLookupByLibrary.simpleMessage("تذكيرات"),
     "searchRecord": MessageLookupByLibrary.simpleMessage("سجل البحث"),
+    "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "start": MessageLookupByLibrary.simpleMessage("أبدء"),
     "welcomeMsg": MessageLookupByLibrary.simpleMessage("مرحبًا"),
   };
 }
