@@ -7,8 +7,8 @@ import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
-    case OnBoardingScreen.routeName:
-      return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
+    case OnBoardingView.routeName:
+      return MaterialPageRoute(builder: (_) => const OnBoardingView());
 
 case LoginView.routeName:
   return MaterialPageRoute(builder: (_) => const LoginView());

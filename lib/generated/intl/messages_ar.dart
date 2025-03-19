@@ -22,38 +22,59 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "advices": MessageLookupByLibrary.simpleMessage("النصائح"),
-        "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
-        "commentCount": MessageLookupByLibrary.simpleMessage("تعليقاً"),
-        "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
-        "createNewPost":
-            MessageLookupByLibrary.simpleMessage("قم بإنشاء مشاركة جديدة"),
-        "createPost": MessageLookupByLibrary.simpleMessage("انشاء المنشور "),
-        "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
-        "editPost": MessageLookupByLibrary.simpleMessage("تعديل المنشور"),
-        "editUserInformation":
-            MessageLookupByLibrary.simpleMessage("تعديل المعلومات الشخصية"),
-        "female": MessageLookupByLibrary.simpleMessage("أنثى"),
-        "gender": MessageLookupByLibrary.simpleMessage("النوع"),
-        "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
-        "like": MessageLookupByLibrary.simpleMessage("اعجبني"),
-        "likeCount": MessageLookupByLibrary.simpleMessage("إعجاباً"),
-        "location": MessageLookupByLibrary.simpleMessage("العنوان"),
-        "male": MessageLookupByLibrary.simpleMessage("ذكر"),
-        "medicalRecord": MessageLookupByLibrary.simpleMessage("السجل الطبي"),
-        "mohamedHamed": MessageLookupByLibrary.simpleMessage("محمد حامد"),
-        "more": MessageLookupByLibrary.simpleMessage("المزيد"),
-        "personal_info":
-            MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
-        "post": MessageLookupByLibrary.simpleMessage("المنشور"),
-        "postContent":
-            MessageLookupByLibrary.simpleMessage("محتوى المنشور........"),
-        "posts": MessageLookupByLibrary.simpleMessage("المنشورات"),
-        "practicalExperience":
-            MessageLookupByLibrary.simpleMessage("الخبرة العملية"),
-        "publish": MessageLookupByLibrary.simpleMessage("نشر"),
-        "reminders": MessageLookupByLibrary.simpleMessage("تذكيرات"),
-        "searchRecord": MessageLookupByLibrary.simpleMessage("سجل البحث"),
-        "welcomeMsg": MessageLookupByLibrary.simpleMessage("مرحبًا")
-      };
+    "advices": MessageLookupByLibrary.simpleMessage("النصائح"),
+    "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
+    "commentCount": MessageLookupByLibrary.simpleMessage("تعليقاً"),
+    "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
+    "createNewPost": MessageLookupByLibrary.simpleMessage(
+      "قم بإنشاء مشاركة جديدة",
+    ),
+    "createPost": MessageLookupByLibrary.simpleMessage("انشاء المنشور "),
+    "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+    "editPost": MessageLookupByLibrary.simpleMessage("تعديل المنشور"),
+    "editUserInformation": MessageLookupByLibrary.simpleMessage(
+      "تعديل المعلومات الشخصية",
+    ),
+    "female": MessageLookupByLibrary.simpleMessage("أنثى"),
+    "gender": MessageLookupByLibrary.simpleMessage("النوع"),
+    "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "like": MessageLookupByLibrary.simpleMessage("اعجبني"),
+    "likeCount": MessageLookupByLibrary.simpleMessage("إعجاباً"),
+    "location": MessageLookupByLibrary.simpleMessage("العنوان"),
+    "male": MessageLookupByLibrary.simpleMessage("ذكر"),
+    "medicalRecord": MessageLookupByLibrary.simpleMessage("السجل الطبي"),
+    "mohamedHamed": MessageLookupByLibrary.simpleMessage("محمد حامد"),
+    "more": MessageLookupByLibrary.simpleMessage("المزيد"),
+    "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "onBoarding1": MessageLookupByLibrary.simpleMessage(
+      "منتدى شامل يساعدك على اكتشاف نصائح طبية وإجابات احترافية في مكان واحد. \nاحصل على الدعم والمشورة من خبراء الأسنان وزملائك المرضى بسهولة.",
+    ),
+    "onBoarding2": MessageLookupByLibrary.simpleMessage(
+      "كل معلوماتك الطبية في مكان واحد، من التشخيص إلى العلاج، راقب حالتك الطبية خطوة بخطوة.",
+    ),
+    "onBoarding3": MessageLookupByLibrary.simpleMessage(
+      "كل ما تحتاجه من نصائح عملية لضمان صحة فم وأسنان مثالية.",
+    ),
+    "onBoarding4": MessageLookupByLibrary.simpleMessage(
+      "إدارة وقتك أصبحت أسهل اجعل صحة أسنانك أولوية.",
+    ),
+    "onBoarding5": MessageLookupByLibrary.simpleMessage(
+      "دردشة سريعة وآمنة لحل جميع أسئلتك المتعلقة بصحة الفم.",
+    ),
+    "personal_info": MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
+    "post": MessageLookupByLibrary.simpleMessage("المنشور"),
+    "postContent": MessageLookupByLibrary.simpleMessage(
+      "محتوى المنشور........",
+    ),
+    "posts": MessageLookupByLibrary.simpleMessage("المنشورات"),
+    "practicalExperience": MessageLookupByLibrary.simpleMessage(
+      "الخبرة العملية",
+    ),
+    "publish": MessageLookupByLibrary.simpleMessage("نشر"),
+    "reminders": MessageLookupByLibrary.simpleMessage("تذكيرات"),
+    "searchRecord": MessageLookupByLibrary.simpleMessage("سجل البحث"),
+    "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "start": MessageLookupByLibrary.simpleMessage("أبدء"),
+    "welcomeMsg": MessageLookupByLibrary.simpleMessage("مرحبًا"),
+  };
 }
