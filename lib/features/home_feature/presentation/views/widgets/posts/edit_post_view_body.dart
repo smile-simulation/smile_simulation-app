@@ -3,7 +3,6 @@ import 'package:smile_simulation/core/helper_functions/custom_body_screen.dart';
 import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/core/utils/widgets/custom_button.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/post_body.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
@@ -25,14 +24,6 @@ class EditPostViewBody extends StatelessWidget {
                 color: AppColors.primaryColor,
                 borderWidth: 8,
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) {
-                  //       return UserAccountView(currentUser: true);
-                  //     },
-                  //   ),
-                  // );
                   navigateTo(context, UserAccountView(currentUser: true));
                 },
               ),
@@ -41,8 +32,8 @@ class EditPostViewBody extends StatelessWidget {
                 child: Text(
                   S.of(context).mohamedHamed,
                   overflow: TextOverflow.ellipsis,
-
-                  style: AppTextStyles.heading2(context).copyWith(color: AppColors.blackColor),
+                  style: AppTextStyles.headline2(context)
+                      .copyWith(color: AppColors.blackColor),
                 ),
               ),
               SizedBox(width: 50),
@@ -51,14 +42,7 @@ class EditPostViewBody extends StatelessWidget {
           ),
           SizedBox(height: 30),
           PostBody(),
-
           Spacer(),
-          CustomButton(
-            text: S.of(context).editPost,
-            buttonColor: AppColors.primaryColor,
-            textColor: AppColors.whiteColor,
-            onPressed: () {},
-          ),
           SizedBox(height: 20),
         ],
       ),

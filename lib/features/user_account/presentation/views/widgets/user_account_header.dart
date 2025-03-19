@@ -11,6 +11,7 @@ import 'package:smile_simulation/features/home_feature/presentation/views/widget
 class UserAccountHeader extends StatelessWidget {
   const UserAccountHeader({super.key, required this.currentUser});
   final bool currentUser;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,20 +22,19 @@ class UserAccountHeader extends StatelessWidget {
           SizedBox(
             height: 120,
             width: 120,
-            child:
-                currentUser
-                    ? CurrentUserCircleImage(
-                      color: AppColors.whiteColor,
-                      borderWidth: 16,
-                      onTap: () {
-                        log("current user account image");
-                      },
-                    )
-                    : OtherUserCircleImage(onTap: () {}),
+            child: currentUser
+                ? CurrentUserCircleImage(
+                    color: AppColors.whiteColor,
+                    borderWidth: 16,
+                    onTap: () {
+                      log("current user account image");
+                    },
+                  )
+                : OtherUserCircleImage(onTap: () {}),
           ),
           Text(
             "محمود مجدي",
-            style: AppTextStyles.heading2(context).copyWith(color: AppColors.whiteColor),
+            style: AppTextStyles.headline2(context).copyWith(color: AppColors.whiteColor),
           ),
         ],
       ),

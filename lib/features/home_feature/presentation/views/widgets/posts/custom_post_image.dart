@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/utils/app_assets.dart';
+import 'package:smile_simulation/generated/assets.dart';
 
 class CustomPostImgae extends StatelessWidget {
   const CustomPostImgae({super.key});
@@ -13,7 +13,7 @@ class CustomPostImgae extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
 
-      child: Image.asset(AppAssets.postImage, fit: BoxFit.contain),
+      child: Image.asset(Assets.imagesEngMahmoudMagdy, fit: BoxFit.contain),
     );
   }
 }

@@ -6,9 +6,11 @@ import 'custom_post_image.dart';
 
 class PostBody extends StatelessWidget {
   const PostBody({super.key});
+  
   final String postContent =
       'نصيحة للعناية اليومية بالأسنان:\n'
       'اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان.';
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -25,7 +27,7 @@ class PostBody extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 5,
                 softWrap: true,
-                style: AppTextStyles.textButton(context),
+                style: AppTextStyles.button2(context),
               ),
             ],
           ),

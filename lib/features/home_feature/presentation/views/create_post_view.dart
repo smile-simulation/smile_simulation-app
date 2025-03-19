@@ -15,8 +15,7 @@ class CreatePostView extends StatelessWidget {
         title: Text(
           '${S.of(context).createPost}، ',
           overflow: TextOverflow.ellipsis,
-
-          style: AppTextStyles.heading2(context),
+          style: AppTextStyles.headline2(context), // استخدام الموجود في temp_branch
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,

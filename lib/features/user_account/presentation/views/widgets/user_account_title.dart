@@ -10,7 +10,7 @@ class UserAccountTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       S.of(context).personal_info,
-      style: AppTextStyles.heading2(
+      style: AppTextStyles.headline2(
         context,
       ).copyWith(color: AppColors.blackColor),
     );

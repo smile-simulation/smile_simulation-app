@@ -45,9 +45,16 @@ dependencies:
   get_it: ^8.0.3
 
 
+  flutter_native_splash: ^2.4.5
+
+
   flutter_localizations:
     sdk: flutter
+  animate_do: ^4.2.0
+  dots_indicator: ^4.0.1
+  flutter_svg: ^2.0.17
 
+  intl: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

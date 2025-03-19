@@ -17,6 +17,7 @@ class PostHeader extends StatelessWidget {
     required this.currentUser,
     this.clickablePostImage = true,
   });
+  
   final String userName;
   final String postDate;
   final bool currentUser;
@@ -29,44 +30,36 @@ class PostHeader extends StatelessWidget {
       children: [
         currentUser
             ? CurrentUserCircleImage(
-              color: AppColors.primaryColor,
-              borderWidth: 4,
-              onTap: () {
-                if (clickablePostImage) {
-                  log(clickablePostImage.toString());
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) {
-                  //       return UserAccountView(currentUser: true);
-                  //     },
-                  //   ),
-                  // );
-                  navigateTo(context, UserAccountView(currentUser: true));
-                }
-              },
-            )
+                color: AppColors.primaryColor,
+                borderWidth: 4,
+                onTap: () {
+                  if (clickablePostImage) {
+                    log(clickablePostImage.toString());
+                    navigateTo(context, UserAccountView(currentUser: true));
+                  }
+                },
+              )
             : OtherUserCircleImage(
-              onTap: () {
-                if (clickablePostImage) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return UserAccountView(currentUser: false);
-                      },
-                    ),
-                  );
-                }
-              },
-            ),
+                onTap: () {
+                  if (clickablePostImage) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return UserAccountView(currentUser: false);
+                        },
+                      ),
+                    );
+                  }
+                },
+              ),
         SizedBox(width: 12),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               userName,
-              style: AppTextStyles.heading3(
+              style: AppTextStyles.headline3(
                 context,
               ).copyWith(color: AppColors.primaryColor),
             ),
@@ -76,13 +69,13 @@ class PostHeader extends StatelessWidget {
         Spacer(),
         currentUser
             ? IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.more_horiz_outlined,
-                color: AppColors.greyColor,
-                size: 28,
-              ),
-            )
+                onPressed: () {},
+                icon: Icon(
+                  Icons.more_horiz_outlined,
+                  color: AppColors.greyColor,
+                  size: 28,
+                ),
+              )
             : SizedBox(),
       ],
     );

@@ -12,6 +12,7 @@ import 'custom_to_pin_app_bar.dart';
 class CustomFlexibleAppBar extends StatelessWidget {
   const CustomFlexibleAppBar({super.key});
   final String name = 'محمود مجدي';
+
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -22,7 +23,6 @@ class CustomFlexibleAppBar extends StatelessWidget {
       pinned: true,
       bottom: CustomToPinAppBar(),
       backgroundColor: AppColors.primaryColor,
-
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -30,14 +30,6 @@ class CustomFlexibleAppBar extends StatelessWidget {
             color: AppColors.whiteColor,
             borderWidth: 8,
             onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) {
-              //       return UserAccountView(currentUser: true);
-              //     },
-              //   ),
-              // );
               navigateTo(context, UserAccountView(currentUser: true));
             },
           ),
@@ -46,8 +38,7 @@ class CustomFlexibleAppBar extends StatelessWidget {
             child: Text(
               '${S.of(context).welcomeMsg}، $name!',
               overflow: TextOverflow.ellipsis,
-
-              style: AppTextStyles.heading2(
+              style: AppTextStyles.headline2( // استخدام الموجود في temp_branch
                 context,
               ).copyWith(color: AppColors.whiteColor),
             ),
