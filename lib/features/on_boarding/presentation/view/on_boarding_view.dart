@@ -1,28 +1,34 @@
 import 'dart:async';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/constant.dart';
+import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
+import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
+import 'package:smile_simulation/features/on_boarding/data/model/on_boarding_model.dart';
 import 'package:smile_simulation/features/on_boarding/presentation/view/widgets/images_shape.dart';
 import 'package:smile_simulation/features/on_boarding/presentation/view/widgets/title_and_description.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 import '../../data/on_boarding_data.dart';
 
-class OnBoardingScreen extends StatefulWidget {
-  const OnBoardingScreen({super.key});
+class OnBoardingView extends StatefulWidget {
+  const OnBoardingView({super.key});
 
   static const routeName = 'onBoardingScreen';
 
   @override
-  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+  State<OnBoardingView> createState() => _OnBoardingViewState();
 }
 
-class _OnBoardingScreenState extends State<OnBoardingScreen> {
+class _OnBoardingViewState extends State<OnBoardingView> {
   int currentIndex = 0;
   bool isOut = false;
 
   @override
   Widget build(BuildContext context) {
+    List<OnBoardingModel> data = OnBoardingData.getOnBoardingData(context);
     return Scaffold(
       appBar: AppBar(
         leading:
@@ -48,18 +54,30 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
+            Visibility(
+              visible: isArabic == 'en',
+              child: Text(
+                'Smile',
+                style: AppTextStyles.headline1(
+                  context,
+                ).copyWith(color: AppColors.whiteColor),
+              ),
+            ),
             Text(
-              'simulation ',
+              ' simulation ',
               style: AppTextStyles.headline1(context).copyWith(
                 color: AppColors.lightGreyColor,
                 fontWeight: FontWeight.w400,
               ),
             ),
-            Text(
-              'Smile',
-              style: AppTextStyles.headline1(
-                context,
-              ).copyWith(color: AppColors.whiteColor),
+            Visibility(
+              visible: isArabic == 'ar',
+              child: Text(
+                'Smile',
+                style: AppTextStyles.headline1(
+                  context,
+                ).copyWith(color: AppColors.whiteColor),
+              ),
             ),
           ],
         ),
@@ -77,13 +95,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ImagesShape(
               isOut: isOut,
               currentIndex: currentIndex,
-              onBoardingData: OnBoardingData.onBoardingData,
+              onBoardingData: data,
             ),
             Expanded(
               child: TitleAndDescription(
                 currentIndex: currentIndex,
                 isOut: isOut,
-                onBoardingData: OnBoardingData.onBoardingData,
+                onBoardingData: data,
               ),
             ),
             SizedBox(height: 30),
@@ -121,7 +139,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         });
                       },
                       child: Text(
-                        "تخطي",
+                        S.of(context).skip,
                         style: AppTextStyles.button1(
                           context,
                         ).copyWith(color: AppColors.greyLightColor),
@@ -136,8 +154,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       Timer(const Duration(milliseconds: 300), () {
                         currentIndex == 4
                             ? {
-                              // saveOnBoardingState(),
-                              // context.pushReplacementNamed(Routes.homeScreen),
+                              CacheHelper.sharedPreferences.setBool(
+                                isOnboardingViewSeen,
+                                true,
+                              ),
+                              Navigator.pushReplacementNamed(
+                                context,
+                                LoginView.routeName,
+                              ),
                             }
                             : currentIndex = currentIndex + 1;
 
@@ -161,7 +185,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Text(
-                                      "أبدء",
+                                      S.of(context).start,
                                       style: AppTextStyles.button1(
                                         context,
                                       ).copyWith(color: AppColors.whiteColor),
@@ -181,7 +205,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Text(
-                                    "التالي",
+                                    S.of(context).next,
                                     style: AppTextStyles.button1(
                                       context,
                                     ).copyWith(color: AppColors.primaryColor),

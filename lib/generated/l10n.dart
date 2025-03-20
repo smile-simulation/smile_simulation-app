@@ -18,17 +18,20 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+      _current != null,
+      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
+    );
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -41,8 +44,10 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -50,64 +55,99 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Welcome`
-  String get welcomeMsg {
+  /// `A comprehensive forum that helps you discover medical tips and professional answers in one place.\nGet support and advice from dental experts and fellow patients with ease.`
+  String get onBoarding1 {
     return Intl.message(
-      'Welcome',
-      name: 'welcomeMsg',
+      'A comprehensive forum that helps you discover medical tips and professional answers in one place.\nGet support and advice from dental experts and fellow patients with ease.',
+      name: 'onBoarding1',
       desc: '',
       args: [],
     );
+  }
+
+  /// `All your medical information in one place, from diagnosis to treatment. Track your medical condition step by step.`
+  String get onBoarding2 {
+    return Intl.message(
+      'All your medical information in one place, from diagnosis to treatment. Track your medical condition step by step.',
+      name: 'onBoarding2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Everything you need—practical tips to ensure optimal oral and dental health.`
+  String get onBoarding3 {
+    return Intl.message(
+      'Everything you need—practical tips to ensure optimal oral and dental health.',
+      name: 'onBoarding3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Managing your time has never been easier. Make your dental health a priority.`
+  String get onBoarding4 {
+    return Intl.message(
+      'Managing your time has never been easier. Make your dental health a priority.',
+      name: 'onBoarding4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fast and secure chat to solve all your oral health-related questions.`
+  String get onBoarding5 {
+    return Intl.message(
+      'Fast and secure chat to solve all your oral health-related questions.',
+      name: 'onBoarding5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message('Skip', name: 'skip', desc: '', args: []);
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message('Next', name: 'next', desc: '', args: []);
+  }
+
+  /// `Start`
+  String get start {
+    return Intl.message('Start', name: 'start', desc: '', args: []);
+  }
+
+  /// `Welcome`
+  String get welcomeMsg {
+    return Intl.message('Welcome', name: 'welcomeMsg', desc: '', args: []);
   }
 
   /// `Like`
   String get like {
-    return Intl.message(
-      'Like',
-      name: 'like',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Like', name: 'like', desc: '', args: []);
   }
 
   /// `Likes`
   String get likeCount {
-    return Intl.message(
-      'Likes',
-      name: 'likeCount',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Likes', name: 'likeCount', desc: '', args: []);
   }
 
   /// `Comment`
   String get comment {
-    return Intl.message(
-      'Comment',
-      name: 'comment',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Comment', name: 'comment', desc: '', args: []);
   }
 
   /// `Comments`
   String get commentCount {
-    return Intl.message(
-      'Comments',
-      name: 'commentCount',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Comments', name: 'commentCount', desc: '', args: []);
   }
 
   /// `Posts`
   String get posts {
-    return Intl.message(
-      'Posts',
-      name: 'posts',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Posts', name: 'posts', desc: '', args: []);
   }
 
   /// `Create a new post`
@@ -122,32 +162,17 @@ class S {
 
   /// `Home`
   String get home {
-    return Intl.message(
-      'Home',
-      name: 'home',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Home', name: 'home', desc: '', args: []);
   }
 
   /// `Advices`
   String get advices {
-    return Intl.message(
-      'Advices',
-      name: 'advices',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Advices', name: 'advices', desc: '', args: []);
   }
 
   /// `Reminders`
   String get reminders {
-    return Intl.message(
-      'Reminders',
-      name: 'reminders',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Reminders', name: 'reminders', desc: '', args: []);
   }
 
   /// `Medical Record`
@@ -162,38 +187,23 @@ class S {
 
   /// `More`
   String get more {
-    return Intl.message(
-      'More',
-      name: 'more',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('More', name: 'more', desc: '', args: []);
   }
 
   /// `Post`
   String get post {
-    return Intl.message(
-      'Post',
-      name: 'post',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Post', name: 'post', desc: '', args: []);
   }
 
   /// `Comments`
   String get comments {
-    return Intl.message(
-      'Comments',
-      name: 'comments',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Comments', name: 'comments', desc: '', args: []);
   }
 
-  /// `Search Record`
+  /// `Search History`
   String get searchRecord {
     return Intl.message(
-      'Search Record',
+      'Search History',
       name: 'searchRecord',
       desc: '',
       args: [],
@@ -232,42 +242,22 @@ class S {
 
   /// `Location`
   String get location {
-    return Intl.message(
-      'Location',
-      name: 'location',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Location', name: 'location', desc: '', args: []);
   }
 
   /// `Gender`
   String get gender {
-    return Intl.message(
-      'Gender',
-      name: 'gender',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Gender', name: 'gender', desc: '', args: []);
   }
 
   /// `Male`
   String get male {
-    return Intl.message(
-      'Male',
-      name: 'male',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Male', name: 'male', desc: '', args: []);
   }
 
   /// `Female`
   String get female {
-    return Intl.message(
-      'Female',
-      name: 'female',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Female', name: 'female', desc: '', args: []);
   }
 
   /// `Date of Birth`
@@ -290,10 +280,10 @@ class S {
     );
   }
 
-  /// `Post Content........`
+  /// `Post content........`
   String get postContent {
     return Intl.message(
-      'Post Content........',
+      'Post content........',
       name: 'postContent',
       desc: '',
       args: [],
@@ -302,32 +292,17 @@ class S {
 
   /// `Create Post`
   String get createPost {
-    return Intl.message(
-      'Create Post',
-      name: 'createPost',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Create Post', name: 'createPost', desc: '', args: []);
   }
 
   /// `Edit Post`
   String get editPost {
-    return Intl.message(
-      'Edit Post',
-      name: 'editPost',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Edit Post', name: 'editPost', desc: '', args: []);
   }
 
-  /// `publish`
+  /// `Publish`
   String get publish {
-    return Intl.message(
-      'publish',
-      name: 'publish',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Publish', name: 'publish', desc: '', args: []);
   }
 }
 
