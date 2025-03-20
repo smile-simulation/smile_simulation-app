@@ -4,7 +4,7 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
 AppBar customAuthAppbar(
   BuildContext context, {
-  required String title,
+   String? title,
   bool isBack = false,
 }) {
   return AppBar(

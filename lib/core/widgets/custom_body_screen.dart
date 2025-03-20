@@ -17,7 +17,16 @@ class CustomBodyScreen extends StatelessWidget {
           topRight: Radius.circular(45),
         ),
       ),
-      child: child,
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(45),
+          topRight: Radius.circular(45),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: child,
+        ),
+      ),
     );
   }
 }
