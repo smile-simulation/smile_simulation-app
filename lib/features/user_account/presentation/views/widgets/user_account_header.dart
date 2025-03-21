@@ -1,6 +1,5 @@
 // import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
 
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
