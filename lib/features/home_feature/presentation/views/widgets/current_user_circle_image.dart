@@ -7,11 +7,11 @@ class CurrentUserCircleImage extends StatelessWidget {
     super.key,
     required this.color,
     required this.borderWidth,
-    required this.onTap,
+    this.onTap,
   });
   final Color color;
   final double borderWidth;
-  final void Function() onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -35,5 +35,3 @@ class CurrentUserCircleImage extends StatelessWidget {
     );
   }
 }
-
-

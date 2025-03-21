@@ -22,7 +22,7 @@ class CustomPost extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 224,
-        padding: EdgeInsets.all(8),
+        padding: EdgeInsets.all(16),
         width: double.infinity,
         decoration: BoxDecoration(
           color: AppColors.veryLightGreyColor,

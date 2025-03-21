@@ -21,7 +21,7 @@ class PostBody extends StatelessWidget {
             children: [
               Text(
                 postContent,
-                textAlign: TextAlign.start,
+                textAlign: TextAlign.justify,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 5,
                 softWrap: true,
