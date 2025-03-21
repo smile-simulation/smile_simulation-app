@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/home_view_body.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/home_veiw.dart';
 
-import 'widgets/bottom_navigation_bar/custom_bottom_navigation_bar.dart';
+import '../../features/home_feature/presentation/views/widgets/bottom_navigation_bar/custom_bottom_navigation_bar.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
-static const String routeName = 'home';
+class BottomNavigationView extends StatefulWidget {
+  const BottomNavigationView({super.key});
+  static const String routeName = 'bottomNavigationView';
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<BottomNavigationView> createState() => _BottomNavigationViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _BottomNavigationViewState extends State<BottomNavigationView> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -21,7 +21,7 @@ class _HomeViewState extends State<HomeView> {
   }
 
   final List<Widget> views = [
-    HomeViewBody(),
+    HomeVeiw(),
     Center(child: Text("النصائح")),
     Center(child: Text("التذكيرات")),
     Center(child: Text("السجل الطبي")),
@@ -34,7 +34,7 @@ class _HomeViewState extends State<HomeView> {
         onTap: _onItemTapped,
         selectedIndex: _selectedIndex,
       ),
-    
+
       extendBodyBehindAppBar: true,
       backgroundColor: AppColors.primaryColor,
       body: views[_selectedIndex],

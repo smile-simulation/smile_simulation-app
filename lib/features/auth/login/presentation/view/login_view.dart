@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/core/widgets/custom_password_itext_field.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
+import 'package:smile_simulation/core/widgets/bottom_nvaigation_view.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
 import 'widgets/media_button.dart';
@@ -96,7 +98,12 @@ class LoginView extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 56),
-                    CustomButton(title: "تسجيل الدخول", onPressed: () {}),
+                    CustomButton(
+                      title: "تسجيل الدخول",
+                      onPressed: () {
+                        navigateTo(context, BottomNavigationView());
+                      },
+                    ),
                     SizedBox(height: 44),
                     Text(
                       "تسجيل الدخول بإستخدام",
