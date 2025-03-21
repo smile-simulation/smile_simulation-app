@@ -11,17 +11,15 @@ class PostText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        child: SingleChildScrollView(
-          child: Text(
-            postContent,
-            textAlign: TextAlign.justify,
-            maxLines: maxLines,
-            overflow:
-                maxLines != null ? TextOverflow.ellipsis : TextOverflow.visible,
-            style: AppTextStyles.button2(context).copyWith(height: 1.5),
-          ),
+    return Container(
+      child: SingleChildScrollView(
+        child: Text(
+          postContent,
+          textAlign: TextAlign.justify,
+          maxLines: maxLines,
+          overflow:
+              maxLines != null ? TextOverflow.ellipsis : TextOverflow.visible,
+          style: AppTextStyles.button2(context).copyWith(height: 1.5),
         ),
       ),
     );

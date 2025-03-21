@@ -12,24 +12,22 @@ class PostVerticalLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            alignment: Alignment.center,
-            height: 136,
-            child: const CustomPostImgae(),
-          ),
-          const SizedBox(height: 8),
-          PostText(postContent: post.content),
-          // const Spacer(),
-          PostInteractions(
-            likeCount: post.likes.toString(),
-            commentCount: post.commentsCount.toString(),
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          alignment: Alignment.center,
+          height: 136,
+          child: const CustomPostImgae(),
+        ),
+        const SizedBox(height: 8),
+        PostText(postContent: post.content),
+        // const Spacer(),
+        PostInteractions(
+          likeCount: post.likes.toString(),
+          commentCount: post.commentsCount.toString(),
+        ),
+      ],
     );
   }
 }
