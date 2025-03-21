@@ -30,18 +30,9 @@ class EditUserAccountViewBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 UserAccountTitle(),
+                SizedBox(height: 16),
                 Expanded(child: EditUserAccountForm()),
-                CustomButton(
-                  // text: ,
-                  // buttonColor: AppColors.primaryColor,
-                  // textColor: AppColors.whiteColor,
-                  onPressed: () {
-                    // Navigator.of(
-                    //   context,
-                    // ).push(MaterialPageRoute(builder: (context) => EditPostView()));
-                  },
-                  title: S.of(context).saveEdits,
-                ),
+                CustomButton(onPressed: () {}, title: S.of(context).saveEdits),
               ],
             ),
           ),
