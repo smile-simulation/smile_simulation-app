@@ -31,12 +31,12 @@ class PostBody extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex: 5,
+          flex: 4,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              CustomPostImgae(),
+              Expanded(child: CustomPostImgae()),
               SizedBox(height: 6),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
