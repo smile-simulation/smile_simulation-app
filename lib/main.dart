@@ -8,8 +8,6 @@ import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/helper_functions/on_generate_route.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/bottom_nvaigation_view.dart';
-import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
-import 'package:smile_simulation/features/on_boarding/presentation/view/on_boarding_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 Future<void> main() async {

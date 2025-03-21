@@ -34,5 +34,6 @@
   "postContent": "Post content........",
   "createPost": "Create Post",
   "editPost": "Edit Post",
-  "publish": "Publish"
+  "publish": "Publish",
+  "saveEdits":"Save Edits"
 }

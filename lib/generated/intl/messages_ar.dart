@@ -64,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الخبرة العملية"),
         "publish": MessageLookupByLibrary.simpleMessage("نشر"),
         "reminders": MessageLookupByLibrary.simpleMessage("تذكيرات"),
+        "saveEdits": MessageLookupByLibrary.simpleMessage("حفظ التعديلات"),
         "searchRecord": MessageLookupByLibrary.simpleMessage("سجل البحث"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "start": MessageLookupByLibrary.simpleMessage("أبدء"),
