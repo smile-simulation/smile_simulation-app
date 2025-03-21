@@ -29,7 +29,6 @@ class PostHeader extends StatelessWidget {
     return SizedBox(
       height: 48,
       child: Row(
-        
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           currentUser
@@ -47,7 +46,7 @@ class PostHeader extends StatelessWidget {
                     //     },
                     //   ),
                     // );
-      
+
                     navigateTo(context, UserAccountView(currentUser: true));
                   }
                 },
@@ -88,6 +87,7 @@ class PostHeader extends StatelessWidget {
                     child: MyPostMoreActionsBottomSheet(),
                   );
                 },
+
                 icon: Icon(
                   Icons.more_horiz_outlined,
                   color: AppColors.greyColor,

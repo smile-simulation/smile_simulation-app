@@ -24,31 +24,28 @@ class CustomPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isPostView) {
-      return InkWell(
-        onTap: onTap,
-        child: Container(
-          height: 400,
-          padding: EdgeInsets.all(16),
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: AppColors.veryLightGreyColor,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              PostHeader(
-                userName: post.userName,
-                postDate: post.postDate,
-                currentUser: currentUser,
-                clickablePostImage: clickablePostImage,
-              ),
-              SizedBox(height: 4),
-              PostVerticalLayout(post: post),
-              SizedBox(height: 8),
-              PostFooter(),
-            ],
-          ),
+      return Container(
+        // height: 400,
+        padding: EdgeInsets.all(16),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: AppColors.veryLightGreyColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            PostHeader(
+              userName: post.userName,
+              postDate: post.postDate,
+              currentUser: currentUser,
+              clickablePostImage: clickablePostImage,
+            ),
+            SizedBox(height: 4),
+            PostVerticalLayout(post: post),
+            SizedBox(height: 8),
+            PostFooter(),
+          ],
         ),
       );
     } else {
