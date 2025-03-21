@@ -17,12 +17,12 @@ class CustomBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(color: AppColors.whiteColor),
       child: Stack(
         children: [
-          BottomNavPointer(selectedIndex: selectedIndex),
           CustomBottomNavBarItems(selectedIndex: selectedIndex, onTap: onTap),
+          BottomNavPointer(selectedIndex: selectedIndex),
         ],
       ),
     );

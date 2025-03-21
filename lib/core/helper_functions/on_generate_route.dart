@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
-import 'package:smile_simulation/core/widgets/bottom_nvaigation_view.dart';
+import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
 
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
 

@@ -7,7 +7,7 @@ import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/core/widgets/custom_password_itext_field.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
-import 'package:smile_simulation/core/widgets/bottom_nvaigation_view.dart';
+import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
 import 'widgets/media_button.dart';

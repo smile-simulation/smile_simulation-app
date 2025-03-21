@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/home_veiw.dart';
 
-import '../../features/home_feature/presentation/views/widgets/bottom_navigation_bar/custom_bottom_navigation_bar.dart';
+import 'custom_bottom_navigation_bar.dart';
 
 class BottomNavigationView extends StatefulWidget {
   const BottomNavigationView({super.key});
