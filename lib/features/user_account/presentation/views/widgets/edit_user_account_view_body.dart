@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
+import 'package:smile_simulation/features/user_account/presentation/views/widgets/edit_user_account_form.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 import 'user_account_header.dart';
@@ -29,7 +30,7 @@ class EditUserAccountViewBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 UserAccountTitle(),
-                Spacer(),
+                Expanded(child: EditUserAccountForm()),
                 CustomButton(
                   // text: ,
                   // buttonColor: AppColors.primaryColor,
