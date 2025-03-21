@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create a new post"),
         "createPost": MessageLookupByLibrary.simpleMessage("Create Post"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of Birth"),
+        "deletePost": MessageLookupByLibrary.simpleMessage("Delete Post"),
         "editPost": MessageLookupByLibrary.simpleMessage("Edit Post"),
         "editUserInformation":
             MessageLookupByLibrary.simpleMessage("Edit Personal Information"),

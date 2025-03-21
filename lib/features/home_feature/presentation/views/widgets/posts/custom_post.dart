@@ -21,7 +21,7 @@ class CustomPost extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: 206,
+        height: 224,
         padding: EdgeInsets.all(8),
         width: double.infinity,
         decoration: BoxDecoration(

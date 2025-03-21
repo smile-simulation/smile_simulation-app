@@ -35,5 +35,6 @@
     "createPost": "انشاء المنشور ",
     "editPost": "تعديل المنشور",
     "publish": "نشر",
-    "saveEdits":"حفظ التعديلات"
+    "saveEdits":"حفظ التعديلات",
+    "deletePost": "حذف المنشور"
 }

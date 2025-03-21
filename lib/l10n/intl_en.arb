@@ -35,5 +35,6 @@
   "createPost": "Create Post",
   "editPost": "Edit Post",
   "publish": "Publish",
-  "saveEdits":"Save Edits"
+  "saveEdits": "Save Edits",
+  "deletePost": "Delete Post"
 }

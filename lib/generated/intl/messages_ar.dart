@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("قم بإنشاء مشاركة جديدة"),
         "createPost": MessageLookupByLibrary.simpleMessage("انشاء المنشور "),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+        "deletePost": MessageLookupByLibrary.simpleMessage("حذف المنشور"),
         "editPost": MessageLookupByLibrary.simpleMessage("تعديل المنشور"),
         "editUserInformation":
             MessageLookupByLibrary.simpleMessage("تعديل المعلومات الشخصية"),

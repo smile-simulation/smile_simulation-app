@@ -5,7 +5,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import 'package:smile_simulation/core/widgets/custom_icon.dart';
 
-import 'user_details_list_tile.dart';
+import '../../../../../core/widgets/user_details_list_tile.dart';
 
 class EditableUserInfoField extends StatefulWidget {
   const EditableUserInfoField({
@@ -37,7 +37,7 @@ class _EditableUserInfoFieldState extends State<EditableUserInfoField> {
         Visibility(
           visible: edit,
           child: Expanded(
-            child: UserDetailsListTile(title: widget.title, icon: widget.icon),
+            child: CustomListTile(title: widget.title, icon: widget.icon),
           ),
         ),
         Padding(
