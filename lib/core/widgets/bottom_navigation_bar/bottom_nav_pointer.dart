@@ -16,7 +16,7 @@ class BottomNavPointer extends StatelessWidget {
     return AnimatedPositioned(
       duration: const Duration(milliseconds: 300), // مدة الأنيميشن
       curve: Curves.easeInOut, // شكل الحركة
-      bottom: 8,
+      bottom: 4,
       left: isArabic ? null : 8 + itemWidth * selectedIndex,
       right: isArabic ? 8 + itemWidth * selectedIndex : null,
       child: Align(
@@ -24,7 +24,13 @@ class BottomNavPointer extends StatelessWidget {
             isArabic
                 ? AlignmentDirectional.bottomEnd
                 : AlignmentDirectional.bottomCenter,
-        child: Image.asset(Assets.imagesBottomNavBarPointer, fit: BoxFit.fitWidth),
+        child: SizedBox(
+          height: 8,
+          child: Image.asset(
+            Assets.imagesBottomNavBarPointer,
+            fit: BoxFit.fitWidth,
+          ),
+        ),
       ),
     );
   }

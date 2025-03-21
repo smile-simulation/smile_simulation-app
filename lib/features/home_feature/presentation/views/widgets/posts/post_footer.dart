@@ -10,28 +10,31 @@ class PostFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        PostFooterActionItem(
-          onTap: () {},
-          actionText: S.of(context).like,
-          icon: Icons.thumb_up,
-          isActive: true,
-        ),
-        SizedBox(height: 8),
-        PostFooterActionItem(
-          onTap: () {
-            customShowModalBottomSheet(
-              context: context,
-              child: CustomCommentsBottomSheet(),
-            );
-          },
-          actionText: S.of(context).comment,
-          icon: Icons.message_outlined,
-          isActive: false,
-        ),
-      ],
+    return SizedBox(
+      height: 24,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          PostFooterActionItem(
+            onTap: () {},
+            actionText: S.of(context).like,
+            icon: Icons.thumb_up,
+            isActive: true,
+          ),
+          SizedBox(height: 8),
+          PostFooterActionItem(
+            onTap: () {
+              customShowModalBottomSheet(
+                context: context,
+                child: CustomCommentsBottomSheet(),
+              );
+            },
+            actionText: S.of(context).comment,
+            icon: Icons.message_outlined,
+            isActive: false,
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
+
+import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
+
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/manage_sign_up.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/home_view.dart';
+
 
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
@@ -24,8 +28,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case SignUpFromDoctorView.routeName:
       return MaterialPageRoute(builder: (_) => const SignUpFromDoctorView());
 
-    case HomeView.routeName:
-      return MaterialPageRoute(builder: (_) => const HomeView());
+
+    case BottomNavigationView.routeName:
+      return MaterialPageRoute(builder: (_) => const BottomNavigationView());
 
     default:
       return MaterialPageRoute(builder: (_) => Container());
