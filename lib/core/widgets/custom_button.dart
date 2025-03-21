@@ -7,29 +7,30 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPressed,
+    this.isSecondary = false,
   });
 
   final Function() onPressed;
   final String title;
+  final bool isSecondary;
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
       height: 54,
       minWidth: double.infinity,
-      color: AppColors.primaryColor,
+      color: isSecondary ? AppColors.whiteColor : AppColors.primaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
+        side: BorderSide(color: AppColors.primaryColor),
       ),
       onPressed: onPressed,
       child: Text(
         title,
         style: AppTextStyles.button2(context).copyWith(
-          color: Colors.white,
+          color: isSecondary ? AppColors.primaryColor : AppColors.whiteColor,
         ),
       ),
     );
   }
 }
-
-class TextStyles {}
