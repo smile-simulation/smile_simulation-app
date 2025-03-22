@@ -24,7 +24,7 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       appBar: customAuthAppbar(context),
       bottomNavigationBar: Container(
-        height: 80,
+        height: 60,
         color: AppColors.whiteColor,
         child: Center(
           child: Row(
@@ -55,88 +55,51 @@ class LoginView extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 32),
-                Column(
+                Row(
                   children: [
-                    SizedBox(height: 32),
-                    Row(
-                      children: [
-                        Text(
-                          "مرحبًا بك! سجل دخولك للمتابعة",
-                          style: AppTextStyles.headline1(
-                            context,
-                          ).copyWith(color: Color(0xFF4F4F4F)),
-                        ),
-                        SizedBox(width: 4),
-                        SvgPicture.asset(Assets.imagesEmojiSmiling),
-                      ],
+                    Text(
+                      "مرحبًا بك! سجل دخولك للمتابعة",
+                      style: AppTextStyles.headline1(
+                        context,
+                      ).copyWith(color: Color(0xFF4F4F4F)),
                     ),
-                    SizedBox(height: 56),
-                    CustomTextField(
-                      title: "البريد الإلكتروني",
-                      hintText: "example@gmail.com",
-                      keyboardType: TextInputType.emailAddress,
-                    ),
-                    SizedBox(height: 32),
-                    CustomPasswordTextField(
-                      hintText: "*********",
-                      title: "كلمة المرور",
-                    ),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "هل نسيت كلمة المرور؟",
-                          style: AppTextStyles.caption1(context),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 56),
-                    CustomButton(
-                      title: "تسجيل الدخول",
-                      onPressed: () {
-                        Navigator.pushReplacementNamed(
-                          context,
-                          BottomNavigationView.routeName,
-                        );
-                      },
-                    ),
-                    SizedBox(height: 44),
-
-                    // Text(
-                    //   "مرحبًا بك! سجل دخولك للمتابعة",
-                    //   style: AppTextStyles.headline1(
-                    //     context,
-                    //   ).copyWith(color: Color(0xFF4F4F4F)),
-                    // ),
-                    // SizedBox(width: 4),
-                    // SvgPicture.asset(Assets.imagesEmojiSmiling),
+                    SizedBox(width: 4),
+                    SvgPicture.asset(Assets.imagesEmojiSmiling),
                   ],
                 ),
-                // SizedBox(height: 56),
-                // CustomTextField(
-                //   title: "البريد الإلكتروني",
-                //   hintText: "example@gmail.com",
-                //   keyboardType: TextInputType.emailAddress,
-                // ),
-                // SizedBox(height: 32),
-                // CustomPasswordTextField(
-                //   hintText: "*********",
-                //   title: "كلمة المرور",
-                // ),
-                // Align(
-                //   alignment: Alignment.centerLeft,
-                //   child: TextButton(
-                //     onPressed: () {},
-                //     child: Text(
-                //       "هل نسيت كلمة المرور؟",
-                //       style: AppTextStyles.caption1(context),
-                //     ),
-                //   ),
-                // ),
-                // SizedBox(height: 56),
-                // CustomButton(title: "تسجيل الدخول", onPressed: () {}),
+                SizedBox(height: 56),
+                CustomTextField(
+                  title: "البريد الإلكتروني",
+                  hintText: "example@gmail.com",
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: 32),
+                CustomPasswordTextField(
+                  hintText: "*********",
+                  title: "كلمة المرور",
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "هل نسيت كلمة المرور؟",
+                      style: AppTextStyles.caption1(context),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 56),
+                CustomButton(
+                  title: "تسجيل الدخول",
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                      context,
+                      BottomNavigationView.routeName,
+                    );
+                  },
+                ),
                 SizedBox(height: 44),
+
                 Text(
                   "تسجيل الدخول بإستخدام",
                   style: AppTextStyles.caption1(context),

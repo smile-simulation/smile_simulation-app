@@ -8,17 +8,19 @@ class CustomButton extends StatelessWidget {
     required this.title,
     required this.onPressed,
     this.isSecondary = false,
+    this.isMinWidth = false,
   });
 
   final Function() onPressed;
   final String title;
   final bool isSecondary;
+  final bool isMinWidth;
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      height: 54,
-      minWidth: double.infinity,
+      height:isMinWidth ? 45 : 50,
+      minWidth: isMinWidth ? 130 : double.infinity,
       color: isSecondary ? AppColors.whiteColor : AppColors.primaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
