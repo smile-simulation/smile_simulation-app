@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "createPost": MessageLookupByLibrary.simpleMessage("انشاء المنشور "),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+    "deletePost": MessageLookupByLibrary.simpleMessage("حذف المنشور"),
     "editPost": MessageLookupByLibrary.simpleMessage("تعديل المنشور"),
     "editUserInformation": MessageLookupByLibrary.simpleMessage(
       "تعديل المعلومات الشخصية",
@@ -72,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "publish": MessageLookupByLibrary.simpleMessage("نشر"),
     "reminders": MessageLookupByLibrary.simpleMessage("تذكيرات"),
+    "saveEdits": MessageLookupByLibrary.simpleMessage("حفظ التعديلات"),
     "searchRecord": MessageLookupByLibrary.simpleMessage("سجل البحث"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "start": MessageLookupByLibrary.simpleMessage("أبدء"),

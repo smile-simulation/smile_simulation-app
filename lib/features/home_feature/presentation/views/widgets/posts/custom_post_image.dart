@@ -7,6 +7,7 @@ class CustomPostImgae extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // height: 60,
       // alignment: Alignment.center,
       decoration: BoxDecoration(
         // color: AppColors.grayHeavyText_1Color,

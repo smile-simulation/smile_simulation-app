@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "createNewPost": MessageLookupByLibrary.simpleMessage("Create a new post"),
     "createPost": MessageLookupByLibrary.simpleMessage("Create Post"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of Birth"),
+    "deletePost": MessageLookupByLibrary.simpleMessage("Delete Post"),
     "editPost": MessageLookupByLibrary.simpleMessage("Edit Post"),
     "editUserInformation": MessageLookupByLibrary.simpleMessage(
       "Edit Personal Information",
@@ -70,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "publish": MessageLookupByLibrary.simpleMessage("Publish"),
     "reminders": MessageLookupByLibrary.simpleMessage("Reminders"),
+    "saveEdits": MessageLookupByLibrary.simpleMessage("Save Edits"),
     "searchRecord": MessageLookupByLibrary.simpleMessage("Search History"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "start": MessageLookupByLibrary.simpleMessage("Start"),

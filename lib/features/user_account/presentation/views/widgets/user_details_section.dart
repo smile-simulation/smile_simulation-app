@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-import 'user_details_list_tile.dart';
+import '../../../../../core/widgets/user_details_list_tile.dart';
 
 class UserDetailsSection extends StatelessWidget {
   const UserDetailsSection({super.key});
@@ -10,19 +10,16 @@ class UserDetailsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        UserDetailsListTIle(
+        CustomListTile(
           title: S.of(context).practicalExperience,
           icon: Icons.work_outline,
         ),
-        UserDetailsListTIle(
+        CustomListTile(
           title: S.of(context).location,
           icon: Icons.location_on_outlined,
         ),
-        UserDetailsListTIle(
-          title: S.of(context).gender,
-          icon: Icons.person_outline,
-        ),
-        UserDetailsListTIle(
+        CustomListTile(title: S.of(context).gender, icon: Icons.person_outline),
+        CustomListTile(
           title: S.of(context).dateOfBirth,
           icon: Icons.date_range,
         ),

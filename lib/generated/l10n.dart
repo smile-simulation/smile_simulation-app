@@ -304,6 +304,16 @@ class S {
   String get publish {
     return Intl.message('Publish', name: 'publish', desc: '', args: []);
   }
+
+  /// `Save Edits`
+  String get saveEdits {
+    return Intl.message('Save Edits', name: 'saveEdits', desc: '', args: []);
+  }
+
+  /// `Delete Post`
+  String get deletePost {
+    return Intl.message('Delete Post', name: 'deletePost', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

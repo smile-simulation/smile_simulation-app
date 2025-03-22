@@ -9,9 +9,11 @@ class CustomTextField extends StatelessWidget {
     required this.keyboardType,
     this.suffixIcon,
     this.onChanged,
-    this.obscureText, required this.title, this.validator,
+    this.obscureText,
+    this.title,
+    this.validator,
   });
-  final String title;
+  final String? title;
   final String hintText;
   final TextInputType keyboardType;
   final Widget? suffixIcon;
@@ -25,17 +27,22 @@ class CustomTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: AppTextStyles.formLabel(context)),
+        Visibility(
+          visible: title == null ? false : true,
+          child: Text(title ?? '', style: AppTextStyles.formLabel(context)),
+        ),
         SizedBox(height: 12),
         TextFormField(
           cursorColor: AppColors.primaryColor,
           onChanged: onChanged,
-          validator:validator?? (value) {
-            if (value == null || value.isEmpty) {
-              return 'هذا الحقل مطلوب';
-            }
-            return null;
-          },
+          validator:
+              validator ??
+              (value) {
+                if (value == null || value.isEmpty) {
+                  return 'هذا الحقل مطلوب';
+                }
+                return null;
+              },
           keyboardType: keyboardType,
           obscureText: obscureText ?? false,
           decoration: InputDecoration(
