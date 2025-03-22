@@ -52,6 +52,7 @@ dependencies:
   flutter_svg: ^2.0.17
 
   intl: any
+  pinput: ^5.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

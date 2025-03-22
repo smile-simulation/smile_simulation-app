@@ -12,6 +12,7 @@ import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaig
 
 import 'package:smile_simulation/generated/assets.dart';
 
+import '../../../sign_up/presentation/view/forgot_view.dart';
 import '../../../sign_up/presentation/view/manage_sign_up.dart';
 import 'widgets/media_button.dart';
 
@@ -81,7 +82,9 @@ class LoginView extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, ForgetView.routeName);
+                    },
                     child: Text(
                       "هل نسيت كلمة المرور؟",
                       style: AppTextStyles.caption1(context),
