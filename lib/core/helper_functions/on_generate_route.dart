@@ -5,7 +5,8 @@ import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaig
 
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/manage_sign_up.dart';
 
-
+import '../../features/auth/sign_up/presentation/view/forgot_view.dart';
+import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_subsidiary_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
@@ -27,6 +28,13 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case SignUpFromDoctorView.routeName:
       return MaterialPageRoute(builder: (_) => const SignUpFromDoctorView());
 
+    case SignUpFromDoctorSubsidiaryView.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const SignUpFromDoctorSubsidiaryView(),
+      );
+
+      case ForgetView.routeName:
+      return MaterialPageRoute(builder: (_) => const ForgetView());
 
     case BottomNavigationView.routeName:
       return MaterialPageRoute(builder: (_) => const BottomNavigationView());

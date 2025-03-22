@@ -4,37 +4,48 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
 AppBar customAuthAppbar(
   BuildContext context, {
-   String? title,
+  String? title,
   bool isBack = false,
 }) {
   return AppBar(
     backgroundColor: Colors.transparent,
-    leading: isBack ? IconButton(
-      onPressed: () {
-        Navigator.pop(context);
-      },
-      icon: Icon(
-        Icons.arrow_back_ios_new_outlined,
-        color: AppColors.whiteColor,
-      ),
-    ) :SizedBox(),
-    title: Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          'simulation ',
-          style: AppTextStyles.headline1(context).copyWith(
-            color: AppColors.lightGreyColor,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        Text(
-          'Smile',
-          style: AppTextStyles.headline1(
-            context,
-          ).copyWith(color: AppColors.whiteColor),
-        ),
-      ],
-    ),
+    leading:
+        isBack
+            ? IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back_ios_new_outlined,
+                color: AppColors.whiteColor,
+              ),
+            )
+            : SizedBox(),
+    title:
+        title != null
+            ? Text(
+              title,
+              style: AppTextStyles.headline1(
+                context,
+              ).copyWith(color: AppColors.whiteColor),
+            )
+            : Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'simulation ',
+                  style: AppTextStyles.headline1(context).copyWith(
+                    color: AppColors.lightGreyColor,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Text(
+                  'Smile',
+                  style: AppTextStyles.headline1(
+                    context,
+                  ).copyWith(color: AppColors.whiteColor),
+                ),
+              ],
+            ),
   );
 }

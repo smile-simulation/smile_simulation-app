@@ -8,6 +8,7 @@ import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/core/widgets/custom_password_itext_field.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
+import 'package:smile_simulation/features/auth/sign_up/presentation/view/sign_up_from_doctor_subsidiary_view.dart';
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/widgets/gender_section_from_sign_up_view.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
@@ -18,7 +19,7 @@ class SignUpFromDoctorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAuthAppbar(context, isBack: true,),
+      appBar: customAuthAppbar(context, isBack: true),
 
       body: GestureDetector(
         onTap: () {
@@ -92,7 +93,15 @@ class SignUpFromDoctorView extends StatelessWidget {
                     ),
                   ),
                 ),
-                CustomButton(title: "قم بالتسجيل الآن", onPressed: () {}),
+                CustomButton(
+                  title: "قم بالتسجيل الآن",
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      SignUpFromDoctorSubsidiaryView.routeName,
+                    );
+                  },
+                ),
 
                 SizedBox(height: 16),
               ],
