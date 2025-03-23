@@ -44,7 +44,7 @@ class CustomPost extends StatelessWidget {
             SizedBox(height: 4),
             PostVerticalLayout(post: post),
             SizedBox(height: 8),
-            PostFooter(),
+            PostFooter(isPostView: isPostView,),
           ],
         ),
       );
@@ -71,7 +71,7 @@ class CustomPost extends StatelessWidget {
               SizedBox(height: 4),
               PostHorizontalLayout(post: post),
               SizedBox(height: 8),
-              PostFooter(),
+              PostFooter(isPostView: isPostView,),
             ],
           ),
         ),
