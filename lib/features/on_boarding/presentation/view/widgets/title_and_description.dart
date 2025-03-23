@@ -3,7 +3,6 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
 import '../../../data/model/on_boarding_model.dart';
 
-
 class TitleAndDescription extends StatelessWidget {
   const TitleAndDescription({
     super.key,

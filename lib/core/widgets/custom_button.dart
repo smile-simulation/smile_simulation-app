@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      height:isMinWidth ? 45 : 50,
+      height: isMinWidth ? 45 : 50,
       minWidth: isMinWidth ? 130 : double.infinity,
       color: isSecondary ? AppColors.whiteColor : AppColors.primaryColor,
       shape: RoundedRectangleBorder(
