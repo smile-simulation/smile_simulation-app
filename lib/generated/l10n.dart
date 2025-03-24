@@ -55,10 +55,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `A comprehensive forum that helps you discover medical tips and professional answers in one place.\nGet support and advice from dental experts and fellow patients with ease.`
+  /// `A comprehensive forum that helps you discover medical advice and professional answers in one place.\nGet support and advice from dental experts and fellow patients easily.`
   String get onBoarding1 {
     return Intl.message(
-      'A comprehensive forum that helps you discover medical tips and professional answers in one place.\nGet support and advice from dental experts and fellow patients with ease.',
+      'A comprehensive forum that helps you discover medical advice and professional answers in one place.\nGet support and advice from dental experts and fellow patients easily.',
       name: 'onBoarding1',
       desc: '',
       args: [],
@@ -75,30 +75,30 @@ class S {
     );
   }
 
-  /// `Everything you need—practical tips to ensure optimal oral and dental health.`
+  /// `Everything you need from practical advice to ensure perfect oral and dental health.`
   String get onBoarding3 {
     return Intl.message(
-      'Everything you need—practical tips to ensure optimal oral and dental health.',
+      'Everything you need from practical advice to ensure perfect oral and dental health.',
       name: 'onBoarding3',
       desc: '',
       args: [],
     );
   }
 
-  /// `Managing your time has never been easier. Make your dental health a priority.`
+  /// `Managing your time has become easier. Make your dental health a priority.`
   String get onBoarding4 {
     return Intl.message(
-      'Managing your time has never been easier. Make your dental health a priority.',
+      'Managing your time has become easier. Make your dental health a priority.',
       name: 'onBoarding4',
       desc: '',
       args: [],
     );
   }
 
-  /// `Fast and secure chat to solve all your oral health-related questions.`
+  /// `A fast and secure chat to solve all your oral health-related questions.`
   String get onBoarding5 {
     return Intl.message(
-      'Fast and secure chat to solve all your oral health-related questions.',
+      'A fast and secure chat to solve all your oral health-related questions.',
       name: 'onBoarding5',
       desc: '',
       args: [],
@@ -123,6 +123,246 @@ class S {
   /// `Welcome`
   String get welcomeMsg {
     return Intl.message('Welcome', name: 'welcomeMsg', desc: '', args: []);
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
+  }
+
+  /// `Don't have an account?`
+  String get noAccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'noAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register now`
+  String get registerNow {
+    return Intl.message(
+      'Register now',
+      name: 'registerNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome back! Log in to continue`
+  String get welcomeBack {
+    return Intl.message(
+      'Welcome back! Log in to continue',
+      name: 'welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Confirm password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in`
+  String get signIn {
+    return Intl.message('Sign in', name: 'signIn', desc: '', args: []);
+  }
+
+  /// `Sign in with`
+  String get signInWith {
+    return Intl.message('Sign in with', name: 'signInWith', desc: '', args: []);
+  }
+
+  /// `Gender`
+  String get gender {
+    return Intl.message('Gender', name: 'gender', desc: '', args: []);
+  }
+
+  /// `Male`
+  String get male {
+    return Intl.message('Male', name: 'male', desc: '', args: []);
+  }
+
+  /// `Female`
+  String get female {
+    return Intl.message('Female', name: 'female', desc: '', args: []);
+  }
+
+  /// `Verification code`
+  String get verificationCode {
+    return Intl.message(
+      'Verification code',
+      name: 'verificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset password`
+  String get resetPassword {
+    return Intl.message(
+      'Reset password',
+      name: 'resetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember password?`
+  String get rememberPassword {
+    return Intl.message(
+      'Remember password?',
+      name: 'rememberPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the email address registered with your account to send the code.`
+  String get enterEmail {
+    return Intl.message(
+      'Please enter the email address registered with your account to send the code.',
+      name: 'enterEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the 6-digit verification code sent to you.`
+  String get enterVerificationCode {
+    return Intl.message(
+      'Please enter the 6-digit verification code sent to you.',
+      name: 'enterVerificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a new password consisting of 8 letters and numbers.`
+  String get enterNewPassword {
+    return Intl.message(
+      'Please enter a new password consisting of 8 letters and numbers.',
+      name: 'enterNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  }
+
+  /// `Register as a doctor`
+  String get registerAsDoctor {
+    return Intl.message(
+      'Register as a doctor',
+      name: 'registerAsDoctor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register as a user`
+  String get registerAsUser {
+    return Intl.message(
+      'Register as a user',
+      name: 'registerAsUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your personal information`
+  String get enterPersonalInfo {
+    return Intl.message(
+      'Enter your personal information',
+      name: 'enterPersonalInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Academic certificate`
+  String get academicCertificate {
+    return Intl.message(
+      'Academic certificate',
+      name: 'academicCertificate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Specialization`
+  String get specialization {
+    return Intl.message(
+      'Specialization',
+      name: 'specialization',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Years of experience`
+  String get yearsOfExperience {
+    return Intl.message(
+      'Years of experience',
+      name: 'yearsOfExperience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save data`
+  String get saveData {
+    return Intl.message('Save data', name: 'saveData', desc: '', args: []);
+  }
+
+  /// `Full name`
+  String get fullName {
+    return Intl.message('Full name', name: 'fullName', desc: '', args: []);
+  }
+
+  /// `Upload your ID card`
+  String get uploadIDCard {
+    return Intl.message(
+      'Upload your ID card',
+      name: 'uploadIDCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Age`
+  String get age {
+    return Intl.message('Age', name: 'age', desc: '', args: []);
   }
 
   /// `Like`
@@ -175,10 +415,10 @@ class S {
     return Intl.message('Reminders', name: 'reminders', desc: '', args: []);
   }
 
-  /// `Medical Record`
+  /// `Medical record`
   String get medicalRecord {
     return Intl.message(
-      'Medical Record',
+      'Medical record',
       name: 'medicalRecord',
       desc: '',
       args: [],
@@ -200,10 +440,10 @@ class S {
     return Intl.message('Comments', name: 'comments', desc: '', args: []);
   }
 
-  /// `Search History`
+  /// `Search history`
   String get searchRecord {
     return Intl.message(
-      'Search History',
+      'Search history',
       name: 'searchRecord',
       desc: '',
       args: [],
@@ -220,20 +460,20 @@ class S {
     );
   }
 
-  /// `Personal Information`
+  /// `Personal information`
   String get personal_info {
     return Intl.message(
-      'Personal Information',
+      'Personal information',
       name: 'personal_info',
       desc: '',
       args: [],
     );
   }
 
-  /// `Practical Experience`
+  /// `Practical experience`
   String get practicalExperience {
     return Intl.message(
-      'Practical Experience',
+      'Practical experience',
       name: 'practicalExperience',
       desc: '',
       args: [],
@@ -245,59 +485,44 @@ class S {
     return Intl.message('Location', name: 'location', desc: '', args: []);
   }
 
-  /// `Gender`
-  String get gender {
-    return Intl.message('Gender', name: 'gender', desc: '', args: []);
-  }
-
-  /// `Male`
-  String get male {
-    return Intl.message('Male', name: 'male', desc: '', args: []);
-  }
-
-  /// `Female`
-  String get female {
-    return Intl.message('Female', name: 'female', desc: '', args: []);
-  }
-
-  /// `Date of Birth`
+  /// `Date of birth`
   String get dateOfBirth {
     return Intl.message(
-      'Date of Birth',
+      'Date of birth',
       name: 'dateOfBirth',
       desc: '',
       args: [],
     );
   }
 
-  /// `Edit Personal Information`
+  /// `Edit personal information`
   String get editUserInformation {
     return Intl.message(
-      'Edit Personal Information',
+      'Edit personal information',
       name: 'editUserInformation',
       desc: '',
       args: [],
     );
   }
 
-  /// `Post content........`
+  /// `Post content...`
   String get postContent {
     return Intl.message(
-      'Post content........',
+      'Post content...',
       name: 'postContent',
       desc: '',
       args: [],
     );
   }
 
-  /// `Create Post`
+  /// `Create post`
   String get createPost {
-    return Intl.message('Create Post', name: 'createPost', desc: '', args: []);
+    return Intl.message('Create post', name: 'createPost', desc: '', args: []);
   }
 
-  /// `Edit Post`
+  /// `Edit post`
   String get editPost {
-    return Intl.message('Edit Post', name: 'editPost', desc: '', args: []);
+    return Intl.message('Edit post', name: 'editPost', desc: '', args: []);
   }
 
   /// `Publish`
@@ -305,14 +530,14 @@ class S {
     return Intl.message('Publish', name: 'publish', desc: '', args: []);
   }
 
-  /// `Save Edits`
+  /// `Save edits`
   String get saveEdits {
-    return Intl.message('Save Edits', name: 'saveEdits', desc: '', args: []);
+    return Intl.message('Save edits', name: 'saveEdits', desc: '', args: []);
   }
 
-  /// `Delete Post`
+  /// `Delete post`
   String get deletePost {
-    return Intl.message('Delete Post', name: 'deletePost', desc: '', args: []);
+    return Intl.message('Delete post', name: 'deletePost', desc: '', args: []);
   }
 }
 
