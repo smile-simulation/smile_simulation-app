@@ -8,6 +8,7 @@ import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 
 import '../../../../../constant.dart';
+import '../../../../../generated/l10n.dart';
 
 class SignUpFromDoctorSubsidiaryView extends StatefulWidget {
   const SignUpFromDoctorSubsidiaryView({super.key});
@@ -53,7 +54,7 @@ class _SignUpFromDoctorSubsidiaryViewState
                         ? Alignment.centerRight
                         : Alignment.centerLeft,
                 child: Text(
-                  "قم بتسجيل بياناتك الشخصية",
+                  S.of(context).enterPersonalInfo,
                   style: AppTextStyles.headline1(
                     context,
                   ).copyWith(color: Color(0xFF4F4F4F)),
@@ -61,7 +62,7 @@ class _SignUpFromDoctorSubsidiaryViewState
               ),
               SizedBox(height: 8),
               Text(
-                "الشهادة الأكاديمية",
+                S.of(context).academicCertificate,
                 style: AppTextStyles.formLabel(context),
               ),
 
@@ -75,7 +76,7 @@ class _SignUpFromDoctorSubsidiaryViewState
                   ),
                 ),
                 hint: Text(
-                  "الشهادة الأكاديمية",
+                  S.of(context).academicCertificate,
                   style: AppTextStyles.formLabel(
                     context,
                   ).copyWith(color: AppColors.greyLightColor),
@@ -100,7 +101,7 @@ class _SignUpFromDoctorSubsidiaryViewState
                 },
               ),
 
-              Text("التخصص", style: AppTextStyles.formLabel(context)),
+              Text(S.of(context).specialization, style: AppTextStyles.formLabel(context)),
               DropdownButtonFormField<String>(
                 decoration: InputDecoration(
                   filled: true,
@@ -111,7 +112,7 @@ class _SignUpFromDoctorSubsidiaryViewState
                   ),
                 ),
                 hint: Text(
-                  "التخصص",
+                  S.of(context).specialization,
                   style: AppTextStyles.formLabel(
                     context,
                   ).copyWith(color: AppColors.greyLightColor),
@@ -137,15 +138,15 @@ class _SignUpFromDoctorSubsidiaryViewState
               ),
 
               CustomTextField(
-                title: "عدد سنوات الخبرة",
-                hintText: " 5 سنوات",
+                title: S.of(context).yearsOfExperience,
+                hintText: " 5 ",
                 keyboardType: TextInputType.number,
               ),
               Expanded(child: SizedBox(height: 16)),
               Row(
                 children: [
                   CustomButton(
-                    title: "حفظ البيانات",
+                    title: S.of(context).saveData,
                     isMinWidth: true,
                     onPressed: () {
                       Navigator.pushNamed(context, LoginView.routeName);
@@ -157,7 +158,7 @@ class _SignUpFromDoctorSubsidiaryViewState
                       Navigator.pushNamed(context, LoginView.routeName);
                     },
                     child: Text(
-                      "تخطي",
+                      S.of(context).skip,
                       style: AppTextStyles.button1(
                         context,
                       ).copyWith(color: AppColors.greyLightColor),

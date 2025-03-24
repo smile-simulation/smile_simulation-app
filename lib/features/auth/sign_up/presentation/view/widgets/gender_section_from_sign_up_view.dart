@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 enum Gender { male, female }
 
 class GenderSectionFromSignUpView extends StatefulWidget {
@@ -23,7 +25,7 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'الجنس',
+          S.of(context).gender,
           style: AppTextStyles.formLabel(context)
         ),
         Row(
@@ -32,7 +34,7 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
               child: RadioListTile<Gender>(
                 contentPadding: EdgeInsets.zero,
                 title: Text(
-                  'ذكر',
+                  S.of(context).male,
                   style: AppTextStyles.formLabel(context)
                 ),
                 value: Gender.male,
@@ -50,7 +52,7 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
               child: RadioListTile<Gender>(
                 contentPadding: EdgeInsets.zero,
                 title: Text(
-                  'انثى',
+                  S.of(context).female,
                   style: AppTextStyles.formLabel(context)
                 ),
                 value: Gender.female,

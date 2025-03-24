@@ -12,6 +12,8 @@ import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaig
 
 import 'package:smile_simulation/generated/assets.dart';
 
+import '../../../../../constant.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../sign_up/presentation/view/forgot_view.dart';
 import '../../../sign_up/presentation/view/manage_sign_up.dart';
 import 'widgets/media_button.dart';
@@ -31,13 +33,16 @@ class LoginView extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("ليس لديك حساب؟", style: AppTextStyles.caption1(context)),
+              Text(
+                S.of(context).noAccount,
+                style: AppTextStyles.caption1(context),
+              ),
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, ManageSignUpView.routeName);
                 },
                 child: Text(
-                  "قم بالتسجيل الآن",
+                  S.of(context).registerNow,
                   style: AppTextStyles.caption1(
                     context,
                   ).copyWith(color: AppColors.primaryColor),
@@ -56,44 +61,56 @@ class LoginView extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 32),
-                Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "مرحبًا بك! سجل دخولك للمتابعة",
-                      style: AppTextStyles.headline1(
-                        context,
-                      ).copyWith(color: Color(0xFF4F4F4F)),
+                    Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            S.of(context).welcomeBack,
+                            style: AppTextStyles.headline1(
+                              context,
+                            ).copyWith(color: Color(0xFF4F4F4F)),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        SvgPicture.asset(Assets.imagesEmojiSmiling),
+                      ],
                     ),
-                    SizedBox(width: 4),
-                    SvgPicture.asset(Assets.imagesEmojiSmiling),
                   ],
                 ),
+
                 SizedBox(height: 56),
                 CustomTextField(
-                  title: "البريد الإلكتروني",
+                  title: S.of(context).email,
                   hintText: "example@gmail.com",
                   keyboardType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: 32),
                 CustomPasswordTextField(
                   hintText: "*********",
-                  title: "كلمة المرور",
+                  title: S.of(context).password,
                 ),
                 Align(
-                  alignment: Alignment.centerLeft,
+                  alignment:
+                      isArabic == 'ar'
+                          ? Alignment.centerLeft
+                          : Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
                       Navigator.pushNamed(context, ForgetView.routeName);
                     },
                     child: Text(
-                      "هل نسيت كلمة المرور؟",
+                      S.of(context).forgotPassword,
                       style: AppTextStyles.caption1(context),
                     ),
                   ),
                 ),
                 SizedBox(height: 56),
                 CustomButton(
-                  title: "تسجيل الدخول",
+                  title: S.of(context).signIn,
                   onPressed: () {
                     Navigator.pushReplacementNamed(
                       context,
@@ -104,13 +121,13 @@ class LoginView extends StatelessWidget {
                 SizedBox(height: 44),
 
                 Text(
-                  "تسجيل الدخول بإستخدام",
+                  S.of(context).signInWith,
                   style: AppTextStyles.caption1(context),
                 ),
                 SizedBox(height: 16),
 
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     MediaButton(title: 'Google', image: Assets.imagesGoogle),
                     MediaButton(

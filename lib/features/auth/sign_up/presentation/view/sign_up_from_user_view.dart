@@ -8,6 +8,8 @@ import 'package:smile_simulation/core/widgets/custom_password_itext_field.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/widgets/gender_section_from_sign_up_view.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class SignUpFromUserView extends StatelessWidget {
   const SignUpFromUserView({Key? key}) : super(key: key);
   static const routeName = 'signUpFromUserView';
@@ -33,7 +35,7 @@ class SignUpFromUserView extends StatelessWidget {
                           ? Alignment.centerRight
                           : Alignment.centerLeft,
                   child: Text(
-                    "قم بالتسجيل الآن",
+                    S .of(context).registerNow,
                     style: AppTextStyles.headline1(
                       context,
                     ).copyWith(color: Color(0xFF4F4F4F)),
@@ -41,26 +43,26 @@ class SignUpFromUserView extends StatelessWidget {
                 ),
                 SizedBox(height: 24),
                 CustomTextField(
-                  title: "الاسم بالكامل",
+                  title:S .of(context).fullName,
                   hintText: "Mohamed Ahmed",
                   keyboardType: TextInputType.text,
                 ),
                 CustomTextField(
-                  title: "البريد الإلكتروني",
+                  title: S .of(context).email,
                   hintText: "example@gmail.com",
                   keyboardType: TextInputType.emailAddress,
                 ),
                 CustomTextField(
-                  title: "السن",
+                  title: S .of(context).age,
                   hintText: "25",
                   keyboardType: TextInputType.number,
                 ),
                 CustomPasswordTextField(
-                  title: "كلمة المرور",
+                  title: S .of(context).password,
                   hintText: "*********",
                 ),
                 CustomPasswordTextField(
-                  title: "تأكيد كلمة المرور",
+                  title: S .of(context).confirmPassword,
                   hintText: "*********",
                 ),
                 GenderSectionFromSignUpView(
@@ -68,7 +70,7 @@ class SignUpFromUserView extends StatelessWidget {
                     print(value);
                   },
                 ),
-                CustomButton(title: "قم بالتسجيل الآن", onPressed: () {}),
+                CustomButton(title:S.of(context).registerNow, onPressed: () {}),
                 SizedBox(height: 16),
               ],
             ),
