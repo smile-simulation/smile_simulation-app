@@ -12,7 +12,9 @@ class CustomSearchRecord extends StatelessWidget {
       leading: Icon(Icons.access_time, color: Colors.grey),
       title: Text(
         S.of(context).mohamedHamed,
-        style: AppTextStyles.style16W400(context).copyWith(color: AppColors.blackColor),
+        style: AppTextStyles.style16W400(
+          context,
+        ).copyWith(color: AppColors.blackColor),
       ),
       trailing: Icon(Icons.close, color: Colors.grey),
     );

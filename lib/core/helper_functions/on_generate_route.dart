@@ -33,7 +33,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (_) => const SignUpFromDoctorSubsidiaryView(),
       );
 
-      case ForgetView.routeName:
+    case ForgetView.routeName:
       return MaterialPageRoute(builder: (_) => const ForgetView());
 
     case BottomNavigationView.routeName:

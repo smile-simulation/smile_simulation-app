@@ -45,9 +45,9 @@ class AddPost extends StatelessWidget {
               ),
               child: Text(
                 S.of(context).createNewPost,
-                style: AppTextStyles.bodyText1(context).copyWith(
-                  color: AppColors.greyColor,
-                ),
+                style: AppTextStyles.bodyText1(
+                  context,
+                ).copyWith(color: AppColors.greyColor),
               ),
             ),
           ),
