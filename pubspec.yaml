@@ -54,6 +54,7 @@ dependencies:
   intl: any
   pinput: ^5.0.1
   equatable: ^2.0.7
+  dartz: ^0.10.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
