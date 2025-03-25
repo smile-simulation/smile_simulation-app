@@ -4,10 +4,10 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
-import 'package:smile_simulation/core/widgets/custom_password_itext_field.dart';
-import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
-import 'package:smile_simulation/features/auth/sign_up/presentation/view/widgets/pin_code_input.dart';
+import 'package:smile_simulation/features/auth/sign_up/presentation/view/widgets/forget_sections_body.dart';
+
+import '../../../../../generated/l10n.dart';
 
 class ForgetView extends StatefulWidget {
   const ForgetView({super.key});
@@ -29,10 +29,10 @@ class _ForgotViewState extends State<ForgetView> {
         isBack: true,
         title:
             index == 0
-                ? 'هل نسيت كلمة المرور؟'
+                ? S.of(context).forgotPassword
                 : index == 1
-                ? 'رمز التحقق'
-                : 'إعادة تعيين كلمة المرور',
+                ? S.of(context).verificationCode
+                : S.of(context).resetPassword,
       ),
       bottomNavigationBar: Container(
         height: 60,
@@ -41,13 +41,13 @@ class _ForgotViewState extends State<ForgetView> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("تذكر كلمة المرور؟", style: AppTextStyles.caption1(context)),
+              Text(S.of(context).rememberPassword, style: AppTextStyles.caption1(context)),
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, LoginView.routeName);
                 },
                 child: Text(
-                  "  تسجيل الدخول",
+                  S.of(context).signIn,
                   style: AppTextStyles.caption1(
                     context,
                   ).copyWith(color: AppColors.primaryColor),
@@ -72,54 +72,20 @@ class _ForgotViewState extends State<ForgetView> {
                 SizedBox(height: 16),
                 Text(
                   index == 0
-                      ? "الرجاء إدخال البريد الإلكتروني المسجل به حسابك."
+                      ? S.of(context).enterEmail
                       : index == 1
-                      ? "من فضلك أدخل رمز التحقق المكون من 6 أرقام المرسل إليك."
-                      : "الرجاء إدخال كلمة المرور الجديدة المكونة من 8 حروف وأرقام.",
+                      ? S.of(context).enterVerificationCode
+                      : S.of(context).enterNewPassword,
                   style: AppTextStyles.headline2(
                     context,
                   ).copyWith(color: Color(0xFF4F4F4F)),
                 ),
-                SizedBox(
-                  height: 250,
-                  child: Column(
-                    spacing: 16,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:
-                        index == 0
-                            ? [
-                              CustomTextField(
-                                title: "البريد الإلكتروني",
-                                hintText: "example@gmail.com",
-                                keyboardType: TextInputType.emailAddress,
-                              ),
-                            ]
-                            : index == 1
-                            ? [
-                              PinInputStyles.buildPinInput(
-                                onCompleted: (pin) {
-                                  //  print("User entered PIN: $pin");
-                                },
-                              ),
-                            ]
-                            : [
-                              CustomPasswordTextField(
-                                title: "كلمة المرور",
-                                hintText: "*********",
-                              ),
-                              CustomPasswordTextField(
-                                title: "تأكيد كلمة المرور",
-                                hintText: "*********",
-                              ),
-                            ],
-                  ),
-                ),
-
+                ForgetSectionsBody(index: index),
                 CustomButton(
                   title:
-                      index != 0 || index != 1
-                          ? "إعادة تعيين كلمة المرور"
-                          : "تأكيد",
+                      index == 0 || index == 1
+                          ?  S.of(context).confirm
+                          :S.of(context).resetPassword,
                   onPressed: () {
                     setState(() {
                       index++;
@@ -135,3 +101,4 @@ class _ForgotViewState extends State<ForgetView> {
     );
   }
 }
+

@@ -6,6 +6,8 @@ import 'package:smile_simulation/features/auth/sign_up/presentation/view/sign_up
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class ManageSignUpView extends StatelessWidget {
   const ManageSignUpView({Key? key}) : super(key: key);
   static const routeName = 'manageSignUp';
@@ -40,7 +42,7 @@ class ManageSignUpView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: CustomButton(
-              title: "التسجيل كطبيب",
+              title: S.of(context).registerAsDoctor,
               onPressed: () {
                 Navigator.pushNamed(context, SignUpFromDoctorView.routeName);
               },
@@ -49,7 +51,7 @@ class ManageSignUpView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: CustomButton(
-              title: "التسجيل كمستخدم",
+              title: S.of(context).registerAsUser,
               isSecondary: true,
               onPressed: () {
                 Navigator.pushNamed(context, SignUpFromUserView.routeName);

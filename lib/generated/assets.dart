@@ -21,8 +21,13 @@ class Assets {
   static const String imagesFacebook = 'assets/images/facebook.svg';
   static const String imagesGoogle = 'assets/images/google.svg';
   static const String imagesInput = 'assets/images/input.svg';
+<<<<<<< HEAD
   static const String imagesManageSignUpBackground =
       'assets/images/manageSignUpBackground.png';
+=======
+  static const String imagesLogo = 'splash.png';
+  static const String imagesManageSignUpBackground = 'assets/images/manageSignUpBackground.png';
+>>>>>>> main
   static const String imagesManageSignup = 'assets/images/manageSignup.png';
   static const String imagesOnBoarding1 = 'assets/images/onBoarding1.png';
   static const String imagesOnBoarding2 = 'assets/images/onBoarding2.png';
@@ -39,7 +44,12 @@ class Assets {
       'assets/images/onBoardingShap4.png';
   static const String imagesPostImage = 'assets/images/post_image.png';
   static const String imagesScanCamera = 'assets/images/scan-camera.svg';
+<<<<<<< HEAD
   static const String imagesSplash = 'assets/images/splash.png';
   static const String imagesSplashAndroid12Logo =
       'assets/images/splash_android12_logo.png';
+=======
+  static const String imagesSplashAndroid12Logo = 'assets/images/splash_android12_logo.png';
+
+>>>>>>> main
 }
