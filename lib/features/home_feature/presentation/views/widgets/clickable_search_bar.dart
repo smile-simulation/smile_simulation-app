@@ -49,7 +49,9 @@ class ClickableSearchBar extends StatelessWidget {
                   children: [
                     Text(
                       S.of(context).createPost,
-                      style: AppTextStyles.bodyText1(context).copyWith(color: AppColors.greyColor),
+                      style: AppTextStyles.bodyText1(
+                        context,
+                      ).copyWith(color: AppColors.greyColor),
                     ),
                   ],
                 ),

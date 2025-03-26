@@ -26,7 +26,7 @@ class CustomToPinAppBar extends StatelessWidget implements PreferredSizeWidget {
             onTap: () {
               Navigator.of(
                 context,
-              ).push(MaterialPageRoute(builder: (context) => SearchView(),),);
+              ).push(MaterialPageRoute(builder: (context) => SearchView()));
             },
           ),
         ],

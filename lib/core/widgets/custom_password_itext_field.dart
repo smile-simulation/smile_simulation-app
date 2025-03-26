@@ -49,8 +49,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
           return 'يجب أن تكون على الأقل 8 أحرف';
         }
         return null; // كلمة المرور صالحة
-      }
-,
+      },
       obscureText: _obscureText,
       onChanged: widget.onChanged,
       hintText: widget.hintText,

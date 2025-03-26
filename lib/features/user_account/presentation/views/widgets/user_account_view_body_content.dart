@@ -42,7 +42,7 @@ class UserAccountViewBodyContent extends StatelessWidget {
             ),
             CustomSliverSizedBox(height: 16),
             SliverToBoxAdapter(
-              child: PostSectionsTitle(title: S.of(context).posts)
+              child: PostSectionsTitle(title: S.of(context).posts),
             ),
             CustomSliverSizedBox(height: 16),
             PostsListViewBuilder(

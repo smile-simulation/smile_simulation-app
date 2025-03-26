@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/constant.dart';
 
-
 class CustomBlocObserver extends BlocObserver {
   @override
   void onCreate(BlocBase bloc) {
