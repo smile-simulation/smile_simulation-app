@@ -138,8 +138,6 @@ class S {
       desc: '',
       args: [],
     );
-<<<<<<< HEAD
-=======
   }
 
   /// `Login`
@@ -440,7 +438,6 @@ class S {
       desc: '',
       args: [],
     );
->>>>>>> main
   }
 
   /// `Like`
@@ -623,41 +620,7 @@ class S {
     );
   }
 
-<<<<<<< HEAD
-  /// `Gender`
-  String get gender {
-    return Intl.message(
-      'Gender',
-      name: 'gender',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Male`
-  String get male {
-    return Intl.message(
-      'Male',
-      name: 'male',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Female`
-  String get female {
-    return Intl.message(
-      'Female',
-      name: 'female',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Date of Birth`
-=======
   /// `Date of birth`
->>>>>>> main
   String get dateOfBirth {
     return Intl.message(
       'Date of birth',
@@ -690,11 +653,7 @@ class S {
   /// `Create post`
   String get createPost {
     return Intl.message(
-<<<<<<< HEAD
-      'Create Post',
-=======
       'Create post',
->>>>>>> main
       name: 'createPost',
       desc: '',
       args: [],
@@ -704,11 +663,7 @@ class S {
   /// `Edit post`
   String get editPost {
     return Intl.message(
-<<<<<<< HEAD
-      'Edit Post',
-=======
       'Edit post',
->>>>>>> main
       name: 'editPost',
       desc: '',
       args: [],
@@ -728,11 +683,7 @@ class S {
   /// `Save edits`
   String get saveEdits {
     return Intl.message(
-<<<<<<< HEAD
-      'Save Edits',
-=======
       'Save edits',
->>>>>>> main
       name: 'saveEdits',
       desc: '',
       args: [],
@@ -742,11 +693,7 @@ class S {
   /// `Delete post`
   String get deletePost {
     return Intl.message(
-<<<<<<< HEAD
-      'Delete Post',
-=======
       'Delete post',
->>>>>>> main
       name: 'deletePost',
       desc: '',
       args: [],
