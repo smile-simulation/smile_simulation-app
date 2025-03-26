@@ -39,6 +39,7 @@ abstract class AppTextStyles {
       fontFamily: "NotoSansSC",
     );
   }
+
   static TextStyle subTitle1(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 16),
@@ -59,6 +60,7 @@ abstract class AppTextStyles {
       fontWeight: FontWeight.w700,
     );
   }
+
   static TextStyle formLabel(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 14),
@@ -70,52 +72,57 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 14),
       fontWeight: FontWeight.w300,
-
     );
   }
+
   static TextStyle inputText(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 16),
       fontWeight: FontWeight.normal,
     );
   }
+
   static TextStyle navigationTitle(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 11),
       fontWeight: FontWeight.bold,
     );
   }
+
   static TextStyle listItem(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 14),
       fontWeight: FontWeight.normal,
     );
   }
+
   static TextStyle caption1(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 12),
       fontWeight: FontWeight.normal,
     );
   }
+
   static TextStyle caption2(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 10),
       fontWeight: FontWeight.normal,
     );
   }
+
   static TextStyle button1(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 16),
       fontWeight: FontWeight.bold,
     );
   }
+
   static TextStyle button2(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 14),
       fontWeight: FontWeight.w600,
     );
   }
-
 }
 
 double getResponsiveScaleFactor(

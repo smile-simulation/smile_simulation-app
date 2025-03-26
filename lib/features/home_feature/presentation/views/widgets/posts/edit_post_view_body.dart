@@ -50,8 +50,8 @@ class EditPostViewBody extends StatelessWidget {
             ],
           ),
           SizedBox(height: 30),
-          // PostBody(postView: false),
 
+          // PostBody(postView: false),
           Spacer(),
           // CustomButton(
           //   text: S.of(context).editPost,

@@ -20,10 +20,8 @@ class _CustomLoveState extends State<CustomLove> {
       },
       child: CircleAvatar(
         radius: 16,
-      // backgroundColor: kLightGreyColor,
-        child: Icon(
-          isFavorite ? Icons.favorite : Icons.favorite_border,
-        ),
+        // backgroundColor: kLightGreyColor,
+        child: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
       ),
     );
   }

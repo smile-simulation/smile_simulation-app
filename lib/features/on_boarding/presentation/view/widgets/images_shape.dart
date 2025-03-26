@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 import '../../../data/model/on_boarding_model.dart';
 
 class ImagesShape extends StatelessWidget {
-
   final bool isOut;
   final int currentIndex;
-  final List<OnBoardingModel> onBoardingData ;
+  final List<OnBoardingModel> onBoardingData;
 
-  const ImagesShape({super.key, required this.isOut, required this.currentIndex, required this.onBoardingData, });
+  const ImagesShape({
+    super.key,
+    required this.isOut,
+    required this.currentIndex,
+    required this.onBoardingData,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +29,14 @@ class ImagesShape extends StatelessWidget {
               top: isOut ? -700 : 64,
               right: 16,
               left: 16,
-              child: FadeInDown(child: Image.asset(
-                onBoardingData[currentIndex].shape,)),
+              child: FadeInDown(
+                child: Image.asset(onBoardingData[currentIndex].shape),
+              ),
             ),
             AnimatedPositioned(
               duration: const Duration(milliseconds: 500),
               top: 120,
-        
+
               right: isOut ? 700 : 32,
               left: isOut ? -700 : 32,
               child: Image.asset(
@@ -47,5 +52,3 @@ class ImagesShape extends StatelessWidget {
     );
   }
 }
-
-
