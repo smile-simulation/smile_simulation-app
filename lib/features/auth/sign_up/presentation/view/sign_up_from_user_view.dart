@@ -18,7 +18,7 @@ class SignUpFromUserView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAuthAppbar(context, isBack: true,),
+      appBar: customAuthAppbar(context, isBack: true),
 
       body: SignUpFromUserBodyView(),
     );

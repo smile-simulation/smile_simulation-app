@@ -70,5 +70,6 @@
   "editPost": "تعديل المنشور",
   "publish": "نشر",
   "saveEdits": "حفظ التعديلات",
-  "deletePost": "حذف المنشور"
+  "deletePost": "حذف المنشور",
+  "talkToSmileBot":"تحدث مع smile bot"
 }

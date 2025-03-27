@@ -17,7 +17,9 @@ class AddPostTextField extends StatelessWidget {
           icon: Icon(Icons.image, color: AppColors.primaryColor),
         ),
         hintText: S.of(context).postContent,
-        hintStyle: AppTextStyles.headline2(context).copyWith(color: AppColors.greyColor),
+        hintStyle: AppTextStyles.headline2(
+          context,
+        ).copyWith(color: AppColors.greyColor),
 
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: AppColors.transparent),

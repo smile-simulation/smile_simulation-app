@@ -56,7 +56,7 @@ class SmileSimulation extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
       // initialRoute: BottomNavigationView.routeName,
-      initialRoute: LoginView.routeName,
+      initialRoute: BottomNavigationView.routeName,
       // initialRoute:  CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
       //     ? LoginView.routeName
       //     : OnBoardingView.routeName,

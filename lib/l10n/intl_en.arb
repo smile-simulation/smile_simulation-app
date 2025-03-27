@@ -70,5 +70,6 @@
   "editPost": "Edit post",
   "publish": "Publish",
   "saveEdits": "Save edits",
-  "deletePost": "Delete post"
+  "deletePost": "Delete post",
+  "talkToSmileBot":"Talk to smile bot"
 }

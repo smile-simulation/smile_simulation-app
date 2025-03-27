@@ -7,7 +7,7 @@ class PinInputStyles {
   static final PinTheme defaultPinTheme = PinTheme(
     width: 45,
     height: 60,
-    textStyle:  TextStyle(
+    textStyle: TextStyle(
       fontSize: 32,
       color: AppColors.primaryColor,
       fontWeight: FontWeight.w500,
@@ -29,8 +29,10 @@ class PinInputStyles {
     ),
   );
 
-  static Widget buildPinInput(
-      {required Function(String) onCompleted, int length = 6}) {
+  static Widget buildPinInput({
+    required Function(String) onCompleted,
+    int length = 6,
+  }) {
     return Pinput(
       defaultPinTheme: defaultPinTheme,
       focusedPinTheme: focusedPinTheme,

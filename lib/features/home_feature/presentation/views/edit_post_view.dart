@@ -4,7 +4,6 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/edit_post_view_body.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-
 class EditPostView extends StatelessWidget {
   const EditPostView({super.key});
   final currentUser = false;
@@ -12,12 +11,12 @@ class EditPostView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-      appBar:   AppBar(
-        title:  Expanded(
+      appBar: AppBar(
+        title: Expanded(
           child: Text(
             '${S.of(context).editPost}، ',
             overflow: TextOverflow.ellipsis,
-    
+
             style: AppTextStyles.headline2(context),
           ),
         ),
