@@ -32,7 +32,7 @@ class ManageSignUpView extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
                 Image.asset(
-                  Assets.imagesManageSignup,
+                  Assets.fontsCairoBold,
                   height: MediaQuery.of(context).size.height / 1.7,
                 ),
               ],
