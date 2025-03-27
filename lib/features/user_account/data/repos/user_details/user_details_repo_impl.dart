@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:smile_simulation/core/api/api_consumer.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/error/failures.dart';
 import 'package:smile_simulation/features/user_account/data/models/user/user..dart';
