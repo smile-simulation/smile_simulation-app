@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_icon.dart';
+import 'package:smile_simulation/features/chatb_bot_feature/presentation/views/chat_bot_view.dart';
+import 'package:smile_simulation/features/chatb_bot_feature/presentation/views/widgets/chat_bot_view_body.dart';
 
 class FlexibleAppBarIconsSection extends StatelessWidget {
   const FlexibleAppBarIconsSection({super.key});
@@ -22,7 +24,9 @@ class FlexibleAppBarIconsSection extends StatelessWidget {
           icon: Icons.chat,
           color: AppColors.whiteColor,
           onTap: () {
-            // أكشن الأيقونة الثانية
+            Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (context) => ChatBotView()));
           },
         ),
         SizedBox(width: 8),
