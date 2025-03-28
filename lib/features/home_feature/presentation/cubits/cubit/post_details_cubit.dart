@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
 
 part 'post_details_state.dart';
