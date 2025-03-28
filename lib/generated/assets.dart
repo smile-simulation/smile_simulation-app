@@ -31,5 +31,6 @@ class Assets {
   static const String imagesScanCamera = 'assets/images/scan-camera.svg';
   static const String imagesSplash = 'assets/images/splash.png';
   static const String imagesLogo = 'splash.png';
+  static const String imagesAdviceBackground = 'assets/images/advice_background.jpg';
   static const String imagesSplashAndroid12Logo = 'assets/images/splash_android12_logo.png';
 }
