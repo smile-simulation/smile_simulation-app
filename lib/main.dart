@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/database/cache/cache_helper.dart';
@@ -10,10 +11,18 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
+import 'core/helper_functions/get_it.dart';
+import 'core/services/bloc_opesever.dart';
+import 'features/auth/login/presentation/view/login_view.dart';
+import 'features/on_boarding/presentation/view/on_boarding_view.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper().init();
 
+
+  Bloc.observer = CustomBlocObserver();
+  setupGetIt();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -54,10 +63,10 @@ class SmileSimulation extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
       // initialRoute: BottomNavigationView.routeName,
-      initialRoute: BottomNavigationView.routeName,
-      // initialRoute:  CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
-      //     ? LoginView.routeName
-      //     : OnBoardingView.routeName,
+      //initialRoute: BottomNavigationView.routeName,
+      initialRoute:  CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
+          ? LoginView.routeName
+          : OnBoardingView.routeName,
     );
   }
 }
