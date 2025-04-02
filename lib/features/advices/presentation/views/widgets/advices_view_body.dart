@@ -16,15 +16,7 @@ class AdvicesViewBody extends StatelessWidget {
         CustomAppBar(title: 'النصائح'),
         Expanded(
           child: CustomBodyScreen(
-            child: Container(
-              padding: EdgeInsets.only(top: 16, left: 16, right: 16),
-              decoration: BoxDecoration(
-                color: AppColors.whiteColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(45),
-                  topRight: Radius.circular(45),
-                ),
-              ),
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -35,11 +27,38 @@ class AdvicesViewBody extends StatelessWidget {
                       context,
                     ).copyWith(color: AppColors.blackColor),
                   ),
+                  SizedBox(height: 16),
                   Container(
-                    height: 160,
+                    //// Today's advice
+                    width: double.infinity,
+                    constraints: BoxConstraints(maxHeight: 198),
+                    padding: EdgeInsets.only(left: 8, right: 8, bottom: 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              S.of(context).academicCertificate,
+                              style: AppTextStyles.subTitle2(
+                                context,
+                              ).copyWith(color: AppColors.blackColor),
+                            ),
+                            Spacer(),
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.favorite),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 8),
+                        Spacer(),
+                        Text("test"),
+                      ],
+                    ),
+
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-
                       image: DecorationImage(
                         opacity: 0.35,
                         image: AssetImage(Assets.imagesAdviceBackground),

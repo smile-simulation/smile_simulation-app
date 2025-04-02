@@ -1,5 +1,13 @@
 class ApiKeys {
-  static const String token = 'token';
-  static const String name = 'token';
-  static const String lang = 'lang';
+  static String token = "token";
+  static String success = "success";
+  static String message = "message";
+  static String data = "data";
+  static String fullName = "FullName";
+  static String age = "Age";
+  static String gender = "Gender";
+  static String image = "Image";
+  static String email = "Email";
+  static String password = "Password";
+  static String confirmPassword = "ConfirmPassword";
 }
