@@ -5,7 +5,7 @@ import 'package:smile_simulation/generated/l10n.dart';
 
 class CustomAdvice extends StatelessWidget {
   const CustomAdvice({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Card(

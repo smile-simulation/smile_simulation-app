@@ -100,7 +100,10 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
 
                       setState(() {
                         if (gender == 2) {
-                        customError(context, massage: "  الرجاء اختيار نوع الجنس");
+                          customError(
+                            context,
+                            massage: "  الرجاء اختيار نوع الجنس",
+                          );
                           return;
                         }
 

@@ -51,9 +51,9 @@ class LogInViewBody extends StatelessWidget {
               InputSectionFromLogInView(),
               Align(
                 alignment:
-                isArabic == 'ar'
-                    ? Alignment.centerLeft
-                    : Alignment.centerRight,
+                    isArabic == 'ar'
+                        ? Alignment.centerLeft
+                        : Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, ForgetView.routeName);

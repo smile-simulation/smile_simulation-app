@@ -1,10 +1,7 @@
 import 'data.dart';
 
 class SignUpModel {
-  SignUpModel({
-      this.success,
-      this.message,
-      this.data,});
+  SignUpModel({this.success, this.message, this.data});
 
   SignUpModel.fromJson(dynamic json) {
     success = json['success'];
@@ -24,5 +21,4 @@ class SignUpModel {
     }
     return map;
   }
-
 }

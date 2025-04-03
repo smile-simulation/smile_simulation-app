@@ -8,21 +8,16 @@ import '../../../../../../generated/assets.dart';
 import '../../../../../../generated/l10n.dart';
 
 class UploadIDSectionFromSignUpFromDoctorView extends StatelessWidget {
-  const UploadIDSectionFromSignUpFromDoctorView({
-    super.key,
-  });
+  const UploadIDSectionFromSignUpFromDoctorView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       spacing: 16,
-      children:
-      [
+      children: [
         Align(
           alignment:
-          isArabic == 'ar'
-              ? Alignment.centerRight
-              : Alignment.centerLeft,
+              isArabic == 'ar' ? Alignment.centerRight : Alignment.centerLeft,
           child: Text(
             S.of(context).uploadIDCard,
             style: AppTextStyles.formLabel(context),
@@ -38,9 +33,7 @@ class UploadIDSectionFromSignUpFromDoctorView extends StatelessWidget {
                 color: AppColors.veryLightGreyColor,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Center(
-                child: SvgPicture.asset(Assets.imagesScanCamera),
-              ),
+              child: Center(child: SvgPicture.asset(Assets.imagesScanCamera)),
             ),
           ),
         ),

@@ -32,34 +32,34 @@ AppBar customAuthAppbar(
               ).copyWith(color: AppColors.whiteColor),
             )
             : Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Visibility(
-              visible: isArabic == 'en',
-              child: Text(
-                'Smile',
-                style: AppTextStyles.headline1(
-                  context,
-                ).copyWith(color: AppColors.whiteColor),
-              ),
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Visibility(
+                  visible: isArabic == 'en',
+                  child: Text(
+                    'Smile',
+                    style: AppTextStyles.headline1(
+                      context,
+                    ).copyWith(color: AppColors.whiteColor),
+                  ),
+                ),
+                Text(
+                  ' simulation ',
+                  style: AppTextStyles.headline1(context).copyWith(
+                    color: AppColors.lightGreyColor,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Visibility(
+                  visible: isArabic == 'ar',
+                  child: Text(
+                    'Smile',
+                    style: AppTextStyles.headline1(
+                      context,
+                    ).copyWith(color: AppColors.whiteColor),
+                  ),
+                ),
+              ],
             ),
-            Text(
-              ' simulation ',
-              style: AppTextStyles.headline1(context).copyWith(
-                color: AppColors.lightGreyColor,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            Visibility(
-              visible: isArabic == 'ar',
-              child: Text(
-                'Smile',
-                style: AppTextStyles.headline1(
-                  context,
-                ).copyWith(color: AppColors.whiteColor),
-              ),
-            ),
-          ],
-        ),
   );
 }

@@ -17,8 +17,8 @@ class SignUpFromUserView extends StatelessWidget {
     return Scaffold(
       appBar: customAuthAppbar(context, isBack: true),
 
-      body: BlocConsumer<SignUpUserCubit, SignUpState> (
-        listener: (context, state)async  {
+      body: BlocConsumer<SignUpUserCubit, SignUpState>(
+        listener: (context, state) async {
           if (state is SignUpSuccess) {
             await customSuccess(context, massage: state.message);
             Navigator.pushNamedAndRemoveUntil(
