@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smile_simulation/core/helper_functions/validator.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
@@ -8,14 +9,14 @@ class CustomPasswordTextField extends StatefulWidget {
     super.key,
     required this.title,
     required this.hintText,
-
-    this.onChanged,
+    this.controller, // ✅ إضافة `controller`
+    this.onSaved,
   });
 
   final String title;
   final String hintText;
-
-  final void Function(String?)? onChanged;
+  final TextEditingController? controller; // ✅ دعم `TextEditingController`
+  final void Function(String?)? onSaved;
 
   @override
   State<CustomPasswordTextField> createState() =>
@@ -28,33 +29,15 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
+      controller: widget.controller,
       keyboardType: TextInputType.visiblePassword,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'يجب إدخال كلمة المرور';
-        }
-        if (!RegExp(r'[A-Z]').hasMatch(value)) {
-          return 'يجب أن تحتوي على حرف كبير واحد على الأقل [A-Z]';
-        }
-        if (!RegExp(r'[a-z]').hasMatch(value)) {
-          return 'يجب أن تحتوي على حرف صغير واحد على الأقل [a-z]';
-        }
-        if (!RegExp(r'[0-9]').hasMatch(value)) {
-          return 'يجب أن تحتوي على رقم واحد على الأقل [0-9]';
-        }
-        if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
-          return 'يجب أن تحتوي على رمز خاص واحد على الأقل [@-#-..]';
-        }
-        if (value.length < 8) {
-          return 'يجب أن تكون على الأقل 8 أحرف';
-        }
-        return null; // كلمة المرور صالحة
+     return   validatorOfPassword(value);
       },
       obscureText: _obscureText,
-      onChanged: widget.onChanged,
+      onSaved: widget.onSaved,
       hintText: widget.hintText,
       title: widget.title,
-
       suffixIcon: IconButton(
         onPressed: () {
           setState(() {
