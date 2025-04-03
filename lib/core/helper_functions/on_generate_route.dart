@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/helper_functions/get_it.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 
@@ -9,6 +8,7 @@ import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubit
 
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/manage_sign_up.dart';
 
+import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
 import '../../features/auth/sign_up/presentation/view/forgot_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_subsidiary_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_view.dart';
@@ -32,7 +32,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
             (_) => BlocProvider(
               create:
                   (context) =>
-                      SignUpUserCubit(dioConsumer: getIt<DioConsumer>(),),
+                      SignUpUserCubit(signUpRepo: getIt.get<SignUpRepo>()),
               child: SignUpFromUserView(),
             ),
       );
