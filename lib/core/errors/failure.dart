@@ -36,12 +36,12 @@ class ServerFailure extends Failure {
     }
   }
 
-  factory ServerFailure.fromResponse(int statesCode, dynamic errorMessage) {
-    if (statesCode == 401 || statesCode == 402 || statesCode == 403) {
+  factory ServerFailure.fromResponse(int statusCode, dynamic errorMessage) {
+    if (statusCode == 401 || statusCode == 402 || statusCode == 403) {
       return ServerFailure(errorMessage["error"]["message"]);
-    } else if (statesCode == 404) {
+    } else if (statusCode == 404) {
       return ServerFailure('Your request not found, Please try later!');
-    } else if (statesCode == 500) {
+    } else if (statusCode == 500) {
       return ServerFailure('Internal Server error, Please try later');
     } else {
       return ServerFailure('Opps There was an Error, Please try again');

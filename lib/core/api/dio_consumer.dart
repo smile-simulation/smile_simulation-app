@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-
+import 'package:smile_simulation/constant.dart';
 import '../errors/exceptions.dart';
 import 'api_consumer.dart';
 import 'api_interceptor.dart';
@@ -28,7 +28,8 @@ class DioConsumer extends ApiConsumer {
       final response = await dio.delete(path);
       return response.data;
     } on DioException catch (e) {
-      handelExceptions(e);
+      logger.e(" DioException: ${e.response?.data ?? e.message}");
+      return handelExceptions(e);
     }
   }
 
@@ -38,16 +39,13 @@ class DioConsumer extends ApiConsumer {
       final response = await dio.get(path);
       return response.data;
     } on DioException catch (e) {
-      handelExceptions(e);
+      logger.e(" DioException: ${e.response?.data ?? e.message}");
+      return handelExceptions(e);
     }
   }
 
   @override
-  Future patch(
-    String path, {
-    Map<String, dynamic>? data,
-    bool formData = false,
-  }) async {
+  Future patch(String path, {Map<String, dynamic>? data, bool formData = false}) async {
     try {
       final response = await dio.patch(
         path,
@@ -55,33 +53,32 @@ class DioConsumer extends ApiConsumer {
       );
       return response.data;
     } on DioException catch (e) {
-      handelExceptions(e);
+      logger.e(" DioException: ${e.response?.data ?? e.message}");
+      return handelExceptions(e);
     }
   }
 
   @override
-  Future post(
-    String path, {
-    Map<String, dynamic>? data,
-    bool formData = false,
-  }) async {
+  Future post(String path, {Map<String, dynamic>? data, bool formData = false}) async {
     try {
+
       final response = await dio.post(
         path,
         data: formData ? FormData.fromMap(data!) : data,
       );
-      return response.data;
+
+
+
+      return response.data ;
     } on DioException catch (e) {
-      handelExceptions(e);
+      logger.e(" DioException: ${e.response?.data ?? e.message}");
+      return handelExceptions(e);
     }
   }
 
+
   @override
-  Future put(
-    String path, {
-    Map<String, dynamic>? data,
-    bool formData = false,
-  }) async {
+  Future put(String path, {Map<String, dynamic>? data, bool formData = false}) async {
     try {
       final response = await dio.put(
         path,
@@ -89,7 +86,10 @@ class DioConsumer extends ApiConsumer {
       );
       return response.data;
     } on DioException catch (e) {
-      handelExceptions(e);
+      logger.e(" DioException: ${e.response?.data ?? e.message}");
+      return handelExceptions(e);
     }
   }
+
+
 }
