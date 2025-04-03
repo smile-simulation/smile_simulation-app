@@ -29,10 +29,17 @@ class AdvicesViewBody extends StatelessWidget {
                   ),
                   SizedBox(height: 16),
                   Container(
-                    //// Today's advice
                     width: double.infinity,
-                    constraints: BoxConstraints(maxHeight: 198),
-                    padding: EdgeInsets.only(left: 8, right: 8, bottom: 8),
+                    constraints: BoxConstraints(minHeight: 198),
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      image: DecorationImage(
+                        opacity: 0.35,
+                        image: AssetImage(Assets.imagesAdviceBackground),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -46,24 +53,34 @@ class AdvicesViewBody extends StatelessWidget {
                             ),
                             Spacer(),
                             IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.favorite),
+                              onPressed: () {
+                                // TODO: Handle favorite action
+                              },
+                              icon: Icon(
+                                Icons.favorite_border,
+                                color: AppColors.primaryColor,
+                              ),
                             ),
                           ],
                         ),
                         SizedBox(height: 8),
-                        Spacer(),
-                        Text("test"),
+                        Text(
+                          "اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان واستخدام خيط الأسنان لإزالة البلاك من بين الأسنان، مع المضمضة بغسول فم مضاد للبكتيريا للحفاظ على صحة اللثة. ",
+                          style: AppTextStyles.listItem(context),
+                        ),
+                        // Expanded(
+                        //   child: SizedBox(),
+                        // ), // يجعل النص في المنتصف بدلاً من `Spacer`
+                        Positioned(
+                          bottom: 0,
+                          child: Text(
+                            "🔗 فيديو نصائح العناية اليومية بالأسنان",
+                            style: AppTextStyles.formLabel(
+                              context,
+                            ).copyWith(color: AppColors.primaryColor),
+                          ),
+                        ),
                       ],
-                    ),
-
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      image: DecorationImage(
-                        opacity: 0.35,
-                        image: AssetImage(Assets.imagesAdviceBackground),
-                        fit: BoxFit.cover,
-                      ),
                     ),
                   ),
                 ],
