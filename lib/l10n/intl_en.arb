@@ -41,6 +41,9 @@
   "fullName": "Full name",
   "uploadIDCard": "Upload your ID card",
   "age": "Age",
+  "ok" : "Ok",
+  "error" : "Error",
+  "success": "Success",
 
   "like": "Like",
   "likeCount": "Likes",
