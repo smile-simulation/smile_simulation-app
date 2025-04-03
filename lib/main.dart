@@ -20,7 +20,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper().init();
 
-
   Bloc.observer = CustomBlocObserver();
   setupGetIt();
   SystemChrome.setSystemUIOverlayStyle(
@@ -64,9 +63,10 @@ class SmileSimulation extends StatelessWidget {
       onGenerateRoute: onGenerateRoute,
       // initialRoute: BottomNavigationView.routeName,
       //initialRoute: BottomNavigationView.routeName,
-      initialRoute:  CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
-          ? LoginView.routeName
-          : OnBoardingView.routeName,
+      initialRoute: BottomNavigationView.routeName,
+      // initialRoute:  CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
+      //     ? LoginView.routeName
+      //     : OnBoardingView.routeName,
     );
   }
 }
