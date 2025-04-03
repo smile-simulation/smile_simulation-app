@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/generated/l10n.dart';
+import 'package:smile_simulation/features/advices/data/models/advice/advice.dart';
 
 class CustomAdvice extends StatelessWidget {
-  const CustomAdvice({super.key});
-
+  const CustomAdvice({super.key, required this.advice});
+  final Advice advice;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -21,7 +21,13 @@ class CustomAdvice extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  S.of(context).academicCertificate,
+                  (advice.title) ??
+                      ((Localizations.localeOf(context).languageCode == "ar")
+                          ? "عنوان النصيحة"
+                          : "Title"),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  // "عنوان النصيحة",
                   style: AppTextStyles.subTitle2(
                     context,
                   ).copyWith(color: AppColors.blackColor),

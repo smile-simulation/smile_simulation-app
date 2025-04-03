@@ -5,9 +5,9 @@ import 'package:smile_simulation/core/widgets/custom_app_bar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/sliver_sized_box.dart';
 import 'package:smile_simulation/features/advices/presentation/views/widgets/advices_categories_section.dart';
-import 'package:smile_simulation/features/advices/presentation/views/widgets/custom_advice.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
+import 'general_advices_sliver_list_view_builder.dart';
 import 'todays_advice_section.dart';
 
 class AdvicesViewBody extends StatelessWidget {
@@ -43,13 +43,7 @@ class AdvicesViewBody extends StatelessWidget {
                   ),
                 ),
 
-                SliverList.separated(
-                  itemBuilder: (context, index) {
-                    return CustomAdvice();
-                  },
-                  separatorBuilder: (context, index) => SizedBox(height: 16),
-                  itemCount: 5,
-                ),
+                SliverToBoxAdapter(child: GeneralAdvicesSliverListViewBuilder()),
               ],
             ),
           ),
