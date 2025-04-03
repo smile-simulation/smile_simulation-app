@@ -7,6 +7,7 @@ import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/api/end_point.dart';
 import 'package:smile_simulation/core/errors/exceptions.dart';
 import 'package:smile_simulation/core/errors/failure.dart';
+import 'package:smile_simulation/features/advices/data/json_advices.dart';
 import 'package:smile_simulation/features/advices/data/models/advice/advice.dart';
 import 'package:smile_simulation/features/advices/data/repos/advices_repo.dart';
 
@@ -23,7 +24,8 @@ class AdvicesRepoImpl implements AdvicesRepo {
     try {
       var response = await dioConsumer.get(EndPoint.getAllAdvices);
       List<Advice> advices = [];
-      List<dynamic> advicesJsonList = response[ApiKeys.data];
+      // List<dynamic> advicesJsonList = response[ApiKeys.data];
+      List<dynamic> advicesJsonList = jSonAdvices;
 
       for (Map<String, dynamic> advice in advicesJsonList) {
         advices.add(Advice.fromJson(advice));

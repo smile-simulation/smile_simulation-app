@@ -1,15 +1,16 @@
-import 'package:dio/dio.dart';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/api/dio_consumer.dart';
+import 'package:smile_simulation/core/helper_functions/app_timing.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/advices/data/repos/advices_repo_impl.dart';
+import 'package:smile_simulation/features/advices/data/models/advice/advice.dart';
 import 'package:smile_simulation/generated/assets.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 class CustomTodaysAdvice extends StatelessWidget {
-  const CustomTodaysAdvice({super.key});
-
+  const CustomTodaysAdvice({super.key, required this.advice});
+  final Advice advice;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +21,10 @@ class CustomTodaysAdvice extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         image: DecorationImage(
           opacity: 0.25,
-          image: AssetImage(Assets.imagesAdviceBackground),
+          image:
+              advice.image != null
+                  ? NetworkImage(advice.image!)
+                  : AssetImage(Assets.imagesAdviceBackground),
           fit: BoxFit.cover,
         ),
       ),
@@ -41,11 +45,27 @@ class CustomTodaysAdvice extends StatelessWidget {
                   ),
                   Spacer(),
                   IconButton(
-                    onPressed: () {
-                      AdvicesRepoImpl(
-                        dioConsumer: DioConsumer(dio: Dio()),
-                      ).getGeneralAdvices();
-                      // TODO: Handle favorite action
+                    onPressed: () async {
+                      // AdvicesRepoImpl(
+                      //   dioConsumer: DioConsumer(dio: Dio()),
+                      // ).getGeneralAdvices();
+                      DateTime now = DateTime.now();
+                      DateTime elevenPM = DateTime(
+                        now.year,
+                        now.month,
+                        now.day,
+                        23,
+                        0,
+                        0,
+                      );
+
+                      print(elevenPM);
+                      AppTiming().runFunAtX(
+                        time: elevenPM,
+                        action: () async {
+                          log("hello from the Future");
+                        },
+                      );
                     },
                     icon: Icon(
                       Icons.favorite_border,
