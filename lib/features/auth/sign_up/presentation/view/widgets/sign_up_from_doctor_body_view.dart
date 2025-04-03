@@ -11,9 +11,7 @@ import 'gender_section_from_sign_up_view.dart';
 import 'input_section_from_sign_up_from_doctor_view.dart';
 
 class SignUpFromDoctorBodyView extends StatelessWidget {
-  const SignUpFromDoctorBodyView({
-    super.key,
-  });
+  const SignUpFromDoctorBodyView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +27,9 @@ class SignUpFromDoctorBodyView extends StatelessWidget {
               SizedBox(height: 16),
               Align(
                 alignment:
-                isArabic == 'ar'
-                    ? Alignment.centerRight
-                    : Alignment.centerLeft,
+                    isArabic == 'ar'
+                        ? Alignment.centerRight
+                        : Alignment.centerLeft,
                 child: Text(
                   S.of(context).registerNow,
                   style: AppTextStyles.headline1(

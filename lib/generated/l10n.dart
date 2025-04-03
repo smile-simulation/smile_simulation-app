@@ -554,6 +554,41 @@ class S {
   String get deletePost {
     return Intl.message('Delete post', name: 'deletePost', desc: '', args: []);
   }
+
+  /// `Today's Advice`
+  String get toDaysAdvice {
+    return Intl.message(
+      'Today\'s Advice',
+      name: 'toDaysAdvice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advice categories`
+  String get advicesCategories {
+    return Intl.message(
+      'Advice categories',
+      name: 'advicesCategories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General Advices`
+  String get generalAdvices {
+    return Intl.message(
+      'General Advices',
+      name: 'generalAdvices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show All`
+  String get showAll {
+    return Intl.message('Show All', name: 'showAll', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,7 +1,5 @@
 abstract class ApiConsumer {
-  Future<dynamic> get(
-    String path,
-  );
+  Future<dynamic> get(String path);
 
   Future<dynamic> post(
     String path, {
@@ -21,7 +19,5 @@ abstract class ApiConsumer {
     bool formData = false,
   });
 
-  Future<dynamic> delete(
-    String path,
-  );
+  Future<dynamic> delete(String path);
 }

@@ -45,7 +45,11 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future patch(String path, {Map<String, dynamic>? data, bool formData = false}) async {
+  Future patch(
+    String path, {
+    Map<String, dynamic>? data,
+    bool formData = false,
+  }) async {
     try {
       final response = await dio.patch(
         path,
@@ -59,26 +63,30 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future post(String path, {Map<String, dynamic>? data, bool formData = false}) async {
+  Future post(
+    String path, {
+    Map<String, dynamic>? data,
+    bool formData = false,
+  }) async {
     try {
-
       final response = await dio.post(
         path,
         data: formData ? FormData.fromMap(data!) : data,
       );
 
-
-
-      return response.data ;
+      return response.data;
     } on DioException catch (e) {
       logger.e(" DioException: ${e.response?.data ?? e.message}");
       return handelExceptions(e);
     }
   }
 
-
   @override
-  Future put(String path, {Map<String, dynamic>? data, bool formData = false}) async {
+  Future put(
+    String path, {
+    Map<String, dynamic>? data,
+    bool formData = false,
+  }) async {
     try {
       final response = await dio.put(
         path,
@@ -90,6 +98,4 @@ class DioConsumer extends ApiConsumer {
       return handelExceptions(e);
     }
   }
-
-
 }

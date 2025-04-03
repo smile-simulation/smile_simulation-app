@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import '../../generated/l10n.dart';
 import '../widgets/custom_button.dart';
 
-
-
 void customError(BuildContext context, {required String massage}) {
   AwesomeDialog(
     context: context,
@@ -14,14 +12,18 @@ void customError(BuildContext context, {required String massage}) {
     title: S.of(context).error,
     desc: massage,
     btnOk: CustomButton(
-        title: S.of(context).ok,
-        onPressed: () {
-          Navigator.pop(context);
-        }),
+      title: S.of(context).ok,
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    ),
   ).show();
 }
 
-Future<void> customSuccess(BuildContext context, {required String massage}) async {
+Future<void> customSuccess(
+  BuildContext context, {
+  required String massage,
+}) async {
   await AwesomeDialog(
     context: context,
     animType: AnimType.scale,

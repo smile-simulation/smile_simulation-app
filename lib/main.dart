@@ -13,13 +13,10 @@ import 'package:smile_simulation/generated/l10n.dart';
 
 import 'core/helper_functions/get_it.dart';
 import 'core/services/bloc_opesever.dart';
-import 'features/auth/login/presentation/view/login_view.dart';
-import 'features/on_boarding/presentation/view/on_boarding_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper().init();
-
 
   Bloc.observer = CustomBlocObserver();
   setupGetIt();
@@ -64,9 +61,10 @@ class SmileSimulation extends StatelessWidget {
       onGenerateRoute: onGenerateRoute,
       // initialRoute: BottomNavigationView.routeName,
       //initialRoute: BottomNavigationView.routeName,
-      initialRoute:  CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
-          ? LoginView.routeName
-          : OnBoardingView.routeName,
+      initialRoute: BottomNavigationView.routeName,
+      // initialRoute:  CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
+      //     ? LoginView.routeName
+      //     : OnBoardingView.routeName,
     );
   }
 }

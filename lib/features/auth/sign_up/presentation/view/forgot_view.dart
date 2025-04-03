@@ -41,7 +41,10 @@ class _ForgotViewState extends State<ForgetView> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(S.of(context).rememberPassword, style: AppTextStyles.caption1(context)),
+              Text(
+                S.of(context).rememberPassword,
+                style: AppTextStyles.caption1(context),
+              ),
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, LoginView.routeName);
@@ -84,8 +87,8 @@ class _ForgotViewState extends State<ForgetView> {
                 CustomButton(
                   title:
                       index == 0 || index == 1
-                          ?  S.of(context).confirm
-                          :S.of(context).resetPassword,
+                          ? S.of(context).confirm
+                          : S.of(context).resetPassword,
                   onPressed: () {
                     setState(() {
                       index++;
@@ -101,4 +104,3 @@ class _ForgotViewState extends State<ForgetView> {
     );
   }
 }
-
