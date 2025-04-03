@@ -2,8 +2,8 @@ import 'data.dart';
 
 class SignUpModel {
   SignUpModel({
-      this.success, 
-      this.message, 
+      this.success,
+      this.message,
       this.data,});
 
   SignUpModel.fromJson(dynamic json) {
