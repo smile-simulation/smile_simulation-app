@@ -4,12 +4,10 @@
   "onBoarding3": "كل ما تحتاجه من نصائح عملية لضمان صحة فم وأسنان مثالية.",
   "onBoarding4": "إدارة وقتك أصبحت أسهل، اجعل صحة أسنانك أولوية.",
   "onBoarding5": "دردشة سريعة وآمنة لحل جميع أسئلتك المتعلقة بصحة الفم.",
-
   "skip": "تخطي",
   "next": "التالي",
   "start": "ابدأ",
   "welcomeMsg": "مرحبًا",
-
   "login": "تسجيل الدخول",
   "noAccount": "ليس لديك حساب؟",
   "registerNow": "قم بالتسجيل الآن",
@@ -20,7 +18,6 @@
   "forgotPassword": "هل نسيت كلمة المرور؟",
   "signIn": "تسجيل الدخول",
   "signInWith": "تسجيل الدخول باستخدام",
-
   "gender": "الجنس",
   "male": "ذكر",
   "female": "أنثى",
@@ -41,18 +38,15 @@
   "fullName": "الاسم بالكامل",
   "uploadIDCard": "قم برفع الكارنيه الخاص بك",
   "age": "السن",
-
-  "ok" : "حسنا",
-  "error" : "خطأ",
-  "success" : "نجاح",
-
+  "ok": "حسنا",
+  "error": "خطأ",
+  "success": "نجاح",
   "like": "أعجبني",
   "likeCount": "إعجاباً",
   "comment": "تعليق",
   "commentCount": "تعليقاً",
   "posts": "المنشورات",
   "createNewPost": "قم بإنشاء مشاركة جديدة",
-
   "home": "الرئيسية",
   "advices": "النصائح",
   "reminders": "التذكيرات",
@@ -61,18 +55,20 @@
   "post": "المنشور",
   "comments": "التعليقات",
   "searchRecord": "سجل البحث",
-
   "mohamedHamed": "محمد حامد",
   "personal_info": "البيانات الشخصية",
   "practicalExperience": "الخبرة العملية",
   "location": "العنوان",
   "dateOfBirth": "تاريخ الميلاد",
   "editUserInformation": "تعديل المعلومات الشخصية",
-
   "postContent": "محتوى المنشور...",
   "createPost": "إنشاء المنشور",
   "editPost": "تعديل المنشور",
   "publish": "نشر",
   "saveEdits": "حفظ التعديلات",
-  "deletePost": "حذف المنشور"
+  "deletePost": "حذف المنشور",
+  "toDaysAdvice": "نصيحة اليوم",
+  "advicesCategories": "اقسام النصائح",
+  "generalAdvices": "نصائح عامة",
+  "showAll": "عرض الكل"  
 }

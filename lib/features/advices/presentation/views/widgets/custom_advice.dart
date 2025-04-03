@@ -6,63 +6,51 @@ import 'package:smile_simulation/generated/l10n.dart';
 
 class CustomAdvice extends StatelessWidget {
   const CustomAdvice({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      constraints: BoxConstraints(minHeight: 198),
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(
-          opacity: 0.35,
-          image: AssetImage(Assets.imagesAdviceBackground),
-          fit: BoxFit.cover,
+    return Card(
+      color: AppColors.whiteColor,
+      child: Container(
+        width: double.infinity,
+        height: 132,
+        padding: EdgeInsets.all(8),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Text(
+                  S.of(context).academicCertificate,
+                  style: AppTextStyles.subTitle2(
+                    context,
+                  ).copyWith(color: AppColors.blackColor),
+                ),
+                Spacer(),
+                IconButton(
+                  style: IconButton.styleFrom(
+                    backgroundColor: AppColors.primaryColor,
+                  ),
+                  onPressed: () {
+                    // TODO: Handle favorite action
+                  },
+                  icon: Icon(
+                    Icons.arrow_forward_ios_outlined,
+                    color: AppColors.whiteColor,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 8),
+            Text(
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              "اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان واستخدام خيط الأسنان لإزالة البلاك من بين الأسنان، مع المضمضة بغسول فم مضاد للبكتيريا للحفاظ على صحة اللثة. ",
+              style: AppTextStyles.listItem(context),
+            ),
+          ],
         ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    S.of(context).academicCertificate,
-                    style: AppTextStyles.subTitle2(
-                      context,
-                    ).copyWith(color: AppColors.blackColor),
-                  ),
-                  Spacer(),
-                  IconButton(
-                    onPressed: () {
-                      // TODO: Handle favorite action
-                    },
-                    icon: Icon(
-                      Icons.favorite_border,
-                      color: AppColors.primaryColor,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 8),
-              Text(
-                "اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان واستخدام خيط الأسنان لإزالة البلاك من بين الأسنان، مع المضمضة بغسول فم مضاد للبكتيريا للحفاظ على صحة اللثة. ",
-                style: AppTextStyles.listItem(context),
-              ),
-            ],
-          ),
-
-          Text(
-            "🔗 فيديو نصائح العناية اليومية بالأسنان",
-            style: AppTextStyles.formLabel(
-              context,
-            ).copyWith(color: AppColors.primaryColor),
-          ),
-        ],
       ),
     );
   }

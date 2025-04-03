@@ -17,7 +17,7 @@ class AdvicesViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomAppBar(title: 'النصائح'),
+        CustomAppBar(title: S.of(context).advices),
         Expanded(
           child: CustomBodyScreen(
             child: CustomScrollView(
@@ -26,7 +26,6 @@ class AdvicesViewBody extends StatelessWidget {
                 SliverSizedBox(height: 24),
                 SliverToBoxAdapter(child: AdvicesCategoriesSection()),
 
-                
                 SliverSizedBox(height: 24),
                 SliverToBoxAdapter(
                   child: Column(
