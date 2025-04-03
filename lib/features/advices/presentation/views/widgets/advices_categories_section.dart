@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/assets.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class AdvicesCategoriesSection extends StatelessWidget {
   const AdvicesCategoriesSection({super.key});
@@ -16,10 +17,13 @@ class AdvicesCategoriesSection extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("الاقسام", style: AppTextStyles.headline2(context)),
+              Text(
+                S.of(context).advicesCategories,
+                style: AppTextStyles.headline2(context),
+              ),
               InkWell(
                 child: Text(
-                  "عرض الكل",
+                  S.of(context).showAll,
                   style: AppTextStyles.subTitle2(
                     context,
                   ).copyWith(color: AppColors.primaryColor),

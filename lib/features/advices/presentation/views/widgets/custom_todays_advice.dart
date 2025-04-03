@@ -16,7 +16,7 @@ class CustomTodaysAdvice extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         image: DecorationImage(
-          opacity: 0.35,
+          opacity: 0.25,
           image: AssetImage(Assets.imagesAdviceBackground),
           fit: BoxFit.cover,
         ),

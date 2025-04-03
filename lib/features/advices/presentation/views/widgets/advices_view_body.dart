@@ -33,7 +33,7 @@ class AdvicesViewBody extends StatelessWidget {
                     children: [
                       SizedBox(height: 16),
                       Text(
-                        S.of(context).posts,
+                        S.of(context).generalAdvices,
                         style: AppTextStyles.headline2(
                           context,
                         ).copyWith(color: AppColors.blackColor),
