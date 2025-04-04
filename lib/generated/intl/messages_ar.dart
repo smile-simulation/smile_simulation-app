@@ -76,6 +76,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "noAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "noAdvicesExist": MessageLookupByLibrary.simpleMessage("لا يوجد نصائح"),
+        "noCategoriesAdvicesExist":
+            MessageLookupByLibrary.simpleMessage("لا يوجد اقسام نصائح حاليا"),
         "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "منتدى شامل يساعدك على اكتشاف نصائح طبية وإجابات احترافية في مكان واحد.\nاحصل على الدعم والمشورة من خبراء الأسنان وزملائك المرضى بسهولة."),

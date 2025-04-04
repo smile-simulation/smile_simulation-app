@@ -819,6 +819,26 @@ class S {
       args: [],
     );
   }
+
+  /// `No advices exist`
+  String get noAdvicesExist {
+    return Intl.message(
+      'No advices exist',
+      name: 'noAdvicesExist',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No categories of advices currently exist`
+  String get noCategoriesAdvicesExist {
+    return Intl.message(
+      'No categories of advices currently exist',
+      name: 'noCategoriesAdvicesExist',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

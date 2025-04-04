@@ -17,7 +17,7 @@ class AdvicesCubit extends Cubit<AdvicesState> {
     var done = await advicesRepo.getGeneralAdvices();
     done.fold(
       (fail) {
-        emit(GetAdvicesFail());
+        emit(GetAdvicesFail(fail.errorMessage));
       },
       (success) {
         advices = success;
@@ -31,7 +31,7 @@ class AdvicesCubit extends Cubit<AdvicesState> {
     var done = await advicesRepo.getAllAdvicesCategories();
     done.fold(
       (fail) {
-        emit(GetAllAdvicesCategoriesFail());
+        emit(GetAllAdvicesCategoriesFail(fail.errorMessage));
       },
       (success) {
         advicesCategories = success;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 import 'advices_section_header.dart';
-import 'general_advices_sliver_list_view_builder.dart';
+import 'general_advices_list_view_builder.dart';
 
 class GeneralAdvicesSection extends StatelessWidget {
   const GeneralAdvicesSection({super.key});
@@ -19,7 +19,7 @@ class GeneralAdvicesSection extends StatelessWidget {
         ),
 
         SizedBox(height: 16),
-        GeneralAdvicesSliverListViewBuilder(),
+        GeneralAdvicesListViewBuilder(),
       ],
     );
   }

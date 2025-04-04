@@ -79,6 +79,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "noAdvicesExist":
+            MessageLookupByLibrary.simpleMessage("No advices exist"),
+        "noCategoriesAdvicesExist": MessageLookupByLibrary.simpleMessage(
+            "No categories of advices currently exist"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "A comprehensive forum that helps you discover medical advice and professional answers in one place.\nGet support and advice from dental experts and fellow patients easily."),
