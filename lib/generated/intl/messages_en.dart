@@ -32,6 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "advicesCategories":
             MessageLookupByLibrary.simpleMessage("Advice categories"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
+        "changeLanguage":
+            MessageLookupByLibrary.simpleMessage("Change Language"),
         "comment": MessageLookupByLibrary.simpleMessage("Comment"),
         "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
         "comments": MessageLookupByLibrary.simpleMessage("Comments"),
@@ -68,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "like": MessageLookupByLibrary.simpleMessage("Like"),
         "likeCount": MessageLookupByLibrary.simpleMessage("Likes"),
         "location": MessageLookupByLibrary.simpleMessage("Location"),
+        "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "male": MessageLookupByLibrary.simpleMessage("Male"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("Medical record"),
