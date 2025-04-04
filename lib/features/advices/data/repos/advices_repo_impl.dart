@@ -14,7 +14,7 @@ import 'package:smile_simulation/features/advices/data/repos/advices_repo.dart';
 class AdvicesRepoImpl implements AdvicesRepo {
   final DioConsumer dioConsumer;
   AdvicesRepoImpl({required this.dioConsumer});
-  List<Advice> getRandomAdvices(List<Advice> advices) {
+  List getRandomAdvices(List advices) {
     advices.shuffle(maths.Random());
     return advices.length > 10 ? advices.sublist(0, 10) : advices;
   }
@@ -33,7 +33,7 @@ class AdvicesRepoImpl implements AdvicesRepo {
         advices.add(Advice.fromJson(advice));
       }
       left(advices[0].toString());
-      advices = getRandomAdvices(advices);
+      advices = getRandomAdvices(advices) as List<Advice>;
       return Right(advices);
     } on ServerException catch (e) {
       logger.e("Exception in Get Advices: ${e.errorModel.message}");

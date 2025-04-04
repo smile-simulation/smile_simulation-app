@@ -20,9 +20,9 @@ class AdvicesCubit extends Cubit<AdvicesState> {
       },
       (success) {
         advices = success;
-        log(advices.toString());
         emit(GetAdvicesSuccess());
       },
     );
   }
+
 }
