@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/helper_functions/get_it.dart';
+import 'package:smile_simulation/features/advices/data/models/advices_category/advices_category.dart';
+import 'package:smile_simulation/features/advices/data/repos/advices_category_repo/advices_category_repo.dart';
+import 'package:smile_simulation/features/advices/presentation/managers/cubits/category_advices/category_advices_cubit.dart';
+import 'package:smile_simulation/features/advices/presentation/views/category_advices_view.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 
 import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
@@ -47,7 +51,22 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
     case ForgetView.routeName:
       return MaterialPageRoute(builder: (_) => const ForgetView());
+    case CategoryAdvicesView.routeName:
+      {
+        final category = settings.arguments as AdvicesCategory;
 
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create:
+                    (context) => CategoryAdvicesCubit(
+                      getIt.get<AdvicesCategoryRepo>(),
+                      category: category,
+                    ),
+                child: const CategoryAdvicesView(),
+              ),
+        );
+      }
     case BottomNavigationView.routeName:
       return MaterialPageRoute(builder: (_) => const BottomNavigationView());
 
