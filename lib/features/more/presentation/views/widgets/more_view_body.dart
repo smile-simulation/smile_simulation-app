@@ -7,18 +7,14 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-class MoreViewBody extends StatefulWidget {
+class MoreViewBody extends StatelessWidget {
   const MoreViewBody({super.key});
 
-  @override
-  State<MoreViewBody> createState() => _MoreViewBodyState();
-}
-
-class _MoreViewBodyState extends State<MoreViewBody> {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextButton(
             style: TextButton.styleFrom(backgroundColor: AppColors.whiteColor),
@@ -37,7 +33,6 @@ class _MoreViewBodyState extends State<MoreViewBody> {
             style: TextButton.styleFrom(backgroundColor: AppColors.whiteColor),
             onPressed: () {
               isArabic = isArabic == 'ar' ? 'en' : 'ar';
-              setState(() {});
             },
             child: Text(
               S.of(context).changeLanguage,
