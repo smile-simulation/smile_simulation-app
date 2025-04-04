@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "advicesCategories":
             MessageLookupByLibrary.simpleMessage("اقسام النصائح"),
         "age": MessageLookupByLibrary.simpleMessage("السن"),
+        "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
         "commentCount": MessageLookupByLibrary.simpleMessage("تعليقاً"),
         "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
@@ -67,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "like": MessageLookupByLibrary.simpleMessage("أعجبني"),
         "likeCount": MessageLookupByLibrary.simpleMessage("إعجاباً"),
         "location": MessageLookupByLibrary.simpleMessage("العنوان"),
+        "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("السجل الطبي"),

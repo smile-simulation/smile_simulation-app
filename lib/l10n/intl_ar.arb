@@ -71,8 +71,9 @@
   "advicesCategories": "اقسام النصائح",
   "generalAdvices": "نصائح عامة",
   "showAll": "عرض الكل",
-  "imageError":"الصورة غير صالحة",
-  "adviceTitleError":"عنوان نصيحة غير متاح",
-  "adviceContentError":"محتوى نصيحة غير متاح"
-  
+  "imageError": "الصورة غير صالحة",
+  "adviceTitleError": "عنوان نصيحة غير متاح",
+  "adviceContentError": "محتوى نصيحة غير متاح",
+  "logOut": "تسجيل الخروج",
+  "changeLanguage": "تغيير اللغة"
 }

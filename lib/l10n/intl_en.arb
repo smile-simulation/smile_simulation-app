@@ -73,6 +73,7 @@
   "showAll": "Show All",
   "imageError": "Image Not Valid",
   "adviceTitleError": "Advice Title Not Valid",
-  "adviceContentError": "Advice Content Not Valid"
-  
+  "adviceContentError": "Advice Content Not Valid",
+  "logOut": "Log Out",
+  "changeLanguage": "Change Language"
 }
