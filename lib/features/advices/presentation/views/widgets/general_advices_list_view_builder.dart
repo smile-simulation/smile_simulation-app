@@ -4,7 +4,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 import '../../../data/models/advice/advice.dart';
-import '../../managers/cubit/advices_cubit.dart';
+import '../../managers/cubits/advices_cubit/advices_cubit.dart';
 import 'general_advices_list_view.dart';
 import 'widgets_skeletons/general_advice_skeleton.dart';
 

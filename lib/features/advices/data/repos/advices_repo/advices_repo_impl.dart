@@ -11,9 +11,9 @@ import 'package:smile_simulation/core/errors/failure.dart';
 import 'package:smile_simulation/features/advices/data/dummy_data/json_advices.dart';
 import 'package:smile_simulation/features/advices/data/models/advice/advice.dart';
 import 'package:smile_simulation/features/advices/data/models/advices_category/advices_category.dart';
-import 'package:smile_simulation/features/advices/data/repos/advices_repo.dart';
+import 'package:smile_simulation/features/advices/data/repos/advices_repo/advices_repo.dart';
 
-import '../dummy_data/json_advices_categories.dart';
+import '../../dummy_data/json_advices_categories.dart';
 
 class AdvicesRepoImpl implements AdvicesRepo {
   final DioConsumer dioConsumer;
@@ -26,7 +26,7 @@ class AdvicesRepoImpl implements AdvicesRepo {
   @override
   Future<Either<Failure, List<Advice>>> getGeneralAdvices() async {
     try {
-      var response = await dioConsumer.get(EndPoint.AllAdvices);
+      var response = await dioConsumer.get(EndPoint.allAdvices);
       List<Advice> advices = [];
       // List<dynamic> advicesJsonList = response[ApiKeys.data];
       List<dynamic> advicesJsonList = jsonAdvices;
@@ -51,14 +51,16 @@ class AdvicesRepoImpl implements AdvicesRepo {
   Future<Either<Failure, List<AdvicesCategory>>>
   getAllAdvicesCategories() async {
     try {
-      var response = await dioConsumer.get(EndPoint.AllAdvicesCategories);
+      var response = await dioConsumer.get(EndPoint.allAdvicesCategories);
       List<AdvicesCategory> advicesCategories = [];
       // List<dynamic> advicesCategoriesJsonList = response[ApiKeys.data];
       List<dynamic> advicesCategoriesJsonList = jsonAdvicesCategories;
 
       for (Map<String, dynamic> advicesCategory in advicesCategoriesJsonList) {
         // log("Json Data: ${advicesCategory.toString()}");
-        log("the Model: ${AdvicesCategory.fromJson(advicesCategory).toString()}");
+        log(
+          "the Model: ${AdvicesCategory.fromJson(advicesCategory).toString()}",
+        );
         advicesCategories.add(AdvicesCategory.fromJson(advicesCategory));
       }
       // advicesCategories = getRandomAdvices(advicesCategories) as List<Advice>;

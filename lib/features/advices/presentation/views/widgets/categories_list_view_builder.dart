@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,7 +5,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 import '../../../data/models/advices_category/advices_category.dart';
-import '../../managers/cubit/advices_cubit.dart';
+import '../../managers/cubits/advices_cubit/advices_cubit.dart';
 import 'categories_list_view.dart';
 import 'widgets_skeletons/catogory_item_skeleton.dart';
 
