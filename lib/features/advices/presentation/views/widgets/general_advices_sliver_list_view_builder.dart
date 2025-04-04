@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/features/advices/presentation/managers/cubit/advices_cubit.dart';
 
-import 'custom_advice.dart';
+import '../../../data/models/advice/advice.dart';
+import 'advices_list_view.dart';
 
 class GeneralAdvicesSliverListViewBuilder extends StatefulWidget {
   const GeneralAdvicesSliverListViewBuilder({super.key});
@@ -25,22 +26,13 @@ class _GeneralAdvicesSliverListViewBuilderState
   Widget build(BuildContext context) {
     return BlocBuilder<AdvicesCubit, AdvicesState>(
       builder: (context, state) {
+        List<Advice> advices = context.read<AdvicesCubit>().advices;
         if (state is GetAdvicesFail) {
           return Center(child: SizedBox(child: Text("Error")));
-        } else if (state is GetAdvicesSuccess) {
-          return ListView.separated(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              return CustomAdvice(
-                advice: context.read<AdvicesCubit>().advices[index],
-              );
-            },
-            separatorBuilder: (context, index) => SizedBox(height: 16),
-            itemCount: 5,
-          );
-        } else {
+        } else if (state is GetAdvicesLoading || advices.isEmpty) {
           return Center(child: CircularProgressIndicator());
+        } else {
+          return AdvicesListView(advices: advices);
         }
       },
     );

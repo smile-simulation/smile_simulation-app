@@ -70,5 +70,9 @@
   "toDaysAdvice": "نصيحة اليوم",
   "advicesCategories": "اقسام النصائح",
   "generalAdvices": "نصائح عامة",
-  "showAll": "عرض الكل"  
+  "showAll": "عرض الكل",
+  "imageError":"الصورة غير صالحة",
+  "adviceTitleError":"عنوان نصيحة غير متاح",
+  "adviceContentError":"محتوى نصيحة غير متاح"
+  
 }
