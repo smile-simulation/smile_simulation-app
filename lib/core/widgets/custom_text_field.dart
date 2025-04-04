@@ -36,8 +36,9 @@ class CustomTextField extends StatelessWidget {
           controller: controller,
           cursorColor: AppColors.primaryColor,
           onSaved: onSaved,
-          validator: validator ??
-                  (value) {
+          validator:
+              validator ??
+              (value) {
                 if (value == null || value.isEmpty) {
                   return 'هذا الحقل مطلوب';
                 }
@@ -49,9 +50,9 @@ class CustomTextField extends StatelessWidget {
             filled: true,
             fillColor: const Color(0xffF8F8F8),
             hintText: hintText,
-            hintStyle: AppTextStyles.formLabel(context).copyWith(
-              color: AppColors.greyLightColor,
-            ),
+            hintStyle: AppTextStyles.formLabel(
+              context,
+            ).copyWith(color: AppColors.greyLightColor),
             suffixIcon: suffixIcon,
             border: _buildOutlineInputBorder(),
             enabledBorder: _buildOutlineInputBorder(),

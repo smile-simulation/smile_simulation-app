@@ -3,7 +3,6 @@ import 'package:dartz/dartz.dart';
 import '../../../../../core/errors/failure.dart';
 import '../model/sign_up_model.dart';
 
-
 abstract class SignUpRepo {
   // Future<Either<Failure, Map<String, dynamic>>> loginWithEmail({
   //   required String email,

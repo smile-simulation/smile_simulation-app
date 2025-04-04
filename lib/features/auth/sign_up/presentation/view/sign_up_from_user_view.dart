@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
-import 'package:smile_simulation/features/auth/login/presentation/view/widgets/login_view_body.dart';
 import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubits/sign_up_user_cubit.dart';
 
 import '../../../../../core/helper_functions/custom_error.dart';
@@ -18,8 +17,8 @@ class SignUpFromUserView extends StatelessWidget {
     return Scaffold(
       appBar: customAuthAppbar(context, isBack: true),
 
-      body: BlocConsumer<SignUpUserCubit, SignUpState> (
-        listener: (context, state)async  {
+      body: BlocConsumer<SignUpUserCubit, SignUpState>(
+        listener: (context, state) async {
           if (state is SignUpSuccess) {
             await customSuccess(context, massage: state.message);
             Navigator.pushNamedAndRemoveUntil(

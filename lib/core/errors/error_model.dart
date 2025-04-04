@@ -1,7 +1,5 @@
 class ErrorModel {
-  ErrorModel({
-      this.success, 
-      this.message,});
+  ErrorModel({this.success, this.message});
 
   ErrorModel.fromJson(dynamic json) {
     success = json['success'];
@@ -16,5 +14,4 @@ class ErrorModel {
     map['message'] = message;
     return map;
   }
-
 }

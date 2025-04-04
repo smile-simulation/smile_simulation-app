@@ -5,9 +5,7 @@ import '../../../../../../core/widgets/custom_text_field.dart';
 import '../../../../../../generated/l10n.dart';
 
 class InputSectionFromSignUpFromDoctorView extends StatelessWidget {
-  const InputSectionFromSignUpFromDoctorView({
-    super.key,
-  });
+  const InputSectionFromSignUpFromDoctorView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +18,12 @@ class InputSectionFromSignUpFromDoctorView extends StatelessWidget {
           keyboardType: TextInputType.text,
         ),
         CustomTextField(
-          title: S .of(context).email,
+          title: S.of(context).email,
           hintText: "example@gmail.com",
           keyboardType: TextInputType.emailAddress,
         ),
         CustomPasswordTextField(
-          title:S .of(context).password,
+          title: S.of(context).password,
           hintText: "*********",
         ),
         CustomPasswordTextField(
