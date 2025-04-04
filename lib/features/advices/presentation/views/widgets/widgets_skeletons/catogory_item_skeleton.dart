@@ -3,7 +3,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_loading_shimmer.dart';
 import 'package:smile_simulation/features/advices/presentation/views/widgets/widgets_skeletons/category_image_skeleton.dart';
 
-import 'category_name_skeleton.dart';
+import 'one_line_text_skeleton.dart';
 
 class CategoryItemCardSkeleton extends StatelessWidget {
   const CategoryItemCardSkeleton({super.key});
@@ -30,14 +30,10 @@ class CategoryItemCardSkeleton extends StatelessWidget {
         ),
         child: Column(
           children: [
-            CustomLoadingShimmer(
-              SkeletonWidget: CategoryImageSkeleton(),
-            ),
+            CustomLoadingShimmer(SkeletonWidget: CategoryImageSkeleton()),
 
             const SizedBox(height: 16),
-            CustomLoadingShimmer(
-              SkeletonWidget: CategoryNameSkeleton(),
-            ),
+            CustomLoadingShimmer(SkeletonWidget: OneLineTextSkeleton()),
           ],
         ),
       ),

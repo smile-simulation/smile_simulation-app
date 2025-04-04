@@ -75,5 +75,7 @@
   "adviceTitleError": "Advice Title Not Valid",
   "adviceContentError": "Advice Content Not Valid",
   "logOut": "Log Out",
-  "changeLanguage": "Change Language"
+  "changeLanguage": "Change Language",
+  "noAdvicesExist": "No advices exist",
+  "noCategoriesAdvicesExist": "No categories of advices currently exist"
 }

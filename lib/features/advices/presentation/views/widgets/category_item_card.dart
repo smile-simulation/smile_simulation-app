@@ -1,5 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
+import 'package:smile_simulation/features/advices/data/repos/advices_repo/advices_repo_impl.dart';
 
 import '../../../data/models/advices_category/advices_category.dart';
 import '../../../../../core/widgets/custom_cached_network_image.dart';
@@ -9,41 +12,44 @@ class CategoryItemCard extends StatelessWidget {
   final AdvicesCategory category;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 8),
-      child: Container(
-        width: 180,
-        height: 200,
-        padding: EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 8,
-              spreadRadius: 2,
-              offset: Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CustomCachedNetworkImage(
-              image: category.image,
-              height: 120,
-              width: double.infinity,
-            ),
-            SizedBox(height: 12),
-            Text(
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              textAlign: TextAlign.center,
-              category.name ?? "اسم غير صالح",
-              style: AppTextStyles.subTitle2(context),
-            ),
-          ],
+    return InkWell(
+      onTap: () {},
+      child: Padding(
+        padding: EdgeInsets.only(bottom: 8),
+        child: Container(
+          width: 180,
+          height: 200,
+          padding: EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 8,
+                spreadRadius: 2,
+                offset: Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CustomCachedNetworkImage(
+                image: category.image,
+                height: 120,
+                width: double.infinity,
+              ),
+              SizedBox(height: 12),
+              Text(
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+                category.name ?? "اسم غير صالح",
+                style: AppTextStyles.subTitle2(context),
+              ),
+            ],
+          ),
         ),
       ),
     );

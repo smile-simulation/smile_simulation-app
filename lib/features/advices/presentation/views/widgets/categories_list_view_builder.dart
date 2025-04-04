@@ -1,10 +1,11 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/core/utils/app_colors.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 import '../../../data/models/advices_category/advices_category.dart';
-import '../../managers/cubit/advices_cubit.dart';
+import '../../managers/cubits/advices_cubit/advices_cubit.dart';
 import 'categories_list_view.dart';
 import 'widgets_skeletons/catogory_item_skeleton.dart';
 
@@ -30,10 +31,18 @@ class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
         List<AdvicesCategory> advicesCategories =
             context.read<AdvicesCubit>().advicesCategories;
         if (state is GetAllAdvicesCategoriesFail) {
-          return Center(child: SizedBox(child: Text("Error")));
+          return Center(child: SizedBox(child: Text(state.errorMsg)));
+        } else if (state is GetAllAdvicesCategoriesSuccess &&
+            advicesCategories.isEmpty) {
+          return Container(
+            alignment: Alignment.center,
+            width: double.infinity,
+            height: 132,
+            decoration: BoxDecoration(color: AppColors.whiteColor),
+            child: Text(S.of(context).noCategoriesAdvicesExist),
+          );
         } else if (state is GetAllAdvicesCategoriesLoading ||
             advicesCategories.isEmpty) {
-          log("hi");
           return ListView.separated(
             separatorBuilder: (context, index) => SizedBox(width: 16),
             scrollDirection: Axis.horizontal,
