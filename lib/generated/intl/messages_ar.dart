@@ -24,6 +24,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "academicCertificate":
             MessageLookupByLibrary.simpleMessage("الشهادة الأكاديمية"),
+        "adviceContentError":
+            MessageLookupByLibrary.simpleMessage("محتوى نصيحة غير متاح"),
+        "adviceTitleError":
+            MessageLookupByLibrary.simpleMessage("عنوان نصيحة غير متاح"),
         "advices": MessageLookupByLibrary.simpleMessage("النصائح"),
         "advicesCategories":
             MessageLookupByLibrary.simpleMessage("اقسام النصائح"),
@@ -59,6 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
         "generalAdvices": MessageLookupByLibrary.simpleMessage("نصائح عامة"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "imageError": MessageLookupByLibrary.simpleMessage("الصورة غير صالحة"),
         "like": MessageLookupByLibrary.simpleMessage("أعجبني"),
         "likeCount": MessageLookupByLibrary.simpleMessage("إعجاباً"),
         "location": MessageLookupByLibrary.simpleMessage("العنوان"),

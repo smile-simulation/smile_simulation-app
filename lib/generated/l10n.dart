@@ -769,6 +769,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Image Not Valid`
+  String get imageError {
+    return Intl.message(
+      'Image Not Valid',
+      name: 'imageError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advice Title Not Valid`
+  String get adviceTitleError {
+    return Intl.message(
+      'Advice Title Not Valid',
+      name: 'adviceTitleError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advice Content Not Valid`
+  String get adviceContentError {
+    return Intl.message(
+      'Advice Content Not Valid',
+      name: 'adviceContentError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

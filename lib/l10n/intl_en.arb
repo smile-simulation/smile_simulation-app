@@ -70,5 +70,9 @@
   "toDaysAdvice": "Today's Advice",
   "advicesCategories": "Advice categories",
   "generalAdvices": "General Advices",
-  "showAll": "Show All"
+  "showAll": "Show All",
+  "imageError": "Image Not Valid",
+  "adviceTitleError": "Advice Title Not Valid",
+  "adviceContentError": "Advice Content Not Valid"
+  
 }
