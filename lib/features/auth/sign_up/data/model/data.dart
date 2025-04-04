@@ -1,7 +1,5 @@
 class Data {
-  Data({
-      this.email, 
-      this.token,});
+  Data({this.email, this.token});
 
   Data.fromJson(dynamic json) {
     email = json['email'];
@@ -16,5 +14,4 @@ class Data {
     map['token'] = token;
     return map;
   }
-
 }

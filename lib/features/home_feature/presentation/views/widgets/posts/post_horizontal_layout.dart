@@ -15,7 +15,7 @@ class PostHorizontalLayout extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            flex: 8,
+            flex: 7,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [PostText(postContent: post.content, maxLines: 5)],

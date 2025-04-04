@@ -9,7 +9,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.isSecondary = false,
     this.isMinWidth = false,
-     this.isLoading = false,
+    this.isLoading = false,
   });
 
   final Function() onPressed;
@@ -31,9 +31,7 @@ class CustomButton extends StatelessWidget {
       onPressed: onPressed,
       child:
           isLoading
-              ? const CircularProgressIndicator(
-            color: AppColors.whiteColor,
-          )
+              ? const CircularProgressIndicator(color: AppColors.whiteColor)
               : Text(
                 title,
                 style: AppTextStyles.button2(context).copyWith(

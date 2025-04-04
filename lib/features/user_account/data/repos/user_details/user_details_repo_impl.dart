@@ -18,7 +18,7 @@ class UserDetailsRepoImpl implements UserDetailsRepo {
       options: Options(headers: {"Authorization": "Bearer $token"}),
     );
     print(response.data);
-    
+
     // TODO: implement getUserDetails
     throw UnimplementedError();
   }

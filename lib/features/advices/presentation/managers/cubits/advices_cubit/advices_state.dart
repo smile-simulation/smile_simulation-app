@@ -1,0 +1,28 @@
+part of 'advices_cubit.dart';
+
+sealed class AdvicesState extends Equatable {
+  const AdvicesState();
+
+  @override
+  List<Object> get props => [];
+}
+
+final class AdvicesInitial extends AdvicesState {}
+
+final class GetAdvicesSuccess extends AdvicesState {}
+
+final class GetAdvicesFail extends AdvicesState {
+  final String errorMsg;
+  GetAdvicesFail(this.errorMsg);
+}
+
+final class GetAdvicesLoading extends AdvicesState {}
+
+final class GetAllAdvicesCategoriesLoading extends AdvicesState {}
+
+final class GetAllAdvicesCategoriesSuccess extends AdvicesState {}
+
+final class GetAllAdvicesCategoriesFail extends AdvicesState {
+  final String errorMsg;
+  GetAllAdvicesCategoriesFail(this.errorMsg);
+}

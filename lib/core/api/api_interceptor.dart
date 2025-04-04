@@ -6,7 +6,6 @@ class ApiInterceptor extends Interceptor {
     super.onRequest(options, handler);
     options.headers['token'] = null;
     options.headers['lang'] = 'en';
-    options.headers['Authorization'] =
-        '';
+    options.headers['Authorization'] = '';
   }
 }
