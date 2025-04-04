@@ -6,7 +6,8 @@ class EndPoint {
   static String forgetPassword = "Account/ForgetPassword";
   static String resetPassword = "Account/ResetPassword";
   static String verifyOTP = "Account/VerifyOTP";
-  static String getAllAdvices = "Advice/GetAllAdvices";
+  static String AllAdvices = "Advice/GetAllAdvices";
+  static String AllAdvicesCategories = "AdviceCategory/GetAll_Advice_Category";
   // static String home = "home";
   // static String categories = "categories";
   // static String categoriesDetails = "categories/";

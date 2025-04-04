@@ -8,6 +8,15 @@ sealed class AdvicesState extends Equatable {
 }
 
 final class AdvicesInitial extends AdvicesState {}
+
 final class GetAdvicesSuccess extends AdvicesState {}
+
 final class GetAdvicesFail extends AdvicesState {}
+
 final class GetAdvicesLoading extends AdvicesState {}
+
+final class GetAllAdvicesCategoriesLoading extends AdvicesState {}
+
+final class GetAllAdvicesCategoriesSuccess extends AdvicesState {}
+
+final class GetAllAdvicesCategoriesFail extends AdvicesState {}

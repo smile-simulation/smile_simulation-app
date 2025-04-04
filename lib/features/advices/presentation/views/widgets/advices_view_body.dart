@@ -43,7 +43,9 @@ class AdvicesViewBody extends StatelessWidget {
                   ),
                 ),
 
-                SliverToBoxAdapter(child: GeneralAdvicesSliverListViewBuilder()),
+                SliverToBoxAdapter(
+                  child: GeneralAdvicesSliverListViewBuilder(),
+                ),
               ],
             ),
           ),

@@ -1,7 +1,15 @@
+import 'dart:developer';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/generated/assets.dart';
+import 'package:smile_simulation/features/advices/data/models/advices_category/advices_category.dart';
+import 'package:smile_simulation/features/advices/data/repos/advices_repo_impl.dart';
+import 'package:smile_simulation/features/advices/presentation/managers/cubit/advices_cubit.dart';
+import 'package:smile_simulation/features/advices/presentation/views/widgets/category_item_card.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 class AdvicesCategoriesSection extends StatelessWidget {
@@ -22,6 +30,11 @@ class AdvicesCategoriesSection extends StatelessWidget {
                 style: AppTextStyles.headline2(context),
               ),
               InkWell(
+                onTap: () {
+                  AdvicesRepoImpl(
+                    dioConsumer: DioConsumer(dio: Dio()),
+                  ).getAllAdvicesCategories();
+                },
                 child: Text(
                   S.of(context).showAll,
                   style: AppTextStyles.subTitle2(
@@ -33,61 +46,64 @@ class AdvicesCategoriesSection extends StatelessWidget {
           ),
         ),
         SizedBox(height: 16),
-        SizedBox(
-          height: 200,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.only(bottom: 8),
-                child: Container(
-                  width: 180,
-                  height: 188,
-                  padding: EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 8,
-                        spreadRadius: 2,
-                        offset: Offset(0, 4),
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          Assets.tempDailyCare,
-                          width: double.infinity,
-                          height: 120,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      SizedBox(height: 12),
-                      Text(
-                        "العناية اليومية",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black87,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-            separatorBuilder: (context, index) => SizedBox(width: 16),
-            itemCount: 5,
-          ),
-        ),
+        SizedBox(height: 212, child: CategoriesListViewBuilder()),
       ],
+    );
+  }
+}
+
+class CategoriesListViewBuilder extends StatefulWidget {
+  const CategoriesListViewBuilder({super.key});
+
+  @override
+  State<CategoriesListViewBuilder> createState() =>
+      _CategoriesListViewBuilderState();
+}
+
+class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
+  @override
+  void initState() {
+    context.read<AdvicesCubit>().getAllAdvicesCategories();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AdvicesCubit, AdvicesState>(
+      builder: (context, state) {
+        if (state is GetAllAdvicesCategoriesFail) {
+          return Center(child: SizedBox(child: Text("Error")));
+        } else if (state is GetAllAdvicesCategoriesLoading) {
+          return Center(child: CircularProgressIndicator());
+        } else {
+          log(context.read<AdvicesCubit>().advicesCategories.toString());
+          return CategoriesListView(
+            // advicesCategories: [],
+            advicesCategories: context.read<AdvicesCubit>().advicesCategories,
+          );
+        }
+      },
+    );
+  }
+}
+
+class CategoriesListView extends StatelessWidget {
+  const CategoriesListView({super.key, required this.advicesCategories});
+  final List<AdvicesCategory> advicesCategories;
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      scrollDirection: Axis.horizontal,
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      itemBuilder: (context, index) {
+        if (advicesCategories.isEmpty) {
+          return Text("No Categories");
+        } else {
+          return CategoryItemCard(category: advicesCategories[index]);
+        }
+      },
+      separatorBuilder: (context, index) => SizedBox(width: 16),
+      itemCount: advicesCategories.length,
     );
   }
 }
