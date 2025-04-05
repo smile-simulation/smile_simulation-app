@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:math' as maths;
 
 import 'package:dartz/dartz.dart';
 import 'package:smile_simulation/constant.dart';
@@ -16,10 +15,7 @@ class AdvicesCategoryRepoImpl implements AdvicesCategoryRepo {
   final DioConsumer dioConsumer;
 
   AdvicesCategoryRepoImpl({required this.dioConsumer});
-  List reArrangeAdvices(List advices) {
-    advices.shuffle(maths.Random());
-    return advices;
-  }
+
 
   @override
   Future<Either<Failure, List<Advice>>> getAdvicesByCategoryId({
@@ -40,7 +36,7 @@ class AdvicesCategoryRepoImpl implements AdvicesCategoryRepo {
         log(" ------------ Divider ------------------");
         advices.add(Advice.fromJson(advice));
       }
-      advices = reArrangeAdvices(advices) as List<Advice>;
+      // advices = reArrangeAdvices(advices) as List<Advice>;
       return Right(advices);
     } on ServerException catch (e) {
       logger.e("Exception in Get Advices: ${e.errorModel.message}");

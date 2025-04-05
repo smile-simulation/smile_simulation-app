@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
@@ -28,12 +27,12 @@ class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
   Widget build(BuildContext context) {
     return BlocBuilder<AdvicesCubit, AdvicesState>(
       builder: (context, state) {
-        List<AdvicesCategory> advicesCategories =
-            context.read<AdvicesCubit>().advicesCategories;
+        List<AdvicesCategory> advicesCategoriesSubset =
+            context.read<AdvicesCubit>().getAdvicesCategorySubset();
         if (state is GetAllAdvicesCategoriesFail) {
           return Center(child: SizedBox(child: Text(state.errorMsg)));
         } else if (state is GetAllAdvicesCategoriesSuccess &&
-            advicesCategories.isEmpty) {
+            advicesCategoriesSubset.isEmpty) {
           return Container(
             alignment: Alignment.center,
             width: double.infinity,
@@ -42,7 +41,7 @@ class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
             child: Text(S.of(context).noCategoriesAdvicesExist),
           );
         } else if (state is GetAllAdvicesCategoriesLoading ||
-            advicesCategories.isEmpty) {
+            advicesCategoriesSubset.isEmpty) {
           return ListView.separated(
             separatorBuilder: (context, index) => SizedBox(width: 16),
             scrollDirection: Axis.horizontal,
@@ -52,7 +51,12 @@ class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
             itemCount: 6,
           );
         } else {
-          return CategoriesListView(advicesCategories: advicesCategories);
+          return Container(
+            alignment: Alignment.center,
+            child: CategoriesListView(
+              advicesCategories: advicesCategoriesSubset,
+            ),
+          );
         }
       },
     );

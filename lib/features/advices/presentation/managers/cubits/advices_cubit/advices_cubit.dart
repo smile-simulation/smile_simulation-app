@@ -11,6 +11,16 @@ class AdvicesCubit extends Cubit<AdvicesState> {
   List<Advice> advices = [];
   List<AdvicesCategory> advicesCategories = [];
 
+  List<Advice> getAdvicesSubset() {
+    return advices.length < 6 ? advices : advices.sublist(0, 6);
+  }
+
+  List<AdvicesCategory> getAdvicesCategorySubset() {
+    return advicesCategories.length < 6
+        ? advicesCategories
+        : advicesCategories.sublist(0, 6);
+  }
+
   AdvicesCubit(this.advicesRepo) : super(AdvicesInitial());
   Future<void> getAdvices() async {
     emit(GetAdvicesLoading());

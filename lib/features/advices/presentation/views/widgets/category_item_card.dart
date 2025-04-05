@@ -1,8 +1,5 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/advices/data/repos/advices_repo/advices_repo_impl.dart';
 import 'package:smile_simulation/features/advices/presentation/views/category_advices_view.dart';
 
 import '../../../data/models/advices_category/advices_category.dart';
