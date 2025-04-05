@@ -29,7 +29,7 @@ class _GeneralAdvicesListViewBuilderState
   Widget build(BuildContext context) {
     return BlocBuilder<AdvicesCubit, AdvicesState>(
       builder: (context, state) {
-        List<Advice> advices = context.read<AdvicesCubit>().advices;
+        List<Advice> advices = context.read<AdvicesCubit>().getAdvicesSubset();
         if (state is GetAdvicesFail) {
           return Center(child: SizedBox(child: Text(state.errorMsg)));
         } else if (state is GetAdvicesSuccess && advices.isEmpty) {

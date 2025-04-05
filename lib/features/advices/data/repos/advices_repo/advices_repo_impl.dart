@@ -3,7 +3,6 @@ import 'dart:math' as maths;
 
 import 'package:dartz/dartz.dart';
 import 'package:smile_simulation/constant.dart';
-import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/api/end_point.dart';
 import 'package:smile_simulation/core/errors/exceptions.dart';
@@ -20,7 +19,8 @@ class AdvicesRepoImpl implements AdvicesRepo {
   AdvicesRepoImpl({required this.dioConsumer});
   List getRandomAdvices(List advices) {
     advices.shuffle(maths.Random());
-    return advices.length > 10 ? advices.sublist(0, 10) : advices;
+    return advices;
+    // return advices.length > 10 ? advices.sublist(0, 10) : advices;
   }
 
   @override
