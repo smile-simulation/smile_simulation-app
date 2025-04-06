@@ -20,13 +20,14 @@ class AdvicesRepoImpl implements AdvicesRepo {
   AdvicesRepoImpl({required this.dioConsumer});
   List getRandomAdvices(List advices) {
     advices.shuffle(maths.Random());
-    return advices.length > 10 ? advices.sublist(0, 10) : advices;
+    return  advices;
+    // return advices.length > 10 ? advices.sublist(0, 10) : advices;
   }
 
   @override
   Future<Either<Failure, List<Advice>>> getGeneralAdvices() async {
     try {
-      var response = await dioConsumer.get(EndPoint.AllAdvices);
+      var response = await dioConsumer.get(EndPoint.allAdvices);
       List<Advice> advices = [];
       // List<dynamic> advicesJsonList = response[ApiKeys.data];
       List<dynamic> advicesJsonList = jsonAdvices;
@@ -51,7 +52,7 @@ class AdvicesRepoImpl implements AdvicesRepo {
   Future<Either<Failure, List<AdvicesCategory>>>
   getAllAdvicesCategories() async {
     try {
-      var response = await dioConsumer.get(EndPoint.AllAdvicesCategories);
+      var response = await dioConsumer.get(EndPoint.allAdvicesCategories);
       List<AdvicesCategory> advicesCategories = [];
       // List<dynamic> advicesCategoriesJsonList = response[ApiKeys.data];
       List<dynamic> advicesCategoriesJsonList = jsonAdvicesCategories;
