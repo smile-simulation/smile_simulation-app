@@ -14,7 +14,7 @@ class AdvicesListView extends StatelessWidget {
         return CustomAdvice(advice: advices[index]);
       },
       separatorBuilder: (context, index) => SizedBox(height: 16),
-      itemCount: 5,
+      itemCount: advices.length,
     );
   }
 }

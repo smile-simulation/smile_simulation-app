@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/advices/presentation/views/category_advices_view.dart';
 
 import '../../../data/models/advices_category/advices_category.dart';
 import '../../../../../core/widgets/custom_cached_network_image.dart';
+import '../advices_home/widgets/advices_list_view.dart';
+import '../category_advices_view.dart';
 
 class CategoryItemCard extends StatelessWidget {
   const CategoryItemCard({super.key, required this.category});
@@ -52,6 +53,7 @@ class CategoryItemCard extends StatelessWidget {
                 category.name ?? "اسم غير صالح",
                 style: AppTextStyles.subTitle2(context),
               ),
+              Expanded(child: AdvicesListView(advices: [])),
             ],
           ),
         ),
