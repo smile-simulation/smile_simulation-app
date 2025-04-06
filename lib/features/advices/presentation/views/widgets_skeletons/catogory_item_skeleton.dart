@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_loading_shimmer.dart';
-import 'package:smile_simulation/features/advices/presentation/views/widgets/widgets_skeletons/category_image_skeleton.dart';
+import 'package:smile_simulation/features/advices/presentation/views/widgets_skeletons/category_image_skeleton.dart';
 
 import 'one_line_text_skeleton.dart';
 

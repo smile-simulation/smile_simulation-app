@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/models/advices_category/advices_category.dart';
-import 'category_item_card.dart';
+import '../../../../data/models/advices_category/advices_category.dart';
+import '../../widgets/category_item_card.dart';
 
 class CategoriesListView extends StatelessWidget {
   const CategoriesListView({super.key, required this.advicesCategories});

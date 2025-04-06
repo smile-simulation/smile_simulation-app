@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/advices/presentation/managers/cubits/advices_cubit/advices_cubit.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
+import '../../../managers/cubits/advices_cubit/advices_cubit.dart';
 import 'advices_section_header.dart';
 import 'categories_list_view_builder.dart';
 
@@ -22,6 +22,11 @@ class AdvicesCategoriesSection extends StatelessWidget {
               sectionTitle: S.of(context).advicesCategories,
               seeAllOnTap: () {
                 if (context.read<AdvicesCubit>().advicesCategories.isNotEmpty) {
+                  // Navigator.pushNamed(
+                  //   context,
+                  //   CategoryAdvicesView.routeName,
+                  //   arguments: context.read<AdvicesCubit>().advicesCategories,
+                  // );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(

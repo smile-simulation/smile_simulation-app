@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_loading_shimmer.dart';
 
 import '../../features/advices/presentation/views/widgets/in_valid_category_image.dart';
-import '../../features/advices/presentation/views/widgets/widgets_skeletons/category_image_skeleton.dart';
+import '../../features/advices/presentation/views/widgets_skeletons/category_image_skeleton.dart';
 
 class CustomCachedNetworkImage extends StatelessWidget {
   const CustomCachedNetworkImage({
