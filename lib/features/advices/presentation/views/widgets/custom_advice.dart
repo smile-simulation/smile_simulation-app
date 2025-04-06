@@ -6,6 +6,8 @@ import 'package:smile_simulation/generated/l10n.dart';
 
 import 'advice_header.dart';
 
+
+
 class CustomAdvice extends StatelessWidget {
   const CustomAdvice({super.key, required this.advice});
   final Advice advice;

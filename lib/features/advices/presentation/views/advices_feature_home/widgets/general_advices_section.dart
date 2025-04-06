@@ -4,7 +4,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-import '../../managers/cubits/advices_cubit/advices_cubit.dart';
+import '../../../managers/cubits/advices_cubit/advices_cubit.dart';
 import 'advices_section_header.dart';
 import 'general_advices_list_view_builder.dart';
 

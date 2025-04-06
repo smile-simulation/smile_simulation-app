@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../data/models/advice/advice.dart';
-import 'custom_advice.dart';
+import '../../../../data/models/advice/advice.dart';
+import '../../widgets/custom_advice.dart';
 
-class GeneralAdvicesListView extends StatelessWidget {
-  const GeneralAdvicesListView({super.key, required this.advices});
+class AdvicesListView extends StatelessWidget {
+  const AdvicesListView({super.key, required this.advices});
   final List<Advice> advices;
   @override
   Widget build(BuildContext context) {
