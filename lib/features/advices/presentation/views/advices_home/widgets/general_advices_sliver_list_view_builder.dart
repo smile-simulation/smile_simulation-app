@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/features/advices/presentation/managers/cubit/advices_cubit.dart';
 
 import '../../../../data/models/advice/advice.dart';
+import '../../../managers/cubits/advices_cubit/advices_cubit.dart';
 import 'advices_list_view.dart';
 
 class GeneralAdvicesSliverListViewBuilder extends StatefulWidget {
