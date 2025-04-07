@@ -22,11 +22,6 @@ class AdvicesCategoriesSection extends StatelessWidget {
               sectionTitle: S.of(context).advicesCategories,
               seeAllOnTap: () {
                 if (context.read<AdvicesCubit>().advicesCategories.isNotEmpty) {
-                  // Navigator.pushNamed(
-                  //   context,
-                  //   CategoryAdvicesView.routeName,
-                  //   arguments: context.read<AdvicesCubit>().advicesCategories,
-                  // );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(

@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/features/advices/data/models/advice/advice.dart';
+import 'package:smile_simulation/features/advices/presentation/views/advice/advice_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 import 'advice_header.dart';
-
-
 
 class CustomAdvice extends StatelessWidget {
   const CustomAdvice({super.key, required this.advice});
@@ -14,6 +13,9 @@ class CustomAdvice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, AdviceView.routeName, arguments: advice);
+      },
       child: Card(
         color: AppColors.whiteColor,
         child: Container(
@@ -24,10 +26,7 @@ class CustomAdvice extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AdviceHeader(
-                adviceTitle: advice.title,
-                showAdviceOnPressed: () {},
-              ),
+              AdviceHeader(adviceTitle: advice.title),
               SizedBox(height: 8),
               Text(
                 maxLines: 2,

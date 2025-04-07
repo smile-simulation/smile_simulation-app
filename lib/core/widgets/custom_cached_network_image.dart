@@ -11,8 +11,9 @@ class CustomCachedNetworkImage extends StatelessWidget {
     required this.image,
     required this.height,
     required this.width,
+    this.fit,
   });
-
+  final BoxFit? fit;
   final String? image;
   final double height;
   final double width;

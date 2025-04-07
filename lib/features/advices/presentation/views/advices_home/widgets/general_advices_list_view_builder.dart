@@ -7,7 +7,7 @@ import 'package:smile_simulation/generated/l10n.dart';
 import '../../../../data/models/advice/advice.dart';
 import '../../../managers/cubits/advices_cubit/advices_cubit.dart';
 import '../../widgets/custom_display_error_message.dart';
-import 'empty_categories_list_view.dart';
+import 'empty_list_view.dart';
 import 'general_advices_list_view.dart';
 import '../../widgets_skeletons/general_advice_skeleton.dart';
 

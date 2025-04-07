@@ -4,10 +4,10 @@ import 'package:smile_simulation/generated/l10n.dart';
 
 import '../../../../data/models/advices_category/advices_category.dart';
 import '../../../managers/cubits/advices_cubit/advices_cubit.dart';
+import '../../widgets/custom_display_error_message.dart';
 import 'categories_list_view.dart';
 import '../../widgets_skeletons/catogory_item_skeleton.dart';
-import '../../widgets/custom_display_error_message.dart';
-import 'empty_categories_list_view.dart';
+import 'empty_list_view.dart';
 
 class CategoriesListViewBuilder extends StatelessWidget {
   const CategoriesListViewBuilder({super.key});
