@@ -3,13 +3,20 @@ import '../../../../data/models/advice/advice.dart';
 import '../../widgets/custom_advice.dart';
 
 class AdvicesListView extends StatelessWidget {
-  const AdvicesListView({super.key, required this.advices});
+  const AdvicesListView({
+    super.key,
+    required this.advices,
+    this.physics,
+    this.shrinkWrap,
+  });
   final List<Advice> advices;
+  final ScrollPhysics? physics;
+  final bool? shrinkWrap;
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
+      physics: physics ?? NeverScrollableScrollPhysics(),
+      shrinkWrap: shrinkWrap ?? true,
       itemBuilder: (context, index) {
         return CustomAdvice(advice: advices[index]);
       },

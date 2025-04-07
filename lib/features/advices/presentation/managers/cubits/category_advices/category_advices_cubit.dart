@@ -22,7 +22,7 @@ class CategoryAdvicesCubit extends Cubit<CategoryAdvicesState> {
       },
       (success) {
         advices = success;
-        emit(GetAdvicesByCategoryIdSuccess());
+        emit(GetAdvicesByCategoryIdSuccess(categoryAdvices: advices));
       },
     );
   }
