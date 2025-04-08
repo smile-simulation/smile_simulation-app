@@ -38,7 +38,7 @@ class CustomTodaysAdvice extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    S.of(context).academicCertificate,
+                    S.of(context).toDaysAdvice,
                     style: AppTextStyles.subTitle2(
                       context,
                     ).copyWith(color: AppColors.blackColor),

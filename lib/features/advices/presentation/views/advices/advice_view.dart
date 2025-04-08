@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/features/advices/presentation/views/advice/widgets/advice_view_body.dart';
+import 'package:smile_simulation/features/advices/presentation/views/advices/widgets/advice_view_body.dart';
 
 import '../../../data/models/advice/advice.dart';
 
