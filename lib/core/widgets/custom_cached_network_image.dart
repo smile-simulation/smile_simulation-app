@@ -33,7 +33,10 @@ class CustomCachedNetworkImage extends StatelessWidget {
                     (context, url) => CustomLoadingShimmer(
                       SkeletonWidget: CategoryImageSkeleton(),
                     ),
-                errorWidget: (context, url, error) => InValidCategoryImage(),
+                errorWidget: (context, url, error) {
+                  debugPrint('Image load failed: $url \nError: $error');
+                  return InValidCategoryImage();
+                },
               ),
     );
   }

@@ -9,6 +9,6 @@ class AllAdvicesView extends StatelessWidget {
   final List<Advice> advices;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: AllAdvicesViewBody());
+    return Scaffold(body: AllAdvicesViewBody(advices: advices));
   }
 }
