@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_loading_shimmer.dart';
 
 import '../../features/advices/presentation/views/widgets/in_valid_category_image.dart';
-import '../../features/advices/presentation/views/widgets/widgets_skeletons/category_image_skeleton.dart';
+import '../../features/advices/presentation/views/widgets_skeletons/category_image_skeleton.dart';
 
 class CustomCachedNetworkImage extends StatelessWidget {
   const CustomCachedNetworkImage({
@@ -11,8 +11,9 @@ class CustomCachedNetworkImage extends StatelessWidget {
     required this.image,
     required this.height,
     required this.width,
+    this.fit,
   });
-
+  final BoxFit? fit;
   final String? image;
   final double height;
   final double width;
@@ -32,7 +33,10 @@ class CustomCachedNetworkImage extends StatelessWidget {
                     (context, url) => CustomLoadingShimmer(
                       SkeletonWidget: CategoryImageSkeleton(),
                     ),
-                errorWidget: (context, url, error) => InValidCategoryImage(),
+                errorWidget: (context, url, error) {
+                  debugPrint('Image load failed: $url \nError: $error');
+                  return InValidCategoryImage();
+                },
               ),
     );
   }

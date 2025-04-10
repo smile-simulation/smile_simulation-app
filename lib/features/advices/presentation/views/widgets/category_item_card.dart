@@ -1,11 +1,10 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/advices/data/repos/advices_repo/advices_repo_impl.dart';
 
 import '../../../data/models/advices_category/advices_category.dart';
 import '../../../../../core/widgets/custom_cached_network_image.dart';
+import '../advices_home/widgets/advices_list_view.dart';
+import '../category_advices/category_advices_view.dart';
 
 class CategoryItemCard extends StatelessWidget {
   const CategoryItemCard({super.key, required this.category});
@@ -13,7 +12,13 @@ class CategoryItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          CategoryAdvicesView.routeName,
+          arguments: category,
+        );
+      },
       child: Padding(
         padding: EdgeInsets.only(bottom: 8),
         child: Container(
@@ -48,6 +53,7 @@ class CategoryItemCard extends StatelessWidget {
                 category.name ?? "اسم غير صالح",
                 style: AppTextStyles.subTitle2(context),
               ),
+              Expanded(child: AdvicesListView(advices: [])),
             ],
           ),
         ),
