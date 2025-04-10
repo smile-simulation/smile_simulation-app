@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/comments_cubit/comments_cubit.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
-
 
 class AddCommentFormField extends StatelessWidget {
   const AddCommentFormField({super.key});
@@ -38,7 +36,12 @@ class AddCommentFormField extends StatelessWidget {
                   //     },
                   //   ),
                   // );
-                  navigateTo(context, UserAccountView(currentUser: false));
+                  // navigateTo(context, UserAccountView(currentUser: false));
+                  Navigator.pushNamed(
+                    context,
+                    UserAccountView.routeName,
+                    arguments: false,
+                  );
                 },
               ),
               SizedBox(width: 8), // تباعد بين الصورة ومربع النص

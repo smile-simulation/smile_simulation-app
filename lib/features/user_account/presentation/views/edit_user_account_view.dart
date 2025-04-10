@@ -4,7 +4,7 @@ import 'package:smile_simulation/features/user_account/presentation/views/widget
 
 class EditUserAccountView extends StatelessWidget {
   const EditUserAccountView({super.key});
-
+  static const routeName = "editUserAccountView";
   @override
   Widget build(BuildContext context) {
     return Scaffold(

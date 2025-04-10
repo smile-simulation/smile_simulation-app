@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/services/navigations.dart';
-import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
 
+import '../../../data/models/post_model.dart';
 import '../post_view.dart';
 import 'posts/custom_post.dart';
 
@@ -31,18 +30,31 @@ class PostsListViewBuilder extends StatelessWidget {
                 //     },
                 //   ),
                 // );
-                navigateTo(
+                // navigateTo(
+                //   context,
+                //   PostView(
+                //     post: PostModel(
+                //       id: '1',
+                //       userName: 'محمود مجدي',
+                //       userImage: 'https://example.com/user.jpg',
+                //       content: 'هذا هو أول منشور لي!',
+                //       postDate: 'منذ يومين',
+                //       likes: 120,
+                //       commentsCount: 15,
+                //     ),
+                //   ),
+                // );
+                Navigator.pushNamed(
                   context,
-                  PostView(
-                    post: PostModel(
-                      id: '1',
-                      userName: 'محمود مجدي',
-                      userImage: 'https://example.com/user.jpg',
-                      content: 'هذا هو أول منشور لي!',
-                      postDate: 'منذ يومين',
-                      likes: 120,
-                      commentsCount: 15,
-                    ),
+                  PostView.routeName,
+                  arguments: PostModel(
+                    id: '1',
+                    userName: 'محمود مجدي',
+                    userImage: 'https://example.com/user.jpg',
+                    content: 'هذا هو أول منشور لي!',
+                    postDate: 'منذ يومين',
+                    likes: 120,
+                    commentsCount: 15,
                   ),
                 );
               },
@@ -79,20 +91,35 @@ class PostsListViewBuilder extends StatelessWidget {
                 //     },
                 //   ),
                 // );
-                navigateTo(
+                // navigateTo(
+                //   context,
+                //   PostView(
+                //     post: PostModel(
+                //       id: '1',
+                //       userName: 'محمود مجدي',
+                //       userImage: 'https://example.com/user.jpg',
+                //       content:
+                //           'نصيحة للعناية اليومية بالأسنان:\n'
+                //           'اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان.',
+                //       postDate: 'منذ يومين',
+                //       likes: 120,
+                //       commentsCount: 15,
+                //     ),
+                //   ),
+                // );
+                Navigator.pushNamed(
                   context,
-                  PostView(
-                    post: PostModel(
-                      id: '1',
-                      userName: 'محمود مجدي',
-                      userImage: 'https://example.com/user.jpg',
-                      content:
-                          'نصيحة للعناية اليومية بالأسنان:\n'
-                          'اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان.',
-                      postDate: 'منذ يومين',
-                      likes: 120,
-                      commentsCount: 15,
-                    ),
+                  PostView.routeName,
+                  arguments: PostModel(
+                    id: '1',
+                    userName: 'محمود مجدي',
+                    userImage: 'https://example.com/user.jpg',
+                    content:
+                        'نصيحة للعناية اليومية بالأسنان:\n'
+                        'اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان.',
+                    postDate: 'منذ يومين',
+                    likes: 120,
+                    commentsCount: 15,
                   ),
                 );
               },

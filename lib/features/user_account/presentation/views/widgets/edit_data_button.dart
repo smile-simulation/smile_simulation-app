@@ -12,7 +12,8 @@ class EditDataButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        navigateTo(context, EditUserAccountView());
+        // navigateTo(context, EditUserAccountView());
+        Navigator.pushNamed(context, EditUserAccountView.routeName);
         // Navigator.push(
         //   context,
         //   MaterialPageRoute(

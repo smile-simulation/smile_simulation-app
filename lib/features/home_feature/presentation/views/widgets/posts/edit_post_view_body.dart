@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
-import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
-import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
+
+import '../../../../../user_account/presentation/views/user_account_view.dart';
+import '../current_user_circle_image.dart';
 
 class EditPostViewBody extends StatelessWidget {
   const EditPostViewBody({super.key});
@@ -31,7 +31,12 @@ class EditPostViewBody extends StatelessWidget {
                   //     },
                   //   ),
                   // );
-                  navigateTo(context, UserAccountView(currentUser: true));
+                  // navigateTo(context, UserAccountView(currentUser: true));
+                  Navigator.pushNamed(
+                    context,
+                    UserAccountView.routeName,
+                    arguments: true,
+                  );
                 },
               ),
               SizedBox(width: 12),

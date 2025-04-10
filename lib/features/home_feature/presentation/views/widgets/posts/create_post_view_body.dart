@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
-import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
@@ -33,7 +32,12 @@ class CreatePostViewBody extends StatelessWidget {
                   //     },
                   //   ),
                   // );
-                  navigateTo(context, UserAccountView(currentUser: true));
+                  // navigateTo(context, UserAccountView(currentUser: true));
+                  Navigator.pushNamed(
+                    context,
+                    UserAccountView.routeName,
+                    arguments: true,
+                  );
                 },
               ),
               SizedBox(width: 12),
