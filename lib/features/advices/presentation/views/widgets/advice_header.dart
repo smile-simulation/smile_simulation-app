@@ -7,11 +7,9 @@ class AdviceHeader extends StatelessWidget {
   const AdviceHeader({
     super.key,
     required this.adviceTitle,
-    required this.showAdviceOnPressed,
   });
 
   final String? adviceTitle;
-  final Function() showAdviceOnPressed;
 
   @override
   Widget build(BuildContext context) {

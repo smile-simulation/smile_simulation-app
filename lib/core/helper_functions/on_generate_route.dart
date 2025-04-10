@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/helper_functions/get_it.dart';
+import 'package:smile_simulation/features/advices/data/models/advice/advice.dart';
+import 'package:smile_simulation/features/advices/data/models/advices_category/advices_category.dart';
+import 'package:smile_simulation/features/advices/data/repos/advices_category_repo/advices_category_repo.dart';
+import 'package:smile_simulation/features/advices/presentation/managers/cubits/category_advices/category_advices_cubit.dart';
+import 'package:smile_simulation/features/advices/presentation/views/advices/all_advices_view.dart';
+import 'package:smile_simulation/features/advices/presentation/views/category_advices/all_categories_view.dart';
+import 'package:smile_simulation/features/advices/presentation/views/category_advices/category_advices_view.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 
 import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
@@ -8,6 +15,7 @@ import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubit
 
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/manage_sign_up.dart';
 
+import '../../features/advices/presentation/views/advices/advice_view.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
 import '../../features/auth/sign_up/presentation/view/forgot_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_subsidiary_view.dart';
@@ -44,10 +52,47 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) => const SignUpFromDoctorSubsidiaryView(),
       );
+    case AdviceView.routeName:
+      {
+        final Advice advice = settings.arguments as Advice;
 
+        return MaterialPageRoute(builder: (_) => AdviceView(advice: advice));
+      }
+    case AllAdvicesView.routeName:
+      {
+        final List<Advice> advices = settings.arguments as List<Advice>;
+
+        return MaterialPageRoute(
+          builder: (_) => AllAdvicesView(advices: advices),
+        );
+      }
+    case AllCategoriesView.routeName:
+      {
+        final List<AdvicesCategory> categories =
+            settings.arguments as List<AdvicesCategory>;
+
+        return MaterialPageRoute(
+          builder: (_) => AllCategoriesView(categories: categories),
+        );
+      }
     case ForgetView.routeName:
       return MaterialPageRoute(builder: (_) => const ForgetView());
+    case CategoryAdvicesView.routeName:
+      {
+        final category = settings.arguments as AdvicesCategory;
 
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create:
+                    (context) => CategoryAdvicesCubit(
+                      getIt.get<AdvicesCategoryRepo>(),
+                      category: category,
+                    ),
+                child: const CategoryAdvicesView(),
+              ),
+        );
+      }
     case BottomNavigationView.routeName:
       return MaterialPageRoute(builder: (_) => const BottomNavigationView());
 

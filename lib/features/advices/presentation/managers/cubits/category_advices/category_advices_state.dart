@@ -9,7 +9,10 @@ sealed class CategoryAdvicesState extends Equatable {
 
 final class CategoryAdvicesInitial extends CategoryAdvicesState {}
 
-final class GetAdvicesByCategoryIdSuccess extends CategoryAdvicesState {}
+final class GetAdvicesByCategoryIdSuccess extends CategoryAdvicesState {
+  final List<Advice> categoryAdvices;
+  GetAdvicesByCategoryIdSuccess({required this.categoryAdvices});
+}
 
 final class GetAdvicesByCategoryIdFail extends CategoryAdvicesState {
   final String errorMsg;
