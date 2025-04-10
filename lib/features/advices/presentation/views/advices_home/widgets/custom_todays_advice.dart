@@ -1,96 +1,119 @@
-import 'dart:developer';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/helper_functions/app_timing.dart';
+import 'package:smile_simulation/core/helper_functions/my_launch_url.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/features/advices/data/models/advice/advice.dart';
+import 'package:smile_simulation/features/advices/presentation/views/widgets_skeletons/todays_advice_skeleton.dart';
 import 'package:smile_simulation/generated/assets.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-class CustomTodaysAdvice extends StatelessWidget {
+class CustomTodaysAdvice extends StatefulWidget {
   const CustomTodaysAdvice({super.key, required this.advice});
   final Advice advice;
+
+  @override
+  State<CustomTodaysAdvice> createState() => _CustomTodaysAdviceState();
+}
+
+class _CustomTodaysAdviceState extends State<CustomTodaysAdvice> {
+  bool isImageLoaded = false;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      constraints: BoxConstraints(minHeight: 198),
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(
-          opacity: 0.25,
-          image:
-              advice.image != null
-                  ? NetworkImage(advice.image!)
-                  : AssetImage(Assets.imagesAdviceBackground),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: 
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    S.of(context).toDaysAdvice,
-                    style: AppTextStyles.subTitle2(
-                      context,
-                    ).copyWith(color: AppColors.blackColor),
-                  ),
-                  Spacer(),
-                  IconButton(
-                    onPressed: () async {
-                      // AdvicesRepoImpl(
-                      //   dioConsumer: DioConsumer(dio: Dio()),
-                      // ).getGeneralAdvices();
-                      DateTime now = DateTime.now();
-                      DateTime elevenPM = DateTime(
-                        now.year,
-                        now.month,
-                        now.day,
-                        23,
-                        0,
-                        0,
-                      );
+    return Card(
+      color: isImageLoaded ? AppColors.whiteColor : AppColors.transparent,
+      shadowColor: isImageLoaded ? AppColors.whiteColor : AppColors.transparent,
+      clipBehavior: Clip.hardEdge,
+      child: Container(
+        padding: EdgeInsets.all(0),
+        width: double.infinity,
+        height: 198, // ✅ حدد ارتفاع صريح
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            // ✅ Background image
+            Opacity(
+              opacity: 0.25,
+              child: CachedNetworkImage(
+                imageUrl: widget.advice.image!,
+                fit: BoxFit.cover,
+                placeholder: (_, __) => const SizedBox.shrink(),
+                imageBuilder: (context, imageProvider) {
+                  // ✅ أضمن إن setState يحصل بعد build
+                  if (!isImageLoaded) {
+                    Future.microtask(() {
+                      if (mounted) {
+                        setState(() {
+                          isImageLoaded = true;
+                        });
+                      }
+                    });
+                  }
 
-                      print(elevenPM);
-                      AppTiming().runFunAtX(
-                        time: elevenPM,
-                        action: () async {
-                          log("hello from the Future");
-                        },
-                      );
-                    },
-                    icon: Icon(
-                      Icons.favorite_border,
-                      color: AppColors.primaryColor,
+                  return Image(image: imageProvider, fit: BoxFit.cover);
+                },
+                errorWidget: (_, __, ___) {
+                  // ✅ برضه نعتبر الصورة "محملة" في حالة الخطأ علشان نعرض المحتوى
+                  if (!isImageLoaded) {
+                    Future.microtask(() {
+                      if (mounted) {
+                        setState(() {
+                          isImageLoaded = true;
+                        });
+                      }
+                    });
+                  }
+                  return Image.asset(
+                    Assets.imagesAdviceBackground,
+                    fit: BoxFit.cover,
+                  );
+                },
+              ),
+            ),
+            // ✅ Main content
+            Visibility(
+              visible: isImageLoaded,
+              replacement: TodaysAdviceSkeleton(),
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.advice.title ?? S.of(context).adviceTitleError,
+                          style: AppTextStyles.subTitle2(
+                            context,
+                          ).copyWith(color: AppColors.blackColor),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          widget.advice.description ??
+                              S.of(context).adviceContentError,
+                          style: AppTextStyles.listItem(context),
+                        ),
+                      ],
                     ),
-                  ),
-            
-                ],
-              ),
-              SizedBox(height: 8),
-              Text(
-                "اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان واستخدام خيط الأسنان لإزالة البلاك من بين الأسنان، مع المضمضة بغسول فم مضاد للبكتيريا للحفاظ على صحة اللثة. ",
-                style: AppTextStyles.listItem(context),
-              ),
-            ],
-          ),
 
-          Text(
-            "🔗 فيديو نصائح العناية اليومية بالأسنان",
-            style: AppTextStyles.formLabel(
-              context,
-            ).copyWith(color: AppColors.primaryColor),
-          ),
-        ],
+                    InkWell(
+                      onTap: () => myLaunchUrl(url: widget.advice.link),
+                      child: Text(
+                        "🔗 فيديو نصائح العناية اليومية بالأسنان",
+                        style: AppTextStyles.formLabel(
+                          context,
+                        ).copyWith(color: AppColors.primaryColor),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

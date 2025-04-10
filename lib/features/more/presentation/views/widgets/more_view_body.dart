@@ -1,10 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:smile_simulation/core/api/api_keys.dart' show ApiKeys;
 import 'package:smile_simulation/core/database/cache/cache_helper.dart';
-import 'package:smile_simulation/core/services/local_notification_service.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
@@ -45,7 +43,7 @@ class MoreViewBody extends StatelessWidget {
           TextButton(
             style: TextButton.styleFrom(backgroundColor: AppColors.whiteColor),
             onPressed: () async {
-              await LocalNotificationService.sendLocalNotification();
+              // await LocalNotificationService.sendLocalNotification();
             },
             child: Text(
               "Test Send Local Notifation",
