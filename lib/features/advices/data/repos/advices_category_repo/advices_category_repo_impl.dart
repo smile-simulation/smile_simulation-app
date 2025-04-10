@@ -2,11 +2,11 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:smile_simulation/constant.dart';
-import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/api/end_point.dart';
 import 'package:smile_simulation/core/errors/exceptions.dart';
 import 'package:smile_simulation/core/errors/failure.dart';
+import 'package:smile_simulation/features/advices/data/dummy_data/json_advices.dart';
 
 import '../../models/advice/advice.dart';
 import 'advices_category_repo.dart';
@@ -15,7 +15,6 @@ class AdvicesCategoryRepoImpl implements AdvicesCategoryRepo {
   final DioConsumer dioConsumer;
 
   AdvicesCategoryRepoImpl({required this.dioConsumer});
-
 
   @override
   Future<Either<Failure, List<Advice>>> getAdvicesByCategoryId({
@@ -26,14 +25,10 @@ class AdvicesCategoryRepoImpl implements AdvicesCategoryRepo {
         "${EndPoint.adviceByCategoryId}/$id",
       );
       List<Advice> advices = [];
-      List<dynamic> advicesJsonList = response[ApiKeys.data];
-      // List<dynamic> advicesJsonList = jsonAdvices;
+      // List<dynamic> advicesJsonList = response[ApiKeys.data];
+      List<dynamic> advicesJsonList = getDataFromJson(jsonAdvices, id);
 
       for (Map<String, dynamic> advice in advicesJsonList) {
-        log(" ------------ Divider ------------------");
-        log("Json Data: ${advice.toString()}");
-        log("the Model: ${Advice.fromJson(advice).toString()}");
-        log(" ------------ Divider ------------------");
         advices.add(Advice.fromJson(advice));
       }
       // advices = reArrangeAdvices(advices) as List<Advice>;
@@ -45,5 +40,15 @@ class AdvicesCategoryRepoImpl implements AdvicesCategoryRepo {
       logger.e("Exception in Get Advices: $e");
       return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
     }
+  }
+
+  getDataFromJson(List<Map<String, dynamic>> jsonList, int id) {
+    List<Map<String, dynamic>> advices = [];
+    for (Map<String, dynamic> advice in jsonList) {
+      if (advice['categoryId'] == id) {
+        advices.add(advice);
+      }
+    }
+    return advices;
   }
 }

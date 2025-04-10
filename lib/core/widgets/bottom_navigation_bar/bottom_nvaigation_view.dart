@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
-import 'package:smile_simulation/features/advices/presentation/views/advices_home/advices_view.dart';
+import 'package:smile_simulation/features/advices/presentation/views/advices_home/advices_home_view.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/home_veiw.dart';
 import 'package:smile_simulation/features/more/presentation/views/more_view.dart';
 
@@ -24,7 +24,7 @@ class _BottomNavigationViewState extends State<BottomNavigationView> {
 
   final List<Widget> views = [
     HomeVeiw(),
-    AdvicesView(),
+    AdvicesHomeView(),
     Center(child: Text("التذكيرات")),
     Center(child: Text("السجل الطبي")),
     MoreView(),

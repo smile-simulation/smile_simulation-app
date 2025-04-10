@@ -8,22 +8,23 @@ import 'package:smile_simulation/generated/l10n.dart';
 
 import 'advices_categories_section.dart';
 import 'general_advices_section.dart';
-import 'todays_advice_section.dart';
+import 'todays_advice_builder.dart';
 
-class AdvicesViewBody extends StatefulWidget {
-  const AdvicesViewBody({super.key});
+class AdvicesHomeViewBody extends StatefulWidget {
+  const AdvicesHomeViewBody({super.key});
 
   @override
-  State<AdvicesViewBody> createState() => _AdvicesViewBodyState();
+  State<AdvicesHomeViewBody> createState() => _AdvicesHomeViewBodyState();
 }
 
-class _AdvicesViewBodyState extends State<AdvicesViewBody> {
+class _AdvicesHomeViewBodyState extends State<AdvicesHomeViewBody> {
   @override
   void initState() {
     context.read<AdvicesCubit>().getCategoriesAndAdvices();
     super.initState();
   }
 
+  bool dataGot = false;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,11 +34,16 @@ class _AdvicesViewBodyState extends State<AdvicesViewBody> {
           child: CustomBodyScreen(
             child: CustomScrollView(
               slivers: [
-                SliverToBoxAdapter(child: TodaysAdviceSection()),
+                SliverToBoxAdapter(
+                  child: TodaysAdviceBuilder(),
+                ),
                 SliverSizedBox(height: 24),
                 SliverToBoxAdapter(child: AdvicesCategoriesSection()),
                 SliverSizedBox(height: 24),
-                SliverToBoxAdapter(child: GeneralAdvicesSection()),
+                SliverToBoxAdapter(
+                  child: GeneralAdvicesSection(
+                      ),
+                ),
               ],
             ),
           ),

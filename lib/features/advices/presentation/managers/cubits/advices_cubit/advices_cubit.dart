@@ -1,7 +1,12 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:smile_simulation/constant.dart';
+import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/errors/exceptions.dart';
+import 'package:smile_simulation/core/helper_functions/random_list.dart';
 import 'package:smile_simulation/features/advices/data/models/advice/advice.dart';
 import 'package:smile_simulation/features/advices/data/models/advices_category/advices_category.dart';
 import 'package:smile_simulation/features/advices/data/repos/advices_repo/advices_repo.dart';
@@ -124,5 +129,43 @@ class AdvicesCubit extends Cubit<AdvicesState> {
         ),
       );
     }
+  }
+
+  Future<bool> checkGettingData() async {
+    int day = DateTime.now().day;
+    int month = DateTime.now().month;
+    int year = DateTime.now().year;
+    String date = "$day - $month - $year";
+    String? myDate = await CacheHelper().getData(key: "date");
+    bool getAPIData = false;
+    if (myDate == null) {
+      await CacheHelper().saveData(key: "date", value: date);
+      getAPIData = true;
+    } else {
+      if (myDate == date) {
+        getAPIData = false;
+      } else {
+        getAPIData = true;
+        await CacheHelper().saveData(key: "date", value: date);
+      }
+    }
+    return getAPIData;
+  }
+
+  Future<Advice> getTodaysAdvice({required List<Advice> myAdvices}) async {
+    bool getAPIData = await checkGettingData();
+    Advice advice;
+    if (getAPIData) {
+      advice = advices.randomItem();
+      await CacheHelper().saveMap(key: "advice", value: advice.toJson());
+    } else {
+      String? jsonString = CacheHelper().getDataString(key: "advice");
+
+      Map<String, dynamic> adviceJson = jsonDecode(jsonString!);
+
+      advice = Advice.fromJson(adviceJson);
+    }
+    log("Todays advice: ${advice.toJson()}");
+    return advice;
   }
 }

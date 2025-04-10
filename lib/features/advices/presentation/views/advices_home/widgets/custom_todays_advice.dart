@@ -28,7 +28,8 @@ class CustomTodaysAdvice extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
-      child: Column(
+      child: 
+      Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -38,7 +39,7 @@ class CustomTodaysAdvice extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    S.of(context).academicCertificate,
+                    S.of(context).toDaysAdvice,
                     style: AppTextStyles.subTitle2(
                       context,
                     ).copyWith(color: AppColors.blackColor),
@@ -72,6 +73,7 @@ class CustomTodaysAdvice extends StatelessWidget {
                       color: AppColors.primaryColor,
                     ),
                   ),
+            
                 ],
               ),
               SizedBox(height: 8),

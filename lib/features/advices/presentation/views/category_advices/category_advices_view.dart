@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +16,6 @@ class _CategoryAdvicesViewState extends State<CategoryAdvicesView> {
   @override
   void initState() {
     super.initState();
-
     context.read<CategoryAdvicesCubit>().getAdvicesByCategoryId(
       id: context.read<CategoryAdvicesCubit>().category.id!,
     );
@@ -26,7 +23,6 @@ class _CategoryAdvicesViewState extends State<CategoryAdvicesView> {
 
   @override
   Widget build(BuildContext context) {
-    log(context.read<CategoryAdvicesCubit>().category.toString());
     return Scaffold(body: CategoryAdvicesViewBody());
   }
 }
