@@ -13,11 +13,12 @@ import 'package:smile_simulation/generated/l10n.dart';
 
 import 'core/helper_functions/get_it.dart';
 import 'core/services/bloc_opesever.dart';
+import 'core/services/local_notification_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper().init();
-
+  LocalNotificationService.initialize();
   Bloc.observer = CustomBlocObserver();
   setupGetIt();
   SystemChrome.setSystemUIOverlayStyle(

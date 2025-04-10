@@ -72,6 +72,7 @@ class CustomTodaysAdvice extends StatelessWidget {
                       color: AppColors.primaryColor,
                     ),
                   ),
+            
                 ],
               ),
               SizedBox(height: 8),
