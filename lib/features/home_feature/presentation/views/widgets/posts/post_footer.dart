@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/helper_functions/show_modal_bottom_sheet.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
+import '../../../../data/models/post_model.dart';
 import 'custom_comments_bottom_sheet.dart';
 import 'post_footer_action_item.dart';
 
 class PostFooter extends StatelessWidget {
-  const PostFooter({super.key, required this.isPostView});
+  const PostFooter({super.key, required this.isPostView, required this.post});
   final bool isPostView;
+  final PostModel post;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -35,7 +37,7 @@ class PostFooter extends StatelessWidget {
               } else {
                 customShowModalBottomSheet(
                   context: context,
-                  child: CustomCommentsBottomSheet(),
+                  child: CustomCommentsBottomSheet(post: post),
                 );
               }
             },
