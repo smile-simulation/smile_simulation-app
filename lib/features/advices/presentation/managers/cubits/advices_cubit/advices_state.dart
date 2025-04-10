@@ -68,3 +68,17 @@ final class GetAllAdvicesCategoriesFail extends AdvicesState {
   final String errorMsg;
   GetAllAdvicesCategoriesFail(this.errorMsg);
 }
+
+final class GetTodaysAdviceLoading extends AdvicesState {}
+
+final class GetTodaysAdviceSuccess extends AdvicesState {
+  final Advice advice;
+
+  const GetTodaysAdviceSuccess(this.advice);
+}
+
+final class GetTodaysAdviceFailture extends AdvicesState {
+  final String error;
+
+  const GetTodaysAdviceFailture(this.error);
+}

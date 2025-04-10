@@ -29,10 +29,6 @@ class AdvicesCategoryRepoImpl implements AdvicesCategoryRepo {
       List<dynamic> advicesJsonList = getDataFromJson(jsonAdvices, id);
 
       for (Map<String, dynamic> advice in advicesJsonList) {
-        log(" ------------ Divider ------------------");
-        log("Json Data: ${advice.toString()}");
-        log("the Model: ${Advice.fromJson(advice).toString()}");
-        log(" ------------ Divider ------------------");
         advices.add(Advice.fromJson(advice));
       }
       // advices = reArrangeAdvices(advices) as List<Advice>;

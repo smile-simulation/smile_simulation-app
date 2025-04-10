@@ -33,7 +33,7 @@ class AdvicesRepoImpl implements AdvicesRepo {
 
       for (Map<String, dynamic> advice in advicesJsonList) {
         // log("Json Data: ${advice.toString()}");
-        log("the Model: ${Advice.fromJson(advice).toString()}");
+        // log("the Model: ${Advice.fromJson(advice).toString()}");
         advices.add(Advice.fromJson(advice));
       }
       advices = getRandomAdvices(advices) as List<Advice>;
@@ -58,9 +58,9 @@ class AdvicesRepoImpl implements AdvicesRepo {
 
       for (Map<String, dynamic> advicesCategory in advicesCategoriesJsonList) {
         // log("Json Data: ${advicesCategory.toString()}");
-        log(
-          "the Model: ${AdvicesCategory.fromJson(advicesCategory).toString()}",
-        );
+        // log(
+        //   "the Model: ${AdvicesCategory.fromJson(advicesCategory).toString()}",
+        // );
         advicesCategories.add(AdvicesCategory.fromJson(advicesCategory));
       }
       // advicesCategories = getRandomAdvices(advicesCategories) as List<Advice>;

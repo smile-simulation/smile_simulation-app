@@ -80,7 +80,7 @@ class MoreViewBody extends StatelessWidget {
             },
 
             child: Text(
-              "Test Send repeated Local Notifation",
+              "Get Data From API",
               style: AppTextStyles.button2(
                 context,
               ).copyWith(color: AppColors.primaryColor),

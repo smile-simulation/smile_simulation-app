@@ -28,7 +28,8 @@ class CustomTodaysAdvice extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
-      child: Column(
+      child: 
+      Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
