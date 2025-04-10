@@ -24,8 +24,6 @@ plugins {
     // END: FlutterFire Configuration
     id("org.jetbrains.kotlin.android") version "1.8.22" apply false
 
-    // local notification
-    id("com.android.application") version "8.6.0" apply false
 }
 
 include(":app")
