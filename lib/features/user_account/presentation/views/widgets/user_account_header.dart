@@ -1,7 +1,5 @@
 // import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
@@ -18,23 +16,36 @@ class UserAccountHeader extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: kToolbarHeight + 40),
-          SizedBox(
-            height: 120,
-            width: 120,
-            child:
-                currentUser
-                    ? CurrentUserCircleImage(
-                      color: AppColors.whiteColor,
-                      borderWidth: 16,
-                      onTap: () {
-                        log("current user account image");
-                      },
-                    )
-                    : OtherUserCircleImage(onTap: () {}),
+          Stack(
+            children: [
+              SizedBox(
+                height: 120,
+                width: 120,
+                child:
+                    currentUser
+                        ? CurrentUserCircleImage(
+                          color: AppColors.whiteColor,
+                          borderWidth: 16,
+                        )
+                        : OtherUserCircleImage(onTap: () {}),
+              ),
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: IconButton(
+                  style: IconButton.styleFrom(
+                    backgroundColor: AppColors.whiteColor,
+                    foregroundColor: AppColors.primaryColor,
+                  ),
+                  onPressed: () {},
+                  icon: Icon(Icons.add),
+                ),
+              ),
+            ],
           ),
           Text(
             "محمود مجدي",
-            style: AppTextStyles.style20W700(
+            style: AppTextStyles.headline2(
               context,
             ).copyWith(color: AppColors.whiteColor),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/custom_icon.dart';
+import 'package:smile_simulation/core/widgets/custom_icon.dart';
 import 'package:smile_simulation/features/search_feature/presentation/views/searchview.dart';
 
 import 'clickable_search_bar.dart';
@@ -26,7 +26,7 @@ class CustomToPinAppBar extends StatelessWidget implements PreferredSizeWidget {
             onTap: () {
               Navigator.of(
                 context,
-              ).push(MaterialPageRoute(builder: (context) => SearchView(),),);
+              ).push(MaterialPageRoute(builder: (context) => SearchView()));
             },
           ),
         ],

@@ -1,7 +1,6 @@
-
 import 'package:dio/dio.dart';
-import 'package:smile_simulation/core/error/exception.dart';
-import '../../constant.dart';
+import 'package:smile_simulation/constant.dart';
+import '../errors/exceptions.dart';
 import 'api_consumer.dart';
 import 'api_interceptor.dart';
 import 'end_point.dart';
@@ -10,7 +9,7 @@ class DioConsumer extends ApiConsumer {
   final Dio dio;
 
   DioConsumer({required this.dio}) {
-    dio.options.baseUrl = EndPoint.baseUrlAuth;
+    dio.options.baseUrl = EndPoint.baseUrl;
     dio.interceptors.add(ApiInterceptor());
     dio.interceptors.add(
       LogInterceptor(
@@ -24,137 +23,79 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future<dynamic> get(
-    String path, {
-    Map<String, dynamic>? queryParameters,
-  }) async {
+  Future delete(String path) async {
     try {
-      var response = await dio.get(
-        path,
-        queryParameters: queryParameters,
-      );
-
+      final response = await dio.delete(path);
       return response.data;
     } on DioException catch (e) {
-      logger.e(
-          "Exception in  api :$e");
-      if (e.type == DioExceptionType.badResponse) {
-        throw CustomException(message: e.response!.data);
-      }
-
-    } catch (e) {
-      logger.e(
-          "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e");
-
-      throw CustomException(message: e.toString());
+      logger.e(" DioException: ${e.response?.data ?? e.message}");
+      return handelExceptions(e);
     }
   }
 
   @override
-  Future<dynamic> delete(
-    String path, {
-    Map<String, dynamic>? body,
-    bool isFormData = false,
-  }) async {
+  Future get(String path) async {
     try {
-      final response = await dio.delete(
-        path,
-        data: isFormData ? FormData.fromMap(body!) : body,
-      );
+      final response = await dio.get(path);
       return response.data;
     } on DioException catch (e) {
-
-      if (e.type == DioExceptionType.badResponse) { logger.e(
-          "Exception in  api :$e");
-        throw CustomException(message: e.response!.data);
-      } else {
-           logger.e(
-            "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e");
-
-            throw CustomException(message: e.toString());
-      }
-
+      logger.e(" DioException: ${e.response?.data ?? e.message}");
+      return handelExceptions(e);
     }
   }
 
   @override
-  Future<dynamic> patch(
+  Future patch(
     String path, {
-    Map<String, dynamic>? body,
-    bool isFormData = false,
+    Map<String, dynamic>? data,
+    bool formData = false,
   }) async {
     try {
       final response = await dio.patch(
         path,
-        data: isFormData ? FormData.fromMap(body!) : body,
+        data: formData ? FormData.fromMap(data!) : data,
       );
       return response.data;
     } on DioException catch (e) {
-      logger.e(
-          "Exception in  api :$e");
-      if (e.type == DioExceptionType.badResponse) {
-        throw CustomException(message: e.response!.data);
-      }
-
-    } catch (e) {
-      logger.e(
-          "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e");
-
-      throw CustomException(message: e.toString());
+      logger.e(" DioException: ${e.response?.data ?? e.message}");
+      return handelExceptions(e);
     }
   }
 
   @override
-  Future<dynamic> post(
+  Future post(
     String path, {
-    Map<String, dynamic>? body,
-    bool isFormData = false,
+    Map<String, dynamic>? data,
+    bool formData = false,
   }) async {
     try {
       final response = await dio.post(
         path,
-        data: isFormData ? FormData.fromMap(body!) : body,
+        data: formData ? FormData.fromMap(data!) : data,
       );
+
       return response.data;
     } on DioException catch (e) {
-
-      if (e.type == DioExceptionType.badResponse) { logger.e(
-          "Exception in  api :$e");
-      throw CustomException(message: e.response!.data);
-      } else {
-        logger.e(
-            "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e");
-
-        throw CustomException(message: e.toString());
-      }
-
+      logger.e(" DioException: ${e.response?.data ?? e.message}");
+      return handelExceptions(e);
     }
   }
 
   @override
-  Future<dynamic> put(
+  Future put(
     String path, {
-    Map<String, dynamic>? body,
-    bool isFormData = false,
+    Map<String, dynamic>? data,
+    bool formData = false,
   }) async {
     try {
       final response = await dio.put(
         path,
-        data: isFormData ? FormData.fromMap(body!) : body,
+        data: formData ? FormData.fromMap(data!) : data,
       );
       return response.data;
     } on DioException catch (e) {
-      logger.e(
-          "Exception in  api :$e");
-      if (e.type == DioExceptionType.badResponse) {
-        throw CustomException(message: e.response!.data);
-      }
-
-    } catch (e) {
-      logger.e(
-          "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e");
-
-      throw CustomException(message: e.toString());
+      logger.e(" DioException: ${e.response?.data ?? e.message}");
+      return handelExceptions(e);
     }
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
-import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
+import '../../../../../user_account/presentation/views/user_account_view.dart';
 import '../current_user_circle_image.dart';
 import 'comment_body.dart';
 
@@ -34,13 +34,10 @@ class Comment extends StatelessWidget {
               color: AppColors.primaryColor,
               borderWidth: 6,
               onTap: () {
-                Navigator.push(
+                Navigator.pushNamed(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return UserAccountView(currentUser: false);
-                    },
-                  ),
+                  UserAccountView.routeName,
+                  arguments: false,
                 );
               },
             ),

@@ -1,55 +1,127 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/utils/app_colors.dart';
 
 abstract class AppTextStyles {
-  static TextStyle style46Bold(BuildContext context) {
+  static TextStyle headline1(BuildContext context) {
     return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 46),
+      fontSize: getResponsiveScaleFactor(context, fontSize: 24),
       fontWeight: FontWeight.bold,
-      fontFamily: 'Cairo',
+      fontFamily: "Arial",
     );
   }
 
-  static TextStyle baseStyle(
-    BuildContext context,
-    double fontSize,
-    FontWeight fontWeight, {
-    Color? color,
-  }) {
+  static TextStyle headline2(BuildContext context) {
     return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: fontSize),
-      fontWeight: fontWeight,
-      fontFamily: 'Cairo',
-      color: color,
+      fontSize: getResponsiveScaleFactor(context, fontSize: 20),
+      fontWeight: FontWeight.bold,
+      fontFamily: "NotoSansSC",
     );
   }
 
-  static TextStyle style20W700(BuildContext context) {
-    return baseStyle(context, 20, FontWeight.w700, color: AppColors.whiteColor);
+  static TextStyle headline3(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 18),
+      fontWeight: FontWeight.w600,
+    );
   }
 
-  static TextStyle style12W700(BuildContext context) {
-    return baseStyle(context, 12, FontWeight.w700);
+  static TextStyle bodyText1(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 16),
+      fontWeight: FontWeight.normal,
+      fontFamily: "NotoSansSC",
+    );
   }
 
-  static TextStyle style14W700(BuildContext context) {
-    return baseStyle(context, 14, FontWeight.w700);
+  static TextStyle bodyText2(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 14),
+      fontWeight: FontWeight.normal,
+      fontFamily: "NotoSansSC",
+    );
   }
 
-  static TextStyle style16W700(BuildContext context) {
-    return baseStyle(context, 16, FontWeight.w700);
-  }
-
-  static TextStyle style14W400(BuildContext context) {
-    return baseStyle(context, 14, FontWeight.w400);
+  static TextStyle subTitle1(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 16),
+      fontWeight: FontWeight.w700,
+    );
   }
 
   static TextStyle style16W400(BuildContext context) {
-    return baseStyle(context, 16, FontWeight.w400);
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 16),
+      fontWeight: FontWeight.w400,
+    );
   }
 
-  static TextStyle style10W400(BuildContext context) {
-    return baseStyle(context, 10, FontWeight.w400, color: AppColors.greyColor);
+  static TextStyle subTitle2(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 14),
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  static TextStyle formLabel(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 14),
+      fontWeight: FontWeight.w600,
+    );
+  }
+
+  static TextStyle placeHolder(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 14),
+      fontWeight: FontWeight.w300,
+    );
+  }
+
+  static TextStyle inputText(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 16),
+      fontWeight: FontWeight.normal,
+    );
+  }
+
+  static TextStyle navigationTitle(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 11),
+      fontWeight: FontWeight.bold,
+    );
+  }
+
+  static TextStyle listItem(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 14),
+      fontWeight: FontWeight.normal,
+    );
+  }
+
+  static TextStyle caption1(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 12),
+      fontWeight: FontWeight.normal,
+    );
+  }
+
+  static TextStyle caption2(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 10),
+      fontWeight: FontWeight.normal,
+    );
+  }
+
+  static TextStyle button1(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 16),
+      fontWeight: FontWeight.bold,
+    );
+  }
+
+  static TextStyle button2(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 14),
+      fontWeight: FontWeight.w600,
+    );
   }
 }
 
@@ -60,17 +132,20 @@ double getResponsiveScaleFactor(
   double scaleFactor = getScaleFactor(context);
   double responsiveFontSize = fontSize * scaleFactor;
 
-  return responsiveFontSize.clamp(fontSize * 0.9, fontSize * 1.1);
+  double lowerLimit = responsiveFontSize * 0.8;
+  double upperLimit = responsiveFontSize * 1.2;
+
+  return responsiveFontSize.clamp(lowerLimit, upperLimit);
 }
 
 double getScaleFactor(BuildContext context) {
   double width = MediaQuery.of(context).size.width;
 
   if (width <= 600) {
-    return 1; // شاشات صغيرة (موبايل)
+    return width / 400;
   } else if (width <= 1200) {
-    return 1.2; // شاشات متوسطة (تابلت)
+    return width / 1000;
   } else {
-    return 1.4; // شاشات كبيرة (ديسكتوب)
+    return width / 1750;
   }
 }

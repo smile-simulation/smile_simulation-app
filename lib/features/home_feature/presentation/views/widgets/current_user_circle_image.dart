@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/utils/app_assets.dart';
+import 'package:smile_simulation/generated/assets.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 
 class CurrentUserCircleImage extends StatelessWidget {
@@ -7,11 +7,11 @@ class CurrentUserCircleImage extends StatelessWidget {
     super.key,
     required this.color,
     required this.borderWidth,
-    required this.onTap,
+    this.onTap,
   });
   final Color color;
   final double borderWidth;
-  final void Function() onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -28,7 +28,7 @@ class CurrentUserCircleImage extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         child: CircleAvatar(
-          backgroundImage: AssetImage(AppAssets.userImage),
+          backgroundImage: AssetImage(Assets.imagesEngMahmoudMagdy),
           radius: 20,
         ),
       ),
