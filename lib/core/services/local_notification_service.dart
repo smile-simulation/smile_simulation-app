@@ -14,6 +14,7 @@ class LocalNotificationService {
   static void Function(NotificationResponse)?
   onDidReceiveBackgroundNotificationResponse(response) {
     log("Local Notitfation");
+    return null;
   }
 
   static Future<void> initialize() async {
@@ -30,7 +31,10 @@ class LocalNotificationService {
     );
   }
 
-  static Future<void> sendLocalNotification() async {
+  static Future<void> sendLocalNotification({
+    required String title,
+    required String body,
+  }) async {
     NotificationDetails notificationDetails = NotificationDetails(
       android: AndroidNotificationDetails(
         "id_1", // خلي الـ id ما فيه مسافات عشان الأندرويد بيحب الأسامي النضيفة
@@ -44,8 +48,8 @@ class LocalNotificationService {
     );
     await flutterLocalNotificationsPlugin.show(
       1,
-      "i'm Local Notification",
-      "Local notification on smile simulation app",
+      title,
+      body,
       notificationDetails,
     );
   }

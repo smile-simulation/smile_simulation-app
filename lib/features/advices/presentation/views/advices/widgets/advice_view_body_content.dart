@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/helper_functions/my_launch_url.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_cached_network_image.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 import '../../../../data/models/advice/advice.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class AdviceViewBodyContent extends StatelessWidget {
   const AdviceViewBodyContent({super.key, required this.advice});
@@ -37,7 +37,7 @@ class AdviceViewBodyContent extends StatelessWidget {
             visible: advice.link != null,
             child: InkWell(
               onTap: () {
-                _launchUrl(url: advice.link);
+                myLaunchUrl(url: advice.link);
               },
               child: Text(
                 "🔗 فيديو نصائح العناية اليومية بالأسنان",
@@ -51,12 +51,5 @@ class AdviceViewBodyContent extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Future<void> _launchUrl({required String url}) async {
-    final Uri _url = Uri.parse(url);
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
-    }
   }
 }

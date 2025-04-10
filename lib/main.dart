@@ -21,6 +21,7 @@ Future<void> main() async {
   await LocalNotificationService.initialize();
   await LocalNotificationService().requestNotificationPermission();
   Bloc.observer = CustomBlocObserver();
+
   setupGetIt();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
