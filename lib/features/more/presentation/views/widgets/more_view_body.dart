@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:smile_simulation/core/api/api_keys.dart' show ApiKeys;
@@ -55,10 +57,42 @@ class MoreViewBody extends StatelessWidget {
           TextButton(
             style: TextButton.styleFrom(backgroundColor: AppColors.whiteColor),
             onPressed: () async {
-              await LocalNotificationService.repeatedNotification();
+              int day = DateTime.now().day;
+              int month = DateTime.now().month;
+              int year = DateTime.now().year;
+              String date = "$day - $month - $year";
+              String? myDate = await CacheHelper().getData(key: "date");
+              bool getAPIData = false;
+              if (myDate == null) {
+                await CacheHelper().saveData(key: "date", value: date);
+                getAPIData = true;
+              } else {
+                if (myDate == date) {
+                  getAPIData = false;
+                } else {
+                  getAPIData = true;
+                  await CacheHelper().saveData(key: "date", value: date);
+                }
+              }
+              if (getAPIData) {
+                log("Get API DATA");
+              }
             },
+
             child: Text(
               "Test Send repeated Local Notifation",
+              style: AppTextStyles.button2(
+                context,
+              ).copyWith(color: AppColors.primaryColor),
+            ),
+          ),
+          TextButton(
+            style: TextButton.styleFrom(backgroundColor: AppColors.whiteColor),
+            onPressed: () async {
+              await CacheHelper().clearData(key: "date");
+            },
+            child: Text(
+              "Clear Date Data",
               style: AppTextStyles.button2(
                 context,
               ).copyWith(color: AppColors.primaryColor),
