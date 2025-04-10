@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/user_account/presentation/views/edit_user_account_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
+
+import '../edit_user_account_view.dart';
 
 class EditDataButton extends StatelessWidget {
   const EditDataButton({super.key});
@@ -12,16 +12,7 @@ class EditDataButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // navigateTo(context, EditUserAccountView());
         Navigator.pushNamed(context, EditUserAccountView.routeName);
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) {
-        //       return EditUserAccountView();
-        //     },
-        //   ),
-        // );
       },
       child: Container(
         padding: EdgeInsets.all(10),

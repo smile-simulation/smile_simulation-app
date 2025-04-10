@@ -34,15 +34,6 @@ class Comment extends StatelessWidget {
               color: AppColors.primaryColor,
               borderWidth: 6,
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) {
-                //       return UserAccountView(currentUser: false);
-                //     },
-                //   ),
-                // );
-                // navigateTo(context, UserAccountView(currentUser: false));
                 Navigator.pushNamed(
                   context,
                   UserAccountView.routeName,

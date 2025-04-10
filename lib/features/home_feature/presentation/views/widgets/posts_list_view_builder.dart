@@ -22,28 +22,6 @@ class PostsListViewBuilder extends StatelessWidget {
             return CustomPost(
               clickablePostImage: clickablePostImage,
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) {
-                //       return PostView();
-                //     },
-                //   ),
-                // );
-                // navigateTo(
-                //   context,
-                //   PostView(
-                //     post: PostModel(
-                //       id: '1',
-                //       userName: 'محمود مجدي',
-                //       userImage: 'https://example.com/user.jpg',
-                //       content: 'هذا هو أول منشور لي!',
-                //       postDate: 'منذ يومين',
-                //       likes: 120,
-                //       commentsCount: 15,
-                //     ),
-                //   ),
-                // );
                 Navigator.pushNamed(
                   context,
                   PostView.routeName,
@@ -83,30 +61,6 @@ class PostsListViewBuilder extends StatelessWidget {
             return CustomPost(
               clickablePostImage: clickablePostImage,
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) {
-                //       return PostView();
-                //     },
-                //   ),
-                // );
-                // navigateTo(
-                //   context,
-                //   PostView(
-                //     post: PostModel(
-                //       id: '1',
-                //       userName: 'محمود مجدي',
-                //       userImage: 'https://example.com/user.jpg',
-                //       content:
-                //           'نصيحة للعناية اليومية بالأسنان:\n'
-                //           'اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان.',
-                //       postDate: 'منذ يومين',
-                //       likes: 120,
-                //       commentsCount: 15,
-                //     ),
-                //   ),
-                // );
                 Navigator.pushNamed(
                   context,
                   PostView.routeName,

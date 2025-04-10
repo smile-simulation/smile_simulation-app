@@ -24,15 +24,6 @@ class CreatePostViewBody extends StatelessWidget {
                 color: AppColors.primaryColor,
                 borderWidth: 8,
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) {
-                  //       return UserAccountView(currentUser: true);
-                  //     },
-                  //   ),
-                  // );
-                  // navigateTo(context, UserAccountView(currentUser: true));
                   Navigator.pushNamed(
                     context,
                     UserAccountView.routeName,
