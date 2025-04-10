@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
-import 'package:smile_simulation/features/home_feature/presentation/cubits/cubit/post_details_cubit.dart';
+import 'package:smile_simulation/features/home_feature/presentation/cubits/post_details_cubit/post_details_cubit.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/add_comment_form_field.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/comment_section_title.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/comments_list_view_builder.dart';

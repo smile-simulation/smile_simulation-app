@@ -7,6 +7,4 @@ part 'post_details_state.dart';
 class PostDetailsCubit extends Cubit<PostDetailsState> {
   final PostModel post;
   PostDetailsCubit(this.post) : super(PostDetailsInitial());
-  TextEditingController commentController = TextEditingController();
-  final FocusNode unitCodeCtrlFocusNode = FocusNode();
 }

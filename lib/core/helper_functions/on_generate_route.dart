@@ -14,6 +14,9 @@ import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaig
 import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubits/sign_up_user_cubit.dart';
 
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/manage_sign_up.dart';
+import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/post_view.dart';
+import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
 import '../../features/advices/presentation/views/advices/advice_view.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
@@ -57,6 +60,20 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         final Advice advice = settings.arguments as Advice;
 
         return MaterialPageRoute(builder: (_) => AdviceView(advice: advice));
+      }
+    case UserAccountView.routeName:
+      {
+        final bool currentUser = settings.arguments as bool;
+
+        return MaterialPageRoute(
+          builder: (_) => UserAccountView(currentUser: currentUser),
+        );
+      }
+    case PostView.routeName:
+      {
+        final PostModel post = settings.arguments as PostModel;
+
+        return MaterialPageRoute(builder: (_) => PostView(post: post));
       }
     case AllAdvicesView.routeName:
       {
