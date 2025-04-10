@@ -17,7 +17,7 @@ import 'package:smile_simulation/features/auth/sign_up/presentation/view/manage_
 
 import '../../features/advices/presentation/views/advices/advice_view.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
-import '../../features/auth/sign_up/presentation/view/forgot_view.dart';
+import '../../features/auth/login/presentation/view/forgot_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_subsidiary_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
