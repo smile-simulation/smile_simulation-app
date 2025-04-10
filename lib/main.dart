@@ -18,7 +18,8 @@ import 'core/services/local_notification_service.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper().init();
-  LocalNotificationService.initialize();
+  await LocalNotificationService.initialize();
+  await LocalNotificationService().requestNotificationPermission();
   Bloc.observer = CustomBlocObserver();
   setupGetIt();
   SystemChrome.setSystemUIOverlayStyle(
