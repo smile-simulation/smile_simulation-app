@@ -8,7 +8,7 @@ import '../../../../../../core/widgets/custom_body_screen.dart';
 import '../../../../../../core/widgets/custom_button.dart';
 import '../../../../../../generated/assets.dart';
 import '../../../../../../generated/l10n.dart';
-import '../../../../sign_up/presentation/view/forgot_view.dart';
+import '../forgot_view.dart';
 import 'input_section_from_login_view.dart';
 import 'login_with_media_section.dart';
 

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/helper_functions/get_it.dart';
@@ -11,7 +13,8 @@ import 'package:smile_simulation/features/advices/presentation/views/category_ad
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 
 import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
-import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubits/sign_up_user_cubit.dart';
+import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubits/sign_up_doctor_cubit/sign_up_doctor_cubit.dart';
+import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubits/sign_up_user_cubit/sign_up_user_cubit.dart';
 
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/manage_sign_up.dart';
 import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
@@ -20,7 +23,7 @@ import 'package:smile_simulation/features/user_account/presentation/views/user_a
 
 import '../../features/advices/presentation/views/advices/advice_view.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
-import '../../features/auth/sign_up/presentation/view/forgot_view.dart';
+import '../../features/auth/login/presentation/view/forgot_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_subsidiary_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
@@ -49,12 +52,32 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
 
     case SignUpFromDoctorView.routeName:
-      return MaterialPageRoute(builder: (_) => const SignUpFromDoctorView());
+      return MaterialPageRoute(
+        builder:
+            (_) => SignUpFromDoctorView(),
+      );
 
     case SignUpFromDoctorSubsidiaryView.routeName:
+      final args = settings.arguments as Map<String, dynamic>;
+
       return MaterialPageRoute(
-        builder: (_) => const SignUpFromDoctorSubsidiaryView(),
+        builder: (_)  => BlocProvider(
+  create:
+  (context) =>
+  SignUpDoctorCubit(signUpRepo: getIt.get<SignUpRepo>()),
+  child:SignUpFromDoctorSubsidiaryView(
+          name: args['name'],
+          email: args['email'],
+          password: args['password'],
+          confirmPassword: args['confirmPassword'],
+          gender: args['gender'],
+          isCorrect: args['isCorrect'],
+          cardImage: args['card'],
+
+        ),
+        ),
       );
+
     case AdviceView.routeName:
       {
         final Advice advice = settings.arguments as Advice;

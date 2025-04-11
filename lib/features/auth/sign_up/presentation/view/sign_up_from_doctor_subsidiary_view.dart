@@ -1,16 +1,38 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/utils/app_colors.dart';
-import 'package:smile_simulation/core/utils/app_text_styles.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/core/helper_functions/custom_error.dart';
+
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
-import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
-import 'package:smile_simulation/core/widgets/custom_button.dart';
+
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
-import '../../../../../constant.dart';
-import '../../../../../generated/l10n.dart';
-import 'widgets/input_section_from_sign_up_from_doctor_subsidiary.dart';
+import 'package:smile_simulation/features/auth/sign_up/presentation/view/widgets/sign_up_from_doctor_subsidiary_body_view.dart';
+
+import '../manage/cubits/sign_up_doctor_cubit/sign_up_doctor_cubit.dart';
+import '../manage/cubits/sign_up_doctor_cubit/sign_up_doctor_state.dart';
 
 class SignUpFromDoctorSubsidiaryView extends StatelessWidget {
-  const SignUpFromDoctorSubsidiaryView({super.key});
+  const SignUpFromDoctorSubsidiaryView({
+    super.key,
+    required this.name,
+    required this.email,
+    required this.password,
+    required this.gender,
+
+    required this.cardImage,
+    required this.isCorrect,
+    required this.confirmPassword,
+  });
+
+  final String name;
+  final String email;
+  final String password;
+  final String confirmPassword;
+  final int gender;
+
+  final File cardImage;
+  final bool isCorrect;
 
   static const routeName = '/sign-up-from-doctor-subsidiary';
 
@@ -18,60 +40,32 @@ class SignUpFromDoctorSubsidiaryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAuthAppbar(context, isBack: true),
-
-      body: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).unfocus();
+      body: BlocConsumer<SignUpDoctorCubit, SignUpDoctorState>(
+        listener: (context, state) async {
+          if (state is SignUpDoctorSuccess) {
+            await customSuccess(context, massage: state.message);
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              LoginView.routeName,
+              (route) => false,
+            );
+          }
+          if (state is SignUpDoctorFailure) {
+            await customError(context, massage: state.message);
+            Navigator.pop(context);
+          }
         },
-        child: CustomBodyScreen(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 16,
-            children: [
-              SizedBox(height: 16),
-              Align(
-                alignment:
-                    isArabic == 'ar'
-                        ? Alignment.centerRight
-                        : Alignment.centerLeft,
-                child: Text(
-                  S.of(context).enterPersonalInfo,
-                  style: AppTextStyles.headline1(
-                    context,
-                  ).copyWith(color: Color(0xFF4F4F4F)),
-                ),
-              ),
-              SizedBox(height: 8),
-              InputSectionFromSignUpFromDoctorSubsidiary(),
-              Expanded(child: SizedBox(height: 16)),
-              Row(
-                children: [
-                  CustomButton(
-                    title: S.of(context).saveData,
-                    isMinWidth: true,
-                    onPressed: () {
-                      Navigator.pushNamed(context, LoginView.routeName);
-                    },
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, LoginView.routeName);
-                    },
-                    child: Text(
-                      S.of(context).skip,
-                      style: AppTextStyles.button1(
-                        context,
-                      ).copyWith(color: AppColors.greyLightColor),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(height: 16),
-            ],
-          ),
-        ),
+        builder: (context, state) {
+          return SignUpFromDoctorSubsidiaryBodyView(
+            name: name,
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword,
+            gender: gender,
+            cardImage: cardImage,
+            isCorrect: isCorrect,
+          );
+        },
       ),
     );
   }
