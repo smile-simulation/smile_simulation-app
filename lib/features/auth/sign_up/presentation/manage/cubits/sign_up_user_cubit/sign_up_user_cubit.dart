@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../data/repos/sign_up_repo.dart';
-import 'sign_up_state.dart';
+import '../../../../data/repos/sign_up_repo.dart';
+import 'sign_up_user_state.dart';
 
-class SignUpUserCubit extends Cubit<SignUpState> {
-  SignUpUserCubit({required this.signUpRepo}) : super(SignUpInitial());
+class SignUpUserCubit extends Cubit<SignUpUserState> {
+  SignUpUserCubit({required this.signUpRepo}) : super(SignUpUserInitial());
 
   final SignUpRepo signUpRepo;
 
@@ -16,7 +16,7 @@ class SignUpUserCubit extends Cubit<SignUpState> {
     required String image,
     required String gender,
   }) async {
-    emit(SignUpLoading());
+    emit(SignUpUserLoading());
     final result = await signUpRepo.signUpFromUser(
       fullName: fullName,
       age: age,
@@ -28,8 +28,8 @@ class SignUpUserCubit extends Cubit<SignUpState> {
     );
 
     result.fold(
-      (l) => emit(SignUpFailure(l.errorMessage)),
-      (r) => emit(SignUpSuccess(r.message!)),
+      (l) => emit(SignUpUserFailure(l.errorMessage)),
+      (r) => emit(SignUpUserSuccess(r.message!)),
     );
   }
 }
