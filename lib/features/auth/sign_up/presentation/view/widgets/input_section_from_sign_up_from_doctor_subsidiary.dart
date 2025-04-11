@@ -6,7 +6,16 @@ import '../../../../../../core/widgets/custom_text_field.dart';
 import '../../../../../../generated/l10n.dart';
 
 class InputSectionFromSignUpFromDoctorSubsidiary extends StatefulWidget {
-  const InputSectionFromSignUpFromDoctorSubsidiary({super.key});
+  final TextEditingController qualificationController;
+  final TextEditingController specializationController;
+  final TextEditingController experienceController;
+
+  const InputSectionFromSignUpFromDoctorSubsidiary({
+    super.key,
+    required this.qualificationController,
+    required this.specializationController,
+    required this.experienceController,
+  });
 
   @override
   State<InputSectionFromSignUpFromDoctorSubsidiary> createState() =>
@@ -17,7 +26,6 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
     extends State<InputSectionFromSignUpFromDoctorSubsidiary> {
   String? selectedDegree;
   String? selectedSpecialty;
-  final TextEditingController experienceController = TextEditingController();
 
   final List<String> degrees = ['بكالوريوس', 'ماجستير', 'دكتوراه'];
   final List<String> specialties = [
@@ -30,13 +38,15 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 16,
       children: [
+        const SizedBox(height: 16),
+
+
         Text(
           S.of(context).academicCertificate,
           style: AppTextStyles.formLabel(context),
         ),
-
+        const SizedBox(height: 8),
         DropdownButtonFormField<String>(
           decoration: InputDecoration(
             filled: true,
@@ -48,9 +58,8 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
           ),
           hint: Text(
             S.of(context).academicCertificate,
-            style: AppTextStyles.formLabel(
-              context,
-            ).copyWith(color: AppColors.greyLightColor),
+            style: AppTextStyles.formLabel(context)
+                .copyWith(color: AppColors.greyLightColor),
           ),
           value: selectedDegree,
           dropdownColor: AppColors.whiteColor,
@@ -58,21 +67,25 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
             Icons.keyboard_arrow_down_rounded,
             color: AppColors.greyLightColor,
           ),
-          items:
-              degrees.map((degree) {
-                return DropdownMenuItem(value: degree, child: Text(degree));
-              }).toList(),
+          items: degrees.map((degree) {
+            return DropdownMenuItem(value: degree, child: Text(degree));
+          }).toList(),
           onChanged: (value) {
             setState(() {
               selectedDegree = value;
+              widget.qualificationController.text = value!;
             });
           },
         ),
+
+        const SizedBox(height: 16),
+
 
         Text(
           S.of(context).specialization,
           style: AppTextStyles.formLabel(context),
         ),
+        const SizedBox(height: 8),
         DropdownButtonFormField<String>(
           decoration: InputDecoration(
             filled: true,
@@ -84,34 +97,37 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
           ),
           hint: Text(
             S.of(context).specialization,
-            style: AppTextStyles.formLabel(
-              context,
-            ).copyWith(color: AppColors.greyLightColor),
+            style: AppTextStyles.formLabel(context)
+                .copyWith(color: AppColors.greyLightColor),
           ),
+          value: selectedSpecialty,
           dropdownColor: AppColors.whiteColor,
           icon: Icon(
             Icons.keyboard_arrow_down_rounded,
             color: AppColors.greyLightColor,
           ),
-          value: selectedSpecialty,
-          items:
-              specialties.map((specialty) {
-                return DropdownMenuItem(
-                  value: specialty,
-                  child: Text(specialty),
-                );
-              }).toList(),
+          items: specialties.map((specialty) {
+            return DropdownMenuItem(
+              value: specialty,
+              child: Text(specialty),
+            );
+          }).toList(),
           onChanged: (value) {
             setState(() {
               selectedSpecialty = value;
+              widget.specializationController.text = value!;
             });
           },
         ),
 
+        const SizedBox(height: 16),
+
+
         CustomTextField(
           title: S.of(context).yearsOfExperience,
-          hintText: " 5 ",
+          hintText: "5",
           keyboardType: TextInputType.number,
+          controller: widget.experienceController,
         ),
       ],
     );

@@ -10,4 +10,9 @@ class ApiKeys {
   static String email = "Email";
   static String password = "Password";
   static String confirmPassword = "ConfirmPassword";
+  static String experience = "Experience";
+  static String card = "Card";
+  static String isCorrect = "Correct";
+  static String qualification = "Qualification";
+  static String specialization = "Specialization";
 }
