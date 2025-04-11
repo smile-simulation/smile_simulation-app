@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubits/sign_up_user_cubit.dart';
+import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubits/sign_up_user_cubit/sign_up_user_cubit.dart';
 
 import '../../../../../../constant.dart';
 import '../../../../../../core/helper_functions/custom_error.dart';
@@ -8,7 +8,7 @@ import '../../../../../../core/utils/app_text_styles.dart';
 import '../../../../../../core/widgets/custom_body_screen.dart';
 import '../../../../../../core/widgets/custom_button.dart';
 import '../../../../../../generated/l10n.dart';
-import '../../manage/cubits/sign_up_state.dart';
+import '../../manage/cubits/sign_up_user_cubit/sign_up_user_state.dart';
 import 'gender_section_from_sign_up_view.dart';
 import 'input_section_from_sign_up_from_user_view.dart';
 
@@ -90,7 +90,7 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
                   title: S.of(context).registerNow,
 
                   isLoading:
-                      context.watch<SignUpUserCubit>().state is SignUpLoading
+                      context.watch<SignUpUserCubit>().state is SignUpUserLoading
                           ? true
                           : false,
 
