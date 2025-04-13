@@ -8,8 +8,8 @@ class ChatBotViewBody extends StatefulWidget {
 }
 
 class _ChatBotViewBodyState extends State<ChatBotViewBody> {
-  TextEditingController _controller = TextEditingController();
-  List<ChatMessage> _messages = [];
+  final TextEditingController _controller = TextEditingController();
+  final List<ChatMessage> _messages = [];
 
   void _sendMessage() {
     if (_controller.text.isEmpty) return;
@@ -23,6 +23,12 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
       );
       _controller.clear();
     });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -42,17 +48,17 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white, // Background color
-                borderRadius: BorderRadius.circular(30), // Rounded corners
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.lightGreyColor, // Shadow color
-                    blurRadius: 10, // Softness of the shadow
-                    spreadRadius: 3, // Shadow spread
-                    offset: Offset(5, 5), // Shadow position
+                    color: AppColors.lightGreyColor,
+                    blurRadius: 10,
+                    spreadRadius: 3,
+                    offset: Offset(5, 5),
                   ),
                 ],
-                border: Border.all(color: Colors.transparent), // Transparent border
+                border: Border.all(color: Colors.transparent),
               ),
               child: TextField(
                 controller: _controller,
@@ -93,25 +99,51 @@ class ChatMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: isUserMessage ? Alignment.centerRight : Alignment.centerLeft,
+      alignment: isUserMessage ? Alignment.centerLeft : Alignment.centerRight,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
           decoration: BoxDecoration(
-            color: isUserMessage ? AppColors.primaryColor : AppColors.veryLightGreyColor,
-            borderRadius: BorderRadius.circular(15),
+            color:
+                isUserMessage
+                    ? AppColors.primaryColor
+                    : AppColors.veryLightGreyColor,
+            borderRadius:
+                isUserMessage
+                    ? BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(24),
+                      bottomRight: Radius.circular(24),
+                    )
+                    : BorderRadius.only(
+                      topLeft: Radius.circular(24),
+                      bottomRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(24),
+                    ),
           ),
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (!isUserMessage) // If it's the bot's message
+              if (!isUserMessage)
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
-                  child: CircleAvatar(
-                    backgroundImage:null
-                    ), // Replace with your logo URL or asset path
-                    // radius: 15,
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'smile_simulation-app/assets/images/logo_of_chat_bot.png',
+                        ), // Your image
+                        fit:
+                            BoxFit
+                                .cover, // Or BoxFit.fill depending on your needs
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        5,
+                      ), // Optional round corners
+                    ),
                   ),
                 ),
               Text(
