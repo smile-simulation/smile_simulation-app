@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/errors/failure.dart';
 import 'package:smile_simulation/features/auth/login/data/models/forget_model/forget_model.dart';
 import '../../../../../../constant.dart';
@@ -22,6 +23,9 @@ class ForgetPasswordRepoImpl extends ForgetPasswordRepo {
         EndPoint.forgetPassword,
         data: {ApiKeys.email: email},
       );
+
+      CacheHelper.sharedPreferences.setString(
+          ApiKeys.token, ForgetModel.fromJson(response).data!.token!);
       return Right(ForgetModel.fromJson(response));
     } on ServerException catch (e) {
       logger.e("Exception in ForgetPassword: ${e.errorModel.message}");
@@ -66,7 +70,7 @@ class ForgetPasswordRepoImpl extends ForgetPasswordRepo {
           ApiKeys.email: email,
           ApiKeys.token: token,
           ApiKeys.newPassword: password,
-          ApiKeys.confirmPassword: confirmPassword,
+          ApiKeys.confirmNewPassword: confirmPassword,
         },
       );
       return Right(ForgetModel.fromJson(response));

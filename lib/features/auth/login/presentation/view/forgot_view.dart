@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/constant.dart';
+import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
@@ -10,8 +11,13 @@ import 'package:smile_simulation/features/auth/login/presentation/manage/cubits/
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/widgets/forget_sections_body.dart';
 
+import '../../../../../core/database/cache/cache_helper.dart';
 import '../../../../../core/helper_functions/custom_error.dart';
+import '../../../../../core/helper_functions/validator.dart';
+import '../../../../../core/widgets/custom_password_itext_field.dart';
+import '../../../../../core/widgets/custom_text_field.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../sign_up/presentation/view/widgets/pin_code_input.dart';
 import '../../data/models/forget_model/forget_model.dart';
 
 class ForgetView extends StatefulWidget {
@@ -30,7 +36,7 @@ class _ForgotViewState extends State<ForgetView> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
- final String Opt ="";
+  String Opt ="";
   ForgetModel forgetModel = ForgetModel();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -121,13 +127,57 @@ class _ForgotViewState extends State<ForgetView> {
                           context,
                         ).copyWith(color: Color(0xFF4F4F4F)),
                       ),
-                      ForgetSectionsBody(
-                        index: index,
-                        OPt: Opt ,
-                        emailController: emailController,
-                        newPasswordController: newPasswordController,
-                        confirmPasswordController: confirmPasswordController,
+                      SizedBox(
+                        height: 250,
+                        child: Column(
+                          spacing: 16,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children:
+                          index == 0
+                              ? [
+                            CustomTextField(
+                              controller: emailController,
+                              title: S.of(context).email,
+                              hintText: "example@gmail.com",
+                              keyboardType: TextInputType.emailAddress,
+                              validator: (value) {
+                                return validatorOfEmail(value);
+                              },
+
+                            ),
+                          ]
+                              : index == 1
+                              ? [
+                            PinInputStyles.buildPinInput(
+                              onCompleted: (pin) {
+
+                                Opt =pin ??"" ;
+                                print(pin);
+
+                                ;                    },
+                            ),
+                          ]
+                              : [
+                            CustomPasswordTextField(
+                              controller: newPasswordController,
+                              title: S.of(context).password,
+                              hintText: "*********",
+                            ),
+                            CustomPasswordTextField(
+                              controller: confirmPasswordController,
+                              title: S.of(context).confirmPassword,
+                              hintText: "*********",
+                            ),
+                          ],
+                        ),
                       ),
+                      // ForgetSectionsBody(
+                      //   index: index,
+                      //   OPt: Opt ,
+                      //   emailController: emailController,
+                      //   newPasswordController: newPasswordController,
+                      //   confirmPasswordController: confirmPasswordController,
+                      // ),
                       CustomButton(
                         isLoading:
                             context.watch<ForgetPasswordCubit>().state
@@ -143,7 +193,6 @@ class _ForgotViewState extends State<ForgetView> {
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             autovalidateMode = AutovalidateMode.disabled;
-                            logger.d("Dssd" + Opt!);
                             setState(() {
                               index == 0
                                   ? context
@@ -162,7 +211,8 @@ class _ForgotViewState extends State<ForgetView> {
                                       .read<ForgetPasswordCubit>()
                                       .changePassword(
                                         email: emailController.text.trim(),
-                                        token: forgetModel.data!.token!,
+                                        token: CacheHelper.sharedPreferences
+                                            .getString(ApiKeys.token)!,
                                         newPassword:
                                             newPasswordController.text.trim(),
                                         confirmPassword:
