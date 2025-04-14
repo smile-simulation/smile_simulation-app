@@ -10,6 +10,7 @@ import 'package:smile_simulation/features/advices/presentation/managers/cubits/c
 import 'package:smile_simulation/features/advices/presentation/views/advices/all_advices_view.dart';
 import 'package:smile_simulation/features/advices/presentation/views/category_advices/all_categories_view.dart';
 import 'package:smile_simulation/features/advices/presentation/views/category_advices/category_advices_view.dart';
+import 'package:smile_simulation/features/auth/login/presentation/manage/cubits/forget_password_cubit/forget_password_cubit.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 
 import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
@@ -19,6 +20,7 @@ import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubit
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/manage_sign_up.dart';
 
 import '../../features/advices/presentation/views/advices/advice_view.dart';
+import '../../features/auth/login/data/repos/forget_repos/forget_password_repo.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
 import '../../features/auth/login/presentation/view/forgot_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_subsidiary_view.dart';
@@ -49,30 +51,27 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
 
     case SignUpFromDoctorView.routeName:
-      return MaterialPageRoute(
-        builder:
-            (_) => SignUpFromDoctorView(),
-      );
+      return MaterialPageRoute(builder: (_) => SignUpFromDoctorView());
 
     case SignUpFromDoctorSubsidiaryView.routeName:
       final args = settings.arguments as Map<String, dynamic>;
 
       return MaterialPageRoute(
-        builder: (_)  => BlocProvider(
-  create:
-  (context) =>
-  SignUpDoctorCubit(signUpRepo: getIt.get<SignUpRepo>()),
-  child:SignUpFromDoctorSubsidiaryView(
-          name: args['name'],
-          email: args['email'],
-          password: args['password'],
-          confirmPassword: args['confirmPassword'],
-          gender: args['gender'],
-          isCorrect: args['isCorrect'],
-          cardImage: args['card'],
-
-        ),
-        ),
+        builder:
+            (_) => BlocProvider(
+              create:
+                  (context) =>
+                      SignUpDoctorCubit(signUpRepo: getIt.get<SignUpRepo>()),
+              child: SignUpFromDoctorSubsidiaryView(
+                name: args['name'],
+                email: args['email'],
+                password: args['password'],
+                confirmPassword: args['confirmPassword'],
+                gender: args['gender'],
+                isCorrect: args['isCorrect'],
+                cardImage: args['card'],
+              ),
+            ),
       );
 
     case AdviceView.routeName:
@@ -99,7 +98,15 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         );
       }
     case ForgetView.routeName:
-      return MaterialPageRoute(builder: (_) => const ForgetView());
+      return MaterialPageRoute(
+        builder:
+            (_) => BlocProvider(
+              create:
+                  (context) =>
+                      ForgetPasswordCubit(getIt.get<ForgetPasswordRepo>()),
+              child: ForgetView(),
+            ),
+      );
     case CategoryAdvicesView.routeName:
       {
         final category = settings.arguments as AdvicesCategory;

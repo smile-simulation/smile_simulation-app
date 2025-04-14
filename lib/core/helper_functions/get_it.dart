@@ -5,6 +5,8 @@ import 'package:smile_simulation/features/advices/data/repos/advices_category_re
 import 'package:smile_simulation/features/advices/data/repos/advices_category_repo/advices_category_repo_impl.dart';
 import 'package:smile_simulation/features/advices/data/repos/advices_repo/advices_repo.dart';
 import 'package:smile_simulation/features/advices/data/repos/advices_repo/advices_repo_impl.dart';
+import '../../features/auth/login/data/repos/forget_repos/forget_password_repo.dart';
+import '../../features/auth/login/data/repos/forget_repos/forget_password_repo_impl.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo_impl.dart';
 
@@ -14,6 +16,9 @@ void setupGetIt() {
   getIt.registerSingleton<DioConsumer>(DioConsumer(dio: Dio()));
   getIt.registerSingleton<SignUpRepo>(
     SignUpRepoImpl(dioConsumer: getIt<DioConsumer>()),
+  );
+  getIt.registerSingleton<ForgetPasswordRepo>(
+    ForgetPasswordRepoImpl(dioConsumer: getIt<DioConsumer>()),
   );
   getIt.registerSingleton<AdvicesRepo>(
     AdvicesRepoImpl(dioConsumer: getIt<DioConsumer>()),
