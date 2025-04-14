@@ -29,7 +29,8 @@ class PinInputStyles {
     ),
   );
 
-  static Widget buildPinInput({
+  static Widget
+  buildPinInput({
     required Function(String) onCompleted,
     int length = 6,
   }) {
