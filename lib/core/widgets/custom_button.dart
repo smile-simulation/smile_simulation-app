@@ -9,12 +9,14 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.isSecondary = false,
     this.isMinWidth = false,
+    this.isLoading = false,
   });
 
   final Function() onPressed;
   final String title;
   final bool isSecondary;
   final bool isMinWidth;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +29,18 @@ class CustomButton extends StatelessWidget {
         side: BorderSide(color: AppColors.primaryColor),
       ),
       onPressed: onPressed,
-      child: Text(
-        title,
-        style: AppTextStyles.button2(context).copyWith(
-          color: isSecondary ? AppColors.primaryColor : AppColors.whiteColor,
-        ),
-      ),
+      child:
+          isLoading
+              ? const CircularProgressIndicator(color: AppColors.whiteColor)
+              : Text(
+                title,
+                style: AppTextStyles.button2(context).copyWith(
+                  color:
+                      isSecondary
+                          ? AppColors.primaryColor
+                          : AppColors.whiteColor,
+                ),
+              ),
     );
   }
 }

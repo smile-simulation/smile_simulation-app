@@ -24,8 +24,16 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "academicCertificate":
             MessageLookupByLibrary.simpleMessage("Academic certificate"),
+        "adviceContentError":
+            MessageLookupByLibrary.simpleMessage("Advice Content Not Valid"),
+        "adviceTitleError":
+            MessageLookupByLibrary.simpleMessage("Advice Title Not Valid"),
         "advices": MessageLookupByLibrary.simpleMessage("Advices"),
+        "advicesCategories":
+            MessageLookupByLibrary.simpleMessage("Advice categories"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
+        "changeLanguage":
+            MessageLookupByLibrary.simpleMessage("Change Language"),
         "comment": MessageLookupByLibrary.simpleMessage("Comment"),
         "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
         "comments": MessageLookupByLibrary.simpleMessage("Comments"),
@@ -49,15 +57,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Enter your personal information"),
         "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
             "Please enter the 6-digit verification code sent to you."),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+        "generalAdvices":
+            MessageLookupByLibrary.simpleMessage("General Advices"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "imageError": MessageLookupByLibrary.simpleMessage("Image Not Valid"),
         "like": MessageLookupByLibrary.simpleMessage("Like"),
         "likeCount": MessageLookupByLibrary.simpleMessage("Likes"),
         "location": MessageLookupByLibrary.simpleMessage("Location"),
+        "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "male": MessageLookupByLibrary.simpleMessage("Male"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("Medical record"),
@@ -66,6 +79,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "noAdvicesExist":
+            MessageLookupByLibrary.simpleMessage("No advices exist"),
+        "noCategoriesAdvicesExist": MessageLookupByLibrary.simpleMessage(
+            "No categories of advices currently exist"),
+        "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "A comprehensive forum that helps you discover medical advice and professional answers in one place.\nGet support and advice from dental experts and fellow patients easily."),
         "onBoarding2": MessageLookupByLibrary.simpleMessage(
@@ -97,12 +115,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "saveData": MessageLookupByLibrary.simpleMessage("Save data"),
         "saveEdits": MessageLookupByLibrary.simpleMessage("Save edits"),
         "searchRecord": MessageLookupByLibrary.simpleMessage("Search history"),
+        "showAll": MessageLookupByLibrary.simpleMessage("Show All"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
         "signInWith": MessageLookupByLibrary.simpleMessage("Sign in with"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "specialization":
             MessageLookupByLibrary.simpleMessage("Specialization"),
         "start": MessageLookupByLibrary.simpleMessage("Start"),
+        "success": MessageLookupByLibrary.simpleMessage("Success"),
+        "toDaysAdvice": MessageLookupByLibrary.simpleMessage("Today\'s Advice"),
         "uploadIDCard":
             MessageLookupByLibrary.simpleMessage("Upload your ID card"),
         "verificationCode":

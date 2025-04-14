@@ -7,34 +7,35 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.hintText,
     required this.keyboardType,
+    this.controller,
     this.suffixIcon,
-    this.onChanged,
-    this.obscureText,
+    this.onSaved,
+    this.obscureText = false,
     this.title,
     this.validator,
   });
+
   final String? title;
   final String hintText;
   final TextInputType keyboardType;
   final Widget? suffixIcon;
-  final void Function(String?)? onChanged;
+  final TextEditingController? controller;
+  final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
-
-  final bool? obscureText;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Visibility(
-          visible: title == null ? false : true,
-          child: Text(title ?? '', style: AppTextStyles.formLabel(context)),
-        ),
-        SizedBox(height: 12),
+        if (title != null)
+          Text(title!, style: AppTextStyles.formLabel(context)),
+        const SizedBox(height: 12),
         TextFormField(
+          controller: controller,
           cursorColor: AppColors.primaryColor,
-          onChanged: onChanged,
+          onSaved: onSaved,
           validator:
               validator ??
               (value) {
@@ -44,7 +45,7 @@ class CustomTextField extends StatelessWidget {
                 return null;
               },
           keyboardType: keyboardType,
-          obscureText: obscureText ?? false,
+          obscureText: obscureText,
           decoration: InputDecoration(
             filled: true,
             fillColor: const Color(0xffF8F8F8),
@@ -53,17 +54,17 @@ class CustomTextField extends StatelessWidget {
               context,
             ).copyWith(color: AppColors.greyLightColor),
             suffixIcon: suffixIcon,
-            border: buildOutlineInputBorder(),
-            enabledBorder: buildOutlineInputBorder(),
-            focusedBorder: buildOutlineInputBorder(),
-            disabledBorder: buildOutlineInputBorder(),
+            border: _buildOutlineInputBorder(),
+            enabledBorder: _buildOutlineInputBorder(),
+            focusedBorder: _buildOutlineInputBorder(),
+            disabledBorder: _buildOutlineInputBorder(),
           ),
         ),
       ],
     );
   }
 
-  OutlineInputBorder buildOutlineInputBorder() {
+  OutlineInputBorder _buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(4),
       borderSide: const BorderSide(width: 1, color: Color(0xffF8F8F8)),

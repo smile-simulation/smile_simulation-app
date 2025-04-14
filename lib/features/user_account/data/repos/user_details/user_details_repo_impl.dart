@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:smile_simulation/core/api/api_consumer.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
-import 'package:smile_simulation/core/error/failures.dart';
 import 'package:smile_simulation/features/user_account/data/models/user/user..dart';
 import 'package:smile_simulation/features/user_account/data/repos/user_details/user_details_repo.dart';
+
+import '../../../../../core/errors/failure.dart';
 
 class UserDetailsRepoImpl implements UserDetailsRepo {
   final DioConsumer dioConsumer;
@@ -18,7 +18,7 @@ class UserDetailsRepoImpl implements UserDetailsRepo {
       options: Options(headers: {"Authorization": "Bearer $token"}),
     );
     print(response.data);
-    
+
     // TODO: implement getUserDetails
     throw UnimplementedError();
   }

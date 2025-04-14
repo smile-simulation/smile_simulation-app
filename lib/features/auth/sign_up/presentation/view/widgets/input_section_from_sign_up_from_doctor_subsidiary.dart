@@ -9,11 +9,12 @@ class InputSectionFromSignUpFromDoctorSubsidiary extends StatefulWidget {
   const InputSectionFromSignUpFromDoctorSubsidiary({super.key});
 
   @override
-  State<InputSectionFromSignUpFromDoctorSubsidiary> createState() => _InputSectionFromSignUpFromDoctorSubsidiaryState();
+  State<InputSectionFromSignUpFromDoctorSubsidiary> createState() =>
+      _InputSectionFromSignUpFromDoctorSubsidiaryState();
 }
 
-class _InputSectionFromSignUpFromDoctorSubsidiaryState extends State<InputSectionFromSignUpFromDoctorSubsidiary> {
-
+class _InputSectionFromSignUpFromDoctorSubsidiaryState
+    extends State<InputSectionFromSignUpFromDoctorSubsidiary> {
   String? selectedDegree;
   String? selectedSpecialty;
   final TextEditingController experienceController = TextEditingController();
@@ -58,12 +59,9 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState extends State<InputSectio
             color: AppColors.greyLightColor,
           ),
           items:
-          degrees.map((degree) {
-            return DropdownMenuItem(
-              value: degree,
-              child: Text(degree),
-            );
-          }).toList(),
+              degrees.map((degree) {
+                return DropdownMenuItem(value: degree, child: Text(degree));
+              }).toList(),
           onChanged: (value) {
             setState(() {
               selectedDegree = value;
@@ -71,7 +69,10 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState extends State<InputSectio
           },
         ),
 
-        Text(S.of(context).specialization, style: AppTextStyles.formLabel(context)),
+        Text(
+          S.of(context).specialization,
+          style: AppTextStyles.formLabel(context),
+        ),
         DropdownButtonFormField<String>(
           decoration: InputDecoration(
             filled: true,
@@ -94,12 +95,12 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState extends State<InputSectio
           ),
           value: selectedSpecialty,
           items:
-          specialties.map((specialty) {
-            return DropdownMenuItem(
-              value: specialty,
-              child: Text(specialty),
-            );
-          }).toList(),
+              specialties.map((specialty) {
+                return DropdownMenuItem(
+                  value: specialty,
+                  child: Text(specialty),
+                );
+              }).toList(),
           onChanged: (value) {
             setState(() {
               selectedSpecialty = value;

@@ -1,0 +1,49 @@
+import 'package:dartz/dartz.dart';
+import 'package:smile_simulation/features/auth/sign_up/data/repos/sign_up_repo.dart';
+import '../../../../../constant.dart';
+import '../../../../../core/api/api_keys.dart';
+import '../../../../../core/api/dio_consumer.dart';
+import '../../../../../core/api/end_point.dart';
+import '../../../../../core/errors/exceptions.dart';
+import '../../../../../core/errors/failure.dart';
+import '../model/sign_up_model.dart';
+
+class SignUpRepoImpl extends SignUpRepo {
+  SignUpRepoImpl({required this.dioConsumer});
+
+  final DioConsumer dioConsumer;
+
+  @override
+  Future<Either<Failure, SignUpModel>> signUpFromUser({
+    required String email,
+    required String password,
+    required String confirmPassword,
+    required String fullName,
+    required int age,
+    required String image,
+    required String gender,
+  }) async {
+    try {
+      var response = await dioConsumer.post(
+        EndPoint.signUpUser,
+        data: {
+          ApiKeys.fullName: fullName,
+          ApiKeys.age: age,
+          ApiKeys.email: email,
+          ApiKeys.password: password,
+          ApiKeys.confirmPassword: confirmPassword,
+          ApiKeys.image: image,
+          ApiKeys.gender: gender,
+        },
+        formData: true,
+      );
+      return Right(SignUpModel.fromJson(response));
+    } on ServerException catch (e) {
+      logger.e("Exception in SignUpFromUser: ${e.errorModel.message}");
+      return Left(ServerFailure(e.errorModel.message!));
+    } catch (e) {
+      logger.e("Exception in signUpFromUser: $e");
+      return Left(ServerFailure('حدث خطأ غير متوقع في التسجيل'));
+    }
+  }
+}

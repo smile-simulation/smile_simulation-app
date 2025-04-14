@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/constant.dart';
-import 'package:smile_simulation/core/utils/app_text_styles.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
-import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
-import 'package:smile_simulation/core/widgets/custom_button.dart';
-import 'package:smile_simulation/core/widgets/custom_password_itext_field.dart';
-import 'package:smile_simulation/core/widgets/custom_text_field.dart';
-import 'package:smile_simulation/features/auth/sign_up/presentation/view/widgets/gender_section_from_sign_up_view.dart';
+import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
+import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubits/sign_up_user_cubit.dart';
 
-import '../../../../../generated/l10n.dart';
+import '../../../../../core/helper_functions/custom_error.dart';
+import '../manage/cubits/sign_up_state.dart';
 import 'widgets/sign_up_from_user_body_view.dart';
 
 class SignUpFromUserView extends StatelessWidget {
@@ -20,9 +17,24 @@ class SignUpFromUserView extends StatelessWidget {
     return Scaffold(
       appBar: customAuthAppbar(context, isBack: true),
 
-      body: SignUpFromUserBodyView(),
+      body: BlocConsumer<SignUpUserCubit, SignUpState>(
+        listener: (context, state) async {
+          if (state is SignUpSuccess) {
+            await customSuccess(context, massage: state.message);
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              LoginView.routeName,
+              (route) => false,
+            );
+          }
+          if (state is SignUpFailure) {
+            customError(context, massage: state.message);
+          }
+        },
+        builder: (context, state) {
+          return SignUpFromUserBodyView();
+        },
+      ),
     );
   }
 }
-
-

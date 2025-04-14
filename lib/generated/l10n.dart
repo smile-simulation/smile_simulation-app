@@ -123,7 +123,12 @@ class S {
 
   /// `Welcome`
   String get welcomeMsg {
-    return Intl.message('Welcome', name: 'welcomeMsg', desc: '', args: []);
+    return Intl.message(
+      'Welcome',
+      name: 'welcomeMsg',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Login`
@@ -363,7 +368,42 @@ class S {
 
   /// `Age`
   String get age {
-    return Intl.message('Age', name: 'age', desc: '', args: []);
+    return Intl.message(
+      'Age',
+      name: 'age',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ok`
+  String get ok {
+    return Intl.message(
+      'Ok',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message(
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Success`
+  String get success {
+    return Intl.message(
+      'Success',
+      name: 'success',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Like`
@@ -518,12 +558,22 @@ class S {
 
   /// `Create post`
   String get createPost {
-    return Intl.message('Create post', name: 'createPost', desc: '', args: []);
+    return Intl.message(
+      'Create post',
+      name: 'createPost',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Edit post`
   String get editPost {
-    return Intl.message('Edit post', name: 'editPost', desc: '', args: []);
+    return Intl.message(
+      'Edit post',
+      name: 'editPost',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Publish`
@@ -533,12 +583,132 @@ class S {
 
   /// `Save edits`
   String get saveEdits {
-    return Intl.message('Save edits', name: 'saveEdits', desc: '', args: []);
+    return Intl.message(
+      'Save edits',
+      name: 'saveEdits',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Delete post`
   String get deletePost {
-    return Intl.message('Delete post', name: 'deletePost', desc: '', args: []);
+    return Intl.message(
+      'Delete post',
+      name: 'deletePost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Today's Advice`
+  String get toDaysAdvice {
+    return Intl.message(
+      'Today\'s Advice',
+      name: 'toDaysAdvice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advice categories`
+  String get advicesCategories {
+    return Intl.message(
+      'Advice categories',
+      name: 'advicesCategories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General Advices`
+  String get generalAdvices {
+    return Intl.message(
+      'General Advices',
+      name: 'generalAdvices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show All`
+  String get showAll {
+    return Intl.message(
+      'Show All',
+      name: 'showAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Image Not Valid`
+  String get imageError {
+    return Intl.message(
+      'Image Not Valid',
+      name: 'imageError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advice Title Not Valid`
+  String get adviceTitleError {
+    return Intl.message(
+      'Advice Title Not Valid',
+      name: 'adviceTitleError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advice Content Not Valid`
+  String get adviceContentError {
+    return Intl.message(
+      'Advice Content Not Valid',
+      name: 'adviceContentError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log Out`
+  String get logOut {
+    return Intl.message(
+      'Log Out',
+      name: 'logOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Language`
+  String get changeLanguage {
+    return Intl.message(
+      'Change Language',
+      name: 'changeLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No advices exist`
+  String get noAdvicesExist {
+    return Intl.message(
+      'No advices exist',
+      name: 'noAdvicesExist',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No categories of advices currently exist`
+  String get noCategoriesAdvicesExist {
+    return Intl.message(
+      'No categories of advices currently exist',
+      name: 'noCategoriesAdvicesExist',
+      desc: '',
+      args: [],
+    );
   }
 }
 

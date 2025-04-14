@@ -2,13 +2,12 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/helper_functions/show_modal_bottom_sheet.dart';
-import 'package:smile_simulation/core/services/navigations.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/my_post_more_actions_bottom_sheet.dart';
-import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
+import '../../../../../user_account/presentation/views/user_account_view.dart';
+import '../current_user_circle_image.dart';
+import 'my_post_more_actions_bottom_sheet.dart';
 import 'other_user_cirle_image.dart';
 
 class PostHeader extends StatelessWidget {
@@ -38,16 +37,11 @@ class PostHeader extends StatelessWidget {
                 onTap: () {
                   if (clickablePostImage) {
                     log(clickablePostImage.toString());
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) {
-                    //       return UserAccountView(currentUser: true);
-                    //     },
-                    //   ),
-                    // );
-
-                    navigateTo(context, UserAccountView(currentUser: true));
+                    Navigator.pushNamed(
+                      context,
+                      UserAccountView.routeName,
+                      arguments: true,
+                    );
                   }
                 },
               )

@@ -24,8 +24,8 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          S.of(context).gender,
-          style: AppTextStyles.formLabel(context)
+          S.of(context).gender, // Localized text for "Gender"
+          style: AppTextStyles.formLabel(context),
         ),
         Row(
           children: <Widget>[
@@ -33,8 +33,8 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
               child: RadioListTile<Gender>(
                 contentPadding: EdgeInsets.zero,
                 title: Text(
-                  S.of(context).male,
-                  style: AppTextStyles.formLabel(context)
+                  S.of(context).male, // Localized text for "Male"
+                  style: AppTextStyles.formLabel(context),
                 ),
                 value: Gender.male,
                 groupValue: _selectedGender,
@@ -51,8 +51,8 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
               child: RadioListTile<Gender>(
                 contentPadding: EdgeInsets.zero,
                 title: Text(
-                  S.of(context).female,
-                  style: AppTextStyles.formLabel(context)
+                  S.of(context).female, // Localized text for "Female"
+                  style: AppTextStyles.formLabel(context),
                 ),
                 value: Gender.female,
                 groupValue: _selectedGender,

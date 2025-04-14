@@ -24,8 +24,15 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "academicCertificate":
             MessageLookupByLibrary.simpleMessage("الشهادة الأكاديمية"),
+        "adviceContentError":
+            MessageLookupByLibrary.simpleMessage("محتوى نصيحة غير متاح"),
+        "adviceTitleError":
+            MessageLookupByLibrary.simpleMessage("عنوان نصيحة غير متاح"),
         "advices": MessageLookupByLibrary.simpleMessage("النصائح"),
+        "advicesCategories":
+            MessageLookupByLibrary.simpleMessage("اقسام النصائح"),
         "age": MessageLookupByLibrary.simpleMessage("السن"),
+        "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
         "commentCount": MessageLookupByLibrary.simpleMessage("تعليقاً"),
         "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
@@ -49,15 +56,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("قم بتسجيل بياناتك الشخصية"),
         "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
             "من فضلك أدخل رمز التحقق المكون من 6 أرقام المرسل إليك."),
+        "error": MessageLookupByLibrary.simpleMessage("خطأ"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور؟"),
         "fullName": MessageLookupByLibrary.simpleMessage("الاسم بالكامل"),
         "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
+        "generalAdvices": MessageLookupByLibrary.simpleMessage("نصائح عامة"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "imageError": MessageLookupByLibrary.simpleMessage("الصورة غير صالحة"),
         "like": MessageLookupByLibrary.simpleMessage("أعجبني"),
         "likeCount": MessageLookupByLibrary.simpleMessage("إعجاباً"),
         "location": MessageLookupByLibrary.simpleMessage("العنوان"),
+        "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("السجل الطبي"),
@@ -65,6 +76,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "noAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "noAdvicesExist": MessageLookupByLibrary.simpleMessage("لا يوجد نصائح"),
+        "noCategoriesAdvicesExist":
+            MessageLookupByLibrary.simpleMessage("لا يوجد اقسام نصائح حاليا"),
+        "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "منتدى شامل يساعدك على اكتشاف نصائح طبية وإجابات احترافية في مكان واحد.\nاحصل على الدعم والمشورة من خبراء الأسنان وزملائك المرضى بسهولة."),
         "onBoarding2": MessageLookupByLibrary.simpleMessage(
@@ -97,12 +112,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "saveData": MessageLookupByLibrary.simpleMessage("حفظ البيانات"),
         "saveEdits": MessageLookupByLibrary.simpleMessage("حفظ التعديلات"),
         "searchRecord": MessageLookupByLibrary.simpleMessage("سجل البحث"),
+        "showAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "signInWith":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "specialization": MessageLookupByLibrary.simpleMessage("التخصص"),
         "start": MessageLookupByLibrary.simpleMessage("ابدأ"),
+        "success": MessageLookupByLibrary.simpleMessage("نجاح"),
+        "toDaysAdvice": MessageLookupByLibrary.simpleMessage("نصيحة اليوم"),
         "uploadIDCard":
             MessageLookupByLibrary.simpleMessage("قم برفع الكارنيه الخاص بك"),
         "verificationCode": MessageLookupByLibrary.simpleMessage("رمز التحقق"),
