@@ -10,7 +10,9 @@ import 'package:smile_simulation/features/advices/presentation/managers/cubits/c
 import 'package:smile_simulation/features/advices/presentation/views/advices/all_advices_view.dart';
 import 'package:smile_simulation/features/advices/presentation/views/category_advices/all_categories_view.dart';
 import 'package:smile_simulation/features/advices/presentation/views/category_advices/category_advices_view.dart';
+import 'package:smile_simulation/features/auth/login/data/repos/login_repo/login_repo.dart';
 import 'package:smile_simulation/features/auth/login/presentation/manage/cubits/forget_password_cubit/forget_password_cubit.dart';
+import 'package:smile_simulation/features/auth/login/presentation/manage/cubits/login_cubit/login_cubit.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 
 import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
@@ -37,7 +39,15 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const OnBoardingView());
 
     case LoginView.routeName:
-      return MaterialPageRoute(builder: (_) => const LoginView());
+      return MaterialPageRoute(
+        builder:
+            (_) => BlocProvider(
+              create:
+                  (context) => LoginCubit(loginRepo: getIt.get<LoginRepo>()),
+
+              child: LoginView(),
+            ),
+      );
 
     case ManageSignUpView.routeName:
       return MaterialPageRoute(builder: (_) => const ManageSignUpView());

@@ -1,36 +1,18 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:smile_simulation/features/auth/login/data/models/login_model/Login_model.dart';
 
-import '../../../../../core/errors/failure.dart';
-import '../model/sign_up_model.dart';
+import '../../../../../../core/errors/failure.dart';
 
-abstract class SignUpRepo {
-  // Future<Either<Failure, Map<String, dynamic>>> loginWithEmail({
-  //   required String email,
-  //   required String password,
-  // });
 
-  Future<Either<Failure, SignUpModel>> signUpFromUser({
+abstract class LoginRepo {
+
+
+  Future<Either<Failure, LoginModel>> login({
     required String email,
     required String password,
-    required String confirmPassword,
-    required String fullName,
-    required int age,
-    required String image,
-    required String gender,
   });
 
-  Future<Either<Failure, SignUpModel>> signUpFromDoctor({
-    required String email,
-    required String password,
-    required String confirmPassword,
-    required String fullName,
-    required int experience,
-    required File card,
-    required String gender,
-    required bool isCorrect,
-    required String qualification,
-    required String specialization,
-  });
+
 }
