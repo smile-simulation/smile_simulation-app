@@ -3,6 +3,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/advices/presentation/views/advices_home/advices_home_view.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/home_veiw.dart';
 import 'package:smile_simulation/features/more/presentation/views/more_view.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/reminders_view.dart';
 
 import 'custom_bottom_navigation_bar.dart';
 
@@ -25,7 +26,7 @@ class _BottomNavigationViewState extends State<BottomNavigationView> {
   final List<Widget> views = [
     HomeVeiw(),
     AdvicesHomeView(),
-    Center(child: Text("التذكيرات")),
+    RemindersView(),
     Center(child: Text("السجل الطبي")),
     MoreView(),
   ];
