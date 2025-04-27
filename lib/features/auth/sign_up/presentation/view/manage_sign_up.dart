@@ -17,7 +17,7 @@ class ManageSignUpView extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: AppColors.whiteColor,
-      appBar: customAuthAppbar(context, isBack: true),
+      appBar: customAppbar(context, isBack: true),
 
       body: Column(
         spacing: 16,

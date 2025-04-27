@@ -9,7 +9,7 @@ class SignUpFromDoctorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAuthAppbar(context, isBack: true),
+      appBar: customAppbar(context, isBack: true),
 
       body: SignUpFromDoctorBodyView(),
     );

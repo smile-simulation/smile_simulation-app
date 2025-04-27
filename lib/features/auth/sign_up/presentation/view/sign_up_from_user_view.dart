@@ -15,7 +15,7 @@ class SignUpFromUserView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAuthAppbar(context, isBack: true),
+      appBar: customAppbar(context, isBack: true),
 
       body: BlocConsumer<SignUpUserCubit, SignUpUserState>(
         listener: (context, state) async {
