@@ -16,7 +16,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAuthAppbar(context),
+      appBar: customAppbar(context),
       bottomNavigationBar: Container(
         height: 60,
         color: AppColors.whiteColor,

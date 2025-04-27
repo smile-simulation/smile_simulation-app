@@ -65,7 +65,7 @@ class _ForgotViewState extends State<ForgetView> {
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: customAuthAppbar(
+          appBar: customAppbar(
             context,
             isBack: true,
             title:
