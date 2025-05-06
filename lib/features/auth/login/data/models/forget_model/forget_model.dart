@@ -1,10 +1,7 @@
 import 'data.dart';
 
 class ForgetModel {
-  ForgetModel({
-      this.success, 
-      this.message, 
-      this.data,});
+  ForgetModel({this.success, this.message, this.data});
 
   ForgetModel.fromJson(dynamic json) {
     success = json['success'];
@@ -24,5 +21,4 @@ class ForgetModel {
     }
     return map;
   }
-
 }

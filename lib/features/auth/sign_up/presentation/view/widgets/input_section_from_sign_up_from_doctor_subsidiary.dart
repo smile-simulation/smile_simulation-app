@@ -41,7 +41,6 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
       children: [
         const SizedBox(height: 16),
 
-
         Text(
           S.of(context).academicCertificate,
           style: AppTextStyles.formLabel(context),
@@ -58,8 +57,9 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
           ),
           hint: Text(
             S.of(context).academicCertificate,
-            style: AppTextStyles.formLabel(context)
-                .copyWith(color: AppColors.greyLightColor),
+            style: AppTextStyles.formLabel(
+              context,
+            ).copyWith(color: AppColors.greyLightColor),
           ),
           value: selectedDegree,
           dropdownColor: AppColors.whiteColor,
@@ -67,9 +67,10 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
             Icons.keyboard_arrow_down_rounded,
             color: AppColors.greyLightColor,
           ),
-          items: degrees.map((degree) {
-            return DropdownMenuItem(value: degree, child: Text(degree));
-          }).toList(),
+          items:
+              degrees.map((degree) {
+                return DropdownMenuItem(value: degree, child: Text(degree));
+              }).toList(),
           onChanged: (value) {
             setState(() {
               selectedDegree = value;
@@ -79,7 +80,6 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
         ),
 
         const SizedBox(height: 16),
-
 
         Text(
           S.of(context).specialization,
@@ -97,8 +97,9 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
           ),
           hint: Text(
             S.of(context).specialization,
-            style: AppTextStyles.formLabel(context)
-                .copyWith(color: AppColors.greyLightColor),
+            style: AppTextStyles.formLabel(
+              context,
+            ).copyWith(color: AppColors.greyLightColor),
           ),
           value: selectedSpecialty,
           dropdownColor: AppColors.whiteColor,
@@ -106,12 +107,13 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
             Icons.keyboard_arrow_down_rounded,
             color: AppColors.greyLightColor,
           ),
-          items: specialties.map((specialty) {
-            return DropdownMenuItem(
-              value: specialty,
-              child: Text(specialty),
-            );
-          }).toList(),
+          items:
+              specialties.map((specialty) {
+                return DropdownMenuItem(
+                  value: specialty,
+                  child: Text(specialty),
+                );
+              }).toList(),
           onChanged: (value) {
             setState(() {
               selectedSpecialty = value;
@@ -121,7 +123,6 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
         ),
 
         const SizedBox(height: 16),
-
 
         CustomTextField(
           title: S.of(context).yearsOfExperience,

@@ -10,9 +10,7 @@ class CustomeReminderButton extends StatelessWidget {
     return Center(
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           side: BorderSide(color: Colors.lightBlue.shade100),
           backgroundColor: Colors.lightBlue.shade50,
           padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
@@ -23,12 +21,12 @@ class CustomeReminderButton extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-              CircleAvatar(
+            CircleAvatar(
               radius: 10,
               backgroundColor: AppColors.primaryColor,
               child: Icon(Icons.add, color: Colors.white, size: 16),
             ),
-                SizedBox(width: 8),
+            SizedBox(width: 8),
             Text(
               text,
               style: TextStyle(
@@ -37,8 +35,6 @@ class CustomeReminderButton extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-        
-          
           ],
         ),
       ),

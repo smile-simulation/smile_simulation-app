@@ -13,15 +13,21 @@ class ChatBotMessage extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            
-            CircleAvatar(backgroundColor: AppColors.veryLightGreyColor,radius: 15,
-              child: CircleAvatar(radius: 12,backgroundColor: AppColors.veryLightGreyColor,
-                backgroundImage: AssetImage('assets/images/logo_of_chat_bot.png'),),
+            CircleAvatar(
+              backgroundColor: AppColors.veryLightGreyColor,
+              radius: 15,
+              child: CircleAvatar(
+                radius: 12,
+                backgroundColor: AppColors.veryLightGreyColor,
+                backgroundImage: AssetImage(
+                  'assets/images/logo_of_chat_bot.png',
+                ),
+              ),
             ),
 
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(8,8,2,8),
+                padding: const EdgeInsets.fromLTRB(8, 8, 2, 8),
                 child: Container(
                   decoration: BoxDecoration(
                     color: AppColors.meduimLightGrey,

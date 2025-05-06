@@ -1,10 +1,7 @@
 import 'data.dart';
 
 class LoginModel {
-  LoginModel({
-      this.success, 
-      this.message, 
-      this.data,});
+  LoginModel({this.success, this.message, this.data});
 
   LoginModel.fromJson(dynamic json) {
     success = json['success'];
@@ -24,5 +21,4 @@ class LoginModel {
     }
     return map;
   }
-
 }

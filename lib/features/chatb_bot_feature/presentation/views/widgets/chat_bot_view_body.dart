@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/chatb_bot_feature/presentation/views/widgets/chat_messaage.dart';
-import 'package:smile_simulation/features/chatb_bot_feature/presentation/views/widgets/chat_bot_text_field.dart';  // Import the new file
+import 'package:smile_simulation/features/chatb_bot_feature/presentation/views/widgets/chat_bot_text_field.dart'; // Import the new file
 
 class ChatBotViewBody extends StatefulWidget {
   @override
@@ -18,10 +18,7 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
     setState(() {
       _messages.add(ChatMessage(text: _controller.text, isUserMessage: true));
       _messages.add(
-        ChatMessage(
-          text: "${_controller.text}",
-          isUserMessage: false,
-        ),
+        ChatMessage(text: "${_controller.text}", isUserMessage: false),
       );
       _controller.clear();
     });

@@ -31,30 +31,73 @@ class _UploadIDSectionFromSignUpFromDoctorViewState
   bool? _isDoctor;
 
   Future<void> _pickImageAndScanText() async {
-    final pickedImage =
-    await ImagePicker().pickImage(source: ImageSource.gallery);
+    final pickedImage = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+    );
     if (pickedImage != null) {
       final imageFile = File(pickedImage.path);
       final inputImage = InputImage.fromFile(imageFile);
       final textRecognizer = TextRecognizer();
-      final RecognizedText recognizedText =
-      await textRecognizer.processImage(inputImage);
+      final RecognizedText recognizedText = await textRecognizer.processImage(
+        inputImage,
+      );
       final text = recognizedText.text;
 
       final keywords = [
-        'doctor', 'dr', 'dr.', 'dentist', 'surgeon', 'cardiologist',
-        'dermatologist', 'neurologist', 'pediatrician', 'psychiatrist',
-        'urologist', 'gynecologist', 'orthopedic', 'radiologist', 'oncologist',
-        'general practitioner', 'GP', 'ENT', 'ophthalmologist',
-        'internal medicine', 'family medicine', 'anesthesiologist',
-        'طبيب', 'طبيبة', 'الدكتور','دكتور', 'دكتورة',
-        'د /', 'د.', 'د ', 'أ.د', 'أ. د.',
-        'أسنان', 'جراح', 'قلب', 'جلدية', 'أعصاب', 'أطفال',
-        'نفسية', 'مسالك بولية', 'نساء وتوليد', 'عظام',
-        'أشعة', 'أورام', 'باطنة', 'طب الأسرة', 'تخدير', 'أنف وأذن وحنجرة', 'عيون',
+        'doctor',
+        'dr',
+        'dr.',
+        'dentist',
+        'surgeon',
+        'cardiologist',
+        'dermatologist',
+        'neurologist',
+        'pediatrician',
+        'psychiatrist',
+        'urologist',
+        'gynecologist',
+        'orthopedic',
+        'radiologist',
+        'oncologist',
+        'general practitioner',
+        'GP',
+        'ENT',
+        'ophthalmologist',
+        'internal medicine',
+        'family medicine',
+        'anesthesiologist',
+        'طبيب',
+        'طبيبة',
+        'الدكتور',
+        'دكتور',
+        'دكتورة',
+        'د /',
+        'د.',
+        'د ',
+        'أ.د',
+        'أ. د.',
+        'أسنان',
+        'جراح',
+        'قلب',
+        'جلدية',
+        'أعصاب',
+        'أطفال',
+        'نفسية',
+        'مسالك بولية',
+        'نساء وتوليد',
+        'عظام',
+        'أشعة',
+        'أورام',
+        'باطنة',
+        'طب الأسرة',
+        'تخدير',
+        'أنف وأذن وحنجرة',
+        'عيون',
       ];
 
-      bool hasKeyword = keywords.any((k) => text.toLowerCase().contains(k.toLowerCase()));
+      bool hasKeyword = keywords.any(
+        (k) => text.toLowerCase().contains(k.toLowerCase()),
+      );
 
       setState(() {
         _image = imageFile;
@@ -73,7 +116,8 @@ class _UploadIDSectionFromSignUpFromDoctorViewState
     return Column(
       children: [
         Align(
-          alignment: isArabic == 'ar' ? Alignment.centerRight : Alignment.centerLeft,
+          alignment:
+              isArabic == 'ar' ? Alignment.centerRight : Alignment.centerLeft,
           child: Text(
             S.of(context).uploadIDCard,
             style: AppTextStyles.formLabel(context),
@@ -90,16 +134,19 @@ class _UploadIDSectionFromSignUpFromDoctorViewState
                 color: AppColors.veryLightGreyColor,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: _image != null
-                  ? ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.file(
-                  _image!,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                ),
-              )
-                  : Center(child: SvgPicture.asset(Assets.imagesScanCamera)),
+              child:
+                  _image != null
+                      ? ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.file(
+                          _image!,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                        ),
+                      )
+                      : Center(
+                        child: SvgPicture.asset(Assets.imagesScanCamera),
+                      ),
             ),
           ),
         ),

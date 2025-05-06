@@ -16,11 +16,7 @@ class ChatbotView extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       body: Center(
-        child: TextButton(
-          child: Text('Ask chatbot'),
-          onPressed: () {
-           },
-        ),
+        child: TextButton(child: Text('Ask chatbot'), onPressed: () {}),
       ),
     );
   }

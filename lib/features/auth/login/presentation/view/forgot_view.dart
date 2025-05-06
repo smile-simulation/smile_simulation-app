@@ -36,7 +36,7 @@ class _ForgotViewState extends State<ForgetView> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-  String Opt ="";
+  String Opt = "";
   ForgetModel forgetModel = ForgetModel();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -133,42 +133,41 @@ class _ForgotViewState extends State<ForgetView> {
                           spacing: 16,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children:
-                          index == 0
-                              ? [
-                            CustomTextField(
-                              controller: emailController,
-                              title: S.of(context).email,
-                              hintText: "example@gmail.com",
-                              keyboardType: TextInputType.emailAddress,
-                              validator: (value) {
-                                return validatorOfEmail(value);
-                              },
+                              index == 0
+                                  ? [
+                                    CustomTextField(
+                                      controller: emailController,
+                                      title: S.of(context).email,
+                                      hintText: "example@gmail.com",
+                                      keyboardType: TextInputType.emailAddress,
+                                      validator: (value) {
+                                        return validatorOfEmail(value);
+                                      },
+                                    ),
+                                  ]
+                                  : index == 1
+                                  ? [
+                                    PinInputStyles.buildPinInput(
+                                      onCompleted: (pin) {
+                                        Opt = pin ?? "";
+                                        print(pin);
 
-                            ),
-                          ]
-                              : index == 1
-                              ? [
-                            PinInputStyles.buildPinInput(
-                              onCompleted: (pin) {
-
-                                Opt =pin ??"" ;
-                                print(pin);
-
-                                ;                    },
-                            ),
-                          ]
-                              : [
-                            CustomPasswordTextField(
-                              controller: newPasswordController,
-                              title: S.of(context).password,
-                              hintText: "*********",
-                            ),
-                            CustomPasswordTextField(
-                              controller: confirmPasswordController,
-                              title: S.of(context).confirmPassword,
-                              hintText: "*********",
-                            ),
-                          ],
+                                        ;
+                                      },
+                                    ),
+                                  ]
+                                  : [
+                                    CustomPasswordTextField(
+                                      controller: newPasswordController,
+                                      title: S.of(context).password,
+                                      hintText: "*********",
+                                    ),
+                                    CustomPasswordTextField(
+                                      controller: confirmPasswordController,
+                                      title: S.of(context).confirmPassword,
+                                      hintText: "*********",
+                                    ),
+                                  ],
                         ),
                       ),
                       // ForgetSectionsBody(
@@ -205,14 +204,15 @@ class _ForgotViewState extends State<ForgetView> {
                                       .read<ForgetPasswordCubit>()
                                       .confirmNum(
                                         email: emailController.text.trim(),
-                                        codeOTP: Opt ,
+                                        codeOTP: Opt,
                                       )
                                   : context
                                       .read<ForgetPasswordCubit>()
                                       .changePassword(
                                         email: emailController.text.trim(),
-                                        token: CacheHelper.sharedPreferences
-                                            .getString(ApiKeys.token)!,
+                                        token:
+                                            CacheHelper.sharedPreferences
+                                                .getString(ApiKeys.token)!,
                                         newPassword:
                                             newPasswordController.text.trim(),
                                         confirmPassword:

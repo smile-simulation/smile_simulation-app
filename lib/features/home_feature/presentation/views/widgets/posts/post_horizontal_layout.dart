@@ -18,7 +18,7 @@ class PostHorizontalLayout extends StatelessWidget {
             flex: 7,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [PostText(postContent: post.content, maxLines: 5)],
+              children: [PostText(postContent: post.content??"No Content", maxLines: 5)],
             ),
           ),
           Expanded(
@@ -29,7 +29,7 @@ class PostHorizontalLayout extends StatelessWidget {
                 const Expanded(child: CustomPostImgae()),
                 const SizedBox(height: 6),
                 PostInteractions(
-                  likeCount: post.likes.toString(),
+                  likeCount: post.likesCount.toString(),
                   commentCount: post.commentsCount.toString(),
                 ),
               ],

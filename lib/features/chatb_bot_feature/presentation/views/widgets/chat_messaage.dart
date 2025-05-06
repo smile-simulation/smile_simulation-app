@@ -14,11 +14,7 @@ class ChatMessage extends StatelessWidget {
     return Align(
       alignment: isUserMessage ? Alignment.centerLeft : Alignment.centerRight,
       child:
-          isUserMessage
-              ? UserMessage(text: text)
-              : ChatBotMessage(text: text),
+          isUserMessage ? UserMessage(text: text) : ChatBotMessage(text: text),
     );
   }
 }
-
-

@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
-import 'package:smile_simulation/features/auth/login/data/models/login_model/Login_model.dart';import '../../../../../../constant.dart';
+import 'package:smile_simulation/features/auth/login/data/models/login_model/Login_model.dart';
+import '../../../../../../constant.dart';
 import '../../../../../../core/api/api_keys.dart';
 import '../../../../../../core/api/dio_consumer.dart';
 import '../../../../../../core/api/end_point.dart';
 import '../../../../../../core/errors/exceptions.dart';
 import '../../../../../../core/errors/failure.dart';
 import 'login_repo.dart';
-
 
 class LoginRepoImpl extends LoginRepo {
   LoginRepoImpl({required this.dioConsumer});
@@ -17,18 +17,11 @@ class LoginRepoImpl extends LoginRepo {
   Future<Either<Failure, LoginModel>> login({
     required String email,
     required String password,
-
   }) async {
     try {
       var response = await dioConsumer.post(
         EndPoint.login,
-        data: {
-
-          ApiKeys.email: email,
-          ApiKeys.password: password,
-
-        },
-
+        data: {ApiKeys.email: email, ApiKeys.password: password},
       );
       return Right(LoginModel.fromJson(response));
     } on ServerException catch (e) {
@@ -39,8 +32,4 @@ class LoginRepoImpl extends LoginRepo {
       return Left(ServerFailure('حدث خطأ غير متوقع في التسجيل'));
     }
   }
-
-
-
-
 }

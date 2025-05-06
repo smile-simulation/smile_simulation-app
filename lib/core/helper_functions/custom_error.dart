@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import '../../generated/l10n.dart';
 import '../widgets/custom_button.dart';
 
-Future<void>  customError(BuildContext context, {required String massage}) async {
+Future<void> customError(
+  BuildContext context, {
+  required String massage,
+}) async {
   await AwesomeDialog(
     context: context,
     animType: AnimType.scale,

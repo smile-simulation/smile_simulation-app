@@ -15,6 +15,7 @@ class PostsListViewBuilder extends StatelessWidget {
   final bool currentUser;
   final bool clickablePostImage;
   @override
+  /// Might Have Errors
   Widget build(BuildContext context) {
     return isSliver
         ? SliverList.separated(
@@ -26,12 +27,12 @@ class PostsListViewBuilder extends StatelessWidget {
                   context,
                   PostView.routeName,
                   arguments: PostModel(
-                    id: '1',
-                    userName: 'محمود مجدي',
-                    userImage: 'https://example.com/user.jpg',
+                    id: 1,
+                    publisherName: 'محمود مجدي',
+                    publisherImage: 'https://example.com/user.jpg',
                     content: 'هذا هو أول منشور لي!',
-                    postDate: 'منذ يومين',
-                    likes: 120,
+                    createdAt: DateTime.now(),
+                    likesCount: 120,
                     commentsCount: 15,
                   ),
                 );
@@ -39,14 +40,14 @@ class PostsListViewBuilder extends StatelessWidget {
               currentUser: currentUser,
               isPostView: false,
               post: PostModel(
-                id: '1',
-                userName: 'محمود مجدي',
-                userImage: 'https://example.com/user.jpg',
+                id: 1,
+                publisherName: 'محمود مجدي',
+                publisherImage: 'https://example.com/user.jpg',
                 content:
                     'نصيحة للعناية اليومية بالأسنان:\n'
                     'اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان.',
-                postDate: 'منذ يومين',
-                likes: 120,
+                createdAt: DateTime.now(),
+                likesCount: 120,
                 commentsCount: 15,
               ),
             );
@@ -65,14 +66,14 @@ class PostsListViewBuilder extends StatelessWidget {
                   context,
                   PostView.routeName,
                   arguments: PostModel(
-                    id: '1',
-                    userName: 'محمود مجدي',
-                    userImage: 'https://example.com/user.jpg',
+                    id: 1,
+                    publisherName: 'محمود مجدي',
+                    publisherImage: 'https://example.com/user.jpg',
                     content:
                         'نصيحة للعناية اليومية بالأسنان:\n'
                         'اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان.',
-                    postDate: 'منذ يومين',
-                    likes: 120,
+                    createdAt: DateTime.now(),
+                    likesCount: 120,
                     commentsCount: 15,
                   ),
                 );
@@ -80,14 +81,14 @@ class PostsListViewBuilder extends StatelessWidget {
               currentUser: currentUser,
               isPostView: false,
               post: PostModel(
-                id: '1',
-                userName: 'محمود مجدي',
-                userImage: 'https://example.com/user.jpg',
+                id: 1,
+                publisherName: 'محمود مجدي',
+                publisherImage: 'https://example.com/user.jpg',
                 content:
                     'نصيحة للعناية اليومية بالأسنان:\n'
                     'اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان.',
-                postDate: 'منذ يومين',
-                likes: 120,
+                createdAt: DateTime.now(),
+                likesCount: 120,
                 commentsCount: 15,
               ),
             );
