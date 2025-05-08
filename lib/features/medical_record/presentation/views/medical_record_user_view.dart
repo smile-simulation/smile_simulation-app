@@ -6,6 +6,7 @@ import 'package:smile_simulation/features/medical_record/presentation/views/pers
 
 import '../../../../core/widgets/custom_body_screen.dart';
 import '../../../../generated/assets.dart';
+import 'health_status_view.dart';
 
 class MedicalRecordView extends StatelessWidget {
   const MedicalRecordView({super.key});
@@ -119,7 +120,12 @@ class MedicalRecordView extends StatelessWidget {
                             right:85,
                           ),
                           child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                HealthStatusView.routeName,
+                              );
+                            },
                             child: Column(
                               children: [
                                 Container(

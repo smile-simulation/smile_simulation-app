@@ -31,6 +31,7 @@ import '../../features/auth/login/presentation/view/forgot_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_subsidiary_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
+import '../../features/medical_record/presentation/views/health_status_view.dart';
 import '../../features/medical_record/presentation/views/personal_data_view.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
 
@@ -153,6 +154,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       }
     case PersonalDataView.routeName:
       return MaterialPageRoute(builder: (_) => const PersonalDataView());
+    case HealthStatusView.routeName:
+      return MaterialPageRoute(builder: (_) => const HealthStatusView());
 
     case BottomNavigationView.routeName:
       return MaterialPageRoute(builder: (_) => const BottomNavigationView());
