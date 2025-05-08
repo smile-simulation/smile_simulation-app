@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
+import 'package:smile_simulation/features/medical_record/presentation/views/personal_data_view.dart';
 
 import '../../../../core/widgets/custom_body_screen.dart';
 import '../../../../generated/assets.dart';
@@ -83,7 +84,12 @@ class MedicalRecordView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              PersonalDataView.routeName,
+                            );
+                          },
                           child: Column(
                             children: [
                               Container(
