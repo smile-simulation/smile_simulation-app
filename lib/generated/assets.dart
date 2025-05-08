@@ -13,6 +13,9 @@ class Assets {
   static const String imagesAdviceBackground = 'assets/images/advice_background.jpg';
   static const String imagesBottomNavBarPointer = 'assets/images/bottom_nav_bar_pointer.png';
   static const String imagesDailyCareImage = 'assets/images/daily_care_image.png';
+  static const String imagesEllipse1 = 'assets/images/Ellipse1.png';
+  static const String imagesEllipse2 = 'assets/images/Ellipse2.png';
+  static const String imagesEllipse3 = 'assets/images/Ellipse3.png';
   static const String imagesEmojiSmiling = 'assets/images/emoji_smiling.svg';
   static const String imagesEngMahmoudMagdy = 'assets/images/Eng_MahmoudMagdy.jpeg';
   static const String imagesFacebook = 'assets/images/facebook.svg';
