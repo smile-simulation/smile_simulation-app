@@ -4,4 +4,5 @@ import 'package:smile_simulation/features/home_feature/data/models/post_model.da
 
 abstract class PostsRepo {
   Future<Either<Failure, List<PostModel>>> getPostsRepo();
+  Future<Either<Failure, bool>> makeLike();
 }
