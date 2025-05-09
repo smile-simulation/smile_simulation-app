@@ -162,7 +162,6 @@ class MedicalRecordUserView extends StatelessWidget {
                               Container(
                                 width: 75,
                                 height: 75,
-
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
