@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
+
+import '../../../../core/widgets/custom_button.dart';
 
 class HealthStatusView extends StatefulWidget {
   const HealthStatusView({super.key});
@@ -295,6 +298,28 @@ class _HealthStatusViewState extends State<HealthStatusView> {
                     ),
                     const Text("لا"),
                   ],
+                ),
+                const SizedBox(height: 12),
+
+                Visibility(
+                  visible: userType == "doctor",
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomButton(
+                        isMinWidth: true,
+
+                        title: "حفظ التعديلات",
+                        onPressed: () {},
+                      ),
+                      CustomButton(
+                        isMinWidth: true,
+                        isSecondary: true,
+                        title: "إلغاء",
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 32),
               ],

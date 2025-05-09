@@ -16,6 +16,13 @@ abstract class AppTextStyles {
       fontFamily: "NotoSansSC",
     );
   }
+  static TextStyle style20W400(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 20),
+      fontWeight: FontWeight.w400,
+      fontFamily: "NotoSansSC",
+    );
+  }
 
   static TextStyle headline3(BuildContext context) {
     return TextStyle(
