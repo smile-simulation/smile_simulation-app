@@ -1,18 +1,9 @@
-
-
 import 'package:dartz/dartz.dart';
 import '../../../../../../core/errors/failure.dart';
 import '../../models/forget_model/forget_model.dart';
 
-
-
 abstract class ForgetPasswordRepo {
-
-
-  Future<Either<Failure, ForgetModel>> forgetPassword({
-    required String email,
-
-  });
+  Future<Either<Failure, ForgetModel>> forgetPassword({required String email});
 
   Future<Either<Failure, ForgetModel>> verifyOTP({
     required String email,
@@ -24,5 +15,4 @@ abstract class ForgetPasswordRepo {
     required String password,
     required String confirmPassword,
   });
-
 }

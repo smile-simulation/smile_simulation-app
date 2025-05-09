@@ -7,10 +7,17 @@ import '../../../../../../core/widgets/custom_text_field.dart';
 import '../../../../../../generated/l10n.dart';
 
 class ForgetSectionsBody extends StatelessWidget {
-   ForgetSectionsBody({super.key, required this.index, required this.OPt, required this.emailController, required this.newPasswordController, required this.confirmPasswordController});
+  ForgetSectionsBody({
+    super.key,
+    required this.index,
+    required this.OPt,
+    required this.emailController,
+    required this.newPasswordController,
+    required this.confirmPasswordController,
+  });
 
   final int index;
-  late  String OPt ;
+  late String OPt;
   final TextEditingController emailController;
   final TextEditingController newPasswordController;
   final TextEditingController confirmPasswordController;
@@ -33,31 +40,29 @@ class ForgetSectionsBody extends StatelessWidget {
                     validator: (value) {
                       return validatorOfEmail(value);
                     },
-
                   ),
                 ]
                 : index == 1
                 ? [
                   PinInputStyles.buildPinInput(
                     onCompleted: (pin) {
-
-                      OPt =pin ??"" ;
+                      OPt = pin ?? "";
                       print(pin);
-                      print(OPt)
-;                    },
+                      print(OPt);
+                    },
                   ),
                 ]
                 : [
-              CustomPasswordTextField(
-                controller: newPasswordController,
-                title: S.of(context).password,
-                hintText: "*********",
-              ),
-              CustomPasswordTextField(
-                controller: confirmPasswordController,
-                title: S.of(context).confirmPassword,
-                hintText: "*********",
-              ),
+                  CustomPasswordTextField(
+                    controller: newPasswordController,
+                    title: S.of(context).password,
+                    hintText: "*********",
+                  ),
+                  CustomPasswordTextField(
+                    controller: confirmPasswordController,
+                    title: S.of(context).confirmPassword,
+                    hintText: "*********",
+                  ),
                 ],
       ),
     );

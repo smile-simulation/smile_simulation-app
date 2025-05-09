@@ -14,10 +14,7 @@ class ChatBotTextField extends StatelessWidget {
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
-          borderSide: BorderSide(
-            color: AppColors.primaryColor,
-            width: 2.0,
-          ),
+          borderSide: BorderSide(color: AppColors.primaryColor, width: 2.0),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: AppColors.lightGreyColor),

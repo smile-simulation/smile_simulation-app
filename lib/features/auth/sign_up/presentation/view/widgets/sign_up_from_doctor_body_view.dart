@@ -122,7 +122,7 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
 
                         Navigator.pushNamed(
                           context,
-                          arguments:  {
+                          arguments: {
                             'email': emailController.text,
                             'password': passwordController.text,
                             'confirmPassword': confirmPasswordController.text,
@@ -138,7 +138,6 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
                       autovalidateMode = AutovalidateMode.always;
                       setState(() {});
                     }
-
                   },
                 ),
 

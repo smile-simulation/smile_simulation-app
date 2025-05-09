@@ -36,8 +36,9 @@ class CustomPost extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             PostHeader(
-              userName: post.userName,
-              postDate: post.postDate,
+              /// Might Have Errors
+              userName: post.publisherName ?? "No Publisher Name",
+              postDate: post.createdAt.toString(),
               currentUser: currentUser,
               clickablePostImage: clickablePostImage,
             ),
@@ -63,8 +64,9 @@ class CustomPost extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PostHeader(
-                userName: post.userName,
-                postDate: post.postDate,
+                /// Might Have Errors
+                userName: post.publisherName ?? "No Publisher Name",
+                postDate: post.createdAt.toString(),
                 currentUser: currentUser,
                 clickablePostImage: clickablePostImage,
               ),

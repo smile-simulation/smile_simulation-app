@@ -50,8 +50,6 @@ class SignUpRepoImpl extends SignUpRepo {
     }
   }
 
-
-
   @override
   Future<Either<Failure, SignUpModel>> signUpFromDoctor({
     required String email,
@@ -66,11 +64,9 @@ class SignUpRepoImpl extends SignUpRepo {
     required String specialization,
   }) async {
     try {
-
-
       var response = await dioConsumer.post(
         EndPoint.signUpDoctor,
-        data:{
+        data: {
           ApiKeys.fullName: fullName,
           ApiKeys.experience: experience,
           ApiKeys.email: email,
@@ -80,8 +76,11 @@ class SignUpRepoImpl extends SignUpRepo {
           ApiKeys.isCorrect: isCorrect,
           ApiKeys.qualification: qualification,
           ApiKeys.specialization: specialization,
-       ApiKeys.card: await MultipartFile.fromFile(card.path, filename: "card.jpg"),
-        } ,
+          ApiKeys.card: await MultipartFile.fromFile(
+            card.path,
+            filename: "card.jpg",
+          ),
+        },
         formData: true,
       );
 
@@ -94,5 +93,4 @@ class SignUpRepoImpl extends SignUpRepo {
       return Left(ServerFailure('حدث خطأ غير متوقع في التسجيل'));
     }
   }
-
 }

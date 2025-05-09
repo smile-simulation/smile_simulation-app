@@ -6,7 +6,13 @@ import '../../../../../../core/widgets/custom_text_field.dart';
 import '../../../../../../generated/l10n.dart';
 
 class InputSectionFromSignUpFromDoctorView extends StatelessWidget {
-  const InputSectionFromSignUpFromDoctorView({super.key, required this.nameController, required this.emailController, required this.passwordController, required this.confirmPasswordController});
+  const InputSectionFromSignUpFromDoctorView({
+    super.key,
+    required this.nameController,
+    required this.emailController,
+    required this.passwordController,
+    required this.confirmPasswordController,
+  });
   final TextEditingController nameController;
   final TextEditingController emailController;
   final TextEditingController passwordController;

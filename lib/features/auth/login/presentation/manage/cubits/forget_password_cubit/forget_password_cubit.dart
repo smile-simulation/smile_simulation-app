@@ -15,7 +15,6 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
 
     final result = await forgetPasswordRepo.forgetPassword(email: email);
 
-
     result.fold(
       (l) => emit(SendCodeFailure(l.errorMessage)),
       (r) => emit(SendCodeSuccess(r.message!)),

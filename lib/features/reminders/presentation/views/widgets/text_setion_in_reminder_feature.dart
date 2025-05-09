@@ -5,7 +5,8 @@ class TextSetionInReminderFeature extends StatelessWidget {
   const TextSetionInReminderFeature({
     super.key,
     required this.text1,
-    required this.text2, this.text3,
+    required this.text2,
+    this.text3,
   });
   final String text1;
   final String text2;

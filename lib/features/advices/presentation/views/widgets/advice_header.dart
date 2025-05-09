@@ -4,10 +4,7 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 class AdviceHeader extends StatelessWidget {
-  const AdviceHeader({
-    super.key,
-    required this.adviceTitle,
-  });
+  const AdviceHeader({super.key, required this.adviceTitle});
 
   final String? adviceTitle;
 

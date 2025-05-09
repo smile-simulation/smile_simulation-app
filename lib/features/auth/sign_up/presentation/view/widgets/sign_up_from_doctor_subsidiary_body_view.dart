@@ -43,7 +43,7 @@ class _SignUpFromDoctorSubsidiaryBodyViewState
     extends State<SignUpFromDoctorSubsidiaryBodyView> {
   final TextEditingController qualificationController = TextEditingController();
   final TextEditingController specializationController =
-  TextEditingController();
+      TextEditingController();
   final TextEditingController experienceController = TextEditingController();
 
   @override
@@ -65,9 +65,9 @@ class _SignUpFromDoctorSubsidiaryBodyViewState
             const SizedBox(height: 16),
             Align(
               alignment:
-              isArabic == 'ar'
-                  ? Alignment.centerRight
-                  : Alignment.centerLeft,
+                  isArabic == 'ar'
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
               child: Text(
                 S.of(context).enterPersonalInfo,
                 style: AppTextStyles.headline1(
@@ -88,10 +88,10 @@ class _SignUpFromDoctorSubsidiaryBodyViewState
                   title: S.of(context).saveData,
                   isMinWidth: true,
                   isLoading:
-                  context.watch<SignUpDoctorCubit>().state
-                  is SignUpDoctorLoading
-                      ? true
-                      : false,
+                      context.watch<SignUpDoctorCubit>().state
+                              is SignUpDoctorLoading
+                          ? true
+                          : false,
 
                   onPressed: () {
                     logger.d(
@@ -132,7 +132,8 @@ class _SignUpFromDoctorSubsidiaryBodyViewState
                       specialization: specializationController.text,
                       image: File(''),
                       card: widget.cardImage,
-                    );  },
+                    );
+                  },
                   child: Text(
                     S.of(context).skip,
                     style: AppTextStyles.button1(

@@ -21,10 +21,12 @@ class PostVerticalLayout extends StatelessWidget {
           child: const CustomPostImgae(),
         ),
         const SizedBox(height: 8),
-        PostText(postContent: post.content),
+              /// Might Have Errors
+
+        PostText(postContent: post.content??"no content"),
         // const Spacer(),
         PostInteractions(
-          likeCount: post.likes.toString(),
+          likeCount: post.likesCount.toString(),
           commentCount: post.commentsCount.toString(),
         ),
       ],

@@ -90,7 +90,8 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
                   title: S.of(context).registerNow,
 
                   isLoading:
-                      context.watch<SignUpUserCubit>().state is SignUpUserLoading
+                      context.watch<SignUpUserCubit>().state
+                              is SignUpUserLoading
                           ? true
                           : false,
 

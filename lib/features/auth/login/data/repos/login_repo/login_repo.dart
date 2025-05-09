@@ -5,14 +5,9 @@ import 'package:smile_simulation/features/auth/login/data/models/login_model/Log
 
 import '../../../../../../core/errors/failure.dart';
 
-
 abstract class LoginRepo {
-
-
   Future<Either<Failure, LoginModel>> login({
     required String email,
     required String password,
   });
-
-
 }
