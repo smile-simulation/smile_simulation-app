@@ -9,7 +9,6 @@ import 'package:smile_simulation/core/errors/exceptions.dart';
 import 'package:smile_simulation/core/errors/failure.dart';
 import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
 
-import '../../dummy_data/json_posts.dart';
 import 'posts_repo.dart';
 
 class PostsRepoImplement implements PostsRepo {
@@ -46,7 +45,7 @@ class PostsRepoImplement implements PostsRepo {
   @override
   Future<Either<Failure, bool>> makeLike() async {
     try {
-       await dioConsumer.post("${EndPoint.baseUrl}Like/postid/3");
+      await dioConsumer.post("Like/postid/3");
       // log(("تم اضافة الاعجاب للمنشور" == response[ApiKeys.message]).toString());
       return Right((true));
     } on ServerException catch (e) {
