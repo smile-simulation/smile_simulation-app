@@ -37,7 +37,6 @@ class PostsListView extends StatelessWidget {
                   );
                 },
                 currentUser: currentUser,
-                isPostView: false,
                 post: post,
               );
             },

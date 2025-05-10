@@ -6,10 +6,7 @@ import '../../../../home_feature/presentation/views/post_view.dart';
 import '../../../../home_feature/presentation/views/widgets/posts/custom_post.dart';
 
 class PostsSliverListView extends StatelessWidget {
-  const PostsSliverListView({
-    super.key,
-  });
-
+  const PostsSliverListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +30,6 @@ class PostsSliverListView extends StatelessWidget {
                   );
                 },
                 currentUser: true,
-                isPostView: false,
                 post: post,
               );
             },

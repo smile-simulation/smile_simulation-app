@@ -5,6 +5,15 @@ sealed class PostDetailsState {}
 
 final class PostDetailsInitial extends PostDetailsState {}
 
+final class MakeLikeSuccess extends PostDetailsState {
+  final String makeLikeResult;
+
+  MakeLikeSuccess({required this.makeLikeResult});
+}
+
+final class MakeLikeFail extends PostDetailsState {}
+
+final class MakeLikeLoading extends PostDetailsState {}
 
 final class GetCommentsSuccess extends PostDetailsState {}
 

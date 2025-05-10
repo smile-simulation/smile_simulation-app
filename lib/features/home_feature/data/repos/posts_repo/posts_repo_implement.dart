@@ -16,7 +16,7 @@ class PostsRepoImplement implements PostsRepo {
 
   PostsRepoImplement({required this.dioConsumer});
   @override
-  Future<Either<Failure, List<PostModel>>> getPostsRepo() async {
+  Future<Either<Failure, List<PostModel>>> getPosts() async {
     try {
       var response = await dioConsumer.get(
         "${EndPoint.post}?pageNumber=1&pageSize=5",
@@ -43,11 +43,11 @@ class PostsRepoImplement implements PostsRepo {
   }
 
   @override
-  Future<Either<Failure, bool>> makeLike() async {
+  Future<Either<Failure, String>> makeLike({required int postId}) async {
     try {
-      await dioConsumer.post("Like/postid/3");
+      var response = await dioConsumer.post("Like/postid/${postId}");
       // log(("تم اضافة الاعجاب للمنشور" == response[ApiKeys.message]).toString());
-      return Right((true));
+      return Right((response[ApiKeys.message]));
     } on ServerException catch (e) {
       logger.e("Exception in Get posts: ${e.errorModel.message}");
       return Left(ServerFailure(e.errorModel.message!));

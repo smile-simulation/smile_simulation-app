@@ -6,6 +6,7 @@ import 'package:smile_simulation/features/home_feature/presentation/views/widget
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/comment_section_title.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/comments_list_view_builder.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/custom_post.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/custom_post_view_post.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 class PostViewBody extends StatelessWidget {
@@ -30,9 +31,8 @@ class PostViewBody extends StatelessWidget {
                         PostSectionsTitle(title: S.of(context).posts),
                         BlocBuilder<PostDetailsCubit, PostDetailsState>(
                           builder: (context, state) {
-                            return CustomPost(
+                            return PostViewPost(
                               currentUser: currentUser,
-                              isPostView: true,
                               post: context.read<PostDetailsCubit>().post,
                             );
                           },
