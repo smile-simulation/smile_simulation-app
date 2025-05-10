@@ -5,3 +5,4 @@ const isOnboardingViewSeen = 'isOnboardingViewSeen';
 const isSuccessLogin = 'isSuccessLogin';
 const sharedPrefUserToken = 'sharedPrefUserToken';
 var logger = Logger();
+const userType = 'doctor';
