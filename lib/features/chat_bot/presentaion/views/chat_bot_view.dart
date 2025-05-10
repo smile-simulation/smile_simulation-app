@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'chat_bot.dart';
 
 class ChatbotView extends StatelessWidget {
   const ChatbotView({super.key});
