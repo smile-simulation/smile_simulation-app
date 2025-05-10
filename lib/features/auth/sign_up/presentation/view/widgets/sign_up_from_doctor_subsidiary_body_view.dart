@@ -59,92 +59,95 @@ class _SignUpFromDoctorSubsidiaryBodyViewState
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: CustomBodyScreen(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 16),
-            Align(
-              alignment:
-                  isArabic == 'ar'
-                      ? Alignment.centerRight
-                      : Alignment.centerLeft,
-              child: Text(
-                S.of(context).enterPersonalInfo,
-                style: AppTextStyles.headline1(
-                  context,
-                ).copyWith(color: const Color(0xFF4F4F4F)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 16),
+              Align(
+                alignment:
+                    isArabic == 'ar'
+                        ? Alignment.centerRight
+                        : Alignment.centerLeft,
+                child: Text(
+                  S.of(context).enterPersonalInfo,
+                  style: AppTextStyles.headline1(
+                    context,
+                  ).copyWith(color: const Color(0xFF4F4F4F)),
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            InputSectionFromSignUpFromDoctorSubsidiary(
-              qualificationController: qualificationController,
-              specializationController: specializationController,
-              experienceController: experienceController,
-            ),
-            const Spacer(),
-            Row(
-              children: [
-                CustomButton(
-                  title: S.of(context).saveData,
-                  isMinWidth: true,
-                  isLoading:
-                      context.watch<SignUpDoctorCubit>().state
-                              is SignUpDoctorLoading
-                          ? true
-                          : false,
+              const SizedBox(height: 8),
+              InputSectionFromSignUpFromDoctorSubsidiary(
+                qualificationController: qualificationController,
+                specializationController: specializationController,
+                experienceController: experienceController,
+              ),
+              const Spacer(),
+              Row(
+                children: [
+                  CustomButton(
+                    title: S.of(context).saveData,
+                    isMinWidth: true,
+                    isLoading:
+                        context.watch<SignUpDoctorCubit>().state
+                                is SignUpDoctorLoading
+                            ? true
+                            : false,
 
-                  onPressed: () {
-                    logger.d(
-                      "experience: ${experienceController.text}  qualification: ${qualificationController.text}  specialization: ${specializationController.text}",
-                    );
-                    context.read<SignUpDoctorCubit>().signUpFromDoctor(
-                      email: widget.email,
-                      password: widget.password,
-                      confirmPassword: widget.confirmPassword,
-                      fullName: widget.name,
-                      gender: widget.gender == 1 ? 'male' : 'female',
+                    onPressed: () {
+                      logger.d(
+                        "experience: ${experienceController.text}  qualification: ${qualificationController.text}  specialization: ${specializationController.text}",
+                      );
+                      context.read<SignUpDoctorCubit>().signUpFromDoctor(
+                        email: widget.email,
+                        password: widget.password,
+                        confirmPassword: widget.confirmPassword,
+                        fullName: widget.name,
+                        gender: widget.gender == 1 ? 'male' : 'female',
 
-                      experience: int.tryParse(experienceController.text) ?? 0,
-                      isCorrect: widget.isCorrect,
-                      qualification: qualificationController.text,
-                      specialization: specializationController.text,
-                      image: File(''),
-                      card: widget.cardImage,
-                    );
-                  },
-                ),
-                const Spacer(),
-                TextButton(
-                  onPressed: () {
-                    logger.d(
-                      "experience: ${experienceController.text}  qualification: ${qualificationController.text}  specialization: ${specializationController.text}",
-                    );
-                    context.read<SignUpDoctorCubit>().signUpFromDoctor(
-                      email: widget.email,
-                      password: widget.password,
-                      confirmPassword: widget.confirmPassword,
-                      fullName: widget.name,
-                      gender: widget.gender == 1 ? 'male' : 'female',
-
-                      experience: int.tryParse(experienceController.text) ?? 0,
-                      isCorrect: widget.isCorrect,
-                      qualification: qualificationController.text,
-                      specialization: specializationController.text,
-                      image: File(''),
-                      card: widget.cardImage,
-                    );
-                  },
-                  child: Text(
-                    S.of(context).skip,
-                    style: AppTextStyles.button1(
-                      context,
-                    ).copyWith(color: AppColors.greyLightColor),
+                        experience: int.tryParse(experienceController.text) ?? 0,
+                        isCorrect: widget.isCorrect,
+                        qualification: qualificationController.text,
+                        specialization: specializationController.text,
+                        image: File(''),
+                        card: widget.cardImage,
+                      );
+                    },
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-          ],
+                  const Spacer(),
+                  TextButton(
+                    onPressed: () {
+                      logger.d(
+                        "experience: ${experienceController.text}  qualification: ${qualificationController.text}  specialization: ${specializationController.text}",
+                      );
+                      context.read<SignUpDoctorCubit>().signUpFromDoctor(
+                        email: widget.email,
+                        password: widget.password,
+                        confirmPassword: widget.confirmPassword,
+                        fullName: widget.name,
+                        gender: widget.gender == 1 ? 'male' : 'female',
+
+                        experience: int.tryParse(experienceController.text) ?? 0,
+                        isCorrect: widget.isCorrect,
+                        qualification: qualificationController.text,
+                        specialization: specializationController.text,
+                        image: File(''),
+                        card: widget.cardImage,
+                      );
+                    },
+                    child: Text(
+                      S.of(context).skip,
+                      style: AppTextStyles.button1(
+                        context,
+                      ).copyWith(color: AppColors.greyLightColor),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
         ),
       ),
     );

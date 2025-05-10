@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/helper_functions/custom_error.dart';
 import 'package:smile_simulation/features/auth/login/presentation/manage/cubits/login_cubit/login_cubit.dart';
+import 'package:smile_simulation/features/auth/login/presentation/view/widgets/login_view_body.dart';
+import '../../../../../core/database/cache/cache_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
@@ -47,17 +50,22 @@ class LoginView extends StatelessWidget {
         listener: (context, state) async {
           if (state is LoginSuccess) {
             await customSuccess(context, massage: state.message);
+            CacheHelper.sharedPreferences.setBool(
+              isSuccessLogin,
+              true,
+            );
             Navigator.pushReplacementNamed(
               context,
               BottomNavigationView.routeName,
             );
+
           }
           if (state is LoginFailure) {
             customError(context, massage: state.message);
           }
         },
         builder: (context, state) {
-          return LoginView();
+          return LogInViewBody();
         },
       ),
     );

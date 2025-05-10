@@ -25,7 +25,7 @@ class ForgetPasswordRepoImpl extends ForgetPasswordRepo {
       );
 
       CacheHelper.sharedPreferences.setString(
-        ApiKeys.token,
+        sharedPrefForgetToken,
         ForgetModel.fromJson(response).data!.token!,
       );
       return Right(ForgetModel.fromJson(response));
