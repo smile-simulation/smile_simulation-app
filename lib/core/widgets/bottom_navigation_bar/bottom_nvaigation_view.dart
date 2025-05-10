@@ -6,7 +6,6 @@ import 'package:smile_simulation/features/more/presentation/views/more_view.dart
 import 'package:smile_simulation/features/reminders/presentation/views/reminders_view.dart';
 
 import '../../../features/medical_record/presentation/views/medical_record_user_view.dart';
-import '../../../features/medical_record/presentation/views/medical_record_view.dart';
 import 'custom_bottom_navigation_bar.dart';
 
 class BottomNavigationView extends StatefulWidget {

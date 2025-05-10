@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
-import 'package:smile_simulation/features/home_feature/presentation/cubits/post_details_cubit/post_details_cubit.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/add_comment_form_field.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/comment_section_title.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/comments_list_view_builder.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/custom_post.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/custom_post_view_post.dart';
 import 'package:smile_simulation/generated/l10n.dart';
+
+import '../../../cubits/post_details_cubit/post_details_cubit.dart';
+import 'add_comment_form_field.dart';
+import 'comment_section_title.dart';
+import 'comments_list_view_builder.dart';
+import 'custom_post_view_post.dart';
 
 class PostViewBody extends StatelessWidget {
   const PostViewBody({super.key, required this.currentUser});

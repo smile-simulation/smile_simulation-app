@@ -1,8 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/core/helper_functions/show_custom_snack_bar.dart';
 import 'package:smile_simulation/core/helper_functions/show_modal_bottom_sheet.dart';
+import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/post_details_cubit/post_details_cubit.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
@@ -21,18 +21,11 @@ class PostFooter extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          BlocConsumer<PostDetailsCubit, PostDetailsState>(
-            listener: (BuildContext context, PostDetailsState state) {
-              if (state is MakeLikeSuccess) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(state.makeLikeResult)));
-              } else {}
-            },
+          BlocBuilder<PostDetailsCubit, PostDetailsState>(
             builder: (context, state) {
               return PostFooterActionItem(
                 onTap: () async {
-                  await cubit.makeLike();
+                  await cubit.makeLike(postId: post.id!);
                 },
                 actionText: S.of(context).like,
                 icon: Icons.thumb_up,

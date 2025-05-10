@@ -1,11 +1,8 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-import '../../../data/repos/posts_repo/posts_repo_implement.dart';
 import 'posts_list_view.dart';
 
 class HomeViewBodyContent extends StatelessWidget {

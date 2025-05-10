@@ -3,7 +3,6 @@ import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/search_feature/presentation/views/widgets/custom_search_box.dart';
-import 'package:smile_simulation/features/search_feature/presentation/views/widgets/custom_search_record.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';

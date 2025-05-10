@@ -57,4 +57,21 @@ class PostsRepoImplement implements PostsRepo {
       return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
     }
   }
+
+  @override
+  Future<Either<Failure, PostModel>> getPostById({required int postId}) async {
+    try {
+      var response = await dioConsumer.get("Post/$postId");
+      dynamic postJson = response[ApiKeys.data];
+      log(postJson.toString());
+      PostModel post = PostModel.fromJson(postJson);
+      return Right(post);
+    } on ServerException catch (e) {
+      logger.e("Exception in Get Advices: ${e.errorModel.message}");
+      return Left(ServerFailure(e.errorModel.message!));
+    } catch (e) {
+      logger.e("Exception in Get Advices: $e");
+      return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
+    }
+  }
 }

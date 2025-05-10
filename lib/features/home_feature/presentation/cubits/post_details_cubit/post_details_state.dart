@@ -11,7 +11,11 @@ final class MakeLikeSuccess extends PostDetailsState {
   MakeLikeSuccess({required this.makeLikeResult});
 }
 
-final class MakeLikeFail extends PostDetailsState {}
+final class MakeLikeFail extends PostDetailsState {
+  final String message;
+
+  MakeLikeFail({required this.message});
+}
 
 final class MakeLikeLoading extends PostDetailsState {}
 

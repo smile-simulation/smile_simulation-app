@@ -22,13 +22,7 @@ class PostsSliverListView extends StatelessWidget {
               final post = posts[index];
               return CustomPost(
                 clickablePostImage: false,
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    PostView.routeName,
-                    arguments: post,
-                  );
-                },
+
                 currentUser: true,
                 post: post,
               );
