@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/auth/login/presentation/manage/cubits/login_cubit/login_cubit.dart';
 import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubits/sign_up_user_cubit/sign_up_user_cubit.dart';
 
@@ -43,81 +44,86 @@ class _LogInViewBodyState extends State<LogInViewBody> {
         FocusScope.of(context).unfocus();
       },
       child: CustomBodyScreen(
-        child: SingleChildScrollView(
-          child: Form(
-            key: formKey,
-            autovalidateMode: autovalidateMode,
-            child: Column(
-              spacing: 16,
-              children: [
-                SizedBox(height: 16),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Flexible(
-                          child: Text(
-                            S.of(context).welcomeBack,
-                            style: AppTextStyles.headline1(
-                              context,
-                            ).copyWith(color: Color(0xFF4F4F4F)),
-                            overflow: TextOverflow.ellipsis,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: SingleChildScrollView(
+            child: Form(
+              key: formKey,
+              autovalidateMode: autovalidateMode,
+              child: Column(
+                spacing: 16,
+                children: [
+                  SizedBox(height: 16),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Flexible(
+                            child: Text(
+                              S.of(context).welcomeBack,
+                              style: AppTextStyles.headline1(
+                                context,
+                              ).copyWith(color: Color(0xFF4F4F4F)),
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
+                          SizedBox(width: 8),
+                          SvgPicture.asset(Assets.imagesEmojiSmiling),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 24),
+                  InputSectionFromLogInView(
+                    emailController: emailController,
+                    passwordController: passwordController,
+                  ),
+                  Align(
+                    alignment:
+                        isArabic == 'ar'
+                            ? Alignment.centerLeft
+                            : Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, ForgetView.routeName);
+                      },
+                      child: Text(
+                        S.of(context).forgotPassword,
+                        style: AppTextStyles.caption1(context).copyWith(
+                          color: AppColors.primaryColor,
                         ),
-                        SizedBox(width: 8),
-                        SvgPicture.asset(Assets.imagesEmojiSmiling),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 24),
-                InputSectionFromLogInView(
-                  emailController: emailController,
-                  passwordController: passwordController,
-                ),
-                Align(
-                  alignment:
-                      isArabic == 'ar'
-                          ? Alignment.centerLeft
-                          : Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, ForgetView.routeName);
-                    },
-                    child: Text(
-                      S.of(context).forgotPassword,
-                      style: AppTextStyles.caption1(context),
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(),
-                CustomButton(
-                  title: S.of(context).signIn,
-                  isLoading:
-                      context.watch<LoginCubit>().state is LoginLoading
-                          ? true
-                          : false,
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      autovalidateMode = AutovalidateMode.disabled;
+                  SizedBox(),
+                  CustomButton(
+                    title: S.of(context).signIn,
+                    isLoading:
+                        context.watch<LoginCubit>().state is LoginLoading
+                            ? true
+                            : false,
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        autovalidateMode = AutovalidateMode.disabled;
 
-                      context.read<LoginCubit>().login(
-                        email: emailController.text.trim(),
-                        password: passwordController.text.trim(),
-                      );
-                    } else {
-                      autovalidateMode = AutovalidateMode.always;
-                      setState(() {});
-                    }
-                  },
-                ),
+                        context.read<LoginCubit>().login(
+                          email: emailController.text.trim(),
+                          password: passwordController.text.trim(),
+                        );
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
+                    },
+                  ),
 
-                SizedBox(height: 12),
+                  SizedBox(height: 12),
 
-                LogInWithMediaSection(),
-                SizedBox(height: 90),
-              ],
+                  LogInWithMediaSection(),
+                  SizedBox(height: 90),
+                ],
+              ),
             ),
           ),
         ),

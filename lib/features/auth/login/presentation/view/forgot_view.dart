@@ -109,125 +109,128 @@ class _ForgotViewState extends State<ForgetView> {
               key: formKey,
               autovalidateMode: autovalidateMode,
               child: CustomBodyScreen(
-                child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
-                  color: AppColors.whiteColor,
-                  child: Column(
-                    spacing: 16,
-                    children: [
-                      SizedBox(height: 16),
-                      Text(
-                        index == 0
-                            ? S.of(context).enterEmail
-                            : index == 1
-                            ? S.of(context).enterVerificationCode
-                            : S.of(context).enterNewPassword,
-                        style: AppTextStyles.headline2(
-                          context,
-                        ).copyWith(color: Color(0xFF4F4F4F)),
-                      ),
-                      SizedBox(
-                        height: 250,
-                        child: Column(
-                          spacing: 16,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children:
-                              index == 0
-                                  ? [
-                                    CustomTextField(
-                                      controller: emailController,
-                                      title: S.of(context).email,
-                                      hintText: "example@gmail.com",
-                                      keyboardType: TextInputType.emailAddress,
-                                      validator: (value) {
-                                        return validatorOfEmail(value);
-                                      },
-                                    ),
-                                  ]
-                                  : index == 1
-                                  ? [
-                                    PinInputStyles.buildPinInput(
-                                      onCompleted: (pin) {
-                                        Opt = pin ?? "";
-                                        print(pin);
-
-                                        ;
-                                      },
-                                    ),
-                                  ]
-                                  : [
-                                    CustomPasswordTextField(
-                                      controller: newPasswordController,
-                                      title: S.of(context).password,
-                                      hintText: "*********",
-                                    ),
-                                    CustomPasswordTextField(
-                                      controller: confirmPasswordController,
-                                      title: S.of(context).confirmPassword,
-                                      hintText: "*********",
-                                    ),
-                                  ],
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    color: AppColors.whiteColor,
+                    child: Column(
+                      spacing: 16,
+                      children: [
+                        SizedBox(height: 16),
+                        Text(
+                          index == 0
+                              ? S.of(context).enterEmail
+                              : index == 1
+                              ? S.of(context).enterVerificationCode
+                              : S.of(context).enterNewPassword,
+                          style: AppTextStyles.headline2(
+                            context,
+                          ).copyWith(color: Color(0xFF4F4F4F)),
                         ),
-                      ),
-                      // ForgetSectionsBody(
-                      //   index: index,
-                      //   OPt: Opt ,
-                      //   emailController: emailController,
-                      //   newPasswordController: newPasswordController,
-                      //   confirmPasswordController: confirmPasswordController,
-                      // ),
-                      CustomButton(
-                        isLoading:
-                            context.watch<ForgetPasswordCubit>().state
-                                is ChangePasswordLoading ||
-                            context.watch<ForgetPasswordCubit>().state
-                                is SendCodeLoading ||
-                            context.watch<ForgetPasswordCubit>().state
-                                is ConfirmNumLoading,
-                        title:
-                            index == 0 || index == 1
-                                ? S.of(context).confirm
-                                : S.of(context).resetPassword,
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            autovalidateMode = AutovalidateMode.disabled;
-                            setState(() {
-                              index == 0
-                                  ? context
-                                      .read<ForgetPasswordCubit>()
-                                      .sendCode(
-                                        email: emailController.text.trim(),
-                                      )
-                                  : index == 1
-                                  ? context
-                                      .read<ForgetPasswordCubit>()
-                                      .confirmNum(
-                                        email: emailController.text.trim(),
-                                        codeOTP: Opt,
-                                      )
-                                  : context
-                                      .read<ForgetPasswordCubit>()
-                                      .changePassword(
-                                        email: emailController.text.trim(),
-                                        token:
-                                            CacheHelper.sharedPreferences
-                                                .getString(ApiKeys.token)!,
-                                        newPassword:
-                                            newPasswordController.text.trim(),
-                                        confirmPassword:
-                                            confirmPasswordController.text
-                                                .trim(),
-                                      );
-                            });
-                          } else {
-                            autovalidateMode = AutovalidateMode.always;
-                            setState(() {});
-                          }
-                        },
-                      ),
-                      Expanded(child: SizedBox(height: 16)),
-                    ],
+                        SizedBox(
+                          height: 250,
+                          child: Column(
+                            spacing: 16,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children:
+                                index == 0
+                                    ? [
+                                      CustomTextField(
+                                        controller: emailController,
+                                        title: S.of(context).email,
+                                        hintText: "example@gmail.com",
+                                        keyboardType: TextInputType.emailAddress,
+                                        validator: (value) {
+                                          return validatorOfEmail(value);
+                                        },
+                                      ),
+                                    ]
+                                    : index == 1
+                                    ? [
+                                      PinInputStyles.buildPinInput(
+                                        onCompleted: (pin) {
+                                          Opt = pin ?? "";
+                                          print(pin);
+
+                                          ;
+                                        },
+                                      ),
+                                    ]
+                                    : [
+                                      CustomPasswordTextField(
+                                        controller: newPasswordController,
+                                        title: S.of(context).password,
+                                        hintText: "*********",
+                                      ),
+                                      CustomPasswordTextField(
+                                        controller: confirmPasswordController,
+                                        title: S.of(context).confirmPassword,
+                                        hintText: "*********",
+                                      ),
+                                    ],
+                          ),
+                        ),
+                        // ForgetSectionsBody(
+                        //   index: index,
+                        //   OPt: Opt ,
+                        //   emailController: emailController,
+                        //   newPasswordController: newPasswordController,
+                        //   confirmPasswordController: confirmPasswordController,
+                        // ),
+                        CustomButton(
+                          isLoading:
+                              context.watch<ForgetPasswordCubit>().state
+                                  is ChangePasswordLoading ||
+                              context.watch<ForgetPasswordCubit>().state
+                                  is SendCodeLoading ||
+                              context.watch<ForgetPasswordCubit>().state
+                                  is ConfirmNumLoading,
+                          title:
+                              index == 0 || index == 1
+                                  ? S.of(context).confirm
+                                  : S.of(context).resetPassword,
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              autovalidateMode = AutovalidateMode.disabled;
+                              setState(() {
+                                index == 0
+                                    ? context
+                                        .read<ForgetPasswordCubit>()
+                                        .sendCode(
+                                          email: emailController.text.trim(),
+                                        )
+                                    : index == 1
+                                    ? context
+                                        .read<ForgetPasswordCubit>()
+                                        .confirmNum(
+                                          email: emailController.text.trim(),
+                                          codeOTP: Opt,
+                                        )
+                                    : context
+                                        .read<ForgetPasswordCubit>()
+                                        .changePassword(
+                                          email: emailController.text.trim(),
+                                          token:
+                                              CacheHelper.sharedPreferences
+                                                  .getString(sharedPrefForgetToken)!,
+                                          newPassword:
+                                              newPasswordController.text.trim(),
+                                          confirmPassword:
+                                              confirmPasswordController.text
+                                                  .trim(),
+                                        );
+                              });
+                            } else {
+                              autovalidateMode = AutovalidateMode.always;
+                              setState(() {});
+                            }
+                          },
+                        ),
+                        Expanded(child: SizedBox(height: 16)),
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -19,20 +19,25 @@ import 'features/on_boarding/presentation/view/on_boarding_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding.instance.deferFirstFrame();
+
   await CacheHelper().init();
-  await LocalNotificationService.initialize();
+  LocalNotificationService.initialize();
   await LocalNotificationService().requestNotificationPermission();
   Bloc.observer = CustomBlocObserver();
-
   setupGetIt();
+
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
+    const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark,
     ),
   );
 
   runApp(const SmileSimulation());
+
+
+  WidgetsBinding.instance.allowFirstFrame();
 }
 
 class SmileSimulation extends StatelessWidget {
@@ -64,12 +69,11 @@ class SmileSimulation extends StatelessWidget {
       color: AppColors.primaryColor,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: BottomNavigationView.routeName,
-      // initialRoute: BottomNavigationView.routeName,
-      //  initialRoute: BottomNavigationView.routeName,
-      // initialRoute:  CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
-      //     ? LoginView.routeName
-      //     : OnBoardingView.routeName,
+      initialRoute: CacheHelper.sharedPreferences.getBool(isSuccessLogin) == true
+          ? BottomNavigationView.routeName
+          : CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
+          ? LoginView.routeName
+          : OnBoardingView.routeName,
     );
   }
 }
