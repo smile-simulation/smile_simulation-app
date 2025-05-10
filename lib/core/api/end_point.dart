@@ -7,6 +7,8 @@ class EndPoint {
   static String resetPassword = "Account/ResetPassword";
   static String verifyOTP = "Account/VerifyOTP";
   static String allAdvices = "Advice/GetAllAdvices";
+  static String post = "post";
+  static String like = "Like/postid/";
   static String adviceByCategoryId = "AdviceCategory";
   static String allAdvicesCategories = "AdviceCategory/GetAll_Advice_Category";
   // static String home = "home";

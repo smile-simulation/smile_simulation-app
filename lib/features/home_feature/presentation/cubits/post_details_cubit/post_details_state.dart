@@ -5,6 +5,7 @@ sealed class PostDetailsState {}
 
 final class PostDetailsInitial extends PostDetailsState {}
 
+
 final class GetCommentsSuccess extends PostDetailsState {}
 
 final class GetCommentsFailture extends PostDetailsState {}

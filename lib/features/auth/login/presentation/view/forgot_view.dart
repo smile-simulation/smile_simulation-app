@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
@@ -9,7 +8,6 @@ import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/features/auth/login/presentation/manage/cubits/forget_password_cubit/forget_password_cubit.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
-import 'package:smile_simulation/features/auth/login/presentation/view/widgets/forget_sections_body.dart';
 
 import '../../../../../core/database/cache/cache_helper.dart';
 import '../../../../../core/helper_functions/custom_error.dart';
