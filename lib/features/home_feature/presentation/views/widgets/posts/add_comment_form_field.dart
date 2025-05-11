@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/comments_cubit/comments_cubit.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
-import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
+
+import '../../../../../../constant.dart';
+import '../../../../../../core/database/cache/cache_helper.dart';
+import '../../../../../../generated/assets.dart';
 
 class AddCommentFormField extends StatelessWidget {
   const AddCommentFormField({super.key});
@@ -24,16 +26,12 @@ class AddCommentFormField extends StatelessWidget {
           ),
           child: Row(
             children: [
-              CurrentUserCircleImage(
-                color: AppColors.primaryColor,
-                borderWidth: 4,
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    UserAccountView.routeName,
-                    arguments: false,
-                  );
-                },
+              CircleAvatar(
+                backgroundImage:
+                CacheHelper().getMap(key: userData)!['image'] != null
+                    ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
+                    : const AssetImage(Assets.imagesUser),
+                radius: 20,
               ),
               SizedBox(width: 8), // تباعد بين الصورة ومربع النص
               Expanded(

@@ -11,17 +11,8 @@ class AdviceViewBody extends StatelessWidget {
   final Advice advice;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        CustomAppBar(
-          title: advice.title ?? S.of(context).adviceTitleError,
-          icon: Icons.arrow_back,
-        ),
-        Expanded(
-          child: CustomBodyScreen(child: AdviceViewBodyContent(advice: advice)),
-        ),
-      ],
+    return Expanded(
+      child: CustomBodyScreen(child: AdviceViewBodyContent(advice: advice)),
     );
   }
 }

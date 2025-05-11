@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/create_post_view.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/core/widgets/custom_icon.dart';
 import 'package:smile_simulation/generated/l10n.dart';
+
+import '../../../../../constant.dart';
+import '../../../../../core/database/cache/cache_helper.dart';
+import '../../../../../generated/assets.dart';
 
 class ClickableSearchBar extends StatelessWidget {
   ClickableSearchBar({super.key});
@@ -29,12 +32,12 @@ class ClickableSearchBar extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         child: Row(
           children: [
-            CurrentUserCircleImage(
-              color: AppColors.primaryColor,
-              borderWidth: 6,
-              onTap: () {
-                onTap(context);
-              },
+            CircleAvatar(
+              backgroundImage:
+              CacheHelper().getMap(key: userData)!['image'] != null
+                  ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
+                  : const AssetImage(Assets.imagesUser),
+              radius: 20,
             ),
             SizedBox(width: 4),
             Expanded(

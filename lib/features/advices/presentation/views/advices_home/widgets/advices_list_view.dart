@@ -9,18 +9,26 @@ class AdvicesListView extends StatelessWidget {
     this.physics,
     this.shrinkWrap,
   });
+
   final List<Advice> advices;
   final ScrollPhysics? physics;
   final bool? shrinkWrap;
+
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       physics: physics ?? NeverScrollableScrollPhysics(),
       shrinkWrap: shrinkWrap ?? true,
       itemBuilder: (context, index) {
-        return CustomAdvice(advice: advices[index]);
+        return Padding(
+          padding: EdgeInsets.only(
+            top: index == 0 ? 24 : 0,
+            bottom: index == advices.length - 1 ? 16 : 0,
+          ),
+          child: CustomAdvice(advice: advices[index]),
+        );
       },
-      separatorBuilder: (context, index) => SizedBox(height: 16),
+      separatorBuilder: (context, index) => SizedBox(height: 8),
       itemCount: advices.length,
     );
   }

@@ -49,8 +49,11 @@ class GeneralAdvicesSection extends StatelessWidget {
           },
         ),
 
-        SizedBox(height: 16),
-        GeneralAdvicesListViewBuilder(),
+        SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: GeneralAdvicesListViewBuilder(),
+        ),
       ],
     );
   }

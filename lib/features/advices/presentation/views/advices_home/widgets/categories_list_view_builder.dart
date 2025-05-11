@@ -25,6 +25,7 @@ class CategoriesListViewBuilder extends StatelessWidget {
           return ListView.separated(
             separatorBuilder: (_, __) => const SizedBox(width: 16),
             scrollDirection: Axis.horizontal,
+            padding: EdgeInsets.symmetric(horizontal: 16),
             itemBuilder: (_, __) => const CategoryItemCardSkeleton(),
             itemCount: 6,
           );

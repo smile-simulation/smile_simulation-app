@@ -156,8 +156,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       Timer( Duration(milliseconds: currentIndex == 4?0: 300), () {
                         currentIndex == 4
                             ? {
-
-                              Navigator.pushNamed(
+                              Navigator.pushReplacementNamed(
                                 context, LoginView.routeName,
                               ),   CacheHelper.sharedPreferences.setBool(
                             isOnboardingViewSeen,

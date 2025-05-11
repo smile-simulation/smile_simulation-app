@@ -3,8 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/other_user_cirle_image.dart';
+
+import '../../../../../constant.dart';
+import '../../../../../core/database/cache/cache_helper.dart';
+import '../../../../../generated/assets.dart';
 
 class UserAccountHeader extends StatelessWidget {
   const UserAccountHeader({super.key, required this.currentUser});
@@ -23,10 +26,13 @@ class UserAccountHeader extends StatelessWidget {
                 width: 120,
                 child:
                     currentUser
-                        ? CurrentUserCircleImage(
-                          color: AppColors.whiteColor,
-                          borderWidth: 16,
-                        )
+                        ?CircleAvatar(
+                      backgroundImage:
+                      CacheHelper().getMap(key: userData)!['image'] != null
+                          ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
+                          : const AssetImage(Assets.imagesUser),
+                      radius: 20,
+                    )
                         : OtherUserCircleImage(onTap: () {}),
               ),
               Positioned(

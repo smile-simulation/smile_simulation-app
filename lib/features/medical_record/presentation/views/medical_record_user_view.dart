@@ -4,6 +4,9 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/features/medical_record/presentation/views/personal_data_view.dart';
 
+import '../../../../constant.dart';
+import '../../../../core/api/api_keys.dart';
+import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/widgets/custom_body_screen.dart';
 import '../../../../generated/assets.dart';
 import 'health_status_view.dart';
@@ -58,12 +61,12 @@ class MedicalRecordUserView extends StatelessWidget {
                         const SizedBox(width: 10),
                         Expanded(
                           child: Text(
-                            'محمد فوزي محمود',
+                            CacheHelper().getMap(key: userData)!["fullName"],
                             style: AppTextStyles.subTitle1(context),
                           ),
                         ),
                         Text(
-                          '#34251',
+                          CacheHelper().getMap(key: userData)!['email'],
                           style: AppTextStyles.subTitle1(
                             context,
                           ).copyWith(color: AppColors.primaryColor),
