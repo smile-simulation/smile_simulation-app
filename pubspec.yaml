@@ -63,6 +63,7 @@ dependencies:
   google_ml_kit: ^0.20.0
   flutter_tesseract_ocr: ^0.4.28
   google_mlkit_text_recognition: ^0.15.0
+  hugging_face_chat_gradio: ^0.0.3
 
 dev_dependencies:
   flutter_test:
