@@ -58,7 +58,7 @@ class HomeViewBodyContent extends StatelessWidget {
       ),
       data: {
         "data": [
-          "Hello!!", // [0] Message (string)
+          "كيف احمي اسناني!!", // [0] Message (string)
         ],
       },
     );
