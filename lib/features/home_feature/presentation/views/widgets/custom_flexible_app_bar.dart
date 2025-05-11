@@ -3,14 +3,15 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
+import '../../../../../core/database/cache/cache_helper.dart';
 import '../../../../user_account/presentation/views/user_account_view.dart';
 import 'current_user_circle_image.dart';
 import 'custom_to_pin_app_bar.dart';
 import 'flexible_app_bar_icons_section.dart';
 
 class CustomFlexibleAppBar extends StatelessWidget {
-  const CustomFlexibleAppBar({super.key});
-  final String name = 'محمود مجدي';
+   CustomFlexibleAppBar({super.key});
+  final String name =CacheHelper().getMap(key: 'userData')!['fullName']?? '';
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(

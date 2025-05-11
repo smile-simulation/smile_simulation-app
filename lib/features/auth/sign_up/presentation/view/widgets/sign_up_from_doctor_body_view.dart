@@ -54,95 +54,98 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
         FocusScope.of(context).unfocus();
       },
       child: CustomBodyScreen(
-        child: SingleChildScrollView(
-          child: Form(
-            key: formKey,
-            autovalidateMode: autovalidateMode,
-            child: Column(
-              spacing: 16,
-              children: [
-                SizedBox(height: 16),
-                Align(
-                  alignment:
-                      isArabic == 'ar'
-                          ? Alignment.centerRight
-                          : Alignment.centerLeft,
-                  child: Text(
-                    S.of(context).registerNow,
-                    style: AppTextStyles.headline1(
-                      context,
-                    ).copyWith(color: Color(0xFF4F4F4F)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: SingleChildScrollView(
+            child: Form(
+              key: formKey,
+              autovalidateMode: autovalidateMode,
+              child: Column(
+                spacing: 16,
+                children: [
+                  SizedBox(height: 16),
+                  Align(
+                    alignment:
+                        isArabic == 'ar'
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
+                    child: Text(
+                      S.of(context).registerNow,
+                      style: AppTextStyles.headline1(
+                        context,
+                      ).copyWith(color: Color(0xFF4F4F4F)),
+                    ),
                   ),
-                ),
-                SizedBox(height: 24),
-                InputSectionFromSignUpFromDoctorView(
-                  emailController: emailController,
-                  passwordController: passwordController,
-                  confirmPasswordController: confirmPasswordController,
-                  nameController: nameController,
-                ),
-                GenderSectionFromSignUpView(
-                  onSelected: (value) {
-                    if (value == 'male') {
-                      gender = 0;
-                    } else if (value == 'female') {
-                      gender = 1;
-                    }
-                  },
-                ),
-                UploadIDSectionFromSignUpFromDoctorView(
-                  onImagePicked: (image, isDoctor) {
-                    setState(() {
-                      card = image;
-                      isCorrect = isDoctor;
-                    });
-                  },
-                ),
-                CustomButton(
-                  title: S.of(context).registerNow,
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      autovalidateMode = AutovalidateMode.disabled;
-
+                  SizedBox(height: 24),
+                  InputSectionFromSignUpFromDoctorView(
+                    emailController: emailController,
+                    passwordController: passwordController,
+                    confirmPasswordController: confirmPasswordController,
+                    nameController: nameController,
+                  ),
+                  GenderSectionFromSignUpView(
+                    onSelected: (value) {
+                      if (value == 'male') {
+                        gender = 0;
+                      } else if (value == 'female') {
+                        gender = 1;
+                      }
+                    },
+                  ),
+                  UploadIDSectionFromSignUpFromDoctorView(
+                    onImagePicked: (image, isDoctor) {
                       setState(() {
-                        if (isCorrect == false) {
-                          customError(
-                            context,
-                            massage: " الرجاء اختيار صورة الهوية صحيحة",
-                          );
-                          return;
-                        }
-                        if (gender == 2) {
-                          customError(
-                            context,
-                            massage: "  الرجاء اختيار نوع الجنس",
-                          );
-                          return;
-                        }
-
-                        Navigator.pushNamed(
-                          context,
-                          arguments: {
-                            'email': emailController.text,
-                            'password': passwordController.text,
-                            'confirmPassword': confirmPasswordController.text,
-                            'name': nameController.text,
-                            'gender': gender,
-                            'card': card,
-                            'isCorrect': isCorrect,
-                          },
-                          SignUpFromDoctorSubsidiaryView.routeName,
-                        );
+                        card = image;
+                        isCorrect = isDoctor;
                       });
-                    } else {
-                      autovalidateMode = AutovalidateMode.always;
-                      setState(() {});
-                    }
-                  },
-                ),
+                    },
+                  ),
+                  CustomButton(
+                    title: S.of(context).registerNow,
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        autovalidateMode = AutovalidateMode.disabled;
 
-                SizedBox(height: 16),
-              ],
+                        setState(() {
+                          if (isCorrect == false) {
+                            customError(
+                              context,
+                              massage: " الرجاء اختيار صورة الهوية صحيحة",
+                            );
+                            return;
+                          }
+                          if (gender == 2) {
+                            customError(
+                              context,
+                              massage: "  الرجاء اختيار نوع الجنس",
+                            );
+                            return;
+                          }
+
+                          Navigator.pushNamed(
+                            context,
+                            arguments: {
+                              'email': emailController.text,
+                              'password': passwordController.text,
+                              'confirmPassword': confirmPasswordController.text,
+                              'name': nameController.text,
+                              'gender': gender,
+                              'card': card,
+                              'isCorrect': isCorrect,
+                            },
+                            SignUpFromDoctorSubsidiaryView.routeName,
+                          );
+                        });
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
+                    },
+                  ),
+
+                  SizedBox(height: 16),
+                ],
+              ),
             ),
           ),
         ),
