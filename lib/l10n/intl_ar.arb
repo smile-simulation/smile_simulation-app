@@ -77,5 +77,6 @@
   "logOut": "تسجيل الخروج",
   "changeLanguage": "تغيير اللغة",
   "noAdvicesExist":"لا يوجد نصائح",
-  "noCategoriesAdvicesExist":"لا يوجد اقسام نصائح حاليا"
+  "noCategoriesAdvicesExist":"لا يوجد اقسام نصائح حاليا",
+  "smileChat":"اسأل الذكاء الاصطناعي"
 }

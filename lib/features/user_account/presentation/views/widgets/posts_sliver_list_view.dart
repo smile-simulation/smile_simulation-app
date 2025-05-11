@@ -6,10 +6,7 @@ import '../../../../home_feature/presentation/views/post_view.dart';
 import '../../../../home_feature/presentation/views/widgets/posts/custom_post.dart';
 
 class PostsSliverListView extends StatelessWidget {
-  const PostsSliverListView({
-    super.key,
-  });
-
+  const PostsSliverListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +22,8 @@ class PostsSliverListView extends StatelessWidget {
               final post = posts[index];
               return CustomPost(
                 clickablePostImage: false,
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    PostView.routeName,
-                    arguments: post,
-                  );
-                },
+
                 currentUser: true,
-                isPostView: false,
                 post: post,
               );
             },

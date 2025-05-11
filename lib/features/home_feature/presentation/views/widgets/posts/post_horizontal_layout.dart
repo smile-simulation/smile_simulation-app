@@ -12,29 +12,39 @@ class PostHorizontalLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Row(
+      child: Column(
         children: [
           Expanded(
-            flex: 7,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [PostText(postContent: post.content??"No Content", maxLines: 5,)],
-              
-            ),
-          ),
-          Expanded(
-            flex: 4,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+            child: Row(
               children: [
-                const Expanded(child: CustomPostImgae()),
-                const SizedBox(height: 6),
-                PostInteractions(
-                  likeCount: post.likesCount.toString(),
-                  commentCount: post.commentsCount.toString(),
+                Expanded(
+                  flex: 7,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      PostText(
+                        postContent: post.content ?? "No Content",
+                        maxLines: 5,
+                      ),
+                    ],
+                  ),
+                ),
+                Visibility(
+                  visible: post.postImage != null,
+                  child: Expanded(
+                    flex: 4,
+                    child: Expanded(
+                      child: CustomPostImage(image: post.postImage),
+                    ),
+                  ),
                 ),
               ],
             ),
+          ),
+          const SizedBox(height: 6),
+          PostInteractions(
+            likeCount: post.likesCount.toString(),
+            commentCount: post.commentsCount.toString(),
           ),
         ],
       ),

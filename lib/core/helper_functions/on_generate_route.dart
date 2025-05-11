@@ -31,7 +31,6 @@ import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_subsid
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
 import '../../features/medical_record/presentation/views/health_status_view.dart';
-import '../../features/medical_record/presentation/views/medical_record_user_view.dart';
 import '../../features/medical_record/presentation/views/medical_record_view.dart';
 import '../../features/medical_record/presentation/views/personal_data_view.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';

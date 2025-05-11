@@ -77,5 +77,6 @@
   "logOut": "Log Out",
   "changeLanguage": "Change Language",
   "noAdvicesExist": "No advices exist",
-  "noCategoriesAdvicesExist": "No categories of advices currently exist"
+  "noCategoriesAdvicesExist": "No categories of advices currently exist",
+  "smileChat":"Smile Chat"
 }
