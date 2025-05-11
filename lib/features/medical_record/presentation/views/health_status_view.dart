@@ -302,7 +302,7 @@ class _HealthStatusViewState extends State<HealthStatusView> {
                 const SizedBox(height: 12),
 
                 Visibility(
-                  visible: userType == "doctor",
+                  visible: userType == "Doctor",
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

@@ -4,8 +4,10 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-import '../../../../../user_account/presentation/views/user_account_view.dart';
-import '../current_user_circle_image.dart';
+import '../../../../../../constant.dart';
+import '../../../../../../core/database/cache/cache_helper.dart';
+import '../../../../../../generated/assets.dart';
+
 
 class EditPostViewBody extends StatelessWidget {
   const EditPostViewBody({super.key});
@@ -19,16 +21,12 @@ class EditPostViewBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              CurrentUserCircleImage(
-                color: AppColors.primaryColor,
-                borderWidth: 8,
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    UserAccountView.routeName,
-                    arguments: true,
-                  );
-                },
+              CircleAvatar(
+                backgroundImage:
+                CacheHelper().getMap(key: userData)!['image'] != null
+                    ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
+                    : const AssetImage(Assets.imagesUser),
+                radius: 20,
               ),
               SizedBox(width: 12),
               Expanded(
