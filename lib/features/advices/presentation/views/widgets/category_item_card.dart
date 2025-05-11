@@ -26,14 +26,13 @@ class CategoryItemCard extends StatelessWidget {
           height: 200,
           padding: EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(0xffF8F8F8),
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 8,
-                spreadRadius: 2,
-                offset: Offset(0, 4),
+                color: Colors.black12,
+                offset: Offset(0, 2),
+                blurRadius: 4,
               ),
             ],
           ),
