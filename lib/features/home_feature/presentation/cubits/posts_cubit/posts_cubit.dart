@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +12,7 @@ class PostsCubit extends Cubit<PostsState> {
   List<PostModel>? posts;
 
   Future<void> getPosts() async {
-    var done = await postsRepo.getPostsRepo();
+    var done = await postsRepo.getPosts();
     done.fold(
       (fail) {
         emit(GetPostsFailure(errorMsg: fail.errorMessage));

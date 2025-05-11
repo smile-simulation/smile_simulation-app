@@ -6,7 +6,7 @@ class PostModel extends Equatable {
   final String? publisherId;
   final String? publisherName;
   final dynamic publisherImage;
-  final dynamic postImage;
+  final String? postImage;
   final DateTime? createdAt;
   final int? likesCount;
   final int? commentsCount;

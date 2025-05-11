@@ -9,14 +9,14 @@ class CustomCachedNetworkImage extends StatelessWidget {
   const CustomCachedNetworkImage({
     super.key,
     required this.image,
-    required this.height,
-    required this.width,
+    this.height,
+    this.width,
     this.fit,
   });
   final BoxFit? fit;
   final String? image;
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -26,8 +26,8 @@ class CustomCachedNetworkImage extends StatelessWidget {
               ? InValidCategoryImage()
               : CachedNetworkImage(
                 imageUrl: image!,
-                width: width,
-                height: height,
+                // width: width,
+                // height: height,
                 fit: BoxFit.cover,
                 placeholder:
                     (context, url) => CustomLoadingShimmer(

@@ -29,15 +29,8 @@ class PostsListView extends StatelessWidget {
               final post = posts[index];
               return CustomPost(
                 clickablePostImage: clickablePostImage,
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    PostView.routeName,
-                    arguments: post,
-                  );
-                },
+                
                 currentUser: currentUser,
-                isPostView: false,
                 post: post,
               );
             },

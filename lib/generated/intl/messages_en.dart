@@ -119,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
         "signInWith": MessageLookupByLibrary.simpleMessage("Sign in with"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+        "smileChat": MessageLookupByLibrary.simpleMessage("Smile Chat"),
         "specialization":
             MessageLookupByLibrary.simpleMessage("Specialization"),
         "start": MessageLookupByLibrary.simpleMessage("Start"),

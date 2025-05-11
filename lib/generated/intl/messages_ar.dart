@@ -117,6 +117,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signInWith":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+        "smileChat":
+            MessageLookupByLibrary.simpleMessage("اسأل الذكاء الاصطناعي"),
         "specialization": MessageLookupByLibrary.simpleMessage("التخصص"),
         "start": MessageLookupByLibrary.simpleMessage("ابدأ"),
         "success": MessageLookupByLibrary.simpleMessage("نجاح"),

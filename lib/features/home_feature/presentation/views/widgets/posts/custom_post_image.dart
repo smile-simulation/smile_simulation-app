@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/generated/assets.dart';
+import 'package:smile_simulation/core/widgets/custom_cached_network_image.dart';
 
-class CustomPostImgae extends StatelessWidget {
-  const CustomPostImgae({super.key});
-
+class CustomPostImage extends StatelessWidget {
+  const CustomPostImage({super.key, required this.image});
+  final String? image;
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 60,
-      // alignment: Alignment.center,
-      decoration: BoxDecoration(
-        // color: AppColors.grayHeavyText_1Color,
-        borderRadius: BorderRadius.circular(8),
-      ),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
+      clipBehavior: Clip.antiAlias, // Smoother clipping
 
-      child: Image.asset(Assets.imagesEngMahmoudMagdy, fit: BoxFit.contain),
+      child: CustomCachedNetworkImage(fit: BoxFit.contain, image: image),
     );
   }
 }
