@@ -27,23 +27,19 @@ class _AdvicesHomeViewBodyState extends State<AdvicesHomeViewBody> {
   bool dataGot = false;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomAppBar(title: S.of(context).advices),
-        Expanded(
-          child: CustomBodyScreen(
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(child: TodaysAdviceSection()),
-                SliverSizedBox(height: 24),
-                SliverToBoxAdapter(child: AdvicesCategoriesSection()),
-                SliverSizedBox(height: 24),
-                SliverToBoxAdapter(child: GeneralAdvicesSection()),
-              ],
-            ),
-          ),
-        ),
-      ],
+    return CustomBodyScreen(
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(child: Padding(
+            padding: const EdgeInsets.symmetric( horizontal: 16.0),
+            child: TodaysAdviceSection(),
+          )),
+          SliverSizedBox(height: 24),
+          SliverToBoxAdapter(child: AdvicesCategoriesSection()),
+          SliverSizedBox(height: 24),
+          SliverToBoxAdapter(child: GeneralAdvicesSection()),
+        ],
+      ),
     );
   }
 }

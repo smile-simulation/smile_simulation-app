@@ -26,9 +26,9 @@ class CustomCachedNetworkImage extends StatelessWidget {
               ? InValidCategoryImage()
               : CachedNetworkImage(
                 imageUrl: image!,
-                // width: width,
-                // height: height,
-                fit: BoxFit.cover,
+               width: width,
+                height: height,
+                fit: BoxFit.fill,
                 placeholder:
                     (context, url) => CustomLoadingShimmer(
                       SkeletonWidget: CategoryImageSkeleton(),

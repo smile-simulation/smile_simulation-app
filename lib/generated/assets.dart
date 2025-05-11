@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String assetsImagesAdviceBackground = 'assets/images/advice_background.png';
   static const String fontsCairoBold = 'assets/fonts/Cairo-Bold.ttf';
   static const String fontsCairoMedium = 'assets/fonts/Cairo-Medium.ttf';
   static const String fontsCairoRegular = 'assets/fonts/Cairo-Regular.ttf';
