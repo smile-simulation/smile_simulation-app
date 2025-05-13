@@ -1,9 +1,4 @@
-import 'dart:convert';
-import 'dart:developer' as developer;
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/services/gradio_service.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/l10n.dart';
@@ -43,7 +38,7 @@ class HomeViewBodyContent extends StatelessWidget {
                   foregroundColor: AppColors.whiteColor,
                 ),
                 onPressed: () {
-                  GradioService().sendMessageToGradio("حل مشاكل الاسنان");
+                  
                 },
                 child: Text("اختبار"),
               ),
