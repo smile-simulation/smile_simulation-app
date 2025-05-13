@@ -7,4 +7,4 @@ const isSuccessLogin = 'isSuccessLogin';
 const sharedPrefForgetToken = 'sharedPrefForgetToken';
 const userData = 'userData';
 var logger = Logger();
-String userType = CacheHelper().getMap(key: 'userData')!['rule'] ?? "user";
+String userType = CacheHelper().getMap(key: 'userData')!['role'] ?? "Patient";

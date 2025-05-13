@@ -12,18 +12,11 @@ class CategoryAdvicesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categoryName =
-        context.read<CategoryAdvicesCubit>().category.name ??
-        S.of(context).noAdvicesExist;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        CustomAppBar(title: categoryName, icon: Icons.arrow_back),
-        Expanded(
-          child: CustomBodyScreen(child: CategoryAdvicesListViewBuilder()),
-        ),
-      ],
-    );
+
+    return CustomBodyScreen(child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+      child: CategoryAdvicesListViewBuilder(),
+    ));
   }
 }

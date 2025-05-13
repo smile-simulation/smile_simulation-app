@@ -112,7 +112,7 @@ class MedicalRecordView extends StatelessWidget {
                         ],
                       ),
                       Visibility(
-                        visible: userType == 'doctor',
+                        visible: userType == 'Doctor',
                         child: Positioned(
                           bottom: 20,
                           child: FloatingActionButton(
@@ -342,7 +342,7 @@ class TreatmentDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Visibility(
-            visible: userType == "doctor",
+            visible: userType == "Doctor",
             child:   isEditMode ?Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

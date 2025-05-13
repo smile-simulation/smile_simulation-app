@@ -11,20 +11,15 @@ class AllAdvicesViewBody extends StatelessWidget {
   final List<Advice> advices;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        CustomAppBar(title: S.of(context).advices, icon: Icons.arrow_back),
-        Expanded(
-          child: CustomBodyScreen(
-            child: AdvicesListView(
-              advices: advices,
-              physics: BouncingScrollPhysics(),
-              shrinkWrap: false,
-            ),
-          ),
+    return CustomBodyScreen(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        child: AdvicesListView(
+          advices: advices,
+          physics: BouncingScrollPhysics(),
+          shrinkWrap: false,
         ),
-      ],
+      ),
     );
   }
 }

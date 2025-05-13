@@ -47,7 +47,7 @@ class AdvicesCategoriesSection extends StatelessWidget {
             );
           },
         ),
-        SizedBox(height: 16),
+        SizedBox(height:8 ),
         SizedBox(height: 212, child: CategoriesListViewBuilder()),
       ],
     );

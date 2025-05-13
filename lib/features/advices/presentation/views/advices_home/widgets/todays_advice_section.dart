@@ -20,7 +20,7 @@ class TodaysAdviceSection extends StatelessWidget {
             context,
           ).copyWith(color: AppColors.blackColor),
         ),
-        SizedBox(height: 16),
+        SizedBox(height: 8),
         TodaysAdviceBuilder(),
       ],
     );
