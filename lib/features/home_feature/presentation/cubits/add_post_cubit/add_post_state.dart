@@ -22,3 +22,5 @@ final class AddPostFailture extends AddPostState {
 final class ImagePickedSuccess extends AddPostState {}
 
 final class ImagePickedFailture extends AddPostState {}
+
+final class ImagePickedLoading extends AddPostState {}

@@ -14,38 +14,42 @@ part 'add_post_state.dart';
 
 class AddPostCubit extends Cubit<AddPostState> {
   final PostsRepoImplement postsRepo;
-  File? image;
+  File? imageFile;
+  Uint8List? imageBytes;
   TextEditingController contentController = TextEditingController();
   AddPostCubit(this.postsRepo) : super(AddPostInitial());
   Future<void> pickImage() async {
+    emit(ImagePickedLoading());
     XFile? pickedFile = await ImagePicker().pickImage(
       source: ImageSource.gallery,
     );
     if (pickedFile != null) {
-      image = File(pickedFile.path);
+      imageFile = File(pickedFile.path);
+      imageBytes = await imageFile!.readAsBytes();
       emit(ImagePickedSuccess());
     } else {
       emit(ImagePickedFailture());
     }
   }
 
-  Future<void> addPost() async {
+  Future<void> addPost({required Function(String txt) onError}) async {
     emit(AddPostLoading());
     if (contentController.text != '' && contentController.text.isNotEmpty) {
       var result = await postsRepo.addPost(
         content: contentController.text,
-        image: image,
+        image: imageFile,
       );
       result.fold(
         (fail) {
           emit(AddPostFailture(fail: fail.errorMessage));
+          onError("لم يتم اضافة المنشور لإن ${fail}");
         },
         (success) {
           emit(AddPostSuccess());
         },
       );
     } else {
-      log("No Content");
+      onError("لم يتم اضافة المنشور لإنه لا يوجد محتوي");
     }
   }
 }

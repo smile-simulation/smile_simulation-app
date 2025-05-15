@@ -17,35 +17,39 @@ class _AddPostTextFieldState extends State<AddPostTextField> {
   @override
   Widget build(BuildContext context) {
     AddPostCubit cubit = context.read<AddPostCubit>();
-    return TextField(
-      controller: cubit.contentController,
-      maxLines: null,
-      minLines: 1,
-      decoration: InputDecoration(
-        suffixIcon: IconButton(
-          onPressed: () async {
-            await cubit.pickImage();
-          },
-          icon: Icon(Icons.image, color: AppColors.primaryColor),
-        ),
-        hintText: S.of(context).postContent,
-        hintStyle: AppTextStyles.headline2(
-          context,
-        ).copyWith(color: AppColors.greyColor),
+    return BlocBuilder<AddPostCubit, AddPostState>(
+      builder: (context, state) {
+        return TextField(
+          controller: cubit.contentController,
+          maxLines: null,
+          minLines: 1,
+          decoration: InputDecoration(
+            suffixIcon: IconButton(
+              onPressed: () async {
+                await cubit.pickImage();
+              },
+              icon: Icon(Icons.image, color: AppColors.primaryColor),
+            ),
+            hintText: S.of(context).postContent,
+            hintStyle: AppTextStyles.headline2(
+              context,
+            ).copyWith(color: AppColors.greyColor),
 
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColors.primaryColor,
-            width: 2.0,
-          ), // Border color when focused
-        ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white.withValues()),
-        ),
-      ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.transparent),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.primaryColor,
+                width: 2.0,
+              ), // Border color when focused
+            ),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white.withValues()),
+            ),
+          ),
+        );
+      },
     );
   }
 }
