@@ -9,7 +9,7 @@ class OtherUserCircleImage extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: CircleAvatar(
-        backgroundImage: AssetImage(Assets.imagesEngMahmoudMagdy),
+        backgroundImage: AssetImage(Assets.imagesUser),
       ),
     );
   }

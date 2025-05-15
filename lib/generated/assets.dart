@@ -19,7 +19,6 @@ class Assets {
   static const String imagesEllipse2 = 'assets/images/Ellipse2.png';
   static const String imagesEllipse3 = 'assets/images/Ellipse3.png';
   static const String imagesEmojiSmiling = 'assets/images/emoji_smiling.svg';
-  static const String imagesEngMahmoudMagdy = 'assets/images/Eng_MahmoudMagdy.jpeg';
   static const String imagesFacebook = 'assets/images/facebook.svg';
   static const String imagesGoogle = 'assets/images/google.svg';
   static const String imagesInput = 'assets/images/input.svg';
