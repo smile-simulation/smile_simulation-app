@@ -15,29 +15,27 @@ class PostsRepoImplement implements PostsRepo {
   final DioConsumer dioConsumer;
 
   PostsRepoImplement({required this.dioConsumer});
+
   @override
-  Future<Either<Failure, List<PostModel>>> getPosts() async {
+  Future<Either<Failure, List<PostModel>>> getPosts({
+    required int pageNumber,
+    required int pageSize,
+  }) async {
     try {
       var response = await dioConsumer.get(
-        "${EndPoint.post}?pageNumber=1&pageSize=5",
+        "${EndPoint.post}?pageNumber=$pageNumber&pageSize=$pageSize",
       );
       List<PostModel> posts = [];
       List<dynamic> postsJsonList = response[ApiKeys.data];
-      // List<dynamic> postsJsonList = jsonPosts;
-      log(postsJsonList.toString());
       for (Map<String, dynamic> post in postsJsonList) {
-        // log("Json Data: ${post.toString()}");
-
-        // log("the Model: ${PostModel.fromJson(post).toString()}");
         posts.add(PostModel.fromJson(post));
       }
-      // log(posts.toString());
       return Right(posts);
     } on ServerException catch (e) {
-      logger.e("Exception in Get Advices: ${e.errorModel.message}");
+      logger.e("Exception in Get Posts: ${e.errorModel.message}");
       return Left(ServerFailure(e.errorModel.message!));
     } catch (e) {
-      logger.e("Exception in Get Advices: $e");
+      logger.e("Exception in Get Posts: $e");
       return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
     }
   }

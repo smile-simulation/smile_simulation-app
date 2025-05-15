@@ -1,47 +1,91 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/core/utils/app_colors.dart';
 import '../../cubits/posts_cubit/posts_cubit.dart';
-import '../post_view.dart';
 import 'posts/custom_post.dart';
 
-class PostsListView extends StatelessWidget {
+class PostsListView extends StatefulWidget {
   const PostsListView({
     super.key,
-    this.clickablePostImage = true,
     required this.currentUser,
+    this.clickablePostImage = true,
   });
 
   final bool currentUser;
   final bool clickablePostImage;
 
   @override
+  State<PostsListView> createState() => _PostsListViewState();
+}
+
+class _PostsListViewState extends State<PostsListView> {
+  bool isLoadingMore = false;
+
+  void _onScroll(ScrollNotification notification) {
+    if (notification.metrics.pixels >=
+        notification.metrics.maxScrollExtent - 200) {
+      if (!isLoadingMore) {
+        isLoadingMore = true;
+        context.read<PostsCubit>().fetchPosts().then((_) {
+          isLoadingMore = false;
+        });
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<PostsCubit>().fetchPosts(isInitialLoad: true);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<PostsCubit, PostsState>(
       builder: (context, state) {
-        if (state is GetPostsSuccess) {
-          final posts = state.posts;
+        final cubit = context.read<PostsCubit>();
+        final posts = cubit.posts;
 
-          return ListView.separated(
-            itemCount: posts.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 28),
-            itemBuilder: (context, index) {
-              final post = posts[index];
-              return CustomPost(
-                clickablePostImage: clickablePostImage,
-                
-                currentUser: currentUser,
-                post: post,
-              );
-            },
-          );
-        } else if (state is GetPostsFailure) {
-          return const Center(child: Text("خطأ في تحميل المنشورات"));
-        } else {
-          return const Center(
-            child: CircularProgressIndicator(color: AppColors.primaryColor),
-          );
+        if (state is PostsInitial) {
+          return const Center(child: CircularProgressIndicator());
         }
+
+        if (state is PostsError) {
+          return const Center(child: Text("خطأ في تحميل المنشورات"));
+        }
+
+        return RefreshIndicator(
+          onRefresh: () async {
+            await cubit.fetchPosts(isInitialLoad: true);
+          },
+          child: NotificationListener<ScrollNotification>(
+            onNotification: (notification) {
+              _onScroll(notification);
+              return false;
+            },
+            child: ListView.separated(
+              padding: EdgeInsets.zero,
+              itemCount: cubit.hasReachedEnd ? posts.length : posts.length + 1,
+              separatorBuilder: (_, __) => const SizedBox(height: 16),
+              itemBuilder: (context, index) {
+                if (index >= posts.length) {
+                  return const Center(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+
+                final post = posts[index];
+                return CustomPost(
+                  clickablePostImage: widget.clickablePostImage,
+                  currentUser: widget.currentUser,
+                  post: post,
+                );
+              },
+            ),
+          ),
+        );
       },
     );
   }

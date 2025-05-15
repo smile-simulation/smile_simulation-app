@@ -22,7 +22,7 @@ class CustomAdvice extends StatelessWidget {
         color: AppColors.whiteColor,
         child: Container(
           width: double.infinity,
-          height: 132,
+          height: 135,
           padding: EdgeInsets.all(8),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
