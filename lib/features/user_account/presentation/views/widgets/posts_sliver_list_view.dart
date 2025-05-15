@@ -12,7 +12,7 @@ class PostsSliverListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PostsCubit, PostsState>(
       builder: (context, state) {
-        if (state is GetPostsSuccess) {
+        if (state is PostsSuccess) {
           final posts = state.posts;
 
           return SliverList.separated(
@@ -28,7 +28,7 @@ class PostsSliverListView extends StatelessWidget {
               );
             },
           );
-        } else if (state is GetPostsFailure) {
+        } else if (state is PostsError) {
           return const SliverToBoxAdapter(
             child: Center(child: Text("خطأ في تحميل المنشورات")),
           );

@@ -8,19 +8,46 @@ part 'posts_state.dart';
 
 class PostsCubit extends Cubit<PostsState> {
   PostsCubit(this.postsRepo) : super(PostsInitial());
-  final PostsRepoImplement postsRepo;
-  List<PostModel>? posts;
 
-  Future<void> getPosts() async {
-    var done = await postsRepo.getPosts();
-    done.fold(
-      (fail) {
-        emit(GetPostsFailure(errorMsg: fail.errorMessage));
-      },
-      (success) {
-        posts = success;
-        emit(GetPostsSuccess(posts: success));
-      },
+  final PostsRepoImplement postsRepo;
+
+  final List<PostModel> posts = [];
+  int _currentPage = 1;
+  final int _pageSize = 10;
+  bool _isLoading = false;
+  bool _hasReachedEnd = false;
+
+  bool get hasReachedEnd => _hasReachedEnd;
+
+  Future<void> fetchPosts({bool isInitialLoad = false}) async {
+    if (_isLoading || _hasReachedEnd) return;
+
+    _isLoading = true;
+
+    if (isInitialLoad) {
+      _currentPage = 1;
+      _hasReachedEnd = false;
+      posts.clear();
+    }
+
+    final result = await postsRepo.getPosts(
+      pageNumber: _currentPage,
+      pageSize: _pageSize,
     );
+
+    result.fold((failure) => emit(PostsError(errorMsg: failure.errorMessage)), (
+      newPosts,
+    ) {
+      if (newPosts.length < _pageSize) {
+        _hasReachedEnd = true;
+      }
+
+      posts.addAll(newPosts);
+      _currentPage++;
+
+      emit(PostsSuccess(posts: posts, hasMore: !_hasReachedEnd));
+    });
+
+    _isLoading = false;
   }
 }

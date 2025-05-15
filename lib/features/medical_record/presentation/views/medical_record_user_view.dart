@@ -51,7 +51,7 @@ class MedicalRecordUserView extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(200),
                             child: Image.asset(
-                              Assets.imagesEngMahmoudMagdy,
+                              Assets.imagesUser,
                               width: 40,
                               height: 40,
                               fit: BoxFit.fill,

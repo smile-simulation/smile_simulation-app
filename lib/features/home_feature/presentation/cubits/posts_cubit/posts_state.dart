@@ -1,24 +1,31 @@
 part of 'posts_cubit.dart';
 
-sealed class PostsState extends Equatable {
+abstract class PostsState extends Equatable {
   const PostsState();
 
   @override
   List<Object> get props => [];
 }
 
-final class PostsInitial extends PostsState {}
+class PostsInitial extends PostsState {}
 
-final class GetPostsSuccess extends PostsState {
+class PostsLoading extends PostsState {}
+
+class PostsSuccess extends PostsState {
   final List<PostModel> posts;
+  final bool hasMore;
 
-  GetPostsSuccess({required this.posts});
+  const PostsSuccess({required this.posts, required this.hasMore});
+
+  @override
+  List<Object> get props => [posts, hasMore];
 }
 
-final class GetPostsLoading extends PostsState {}
-
-final class GetPostsFailure extends PostsState {
+class PostsError extends PostsState {
   final String errorMsg;
 
-  GetPostsFailure({required this.errorMsg});
+  const PostsError({required this.errorMsg});
+
+  @override
+  List<Object> get props => [errorMsg];
 }

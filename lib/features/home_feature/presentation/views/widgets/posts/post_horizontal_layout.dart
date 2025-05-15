@@ -25,6 +25,7 @@ class PostHorizontalLayout extends StatelessWidget {
                       PostText(
                         postContent: post.content ?? "No Content",
                         maxLines: 5,
+
                       ),
                     ],
                   ),
