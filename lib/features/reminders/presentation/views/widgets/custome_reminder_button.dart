@@ -4,7 +4,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 class CustomeReminderButton extends StatelessWidget {
   final String text;
 
-  const CustomeReminderButton({super.key, required this.text});
+  const CustomeReminderButton({super.key, required this.text, required Null Function() onPressed});
   @override
   Widget build(BuildContext context) {
     return Center(
