@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'chat_bot.dart';
 
 class ChatbotView extends StatelessWidget {
   const ChatbotView({super.key});
@@ -16,11 +15,7 @@ class ChatbotView extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       body: Center(
-        child: TextButton(
-          child: Text('Ask chatbot'),
-          onPressed: () {
-           },
-        ),
+        child: TextButton(child: Text('Ask chatbot'), onPressed: () {}),
       ),
     );
   }

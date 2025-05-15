@@ -1,6 +1,5 @@
 class Data {
-  Data({
-      this.token,});
+  Data({this.token});
 
   Data.fromJson(dynamic json) {
     token = json['token'];
@@ -12,5 +11,4 @@ class Data {
     map['token'] = token;
     return map;
   }
-
 }

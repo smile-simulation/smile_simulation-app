@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/l10n.dart';
-
-import '../../../../user_account/presentation/views/user_account_view.dart';
-import 'current_user_circle_image.dart';
+import '../../../../../constant.dart';
+import '../../../../../core/database/cache/cache_helper.dart';
+import '../../../../../generated/assets.dart';
+import '../../../../chatb_bot_feature/presentation/views/chat_bot_view.dart';
 import 'custom_to_pin_app_bar.dart';
-import 'flexible_app_bar_icons_section.dart';
+
 
 class CustomFlexibleAppBar extends StatelessWidget {
-  const CustomFlexibleAppBar({super.key});
-  final String name = 'محمود مجدي';
+  CustomFlexibleAppBar({super.key});
+
+  final String name = CacheHelper().getMap(key: 'userData')!['fullName'] ?? '';
+
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: 164,
       elevation: 0,
       centerTitle: true,
       floating: true,
@@ -25,16 +28,14 @@ class CustomFlexibleAppBar extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          CurrentUserCircleImage(
-            color: AppColors.whiteColor,
-            borderWidth: 8,
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                UserAccountView.routeName,
-                arguments: true,
-              );
-            },
+          CircleAvatar(
+            backgroundImage:
+                CacheHelper().getMap(key: userData)!['image'] != null
+                    ? NetworkImage(
+                      CacheHelper().getMap(key: userData)!['image'],
+                    )
+                    : const AssetImage(Assets.imagesUser),
+            radius: 22,
           ),
           SizedBox(width: 12),
           Expanded(
@@ -47,7 +48,19 @@ class CustomFlexibleAppBar extends StatelessWidget {
               ).copyWith(color: AppColors.whiteColor),
             ),
           ),
-          FlexibleAppBarIconsSection(),
+          InkWell(
+            onTap: () {},
+            child: SvgPicture.asset(Assets.imagesNotification),
+          ),
+          SizedBox(width: 12),
+          InkWell(
+            onTap: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => ChatBotView()));
+            },
+            child: SvgPicture.asset(Assets.imagesChat),
+          ),
         ],
       ),
     );

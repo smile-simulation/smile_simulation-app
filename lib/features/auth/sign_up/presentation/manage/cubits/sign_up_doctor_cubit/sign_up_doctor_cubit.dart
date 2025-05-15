@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubits/sign_up_doctor_cubit/sign_up_doctor_state.dart';
 import '../../../../data/repos/sign_up_repo.dart';
 
-
 class SignUpDoctorCubit extends Cubit<SignUpDoctorState> {
   SignUpDoctorCubit({required this.signUpRepo}) : super(SignUpDoctorInitial());
 

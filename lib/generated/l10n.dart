@@ -654,6 +654,11 @@ class S {
       args: [],
     );
   }
+
+  /// `Smile Chat`
+  String get smileChat {
+    return Intl.message('Smile Chat', name: 'smileChat', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

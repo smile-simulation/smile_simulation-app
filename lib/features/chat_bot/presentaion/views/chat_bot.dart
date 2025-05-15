@@ -250,5 +250,5 @@ class ChatBot {
       print('Error: $e');
       return 'Error occurred';
     }
-  }  
+  }
 }

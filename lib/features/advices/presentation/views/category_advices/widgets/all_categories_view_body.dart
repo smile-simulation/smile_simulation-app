@@ -11,19 +11,11 @@ class AllCategoriesViewBody extends StatelessWidget {
   final List<AdvicesCategory> categories;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        CustomAppBar(
-          title: S.of(context).advicesCategories,
-          icon: Icons.arrow_back,
-        ),
-        Expanded(
-          child: CustomBodyScreen(
-            child: CategoriesGridView(categories: categories),
-          ),
-        ),
-      ],
+    return CustomBodyScreen(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        child: CategoriesGridView(categories: categories),
+      ),
     );
   }
 }

@@ -3,10 +3,13 @@ import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/current_user_circle_image.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/add_post_text_field.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
+
+import '../../../../../../constant.dart';
+import '../../../../../../core/database/cache/cache_helper.dart';
+import '../../../../../../generated/assets.dart';
 
 class CreatePostViewBody extends StatelessWidget {
   const CreatePostViewBody({super.key});
@@ -20,16 +23,12 @@ class CreatePostViewBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              CurrentUserCircleImage(
-                color: AppColors.primaryColor,
-                borderWidth: 8,
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    UserAccountView.routeName,
-                    arguments: true,
-                  );
-                },
+              CircleAvatar(
+                backgroundImage:
+                CacheHelper().getMap(key: userData)!['image'] != null
+                    ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
+                    : const AssetImage(Assets.imagesUser),
+                radius: 20,
               ),
               SizedBox(width: 12),
               Text(

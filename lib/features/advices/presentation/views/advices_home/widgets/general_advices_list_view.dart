@@ -13,7 +13,7 @@ class GeneralAdvicesListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return CustomAdvice(advice: advices[index]);
       },
-      separatorBuilder: (context, index) => SizedBox(height: 16),
+      separatorBuilder: (context, index) => SizedBox(height: 8),
       itemCount: advices.length,
     );
   }

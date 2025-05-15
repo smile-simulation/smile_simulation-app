@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_app_bar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_card.dart';
@@ -8,12 +7,9 @@ import 'package:smile_simulation/features/reminders/presentation/views/drug_remi
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/other_tasks_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/visit_reminders_view.dart';
 
-
-
 import 'package:smile_simulation/generated/l10n.dart';
 
 // Import your destination views (adjust package name if needed)
-
 
 class RemindersViewBody extends StatelessWidget {
   RemindersViewBody({super.key});
@@ -32,10 +28,7 @@ class RemindersViewBody extends StatelessWidget {
       "title": "الأنشطة اليومية",
       "image": "assets/images/reminder_daily_activities.png",
     },
-    {
-      "title": "مهام أخرى",
-      "image": "assets/images/reminder_other_tasks.png",
-    },
+    {"title": "مهام أخرى", "image": "assets/images/reminder_other_tasks.png"},
   ];
 
   // Function to navigate based on card title
@@ -56,9 +49,9 @@ class RemindersViewBody extends StatelessWidget {
         break;
       default:
         // Fallback or error handling
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('No view defined for $title')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('No view defined for $title')));
         return;
     }
 
@@ -73,10 +66,7 @@ class RemindersViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        CustomAppBar(
-          title: S.of(context).advices,
-          icon: null,
-        ),
+        CustomAppBar(title: S.of(context).advices, icon: null),
         Expanded(
           child: CustomBodyScreen(
             child: GridView.count(
@@ -84,15 +74,16 @@ class RemindersViewBody extends StatelessWidget {
               mainAxisSpacing: 12,
               crossAxisSpacing: 12,
               childAspectRatio: 3 / 2.5, // Width / Height ratio
-              children: items.map((item) {
-                return InkWell(
-                  onTap: () => _navigateToView(context, item["title"]!),
-                  child: CustomcardScreen(
-                    title: item["title"]!,
-                    imagePath: item["image"]!,
-                  ),
-                );
-              }).toList(),
+              children:
+                  items.map((item) {
+                    return InkWell(
+                      onTap: () => _navigateToView(context, item["title"]!),
+                      child: CustomcardScreen(
+                        title: item["title"]!,
+                        imagePath: item["image"]!,
+                      ),
+                    );
+                  }).toList(),
             ),
           ),
         ),

@@ -40,7 +40,7 @@ class GeneralAdvicesListViewBuilder extends StatelessWidget {
             itemBuilder: (context, index) {
               return GeneralAdviceSkeleton();
             },
-            separatorBuilder: (context, index) => SizedBox(height: 16),
+            separatorBuilder: (context, index) => SizedBox(height: 8),
             itemCount: 5,
           );
         } else {

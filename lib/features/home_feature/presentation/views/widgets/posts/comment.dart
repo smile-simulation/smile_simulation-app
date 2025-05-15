@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 
+import '../../../../../../constant.dart';
+import '../../../../../../core/database/cache/cache_helper.dart';
+import '../../../../../../generated/assets.dart';
 import '../../../../../user_account/presentation/views/user_account_view.dart';
-import '../current_user_circle_image.dart';
 import 'comment_body.dart';
 
 class Comment extends StatelessWidget {
@@ -30,16 +32,12 @@ class Comment extends StatelessWidget {
           SizedBox(
             width: 64,
             height: 64,
-            child: CurrentUserCircleImage(
-              color: AppColors.primaryColor,
-              borderWidth: 6,
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  UserAccountView.routeName,
-                  arguments: false,
-                );
-              },
+            child:CircleAvatar(
+              backgroundImage:
+              CacheHelper().getMap(key: userData)!['image'] != null
+                  ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
+                  : const AssetImage(Assets.imagesUser),
+              radius: 20,
             ),
           ),
           SizedBox(width: 8),

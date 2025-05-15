@@ -13,8 +13,7 @@ class TodaysAdviceSkeleton extends StatelessWidget {
       color: AppColors.whiteColor,
       child: Container(
         width: double.infinity,
-        height: 198,
-        margin: EdgeInsets.only(top: 16),
+        height: 150,
         padding: EdgeInsets.only(top: 0, left: 8, right: 8, bottom: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
@@ -22,7 +21,7 @@ class TodaysAdviceSkeleton extends StatelessWidget {
         ),
         child: Column(
           children: [
-            // SizedBox(height: 12),
+             SizedBox(height: 12),
             Row(
               children: [
                 Expanded(

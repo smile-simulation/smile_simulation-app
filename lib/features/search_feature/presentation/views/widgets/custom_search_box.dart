@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
 class CustomSearchBox extends StatelessWidget {
   const CustomSearchBox({super.key});
@@ -7,7 +8,7 @@ class CustomSearchBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12),
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
       child: Row(
         children: [
           SizedBox(width: 5),
@@ -15,6 +16,9 @@ class CustomSearchBox extends StatelessWidget {
             child: TextField(
               decoration: InputDecoration(
                 hintText: 'البحث',
+                hintStyle: AppTextStyles.style20W400(context).copyWith(
+                  color: Colors.grey,
+                ),
                 border: InputBorder.none,
               ),
             ),

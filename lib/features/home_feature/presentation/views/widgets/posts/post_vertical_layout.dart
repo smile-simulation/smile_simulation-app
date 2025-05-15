@@ -15,16 +15,21 @@ class PostVerticalLayout extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          alignment: Alignment.center,
-          height: 136,
-          child: const CustomPostImgae(),
+        Visibility(
+          visible: post.postImage != null,
+          child: Container(
+            alignment: Alignment.center,
+            height: 136,
+            child: CustomPostImage(image: post.postImage),
+          ),
         ),
         const SizedBox(height: 8),
-        PostText(postContent: post.content),
+
+        /// Might Have Errors
+        PostText(postContent: post.content ?? "no content"),
         // const Spacer(),
         PostInteractions(
-          likeCount: post.likes.toString(),
+          likeCount: post.likesCount.toString(),
           commentCount: post.commentsCount.toString(),
         ),
       ],

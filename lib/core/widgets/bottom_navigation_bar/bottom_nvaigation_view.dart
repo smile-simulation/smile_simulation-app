@@ -28,7 +28,7 @@ class _BottomNavigationViewState extends State<BottomNavigationView> {
     HomeVeiw(),
     AdvicesHomeView(),
     RemindersView(),
-    MedicalRecordView(),
+    MedicalRecordUserView(),
     MoreView(),
   ];
   @override

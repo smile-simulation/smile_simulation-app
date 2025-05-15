@@ -15,18 +15,20 @@ class CustomcardScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             child: Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+              ),
               child: Image.asset(
                 imagePath,
                 // height: 120,
-                // fit: BoxFit.contain, 
+                // fit: BoxFit.contain,
               ),
             ),
           ),
+
           // const Spacer(),
-        
           Text(
             title,
             style: TextStyle(
@@ -36,7 +38,7 @@ class CustomcardScreen extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 12,)
+          SizedBox(height: 12),
           // const Spacer(),
         ],
       ),

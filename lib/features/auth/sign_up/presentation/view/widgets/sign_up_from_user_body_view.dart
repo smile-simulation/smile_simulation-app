@@ -49,83 +49,87 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
         FocusScope.of(context).unfocus();
       },
       child: CustomBodyScreen(
-        child: SingleChildScrollView(
-          child: Form(
-            key: formKey,
-            autovalidateMode: autovalidateMode,
-            child: Column(
-              spacing: 16,
-              children: [
-                SizedBox(height: 16),
-                Align(
-                  alignment:
-                      isArabic == 'ar'
-                          ? Alignment.centerRight
-                          : Alignment.centerLeft,
-                  child: Text(
-                    S.of(context).registerNow,
-                    style: AppTextStyles.headline1(
-                      context,
-                    ).copyWith(color: Color(0xFF4F4F4F)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: SingleChildScrollView(
+            child: Form(
+              key: formKey,
+              autovalidateMode: autovalidateMode,
+              child: Column(
+                spacing: 16,
+                children: [
+                  SizedBox(height: 16),
+                  Align(
+                    alignment:
+                        isArabic == 'ar'
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
+                    child: Text(
+                      S.of(context).registerNow,
+                      style: AppTextStyles.headline1(
+                        context,
+                      ).copyWith(color: Color(0xFF4F4F4F)),
+                    ),
                   ),
-                ),
-                SizedBox(height: 24),
-                InputSectionFromSignUpFromUserView(
-                  emailController: emailController,
-                  passwordController: passwordController,
-                  confirmPasswordController: confirmPasswordController,
-                  nameController: nameController,
-                  ageController: ageController,
-                ),
-                GenderSectionFromSignUpView(
-                  onSelected: (value) {
-                    if (value == 'male') {
-                      gender = 0;
-                    } else if (value == 'female') {
-                      gender = 1;
-                    }
-                  },
-                ),
-                CustomButton(
-                  title: S.of(context).registerNow,
+                  SizedBox(height: 24),
+                  InputSectionFromSignUpFromUserView(
+                    emailController: emailController,
+                    passwordController: passwordController,
+                    confirmPasswordController: confirmPasswordController,
+                    nameController: nameController,
+                    ageController: ageController,
+                  ),
+                  GenderSectionFromSignUpView(
+                    onSelected: (value) {
+                      if (value == 'male') {
+                        gender = 0;
+                      } else if (value == 'female') {
+                        gender = 1;
+                      }
+                    },
+                  ),
+                  CustomButton(
+                    title: S.of(context).registerNow,
 
-                  isLoading:
-                      context.watch<SignUpUserCubit>().state is SignUpUserLoading
-                          ? true
-                          : false,
+                    isLoading:
+                        context.watch<SignUpUserCubit>().state
+                                is SignUpUserLoading
+                            ? true
+                            : false,
 
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      autovalidateMode = AutovalidateMode.disabled;
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        autovalidateMode = AutovalidateMode.disabled;
 
-                      setState(() {
-                        if (gender == 2) {
-                          customError(
-                            context,
-                            massage: "  الرجاء اختيار نوع الجنس",
+                        setState(() {
+                          if (gender == 2) {
+                            customError(
+                              context,
+                              massage: "  الرجاء اختيار نوع الجنس",
+                            );
+                            return;
+                          }
+
+                          context.read<SignUpUserCubit>().signUpFromUser(
+                            email: emailController.text.trim(),
+                            password: passwordController.text.trim(),
+                            confirmPassword:
+                                confirmPasswordController.text.trim(),
+                            fullName: nameController.text.trim(),
+                            age: int.tryParse(ageController.text.trim()) ?? 0,
+                            image: '',
+                            gender: gender == 0 ? 'male' : 'female',
                           );
-                          return;
-                        }
-
-                        context.read<SignUpUserCubit>().signUpFromUser(
-                          email: emailController.text.trim(),
-                          password: passwordController.text.trim(),
-                          confirmPassword:
-                              confirmPasswordController.text.trim(),
-                          fullName: nameController.text.trim(),
-                          age: int.tryParse(ageController.text.trim()) ?? 0,
-                          image: '',
-                          gender: gender == 0 ? 'male' : 'female',
-                        );
-                      });
-                    } else {
-                      autovalidateMode = AutovalidateMode.always;
-                      setState(() {});
-                    }
-                  },
-                ),
-                SizedBox(height: 16),
-              ],
+                        });
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
+                    },
+                  ),
+                  SizedBox(height: 16),
+                ],
+              ),
             ),
           ),
         ),

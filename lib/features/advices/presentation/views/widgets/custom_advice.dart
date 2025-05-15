@@ -9,7 +9,9 @@ import 'advice_header.dart';
 
 class CustomAdvice extends StatelessWidget {
   const CustomAdvice({super.key, required this.advice});
+
   final Advice advice;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -22,17 +24,19 @@ class CustomAdvice extends StatelessWidget {
           width: double.infinity,
           height: 132,
           padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: AppColors.primaryColor),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AdviceHeader(adviceTitle: advice.title),
               SizedBox(height: 8),
               Text(
-                maxLines: 2,
+                maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                // "اغسل أسنانك مرتين يوميًا على الأقل باستخدام معجون يحتوي على الفلورايد، ولا تنسَ تنظيف اللسان واستخدام خيط الأسنان لإزالة البلاك من بين الأسنان، مع المضمضة بغسول فم مضاد للبكتيريا للحفاظ على صحة اللثة. ",
-                advice.description ?? S.of(context).adviceContentError,
+              advice.description ?? S.of(context).adviceContentError,
                 style: AppTextStyles.listItem(context),
               ),
             ],

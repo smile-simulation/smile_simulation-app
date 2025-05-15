@@ -1,11 +1,12 @@
 class Data {
   Data({
-      this.userId, 
-      this.fullName, 
-      this.email, 
-      this.image, 
-      this.gender, 
-      this.token,});
+    this.userId,
+    this.fullName,
+    this.email,
+    this.image,
+    this.gender,
+    this.token,
+  });
 
   Data.fromJson(dynamic json) {
     userId = json['userId'];
@@ -32,5 +33,4 @@ class Data {
     map['token'] = token;
     return map;
   }
-
 }
