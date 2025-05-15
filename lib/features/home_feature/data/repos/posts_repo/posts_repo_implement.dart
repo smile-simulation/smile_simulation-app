@@ -1,12 +1,15 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/api/end_point.dart';
 import 'package:smile_simulation/core/errors/exceptions.dart';
 import 'package:smile_simulation/core/errors/failure.dart';
+import 'package:smile_simulation/core/helper_functions/generate_random.dart';
 import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
 
 import 'posts_repo.dart';
@@ -71,6 +74,38 @@ class PostsRepoImplement implements PostsRepo {
       return Left(ServerFailure(e.errorModel.message!));
     } catch (e) {
       logger.e("Exception in Get Advices: $e");
+      return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> addPost({
+    required String content,
+    required File? image,
+  }) async {
+    try {
+      var response = await dioConsumer.post(
+        "Post",
+        data: {
+          "Content": content,
+          "Image":
+              image != null
+                  ? await MultipartFile.fromFile(
+                    image.path,
+                    filename:
+                        "${generateRandomString(sizeOfCode: 6)}postImage.jpg",
+                  )
+                  : null,
+        },
+      );
+      String message = response[ApiKeys.message];
+      log(message);
+      return Right(message);
+    } on ServerException catch (e) {
+      logger.e("Exception in Add post: ${e.errorModel.message}");
+      return Left(ServerFailure(e.errorModel.message!));
+    } catch (e) {
+      logger.e("Exception in Add post: $e");
       return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
     }
   }
