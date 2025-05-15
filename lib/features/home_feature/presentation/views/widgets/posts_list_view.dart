@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import '../../cubits/posts_cubit/posts_cubit.dart';
-import '../post_view.dart';
 import 'posts/custom_post.dart';
 
 class PostsListView extends StatelessWidget {

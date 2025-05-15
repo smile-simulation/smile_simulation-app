@@ -169,9 +169,11 @@ class AdvicesCubit extends Cubit<AdvicesState> {
     }
     log("Todays advice: ${advice.toJson()}");
     toDaysAdvice = advice;
-    LocalNotificationService.sendLocalNotification(
-      title: toDaysAdvice!.title!,
-      body: toDaysAdvice!.description!,
-    );
+    if (getAPIData) {
+      LocalNotificationService.sendLocalNotification(
+        title: toDaysAdvice!.title!,
+        body: toDaysAdvice!.description!,
+      );
+    }
   }
 }

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:smile_simulation/core/helper_functions/generate_random.dart';
 import 'package:smile_simulation/features/auth/sign_up/data/repos/sign_up_repo.dart';
 import '../../../../../constant.dart';
 import '../../../../../core/api/api_keys.dart';
@@ -78,7 +79,7 @@ class SignUpRepoImpl extends SignUpRepo {
           ApiKeys.specialization: specialization,
           ApiKeys.card: await MultipartFile.fromFile(
             card.path,
-            filename: "card.jpg",
+            filename: "${generateRandomString(sizeOfCode: 6)}card.jpg",
           ),
         },
         formData: true,
