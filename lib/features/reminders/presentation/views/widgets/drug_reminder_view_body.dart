@@ -38,7 +38,7 @@ class DrugReminderViewBody extends StatelessWidget {
                   text3: 'من تذكيرك بها في أوقاتها المحدد',
                 ),
                 SizedBox(height: 50,),
-                CustomeReminderButton(text: 'اضافة اول تذكير',),
+                CustomeReminderButton(text: 'اضافة اول تذكير',onPressed: (){},),
               ],
             ),
           ),

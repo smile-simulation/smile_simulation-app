@@ -565,6 +565,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.2"
+  hugging_face_chat_gradio:
+    dependency: "direct main"
+    description:
+      name: hugging_face_chat_gradio
+      sha256: "0ee4e190e90b8da068bd54b60fcbb1ad9a7695d6a61965961fec03833e642953"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.7"
   image:
     dependency: transitive
     description:
@@ -1275,5 +1283,5 @@ packages:
     source: hosted
     version: "3.1.3"
 sdks:
-  dart: ">=3.7.0 <4.0.0"
+  dart: ">=3.7.2 <4.0.0"
   flutter: ">=3.27.0"
