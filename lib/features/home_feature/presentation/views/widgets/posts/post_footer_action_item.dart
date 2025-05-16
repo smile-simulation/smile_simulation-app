@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
+import 'package:smile_simulation/generated/assets.dart';
 
 class PostFooterActionItem extends StatelessWidget {
   const PostFooterActionItem({
@@ -10,10 +12,12 @@ class PostFooterActionItem extends StatelessWidget {
     required this.icon,
     required this.isActive,
   });
+
   final Function() onTap;
   final String actionText;
-  final IconData icon;
+  final String icon;
   final bool isActive;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -21,14 +25,14 @@ class PostFooterActionItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
+          SvgPicture.asset(
             icon,
             color: isActive ? AppColors.primaryColor : AppColors.greyColor,
           ),
           SizedBox(width: 6),
           Text(
             actionText,
-            style: AppTextStyles.bodyText1(context).copyWith(
+            style: AppTextStyles.bodyText2(context).copyWith(
               color: isActive ? AppColors.primaryColor : AppColors.greyColor,
             ),
           ),

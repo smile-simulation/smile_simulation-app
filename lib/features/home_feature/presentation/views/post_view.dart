@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
+import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 
 import '../../data/models/post_model.dart';
 import '../../data/repos/posts_repo/posts_repo_implement.dart';
@@ -31,10 +32,7 @@ class PostView extends StatelessWidget {
         BlocProvider(create: (context) => CommentsCubit(post)),
       ],
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.primaryColor,
-          foregroundColor: AppColors.whiteColor,
-        ),
+        appBar: customAppbar(context, isBack: true),
         body: PostViewBody(currentUser: currentUser),
       ),
     );
