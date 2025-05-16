@@ -33,7 +33,7 @@ class PostViewBody extends StatelessWidget {
                         builder: (context, state) {
                           return PostViewPost(
                             currentUser: currentUser,
-                            post: context.read<PostDetailsCubit>().post,
+                         
                           );
                         },
                       ),

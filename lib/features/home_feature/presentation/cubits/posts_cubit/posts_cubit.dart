@@ -10,11 +10,13 @@ class PostsCubit extends Cubit<PostsState> {
 
   final PostsRepoImplement postsRepo;
 
-  final List<PostModel> posts = [];
+   List<PostModel> posts = [];
   int _currentPage = 1;
   final int _pageSize = 10;
   bool _isLoading = false;
   bool _hasReachedEnd = false;
+
+
 
 
   bool get hasReachedEnd => _hasReachedEnd;
