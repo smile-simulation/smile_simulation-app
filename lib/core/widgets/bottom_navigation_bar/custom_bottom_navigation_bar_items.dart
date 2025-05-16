@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
+import 'package:smile_simulation/generated/assets.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 class CustomBottomNavBarItems extends StatelessWidget {
@@ -15,18 +17,18 @@ class CustomBottomNavBarItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      selectedFontSize: 8,
+      selectedFontSize: 10,
       currentIndex: selectedIndex,
       onTap: onTap,
       selectedItemColor: AppColors.primaryColor,
       unselectedItemColor: AppColors.greyColor,
       selectedLabelStyle: const TextStyle(
         fontWeight: FontWeight.bold,
-        fontSize: 14,
+        fontSize: 12,
       ),
       unselectedLabelStyle: const TextStyle(
         fontWeight: FontWeight.normal,
-        fontSize: 12,
+        fontSize: 10,
       ),
       type: BottomNavigationBarType.fixed,
       backgroundColor: Colors.transparent,
@@ -34,23 +36,53 @@ class CustomBottomNavBarItems extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           backgroundColor: AppColors.transparent,
-          icon: const Icon(Icons.home),
+          icon: SvgPicture.asset(
+            Assets.imagesHome,
+            color:
+                selectedIndex == 0
+                    ? AppColors.primaryColor
+                    : AppColors.greyColor,
+          ),
           label: S.of(context).home,
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.lightbulb),
+          icon: SvgPicture.asset(
+            Assets.imagesDentalCare,
+            color:
+                selectedIndex == 1
+                    ? AppColors.primaryColor
+                    : AppColors.greyColor,
+          ),
           label: S.of(context).advices,
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.notifications),
+          icon: SvgPicture.asset(
+            Assets.imagesReminder,
+            color:
+                selectedIndex == 2
+                    ? AppColors.primaryColor
+                    : AppColors.greyColor,
+          ),
           label: S.of(context).reminders,
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.medical_services),
+          icon: SvgPicture.asset(
+            Assets.imagesMedical,
+            color:
+                selectedIndex == 3
+                    ? AppColors.primaryColor
+                    : AppColors.greyColor,
+          ),
           label: S.of(context).medicalRecord,
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.more_horiz),
+          icon: SvgPicture.asset(
+            Assets.imagesMore,
+            color:
+                selectedIndex == 4
+                    ? AppColors.primaryColor
+                    : AppColors.greyColor,
+          ),
           label: S.of(context).more,
         ),
       ],
