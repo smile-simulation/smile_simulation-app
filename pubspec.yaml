@@ -1,5 +1,5 @@
 name: smile_simulation
-description: "A new Flutter project."
+description: "Smile Simulation, a graduation project, enhances dental health management using innovative tech like AI-powered chats, digital records, and reminders. Built with Flutter, .NET, and AI tools, it centralizes health data, improves patient adherence, and fosters a dentist-user community, aiming to revolutionize oral healthcare and reduce costs."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. Thi s is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
