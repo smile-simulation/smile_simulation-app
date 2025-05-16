@@ -15,7 +15,10 @@ class UserAccountView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => PostsCubit(PostsRepoImplement(dioConsumer: DioConsumer(dio: Dio()))),
+      create:
+          (context) => PostsCubit(
+            PostsRepoImplement(dioConsumer: DioConsumer(dio: Dio())),
+          ),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.primaryColor,

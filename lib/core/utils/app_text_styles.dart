@@ -16,6 +16,7 @@ abstract class AppTextStyles {
       fontFamily: "NotoSansSC",
     );
   }
+
   static TextStyle style20W400(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 20),

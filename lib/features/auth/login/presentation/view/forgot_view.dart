@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
@@ -140,7 +139,8 @@ class _ForgotViewState extends State<ForgetView> {
                                         controller: emailController,
                                         title: S.of(context).email,
                                         hintText: "example@gmail.com",
-                                        keyboardType: TextInputType.emailAddress,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
                                         validator: (value) {
                                           return validatorOfEmail(value);
                                         },
@@ -213,7 +213,9 @@ class _ForgotViewState extends State<ForgetView> {
                                           email: emailController.text.trim(),
                                           token:
                                               CacheHelper.sharedPreferences
-                                                  .getString(sharedPrefForgetToken)!,
+                                                  .getString(
+                                                    sharedPrefForgetToken,
+                                                  )!,
                                           newPassword:
                                               newPasswordController.text.trim(),
                                           confirmPassword:

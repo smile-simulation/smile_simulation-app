@@ -120,7 +120,10 @@ class MedicalRecordView extends StatelessWidget {
                             shape: const CircleBorder(),
                             mini: true,
                             onPressed: () {
-                              Navigator.pushNamed(context, AddMedicalRecordView.routeName);
+                              Navigator.pushNamed(
+                                context,
+                                AddMedicalRecordView.routeName,
+                              );
                             },
                             child: Icon(Icons.add, color: AppColors.whiteColor),
                           ),
@@ -343,54 +346,55 @@ class TreatmentDetailsSection extends StatelessWidget {
           const SizedBox(height: 12),
           Visibility(
             visible: userType == "Doctor",
-            child:   isEditMode ?Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CustomButton(
-                  isMinWidth: true,
+            child:
+                isEditMode
+                    ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomButton(
+                          isMinWidth: true,
 
-                  title: "حفظ التعديلات",
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      EditMedicalRecordView.routeName,
-                      arguments: existingData,
-                    );
-                  },
-                ),
-                CustomButton(
-                  isMinWidth: true,
-                  isSecondary: true,
-                  title: "إلغاء",
-                  onPressed: () {},
-                ),
-              ],
-            ): Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CustomButton(
-                  isMinWidth: true,
+                          title: "حفظ التعديلات",
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              EditMedicalRecordView.routeName,
+                              arguments: existingData,
+                            );
+                          },
+                        ),
+                        CustomButton(
+                          isMinWidth: true,
+                          isSecondary: true,
+                          title: "إلغاء",
+                          onPressed: () {},
+                        ),
+                      ],
+                    )
+                    : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomButton(
+                          isMinWidth: true,
 
-                  title: "تعديل البيانات",
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      EditMedicalRecordView.routeName,
-                      arguments: existingData,
-                    );
-                  },
-                ),
-                CustomButton(
-                  isMinWidth: true,
-                  isSecondary: true,
-                  title: "حذف السجل",
-                  onPressed: () {},
-                ),
-              ],
-            ),
+                          title: "تعديل البيانات",
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              EditMedicalRecordView.routeName,
+                              arguments: existingData,
+                            );
+                          },
+                        ),
+                        CustomButton(
+                          isMinWidth: true,
+                          isSecondary: true,
+                          title: "حذف السجل",
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
           ),
-
-
         ],
       ),
     );

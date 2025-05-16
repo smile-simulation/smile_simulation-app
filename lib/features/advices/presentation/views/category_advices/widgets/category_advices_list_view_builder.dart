@@ -17,8 +17,10 @@ class CategoryAdvicesListViewBuilder extends StatelessWidget {
           return ListView.separated(
             itemBuilder: (context, index) {
               return Padding(
-                padding:  EdgeInsets.only(top: index == 0 ? 16 : 0
-                ,bottom: index == 10 ? 16 : 0),
+                padding: EdgeInsets.only(
+                  top: index == 0 ? 16 : 0,
+                  bottom: index == 10 ? 16 : 0,
+                ),
                 child: GeneralAdviceSkeleton(),
               );
             },

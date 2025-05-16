@@ -5,7 +5,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/chatb_bot_feature/presentation/views/widgets/chat_bot_text_field.dart';
 import 'package:smile_simulation/features/chatb_bot_feature/presentation/views/widgets/chat_messaage.dart';
-import 'package:smile_simulation/features/chatb_bot_feature/presentation/views/widgets/chat_bot_text_field.dart'; // Import the new file
+// Import the new file
 
 class ChatBotViewBody extends StatefulWidget {
   @override

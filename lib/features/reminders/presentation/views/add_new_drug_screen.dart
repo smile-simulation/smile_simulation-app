@@ -6,6 +6,6 @@ class AddNewDrugScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body:  AddNewDrugScreenBody());
+    return Scaffold(body: AddNewDrugScreenBody());
   }
 }

@@ -36,7 +36,7 @@ class CustomAdvice extends StatelessWidget {
               Text(
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-              advice.description ?? S.of(context).adviceContentError,
+                advice.description ?? S.of(context).adviceContentError,
                 style: AppTextStyles.listItem(context),
               ),
             ],

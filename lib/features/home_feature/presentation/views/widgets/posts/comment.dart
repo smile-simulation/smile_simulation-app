@@ -4,7 +4,6 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import '../../../../../../constant.dart';
 import '../../../../../../core/database/cache/cache_helper.dart';
 import '../../../../../../generated/assets.dart';
-import '../../../../../user_account/presentation/views/user_account_view.dart';
 import 'comment_body.dart';
 
 class Comment extends StatelessWidget {
@@ -32,11 +31,13 @@ class Comment extends StatelessWidget {
           SizedBox(
             width: 64,
             height: 64,
-            child:CircleAvatar(
+            child: CircleAvatar(
               backgroundImage:
-              CacheHelper().getMap(key: userData)!['image'] != null
-                  ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
-                  : const AssetImage(Assets.imagesUser),
+                  CacheHelper().getMap(key: userData)!['image'] != null
+                      ? NetworkImage(
+                        CacheHelper().getMap(key: userData)!['image'],
+                      )
+                      : const AssetImage(Assets.imagesUser),
               radius: 20,
             ),
           ),

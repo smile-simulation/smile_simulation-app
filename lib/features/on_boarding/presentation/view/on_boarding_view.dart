@@ -5,14 +5,12 @@ import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/core/widgets/bottom_navigation_bar/custom_bottom_navigation_bar.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 import 'package:smile_simulation/features/on_boarding/data/model/on_boarding_model.dart';
 import 'package:smile_simulation/features/on_boarding/presentation/view/widgets/images_shape.dart';
 import 'package:smile_simulation/features/on_boarding/presentation/view/widgets/title_and_description.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-import '../../../../core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
 import '../../data/on_boarding_data.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -153,22 +151,27 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       setState(() {
                         isOut = !isOut;
                       });
-                      Timer( Duration(milliseconds: currentIndex == 4?0: 300), () {
-                        currentIndex == 4
-                            ? {
-                              Navigator.pushReplacementNamed(
-                                context, LoginView.routeName,
-                              ),   CacheHelper.sharedPreferences.setBool(
-                            isOnboardingViewSeen,
-                            true,
-                          ),
-                            }
-                            : currentIndex = currentIndex + 1;
+                      Timer(
+                        Duration(milliseconds: currentIndex == 4 ? 0 : 300),
+                        () {
+                          currentIndex == 4
+                              ? {
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  LoginView.routeName,
+                                ),
+                                CacheHelper.sharedPreferences.setBool(
+                                  isOnboardingViewSeen,
+                                  true,
+                                ),
+                              }
+                              : currentIndex = currentIndex + 1;
 
-                        setState(() {
-                          isOut = !isOut;
-                        });
-                      });
+                          setState(() {
+                            isOut = !isOut;
+                          });
+                        },
+                      );
                     },
                     child:
                         currentIndex == 4

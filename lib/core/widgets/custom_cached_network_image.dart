@@ -26,7 +26,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
               ? InValidCategoryImage()
               : CachedNetworkImage(
                 imageUrl: image!,
-               width: width,
+                width: width,
                 height: height,
                 fit: BoxFit.fill,
                 placeholder:

@@ -21,16 +21,14 @@ class CustomToPinAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Expanded(child: ClickableSearchBar()),
           SizedBox(width: 16),
-       InkWell(
-         onTap: () {
-           Navigator.of(
-             context,
-           ).push(MaterialPageRoute(builder: (context) => SearchView()));
-         },
-         child: SvgPicture.asset(
-           Assets.imagesSearch,
-         ),
-       )
+          InkWell(
+            onTap: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => SearchView()));
+            },
+            child: SvgPicture.asset(Assets.imagesSearch),
+          ),
         ],
       ),
     );

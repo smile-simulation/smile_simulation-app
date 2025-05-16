@@ -27,9 +27,10 @@ class _CategoryAdvicesViewState extends State<CategoryAdvicesView> {
   Widget build(BuildContext context) {
     final categoryName =
         context.read<CategoryAdvicesCubit>().category.name ??
-            S.of(context).noAdvicesExist;
+        S.of(context).noAdvicesExist;
     return Scaffold(
-        appBar: customAppbar(context,title: categoryName,isBack: true),
-        body: CategoryAdvicesViewBody());
+      appBar: customAppbar(context, title: categoryName, isBack: true),
+      body: CategoryAdvicesViewBody(),
+    );
   }
 }

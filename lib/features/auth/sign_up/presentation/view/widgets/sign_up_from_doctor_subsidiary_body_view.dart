@@ -106,7 +106,8 @@ class _SignUpFromDoctorSubsidiaryBodyViewState
                         fullName: widget.name,
                         gender: widget.gender == 1 ? 'male' : 'female',
 
-                        experience: int.tryParse(experienceController.text) ?? 0,
+                        experience:
+                            int.tryParse(experienceController.text) ?? 0,
                         isCorrect: widget.isCorrect,
                         qualification: qualificationController.text,
                         specialization: specializationController.text,
@@ -128,7 +129,8 @@ class _SignUpFromDoctorSubsidiaryBodyViewState
                         fullName: widget.name,
                         gender: widget.gender == 1 ? 'male' : 'female',
 
-                        experience: int.tryParse(experienceController.text) ?? 0,
+                        experience:
+                            int.tryParse(experienceController.text) ?? 0,
                         isCorrect: widget.isCorrect,
                         qualification: qualificationController.text,
                         specialization: specializationController.text,

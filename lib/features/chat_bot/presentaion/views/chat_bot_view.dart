@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class ChatbotView extends StatelessWidget {
   const ChatbotView({super.key});
   static const String routeName = 'ChatbotHome';

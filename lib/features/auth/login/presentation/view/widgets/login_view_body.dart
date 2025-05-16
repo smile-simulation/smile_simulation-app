@@ -88,9 +88,9 @@ class _LogInViewBodyState extends State<LogInViewBody> {
                       },
                       child: Text(
                         S.of(context).forgotPassword,
-                        style: AppTextStyles.caption1(context).copyWith(
-                          color: AppColors.primaryColor,
-                        ),
+                        style: AppTextStyles.caption1(
+                          context,
+                        ).copyWith(color: AppColors.primaryColor),
                       ),
                     ),
                   ),

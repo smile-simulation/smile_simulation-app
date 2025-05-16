@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/helper_functions/show_modal_bottom_sheet.dart';
@@ -34,12 +33,14 @@ class PostHeader extends StatelessWidget {
         children: [
           currentUser
               ? CircleAvatar(
-          backgroundImage:
-          CacheHelper().getMap(key: userData)!['image'] != null
-          ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
-          : const AssetImage(Assets.imagesUser),
-      radius: 20,
-    )
+                backgroundImage:
+                    CacheHelper().getMap(key: userData)!['image'] != null
+                        ? NetworkImage(
+                          CacheHelper().getMap(key: userData)!['image'],
+                        )
+                        : const AssetImage(Assets.imagesUser),
+                radius: 20,
+              )
               : OtherUserCircleImage(
                 onTap: () {
                   if (clickablePostImage) {

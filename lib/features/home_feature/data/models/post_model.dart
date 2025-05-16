@@ -5,11 +5,12 @@ class PostModel extends Equatable {
   final String? content;
   final String? publisherId;
   final String? publisherName;
-  final dynamic publisherImage;
-  final String? postImage;
+  final String? publisherImage;
+  final dynamic postImage;
   final DateTime? createdAt;
   final int? likesCount;
   final int? commentsCount;
+  final bool? isLikedByCurrentUser;
   final List<dynamic>? comments;
 
   const PostModel({
@@ -22,6 +23,7 @@ class PostModel extends Equatable {
     this.createdAt,
     this.likesCount,
     this.commentsCount,
+    this.isLikedByCurrentUser,
     this.comments,
   });
 
@@ -30,7 +32,7 @@ class PostModel extends Equatable {
     content: json['content'] as String?,
     publisherId: json['publisherId'] as String?,
     publisherName: json['publisherName'] as String?,
-    publisherImage: json['publisherImage'] as dynamic,
+    publisherImage: json['publisherImage'] as String?,
     postImage: json['postImage'] as dynamic,
     createdAt:
         json['createdAt'] == null
@@ -38,6 +40,7 @@ class PostModel extends Equatable {
             : DateTime.parse(json['createdAt'] as String),
     likesCount: json['likesCount'] as int?,
     commentsCount: json['commentsCount'] as int?,
+    isLikedByCurrentUser: json['isLikedByCurrentUser'] as bool?,
     comments: json['comments'] as List<dynamic>?,
   );
 
@@ -51,6 +54,7 @@ class PostModel extends Equatable {
     'createdAt': createdAt?.toIso8601String(),
     'likesCount': likesCount,
     'commentsCount': commentsCount,
+    'isLikedByCurrentUser': isLikedByCurrentUser,
     'comments': comments,
   };
 
@@ -66,6 +70,7 @@ class PostModel extends Equatable {
       createdAt,
       likesCount,
       commentsCount,
+      isLikedByCurrentUser,
       comments,
     ];
   }

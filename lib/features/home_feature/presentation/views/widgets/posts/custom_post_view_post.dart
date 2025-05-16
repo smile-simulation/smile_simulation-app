@@ -8,7 +8,6 @@ import 'package:smile_simulation/features/home_feature/data/models/post_model.da
 import 'package:smile_simulation/features/home_feature/data/repos/posts_repo/posts_repo_implement.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/post_details_cubit/post_details_cubit.dart';
 
-import 'post_footer.dart';
 import 'post_header.dart';
 import 'post_vertical_layout.dart';
 

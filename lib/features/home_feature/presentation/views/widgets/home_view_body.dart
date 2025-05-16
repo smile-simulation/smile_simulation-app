@@ -18,8 +18,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       headerSliverBuilder: (context, innerBoxIsScrolled) {
         return [CustomFlexibleAppBar()];
       },
-      body: HomeViewBodyContent(scrollController: _scrollController,),
+      body: HomeViewBodyContent(scrollController: _scrollController),
     );
   }
-
 }

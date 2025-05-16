@@ -31,8 +31,11 @@ class CategoryItemCardSkeleton extends StatelessWidget {
         child: Column(
           children: [
             ClipRRect(
-                borderRadius: BorderRadius.circular(8) ,
-                child: CustomLoadingShimmer(SkeletonWidget: CategoryImageSkeleton())),
+              borderRadius: BorderRadius.circular(8),
+              child: CustomLoadingShimmer(
+                SkeletonWidget: CategoryImageSkeleton(),
+              ),
+            ),
 
             const SizedBox(height: 16),
             CustomLoadingShimmer(SkeletonWidget: OneLineTextSkeleton()),

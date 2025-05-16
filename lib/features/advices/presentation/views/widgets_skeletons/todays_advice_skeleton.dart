@@ -21,7 +21,7 @@ class TodaysAdviceSkeleton extends StatelessWidget {
         ),
         child: Column(
           children: [
-             SizedBox(height: 12),
+            SizedBox(height: 12),
             Row(
               children: [
                 Expanded(

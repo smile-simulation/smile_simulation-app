@@ -28,9 +28,11 @@ class AddCommentFormField extends StatelessWidget {
             children: [
               CircleAvatar(
                 backgroundImage:
-                CacheHelper().getMap(key: userData)!['image'] != null
-                    ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
-                    : const AssetImage(Assets.imagesUser),
+                    CacheHelper().getMap(key: userData)!['image'] != null
+                        ? NetworkImage(
+                          CacheHelper().getMap(key: userData)!['image'],
+                        )
+                        : const AssetImage(Assets.imagesUser),
                 radius: 20,
               ),
               SizedBox(width: 8), // تباعد بين الصورة ومربع النص

@@ -24,7 +24,7 @@ class LoginRepoImpl extends LoginRepo {
         EndPoint.login,
         data: {ApiKeys.email: email, ApiKeys.password: password},
       );
-      CacheHelper().saveMap(key:userData , value: response["data"] );
+      CacheHelper().saveMap(key: userData, value: response["data"]);
       return Right(LoginModel.fromJson(response));
     } on ServerException catch (e) {
       logger.e("Exception in Login: ${e.errorModel.message}");

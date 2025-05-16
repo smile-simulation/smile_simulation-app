@@ -36,7 +36,6 @@ Future<void> main() async {
 
   runApp(const SmileSimulation());
 
-
   WidgetsBinding.instance.allowFirstFrame();
 }
 
@@ -69,11 +68,13 @@ class SmileSimulation extends StatelessWidget {
       color: AppColors.primaryColor,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: CacheHelper.sharedPreferences.getBool(isSuccessLogin) == true
-          ? BottomNavigationView.routeName
-          : CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
-          ? LoginView.routeName
-          : OnBoardingView.routeName,
+      initialRoute:
+          CacheHelper.sharedPreferences.getBool(isSuccessLogin) == true
+              ? BottomNavigationView.routeName
+              : CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) ==
+                  true
+              ? LoginView.routeName
+              : OnBoardingView.routeName,
     );
   }
 }
