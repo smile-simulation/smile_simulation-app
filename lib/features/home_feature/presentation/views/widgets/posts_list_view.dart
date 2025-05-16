@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
 import '../../cubits/posts_cubit/posts_cubit.dart';
 import 'posts/custom_post.dart';
 
@@ -54,8 +56,16 @@ class _PostsListViewState extends State<PostsListView> {
         }
 
         return RefreshIndicator(
+          displacement: 100,
+          edgeOffset: 0,
+          color: AppColors.primaryColor,
+
           onRefresh: () async {
-            await cubit.fetchPosts(isInitialLoad: true);
+         await   Navigator.pushNamedAndRemoveUntil(
+              context,
+              BottomNavigationView.routeName,
+                  (_) => false,
+            );
           },
           child: NotificationListener<ScrollNotification>(
             onNotification: (notification) {
