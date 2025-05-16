@@ -40,7 +40,7 @@ class CreatePostViewBody extends StatelessWidget {
                 ),
                 SizedBox(width: 12),
                 Text(
-                  S.of(context).mohamedHamed,
+                  CacheHelper().getMap(key: userData)!['fullName']?? '',
                   overflow: TextOverflow.ellipsis,
 
                   style: AppTextStyles.headline2(
