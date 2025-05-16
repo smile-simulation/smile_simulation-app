@@ -20,24 +20,47 @@ class PostsListView extends StatefulWidget {
 }
 
 class _PostsListViewState extends State<PostsListView> {
+  final ScrollController _scrollController = ScrollController();
   bool isLoadingMore = false;
-
-  void _onScroll(ScrollNotification notification) {
-    if (notification.metrics.pixels >=
-        notification.metrics.maxScrollExtent - 200) {
-      if (!isLoadingMore) {
-        isLoadingMore = true;
-        context.read<PostsCubit>().fetchPosts().then((_) {
-          isLoadingMore = false;
-        });
-      }
-    }
-  }
+  bool isCheckingNewPosts = false;
 
   @override
   void initState() {
     super.initState();
     context.read<PostsCubit>().fetchPosts(isInitialLoad: true);
+
+    _scrollController.addListener(() {
+      final cubit = context.read<PostsCubit>();
+      final position = _scrollController.position;
+
+      // 👇 تحميل المزيد وانت نازل
+      if (position.pixels >= position.maxScrollExtent - 200 &&
+          !isLoadingMore &&
+          !cubit.hasReachedEnd) {
+        isLoadingMore = true;
+        cubit.fetchPosts().then((_) {
+          isLoadingMore = false;
+        });
+      }
+
+      // 👆 التحقق من بوستات أحدث وانت طالع
+      if (position.pixels <= 50 && !isCheckingNewPosts) {
+        isCheckingNewPosts = true;
+        cubit.fetchNewPosts().then((_) {
+          isCheckingNewPosts = false;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _onRefresh() async {
+    await context.read<PostsCubit>().refreshPosts();
   }
 
   @override
@@ -47,7 +70,7 @@ class _PostsListViewState extends State<PostsListView> {
         final cubit = context.read<PostsCubit>();
         final posts = cubit.posts;
 
-        if (state is PostsInitial) {
+        if (state is PostsInitial || state is PostsLoading) {
           return const Center(child: CircularProgressIndicator());
         }
 
@@ -56,44 +79,30 @@ class _PostsListViewState extends State<PostsListView> {
         }
 
         return RefreshIndicator(
-          displacement: 100,
-          edgeOffset: 0,
+          onRefresh: _onRefresh,
           color: AppColors.primaryColor,
-
-          onRefresh: () async {
-         await   Navigator.pushNamedAndRemoveUntil(
-              context,
-              BottomNavigationView.routeName,
-                  (_) => false,
-            );
-          },
-          child: NotificationListener<ScrollNotification>(
-            onNotification: (notification) {
-              _onScroll(notification);
-              return false;
-            },
-            child: ListView.separated(
-              padding: EdgeInsets.zero,
-              itemCount: cubit.hasReachedEnd ? posts.length : posts.length + 1,
-              separatorBuilder: (_, __) => const SizedBox(height: 16),
-              itemBuilder: (context, index) {
-                if (index >= posts.length) {
-                  return const Center(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      child: CircularProgressIndicator(),
-                    ),
-                  );
-                }
-
-                final post = posts[index];
-                return CustomPost(
-                  clickablePostImage: widget.clickablePostImage,
-                  currentUser: widget.currentUser,
-                  post: post,
+          child: ListView.separated(
+            padding: EdgeInsets.zero,
+            controller: _scrollController,
+            itemCount: posts.length + 1,
+            separatorBuilder: (_, __) => const SizedBox(height: 16),
+            itemBuilder: (context, index) {
+              if (index >= posts.length) {
+                return cubit.hasReachedEnd
+                    ? const SizedBox(height: 0)
+                    : const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16),
+                  child: Center(child: CircularProgressIndicator()),
                 );
-              },
-            ),
+              }
+
+              final post = posts[index];
+              return CustomPost(
+                clickablePostImage: widget.clickablePostImage,
+                currentUser: widget.currentUser,
+                post: post,
+              );
+            },
           ),
         );
       },
