@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/widgets_skeletons/post_skeleton.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
 import '../../cubits/posts_cubit/posts_cubit.dart';
 import 'posts/custom_post.dart';
 

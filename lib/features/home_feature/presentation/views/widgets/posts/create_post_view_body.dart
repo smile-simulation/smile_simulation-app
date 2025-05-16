@@ -14,7 +14,6 @@ import '../../../../../../core/database/cache/cache_helper.dart';
 import '../../../../../../core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
 import '../../../../../../generated/assets.dart';
 import '../../../cubits/add_post_cubit/add_post_cubit.dart';
-import '../../../cubits/posts_cubit/posts_cubit.dart';
 import 'add_post_text_field.dart';
 
 class CreatePostViewBody extends StatefulWidget {

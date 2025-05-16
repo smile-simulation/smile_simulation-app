@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
-import 'package:smile_simulation/features/search_feature/presentation/views/widgets/custom_search_box.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 import '../../../cubits/post_details_cubit/post_details_cubit.dart';

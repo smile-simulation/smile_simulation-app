@@ -1,7 +1,6 @@
 // ✅ ويدجت العرض الرأسي (Column)
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/post_details_cubit/post_details_cubit.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/post_footer.dart';
 
