@@ -23,18 +23,7 @@ class PostsListView extends StatefulWidget {
 
 class _PostsListViewState extends State<PostsListView> {
   bool isLoadingMore = false;
-
-  void _onScroll(ScrollNotification notification) {
-    if (notification.metrics.pixels >=
-        notification.metrics.maxScrollExtent - 200) {
-      if (!isLoadingMore) {
-        isLoadingMore = true;
-        context.read<PostsCubit>().fetchPosts().then((_) {
-          isLoadingMore = false;
-        });
-      }
-    }
-  }
+  bool isCheckingNewPosts = false;
 
   @override
   void initState() {
@@ -42,18 +31,53 @@ class _PostsListViewState extends State<PostsListView> {
     context.read<PostsCubit>().fetchPosts(isInitialLoad: true);
   }
 
+  Future<void> _onRefresh() async {
+    await context.read<PostsCubit>().refreshPosts();
+  }
+
+  bool _onScrollNotification(ScrollNotification notification) {
+    final cubit = context.read<PostsCubit>();
+
+    if (notification is ScrollUpdateNotification) {
+      final maxScroll = notification.metrics.maxScrollExtent;
+      final currentScroll = notification.metrics.pixels;
+
+      if (currentScroll >= maxScroll - 200 &&
+          !isLoadingMore &&
+          !cubit.hasReachedEnd) {
+        isLoadingMore = true;
+        cubit.fetchPosts().then((_) {
+          isLoadingMore = false;
+        });
+      }
+
+      if (currentScroll <= 50 && !isCheckingNewPosts) {
+        isCheckingNewPosts = true;
+        cubit.fetchNewPosts().then((_) {
+          isCheckingNewPosts = false;
+        });
+      }
+    }
+
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PostsCubit, PostsState>(
       builder: (context, state) {
         log(state.toString());
+
         final cubit = context.read<PostsCubit>();
         final posts = cubit.posts;
+
+        // Optional: include this if you want to auto-refresh on like change
         if (cubit.newLikeStatus == true) {
           context.read<PostsCubit>().fetchPosts(isInitialLoad: true);
           cubit.newLikeStatus = false;
         }
-        if (state is PostsInitial) {
+
+        if (state is PostsInitial || state is PostsLoading) {
           return const Center(child: CircularProgressIndicator());
         }
 
@@ -62,34 +86,22 @@ class _PostsListViewState extends State<PostsListView> {
         }
 
         return RefreshIndicator(
-          displacement: 100,
-          edgeOffset: 0,
+          onRefresh: _onRefresh,
           color: AppColors.primaryColor,
-
-          onRefresh: () async {
-            await Navigator.pushNamedAndRemoveUntil(
-              context,
-              BottomNavigationView.routeName,
-              (_) => false,
-            );
-          },
           child: NotificationListener<ScrollNotification>(
-            onNotification: (notification) {
-              _onScroll(notification);
-              return false;
-            },
+            onNotification: _onScrollNotification,
             child: ListView.separated(
               padding: EdgeInsets.zero,
-              itemCount: cubit.hasReachedEnd ? posts.length : posts.length + 1,
+              itemCount: posts.length + 1,
               separatorBuilder: (_, __) => const SizedBox(height: 16),
               itemBuilder: (context, index) {
                 if (index >= posts.length) {
-                  return const Center(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      child: CircularProgressIndicator(),
-                    ),
-                  );
+                  return cubit.hasReachedEnd
+                      ? const SizedBox(height: 0)
+                      : const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 16),
+                          child: Center(child: CircularProgressIndicator()),
+                        );
                 }
 
                 final post = posts[index];
