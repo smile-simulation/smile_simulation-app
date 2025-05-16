@@ -5,6 +5,8 @@ import '../../../../../core/widgets/bottom_navigation_bar/bottom_nvaigation_view
 import '../../cubits/posts_cubit/posts_cubit.dart';
 import 'posts/custom_post.dart';
 
+
+
 class PostsListView extends StatefulWidget {
   const PostsListView({
     super.key,
@@ -20,7 +22,6 @@ class PostsListView extends StatefulWidget {
 }
 
 class _PostsListViewState extends State<PostsListView> {
-  final ScrollController _scrollController = ScrollController();
   bool isLoadingMore = false;
   bool isCheckingNewPosts = false;
 
@@ -28,13 +29,20 @@ class _PostsListViewState extends State<PostsListView> {
   void initState() {
     super.initState();
     context.read<PostsCubit>().fetchPosts(isInitialLoad: true);
+  }
 
-    _scrollController.addListener(() {
-      final cubit = context.read<PostsCubit>();
-      final position = _scrollController.position;
+  Future<void> _onRefresh() async {
+    await context.read<PostsCubit>().refreshPosts();
+  }
 
-      // 👇 تحميل المزيد وانت نازل
-      if (position.pixels >= position.maxScrollExtent - 200 &&
+  bool _onScrollNotification(ScrollNotification notification) {
+    final cubit = context.read<PostsCubit>();
+
+    if (notification is ScrollUpdateNotification) {
+      final maxScroll = notification.metrics.maxScrollExtent;
+      final currentScroll = notification.metrics.pixels;
+
+      if (currentScroll >= maxScroll - 200 &&
           !isLoadingMore &&
           !cubit.hasReachedEnd) {
         isLoadingMore = true;
@@ -43,24 +51,15 @@ class _PostsListViewState extends State<PostsListView> {
         });
       }
 
-      // 👆 التحقق من بوستات أحدث وانت طالع
-      if (position.pixels <= 50 && !isCheckingNewPosts) {
+      if (currentScroll <= 50 && !isCheckingNewPosts) {
         isCheckingNewPosts = true;
         cubit.fetchNewPosts().then((_) {
           isCheckingNewPosts = false;
         });
       }
-    });
-  }
+    }
 
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  Future<void> _onRefresh() async {
-    await context.read<PostsCubit>().refreshPosts();
+    return false;
   }
 
   @override
@@ -81,28 +80,30 @@ class _PostsListViewState extends State<PostsListView> {
         return RefreshIndicator(
           onRefresh: _onRefresh,
           color: AppColors.primaryColor,
-          child: ListView.separated(
-            padding: EdgeInsets.zero,
-            controller: _scrollController,
-            itemCount: posts.length + 1,
-            separatorBuilder: (_, __) => const SizedBox(height: 16),
-            itemBuilder: (context, index) {
-              if (index >= posts.length) {
-                return cubit.hasReachedEnd
-                    ? const SizedBox(height: 0)
-                    : const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16),
-                  child: Center(child: CircularProgressIndicator()),
-                );
-              }
+          child: NotificationListener<ScrollNotification>(
+            onNotification: _onScrollNotification,
+            child: ListView.separated(
+              padding: EdgeInsets.zero,
+              itemCount: posts.length + 1,
+              separatorBuilder: (_, __) => const SizedBox(height: 16),
+              itemBuilder: (context, index) {
+                if (index >= posts.length) {
+                  return cubit.hasReachedEnd
+                      ? const SizedBox(height: 0)
+                      : const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16),
+                    child: Center(child: CircularProgressIndicator()),
+                  );
+                }
 
-              final post = posts[index];
-              return CustomPost(
-                clickablePostImage: widget.clickablePostImage,
-                currentUser: widget.currentUser,
-                post: post,
-              );
-            },
+                final post = posts[index];
+                return CustomPost(
+                  clickablePostImage: widget.clickablePostImage,
+                  currentUser: widget.currentUser,
+                  post: post,
+                );
+              },
+            ),
           ),
         );
       },
