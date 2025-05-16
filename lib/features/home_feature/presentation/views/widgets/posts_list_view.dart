@@ -71,12 +71,6 @@ class _PostsListViewState extends State<PostsListView> {
         final cubit = context.read<PostsCubit>();
         final posts = cubit.posts;
 
-        // Optional: include this if you want to auto-refresh on like change
-        if (cubit.newLikeStatus == true) {
-          context.read<PostsCubit>().fetchPosts(isInitialLoad: true);
-          cubit.newLikeStatus = false;
-        }
-
         if (state is PostsInitial || state is PostsLoading) {
           return const Center(child: CircularProgressIndicator());
         }
@@ -99,9 +93,9 @@ class _PostsListViewState extends State<PostsListView> {
                   return cubit.hasReachedEnd
                       ? const SizedBox(height: 0)
                       : const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 16),
-                          child: Center(child: CircularProgressIndicator()),
-                        );
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        child: Center(child: CircularProgressIndicator()),
+                      );
                 }
 
                 final post = posts[index];
@@ -109,7 +103,6 @@ class _PostsListViewState extends State<PostsListView> {
                   clickablePostImage: widget.clickablePostImage,
                   currentUser: widget.currentUser,
                   post: post,
-                  postIndex: index,
                 );
               },
             ),
