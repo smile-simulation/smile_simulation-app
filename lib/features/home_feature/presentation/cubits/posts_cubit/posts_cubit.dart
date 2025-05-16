@@ -11,12 +11,12 @@ class PostsCubit extends Cubit<PostsState> {
 
   final PostsRepoImplement postsRepo;
 
-  final List<PostModel> posts = [];
+   List<PostModel> posts = [];
   int _currentPage = 1;
   final int _pageSize = 10;
   bool _isLoading = false;
   bool _hasReachedEnd = false;
-
+  bool newLikeStatus = false;
   bool get hasReachedEnd => _hasReachedEnd;
 
   Future<void> fetchPosts({bool isInitialLoad = false}) async {

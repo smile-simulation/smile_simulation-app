@@ -15,12 +15,13 @@ class CustomPost extends StatelessWidget {
     required this.currentUser,
     this.clickablePostImage = true,
     required this.post,
+    required this.postIndex,
   });
 
   final bool currentUser;
   final bool clickablePostImage;
   final PostModel post;
-
+  final int postIndex;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

@@ -20,18 +20,15 @@ class PostFooter extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          BlocBuilder<PostDetailsCubit, PostDetailsState>(
-            builder: (context, state) {
-              return PostFooterActionItem(
-                onTap: () async {
-                  await cubit.makeLike(postId: post.id!);
-                },
-                actionText: S.of(context).like,
-                icon: Assets.imagesLike,
-                isActive: cubit.likedPost ?? post.isLikedByCurrentUser!,
-              );
+          PostFooterActionItem(
+            onTap: () async {
+              await cubit.makeLike(postId: post.id!);
             },
+            actionText: S.of(context).like,
+            icon: Assets.imagesLike,
+            isActive: cubit.likedPost ?? post.isLikedByCurrentUser!,
           ),
+
           SizedBox(height: 8),
           PostFooterActionItem(
             onTap: () {

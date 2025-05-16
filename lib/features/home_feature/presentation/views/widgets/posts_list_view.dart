@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -44,9 +46,13 @@ class _PostsListViewState extends State<PostsListView> {
   Widget build(BuildContext context) {
     return BlocBuilder<PostsCubit, PostsState>(
       builder: (context, state) {
+        log(state.toString());
         final cubit = context.read<PostsCubit>();
         final posts = cubit.posts;
-
+        if (cubit.newLikeStatus == true) {
+          context.read<PostsCubit>().fetchPosts(isInitialLoad: true);
+          cubit.newLikeStatus = false;
+        }
         if (state is PostsInitial) {
           return const Center(child: CircularProgressIndicator());
         }
@@ -61,10 +67,10 @@ class _PostsListViewState extends State<PostsListView> {
           color: AppColors.primaryColor,
 
           onRefresh: () async {
-         await   Navigator.pushNamedAndRemoveUntil(
+            await Navigator.pushNamedAndRemoveUntil(
               context,
               BottomNavigationView.routeName,
-                  (_) => false,
+              (_) => false,
             );
           },
           child: NotificationListener<ScrollNotification>(
@@ -91,6 +97,7 @@ class _PostsListViewState extends State<PostsListView> {
                   clickablePostImage: widget.clickablePostImage,
                   currentUser: widget.currentUser,
                   post: post,
+                  postIndex: index,
                 );
               },
             ),
