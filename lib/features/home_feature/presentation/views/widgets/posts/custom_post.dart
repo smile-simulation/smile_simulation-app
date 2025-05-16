@@ -7,9 +7,6 @@ import 'package:smile_simulation/features/home_feature/data/repos/posts_repo/pos
 import 'package:smile_simulation/features/home_feature/presentation/cubits/post_details_cubit/post_details_cubit.dart';
 
 import 'custom_post_builder.dart';
-import 'post_footer.dart';
-import 'post_header.dart';
-import 'post_horizontal_layout.dart';
 
 class CustomPost extends StatelessWidget {
   const CustomPost({

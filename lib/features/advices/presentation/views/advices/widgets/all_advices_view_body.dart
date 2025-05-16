@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/widgets/custom_app_bar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/advices/presentation/views/advices_home/widgets/advices_list_view.dart';
-import 'package:smile_simulation/generated/l10n.dart';
 
 import '../../../../data/models/advice/advice.dart';
 

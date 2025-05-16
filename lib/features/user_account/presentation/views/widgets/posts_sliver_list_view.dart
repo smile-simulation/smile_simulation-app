@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import '../../../../home_feature/presentation/cubits/posts_cubit/posts_cubit.dart';
-import '../../../../home_feature/presentation/views/post_view.dart';
 import '../../../../home_feature/presentation/views/widgets/posts/custom_post.dart';
 
 class PostsSliverListView extends StatelessWidget {

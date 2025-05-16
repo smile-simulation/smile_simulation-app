@@ -8,8 +8,6 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/add_post_cubit/add_post_cubit.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/custom_post_image.dart';
-import 'package:smile_simulation/features/user_account/presentation/views/widgets/add_post.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 import '../../../../../../constant.dart';

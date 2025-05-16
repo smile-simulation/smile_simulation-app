@@ -5,7 +5,6 @@ import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/features/medical_record/presentation/views/personal_data_view.dart';
 
 import '../../../../constant.dart';
-import '../../../../core/api/api_keys.dart';
 import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/widgets/custom_body_screen.dart';
 import '../../../../generated/assets.dart';
