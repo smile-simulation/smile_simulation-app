@@ -44,31 +44,31 @@ class CustomPostBuilder extends StatelessWidget {
             Navigator.pushNamed(context, PostView.routeName, arguments: post);
           },
           child: Container(
-            constraints: BoxConstraints(maxHeight: 255),
-            padding: const EdgeInsets.all(16),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                PostHeader(
-                  userName: post.publisherName ?? "No Publisher Name",
-                  postDate: formatDateTimeAgo(
-                    rawDate: post.createdAt.toString(),
-                  ),
-                  currentUser: currentUser,
-                  clickablePostImage: clickablePostImage,
-                ),
-                const SizedBox(height: 4),
-                PostHorizontalLayout(post: post),
-                const SizedBox(height: 12),
-                PostFooter(post: post),
-              ],
-            ),
-          ),
+        padding: const EdgeInsets.all(16),
+        width: double.infinity,
+        decoration: BoxDecoration(
+        color: Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+        PostHeader(
+        userName: post.publisherName ?? "No Publisher Name",
+        postDate: formatDateTimeAgo(
+        rawDate: post.createdAt.toString(),
+        ),
+        currentUser: currentUser,
+        clickablePostImage: clickablePostImage,
+        ),
+        const SizedBox(height: 4),
+        PostHorizontalLayout(post: post),
+        const SizedBox(height: 12),
+        PostFooter(post: post),
+        ],
+        ),
+        ),
+
         );
       },
     );

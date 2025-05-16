@@ -8,46 +8,41 @@ import 'post_text.dart';
 class PostHorizontalLayout extends StatelessWidget {
   const PostHorizontalLayout({super.key, required this.post});
   final PostModel post;
-
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        children: [
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 7,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      PostText(
-                        postContent: post.content ?? "No Content",
-                        maxLines: 5,
-                      ),
-                    ],
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              flex: 7,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  PostText(
+                    postContent: post.content ?? "No Content",
+                    maxLines: 5,
                   ),
-                ),
-                Visibility(
-                  visible: post.postImage != null,
-                  child: Expanded(
-                    flex: 4,
-                    child: Expanded(
-                      child: CustomPostImage(image: post.postImage),
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 6),
-          PostInteractions(
-            likeCount: post.likesCount.toString(),
-            commentCount: post.commentsCount.toString(),
-          ),
-        ],
-      ),
+            if (post.postImage != null)
+              SizedBox(width: 8),
+            if (post.postImage != null)
+              Expanded(
+                flex: 4,
+                child: CustomPostImage(image: post.postImage),
+              ),
+          ],
+        ),
+        const SizedBox(height: 6),
+        PostInteractions(
+          likeCount: post.likesCount.toString(),
+          commentCount: post.commentsCount.toString(),
+        ),
+      ],
     );
   }
+
 }
