@@ -5,6 +5,7 @@ import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
 import 'package:smile_simulation/features/home_feature/data/repos/posts_repo/posts_repo_implement.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/post_details_cubit/post_details_cubit.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/widgets_skeletons/post_skeleton.dart';
 
 import 'custom_post_builder.dart';
 
@@ -28,7 +29,9 @@ class CustomPost extends StatelessWidget {
             post: post,
             postsRepo: PostsRepoImplement(dioConsumer: DioConsumer(dio: Dio())),
           ),
-      child: CustomPostBuilder(
+      child:
+      // PostSkeleton(),
+      CustomPostBuilder(
         currentUser: currentUser,
         clickablePostImage: clickablePostImage,
       ),

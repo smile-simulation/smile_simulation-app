@@ -7,12 +7,12 @@ import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
-import 'package:smile_simulation/features/home_feature/presentation/cubits/add_post_cubit/add_post_cubit.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 import '../../../../../../constant.dart';
 import '../../../../../../core/database/cache/cache_helper.dart';
 import '../../../../../../generated/assets.dart';
+import '../../../cubits/add_post_cubit/add_post_cubit.dart';
 import 'add_post_text_field.dart';
 
 class CreatePostViewBody extends StatelessWidget {
