@@ -97,7 +97,6 @@ class _PostsListViewState extends State<PostsListView> {
                   clickablePostImage: widget.clickablePostImage,
                   currentUser: widget.currentUser,
                   post: post,
-                  postIndex: index,
                 );
               },
             ),
