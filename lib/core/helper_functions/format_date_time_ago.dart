@@ -1,6 +1,8 @@
 String formatDateTimeAgo({required String rawDate}) {
   try {
-    final dateTime = DateTime.parse(rawDate).add(const Duration(hours: 3)); // ✅ إضافة 3 ساعات
+    final dateTime = DateTime.parse(
+      rawDate,
+    ).add(const Duration(hours: 3)); // ✅ إضافة 3 ساعات
     final Duration diff = DateTime.now().difference(dateTime);
 
     if (diff.inSeconds < 60) return 'منذ ثواني';

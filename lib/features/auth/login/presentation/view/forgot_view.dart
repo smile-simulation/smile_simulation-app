@@ -140,7 +140,8 @@ class _ForgotViewState extends State<ForgetView> {
                                         controller: emailController,
                                         title: S.of(context).email,
                                         hintText: "example@gmail.com",
-                                        keyboardType: TextInputType.emailAddress,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
                                         validator: (value) {
                                           return validatorOfEmail(value);
                                         },
@@ -213,7 +214,9 @@ class _ForgotViewState extends State<ForgetView> {
                                           email: emailController.text.trim(),
                                           token:
                                               CacheHelper.sharedPreferences
-                                                  .getString(sharedPrefForgetToken)!,
+                                                  .getString(
+                                                    sharedPrefForgetToken,
+                                                  )!,
                                           newPassword:
                                               newPasswordController.text.trim(),
                                           confirmPassword:

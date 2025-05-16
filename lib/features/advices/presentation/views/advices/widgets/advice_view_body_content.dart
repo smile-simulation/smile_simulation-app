@@ -39,7 +39,6 @@ class AdviceViewBodyContent extends StatelessWidget {
                   style: AppTextStyles.style16W400(context),
                 ),
                 SizedBox(height: 16),
-
               ],
             ),
           ),

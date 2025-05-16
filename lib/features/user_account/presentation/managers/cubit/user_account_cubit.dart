@@ -5,5 +5,5 @@ part 'user_account_state.dart';
 
 class UserAccountCubit extends Cubit<UserAccountState> {
   UserAccountCubit() : super(UserAccountInitial());
-  getUserPost(){}
+  getUserPost() {}
 }

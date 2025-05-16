@@ -12,11 +12,11 @@ class CategoryAdvicesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
-    return CustomBodyScreen(child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
-      child: CategoryAdvicesListViewBuilder(),
-    ));
+    return CustomBodyScreen(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        child: CategoryAdvicesListViewBuilder(),
+      ),
+    );
   }
 }

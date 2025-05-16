@@ -30,10 +30,12 @@ class _AdvicesHomeViewBodyState extends State<AdvicesHomeViewBody> {
     return CustomBodyScreen(
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: Padding(
-            padding: const EdgeInsets.symmetric( horizontal: 16.0),
-            child: TodaysAdviceSection(),
-          )),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: TodaysAdviceSection(),
+            ),
+          ),
           SliverSizedBox(height: 16),
           SliverToBoxAdapter(child: AdvicesCategoriesSection()),
           SliverToBoxAdapter(child: GeneralAdvicesSection()),

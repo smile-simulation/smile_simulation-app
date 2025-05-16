@@ -153,22 +153,27 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       setState(() {
                         isOut = !isOut;
                       });
-                      Timer( Duration(milliseconds: currentIndex == 4?0: 300), () {
-                        currentIndex == 4
-                            ? {
-                              Navigator.pushReplacementNamed(
-                                context, LoginView.routeName,
-                              ),   CacheHelper.sharedPreferences.setBool(
-                            isOnboardingViewSeen,
-                            true,
-                          ),
-                            }
-                            : currentIndex = currentIndex + 1;
+                      Timer(
+                        Duration(milliseconds: currentIndex == 4 ? 0 : 300),
+                        () {
+                          currentIndex == 4
+                              ? {
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  LoginView.routeName,
+                                ),
+                                CacheHelper.sharedPreferences.setBool(
+                                  isOnboardingViewSeen,
+                                  true,
+                                ),
+                              }
+                              : currentIndex = currentIndex + 1;
 
-                        setState(() {
-                          isOut = !isOut;
-                        });
-                      });
+                          setState(() {
+                            isOut = !isOut;
+                          });
+                        },
+                      );
                     },
                     child:
                         currentIndex == 4

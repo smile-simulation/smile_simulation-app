@@ -95,7 +95,6 @@ class PostsRepoImplement implements PostsRepo {
                         "${generateRandomString(sizeOfCode: 6)}postImage.jpg",
                   )
                   : null,
-                  
         },
       );
       String message = response[ApiKeys.message];

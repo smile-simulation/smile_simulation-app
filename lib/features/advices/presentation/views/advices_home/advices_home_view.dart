@@ -16,8 +16,9 @@ class AdvicesHomeView extends StatelessWidget {
     return BlocProvider(
       create: (context) => AdvicesCubit(getIt.get<AdvicesRepo>()),
       child: Scaffold(
-          appBar: customAppbar(context, title: S.of(context).advices),
-          body: AdvicesHomeViewBody()),
+        appBar: customAppbar(context, title: S.of(context).advices),
+        body: AdvicesHomeViewBody(),
+      ),
     );
   }
 }

@@ -9,7 +9,6 @@ import '../../../../../generated/assets.dart';
 import '../../../../chatb_bot_feature/presentation/views/chat_bot_view.dart';
 import 'custom_to_pin_app_bar.dart';
 
-
 class CustomFlexibleAppBar extends StatelessWidget {
   CustomFlexibleAppBar({super.key});
 

@@ -9,7 +9,7 @@ part 'post_details_state.dart';
 class PostDetailsCubit extends Cubit<PostDetailsState> {
   PostModel post;
   final PostsRepoImplement postsRepo;
-  bool likedPost = false;
+  bool? likedPost;
   PostDetailsCubit({required this.post, required this.postsRepo})
     : super(PostDetailsInitial());
   Future<void> makeLike({required int postId}) async {

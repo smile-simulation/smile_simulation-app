@@ -26,7 +26,7 @@ class AdviceView extends StatelessWidget {
         height: 50,
         color: AppColors.whiteColor,
         padding: const EdgeInsets.all(12.0),
-        child:      Visibility(
+        child: Visibility(
           visible: advice.link != null,
           child: InkWell(
             onTap: () {

@@ -12,7 +12,8 @@ class AllAdvicesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: customAppbar(context,title: S.of(context).advices,isBack: true),
-        body: AllAdvicesViewBody(advices: advices));
+      appBar: customAppbar(context, title: S.of(context).advices, isBack: true),
+      body: AllAdvicesViewBody(advices: advices),
+    );
   }
 }

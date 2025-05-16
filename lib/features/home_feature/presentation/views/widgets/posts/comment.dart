@@ -32,11 +32,13 @@ class Comment extends StatelessWidget {
           SizedBox(
             width: 64,
             height: 64,
-            child:CircleAvatar(
+            child: CircleAvatar(
               backgroundImage:
-              CacheHelper().getMap(key: userData)!['image'] != null
-                  ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
-                  : const AssetImage(Assets.imagesUser),
+                  CacheHelper().getMap(key: userData)!['image'] != null
+                      ? NetworkImage(
+                        CacheHelper().getMap(key: userData)!['image'],
+                      )
+                      : const AssetImage(Assets.imagesUser),
               radius: 20,
             ),
           ),

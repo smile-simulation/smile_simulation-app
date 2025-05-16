@@ -26,13 +26,18 @@ class UserAccountHeader extends StatelessWidget {
                 width: 120,
                 child:
                     currentUser
-                        ?CircleAvatar(
-                      backgroundImage:
-                      CacheHelper().getMap(key: userData)!['image'] != null
-                          ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
-                          : const AssetImage(Assets.imagesUser),
-                      radius: 20,
-                    )
+                        ? CircleAvatar(
+                          backgroundImage:
+                              CacheHelper().getMap(key: userData)!['image'] !=
+                                      null
+                                  ? NetworkImage(
+                                    CacheHelper().getMap(
+                                      key: userData,
+                                    )!['image'],
+                                  )
+                                  : const AssetImage(Assets.imagesUser),
+                          radius: 20,
+                        )
                         : OtherUserCircleImage(onTap: () {}),
               ),
               Positioned(

@@ -33,14 +33,14 @@ class VisitingDatesViewBody extends StatelessWidget {
                 ),
                 TextSetionInReminderFeature(
                   text1: 'أضف زيارتك الطبية ... وسوف نذكرك بمواعيدها',
-                  text2:
-                      'أضف الزيارات الطبية الخاصة بك الى تذكيراتك حتى نتمكن',
+                  text2: 'أضف الزيارات الطبية الخاصة بك الى تذكيراتك حتى نتمكن',
                   text3: 'من تذكيرك بها في أوقاتها المحدد',
                 ),
-                SizedBox(height: 50,),
-                CustomeReminderButton(text: 'اضافة اول تذكير',onPressed: () {
-                  
-                },),
+                SizedBox(height: 50),
+                CustomeReminderButton(
+                  text: 'اضافة اول تذكير',
+                  onPressed: () {},
+                ),
               ],
             ),
           ),

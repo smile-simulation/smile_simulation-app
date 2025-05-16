@@ -50,15 +50,11 @@ class LoginView extends StatelessWidget {
         listener: (context, state) async {
           if (state is LoginSuccess) {
             await customSuccess(context, massage: state.message);
-            CacheHelper.sharedPreferences.setBool(
-              isSuccessLogin,
-              true,
-            );
+            CacheHelper.sharedPreferences.setBool(isSuccessLogin, true);
             Navigator.pushReplacementNamed(
               context,
               BottomNavigationView.routeName,
             );
-
           }
           if (state is LoginFailure) {
             customError(context, massage: state.message);

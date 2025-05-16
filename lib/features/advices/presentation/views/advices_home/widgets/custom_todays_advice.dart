@@ -41,10 +41,9 @@ class _CustomTodaysAdviceState extends State<CustomTodaysAdvice> {
           width: double.infinity,
           height: 150,
           // ✅ حدد ارتفاع صريح
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(12,
-          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
             border: Border.all(color: AppColors.primaryColor),
-
           ),
           child: Stack(
             fit: StackFit.expand,

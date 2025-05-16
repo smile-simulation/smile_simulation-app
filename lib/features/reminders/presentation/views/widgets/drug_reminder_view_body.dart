@@ -37,8 +37,11 @@ class DrugReminderViewBody extends StatelessWidget {
                       'أضف الأدوية التي تستخدمها إلى تنبيهاتك الطبية حتى نتمكن',
                   text3: 'من تذكيرك بها في أوقاتها المحدد',
                 ),
-                SizedBox(height: 50,),
-                CustomeReminderButton(text: 'اضافة اول تذكير',onPressed: (){},),
+                SizedBox(height: 50),
+                CustomeReminderButton(
+                  text: 'اضافة اول تذكير',
+                  onPressed: () {},
+                ),
               ],
             ),
           ),

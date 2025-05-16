@@ -121,7 +121,7 @@ class MedicalRecordUserView extends StatelessWidget {
                           padding: const EdgeInsets.only(
                             top: 75.0,
                             bottom: 75,
-                            right:85,
+                            right: 85,
                           ),
                           child: InkWell(
                             onTap: () {
@@ -145,7 +145,7 @@ class MedicalRecordUserView extends StatelessWidget {
                                   ),
                                 ),
 
-                                 Text(
+                                Text(
                                   'الحالة الصحية',
                                   style: AppTextStyles.formLabel(context),
                                 ),

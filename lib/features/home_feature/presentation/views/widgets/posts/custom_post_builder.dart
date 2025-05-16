@@ -44,9 +44,7 @@ class CustomPostBuilder extends StatelessWidget {
             Navigator.pushNamed(context, PostView.routeName, arguments: post);
           },
           child: Container(
-            constraints: BoxConstraints(
-              maxHeight: 255,
-            ),
+            constraints: BoxConstraints(maxHeight: 255),
             padding: const EdgeInsets.all(16),
             width: double.infinity,
             decoration: BoxDecoration(
@@ -71,7 +69,6 @@ class CustomPostBuilder extends StatelessWidget {
               ],
             ),
           ),
-
         );
       },
     );

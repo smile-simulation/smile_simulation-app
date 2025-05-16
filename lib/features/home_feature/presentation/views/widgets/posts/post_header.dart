@@ -34,12 +34,14 @@ class PostHeader extends StatelessWidget {
         children: [
           currentUser
               ? CircleAvatar(
-          backgroundImage:
-          CacheHelper().getMap(key: userData)!['image'] != null
-          ? NetworkImage(CacheHelper().getMap(key: userData)!['image'])
-          : const AssetImage(Assets.imagesUser),
-      radius: 20,
-    )
+                backgroundImage:
+                    CacheHelper().getMap(key: userData)!['image'] != null
+                        ? NetworkImage(
+                          CacheHelper().getMap(key: userData)!['image'],
+                        )
+                        : const AssetImage(Assets.imagesUser),
+                radius: 20,
+              )
               : OtherUserCircleImage(
                 onTap: () {
                   if (clickablePostImage) {

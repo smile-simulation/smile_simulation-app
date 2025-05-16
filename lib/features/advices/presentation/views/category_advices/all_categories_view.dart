@@ -12,7 +12,12 @@ class AllCategoriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: customAppbar(context,    title: S.of(context).advicesCategories,isBack: true),
-        body: AllCategoriesViewBody(categories: categories));
+      appBar: customAppbar(
+        context,
+        title: S.of(context).advicesCategories,
+        isBack: true,
+      ),
+      body: AllCategoriesViewBody(categories: categories),
+    );
   }
 }
