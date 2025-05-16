@@ -13,7 +13,7 @@ class PostSkeleton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        height: 255,
+        height: 220,
         padding: const EdgeInsets.all(16),
         width: double.infinity,
         decoration: BoxDecoration(
