@@ -106,6 +106,7 @@ class _PostsListViewState extends State<PostsListView> {
                 }
 
                 final post = posts[index];
+                // return PostSkeleton();
                 return CustomPost(
                   clickablePostImage: widget.clickablePostImage,
                   currentUser: widget.currentUser,

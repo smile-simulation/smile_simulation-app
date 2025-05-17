@@ -22,7 +22,7 @@ class PostVerticalLayout extends StatelessWidget {
           child: Container(
             alignment: Alignment.center,
             width: double.infinity,
-            child: CustomPostImage(image: cubit.post.postImage),
+            child: CustomPostImage(),
           ),
         ),
         const SizedBox(height: 16),
