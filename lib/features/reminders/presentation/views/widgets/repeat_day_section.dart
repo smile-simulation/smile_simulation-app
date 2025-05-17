@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/utils/app_colors.dart';
 
 class RepeatDaysSection extends StatelessWidget {
   final List<bool> daysSelected;
@@ -25,16 +26,16 @@ class RepeatDaysSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: const Text(
-              "التكرار",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.right,
-            ),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            "التكرار",
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.right,
+          ),
         ),
+        const SizedBox(height: 8),
         Row(
-          
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(7, (index) {
             return Column(
@@ -42,6 +43,8 @@ class RepeatDaysSection extends StatelessWidget {
                 Checkbox(
                   value: daysSelected[index],
                   onChanged: (val) => onChanged(index, val!),
+                  activeColor: AppColors.primaryColor,  // Color of checkbox fill when checked
+                  checkColor: Colors.white,  // Color of checkmark
                 ),
                 Text(days[index]),
               ],

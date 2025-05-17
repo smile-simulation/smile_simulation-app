@@ -2,26 +2,28 @@ import 'package:flutter/material.dart';
 
 class CustomDropdownContainer extends StatelessWidget {
   final String? value;
-  final List<String> items;
+  final List<DropdownMenuItem<String>> items;
   final Function(String?) onChanged;
-  final double? width; // ⬅️ New parameter
+  final double? width;
+  final String? hint; // Hint text
 
   const CustomDropdownContainer({
     Key? key,
     required this.value,
     required this.items,
     required this.onChanged,
-    this.width, // ⬅️ Optional width
+    this.width,
+    this.hint, // Hint is optional
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width, // ⬅️ Use it here
+      width: width,
       height: 50,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(4),
         border: Border.all(color: Colors.grey.shade300),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -39,16 +41,14 @@ class CustomDropdownContainer extends StatelessWidget {
         ),
         dropdownColor: Colors.white,
         isExpanded: true,
-        alignment: AlignmentDirectional.centerEnd,
-        items: items
-            .map((e) => DropdownMenuItem(
-                  value: e,
-                  child: Text(
-                    e,
-                    textAlign: TextAlign.right,
-                  ),
-                ))
-            .toList(),
+        alignment: AlignmentDirectional.centerStart, // Hint and value aligned at start
+        hint: hint != null
+            ? Text(
+                hint!,
+                style: const TextStyle(color: Colors.grey),
+              )
+            : null,
+        items: items,
       ),
     );
   }

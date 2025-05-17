@@ -69,12 +69,12 @@ class _CameraSectionState extends State<CameraSection> {
                       ),
                       textAlign: TextAlign.right,
                     ),
-                    SizedBox(height: 8),
+                    SizedBox(height: 6),
                     Container(
                       height: 50,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(4),
                         border: Border.all(color: Colors.grey.shade300),
                       ),
                       child: TextField(

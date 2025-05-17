@@ -4,15 +4,15 @@ import 'package:smile_simulation/features/reminders/presentation/views/widgets/c
 class MedicineTimeSection extends StatelessWidget {
   final String? selectedTime;
   final Function(String?) onChanged;
-  final List<String> items; // ✅ قائمة العناصر المتغيرة
-  final String title; // ✅ العنوان متغير كمان (اختياري)
+  final List<String> items;
+  final String title;
 
   const MedicineTimeSection({
     Key? key,
     required this.selectedTime,
     required this.onChanged,
     required this.items,
-    this.title = "وقت تناول الدواء", // قيمة افتراضية
+    this.title = "وقت تناول الدواء",
   }) : super(key: key);
 
   @override
@@ -29,9 +29,15 @@ class MedicineTimeSection extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           CustomDropdownContainer(
+            hint: "قبل تناول الطعام",
             value: selectedTime,
             onChanged: onChanged,
-            items: items,
+            items: items
+                .map((e) => DropdownMenuItem<String>(
+                      value: e,
+                      child: Text(e),
+                    ))
+                .toList(),
           ),
         ],
       ),
