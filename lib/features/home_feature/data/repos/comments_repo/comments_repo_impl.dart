@@ -20,7 +20,7 @@ class CommentsRepoImpl implements CommentsRepo {
     required int postId,
   }) async {
     try {
-      var response = await dioConsumer.get("Comment/postId/56");
+      var response = await dioConsumer.get("Comment/postId/$postId");
       List<CommentModel> comments = [];
       List<dynamic> commentsJsonList = response[ApiKeys.data];
       for (Map<String, dynamic> comment in commentsJsonList) {

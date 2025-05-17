@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,7 @@ class CommentsCubit extends Cubit<CommentsState> {
   PostModel relatedPost;
 
   Future<void> getAllCommentsById() async {
+    log(relatedPost.id.toString());
     emit(GetAllCommentsByIdLoading());
     var result = await commentsRepo.getAllCommentsByPostId(
       postId: relatedPost.id!,
