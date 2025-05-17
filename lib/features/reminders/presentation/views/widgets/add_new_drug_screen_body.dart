@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_app_bar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/widgets/medicine_time_section.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/widgets/repeat_day_section.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/widgets/time_and_quantity_section.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AddNewDrugScreenBody extends StatefulWidget {
   @override
@@ -20,104 +25,50 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugScreenBody> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomAppBar(title: 'اضافة دواء جديد', icon: Icons.arrow_back),
         Expanded(
           child: CustomBodyScreen(
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 30),
-                  Text(
-                    "اضف الادوية التي تستخدمها الي تنبيهانك الطبية حتي نتمكن من تذكيرك بها اوقاتها المحددة",
-                    style: TextStyle(fontSize: 16),
+                  SizedBox(height: 15),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+                    child: Text(
+                      "اضف الادوية التي تستخدمها الي تنبيهانك الطبية حتي نتمكن من تذكيرك بها اوقاتها المحددة",
+                      style: TextStyle(fontSize: 14),
+                    ),
                   ),
-                  SizedBox(height: 16),
-
-                  // اسم الدواء
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(Icons.camera),
-                      SizedBox(width: 8),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("اسم الدواء"),
-                            TextField(
-                              controller: medicineNameController,
-                              decoration: InputDecoration(
-                                hintText: "اسم الدواء",
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 16),
-
-                  // وقت تناول الدواء
-                  Text("وقت تناول الدواء"),
-                  DropdownButtonFormField<String>(
-                    value: selectedTime,
+                  CameraSection(),
+                  MedicineTimeSection(
+                    selectedTime: selectedTime,
                     onChanged: (val) => setState(() => selectedTime = val),
-                    items:
-                        [
-                              "قبل تناول الطعام",
-                              "بعد تناول الطعام",
-                              "أثناء تناول الطعام",
-                            ]
-                            .map(
-                              (e) => DropdownMenuItem(value: e, child: Text(e)),
-                            )
-                            .toList(),
+                    items: const [
+                      "قبل تناول الطعام",
+                      "بعد تناول الطعام",
+                      "أثناء تناول الطعام",
+                    ], // لو عايز تغير العنوان
                   ),
+
                   SizedBox(height: 16),
 
                   // التكرار
-                  Text("التكرار"),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: List.generate(7, (index) {
-                      final days = [
-                        "أحد",
-                        "إثنين",
-                        "ثلاثاء",
-                        "أربعاء",
-                        "خميس",
-                        "جمعة",
-                        "سبت",
-                      ];
-                      return Column(
-                        children: [
-                          Checkbox(
-                            value: daysSelected[index],
-                            onChanged:
-                                (val) =>
-                                    setState(() => daysSelected[index] = val!),
-                          ),
-                          Text(days[index]),
-                        ],
-                      );
-                    }),
+                  RepeatDaysSection(
+                    daysSelected: daysSelected,
+                    onChanged: (index, value) {
+                      setState(() {
+                        daysSelected[index] = value;
+                      });
+                    },
                   ),
+
                   SizedBox(height: 16),
 
                   // الكمية والوقت
-                  Text("الكمية"),
-                  TextField(
-                    controller: quantityController,
-                    decoration: InputDecoration(hintText: "الكمية"),
-                  ),
-                  SizedBox(height: 8),
-                  Text("الوقت"),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: Icon(Icons.add),
-                    label: Text("إضافة جرعة أخرى"),
-                  ),
+                  TimeAndQuantitySection(),
                   SizedBox(height: 16),
 
                   // تاريخ التوقف

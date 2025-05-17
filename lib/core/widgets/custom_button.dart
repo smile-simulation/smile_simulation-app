@@ -20,27 +20,30 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      height: isMinWidth ? 45 : 50,
-      minWidth: isMinWidth ? 130 : double.infinity,
-      color: isSecondary ? AppColors.whiteColor : AppColors.primaryColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-        side: BorderSide(color: AppColors.primaryColor),
-      ),
-      onPressed: onPressed,
-      child:
-          isLoading
-              ? const CircularProgressIndicator(color: AppColors.whiteColor)
-              : Text(
-                title,
-                style: AppTextStyles.button2(context).copyWith(
-                  color:
-                      isSecondary
-                          ? AppColors.primaryColor
-                          : AppColors.whiteColor,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      child: MaterialButton(
+        height: isMinWidth ? 45 : 50,
+        minWidth: isMinWidth ? 130 : double.infinity,
+        color: isSecondary ? AppColors.whiteColor : AppColors.primaryColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+          side: BorderSide(color: AppColors.primaryColor),
+        ),
+        onPressed: onPressed,
+        child:
+            isLoading
+                ? const CircularProgressIndicator(color: AppColors.whiteColor)
+                : Text(
+                  title,
+                  style: AppTextStyles.button2(context).copyWith(
+                    color:
+                        isSecondary
+                            ? AppColors.primaryColor
+                            : AppColors.whiteColor,
+                  ),
                 ),
-              ),
+      ),
     );
   }
 }

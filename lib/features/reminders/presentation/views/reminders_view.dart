@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/reminders_view_body.dart';
 
 class RemindersView extends StatelessWidget {
@@ -6,6 +7,12 @@ class RemindersView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: RemindersViewBody());
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: customAppbar(context, title: 'التذكيرات'),
+        body: RemindersViewBody(),
+      ),
+    );
   }
 }

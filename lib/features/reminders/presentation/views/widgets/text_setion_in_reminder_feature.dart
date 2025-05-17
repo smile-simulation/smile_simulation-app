@@ -15,20 +15,23 @@ class TextSetionInReminderFeature extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 50),
-        Align(
-          alignment: Alignment.center,
-          child: Text(
-            text1,
-            style: TextStyle(
-              color: AppColors.blackColor,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+        
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              text1,
+              style: TextStyle(
+                color: AppColors.blackColor,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+              maxLines: 2,
             ),
-            maxLines: 2,
           ),
         ),
-        SizedBox(height: 30),
+        
 
         Align(
           alignment: Alignment.center,

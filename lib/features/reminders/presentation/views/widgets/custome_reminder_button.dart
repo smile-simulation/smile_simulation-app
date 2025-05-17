@@ -3,12 +3,14 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 
 class CustomeReminderButton extends StatelessWidget {
   final String text;
+  final VoidCallback onPressed; // 👈 دي أهم حاجة
 
   const CustomeReminderButton({
     super.key,
     required this.text,
-    required Null Function() onPressed,
+    required this.onPressed,
   });
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -19,9 +21,7 @@ class CustomeReminderButton extends StatelessWidget {
           backgroundColor: Colors.lightBlue.shade50,
           padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
         ),
-        onPressed: () {
-          // Handle button press
-        },
+        onPressed: onPressed, // 👈 هنا بنستخدم الدالة اللي جت من برّه
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
