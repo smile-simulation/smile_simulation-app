@@ -17,7 +17,7 @@ class CustomBottomNavBarItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: 72,
       child: BottomNavigationBar(
         selectedFontSize: 10,
         currentIndex: selectedIndex,

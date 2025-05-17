@@ -32,7 +32,7 @@ class PostHorizontalLayout extends StatelessWidget {
             if (post.postImage != null)
               Expanded(
                 flex: 4,
-                child: CustomPostImage(image: post.postImage),
+                child: CustomPostImage(),
               ),
           ],
         ),

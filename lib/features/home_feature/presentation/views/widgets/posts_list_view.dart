@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/widgets_skeletons/post_skeleton.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
 import '../../cubits/posts_cubit/posts_cubit.dart';
 import 'posts/custom_post.dart';
 
@@ -72,7 +72,14 @@ class _PostsListViewState extends State<PostsListView> {
         final posts = cubit.posts;
 
         if (state is PostsInitial || state is PostsLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return ListView.separated(
+            padding: EdgeInsets.zero,
+            itemCount: 8,
+            separatorBuilder: (_, __) => const SizedBox(height: 16),
+            itemBuilder: (context, index) {
+              return PostSkeleton();
+            },
+          );
         }
 
         if (state is PostsError) {
@@ -94,11 +101,12 @@ class _PostsListViewState extends State<PostsListView> {
                       ? const SizedBox(height: 0)
                       : const Padding(
                         padding: EdgeInsets.symmetric(vertical: 16),
-                        child: Center(child: CircularProgressIndicator()),
+                        child: PostSkeleton(),
                       );
                 }
 
                 final post = posts[index];
+                // return PostSkeleton();
                 return CustomPost(
                   clickablePostImage: widget.clickablePostImage,
                   currentUser: widget.currentUser,
