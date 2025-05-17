@@ -17,7 +17,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(bottom: 12),
+      width: double.infinity,
+
       decoration: BoxDecoration(color: AppColors.whiteColor),
       child: Stack(
         children: [

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/features/home_feature/data/repos/posts_repo/posts_repo_implement.dart';
@@ -10,9 +12,11 @@ class PostDetailsCubit extends Cubit<PostDetailsState> {
   PostModel post;
   final PostsRepoImplement postsRepo;
   bool? likedPost;
+  bool likePostDone = false;
   PostDetailsCubit({required this.post, required this.postsRepo})
     : super(PostDetailsInitial());
   Future<void> makeLike({required int postId}) async {
+    log("Make Like");
     var result = await postsRepo.makeLike(postId: post.id!);
     result.fold(
       (fail) {
@@ -20,6 +24,7 @@ class PostDetailsCubit extends Cubit<PostDetailsState> {
       },
       (success) {
         likedPost = (success == "تم اضافة الاعجاب للمنشور");
+        likePostDone = !likePostDone;
         getPostById(postId: postId, makeLikeMessage: success);
       },
     );
@@ -29,6 +34,7 @@ class PostDetailsCubit extends Cubit<PostDetailsState> {
     required int postId,
     required String makeLikeMessage,
   }) async {
+    log("this is the function with error${postId.toString()}");
     var result = await postsRepo.getPostById(postId: postId);
     result.fold((fail) {}, (success) {
       post = success;

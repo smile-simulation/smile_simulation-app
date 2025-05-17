@@ -8,15 +8,18 @@ AppBar customAppbar(
   BuildContext context, {
   String? title,
   bool isBack = false,
+  Function()? goBack,
 }) {
   return AppBar(
     backgroundColor: Colors.transparent,
     leading:
         isBack
             ? IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
+              onPressed:
+                  goBack ??
+                  () {
+                    Navigator.pop(context);
+                  },
               icon: Icon(
                 Icons.arrow_back_ios_new_outlined,
                 color: AppColors.whiteColor,

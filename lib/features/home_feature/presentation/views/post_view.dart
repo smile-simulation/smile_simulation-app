@@ -2,7 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
-import 'package:smile_simulation/core/utils/app_colors.dart';
+import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
+import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
+import 'package:smile_simulation/features/home_feature/data/repos/comments_repo/comments_repo_impl.dart';
 
 import '../../data/models/post_model.dart';
 import '../../data/repos/posts_repo/posts_repo_implement.dart';
@@ -28,14 +30,35 @@ class PostView extends StatelessWidget {
                 post: post,
               ),
         ),
-        BlocProvider(create: (context) => CommentsCubit(post)),
-      ],
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.primaryColor,
-          foregroundColor: AppColors.whiteColor,
+        BlocProvider(
+          create:
+              (context) => CommentsCubit(
+                relatedPost: post,
+                commentsRepo: CommentsRepoImpl(dioConsumer: DioConsumer(dio: Dio())),
+              ),
         ),
-        body: PostViewBody(currentUser: currentUser),
+      ],
+      child: Builder(
+        builder: (context) {
+          return Scaffold(
+            appBar: customAppbar(
+              context,
+              isBack: true,
+              goBack: () {
+                if (context.read<PostDetailsCubit>().likePostDone) {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    BottomNavigationView.routeName,
+                    (_) => false,
+                  );
+                } else {
+                  Navigator.pop(context);
+                }
+              },
+            ),
+            body: PostViewBody(currentUser: currentUser),
+          );
+        },
       ),
     );
   }

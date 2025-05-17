@@ -1,37 +1,41 @@
 // ✅ ويدجت العرض الرأسي (Column)
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/features/home_feature/presentation/cubits/post_details_cubit/post_details_cubit.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/post_footer.dart';
 
 import 'custom_post_image.dart';
 import 'post_interactions.dart';
 import 'post_text.dart';
 
 class PostVerticalLayout extends StatelessWidget {
-  const PostVerticalLayout({super.key, required this.post});
-  final PostModel post;
+  const PostVerticalLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
+    PostDetailsCubit cubit = context.read<PostDetailsCubit>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Visibility(
-          visible: post.postImage != null,
+          visible: cubit.post.postImage != null,
           child: Container(
             alignment: Alignment.center,
-            height: 136,
-            child: CustomPostImage(image: post.postImage),
+            width: double.infinity,
+            child: CustomPostImage(),
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 16),
 
         /// Might Have Errors
-        PostText(postContent: post.content ?? "no content"),
-        // const Spacer(),
+        PostText(postContent: cubit.post.content ?? "no content"),
+
         PostInteractions(
-          likeCount: post.likesCount.toString(),
-          commentCount: post.commentsCount.toString(),
+          likeCount: cubit.post.likesCount.toString(),
+          commentCount: cubit.post.commentsCount.toString(),
         ),
+        const SizedBox(height: 16),
+        PostFooter(post: cubit.post),
       ],
     );
   }

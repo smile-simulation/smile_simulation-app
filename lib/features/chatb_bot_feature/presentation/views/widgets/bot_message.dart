@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 
 class ChatBotMessage extends StatelessWidget {
@@ -67,7 +68,21 @@ class ChatBotMessage extends StatelessWidget {
                 size: 18,
               ),
               SizedBox(width: 8),
-              Icon(Icons.copy, color: AppColors.grayHeavyText_1Color, size: 18),
+              IconButton(
+                onPressed: () {
+                  Clipboard.setData(
+                    ClipboardData(
+                      text: "$text \n\n تم النسخ من تطبيق Smile Simulation 🩵",
+                    ),
+                  );
+                },
+                icon: Icon(
+                  Icons.copy,
+                  // color: AppColors.grayHeavyText_1Color,
+                  color: AppColors.primaryColor,
+                  size: 18,
+                ),
+              ),
               SizedBox(width: 8),
               Icon(
                 Icons.share_outlined,

@@ -20,22 +20,28 @@ class Assets {
   static const String imagesBottomNavBarPointer =
       'assets/images/bottom_nav_bar_pointer.png';
   static const String imagesChat = 'assets/images/chat.svg';
+  static const String imagesComment = 'assets/images/comment.svg';
   static const String imagesDailyCareImage =
       'assets/images/daily_care_image.png';
+  static const String imagesDentalCare = 'assets/images/dental-care.svg';
   static const String imagesEllipse1 = 'assets/images/Ellipse1.png';
   static const String imagesEllipse2 = 'assets/images/Ellipse2.png';
   static const String imagesEllipse3 = 'assets/images/Ellipse3.png';
   static const String imagesEmojiSmiling = 'assets/images/emoji_smiling.svg';
   static const String imagesFacebook = 'assets/images/facebook.svg';
   static const String imagesGoogle = 'assets/images/google.svg';
+  static const String imagesHome = 'assets/images/home.svg';
   static const String imagesInput = 'assets/images/input.svg';
+  static const String imagesLike = 'assets/images/like.svg';
   static const String imagesLogoOfChatBot =
       'assets/images/logo_of_chat_bot.png';
   static const String imagesManageSignUpBackground =
       'assets/images/manageSignUpBackground.png';
   static const String imagesManageSignup = 'assets/images/manageSignup.png';
+  static const String imagesMedical = 'assets/images/medical.svg';
   static const String imagesMedicalRecordImage =
       'assets/images/MedicalRecordImage.png';
+  static const String imagesMore = 'assets/images/more.svg';
   static const String imagesNotification = 'assets/images/notification.svg';
   static const String imagesOnBoarding1 = 'assets/images/onBoarding1.png';
   static const String imagesOnBoarding2 = 'assets/images/onBoarding2.png';
@@ -51,6 +57,7 @@ class Assets {
   static const String imagesOnBoardingShap4 =
       'assets/images/onBoardingShap4.png';
   static const String imagesPostImage = 'assets/images/post_image.png';
+  static const String imagesReminder = 'assets/images/reminder.svg';
   static const String imagesReminderDailyActivities =
       'assets/images/reminder_daily_activities.png';
   static const String imagesReminderDrugStimulant =

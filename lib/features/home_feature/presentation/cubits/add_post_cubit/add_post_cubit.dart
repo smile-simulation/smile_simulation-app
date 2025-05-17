@@ -15,7 +15,9 @@ class AddPostCubit extends Cubit<AddPostState> {
   File? imageFile;
   Uint8List? imageBytes;
   TextEditingController contentController = TextEditingController();
+
   AddPostCubit(this.postsRepo) : super(AddPostInitial());
+
   Future<void> pickImage() async {
     emit(ImagePickedLoading());
     XFile? pickedFile = await ImagePicker().pickImage(
@@ -28,6 +30,12 @@ class AddPostCubit extends Cubit<AddPostState> {
     } else {
       emit(ImagePickedFailture());
     }
+  }
+
+  Future<void> clearImage() async {
+    imageFile = null;
+    imageBytes = null;
+    emit(ImagePickedSuccess());
   }
 
   Future<void> addPost({required Function(String txt) onError}) async {
@@ -47,6 +55,7 @@ class AddPostCubit extends Cubit<AddPostState> {
         },
       );
     } else {
+      emit(AddPostFailture(fail: "لم يتم اضافة المنشور لإنه لا يوجد محتوي"));
       onError("لم يتم اضافة المنشور لإنه لا يوجد محتوي");
     }
   }

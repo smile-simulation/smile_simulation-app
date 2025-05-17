@@ -45,7 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "createNewPost": MessageLookupByLibrary.simpleMessage(
       "قم بإنشاء مشاركة جديدة",
     ),
-    "createPost": MessageLookupByLibrary.simpleMessage("إنشاء المنشور"),
+    "createPost": MessageLookupByLibrary.simpleMessage("إنشاء منشور جديد"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
     "deletePost": MessageLookupByLibrary.simpleMessage("حذف المنشور"),
     "editPost": MessageLookupByLibrary.simpleMessage("تعديل المنشور"),
@@ -73,7 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "fullName": MessageLookupByLibrary.simpleMessage("الاسم بالكامل"),
     "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
     "generalAdvices": MessageLookupByLibrary.simpleMessage("نصائح عامة"),
-    "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "home": MessageLookupByLibrary.simpleMessage("الصفحة الرئيسية"),
     "imageError": MessageLookupByLibrary.simpleMessage("الصورة غير صالحة"),
     "like": MessageLookupByLibrary.simpleMessage("أعجبني"),
     "likeCount": MessageLookupByLibrary.simpleMessage("إعجاباً"),

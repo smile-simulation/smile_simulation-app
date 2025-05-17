@@ -6,9 +6,7 @@ import 'package:smile_simulation/generated/l10n.dart';
 import 'posts_list_view.dart';
 
 class HomeViewBodyContent extends StatelessWidget {
-  const HomeViewBodyContent({super.key, required this.scrollController});
-
-  final ScrollController scrollController;
+  const HomeViewBodyContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +29,9 @@ class HomeViewBodyContent extends StatelessWidget {
             ).copyWith(color: AppColors.blackColor),
           ),
           const SizedBox(height: 8),
-          Expanded(child: PostsListView(currentUser: false)),
+          const Expanded(
+            child: PostsListView(currentUser: false),
+          ), // ❌ بدون scrollController
         ],
       ),
     );

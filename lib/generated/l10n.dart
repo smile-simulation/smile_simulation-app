@@ -530,9 +530,14 @@ class S {
     );
   }
 
-  /// `Create post`
+  /// `Create new post`
   String get createPost {
-    return Intl.message('Create post', name: 'createPost', desc: '', args: []);
+    return Intl.message(
+      'Create new post',
+      name: 'createPost',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Edit post`

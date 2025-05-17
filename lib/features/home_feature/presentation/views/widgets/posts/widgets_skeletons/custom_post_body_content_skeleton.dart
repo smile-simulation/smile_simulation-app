@@ -14,8 +14,6 @@ class CustomPostBodyContentSkeleton extends StatelessWidget {
         SizedBox(height: 8),
         CustomLoadingShimmer(SkeletonWidget: OneLineTextSkeleton()),
         SizedBox(height: 8),
-        CustomLoadingShimmer(SkeletonWidget: OneLineTextSkeleton()),
-        SizedBox(height: 8),
         SizedBox(
           height: 18,
           child: Row(

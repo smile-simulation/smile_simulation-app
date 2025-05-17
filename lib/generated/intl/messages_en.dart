@@ -43,7 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
     "createNewPost": MessageLookupByLibrary.simpleMessage("Create a new post"),
-    "createPost": MessageLookupByLibrary.simpleMessage("Create post"),
+    "createPost": MessageLookupByLibrary.simpleMessage("Create new post"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
     "deletePost": MessageLookupByLibrary.simpleMessage("Delete post"),
     "editPost": MessageLookupByLibrary.simpleMessage("Edit post"),
