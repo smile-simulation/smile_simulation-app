@@ -16,10 +16,11 @@ class CommentsCubit extends Cubit<CommentsState> {
     : super(CommentsInitial());
   TextEditingController commentController = TextEditingController();
   final FocusNode unitCodeCtrlFocusNode = FocusNode();
+  List<CommentModel> comments = [];
+
   PostModel relatedPost;
 
   Future<void> getAllCommentsById() async {
-    log(relatedPost.id.toString());
     emit(GetAllCommentsByIdLoading());
     var result = await commentsRepo.getAllCommentsByPostId(
       postId: relatedPost.id!,
@@ -29,7 +30,28 @@ class CommentsCubit extends Cubit<CommentsState> {
         emit(GetAllCommentsByIdFailture(errorMsg: fail.errorMessage));
       },
       (success) {
-        emit(GetAllCommentsByIdSuccess(comments: success));
+        comments = success;
+        emit(GetAllCommentsByIdSuccess());
+      },
+    );
+  }
+
+  Future<void> addComment() async {
+    emit(AddCommentLoading());
+    var result = await commentsRepo.addPost(
+      commentContent:
+          commentController.text.isEmpty
+              ? "هذا تعليق فارغ اثناء الاختبار"
+              : commentController.text,
+      postId: relatedPost.id!,
+    );
+    result.fold(
+      (fail) {
+        emit(AddCommentFailure());
+      },
+      (success) {
+        commentController.text = "";
+        emit(AddCommentSuccess());
       },
     );
   }

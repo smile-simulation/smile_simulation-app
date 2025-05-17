@@ -34,6 +34,7 @@ class PostDetailsCubit extends Cubit<PostDetailsState> {
     required int postId,
     required String makeLikeMessage,
   }) async {
+    log("this is the function with error${postId.toString()}");
     var result = await postsRepo.getPostById(postId: postId);
     result.fold((fail) {}, (success) {
       post = success;

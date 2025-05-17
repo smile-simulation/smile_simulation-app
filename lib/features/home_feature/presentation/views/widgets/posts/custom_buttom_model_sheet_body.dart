@@ -55,7 +55,9 @@ class _CustomButtomModelSheetBodyState
             ),
             SizedBox(height: 40),
             Expanded(child: CommentsListView()),
-            AddCommentFormField(),
+            AddCommentFormField(updedateView: () { 
+              /// edit me
+             },),
           ],
         ),
       ),

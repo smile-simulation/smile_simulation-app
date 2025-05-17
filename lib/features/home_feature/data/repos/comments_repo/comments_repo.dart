@@ -6,4 +6,8 @@ abstract class CommentsRepo {
   Future<Either<Failure, List<CommentModel>>> getAllCommentsByPostId({
     required int postId,
   });
+  Future<Either<Failure, String>> addPost({
+    required int postId,
+    required String commentContent,
+  });
 }

@@ -67,7 +67,11 @@ class _PostViewBodyState extends State<PostViewBody> {
               ),
             ),
 
-            AddCommentFormField(),
+            AddCommentFormField(
+              updedateView: () {
+                context.read<PostDetailsCubit>().likePostDone = true;
+              },
+            ),
           ],
         ),
       ),

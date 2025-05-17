@@ -9,15 +9,25 @@ class CommentsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CommentsCubit cubit = context.read<CommentsCubit>();
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        BlocBuilder<CommentsCubit, CommentsState>(
+        BlocConsumer<CommentsCubit, CommentsState>(
+          listener: (BuildContext context, CommentsState state) {
+            if (state is AddCommentSuccess) {
+              cubit.getAllCommentsById();
+            }
+          },
+
           builder: (context, state) {
             if (state is GetAllCommentsByIdSuccess) {
+              if (cubit.comments.isEmpty) {
+                return const Center(child: Text("لا يوجد تعليقات"));
+              }
               return Column(
-                children: List.generate(state.comments.length, (index) {
-                  final comment = state.comments[index];
+                children: List.generate(cubit.comments.length, (index) {
+                  final comment = cubit.comments[index];
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 24),
                     child: Comment(
@@ -30,7 +40,9 @@ class CommentsListView extends StatelessWidget {
                   );
                 }),
               );
-            } else if (state is GetAllCommentsByIdLoading) {
+            } else if (state is GetAllCommentsByIdLoading ||
+                state is AddCommentLoading ||
+                state is AddCommentSuccess) {
               return const Center(child: CircularProgressIndicator());
             } else {
               return const Center(child: Text("لم يتم تحميل التعليقات"));

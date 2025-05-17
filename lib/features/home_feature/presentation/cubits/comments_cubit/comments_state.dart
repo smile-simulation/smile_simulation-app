@@ -9,11 +9,7 @@ sealed class CommentsState extends Equatable {
 
 final class CommentsInitial extends CommentsState {}
 
-final class GetAllCommentsByIdSuccess extends CommentsState {
-  final List<CommentModel> comments;
-
-  GetAllCommentsByIdSuccess({required this.comments});
-}
+final class GetAllCommentsByIdSuccess extends CommentsState {}
 
 final class GetAllCommentsByIdFailture extends CommentsState {
   final String errorMsg;
@@ -22,3 +18,9 @@ final class GetAllCommentsByIdFailture extends CommentsState {
 }
 
 final class GetAllCommentsByIdLoading extends CommentsState {}
+
+final class AddCommentLoading extends CommentsState {}
+
+final class AddCommentSuccess extends CommentsState {}
+
+final class AddCommentFailure extends CommentsState {}

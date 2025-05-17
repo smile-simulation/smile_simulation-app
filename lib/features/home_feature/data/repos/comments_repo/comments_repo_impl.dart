@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -33,6 +32,29 @@ class CommentsRepoImpl implements CommentsRepo {
       return Left(ServerFailure(e.errorModel.message!));
     } catch (e) {
       logger.e("Exception in Get Posts: $e");
+      return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> addPost({
+    required int postId,
+    required String commentContent,
+  }) async {
+    try {
+      var response = await dioConsumer.post(
+        "Comment/postId/$postId",
+        data: {"content": "$commentContent"},
+      );
+      String message = response[ApiKeys.message];
+      log(message);
+      // String message = "hi";
+      return Right(message);
+    } on ServerException catch (e) {
+      logger.e("Exception in Add post: ${e.errorModel.message}");
+      return Left(ServerFailure(e.errorModel.message!));
+    } catch (e) {
+      logger.e("Exception in Add post: $e");
       return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
     }
   }
