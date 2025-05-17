@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/core/api/dio_consumer.dart';
+import 'package:smile_simulation/core/helper_functions/get_it.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
+import 'package:smile_simulation/features/home_feature/data/repos/comments_repo/comments_repo_impl.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/comments_cubit/comments_cubit.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
@@ -56,7 +59,11 @@ class AddCommentFormField extends StatelessWidget {
                   // textDirection: TextDirection.rtl,
                   size: 28,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  CommentsRepoImpl(
+                    dioConsumer: getIt.get<DioConsumer>(),
+                  ).getAllCommentsByPostId(postId: 56);
+                },
               ),
             ],
           ),

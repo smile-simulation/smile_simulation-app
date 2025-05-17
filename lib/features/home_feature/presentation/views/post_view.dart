@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
+import 'package:smile_simulation/features/home_feature/data/repos/comments_repo/comments_repo_impl.dart';
 
 import '../../data/models/post_model.dart';
 import '../../data/repos/posts_repo/posts_repo_implement.dart';
@@ -29,7 +30,13 @@ class PostView extends StatelessWidget {
                 post: post,
               ),
         ),
-        BlocProvider(create: (context) => CommentsCubit(post)),
+        BlocProvider(
+          create:
+              (context) => CommentsCubit(
+                relatedPost: post,
+                commentsRepo: CommentsRepoImpl(dioConsumer: DioConsumer(dio: Dio())),
+              ),
+        ),
       ],
       child: Builder(
         builder: (context) {
@@ -44,15 +51,14 @@ class PostView extends StatelessWidget {
                     BottomNavigationView.routeName,
                     (_) => false,
                   );
-                }
-                else{
+                } else {
                   Navigator.pop(context);
                 }
               },
             ),
             body: PostViewBody(currentUser: currentUser),
           );
-        }
+        },
       ),
     );
   }

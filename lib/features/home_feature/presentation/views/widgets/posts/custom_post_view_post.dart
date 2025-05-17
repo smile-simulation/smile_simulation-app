@@ -41,7 +41,7 @@ class PostViewPost extends StatelessWidget {
             clickablePostImage: clickablePostImage,
           ),
           const SizedBox(height: 4),
-          PostVerticalLayout( ),
+          PostVerticalLayout(),
           const SizedBox(height: 12),
           // PostFooter(post: post),
         ],

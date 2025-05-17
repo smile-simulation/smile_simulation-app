@@ -1,9 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/comments_cubit/comments_cubit.dart';
 
+import '../../../../data/repos/comments_repo/comments_repo_impl.dart';
 import 'add_comment_form_field.dart';
 import 'comments_list_view_builder.dart';
 
@@ -17,7 +20,13 @@ class CustomCommentsBottomSheet extends StatelessWidget {
     final double height =
         MediaQuery.of(context).size.height * (isKeyboardActive ? 0.6 : 0.7);
     return BlocProvider(
-      create: (context) => CommentsCubit(post),
+      create:
+          (context) => CommentsCubit(
+            relatedPost: post,
+            commentsRepo: CommentsRepoImpl(
+              dioConsumer: DioConsumer(dio: Dio()),
+            ),
+          ),
       child: AnimatedPadding(
         duration: Duration(milliseconds: 80),
         padding: EdgeInsets.only(bottom: isKeyboardActive ? keyboardHeight : 0),

@@ -70,7 +70,11 @@ class ChatBotMessage extends StatelessWidget {
               SizedBox(width: 8),
               IconButton(
                 onPressed: () {
-                  Clipboard.setData(ClipboardData(text: "$text \n\n تم النسخ من تطبيق Smile Simulation 🩵"));
+                  Clipboard.setData(
+                    ClipboardData(
+                      text: "$text \n\n تم النسخ من تطبيق Smile Simulation 🩵",
+                    ),
+                  );
                 },
                 icon: Icon(
                   Icons.copy,

@@ -14,50 +14,49 @@ class PostViewBody extends StatelessWidget {
   final bool currentUser;
   @override
   Widget build(BuildContext context) {
-    return CustomBodyScreen(child: Padding(
-      padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16),
-      child: Column(
-        children: [
-          Expanded(
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 16),
+    return CustomBodyScreen(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16),
+        child: Column(
+          children: [
+            Expanded(
+              child: CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 16),
 
-                      BlocBuilder<PostDetailsCubit, PostDetailsState>(
-                        builder: (context, state) {
-                          return PostViewPost(
-                            currentUser: currentUser,
-                         
-                          );
-                        },
-                      ),
-                    ],
+                        BlocBuilder<PostDetailsCubit, PostDetailsState>(
+                          builder: (context, state) {
+                            return PostViewPost(currentUser: currentUser);
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SliverToBoxAdapter(
-                  child: Column(
-                    children: [
-                      SizedBox(height: 24),
-                      Divider(),
-                      SizedBox(height: 24),
-                    ],
+                  SliverToBoxAdapter(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 24),
+                        Divider(),
+                        SizedBox(height: 24),
+                      ],
+                    ),
                   ),
-                ),
-                SliverToBoxAdapter(
-                  child: PostSectionsTitle(title: S.of(context).comments),
-                ),
-                CommentsListViewBuilder(isSliver: true),
-              ],
+                  SliverToBoxAdapter(
+                    child: PostSectionsTitle(title: S.of(context).comments),
+                  ),
+                  CommentsListViewBuilder(isSliver: true),
+                ],
+              ),
             ),
-          ),
 
-          AddCommentFormField(),
-        ],
+            AddCommentFormField(),
+          ],
+        ),
       ),
-    ),);
+    );
   }
 }

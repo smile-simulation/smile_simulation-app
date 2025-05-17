@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/helper_functions/show_modal_bottom_sheet.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';

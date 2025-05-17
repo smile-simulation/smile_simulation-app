@@ -10,14 +10,11 @@ class PostsCubit extends Cubit<PostsState> {
 
   final PostsRepoImplement postsRepo;
 
-   List<PostModel> posts = [];
+  List<PostModel> posts = [];
   int _currentPage = 1;
   final int _pageSize = 10;
   bool _isLoading = false;
   bool _hasReachedEnd = false;
-
-
-
 
   bool get hasReachedEnd => _hasReachedEnd;
 
@@ -40,10 +37,10 @@ class PostsCubit extends Cubit<PostsState> {
       );
 
       result.fold(
-            (failure) {
+        (failure) {
           emit(PostsError(errorMsg: failure.errorMessage));
         },
-            (newPosts) {
+        (newPosts) {
           if (newPosts.length < _pageSize) {
             _hasReachedEnd = true;
           }
@@ -58,25 +55,25 @@ class PostsCubit extends Cubit<PostsState> {
       _isLoading = false;
     }
   }
+
   Future<void> fetchNewPosts() async {
-    final result = await postsRepo.getPosts(
-      pageNumber: 1,
-      pageSize: _pageSize,
-    );
+    final result = await postsRepo.getPosts(pageNumber: 1, pageSize: _pageSize);
 
-    result.fold(
-          (failure) => emit(PostsError(errorMsg: failure.errorMessage)),
-          (newPosts) {
-        // لو في بوستات جديدة
-        if (newPosts.isNotEmpty && newPosts.first.id != posts.first.id) {
-          posts.insertAll(0, newPosts.where((post) =>
-          !posts.any((existing) => existing.id == post.id)));
-          emit(PostsSuccess(posts: posts, hasMore: !_hasReachedEnd));
-        }
-      },
-    );
+    result.fold((failure) => emit(PostsError(errorMsg: failure.errorMessage)), (
+      newPosts,
+    ) {
+      // لو في بوستات جديدة
+      if (newPosts.isNotEmpty && newPosts.first.id != posts.first.id) {
+        posts.insertAll(
+          0,
+          newPosts.where(
+            (post) => !posts.any((existing) => existing.id == post.id),
+          ),
+        );
+        emit(PostsSuccess(posts: posts, hasMore: !_hasReachedEnd));
+      }
+    });
   }
-
 
   /// 🔄 إعادة تحميل المنشورات (مثلاً عند السحب للتحديث)
   Future<void> refreshPosts() async {

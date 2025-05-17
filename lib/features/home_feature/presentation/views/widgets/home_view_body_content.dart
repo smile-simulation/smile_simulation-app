@@ -24,10 +24,14 @@ class HomeViewBodyContent extends StatelessWidget {
         children: [
           Text(
             S.of(context).posts,
-            style: AppTextStyles.headline2(context).copyWith(color: AppColors.blackColor),
+            style: AppTextStyles.headline2(
+              context,
+            ).copyWith(color: AppColors.blackColor),
           ),
           const SizedBox(height: 8),
-          const Expanded(child: PostsListView(currentUser: false)), // ❌ بدون scrollController
+          const Expanded(
+            child: PostsListView(currentUser: false),
+          ), // ❌ بدون scrollController
         ],
       ),
     );

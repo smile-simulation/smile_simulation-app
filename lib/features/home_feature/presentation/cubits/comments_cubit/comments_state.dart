@@ -8,3 +8,17 @@ sealed class CommentsState extends Equatable {
 }
 
 final class CommentsInitial extends CommentsState {}
+
+final class GetAllCommentsByIdSuccess extends CommentsState {
+  final List<CommentModel> comments;
+
+  GetAllCommentsByIdSuccess({required this.comments});
+}
+
+final class GetAllCommentsByIdFailture extends CommentsState {
+  final String errorMsg;
+
+  GetAllCommentsByIdFailture({required this.errorMsg});
+}
+
+final class GetAllCommentsByIdLoading extends CommentsState {}

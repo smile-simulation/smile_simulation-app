@@ -2,12 +2,25 @@ import 'package:flutter/material.dart';
 
 import 'comment.dart';
 
-class CommentsListViewBuilder extends StatelessWidget {
+class CommentsListViewBuilder extends StatefulWidget {
   const CommentsListViewBuilder({super.key, this.isSliver = false});
   final bool isSliver;
+
+  @override
+  State<CommentsListViewBuilder> createState() =>
+      _CommentsListViewBuilderState();
+}
+
+class _CommentsListViewBuilderState extends State<CommentsListViewBuilder> {
+  @override
+  void initState() {
+    
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return !isSliver
+    return !widget.isSliver
         ? ListView.separated(
           itemBuilder: (context, index) {
             return Comment(
