@@ -27,13 +27,9 @@ class PostHorizontalLayout extends StatelessWidget {
                 ],
               ),
             ),
+            if (post.postImage != null) SizedBox(width: 8),
             if (post.postImage != null)
-              SizedBox(width: 8),
-            if (post.postImage != null)
-              Expanded(
-                flex: 4,
-                child: CustomPostImage(),
-              ),
+              Expanded(flex: 4, child: CustomPostImage()),
           ],
         ),
         const SizedBox(height: 6),
@@ -44,5 +40,4 @@ class PostHorizontalLayout extends StatelessWidget {
       ],
     );
   }
-
 }

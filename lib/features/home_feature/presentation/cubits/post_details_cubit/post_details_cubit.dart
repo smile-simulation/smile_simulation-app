@@ -13,10 +13,8 @@ class PostDetailsCubit extends Cubit<PostDetailsState> {
   final PostsRepoImplement postsRepo;
   bool? likedPost;
   bool likePostDone = false;
-  PostDetailsCubit({
-    required this.post,
-    required this.postsRepo,
-  }) : super(PostDetailsInitial());
+  PostDetailsCubit({required this.post, required this.postsRepo})
+    : super(PostDetailsInitial());
   Future<void> makeLike({required int postId}) async {
     log("Make Like");
     var result = await postsRepo.makeLike(postId: post.id!);
@@ -36,6 +34,7 @@ class PostDetailsCubit extends Cubit<PostDetailsState> {
     required int postId,
     required String makeLikeMessage,
   }) async {
+    log("this is the function with error${postId.toString()}");
     var result = await postsRepo.getPostById(postId: postId);
     result.fold((fail) {}, (success) {
       post = success;

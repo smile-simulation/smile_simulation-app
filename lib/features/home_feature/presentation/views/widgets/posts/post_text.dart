@@ -12,8 +12,7 @@ class PostText extends StatelessWidget {
       postContent,
       textAlign: TextAlign.justify,
       maxLines: maxLines,
-      overflow:
-      maxLines != null ? TextOverflow.ellipsis : TextOverflow.visible,
+      overflow: maxLines != null ? TextOverflow.ellipsis : TextOverflow.visible,
       style: AppTextStyles.button2(context).copyWith(height: 1.5),
     );
   }

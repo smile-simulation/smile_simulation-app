@@ -62,16 +62,20 @@ class PostsRepoImplement implements PostsRepo {
   @override
   Future<Either<Failure, PostModel>> getPostById({required int postId}) async {
     try {
+      log("Get post by id before");
       var response = await dioConsumer.get("Post/$postId");
+      log("Get post by id after");
       dynamic postJson = response[ApiKeys.data];
       log(postJson.toString());
       PostModel post = PostModel.fromJson(postJson);
       return Right(post);
     } on ServerException catch (e) {
-      logger.e("Exception in Get Advices: ${e.errorModel.message}");
+      log("postJson.toString()");
+      logger.e("Exception in Get post by id: ${e.errorModel.message}");
       return Left(ServerFailure(e.errorModel.message!));
     } catch (e) {
-      logger.e("Exception in Get Advices: $e");
+      log("postJson.toString()");
+      logger.e("Exception in Get post by id: $e");
       return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
     }
   }

@@ -4,11 +4,14 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 class AddPostTextField extends StatefulWidget {
-  const AddPostTextField({super.key, required this.controller, required this.onPressed});
+  const AddPostTextField({
+    super.key,
+    required this.controller,
+    required this.onPressed,
+  });
 
-
-   final TextEditingController controller;
-    final Function() onPressed;
+  final TextEditingController controller;
+  final Function() onPressed;
   @override
   State<AddPostTextField> createState() => _AddPostTextFieldState();
 }
@@ -17,7 +20,7 @@ class _AddPostTextFieldState extends State<AddPostTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller:  widget.controller,
+      controller: widget.controller,
       maxLines: null,
       minLines: 1,
       decoration: InputDecoration(
@@ -44,6 +47,5 @@ class _AddPostTextFieldState extends State<AddPostTextField> {
         ),
       ),
     );
-
   }
 }

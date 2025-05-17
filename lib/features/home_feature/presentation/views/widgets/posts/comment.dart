@@ -49,13 +49,6 @@ class Comment extends StatelessWidget {
               date: date,
             ),
           ),
-          InkWell(
-            onTap: () {},
-            child: Icon(
-              Icons.thumb_up_alt_outlined,
-              color: AppColors.greyColor,
-            ),
-          ),
         ],
       ),
     );

@@ -9,14 +9,10 @@ class HomeViewBody extends StatefulWidget {
   State<HomeViewBody> createState() => _HomeViewBodyState();
 }
 
-
 class _HomeViewBodyState extends State<HomeViewBody> {
-
-
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
-      
       headerSliverBuilder: (context, innerBoxIsScrolled) {
         return [CustomFlexibleAppBar()];
       },
