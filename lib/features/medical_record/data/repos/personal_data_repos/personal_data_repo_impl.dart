@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:smile_simulation/features/medical_record/data/repos/personal_data_repos/personal_data_repo.dart';
 import '../../../../../constant.dart';
@@ -19,7 +21,7 @@ class PersonalDataRepoImpl extends PersonalDataRepo {
   }) async {
     try {
       var response = await dioConsumer.get(EndPoint.getPersonalData + userName);
-
+      log(response.toString());
       CacheHelper().saveMap(key: personalData, value: response["data"]);
       return Right(PersonaDataModel.fromJson(response));
     } on ServerException catch (e) {
@@ -55,7 +57,6 @@ class PersonalDataRepoImpl extends PersonalDataRepo {
           "maritalStatus": maritalStatus,
         },
       );
-
 
       return Right(PersonaDataModel.fromJson(response));
     } on ServerException catch (e) {
