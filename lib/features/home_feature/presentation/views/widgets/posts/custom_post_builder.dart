@@ -19,22 +19,12 @@ class CustomPostBuilder extends StatelessWidget {
 
   final bool currentUser;
   final bool clickablePostImage;
+
   @override
   Widget build(BuildContext context) {
     PostDetailsCubit cubit = context.read<PostDetailsCubit>();
     return BlocConsumer<PostDetailsCubit, PostDetailsState>(
-      listener: (BuildContext context, PostDetailsState state) {
-        if (state is MakeLikeSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.makeLikeResult),
-              backgroundColor: AppColors.primaryColor,
-            ),
-          );
-        } else if (state is MakeLikeFail) {
-          customShowSnackBar(context, state.message);
-        }
-      },
+      listener: (BuildContext context, PostDetailsState state) {},
 
       builder: (context, state) {
         PostModel post = cubit.post;
