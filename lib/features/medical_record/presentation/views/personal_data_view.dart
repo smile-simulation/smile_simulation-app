@@ -3,16 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
-import 'package:smile_simulation/features/medical_record/presentation/manage/cubits/update_personal_data_cubit/update_personal_data_cubit.dart';
-import 'package:smile_simulation/features/medical_record/presentation/manage/cubits/update_personal_data_cubit/update_personal_data_state.dart';
-import 'package:smile_simulation/features/medical_record/presentation/views/widgets/marital_section_from_sign_up_view.dart';
-
 import '../../../../constant.dart';
 import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/helper_functions/custom_error.dart';
 import '../../../../core/widgets/custom_auth_appbar.dart';
 import '../../../auth/sign_up/presentation/view/widgets/gender_section_from_sign_up_view.dart';
-import '../manage/cubits/get_personal_data_cubit/get_personal_data_cubit.dart';
+import '../manage/cubits/update_personal_data_cubit/update_personal_data_cubit.dart';
+import '../manage/cubits/update_personal_data_cubit/update_personal_data_state.dart';
+import 'widgets/marital_section_from_sign_up_view.dart';
 
 class PersonalDataView extends StatelessWidget {
   const PersonalDataView({super.key});
