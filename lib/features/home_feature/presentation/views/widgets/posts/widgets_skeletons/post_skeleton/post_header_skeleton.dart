@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_loading_shimmer.dart';
 
-import 'post_header_text_skeleton.dart';
-import 'user_image_skeleton.dart';
+import '../post_header_text_skeleton.dart';
+import '../user_image_skeleton.dart';
 
 class PostHeaderSkeleton extends StatelessWidget {
   const PostHeaderSkeleton({super.key});
