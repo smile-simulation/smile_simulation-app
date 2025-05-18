@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'camera_picker_image.dart'; // ✅ استورد الودجت الجديدة
 
 class CameraSection extends StatefulWidget {
   const CameraSection({Key? key}) : super(key: key);
@@ -37,31 +38,18 @@ class _CameraSectionState extends State<CameraSection> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end, // من اليمين للشمال
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Row(
             children: [
-              // زر الكاميرا
-              InkWell(
-                onTap: _takePicture,
-                child: Center(
-                  child:
-                      _imageFile != null
-                          ? Image.file(_imageFile!, width: 80, height: 140)
-                          : Image.asset(
-                            'assets/images/camera.png',
-                            width: 80,
-                            height: 140,
-                          ),
-                ),
-              ),
+              // ✅ زر الكاميرا بعد الفصل
+              CameraPickerWidget(),
               const SizedBox(width: 8),
-              // حقل اسم الدواء
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'اسم الدواء',
                       style: TextStyle(
                         fontSize: 16,
@@ -69,7 +57,7 @@ class _CameraSectionState extends State<CameraSection> {
                       ),
                       textAlign: TextAlign.right,
                     ),
-                    SizedBox(height: 6),
+                    const SizedBox(height: 6),
                     Container(
                       height: 50,
                       decoration: BoxDecoration(

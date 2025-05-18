@@ -12,7 +12,6 @@ class VisitingDatesViewBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CustomAppBar(title: 'مواعيد الزيارات', icon: Icons.arrow_back),
         Expanded(
           child: CustomBodyScreen(
             child: Column(

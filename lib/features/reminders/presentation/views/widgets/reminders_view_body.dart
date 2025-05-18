@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_app_bar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/visiting_dates_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_card.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/darily_activities_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/drug_reminder_view.dart';
@@ -39,7 +40,7 @@ class RemindersViewBody extends StatelessWidget {
         destinationView = DrugReminderView();
         break;
       case "مواعيد الزيارات":
-        destinationView = VisitReminders();
+        destinationView = VisitingDatesView();
         break;
       case "الأنشطة اليومية":
         destinationView = DailyActivitiesView();
