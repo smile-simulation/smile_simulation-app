@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/widgets/custom_app_bar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/add_drug_reminder_view.dart';

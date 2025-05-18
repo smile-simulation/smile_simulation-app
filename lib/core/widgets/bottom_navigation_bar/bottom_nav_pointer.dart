@@ -14,8 +14,8 @@ class BottomNavPointer extends StatelessWidget {
     bool isArabic = Localizations.localeOf(context).languageCode == 'ar';
 
     return AnimatedPositioned(
-      duration: const Duration(milliseconds: 300), // مدة الأنيميشن
-      curve: Curves.easeInOut, // شكل الحركة
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
       bottom: 0,
       left: isArabic ? null : 8 + itemWidth * selectedIndex,
       right: isArabic ? 8 + itemWidth * selectedIndex : null,

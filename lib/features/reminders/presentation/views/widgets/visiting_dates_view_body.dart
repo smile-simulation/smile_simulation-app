@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/widgets/custom_app_bar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/text_setion_in_reminder_feature.dart';
@@ -12,6 +11,7 @@ class VisitingDatesViewBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+
         Expanded(
           child: CustomBodyScreen(
             child: Column(
