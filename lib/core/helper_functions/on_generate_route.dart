@@ -22,6 +22,7 @@ import 'package:smile_simulation/features/home_feature/data/models/post_model.da
 import 'package:smile_simulation/features/home_feature/presentation/views/post_view.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
+import '../../constant.dart';
 import '../../features/advices/presentation/views/advices/advice_view.dart';
 import '../../features/auth/login/data/repos/forget_repos/forget_password_repo.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
@@ -36,6 +37,7 @@ import '../../features/medical_record/presentation/views/health_status_view.dart
 import '../../features/medical_record/presentation/views/medical_record_view.dart';
 import '../../features/medical_record/presentation/views/personal_data_view.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
+import '../database/cache/cache_helper.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -157,22 +159,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case PersonalDataView.routeName:
       return MaterialPageRoute(
         builder:
-            (_) => MultiBlocProvider(
+            (_) => BlocProvider(
               child: PersonalDataView(),
-              providers: [
-                BlocProvider(
-                  create:
-                      (context) => GetPersonalDataCubit(
-                        personalDataRepo: getIt.get<PersonalDataRepo>(),
-                      ),
-                ),
-                BlocProvider(
-                  create:
-                      (context) => UpdatePersonalDataCubit(
-                        personalDataRepo: getIt.get<PersonalDataRepo>(),
-                      ),
-                ),
-              ],
+              create:
+                  (context) => UpdatePersonalDataCubit(
+                    personalDataRepo: getIt.get<PersonalDataRepo>(),
+                  ),
             ),
       );
     case HealthStatusView.routeName:

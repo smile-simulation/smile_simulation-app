@@ -49,10 +49,10 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
 
   @override
   void initState() {
-    super.initState();
 
+    super.initState();
     user = CacheHelper().getMap(key: userData)!;
-    data = CacheHelper().getMap(key: personalData)!;
+     data = CacheHelper().getMap(key: personalData)!;
 
     fullNameController = TextEditingController(text: data['fullName'] ?? '');
     phoneNumberController = TextEditingController(
@@ -75,9 +75,7 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
             ? 0
             : 2;
 
-    context.read<GetPersonalDataCubit>().getPersonalData(
-      userName: user['userName'],
-    );
+
   }
 
   @override
