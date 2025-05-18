@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/widgets_skeletons/post_skeleton.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/widgets_skeletons/post_skeleton/post_skeleton.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../cubits/posts_cubit/posts_cubit.dart';
 import 'posts/custom_post.dart';

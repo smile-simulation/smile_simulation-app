@@ -63,7 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fullName": MessageLookupByLibrary.simpleMessage("الاسم بالكامل"),
         "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
         "generalAdvices": MessageLookupByLibrary.simpleMessage("نصائح عامة"),
-        "home": MessageLookupByLibrary.simpleMessage("الصفحة الرئيسية"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "imageError": MessageLookupByLibrary.simpleMessage("الصورة غير صالحة"),
         "like": MessageLookupByLibrary.simpleMessage("أعجبني"),
         "likeCount": MessageLookupByLibrary.simpleMessage("إعجاباً"),
