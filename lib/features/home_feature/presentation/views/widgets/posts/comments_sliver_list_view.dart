@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/helper_functions/format_date_time_ago.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/comments_cubit/comments_cubit.dart';
+import '../../../cubits/post_details_cubit/post_details_cubit.dart';
 import 'comment.dart';
 
 class CommentsSliverListView extends StatelessWidget {
@@ -17,6 +18,10 @@ class CommentsSliverListView extends StatelessWidget {
           listener: (BuildContext context, CommentsState state) {
             if (state is AddCommentSuccess) {
               cubit.getAllCommentsById();
+              context.read<PostDetailsCubit>().getPostById(
+                postId: cubit.relatedPost.id!,
+                makeLikeMessage: "تم اضافة تعليق بنجاح",
+              );
             }
           },
 
@@ -41,10 +46,10 @@ class CommentsSliverListView extends StatelessWidget {
                   );
                 }),
               );
-            } else if (state is GetAllCommentsByIdLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else {
+            } else if (state is GetAllCommentsByIdFailture) {
               return const Center(child: Text("لم يتم تحميل التعليقات"));
+            } else {
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +13,10 @@ class CommentsCubit extends Cubit<CommentsState> {
   CommentsCubit({required this.relatedPost, required this.commentsRepo})
     : super(CommentsInitial());
   TextEditingController commentController = TextEditingController();
-  final FocusNode unitCodeCtrlFocusNode = FocusNode();
+
+  final FocusNode CommentTextFieldCtrlFocusNode = FocusNode();
   List<CommentModel> comments = [];
+  bool commentAdded = false;
 
   PostModel relatedPost;
 
@@ -51,6 +51,7 @@ class CommentsCubit extends Cubit<CommentsState> {
       },
       (success) {
         commentController.text = "";
+        commentAdded = true;
         emit(AddCommentSuccess());
       },
     );

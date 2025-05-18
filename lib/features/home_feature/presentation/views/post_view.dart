@@ -34,7 +34,9 @@ class PostView extends StatelessWidget {
           create:
               (context) => CommentsCubit(
                 relatedPost: post,
-                commentsRepo: CommentsRepoImpl(dioConsumer: DioConsumer(dio: Dio())),
+                commentsRepo: CommentsRepoImpl(
+                  dioConsumer: DioConsumer(dio: Dio()),
+                ),
               ),
         ),
       ],
@@ -45,7 +47,8 @@ class PostView extends StatelessWidget {
               context,
               isBack: true,
               goBack: () {
-                if (context.read<PostDetailsCubit>().likePostDone) {
+                if (context.read<PostDetailsCubit>().likePostDone ||
+                    context.read<CommentsCubit>().commentAdded) {
                   Navigator.pushNamedAndRemoveUntil(
                     context,
                     BottomNavigationView.routeName,
