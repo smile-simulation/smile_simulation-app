@@ -11,8 +11,8 @@ import '../../../../generated/assets.dart';
 import 'health_status_view.dart';
 import 'medical_record_view.dart';
 
-class MedicalRecordUserView extends StatelessWidget {
-  const MedicalRecordUserView({super.key});
+class MedicalRecordManageView extends StatelessWidget {
+  const MedicalRecordManageView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,12 +49,23 @@ class MedicalRecordUserView extends StatelessWidget {
                           backgroundColor: Colors.blue.shade100,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(200),
-                            child: Image.asset(
-                              Assets.imagesUser,
-                              width: 40,
-                              height: 40,
-                              fit: BoxFit.fill,
-                            ),
+                            child:
+                                CacheHelper().getMap(key: userData)!["image"] ==
+                                        null
+                                    ? Image.asset(
+                                      Assets.imagesUser,
+                                      width: 40,
+                                      height: 40,
+                                      fit: BoxFit.cover,
+                                    )
+                                    : Image.network(
+                                      CacheHelper().getMap(
+                                        key: userData,
+                                      )!["image"],
+                                      width: 40,
+                                      height: 40,
+                                      fit: BoxFit.cover,
+                                    ),
                           ),
                         ),
                         const SizedBox(width: 10),
@@ -65,7 +76,7 @@ class MedicalRecordUserView extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          CacheHelper().getMap(key: userData)!['email'],
+                          CacheHelper().getMap(key: userData)!['userName'],
                           style: AppTextStyles.subTitle1(
                             context,
                           ).copyWith(color: AppColors.primaryColor),
