@@ -58,7 +58,10 @@ class AddCommentFormField extends StatelessWidget {
             onPressed: () async {
               await context.read<CommentsCubit>().addComment(
                 onError: (txt) {
-                  MotionToast.error(description: Text(txt)).show(context);
+                  MotionToast.error(
+                    description: Text(txt),
+                    toastAlignment: Alignment.topCenter,
+                  ).show(context);
                 },
               );
               context.read<CommentsCubit>().commentAdded = true;
