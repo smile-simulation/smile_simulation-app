@@ -28,7 +28,7 @@ class PostVerticalLayout extends StatelessWidget {
         const SizedBox(height: 16),
 
         /// Might Have Errors
-        PostText(postContent: cubit.post.content ?? "no content"),
+        PostText(postContent: cubit.post.content ?? ""),
 
         PostInteractions(
           likeCount: cubit.post.likesCount.toString(),

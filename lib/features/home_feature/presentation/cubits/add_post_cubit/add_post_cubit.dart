@@ -16,6 +16,8 @@ class AddPostCubit extends Cubit<AddPostState> {
   Uint8List? imageBytes;
   TextEditingController contentController = TextEditingController();
 
+  GlobalKey<FormState> postContentKey = GlobalKey<FormState>();
+
   AddPostCubit(this.postsRepo) : super(AddPostInitial());
 
   Future<void> pickImage() async {
@@ -40,7 +42,8 @@ class AddPostCubit extends Cubit<AddPostState> {
 
   Future<void> addPost({required Function(String txt) onError}) async {
     emit(AddPostLoading());
-    if (contentController.text != '' && contentController.text.isNotEmpty) {
+    if ((contentController.text != '' && contentController.text.isNotEmpty) ||
+        imageFile != null) {
       var result = await postsRepo.addPost(
         content: contentController.text,
         image: imageFile,

@@ -49,9 +49,12 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
 
   @override
   void initState() {
-    super.initState();
-
     user = CacheHelper().getMap(key: userData)!;
+    super.initState();
+    context.read<GetPersonalDataCubit>().getPersonalData(
+      userName: user['userName'],
+    );
+
     data = CacheHelper().getMap(key: personalData)!;
 
     fullNameController = TextEditingController(text: data['fullName'] ?? '');
@@ -74,10 +77,6 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
             : data['maritalStatus'] == "اعزب"
             ? 0
             : 2;
-
-    context.read<GetPersonalDataCubit>().getPersonalData(
-      userName: user['userName'],
-    );
   }
 
   @override
