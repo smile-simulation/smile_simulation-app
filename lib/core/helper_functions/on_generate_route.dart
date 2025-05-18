@@ -22,7 +22,6 @@ import 'package:smile_simulation/features/home_feature/data/models/post_model.da
 import 'package:smile_simulation/features/home_feature/presentation/views/post_view.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
-import '../../constant.dart';
 import '../../features/advices/presentation/views/advices/advice_view.dart';
 import '../../features/auth/login/data/repos/forget_repos/forget_password_repo.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
@@ -31,13 +30,11 @@ import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_subsid
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
 import '../../features/medical_record/data/repos/personal_data_repos/personal_data_repo.dart';
-import '../../features/medical_record/presentation/manage/cubits/get_personal_data_cubit/get_personal_data_cubit.dart';
 import '../../features/medical_record/presentation/manage/cubits/update_personal_data_cubit/update_personal_data_cubit.dart';
 import '../../features/medical_record/presentation/views/health_status_view.dart';
 import '../../features/medical_record/presentation/views/medical_record_view.dart';
 import '../../features/medical_record/presentation/views/personal_data_view.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
-import '../database/cache/cache_helper.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
