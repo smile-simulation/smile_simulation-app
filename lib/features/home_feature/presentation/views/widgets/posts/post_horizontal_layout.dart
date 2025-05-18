@@ -15,16 +15,19 @@ class PostHorizontalLayout extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              flex: 7,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  PostText(
-                    postContent: post.content ?? "No Content",
-                    maxLines: 5,
-                  ),
-                ],
+            Visibility(
+              visible: post.content != null,
+              child: Expanded(
+                flex: 7,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    PostText(
+                      postContent: post.content ?? "No Content",
+                      maxLines: 5,
+                    ),
+                  ],
+                ),
               ),
             ),
             if (post.postImage != null) SizedBox(width: 8),

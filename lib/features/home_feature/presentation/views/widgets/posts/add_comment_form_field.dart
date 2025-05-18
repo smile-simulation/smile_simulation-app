@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:motion_toast/motion_toast.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
@@ -36,7 +37,6 @@ class AddCommentFormField extends StatelessWidget {
           SizedBox(width: 8), // تباعد بين الصورة ومربع النص
           Expanded(
             child: TextFormField(
-              
               controller: context.read<CommentsCubit>().commentController,
               focusNode:
                   context.read<CommentsCubit>().CommentTextFieldCtrlFocusNode,
@@ -56,7 +56,11 @@ class AddCommentFormField extends StatelessWidget {
               size: 28,
             ),
             onPressed: () async {
-              await context.read<CommentsCubit>().addComment();
+              await context.read<CommentsCubit>().addComment(
+                onError: (txt) {
+                  MotionToast.error(description: Text(txt)).show(context);
+                },
+              );
               context.read<CommentsCubit>().commentAdded = true;
               if (markEdited != null) {
                 markEdited!();
