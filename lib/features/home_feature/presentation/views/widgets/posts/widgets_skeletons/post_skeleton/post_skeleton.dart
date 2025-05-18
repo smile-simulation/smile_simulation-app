@@ -3,7 +3,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 
 import 'custom_post_body_skeleton.dart';
 import 'custom_post_footer_skeleton.dart';
-import 'custom_post_interactions_skeleton.dart';
+import '../custom_post_interactions_skeleton.dart';
 import 'post_header_skeleton.dart';
 
 class PostSkeleton extends StatelessWidget {

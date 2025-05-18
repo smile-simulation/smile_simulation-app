@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/add_drug_reminder_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/date_of_stopping_taking_medicin.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/medicine_time_section.dart';
@@ -65,7 +66,12 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugScreenBody> {
                 DateOfStoppingTakkingMedicin(),
                
               Spacer(),
-                CustomButton(title: 'اضافة الدواء', onPressed: () {}),
+                CustomButton(title: 'اضافة الدواء', onPressed: () {Navigator.of(context).push(
+  MaterialPageRoute(
+    builder: (context) => AddDrugReminderView(),
+  ),
+);
+}),
                 SizedBox(height: 16),
               ],
             ),

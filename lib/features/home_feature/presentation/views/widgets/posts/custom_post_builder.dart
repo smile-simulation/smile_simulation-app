@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/core/helper_functions/format_date_time_ago.dart';
 import 'package:smile_simulation/core/helper_functions/show_custom_snack_bar.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 
@@ -54,12 +53,9 @@ class CustomPostBuilder extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 PostHeader(
-                  userName: post.publisherName ?? "No Publisher Name",
-                  postDate: formatDateTimeAgo(
-                    rawDate: post.createdAt.toString(),
-                  ),
                   currentUser: currentUser,
                   clickablePostImage: clickablePostImage,
+                  post: context.read<PostDetailsCubit>().post,
                 ),
                 const SizedBox(height: 4),
                 PostHorizontalLayout(post: post),
