@@ -1,22 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/helper_functions/format_date_time_ago.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
+import 'package:smile_simulation/features/home_feature/data/models/comment_model.dart';
 
-import '../../../../../../constant.dart';
-import '../../../../../../core/database/cache/cache_helper.dart';
 import '../../../../../../generated/assets.dart';
 import 'comment_body.dart';
 
 class Comment extends StatelessWidget {
-  const Comment({
-    super.key,
-    required this.userName,
-    required this.comment,
-    required this.date,
-  });
-
-  final String userName;
-  final String comment;
-  final String date;
+  const Comment({super.key, required this.comment});
+  final CommentModel comment;
 
   @override
   Widget build(BuildContext context) {
@@ -33,20 +26,18 @@ class Comment extends StatelessWidget {
             height: 64,
             child: CircleAvatar(
               backgroundImage:
-                  CacheHelper().getMap(key: userData)!['image'] != null
-                      ? NetworkImage(
-                        CacheHelper().getMap(key: userData)!['image'],
-                      )
-                      : const AssetImage(Assets.imagesUser),
+                  comment.publisherImage != null
+                      ? CachedNetworkImageProvider(comment.publisherImage!)
+                      : AssetImage(Assets.imagesUser),
               radius: 20,
             ),
           ),
           SizedBox(width: 8),
           Expanded(
             child: CommentBody(
-              userName: userName,
-              comment: comment,
-              date: date,
+              userName: comment.publisherName ?? "لا يوجد اسم ناشر",
+              comment: comment.content ?? "لا يوجد محتوي",
+              date: formatDateTimeAgo(rawDate: comment.createdAt.toString()),
             ),
           ),
         ],

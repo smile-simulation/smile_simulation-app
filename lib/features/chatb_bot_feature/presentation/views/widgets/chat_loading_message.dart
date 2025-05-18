@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
-import 'package:smile_simulation/core/widgets/custom_loading_shimmer.dart';
-
 class ChatLoadingMessage extends StatelessWidget {
   const ChatLoadingMessage({super.key});
 
