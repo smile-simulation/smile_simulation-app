@@ -40,12 +40,10 @@ class CommentsListView extends StatelessWidget {
                   );
                 }),
               );
-            } else if (state is GetAllCommentsByIdLoading ||
-                state is AddCommentLoading ||
-                state is AddCommentSuccess) {
-              return const Center(child: CircularProgressIndicator());
-            } else {
+            } else if (state is GetAllCommentsByIdFailture) {
               return const Center(child: Text("لم يتم تحميل التعليقات"));
+            } else {
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),

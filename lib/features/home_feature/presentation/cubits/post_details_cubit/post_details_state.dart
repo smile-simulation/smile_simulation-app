@@ -19,18 +19,6 @@ final class MakeLikeFail extends PostDetailsState {
 
 final class MakeLikeLoading extends PostDetailsState {}
 
-final class GetCommentsSuccess extends PostDetailsState {}
-
-final class GetCommentsFailture extends PostDetailsState {}
-
-final class GetCommentsLoading extends PostDetailsState {}
-
-final class AddCommentSuccess extends PostDetailsState {}
-
-final class AddCommentFailture extends PostDetailsState {}
-
-final class AddCommentLoading extends PostDetailsState {}
-
 final class DeleteCommentSuccess extends PostDetailsState {}
 
 final class DeleteCommentFailture extends PostDetailsState {}
