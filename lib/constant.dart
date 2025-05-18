@@ -6,5 +6,6 @@ const isOnboardingViewSeen = 'isOnboardingViewSeen';
 const isSuccessLogin = 'isSuccessLogin';
 const sharedPrefForgetToken = 'sharedPrefForgetToken';
 const userData = 'userData';
+const personalData = 'personalData';
 var logger = Logger();
 String userType = CacheHelper().getMap(key: 'userData')!['role'] ?? "Patient";

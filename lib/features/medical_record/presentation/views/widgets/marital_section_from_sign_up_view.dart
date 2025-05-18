@@ -7,16 +7,32 @@ import '../../../../../../generated/l10n.dart';
 enum Marital { single, married }
 
 class MaritalSectionFromSignUpView extends StatefulWidget {
-  const MaritalSectionFromSignUpView({super.key, required this.onSelected});
+  const MaritalSectionFromSignUpView({
+    super.key,
+    required this.onSelected,
+    this.initialValue, // ✅ القيمة المبدئية
+  });
 
   final Function(String) onSelected;
+  final String? initialValue; // 'single' أو 'married'
 
   @override
-  State<MaritalSectionFromSignUpView> createState() => _SignUpViewState();
+  State<MaritalSectionFromSignUpView> createState() => _MaritalSectionState();
 }
 
-class _SignUpViewState extends State<MaritalSectionFromSignUpView> {
-  Marital? _selectedGender;
+class _MaritalSectionState extends State<MaritalSectionFromSignUpView> {
+  Marital? _selectedMarital;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.initialValue == 'single') {
+      _selectedMarital = Marital.single;
+    } else if (widget.initialValue == 'married') {
+      _selectedMarital = Marital.married;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +40,7 @@ class _SignUpViewState extends State<MaritalSectionFromSignUpView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "الحالة الإجتماعية", // Localized text for "Gender"
+          "الحالة الإجتماعية",
           style: AppTextStyles.formLabel(context),
         ),
         Row(
@@ -33,15 +49,15 @@ class _SignUpViewState extends State<MaritalSectionFromSignUpView> {
               child: RadioListTile<Marital>(
                 contentPadding: EdgeInsets.zero,
                 title: Text(
-                  S.of(context).male, // Localized text for "Male"
+                  "أعزب",
                   style: AppTextStyles.formLabel(context),
                 ),
                 value: Marital.single,
-                groupValue: _selectedGender,
+                groupValue: _selectedMarital,
                 activeColor: AppColors.primaryColor,
                 onChanged: (Marital? value) {
                   setState(() {
-                    _selectedGender = value;
+                    _selectedMarital = value;
                     widget.onSelected("single");
                   });
                 },
@@ -51,15 +67,15 @@ class _SignUpViewState extends State<MaritalSectionFromSignUpView> {
               child: RadioListTile<Marital>(
                 contentPadding: EdgeInsets.zero,
                 title: Text(
-                  S.of(context).female, // Localized text for "Female"
+                  "متزوج",
                   style: AppTextStyles.formLabel(context),
                 ),
                 value: Marital.married,
-                groupValue: _selectedGender,
+                groupValue: _selectedMarital,
                 activeColor: AppColors.primaryColor,
                 onChanged: (Marital? value) {
                   setState(() {
-                    _selectedGender = value;
+                    _selectedMarital = value;
                     widget.onSelected("married");
                   });
                 },

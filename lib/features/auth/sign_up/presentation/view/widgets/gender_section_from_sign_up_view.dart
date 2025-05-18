@@ -7,9 +7,14 @@ import '../../../../../../generated/l10n.dart';
 enum Gender { male, female }
 
 class GenderSectionFromSignUpView extends StatefulWidget {
-  const GenderSectionFromSignUpView({super.key, required this.onSelected});
+  const GenderSectionFromSignUpView({
+    super.key,
+    required this.onSelected,
+    this.initialValue,
+  });
 
   final Function(String) onSelected;
+  final String? initialValue;
 
   @override
   State<GenderSectionFromSignUpView> createState() => _SignUpViewState();
@@ -19,12 +24,22 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
   Gender? _selectedGender;
 
   @override
+  void initState() {
+    super.initState();
+    if (widget.initialValue == 'male') {
+      _selectedGender = Gender.male;
+    } else if (widget.initialValue == 'female') {
+      _selectedGender = Gender.female;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          S.of(context).gender, // Localized text for "Gender"
+          S.of(context).gender,
           style: AppTextStyles.formLabel(context),
         ),
         Row(
@@ -33,7 +48,7 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
               child: RadioListTile<Gender>(
                 contentPadding: EdgeInsets.zero,
                 title: Text(
-                  S.of(context).male, // Localized text for "Male"
+                  S.of(context).male,
                   style: AppTextStyles.formLabel(context),
                 ),
                 value: Gender.male,
@@ -51,7 +66,7 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
               child: RadioListTile<Gender>(
                 contentPadding: EdgeInsets.zero,
                 title: Text(
-                  S.of(context).female, // Localized text for "Female"
+                  S.of(context).female,
                   style: AppTextStyles.formLabel(context),
                 ),
                 value: Gender.female,

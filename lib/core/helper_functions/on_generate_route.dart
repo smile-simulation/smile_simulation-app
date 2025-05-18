@@ -29,6 +29,9 @@ import '../../features/auth/login/presentation/view/forgot_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_subsidiary_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
+import '../../features/medical_record/data/repos/personal_data_repos/personal_data_repo.dart';
+import '../../features/medical_record/presentation/manage/cubits/get_personal_data_cubit/get_personal_data_cubit.dart';
+import '../../features/medical_record/presentation/manage/cubits/update_personal_data_cubit/update_personal_data_cubit.dart';
 import '../../features/medical_record/presentation/views/health_status_view.dart';
 import '../../features/medical_record/presentation/views/medical_record_view.dart';
 import '../../features/medical_record/presentation/views/personal_data_view.dart';
@@ -152,7 +155,26 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         );
       }
     case PersonalDataView.routeName:
-      return MaterialPageRoute(builder: (_) => const PersonalDataView());
+      return MaterialPageRoute(
+        builder:
+            (_) => MultiBlocProvider(
+              child: PersonalDataView(),
+              providers: [
+                BlocProvider(
+                  create:
+                      (context) => GetPersonalDataCubit(
+                        personalDataRepo: getIt.get<PersonalDataRepo>(),
+                      ),
+                ),
+                BlocProvider(
+                  create:
+                      (context) => UpdatePersonalDataCubit(
+                        personalDataRepo: getIt.get<PersonalDataRepo>(),
+                      ),
+                ),
+              ],
+            ),
+      );
     case HealthStatusView.routeName:
       return MaterialPageRoute(builder: (_) => const HealthStatusView());
     case MedicalRecordView.routeName:
