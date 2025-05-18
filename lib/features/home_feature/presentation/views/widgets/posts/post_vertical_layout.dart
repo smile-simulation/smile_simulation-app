@@ -35,7 +35,7 @@ class PostVerticalLayout extends StatelessWidget {
           commentCount: cubit.post.commentsCount.toString(),
         ),
         const SizedBox(height: 16),
-        PostFooter(post: cubit.post),
+        PostFooter(post: cubit.post, isPostView: true),
       ],
     );
   }

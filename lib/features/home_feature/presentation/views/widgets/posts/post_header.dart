@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/helper_functions/show_modal_bottom_sheet.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
@@ -7,7 +6,6 @@ import '../../../../../../constant.dart';
 import '../../../../../../core/database/cache/cache_helper.dart';
 import '../../../../../../generated/assets.dart';
 import '../../../../../user_account/presentation/views/user_account_view.dart';
-import 'my_post_more_actions_bottom_sheet.dart';
 import 'other_user_cirle_image.dart';
 
 class PostHeader extends StatelessWidget {
@@ -70,12 +68,7 @@ class PostHeader extends StatelessWidget {
           Spacer(),
           currentUser
               ? IconButton(
-                onPressed: () {
-                  customShowModalBottomSheet(
-                    context: context,
-                    child: MyPostMoreActionsBottomSheet(),
-                  );
-                },
+                onPressed: () {},
 
                 icon: Icon(
                   Icons.more_horiz_outlined,

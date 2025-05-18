@@ -7,8 +7,8 @@ import 'add_comment_form_field.dart';
 import 'comments_list_view.dart';
 
 class CustomButtomModelSheetBody extends StatefulWidget {
-  const CustomButtomModelSheetBody({super.key});
-
+  const CustomButtomModelSheetBody({super.key, required this.markEdited});
+  final Function() markEdited;
   @override
   State<CustomButtomModelSheetBody> createState() =>
       _CustomButtomModelSheetBodyState();
@@ -55,9 +55,7 @@ class _CustomButtomModelSheetBodyState
             ),
             SizedBox(height: 40),
             Expanded(child: CommentsListView()),
-            AddCommentFormField(updedateView: () { 
-              /// edit me
-             },),
+            AddCommentFormField(markEdited: widget.markEdited),
           ],
         ),
       ),

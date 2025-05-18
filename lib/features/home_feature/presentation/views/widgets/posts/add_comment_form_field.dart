@@ -9,8 +9,8 @@ import '../../../../../../generated/assets.dart';
 import '../../../cubits/comments_cubit/comments_cubit.dart';
 
 class AddCommentFormField extends StatelessWidget {
-  const AddCommentFormField({super.key, required this.updedateView});
-  final Function() updedateView;
+  const AddCommentFormField({super.key, this.markEdited});
+  final Function()? markEdited;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,8 +36,10 @@ class AddCommentFormField extends StatelessWidget {
           SizedBox(width: 8), // تباعد بين الصورة ومربع النص
           Expanded(
             child: TextFormField(
+              
               controller: context.read<CommentsCubit>().commentController,
-              focusNode: context.read<CommentsCubit>().unitCodeCtrlFocusNode,
+              focusNode:
+                  context.read<CommentsCubit>().CommentTextFieldCtrlFocusNode,
               decoration: InputDecoration(
                 hintText: '${S.of(context).comment} ...',
                 border: InputBorder.none,
@@ -55,7 +57,10 @@ class AddCommentFormField extends StatelessWidget {
             ),
             onPressed: () async {
               await context.read<CommentsCubit>().addComment();
-              updedateView();
+              context.read<CommentsCubit>().commentAdded = true;
+              if (markEdited != null) {
+                markEdited!();
+              }
             },
           ),
         ],

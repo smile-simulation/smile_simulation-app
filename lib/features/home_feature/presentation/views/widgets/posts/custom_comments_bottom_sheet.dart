@@ -9,8 +9,13 @@ import '../../../cubits/comments_cubit/comments_cubit.dart';
 import 'custom_buttom_model_sheet_body.dart';
 
 class CustomCommentsBottomSheet extends StatelessWidget {
-  const CustomCommentsBottomSheet({super.key, required this.post});
+  const CustomCommentsBottomSheet({
+    super.key,
+    required this.post,
+    required this.markEdited,
+  });
   final PostModel post;
+  final Function() markEdited;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -21,7 +26,7 @@ class CustomCommentsBottomSheet extends StatelessWidget {
               dioConsumer: DioConsumer(dio: Dio()),
             ),
           ),
-      child: CustomButtomModelSheetBody(),
+      child: CustomButtomModelSheetBody(markEdited: markEdited),
     );
   }
 }
