@@ -19,7 +19,7 @@ class BottomNavigationView extends StatefulWidget {
 }
 
 class _BottomNavigationViewState extends State<BottomNavigationView> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 4;
 
   void _onItemTapped(int index) {
     setState(() {
