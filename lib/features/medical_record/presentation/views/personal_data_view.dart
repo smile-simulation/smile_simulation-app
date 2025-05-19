@@ -6,6 +6,7 @@ import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import '../../../../constant.dart';
 import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/helper_functions/custom_error.dart';
+import '../../../../core/helper_functions/validator.dart';
 import '../../../../core/widgets/custom_auth_appbar.dart';
 import '../../../auth/sign_up/presentation/view/widgets/gender_section_from_sign_up_view.dart';
 import '../manage/cubits/update_personal_data_cubit/update_personal_data_cubit.dart';
@@ -44,14 +45,14 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
 
   late Map<String, dynamic> user;
   late Map<String, dynamic> data;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
   void initState() {
-
     super.initState();
     user = CacheHelper().getMap(key: userData)!;
-
-     data = CacheHelper().getMap(key: personalData)!;
+    data = CacheHelper().getMap(key: personalData)!;
 
     fullNameController = TextEditingController(text: data['fullName'] ?? '');
     phoneNumberController = TextEditingController(
@@ -73,8 +74,6 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
             : data['maritalStatus'] == "اعزب"
             ? 0
             : 2;
-
-
   }
 
   @override
@@ -123,110 +122,129 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
               customError(context, massage: "حدث خطاء حاول مره اخره");
             }
           },
-          child: ListView(
-            children: [
-              const SizedBox(height: 24),
-              CustomTextField(
-                title: "الاسم الكامل",
-                controller: fullNameController,
-                hintText: "ادخل الاسم الكامل",
-                keyboardType: TextInputType.text,
-              ),
-              const SizedBox(height: 16),
-              CustomTextField(
-                title: "رقم الهاتف",
-                controller: phoneNumberController,
-                hintText: "ادخل رقم الهاتف",
-                keyboardType: TextInputType.phone,
-              ),
-              const SizedBox(height: 16),
-              CustomTextField(
-                title: "السن",
-                controller: ageController,
-                hintText: "ادخل السن",
-                keyboardType: TextInputType.number,
-              ),
-              const SizedBox(height: 16),
-              GenderSectionFromSignUpView(
-                onSelected: (value) {
-                  setState(() {
-                    gender = value == 'male' ? 1 : 0;
-                  });
-                },
-                initialValue:
-                    gender == 1
-                        ? 'male'
-                        : gender == 0
-                        ? 'female'
-                        : null,
-              ),
-              MaritalSectionFromSignUpView(
-                onSelected: (value) {
-                  setState(() {
-                    marital = value == 'married' ? 1 : 0;
-                  });
-                },
-                initialValue:
-                    marital == 1
-                        ? 'married'
-                        : marital == 0
-                        ? 'single'
-                        : null,
-              ),
-              const SizedBox(height: 16),
-              CustomTextField(
-                title: "الوظيفة",
-                controller: jobController,
-                hintText: "ادخل الوظيفة",
-                keyboardType: TextInputType.text,
-              ),
-              const SizedBox(height: 58),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomButton(
-                    isMinWidth: true,
-                    isLoading:
-                        context.watch<UpdatePersonalDataCubit>().state
-                            is UpdatePersonalDataLoading,
-                    title: "حفظ التعديلات",
-                    onPressed: () {
-                      context
-                          .read<UpdatePersonalDataCubit>()
-                          .updatePersonalData(
-                            userName: user['userName'],
-                            fullName: user['fullName'],
-                            email: user['email'],
-                            age: int.tryParse(ageController.text) ?? 0,
-                            phoneNumber: phoneNumberController.text,
-                            gender:
-                                gender == 2
-                                    ? ""
-                                    : gender == 1
-                                    ? "Male"
-                                    : "Female",
-                            job: jobController.text,
-                            maritalStatus:
-                                marital == 2
-                                    ? ""
-                                    : marital == 1
-                                    ? "متزوج"
-                                    : "اعزب",
-                          );
-                    },
-                  ),
-                  CustomButton(
-                    isMinWidth: true,
-                    isSecondary: true,
-                    title: "إلغاء",
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ],
-              ),
-              const SizedBox(height: 24),
-            ],
+          child: Form(
+            key: formKey,
+            autovalidateMode: autovalidateMode,
+            child: ListView(
+              children: [
+                const SizedBox(height: 24),
+                CustomTextField(
+                  title: "الاسم الكامل",
+                  readOnly: true,
+                  hintText: data['fullName'],
+                  keyboardType: TextInputType.text,
+                ),
+                const SizedBox(height: 16),
+                CustomTextField(
+                  title: "رقم الهاتف",
+                  controller: phoneNumberController,
+                  hintText: "ادخل رقم الهاتف",
+                  keyboardType: TextInputType.phone,
+                  validator: (value) {
+                    return validatorOfPhone(value);
+                  },
+                ),
+                const SizedBox(height: 16),
+                CustomTextField(
+                  title: "السن",
+                  controller: ageController,
+                  hintText: "ادخل السن",
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    return validatorOfAge(value);
+                  },
+                ),
+                const SizedBox(height: 16),
+                GenderSectionFromSignUpView(
+                  onSelected: (value) {
+                    setState(() {
+                      gender = value == 'male' ? 1 : 0;
+                    });
+                  },
+                  initialValue:
+                      gender == 1
+                          ? 'male'
+                          : gender == 0
+                          ? 'female'
+                          : null,
+                ),
+                MaritalSectionFromSignUpView(
+                  onSelected: (value) {
+                    setState(() {
+                      marital = value == 'married' ? 1 : 0;
+                    });
+                  },
+                  initialValue:
+                      marital == 1
+                          ? 'married'
+                          : marital == 0
+                          ? 'single'
+                          : null,
+                ),
+                const SizedBox(height: 16),
+                CustomTextField(
+                  title: "الوظيفة",
+                  controller: jobController,
+                  hintText: "ادخل الوظيفة",
+                  keyboardType: TextInputType.text,
+                ),
+                const SizedBox(height: 58),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomButton(
+                      isMinWidth: true,
+                      isLoading:
+                          context.watch<UpdatePersonalDataCubit>().state
+                              is UpdatePersonalDataLoading,
+                      title: "حفظ التعديلات",
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          autovalidateMode = AutovalidateMode.disabled;
+
+                          setState(() {
+                            context
+                                .read<UpdatePersonalDataCubit>()
+                                .updatePersonalData(
+                                  userName: user['userName'],
+                                  fullName: user['fullName'],
+                                  email: user['email'],
+                                  age: int.tryParse(ageController.text) ?? 0,
+                                  phoneNumber: phoneNumberController.text,
+                                  gender:
+                                      gender == 2
+                                          ? ""
+                                          : gender == 1
+                                          ? "Male"
+                                          : "Female",
+                                  job: jobController.text,
+                                  maritalStatus:
+                                      marital == 2
+                                          ? ""
+                                          : marital == 1
+                                          ? "متزوج"
+                                          : "اعزب",
+                                );
+                          });
+                        } else {
+                          autovalidateMode = AutovalidateMode.always;
+                          setState(() {});
+                        }
+                      },
+                    ),
+                    CustomButton(
+                      isMinWidth: true,
+                      isSecondary: true,
+                      title: "إلغاء",
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+              ],
+            ),
           ),
         ),
       ),
