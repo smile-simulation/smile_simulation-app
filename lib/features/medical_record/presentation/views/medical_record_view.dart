@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
-import 'package:smile_simulation/features/search_feature/presentation/views/widgets/custom_search_box.dart';
-
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_button.dart';
+import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../generated/assets.dart';
 
 class MedicalRecordView extends StatelessWidget {
@@ -16,126 +16,133 @@ class MedicalRecordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: customAppbar(context, title: 'السجل العلاجي', isBack: true),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CustomSearchBox(),
-            ),
-            Expanded(
-              child: CustomBodyScreen(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Stack(
-                    alignment: Alignment.bottomLeft,
-                    children: [
-                      ListView(
-                        children: [
-                          const SizedBox(height: 20),
-
-                          Container(
-                            height: 48,
-                            padding: EdgeInsetsDirectional.all(4),
-                            decoration: BoxDecoration(
-                              color: AppColors.veryLightGreyColor,
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: AppColors.lightGreyColor,
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.05),
-                                  blurRadius: 6,
-                                  spreadRadius: 1,
-                                  offset: const Offset(0, 3),
-                                ),
-                              ],
-                            ),
-                            child: Row(
-                              children: [
-                                CircleAvatar(
-                                  radius: 20,
-                                  backgroundColor: Colors.blue.shade100,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(200),
-                                    child: Image.asset(
-                                      Assets.imagesUser,
-                                      width: 40,
-                                      height: 40,
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: Text(
-                                    'محمد فوزي محمود',
-                                    style: AppTextStyles.subTitle1(context),
-                                  ),
-                                ),
-                                Text(
-                                  '#34251',
-                                  style: AppTextStyles.subTitle1(
-                                    context,
-                                  ).copyWith(color: AppColors.primaryColor),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                'السجل العلاجي',
-                                style: AppTextStyles.headline3(
-                                  context,
-                                ).copyWith(fontFamily: 'NotoSansSC'),
-                              ),
-                              SizedBox(width: 8),
-                              Text('🧑‍⚕️'),
-                            ],
-                          ),
-                          const SizedBox(height: 12),
-                          ExpandableTreatmentCard(
-                            doctorName: 'محمود علي محمد',
-                            date: '19/1/2025',
-                          ),
-                          ExpandableTreatmentCard(
-                            doctorName: 'محمود علي محمد',
-                            date: '12/5/2024',
-                          ),
-                        ],
-                      ),
-                      Visibility(
-                        visible: userType == 'Doctor',
-                        child: Positioned(
-                          bottom: 20,
-                          child: FloatingActionButton(
-                            backgroundColor: AppColors.primaryColor,
-                            shape: const CircleBorder(),
-                            mini: true,
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                context,
-                                AddMedicalRecordView.routeName,
-                              );
-                            },
-                            child: Icon(Icons.add, color: AppColors.whiteColor),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+    return Scaffold(
+      appBar: customAppbar(context, title: 'السجل العلاجي', isBack: true),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomTextField(
+              hintText: 'بحث',
+              keyboardType: TextInputType.text,
+              suffixIcon: Center(
+                child: SvgPicture.asset(
+                  Assets.imagesSearch
+                  ,fit:  BoxFit.scaleDown,
+                  color: Colors.grey,
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: CustomBodyScreen(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Stack(
+                  alignment: Alignment.bottomLeft,
+                  children: [
+                    ListView(
+                      children: [
+                        const SizedBox(height: 20),
+
+                        Container(
+                          height: 48,
+                          padding: EdgeInsetsDirectional.all(4),
+                          decoration: BoxDecoration(
+                            color: AppColors.veryLightGreyColor,
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: AppColors.lightGreyColor,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.05),
+                                blurRadius: 6,
+                                spreadRadius: 1,
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 20,
+                                backgroundColor: Colors.blue.shade100,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(200),
+                                  child: Image.asset(
+                                    Assets.imagesUser,
+                                    width: 40,
+                                    height: 40,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  'محمد فوزي محمود',
+                                  style: AppTextStyles.subTitle1(context),
+                                ),
+                              ),
+                              Text(
+                                '#34251',
+                                style: AppTextStyles.subTitle1(
+                                  context,
+                                ).copyWith(color: AppColors.primaryColor),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'السجل العلاجي',
+                              style: AppTextStyles.headline3(
+                                context,
+                              ).copyWith(fontFamily: 'NotoSansSC'),
+                            ),
+                            SizedBox(width: 8),
+                            Text('🧑‍⚕️'),
+                          ],
+                        ),
+                        const SizedBox(height: 12),
+                        ExpandableTreatmentCard(
+                          doctorName: 'محمود علي محمد',
+                          date: '19/1/2025',
+                        ),
+                        ExpandableTreatmentCard(
+                          doctorName: 'محمود علي محمد',
+                          date: '12/5/2024',
+                        ),
+                      ],
+                    ),
+                    Visibility(
+                      visible: userType == 'Doctor',
+                      child: Positioned(
+                        bottom: 20,
+                        child: FloatingActionButton(
+                          backgroundColor: AppColors.primaryColor,
+                          shape: const CircleBorder(),
+                          mini: true,
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              AddMedicalRecordView.routeName,
+                            );
+                          },
+                          child: Icon(Icons.add, color: AppColors.whiteColor),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -53,6 +53,7 @@ class Assets {
   static const String imagesReminderVisitingsDates = 'assets/images/reminder_visitings_dates.png';
   static const String imagesScanCamera = 'assets/images/scan-camera.svg';
   static const String imagesSearch = 'assets/images/search.svg';
+  static const String imagesSearchPachint = 'assets/images/searchPachint.png';
   static const String imagesSplash = 'assets/images/splash.png';
   static const String imagesSplashAndroid12Logo = 'assets/images/splash_android12_logo.png';
   static const String imagesUser = 'assets/images/user.png';

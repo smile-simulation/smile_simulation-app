@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/search_feature/presentation/views/widgets/custom_search_box.dart';
+import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import 'package:smile_simulation/features/search_feature/presentation/views/widgets/search_record_list_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
+
+import '../../../../../generated/assets.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -15,7 +18,17 @@ class SearchViewBody extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: CustomSearchBox(),
+          child: CustomTextField(
+            hintText: 'بحث',
+            keyboardType: TextInputType.text,
+            suffixIcon: Center(
+              child: SvgPicture.asset(
+                Assets.imagesSearch,
+                fit: BoxFit.scaleDown,
+                color: Colors.grey,
+              ),
+            ),
+          ),
         ),
         SizedBox(height: 5),
         Expanded(

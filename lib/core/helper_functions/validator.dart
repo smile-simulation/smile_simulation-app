@@ -69,7 +69,7 @@ String? validatorOfAge(String? value) {
   } else if (int.parse(value) < 18) {
     return "يجب أن يكون العمر 18 سنة أو أكثر";
   }
-  else if (int.parse(value) > 700) {
+  else if (int.parse(value) > 70) {
     return "يجب أن يكون العمر 70 سنة او اقل";
   }
   else {
