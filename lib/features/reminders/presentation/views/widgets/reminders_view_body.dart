@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/visiting_dates_view.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_card.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/darily_activities_view.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/drug_reminder_view.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/other_tasks_view.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/visit_reminders_view.dart';
 
-import 'package:smile_simulation/generated/l10n.dart';
+import '../drug_reminder_view.dart';
+import '../visiting_dates_view.dart';
+import 'custom_card.dart';
+import 'darily_activities_view.dart';
+import 'other_tasks_view.dart';
 
 // Import your destination views (adjust package name if needed)
 

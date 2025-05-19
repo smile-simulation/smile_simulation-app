@@ -163,6 +163,7 @@ class _CreatePostViewBodyState extends State<CreatePostViewBody> {
                               context.read<AddPostCubit>().addPost(
                                 onError: (txt) {
                                   MotionToast.error(
+                                    toastAlignment: Alignment.topCenter,
                                     description: Text(txt),
                                   ).show(context);
                                 },

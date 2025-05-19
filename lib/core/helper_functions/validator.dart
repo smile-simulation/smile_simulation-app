@@ -45,6 +45,17 @@ String? validatorOfPassword(String? value) {
 String? validatorOfName(String? value) {
   if (value == null || value.isEmpty) {
     return "يرجى إدخال الاسم";
+  } else if (value.length < 3) {
+    return "يرجى إدخال الاسم بالكامل";
+  } else if (value is int) {
+    return "ادخل اسم صحيح";
+    ;
+  } else if (value.contains(RegExp(r'[0-9]'))) {
+    return "ادخل اسم صحيح";
+    ;
+  } else if (value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+    return "ادخل اسم صحيح";
+    ;
   } else {
     return null;
   }
@@ -57,7 +68,24 @@ String? validatorOfAge(String? value) {
     return "يرجى إدخال رقم صالح للعمر";
   } else if (int.parse(value) < 18) {
     return "يجب أن يكون العمر 18 سنة أو أكثر";
-  } else {
+  }
+  else if (int.parse(value) > 700) {
+    return "يجب أن يكون العمر 70 سنة او اقل";
+  }
+  else {
     return null;
   }
+}
+String? validatorOfPhone(String? value) {
+  if (value == null || value.isEmpty) {
+    return " إدخال رقم الهاتف";
+  } else if (value.length < 10) {
+    return "ادخال رقم الهاتف صحيح";
+  } else  if (value.length > 11) {
+    return "إدخال رقم الهاتف صحيح";
+  }
+  else {
+    return null;
+  }
+
 }
