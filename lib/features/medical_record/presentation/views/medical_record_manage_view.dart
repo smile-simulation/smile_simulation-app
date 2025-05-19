@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
@@ -22,14 +20,16 @@ class MedicalRecordManageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppbar(context, title: 'السجل الطبي'),
-      body: BlocProvider(
-        create:
-            (context) => GetPersonalDataCubit(
-              personalDataRepo: getIt.get<PersonalDataRepo>(),
-            ),
-        child: MedicalRecordManageBodyView(),
+
+    return BlocProvider(
+      create:
+          (context) => GetPersonalDataCubit(
+            personalDataRepo: getIt.get<PersonalDataRepo>(),
+          ),
+      child: Scaffold(
+        appBar: customAppbar(context, title: 'السجل الطبي'),
+        body: MedicalRecordManageBodyView(),
+
       ),
     );
   }
@@ -41,7 +41,7 @@ class MedicalRecordManageBodyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.read<GetPersonalDataCubit>().getPersonalData(
-      userName: CacheHelper().getMap(key: userData)!['userName'],
+      userName: userId,
     );
     return CustomBodyScreen(
       child: Column(

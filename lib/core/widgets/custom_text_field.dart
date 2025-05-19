@@ -13,6 +13,7 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     this.title,
     this.validator,
+    this.readOnly = false,
   });
 
   final String? title;
@@ -23,6 +24,7 @@ class CustomTextField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final bool obscureText;
+  final bool readOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +33,12 @@ class CustomTextField extends StatelessWidget {
       children: [
         if (title != null)
           Text(title!, style: AppTextStyles.formLabel(context)),
-        const SizedBox(height: 12),
+        if (title != null) const SizedBox(height: 12),
         TextFormField(
           controller: controller,
           cursorColor: AppColors.primaryColor,
           onSaved: onSaved,
+          readOnly: readOnly,
           validator:
               validator ??
               (value) {
@@ -56,7 +59,7 @@ class CustomTextField extends StatelessWidget {
             suffixIcon: suffixIcon,
             border: _buildOutlineInputBorder(),
             enabledBorder: _buildOutlineInputBorder(),
-            focusedBorder: _buildOutlineInputBorder(),
+            focusedBorder: _focusedOutlineInputBorder(),
             disabledBorder: _buildOutlineInputBorder(),
           ),
         ),
@@ -69,5 +72,13 @@ class CustomTextField extends StatelessWidget {
       borderRadius: BorderRadius.circular(4),
       borderSide: const BorderSide(width: 1, color: Color(0xffF8F8F8)),
     );
+
+  }
+  OutlineInputBorder _focusedOutlineInputBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(4),
+      borderSide:  BorderSide(width: 1, color: AppColors.primaryColor),
+    );
+
   }
 }
