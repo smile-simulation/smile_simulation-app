@@ -59,4 +59,11 @@ class Assets {
   static const String imagesDoctorIcon = 'assets/images/doctor_icon.svg';
   static const String imagesUserIcon = 'assets/images/user_icon.svg';
 
+  static const String imagesContactUsIcon = 'assets/images/contact_us_icon.svg';
+  static const String imagesLogoutIcon = 'assets/images/logout_icon.svg';
+  static const String imagesPrivacyPolicyIcon = 'assets/images/privacy_policy_icon.svg';
+  static const String imagesRateAppIcon = 'assets/images/rate_app_icon.svg';
+  static const String imagesSettingsIcon = 'assets/images/settings_icon.svg';
+  static const String imagesShareIcon = 'assets/images/share_icon.svg';
+  static const String imagesUserAccountIcon = 'assets/images/user_account_icon.svg';
 }
