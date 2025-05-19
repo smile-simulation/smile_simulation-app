@@ -19,7 +19,7 @@ class BottomNavigationView extends StatefulWidget {
 }
 
 class _BottomNavigationViewState extends State<BottomNavigationView> {
-  int _selectedIndex = 4;
+  int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -31,8 +31,9 @@ class _BottomNavigationViewState extends State<BottomNavigationView> {
     HomeVeiw(),
     AdvicesHomeView(),
     RemindersView(),
-     SearchPatients(),
-   // MedicalRecordManageView(),
+    CacheHelper().getMap(key: userData)!['role'] == "Doctor"
+        ? SearchPatients()
+        : MedicalRecordManageView(),
     MoreView(),
   ];
   @override

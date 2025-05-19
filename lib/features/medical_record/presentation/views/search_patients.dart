@@ -29,13 +29,18 @@ class SearchPatients extends StatelessWidget {
                   keyboardType: TextInputType.text,
                   onSaved: (value) {
                     userId = value!;
+                    logger.d(value);
                   },
                   suffixIcon: GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder:
-                      (context) {
-                        return const MedicalRecordManageView();
-                      }) );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const MedicalRecordManageView();
+                          },
+                        ),
+                      );
                     },
                     child: SvgPicture.asset(
                       Assets.imagesSearch,
