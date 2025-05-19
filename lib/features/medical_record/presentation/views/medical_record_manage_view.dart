@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
@@ -20,7 +22,6 @@ class MedicalRecordManageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: customAppbar(context, title: 'السجل الطبي'),
       body: BlocProvider(

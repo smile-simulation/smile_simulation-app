@@ -23,13 +23,13 @@ class PostSkeleton extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            PostHeaderSkeleton(),
+            PostHeaderSkeleton(), // 260
             SizedBox(height: 8),
-            Expanded(child: CustomPostBodySkeleton()),
+            SizedBox(height: 70, child: CustomPostBodySkeleton()),
             SizedBox(height: 8),
-            CustomPostInteractionsSkeleton(),
+            SizedBox(height: 16, child: CustomPostInteractionsSkeleton()),
             SizedBox(height: 8),
-            CustomPostFooterSkeleton(),
+            SizedBox(height: 32, child: CustomPostFooterSkeleton()),
           ],
         ),
       ),
