@@ -50,6 +50,7 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
 
     super.initState();
     user = CacheHelper().getMap(key: userData)!;
+
      data = CacheHelper().getMap(key: personalData)!;
 
     fullNameController = TextEditingController(text: data['fullName'] ?? '');

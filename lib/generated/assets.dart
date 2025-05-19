@@ -56,5 +56,7 @@ class Assets {
   static const String imagesSplash = 'assets/images/splash.png';
   static const String imagesSplashAndroid12Logo = 'assets/images/splash_android12_logo.png';
   static const String imagesUser = 'assets/images/user.png';
+  static const String imagesDoctorIcon = 'assets/images/doctor_icon.svg';
+  static const String imagesUserIcon = 'assets/images/user_icon.svg';
 
 }
