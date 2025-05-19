@@ -15,7 +15,6 @@ class CustomPostBodySkeleton extends StatelessWidget {
         SizedBox(width: 8),
         Expanded(
           flex: 4,
-
           child: CustomLoadingShimmer(
             SkeletonWidget: Container(color: AppColors.grayHeavyText_1Color),
           ),
