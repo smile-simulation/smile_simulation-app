@@ -86,26 +86,26 @@ class _AddDrrugReminderViewBodyState extends State<AddDrrugReminderViewBody> {
                             children: [
                               Text(
                                 'اسم الدواء',
-                                style: AppTextStyles.style16W400(
+                                style: AppTextStyles.subTitle1(
                                   context,
                                 ).copyWith(color: AppColors.primaryColor),
                               ),
                               const SizedBox(height: 18),
                               Text(
                                 'مرة واحدة يوميًا (الكمية 1)',
-                                style: AppTextStyles.caption1(context),
+                                style: AppTextStyles.subTitle2(context),
                               ),
                               const SizedBox(height: 14),
                               Row(
                                 children: [
                                   Text(
                                     ' قبل تناول الطعام',
-                                    style: AppTextStyles.caption1(context),
+                                    style: AppTextStyles.subTitle2(context),
                                   ),
                                   const SizedBox(width: 15),
                                   Text(
                                     '  7:00 صباحًا',
-                                    style: AppTextStyles.caption1(context),
+                                    style: AppTextStyles.subTitle2(context),
                                   ),
                                 ],
                               ),

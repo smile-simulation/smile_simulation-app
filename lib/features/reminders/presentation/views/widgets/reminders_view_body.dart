@@ -5,7 +5,7 @@ import 'package:smile_simulation/features/reminders/presentation/views/visiting_
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_card.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/darily_activities_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/drug_reminder_view.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/other_tasks_view.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/other_tasks_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/visit_reminders_view.dart';
 
 import 'package:smile_simulation/generated/l10n.dart';

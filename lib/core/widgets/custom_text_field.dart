@@ -13,6 +13,11 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     this.title,
     this.validator,
+    this.fillColor = const Color(0xffF8F8F8),
+    this.borderColor = const Color(0xffF8F8F8),
+    this.hintTextColor = AppColors.greyLightColor,
+    this.cursorColor = AppColors.primaryColor,
+    this.suffixIconColor = AppColors.greyColor, // 🆕 Default color
   });
 
   final String? title;
@@ -24,6 +29,13 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final bool obscureText;
 
+  // Customizable colors
+  final Color fillColor;
+  final Color borderColor;
+  final Color hintTextColor;
+  final Color cursorColor;
+  final Color suffixIconColor; // 🆕 New variable
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,10 +46,9 @@ class CustomTextField extends StatelessWidget {
         const SizedBox(height: 12),
         TextFormField(
           controller: controller,
-          cursorColor: AppColors.primaryColor,
+          cursorColor: cursorColor,
           onSaved: onSaved,
-          validator:
-              validator ??
+          validator: validator ??
               (value) {
                 if (value == null || value.isEmpty) {
                   return 'هذا الحقل مطلوب';
@@ -48,12 +59,17 @@ class CustomTextField extends StatelessWidget {
           obscureText: obscureText,
           decoration: InputDecoration(
             filled: true,
-            fillColor: const Color(0xffF8F8F8),
+            fillColor: fillColor,
             hintText: hintText,
-            hintStyle: AppTextStyles.formLabel(
-              context,
-            ).copyWith(color: AppColors.greyLightColor),
-            suffixIcon: suffixIcon,
+            hintStyle: AppTextStyles.formLabel(context).copyWith(
+              color: hintTextColor,
+            ),
+            suffixIcon: suffixIcon != null
+                ? IconTheme(
+                    data: IconThemeData(color: suffixIconColor),
+                    child: suffixIcon!,
+                  )
+                : null,
             border: _buildOutlineInputBorder(),
             enabledBorder: _buildOutlineInputBorder(),
             focusedBorder: _buildOutlineInputBorder(),
@@ -67,7 +83,7 @@ class CustomTextField extends StatelessWidget {
   OutlineInputBorder _buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(4),
-      borderSide: const BorderSide(width: 1, color: Color(0xffF8F8F8)),
+      borderSide: BorderSide(width: 1, color: borderColor),
     );
   }
 }
