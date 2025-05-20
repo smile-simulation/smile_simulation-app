@@ -68,24 +68,21 @@ String? validatorOfAge(String? value) {
     return "يرجى إدخال رقم صالح للعمر";
   } else if (int.parse(value) < 18) {
     return "يجب أن يكون العمر 18 سنة أو أكثر";
-  }
-  else if (int.parse(value) > 70) {
+  } else if (int.parse(value) > 70) {
     return "يجب أن يكون العمر 70 سنة او اقل";
-  }
-  else {
+  } else {
     return null;
   }
 }
+
 String? validatorOfPhone(String? value) {
   if (value == null || value.isEmpty) {
     return " إدخال رقم الهاتف";
   } else if (value.length < 10) {
     return "ادخال رقم الهاتف صحيح";
-  } else  if (value.length > 11) {
+  } else if (value.length > 11) {
     return "إدخال رقم الهاتف صحيح";
-  }
-  else {
+  } else {
     return null;
   }
-
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
-import '../../../../home_feature/presentation/cubits/posts_cubit/posts_cubit.dart';
+import 'package:smile_simulation/features/user_account/presentation/managers/get_user_posts_cubit/get_user_posts_cubit.dart';
 import '../../../../home_feature/presentation/views/widgets/posts/custom_post.dart';
 
 class PostsSliverListView extends StatelessWidget {
@@ -9,9 +9,9 @@ class PostsSliverListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PostsCubit, PostsState>(
+    return BlocBuilder<GetUserPostsCubit, GetUserPostsState>(
       builder: (context, state) {
-        if (state is PostsSuccess) {
+        if (state is GetUserPostSuccess) {
           final posts = state.posts;
 
           return SliverList.separated(
@@ -27,7 +27,7 @@ class PostsSliverListView extends StatelessWidget {
               );
             },
           );
-        } else if (state is PostsError) {
+        } else if (state is GetUserPostFailture) {
           return const SliverToBoxAdapter(
             child: Center(child: Text("خطأ في تحميل المنشورات")),
           );

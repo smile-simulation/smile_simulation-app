@@ -38,10 +38,7 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          S.of(context).gender,
-          style: AppTextStyles.formLabel(context),
-        ),
+        Text(S.of(context).gender, style: AppTextStyles.formLabel(context)),
         Row(
           children: <Widget>[
             Expanded(

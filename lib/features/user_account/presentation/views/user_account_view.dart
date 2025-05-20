@@ -9,9 +9,20 @@ import '../../../home_feature/presentation/cubits/posts_cubit/posts_cubit.dart';
 import 'widgets/user_account_view_body.dart';
 
 class UserAccountView extends StatelessWidget {
-  const UserAccountView({super.key, required this.currentUser});
+  const UserAccountView({
+    super.key,
+    required this.currentUser,
+    required this.userId,
+    required this.userName,
+    required this.userImage,
+  });
   static const String routeName = 'user_account_view';
   final bool currentUser;
+
+  final String userId;
+
+  final String userName;
+  final String? userImage;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -29,7 +40,12 @@ class UserAccountView extends StatelessWidget {
         ),
         extendBodyBehindAppBar: true,
         backgroundColor: AppColors.primaryColor,
-        body: UserAccountViewBody(currentUser: currentUser),
+        body: UserAccountViewBody(
+          currentUser: currentUser,
+          userId: userId,
+          userName: userName,
+          userImage: userImage,
+        ),
       ),
     );
   }

@@ -35,7 +35,7 @@ class CommentsRepoImpl implements CommentsRepo {
       return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
     }
   }
- 
+
   @override
   Future<Either<Failure, String>> addPost({
     required int postId,

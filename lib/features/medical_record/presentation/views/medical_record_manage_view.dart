@@ -20,7 +20,6 @@ class MedicalRecordManageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return BlocProvider(
       create:
           (context) => GetPersonalDataCubit(
@@ -29,7 +28,6 @@ class MedicalRecordManageView extends StatelessWidget {
       child: Scaffold(
         appBar: customAppbar(context, title: 'السجل الطبي'),
         body: MedicalRecordManageBodyView(),
-
       ),
     );
   }
@@ -40,9 +38,7 @@ class MedicalRecordManageBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<GetPersonalDataCubit>().getPersonalData(
-      userName: userId,
-    );
+    context.read<GetPersonalDataCubit>().getPersonalData(userName: userId);
     return CustomBodyScreen(
       child: Column(
         children: [

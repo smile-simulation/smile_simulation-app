@@ -13,7 +13,6 @@ class DrugReminderViewBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        
         Expanded(
           child: CustomBodyScreen(
             child: Column(
@@ -43,7 +42,9 @@ class DrugReminderViewBody extends StatelessWidget {
                   text: 'اضافة اول تذكير',
                   onPressed: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AddNewDrugScreen()),
+                      MaterialPageRoute(
+                        builder: (context) => AddNewDrugScreen(),
+                      ),
                     );
                   },
                 ),

@@ -19,8 +19,9 @@ class CustomeReminderButton extends StatelessWidget {
 
     return Center(
       child: SizedBox(
-        width: screenWidth * 0.5,     // العرض 80% من الشاشة
-        height: screenHeight * 0.05,  // الارتفاع 7% من الشاشة (تقدر تزوده أو تقلله)
+        width: screenWidth * 0.5, // العرض 80% من الشاشة
+        height:
+            screenHeight * 0.05, // الارتفاع 7% من الشاشة (تقدر تزوده أو تقلله)
         child: OutlinedButton(
           style: OutlinedButton.styleFrom(
             backgroundColor: Colors.lightBlue.shade50,

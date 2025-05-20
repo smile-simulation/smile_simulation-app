@@ -1,10 +1,7 @@
 import 'data.dart';
 
 class PersonaDataModel {
-  PersonaDataModel({
-      this.success, 
-      this.message, 
-      this.data,});
+  PersonaDataModel({this.success, this.message, this.data});
 
   PersonaDataModel.fromJson(dynamic json) {
     success = json['success'];
@@ -24,5 +21,4 @@ class PersonaDataModel {
     }
     return map;
   }
-
 }

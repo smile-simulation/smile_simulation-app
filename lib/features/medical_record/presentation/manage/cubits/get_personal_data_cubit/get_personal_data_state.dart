@@ -7,7 +7,7 @@ final class GetPersonalDataInitial extends GetPersonalDataState {}
 final class GetPersonalDataLoading extends GetPersonalDataState {}
 
 final class GetPersonalDataSuccess extends GetPersonalDataState {
-  final PersonaDataModel dataModel ;
+  final PersonaDataModel dataModel;
 
   GetPersonalDataSuccess(this.dataModel);
 }

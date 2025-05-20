@@ -3,7 +3,6 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-import '../edit_user_account_view.dart';
 
 class EditDataButton extends StatelessWidget {
   const EditDataButton({super.key});
@@ -12,7 +11,7 @@ class EditDataButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, EditUserAccountView.routeName);
+        // Navigator.pushNamed(context, EditUserAccountView.routeName);
       },
       child: Container(
         padding: EdgeInsets.all(10),

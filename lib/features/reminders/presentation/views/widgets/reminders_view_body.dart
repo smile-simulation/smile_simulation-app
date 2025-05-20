@@ -64,7 +64,6 @@ class RemindersViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-      
         Expanded(
           child: CustomBodyScreen(
             child: Padding(

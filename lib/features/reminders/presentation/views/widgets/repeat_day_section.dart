@@ -13,15 +13,7 @@ class RepeatDaysSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final days = [
-      "أحد",
-      "إثنين",
-      "ثلاثاء",
-      "أربعاء",
-      "خميس",
-      "جمعة",
-      "سبت",
-    ];
+    final days = ["أحد", "إثنين", "ثلاثاء", "أربعاء", "خميس", "جمعة", "سبت"];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,8 +35,10 @@ class RepeatDaysSection extends StatelessWidget {
                 Checkbox(
                   value: daysSelected[index],
                   onChanged: (val) => onChanged(index, val!),
-                  activeColor: AppColors.primaryColor,  // Color of checkbox fill when checked
-                  checkColor: Colors.white,  // Color of checkmark
+                  activeColor:
+                      AppColors
+                          .primaryColor, // Color of checkbox fill when checked
+                  checkColor: Colors.white, // Color of checkmark
                 ),
                 Text(days[index]),
               ],

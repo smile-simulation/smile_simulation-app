@@ -10,8 +10,9 @@ class DrugReminderView extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: customAppbar(context,title: 'تذكير الأدوية',isBack:true),
-        body: const DrugReminderViewBody()),
+        appBar: customAppbar(context, title: 'تذكير الأدوية', isBack: true),
+        body: const DrugReminderViewBody(),
+      ),
     );
   }
 }

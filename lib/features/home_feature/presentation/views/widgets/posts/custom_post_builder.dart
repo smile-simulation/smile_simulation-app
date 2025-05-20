@@ -29,7 +29,7 @@ class CustomPostBuilder extends StatelessWidget {
         PostModel post = cubit.post;
         return InkWell(
           onTap: () {
-            Navigator.pushNamed(context, PostView.routeName, arguments: post);
+            Navigator.pushNamed(context, PostView.routeName, arguments: post); 
           },
           child: Card(
             child: Container(

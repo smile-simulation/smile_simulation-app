@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
-
 enum Marital { single, married }
 
 class MaritalSectionFromSignUpView extends StatefulWidget {
@@ -38,19 +37,13 @@ class _MaritalSectionState extends State<MaritalSectionFromSignUpView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "الحالة الإجتماعية",
-          style: AppTextStyles.formLabel(context),
-        ),
+        Text("الحالة الإجتماعية", style: AppTextStyles.formLabel(context)),
         Row(
           children: <Widget>[
             Expanded(
               child: RadioListTile<Marital>(
                 contentPadding: EdgeInsets.zero,
-                title: Text(
-                  "أعزب",
-                  style: AppTextStyles.formLabel(context),
-                ),
+                title: Text("أعزب", style: AppTextStyles.formLabel(context)),
                 value: Marital.single,
                 groupValue: _selectedMarital,
                 activeColor: AppColors.primaryColor,
@@ -65,10 +58,7 @@ class _MaritalSectionState extends State<MaritalSectionFromSignUpView> {
             Expanded(
               child: RadioListTile<Marital>(
                 contentPadding: EdgeInsets.zero,
-                title: Text(
-                  "متزوج",
-                  style: AppTextStyles.formLabel(context),
-                ),
+                title: Text("متزوج", style: AppTextStyles.formLabel(context)),
                 value: Marital.married,
                 groupValue: _selectedMarital,
                 activeColor: AppColors.primaryColor,

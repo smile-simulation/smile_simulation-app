@@ -5,7 +5,7 @@ import 'package:smile_simulation/generated/l10n.dart';
 
 class UserAccountTitle extends StatelessWidget {
   const UserAccountTitle({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return Text(
