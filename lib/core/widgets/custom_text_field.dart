@@ -37,7 +37,7 @@ class CustomTextField extends StatelessWidget {
         TextFormField(
           controller: controller,
           cursorColor: AppColors.primaryColor,
-          onSaved: onSaved,
+          onChanged: onSaved,
           readOnly: readOnly,
           validator:
               validator ??
