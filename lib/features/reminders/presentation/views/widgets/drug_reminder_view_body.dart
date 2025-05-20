@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/widgets/custom_app_bar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_screen.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/text_setion_in_reminder_feature.dart';
+
+import '../add_new_drug_screen.dart';
+import 'custome_reminder_button.dart';
+import 'text_setion_in_reminder_feature.dart';
 
 class DrugReminderViewBody extends StatelessWidget {
   const DrugReminderViewBody({super.key});
@@ -14,7 +13,6 @@ class DrugReminderViewBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        
         Expanded(
           child: CustomBodyScreen(
             child: Column(
@@ -44,7 +42,9 @@ class DrugReminderViewBody extends StatelessWidget {
                   text: 'اضافة اول تذكير',
                   onPressed: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AddNewDrugScreen()),
+                      MaterialPageRoute(
+                        builder: (context) => AddNewDrugScreen(),
+                      ),
                     );
                   },
                 ),

@@ -7,41 +7,31 @@ class CustomPostFooterSkeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 32,
-      child: Expanded(
-        child: Row(
-          children: [
-            // Spacer(flex: 1),
-            Expanded(
-              flex: 2,
+    return Row(
+      children: [
+        // Spacer(flex: 1),
+        Expanded(
+          flex: 2,
 
-              child: CustomLoadingShimmer(
-                SkeletonWidget: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.grayHeavyText_1Color,
-                  ),
-                ),
-              ),
+          child: CustomLoadingShimmer(
+            SkeletonWidget: Container(
+              decoration: BoxDecoration(color: AppColors.grayHeavyText_1Color),
             ),
-            // Spacer(),
-            SizedBox(width: 8),
-            Expanded(
-              flex: 2,
-
-              child: CustomLoadingShimmer(
-                SkeletonWidget: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.grayHeavyText_1Color,
-                  ),
-                ),
-              ),
-            ),
-            // Spacer(flex: 1),
-          ],
+          ),
         ),
-      ),
+        // Spacer(),
+        SizedBox(width: 8),
+        Expanded(
+          flex: 2,
+
+          child: CustomLoadingShimmer(
+            SkeletonWidget: Container(
+              decoration: BoxDecoration(color: AppColors.grayHeavyText_1Color),
+            ),
+          ),
+        ),
+        // Spacer(flex: 1),
+      ],
     );
   }
 }

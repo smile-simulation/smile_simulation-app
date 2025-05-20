@@ -1,19 +1,24 @@
-// import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/other_user_cirle_image.dart';
 
-import '../../../../../constant.dart';
-import '../../../../../core/database/cache/cache_helper.dart';
 import '../../../../../generated/assets.dart';
 
 class UserAccountHeader extends StatelessWidget {
-  const UserAccountHeader({super.key, required this.currentUser});
+  const UserAccountHeader({
+    super.key,
+    required this.currentUser,
+    required this.userName,
+    required this.userImage,
+  });
   final bool currentUser;
+  final String userName;
+  final String? userImage;
   @override
   Widget build(BuildContext context) {
+    log("this user image: $userImage");
     return SizedBox(
       height: 164 + kToolbarHeight + 40,
       child: Column(
@@ -24,38 +29,33 @@ class UserAccountHeader extends StatelessWidget {
               SizedBox(
                 height: 120,
                 width: 120,
-                child:
-                    currentUser
-                        ? CircleAvatar(
-                          backgroundImage:
-                              CacheHelper().getMap(key: userData)!['image'] !=
-                                      null
-                                  ? NetworkImage(
-                                    CacheHelper().getMap(
-                                      key: userData,
-                                    )!['image'],
-                                  )
-                                  : const AssetImage(Assets.imagesUser),
-                          radius: 20,
-                        )
-                        : OtherUserCircleImage(onTap: () {}),
+                child: CircleAvatar(
+                  backgroundImage:
+                      userImage == null
+                          ? AssetImage(Assets.imagesUser)
+                          : NetworkImage(userImage!),
+                  radius: 20,
+                ),
               ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: IconButton(
-                  style: IconButton.styleFrom(
-                    backgroundColor: AppColors.whiteColor,
-                    foregroundColor: AppColors.primaryColor,
+              Visibility(
+                visible: currentUser,
+                child: Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: IconButton(
+                    style: IconButton.styleFrom(
+                      backgroundColor: AppColors.whiteColor,
+                      foregroundColor: AppColors.primaryColor,
+                    ),
+                    onPressed: () {},
+                    icon: Icon(Icons.add),
                   ),
-                  onPressed: () {},
-                  icon: Icon(Icons.add),
                 ),
               ),
             ],
           ),
           Text(
-            "محمود مجدي",
+            userName,
             style: AppTextStyles.headline2(
               context,
             ).copyWith(color: AppColors.whiteColor),

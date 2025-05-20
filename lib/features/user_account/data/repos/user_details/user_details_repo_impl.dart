@@ -1,6 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:smile_simulation/constant.dart' show logger;
+import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
+import 'package:smile_simulation/core/api/end_point.dart';
+import 'package:smile_simulation/core/errors/exceptions.dart';
+import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
 import 'package:smile_simulation/features/user_account/data/models/user/user..dart';
 import 'package:smile_simulation/features/user_account/data/repos/user_details/user_details_repo.dart';
 
@@ -21,5 +26,28 @@ class UserDetailsRepoImpl implements UserDetailsRepo {
 
     // TODO: implement getUserDetails
     throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, List<PostModel>>> getPosts({
+    required String userId,
+  }) async {
+    try {
+      var response = await dioConsumer.get(
+        "${EndPoint.getPostsByPublisherId}/$userId",
+      );
+      List<PostModel> posts = [];
+      List<dynamic> postsJsonList = response[ApiKeys.data];
+      for (Map<String, dynamic> post in postsJsonList) {
+        posts.add(PostModel.fromJson(post));
+      }
+      return Right(posts);
+    } on ServerException catch (e) {
+      logger.e("Exception in Get Posts: ${e.errorModel.message}");
+      return Left(ServerFailure(e.errorModel.message!));
+    } catch (e) {
+      logger.e("Exception in Get Posts: $e");
+      return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
+    }
   }
 }

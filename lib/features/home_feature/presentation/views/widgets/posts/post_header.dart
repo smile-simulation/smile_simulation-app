@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smile_simulation/core/helper_functions/format_date_time_ago.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
@@ -41,7 +42,12 @@ class PostHeader extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return UserAccountView(currentUser: false);
+                          return UserAccountView(
+                            currentUser: false,
+                            userId: post.publisherId!,
+                            userName: post.publisherName!,
+                            userImage: post.publisherImage,
+                          );
                         },
                       ),
                     );
@@ -83,6 +89,10 @@ class PostHeader extends StatelessWidget {
                 ),
               )
               : SizedBox(),
+          Spacer(),
+          (post.publisherRole == "Doctor")
+              ? SvgPicture.asset(Assets.imagesDoctorIcon, width: 16)
+              : SvgPicture.asset(Assets.imagesUserIcon, width: 16),
         ],
       ),
     );

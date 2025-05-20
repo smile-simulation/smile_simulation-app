@@ -8,16 +8,10 @@ class EndPoint {
   static String verifyOTP = "Account/VerifyOTP";
   static String allAdvices = "Advice/GetAllAdvices";
   static String post = "post";
+  static String getPostsByPublisherId = "Post/Publisher/";
   static String like = "Like/postid/";
   static String adviceByCategoryId = "AdviceCategory";
   static String allAdvicesCategories = "AdviceCategory/GetAll_Advice_Category";
-  // static String home = "home";
-  // static String categories = "categories";
-  // static String categoriesDetails = "categories/";
-  // static String products = "products";
-  // static String productsDetails = "products/";
-  // static String cart = "carts";
-  // static String detailCart = "carts/";
-  // static String favorites = "favorites";
-  // static String detailFavorites = "favorites/";
+  static String getPersonalData = "User/GetPatientPersonalData?UserName=";
+  static String updatePersonalData = "User/EditPatientPersonalData?UserName=";
 }

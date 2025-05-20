@@ -32,12 +32,12 @@ class MedicineTimeSection extends StatelessWidget {
             hint: "قبل تناول الطعام",
             value: selectedTime,
             onChanged: onChanged,
-            items: items
-                .map((e) => DropdownMenuItem<String>(
-                      value: e,
-                      child: Text(e),
-                    ))
-                .toList(),
+            items:
+                items
+                    .map(
+                      (e) => DropdownMenuItem<String>(value: e, child: Text(e)),
+                    )
+                    .toList(),
           ),
         ],
       ),

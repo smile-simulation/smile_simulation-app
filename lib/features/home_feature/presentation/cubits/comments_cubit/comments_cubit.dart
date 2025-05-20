@@ -36,24 +36,29 @@ class CommentsCubit extends Cubit<CommentsState> {
     );
   }
 
-  Future<void> addComment() async {
+  Future<void> addComment({required Function(String txt) onError}) async {
     emit(AddCommentLoading());
-    var result = await commentsRepo.addPost(
-      commentContent:
-          commentController.text.isEmpty
-              ? "هذا تعليق فارغ اثناء الاختبار"
-              : commentController.text,
-      postId: relatedPost.id!,
-    );
-    result.fold(
-      (fail) {
-        emit(AddCommentFailure());
-      },
-      (success) {
-        commentController.text = "";
-        commentAdded = true;
-        emit(AddCommentSuccess());
-      },
-    );
+
+    if (commentController.text.trim().isNotEmpty) {
+      var result = await commentsRepo.addPost(
+        commentContent: commentController.text.trim(),
+        postId: relatedPost.id!,
+      );
+
+      result.fold(
+        (fail) {
+          emit(AddCommentFailure());
+          onError("لم يتم اضافة التعليق لإن ${fail}");
+        },
+        (success) {
+          commentController.text = "";
+          commentAdded = true;
+          emit(AddCommentSuccess());
+        },
+      );
+    } else {
+      emit(GetAllCommentsByIdSuccess());
+      onError("لم يتم اضافة التعليق لإنه لا يوجد محتوي");
+    }
   }
 }

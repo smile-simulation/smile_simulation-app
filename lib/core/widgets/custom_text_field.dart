@@ -18,6 +18,7 @@ class CustomTextField extends StatelessWidget {
     this.hintTextColor = AppColors.greyLightColor,
     this.cursorColor = AppColors.primaryColor,
     this.suffixIconColor = AppColors.greyColor, // 🆕 Default color
+    this.readOnly = false,
   });
 
   final String? title;
@@ -28,6 +29,7 @@ class CustomTextField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final bool obscureText;
+  final bool readOnly;
 
   // Customizable colors
   final Color fillColor;
@@ -43,12 +45,20 @@ class CustomTextField extends StatelessWidget {
       children: [
         if (title != null)
           Text(title!, style: AppTextStyles.formLabel(context)),
-        const SizedBox(height: 12),
+        if (title != null) const SizedBox(height: 12),
         TextFormField(
           controller: controller,
+<<<<<<< HEAD
           cursorColor: cursorColor,
           onSaved: onSaved,
           validator: validator ??
+=======
+          cursorColor: AppColors.primaryColor,
+          onChanged: onSaved,
+          readOnly: readOnly,
+          validator:
+              validator ??
+>>>>>>> 1015d4cf7188ea9308fca60a64087e5cdb3644d9
               (value) {
                 if (value == null || value.isEmpty) {
                   return 'هذا الحقل مطلوب';
@@ -72,7 +82,7 @@ class CustomTextField extends StatelessWidget {
                 : null,
             border: _buildOutlineInputBorder(),
             enabledBorder: _buildOutlineInputBorder(),
-            focusedBorder: _buildOutlineInputBorder(),
+            focusedBorder: _focusedOutlineInputBorder(),
             disabledBorder: _buildOutlineInputBorder(),
           ),
         ),
@@ -84,6 +94,13 @@ class CustomTextField extends StatelessWidget {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(4),
       borderSide: BorderSide(width: 1, color: borderColor),
+    );
+  }
+
+  OutlineInputBorder _focusedOutlineInputBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(4),
+      borderSide: BorderSide(width: 1, color: AppColors.primaryColor),
     );
   }
 }

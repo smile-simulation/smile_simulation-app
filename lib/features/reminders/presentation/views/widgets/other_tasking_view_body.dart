@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/widgets/custom_app_bar.dart';
+
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_screen.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
@@ -14,7 +14,6 @@ class OtherTaskingViewBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        
         Expanded(
           child: CustomBodyScreen(
             child: Column(
@@ -35,8 +34,7 @@ class OtherTaskingViewBody extends StatelessWidget {
                 ),
                 TextSetionInReminderFeature(
                   text1: 'أضف المهام الخاصة بك ... وسوف نذكرك بمواعيدها',
-                  text2:
-                      'أضف مهامك الخاصة إلى تذكيراتك حتى نتمكن         .',
+                  text2: 'أضف مهامك الخاصة إلى تذكيراتك حتى نتمكن         .',
                   text3: 'من تذكيرك بها في أوقاتها المحدد',
                 ),
                 SizedBox(height: 50),
@@ -44,7 +42,9 @@ class OtherTaskingViewBody extends StatelessWidget {
                   text: 'اضافة اول تذكير',
                   onPressed: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AddNewDrugScreen()),
+                      MaterialPageRoute(
+                        builder: (context) => AddNewDrugScreen(),
+                      ),
                     );
                   },
                 ),

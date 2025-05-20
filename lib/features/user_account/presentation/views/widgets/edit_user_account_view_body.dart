@@ -8,13 +8,23 @@ import 'user_account_header.dart';
 import 'user_account_title.dart';
 
 class EditUserAccountViewBody extends StatelessWidget {
-  const EditUserAccountViewBody({super.key});
+  const EditUserAccountViewBody({
+    super.key,
+    required this.userName,
+    this.userImage,
+  });
 
+  final String userName;
+  final String? userImage;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        UserAccountHeader(currentUser: true),
+        UserAccountHeader(
+          currentUser: true,
+          userName: userName,
+          userImage: userImage,
+        ),
         Expanded(
           child: Container(
             width: double.infinity,

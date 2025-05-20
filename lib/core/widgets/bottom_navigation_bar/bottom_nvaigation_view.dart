@@ -5,7 +5,10 @@ import 'package:smile_simulation/features/home_feature/presentation/views/home_v
 import 'package:smile_simulation/features/more/presentation/views/more_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/reminders_view.dart';
 
-import '../../../features/medical_record/presentation/views/medical_record_user_view.dart';
+import '../../../constant.dart';
+import '../../../features/medical_record/presentation/views/medical_record_manage_view.dart';
+import '../../../features/medical_record/presentation/views/search_patients.dart';
+import '../../database/cache/cache_helper.dart';
 import 'custom_bottom_navigation_bar.dart';
 
 class BottomNavigationView extends StatefulWidget {
@@ -28,7 +31,9 @@ class _BottomNavigationViewState extends State<BottomNavigationView> {
     HomeVeiw(),
     AdvicesHomeView(),
     RemindersView(),
-    MedicalRecordUserView(),
+    CacheHelper().getMap(key: userData)!['role'] == "Doctor"
+        ? SearchPatients()
+        : MedicalRecordManageView(),
     MoreView(),
   ];
   @override

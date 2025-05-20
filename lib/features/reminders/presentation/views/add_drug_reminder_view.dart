@@ -7,12 +7,13 @@ class AddDrugReminderView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        return Directionality(
+    return Directionality(
       textDirection: TextDirection.rtl,
-      
+
       child: Scaffold(
         appBar: customAppbar(context, title: 'اضافة دواء جديد', isBack: true),
-        body: AddDrrugReminderViewBody()));
-
+        body: AddDrrugReminderViewBody(),
+      ),
+    );
   }
 }

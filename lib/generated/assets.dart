@@ -19,10 +19,13 @@ class Assets {
       'assets/images/advice_background.jpg';
   static const String imagesBottomNavBarPointer =
       'assets/images/bottom_nav_bar_pointer.png';
+  static const String imagesCamera = 'assets/images/camera.png';
   static const String imagesChat = 'assets/images/chat.svg';
+  static const String imagesClock = 'assets/images/clock.png';
   static const String imagesComment = 'assets/images/comment.svg';
   static const String imagesDailyCareImage =
       'assets/images/daily_care_image.png';
+  static const String imagesDelete = 'assets/images/delete.png';
   static const String imagesDentalCare = 'assets/images/dental-care.svg';
   static const String imagesEllipse1 = 'assets/images/Ellipse1.png';
   static const String imagesEllipse2 = 'assets/images/Ellipse2.png';
@@ -68,8 +71,21 @@ class Assets {
       'assets/images/reminder_visitings_dates.png';
   static const String imagesScanCamera = 'assets/images/scan-camera.svg';
   static const String imagesSearch = 'assets/images/search.svg';
+  static const String imagesSearchPachint = 'assets/images/searchPachint.png';
   static const String imagesSplash = 'assets/images/splash.png';
   static const String imagesSplashAndroid12Logo =
       'assets/images/splash_android12_logo.png';
   static const String imagesUser = 'assets/images/user.png';
+  static const String imagesDoctorIcon = 'assets/images/doctor_icon.svg';
+  static const String imagesUserIcon = 'assets/images/user_icon.svg';
+
+  static const String imagesContactUsIcon = 'assets/images/contact_us_icon.svg';
+  static const String imagesLogoutIcon = 'assets/images/logout_icon.svg';
+  static const String imagesPrivacyPolicyIcon =
+      'assets/images/privacy_policy_icon.svg';
+  static const String imagesRateAppIcon = 'assets/images/rate_app_icon.svg';
+  static const String imagesSettingsIcon = 'assets/images/settings_icon.svg';
+  static const String imagesShareIcon = 'assets/images/share_icon.svg';
+  static const String imagesUserAccountIcon =
+      'assets/images/user_account_icon.svg';
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/core/helper_functions/show_custom_snack_bar.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 
 import '../../../../data/models/post_model.dart';
@@ -19,49 +18,41 @@ class CustomPostBuilder extends StatelessWidget {
 
   final bool currentUser;
   final bool clickablePostImage;
+
   @override
   Widget build(BuildContext context) {
     PostDetailsCubit cubit = context.read<PostDetailsCubit>();
     return BlocConsumer<PostDetailsCubit, PostDetailsState>(
-      listener: (BuildContext context, PostDetailsState state) {
-        if (state is MakeLikeSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.makeLikeResult),
-              backgroundColor: AppColors.primaryColor,
-            ),
-          );
-        } else if (state is MakeLikeFail) {
-          customShowSnackBar(context, state.message);
-        }
-      },
+      listener: (BuildContext context, PostDetailsState state) {},
 
       builder: (context, state) {
         PostModel post = cubit.post;
         return InkWell(
           onTap: () {
-            Navigator.pushNamed(context, PostView.routeName, arguments: post);
+            Navigator.pushNamed(context, PostView.routeName, arguments: post); 
           },
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                PostHeader(
-                  currentUser: currentUser,
-                  clickablePostImage: clickablePostImage,
-                  post: context.read<PostDetailsCubit>().post,
-                ),
-                const SizedBox(height: 4),
-                PostHorizontalLayout(post: post),
-                const SizedBox(height: 12),
-                PostFooter(post: post),
-              ],
+          child: Card(
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: AppColors.whiteColorForCard,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  PostHeader(
+                    currentUser: currentUser,
+                    clickablePostImage: clickablePostImage,
+                    post: context.read<PostDetailsCubit>().post,
+                  ),
+                  const SizedBox(height: 4),
+                  PostHorizontalLayout(post: post),
+                  const SizedBox(height: 12),
+                  PostFooter(post: post),
+                ],
+              ),
             ),
           ),
         );

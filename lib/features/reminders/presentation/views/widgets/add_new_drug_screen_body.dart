@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:smile_simulation/core/widgets/custom_app_bar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/add_drug_reminder_view.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/date_of_stopping_taking_medicin.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/medicine_time_section.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/repeat_day_section.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/time_and_quantity_section.dart';
-import 'package:url_launcher/url_launcher.dart';
+
+import '../add_drug_reminder_view.dart';
+import 'camera_section.dart';
+import 'date_of_stopping_taking_medicin.dart';
+import 'medicine_time_section.dart';
+import 'repeat_day_section.dart';
+import 'time_and_quantity_section.dart';
 
 class AddNewDrugScreenBody extends StatefulWidget {
   @override
@@ -65,14 +64,18 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugScreenBody> {
                 TimeAndQuantitySection(),
                 SizedBox(height: 16),
                 DateOfStoppingTakkingMedicin(),
-               
-              Spacer(),
-                CustomButton(title: 'اضافة الدواء', onPressed: () {Navigator.of(context).push(
-  MaterialPageRoute(
-    builder: (context) => AddDrugReminderView(),
-  ),
-);
-}),
+
+                Spacer(),
+                CustomButton(
+                  title: 'اضافة الدواء',
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => AddDrugReminderView(),
+                      ),
+                    );
+                  },
+                ),
                 SizedBox(height: 16),
               ],
             ),

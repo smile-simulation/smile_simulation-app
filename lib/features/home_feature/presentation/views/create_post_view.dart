@@ -11,7 +11,7 @@ import 'widgets/posts/create_post_view_body.dart';
 
 class CreatePostView extends StatelessWidget {
   const CreatePostView({super.key});
-
+  static const String routName = "createPostView";
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

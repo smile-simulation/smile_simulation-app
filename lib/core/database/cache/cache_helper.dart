@@ -30,6 +30,10 @@ class CacheHelper {
     return null; // Return null if key doesn't exist
   }
 
+  Future<void> removeMap({required String key}) async {
+    await sharedPreferences.remove(key);
+  }
+
   String? getDataString({required String key}) {
     return sharedPreferences.getString(key);
   }
