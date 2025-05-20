@@ -12,12 +12,10 @@ class CustomPostFooterSkeleton extends StatelessWidget {
         // Spacer(flex: 1),
         Expanded(
           flex: 2,
-        
+
           child: CustomLoadingShimmer(
             SkeletonWidget: Container(
-              decoration: BoxDecoration(
-                color: AppColors.grayHeavyText_1Color,
-              ),
+              decoration: BoxDecoration(color: AppColors.grayHeavyText_1Color),
             ),
           ),
         ),
@@ -25,12 +23,10 @@ class CustomPostFooterSkeleton extends StatelessWidget {
         SizedBox(width: 8),
         Expanded(
           flex: 2,
-        
+
           child: CustomLoadingShimmer(
             SkeletonWidget: Container(
-              decoration: BoxDecoration(
-                color: AppColors.grayHeavyText_1Color,
-              ),
+              decoration: BoxDecoration(color: AppColors.grayHeavyText_1Color),
             ),
           ),
         ),

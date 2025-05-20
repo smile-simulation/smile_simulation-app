@@ -43,9 +43,10 @@ class CustomButton extends StatelessWidget {
       child: MaterialButton(
         height: height,
         minWidth: minWidth,
-        color: isGreyBackground
-            ? Colors.grey
-            : (isSecondary ? AppColors.whiteColor : AppColors.primaryColor),
+        color:
+            isGreyBackground
+                ? Colors.grey
+                : (isSecondary ? AppColors.whiteColor : AppColors.primaryColor),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
           side: BorderSide(
@@ -53,18 +54,20 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: isLoading
-            ? const CircularProgressIndicator(color: AppColors.whiteColor)
-            : Text(
-                title,
-                style: AppTextStyles.button2(context).copyWith(
-                  color: isGreyBackground
-                      ? Colors.white
-                      : (isSecondary
-                          ? AppColors.primaryColor
-                          : AppColors.whiteColor),
+        child:
+            isLoading
+                ? const CircularProgressIndicator(color: AppColors.whiteColor)
+                : Text(
+                  title,
+                  style: AppTextStyles.button2(context).copyWith(
+                    color:
+                        isGreyBackground
+                            ? Colors.white
+                            : (isSecondary
+                                ? AppColors.primaryColor
+                                : AppColors.whiteColor),
+                  ),
                 ),
-              ),
       ),
     );
   }

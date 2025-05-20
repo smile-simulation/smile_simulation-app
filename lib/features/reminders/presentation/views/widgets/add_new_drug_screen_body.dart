@@ -64,14 +64,18 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugScreenBody> {
                 TimeAndQuantitySection(),
                 SizedBox(height: 16),
                 DateOfStoppingTakkingMedicin(),
-               
-              Spacer(),
-                CustomButton(title: 'اضافة الدواء', onPressed: () {Navigator.of(context).push(
-  MaterialPageRoute(
-    builder: (context) => AddDrugReminderView(),
-  ),
-);
-}),
+
+                Spacer(),
+                CustomButton(
+                  title: 'اضافة الدواء',
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => AddDrugReminderView(),
+                      ),
+                    );
+                  },
+                ),
                 SizedBox(height: 16),
               ],
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/helper_functions/get_it.dart';
 import 'package:smile_simulation/features/advices/data/models/advice/advice.dart';
 import 'package:smile_simulation/features/advices/data/models/advices_category/advices_category.dart';
@@ -19,6 +20,7 @@ import 'package:smile_simulation/features/auth/sign_up/presentation/manage/cubit
 
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/manage_sign_up.dart';
 import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/create_post_view.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/post_view.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
@@ -101,7 +103,13 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         final bool currentUser = settings.arguments as bool;
 
         return MaterialPageRoute(
-          builder: (_) => UserAccountView(currentUser: currentUser),
+          builder:
+              (_) => UserAccountView(
+                currentUser: currentUser,
+                userId: CacheHelper().getMap(key: 'userData')!['userId'],
+                userName: CacheHelper().getMap(key: 'userData')!['fullName'],
+                userImage: CacheHelper().getMap(key: 'userData')!['image'],
+              ),
         );
       }
     case PostView.routeName:
@@ -172,6 +180,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case BottomNavigationView.routeName:
       return MaterialPageRoute(builder: (_) => const BottomNavigationView());
     case EditMedicalRecordView.routeName:
+      return MaterialPageRoute(
+        builder: (_) => EditMedicalRecordView(recordData: {}),
+      );
+    case CreatePostView.routName:
       return MaterialPageRoute(
         builder: (_) => EditMedicalRecordView(recordData: {}),
       );

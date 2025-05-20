@@ -11,7 +11,6 @@ class VisitingDatesViewBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-
         Expanded(
           child: CustomBodyScreen(
             child: Column(

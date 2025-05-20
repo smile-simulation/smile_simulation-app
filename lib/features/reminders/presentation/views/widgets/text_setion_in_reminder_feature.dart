@@ -15,7 +15,6 @@ class TextSetionInReminderFeature extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
           child: Align(
@@ -31,7 +30,6 @@ class TextSetionInReminderFeature extends StatelessWidget {
             ),
           ),
         ),
-        
 
         Align(
           alignment: Alignment.center,

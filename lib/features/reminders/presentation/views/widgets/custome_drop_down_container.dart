@@ -35,19 +35,15 @@ class CustomDropdownContainer extends StatelessWidget {
           contentPadding: EdgeInsets.zero,
         ),
         icon: const Icon(Icons.arrow_drop_down),
-        style: const TextStyle(
-          color: Colors.grey,
-          fontSize: 16,
-        ),
+        style: const TextStyle(color: Colors.grey, fontSize: 16),
         dropdownColor: Colors.white,
         isExpanded: true,
-        alignment: AlignmentDirectional.centerStart, // Hint and value aligned at start
-        hint: hint != null
-            ? Text(
-                hint!,
-                style: const TextStyle(color: Colors.grey),
-              )
-            : null,
+        alignment:
+            AlignmentDirectional.centerStart, // Hint and value aligned at start
+        hint:
+            hint != null
+                ? Text(hint!, style: const TextStyle(color: Colors.grey))
+                : null,
         items: items,
       ),
     );

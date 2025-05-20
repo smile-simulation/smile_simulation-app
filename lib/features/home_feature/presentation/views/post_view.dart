@@ -10,7 +10,6 @@ import '../../data/models/post_model.dart';
 import '../../data/repos/posts_repo/posts_repo_implement.dart';
 import '../cubits/comments_cubit/comments_cubit.dart';
 import '../cubits/post_details_cubit/post_details_cubit.dart';
-import '../cubits/posts_cubit/posts_cubit.dart';
 import 'widgets/posts/post_view_body.dart';
 
 class PostView extends StatelessWidget {
@@ -20,7 +19,6 @@ class PostView extends StatelessWidget {
   static const String routeName = 'postView';
   @override
   Widget build(BuildContext context) {
-    context.read<PostsCubit>().fetchPosts(isInitialLoad: true);
     return MultiBlocProvider(
       providers: [
         BlocProvider(

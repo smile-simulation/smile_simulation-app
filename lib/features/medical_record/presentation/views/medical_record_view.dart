@@ -27,8 +27,8 @@ class MedicalRecordView extends StatelessWidget {
               keyboardType: TextInputType.text,
               suffixIcon: Center(
                 child: SvgPicture.asset(
-                  Assets.imagesSearch
-                  ,fit:  BoxFit.scaleDown,
+                  Assets.imagesSearch,
+                  fit: BoxFit.scaleDown,
                   color: Colors.grey,
                 ),
               ),
@@ -51,9 +51,7 @@ class MedicalRecordView extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: AppColors.veryLightGreyColor,
                             borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: AppColors.lightGreyColor,
-                            ),
+                            border: Border.all(color: AppColors.lightGreyColor),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.05),

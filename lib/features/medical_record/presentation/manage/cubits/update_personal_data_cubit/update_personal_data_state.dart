@@ -7,9 +7,9 @@ final class UpdatePersonalDataInitial extends UpdatePersonalDataState {}
 final class UpdatePersonalDataLoading extends UpdatePersonalDataState {}
 
 final class UpdatePersonalDataSuccess extends UpdatePersonalDataState {
-  final PersonaDataModel dataModel ;
+  final PersonaDataModel dataModel;
 
-UpdatePersonalDataSuccess(this.dataModel);
+  UpdatePersonalDataSuccess(this.dataModel);
 }
 
 final class UpdatePersonalDataFailure extends UpdatePersonalDataState {

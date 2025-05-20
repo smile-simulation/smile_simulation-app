@@ -14,7 +14,7 @@ class GetPersonalDataCubit extends Cubit<GetPersonalDataState> {
 
     result.fold(
       (l) => emit(GetPersonalDataFailure(l.errorMessage)),
-      (r) => emit(GetPersonalDataSuccess( r  )),
+      (r) => emit(GetPersonalDataSuccess(r)),
     );
   }
 }

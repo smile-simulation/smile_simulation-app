@@ -9,9 +9,11 @@ class AddNewDrugScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      
+
       child: Scaffold(
         appBar: customAppbar(context, title: 'اضافة دواء جديد', isBack: true),
-        body: AddNewDrugScreenBody()));
+        body: AddNewDrugScreenBody(),
+      ),
+    );
   }
 }

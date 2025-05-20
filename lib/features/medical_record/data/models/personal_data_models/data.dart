@@ -1,13 +1,14 @@
 class Data {
   Data({
-      this.id, 
-      this.fullName, 
-      this.email, 
-      this.age, 
-      this.phoneNumber, 
-      this.gender, 
-      this.job, 
-      this.maritalStatus,});
+    this.id,
+    this.fullName,
+    this.email,
+    this.age,
+    this.phoneNumber,
+    this.gender,
+    this.job,
+    this.maritalStatus,
+  });
 
   Data.fromJson(dynamic json) {
     id = json['id'];
@@ -40,5 +41,4 @@ class Data {
     map['maritalStatus'] = maritalStatus;
     return map;
   }
-
 }

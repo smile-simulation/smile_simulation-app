@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/other_user_cirle_image.dart';
+import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 import '../../../../../constant.dart';
 import '../../../../../core/database/cache/cache_helper.dart';
@@ -27,15 +29,22 @@ class CustomFlexibleAppBar extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          CircleAvatar(
-            backgroundImage:
+          UserCircleImage(
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                UserAccountView.routeName,
+                arguments: true,
+              );
+            },
+            imageProvider:
                 CacheHelper().getMap(key: userData)!['image'] != null
                     ? NetworkImage(
                       CacheHelper().getMap(key: userData)!['image'],
                     )
                     : const AssetImage(Assets.imagesUser),
-            radius: 22,
           ),
+
           SizedBox(width: 12),
           Expanded(
             child: Text(
