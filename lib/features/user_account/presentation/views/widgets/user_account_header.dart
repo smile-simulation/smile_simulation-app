@@ -1,8 +1,11 @@
 import 'dart:developer';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
+import 'package:smile_simulation/core/widgets/custom_loading_shimmer.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/widgets_skeletons/user_image_skeleton.dart';
 
 import '../../../../../generated/assets.dart';
 
@@ -29,12 +32,34 @@ class UserAccountHeader extends StatelessWidget {
               SizedBox(
                 height: 120,
                 width: 120,
-                child: CircleAvatar(
-                  backgroundImage:
+                child: SizedBox(
+                  height: 120,
+                  width: 120,
+                  child:
                       userImage == null
-                          ? AssetImage(Assets.imagesUser)
-                          : NetworkImage(userImage!),
-                  radius: 20,
+                          ? CircleAvatar(
+                            backgroundImage: AssetImage(Assets.imagesUser),
+                            radius: 20,
+                          )
+                          : CircleAvatar(
+                            radius: 20,
+                            backgroundColor:
+                                Colors.grey[200], // Or any neutral background
+                            child: ClipOval(
+                              child: CachedNetworkImage(
+                                imageUrl: userImage!,
+                                fit: BoxFit.cover,
+                                width: 120,
+                                height: 120,
+                                placeholder:
+                                    (context, url) => CustomLoadingShimmer(
+                                      SkeletonWidget: UserImageSkeleton(),
+                                    ),
+                                errorWidget:
+                                    (context, url, error) => Icon(Icons.error),
+                              ),
+                            ),
+                          ),
                 ),
               ),
               Visibility(

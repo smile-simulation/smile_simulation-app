@@ -7,6 +7,7 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
+import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
 import 'more_action_item_list_tile.dart';
@@ -28,7 +29,7 @@ class MoreViewBody extends StatelessWidget {
               child: Text(
                 "المزيد من الاعدادات",
                 style: AppTextStyles.headline2(
-                  context, 
+                  context,
                 ).copyWith(color: AppColors.greyColor),
               ),
             ),
@@ -36,7 +37,13 @@ class MoreViewBody extends StatelessWidget {
             MoreActionItemListTile(
               iconPath: Assets.imagesUserAccountIcon,
               title: "الملف الشخصي",
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  UserAccountView.routeName,
+                  arguments: true,
+                );
+              },
             ),
             MoreActionItemListTile(
               iconPath: Assets.imagesSettingsIcon,
