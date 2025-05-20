@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:smile_simulation/constant.dart';
+import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/api/end_point.dart';
 import 'package:smile_simulation/core/errors/exceptions.dart';
@@ -23,8 +24,8 @@ class AdvicesCategoryRepoImpl implements AdvicesCategoryRepo {
         "${EndPoint.adviceByCategoryId}/$id",
       );
       List<Advice> advices = [];
-      // List<dynamic> advicesJsonList = response[ApiKeys.data];
-      List<dynamic> advicesJsonList = getDataFromJson(jsonAdvices, id);
+      List<dynamic> advicesJsonList = response[ApiKeys.data];
+      // List<dynamic> advicesJsonList = getDataFromJson(jsonAdvices, id);
 
       for (Map<String, dynamic> advice in advicesJsonList) {
         advices.add(Advice.fromJson(advice));

@@ -28,7 +28,7 @@ class MoreViewBody extends StatelessWidget {
               child: Text(
                 "المزيد من الاعدادات",
                 style: AppTextStyles.headline2(
-                  context,
+                  context, 
                 ).copyWith(color: AppColors.greyColor),
               ),
             ),
