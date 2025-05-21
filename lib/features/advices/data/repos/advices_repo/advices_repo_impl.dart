@@ -1,7 +1,9 @@
+import 'dart:developer';
 import 'dart:math' as maths;
 
 import 'package:dartz/dartz.dart';
 import 'package:smile_simulation/constant.dart';
+import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/api/end_point.dart';
 import 'package:smile_simulation/core/errors/exceptions.dart';
@@ -27,15 +29,17 @@ class AdvicesRepoImpl implements AdvicesRepo {
     try {
       var response = await dioConsumer.get(EndPoint.allAdvices);
       List<Advice> advices = [];
-      // List<dynamic> advicesJsonList = response[ApiKeys.data];
-      List<dynamic> advicesJsonList = jsonAdvices;
+      List<dynamic> advicesJsonList = response[ApiKeys.data];
+      // List<dynamic> advicesJsonList = jsonAdvices;
 
       for (Map<String, dynamic> advice in advicesJsonList) {
         // log("Json Data: ${advice.toString()}");
         // log("the Model: ${Advice.fromJson(advice).toString()}");
+
         advices.add(Advice.fromJson(advice));
       }
       advices = getRandomAdvices(advices) as List<Advice>;
+      log(advices[0].image ?? "لا يوجد صورة");
       return Right(advices);
     } on ServerException catch (e) {
       logger.e("Exception in Get Advices: ${e.errorModel.message}");

@@ -1,10 +1,15 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/core/helper_functions/get_it.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-
-import '../../../../../generated/assets.dart';
+import 'package:smile_simulation/features/user_account/presentation/managers/set_user_account_image/set_user_accoun_image_cubit.dart';
+import '../../../data/repos/set_user_account_image_repo/set_user_account_image_repo_impl.dart';
+import 'set_user_image_button.dart';
+import 'user_account_image.dart';
+import 'user_account_image_builder.dart';
 
 class UserAccountHeader extends StatelessWidget {
   const UserAccountHeader({
@@ -19,48 +24,27 @@ class UserAccountHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     log("this user image: $userImage");
-    return SizedBox(
-      height: 164 + kToolbarHeight + 40,
-      child: Column(
-        children: [
-          SizedBox(height: kToolbarHeight + 40),
-          Stack(
-            children: [
-              SizedBox(
-                height: 120,
-                width: 120,
-                child: CircleAvatar(
-                  backgroundImage:
-                      userImage == null
-                          ? AssetImage(Assets.imagesUser)
-                          : NetworkImage(userImage!),
-                  radius: 20,
-                ),
-              ),
-              Visibility(
-                visible: currentUser,
-                child: Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: IconButton(
-                    style: IconButton.styleFrom(
-                      backgroundColor: AppColors.whiteColor,
-                      foregroundColor: AppColors.primaryColor,
-                    ),
-                    onPressed: () {},
-                    icon: Icon(Icons.add),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Text(
-            userName,
-            style: AppTextStyles.headline2(
-              context,
-            ).copyWith(color: AppColors.whiteColor),
-          ),
-        ],
+    return BlocProvider(
+      create: (context) => SetUserAccounImageCubit(getIt<SetUserAccountImageRepoImpl>()),
+      child: SizedBox(
+        height: 164 + kToolbarHeight + 40,
+        child: Column(
+          children: [
+            SizedBox(height: kToolbarHeight + 40),
+            Stack(
+              children: [
+                UserAccountImageBuilder(userImage: userImage),
+                Visibility(visible: currentUser, child: SetUserImageButton()),
+              ],
+            ),
+            Text(
+              userName,
+              style: AppTextStyles.headline2(
+                context,
+              ).copyWith(color: AppColors.whiteColor),
+            ),
+          ],
+        ),
       ),
     );
   }
