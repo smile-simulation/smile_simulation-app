@@ -11,6 +11,7 @@ import 'package:smile_simulation/features/home_feature/data/repos/comments_repo/
 import 'package:smile_simulation/features/home_feature/data/repos/comments_repo/comments_repo_impl.dart';
 import 'package:smile_simulation/features/home_feature/data/repos/posts_repo/posts_repo_implement.dart';
 import 'package:smile_simulation/features/medical_record/data/repos/personal_data_repos/personal_data_repo_impl.dart';
+import 'package:smile_simulation/features/user_account/data/repos/set_user_account_image_repo/set_user_account_image_repo_impl.dart';
 import 'package:smile_simulation/features/user_account/data/repos/user_details/user_details_repo_impl.dart';
 import '../../features/auth/login/data/repos/forget_repos/forget_password_repo.dart';
 import '../../features/auth/login/data/repos/forget_repos/forget_password_repo_impl.dart';
@@ -48,5 +49,8 @@ void setupGetIt() {
   );
   getIt.registerSingleton<UserDetailsRepoImpl>(
     UserDetailsRepoImpl(dioConsumer: getIt<DioConsumer>()),
+  );
+  getIt.registerSingleton<SetUserAccountImageRepoImpl>(
+    SetUserAccountImageRepoImpl(dioConsumer: getIt<DioConsumer>()),
   );
 }
