@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
-
-import '../add_new_drug_screen.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_view.dart';
 import 'custome_reminder_button.dart';
 import 'text_setion_in_reminder_feature.dart';
 
-class DrugReminderViewBody extends StatelessWidget {
-  const DrugReminderViewBody({super.key});
+class DrugReminderViewBodyIfFirstTime extends StatelessWidget {
+  final void Function(String reminder) onAddReminder;
+
+  const DrugReminderViewBodyIfFirstTime({
+    super.key,
+    required this.onAddReminder,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +21,13 @@ class DrugReminderViewBody extends StatelessWidget {
           child: CustomBodyScreen(
             child: Column(
               children: [
-                SizedBox(height: 90),
+                const SizedBox(height: 90),
                 Container(
                   width: 250,
                   height: 150,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: AssetImage(
                         'assets/images/reminder_drug_stimulant.png',
                       ),
@@ -31,21 +35,27 @@ class DrugReminderViewBody extends StatelessWidget {
                     ),
                   ),
                 ),
-                TextSetionInReminderFeature(
+                const TextSetionInReminderFeature(
                   text1: 'أضف الأدوية التي تتناولها ... وسوف نذكرك بمواعيدها',
                   text2:
                       'أضف الأدوية التي تستخدمها إلى تنبيهاتك الطبية حتى نتمكن',
-                  text3: 'من تذكيرك بها في أوقاتها المحدد',
+                  text3: 'من تذكيرك بها في أوقاتها المحددة',
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 CustomeReminderButton(
                   text: 'اضافة اول تذكير',
-                  onPressed: () {
-                    Navigator.of(context).push(
+                  onPressed: () async {
+                    // فتح صفحة إضافة دواء
+                    final result = await Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => AddNewDrugScreen(),
+                        builder: (context) => const AddNewDrugView(),
                       ),
                     );
+
+                    // إضافة التذكير بعد العودة
+                    if (result != null && result is String) {
+                      onAddReminder(result);
+                    }
                   },
                 ),
               ],

@@ -48,17 +48,9 @@ class CustomTextField extends StatelessWidget {
         if (title != null) const SizedBox(height: 12),
         TextFormField(
           controller: controller,
-<<<<<<< HEAD
           cursorColor: cursorColor,
           onSaved: onSaved,
           validator: validator ??
-=======
-          cursorColor: AppColors.primaryColor,
-          onChanged: onSaved,
-          readOnly: readOnly,
-          validator:
-              validator ??
->>>>>>> 1015d4cf7188ea9308fca60a64087e5cdb3644d9
               (value) {
                 if (value == null || value.isEmpty) {
                   return 'هذا الحقل مطلوب';

@@ -13,43 +13,51 @@ class DailyActivitiesViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(child: CustomBodyScreen(child: Column(children: [
-           Column(
+        Expanded(
+          child: CustomBodyScreen(
+            child: Column(
               children: [
-                SizedBox(height: 90),
-                Container(
-                  width: 250,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    image: DecorationImage(
-                      image: AssetImage(
-                        'assets/images/reminder_daily_activities.png',
+                Column(
+                  children: [
+                    SizedBox(height: 90),
+                    Container(
+                      width: 250,
+                      height: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'assets/images/reminder_daily_activities.png',
+                          ),
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      fit: BoxFit.cover,
                     ),
-                  ),
-                ),
-                TextSetionInReminderFeature(
-                  text1: 'أضف الأنشطة اليومية الخاصة بك ... وسوف نذكرك بمواعيدها',
-                  text2: 'أضف  الأنشطة اليومية الخاصة بك الى تذكيراتك حتى نتمكن',
-                  text3: 'من تذكيرك بها في أوقاتها المحدد',
-                ),
-                SizedBox(height: 50),
-                CustomeReminderButton(
-                  text: 'اضافة اول تذكير',
-                  onPressed: () {
-  Navigator.maybeOf(context)?.push(
-    MaterialPageRoute(
-      builder: (context) => const AddDailyActivitiesViewBody(),
-    ),
-  );
-},
-
+                    TextSetionInReminderFeature(
+                      text1:
+                          'أضف الأنشطة اليومية الخاصة بك ... وسوف نذكرك بمواعيدها',
+                      text2:
+                          'أضف  الأنشطة اليومية الخاصة بك الى تذكيراتك حتى نتمكن',
+                      text3: 'من تذكيرك بها في أوقاتها المحدد',
+                    ),
+                    SizedBox(height: 50),
+                    CustomeReminderButton(
+                      text: 'اضافة اول تذكير',
+                      onPressed: () {
+                        Navigator.maybeOf(context)?.push(
+                          MaterialPageRoute(
+                            builder:
+                                (context) => const AddDailyActivitiesViewBody(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
-        ]))),
+          ),
+        ),
       ],
     );
   }
