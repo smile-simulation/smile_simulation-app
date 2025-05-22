@@ -17,7 +17,7 @@ class CustomTextField extends StatelessWidget {
     this.borderColor = const Color(0xffF8F8F8),
     this.hintTextColor = AppColors.greyLightColor,
     this.cursorColor = AppColors.primaryColor,
-    this.suffixIconColor = AppColors.greyColor, // 🆕 Default color
+    this.suffixIconColor = AppColors.greyColor,
     this.readOnly = false,
   });
 
@@ -31,12 +31,11 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final bool readOnly;
 
-  // Customizable colors
   final Color fillColor;
   final Color borderColor;
   final Color hintTextColor;
   final Color cursorColor;
-  final Color suffixIconColor; // 🆕 New variable
+  final Color suffixIconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -48,17 +47,10 @@ class CustomTextField extends StatelessWidget {
         if (title != null) const SizedBox(height: 12),
         TextFormField(
           controller: controller,
-<<<<<<< HEAD
           cursorColor: cursorColor,
-          onSaved: onSaved,
-          validator: validator ??
-=======
-          cursorColor: AppColors.primaryColor,
-          onChanged: onSaved,
           readOnly: readOnly,
-          validator:
-              validator ??
->>>>>>> 1015d4cf7188ea9308fca60a64087e5cdb3644d9
+          onChanged: onSaved,
+          validator: validator ??
               (value) {
                 if (value == null || value.isEmpty) {
                   return 'هذا الحقل مطلوب';

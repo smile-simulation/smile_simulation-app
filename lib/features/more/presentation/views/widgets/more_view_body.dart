@@ -11,6 +11,7 @@ import 'package:smile_simulation/features/user_account/presentation/views/user_a
 import 'package:smile_simulation/generated/assets.dart';
 
 import 'more_action_item_list_tile.dart';
+import 'privacy_policy_dialog.dart';
 
 class MoreViewBody extends StatelessWidget {
   const MoreViewBody({super.key});
@@ -53,6 +54,15 @@ class MoreViewBody extends StatelessWidget {
             MoreActionItemListTile(
               iconPath: Assets.imagesPrivacyPolicyIcon,
               title: "سياسة الخصوصية",
+              onTap: () {
+                showDialog(context: context, builder: (context) {
+                  return PolicyPoliciesDialog();
+                });
+              },
+            ),
+            MoreActionItemListTile(
+              iconPath: Assets.imagesPrivacyPolicyIcon,
+              title: "الشروط والاحكام",
               onTap: () {},
             ),
             MoreActionItemListTile(
