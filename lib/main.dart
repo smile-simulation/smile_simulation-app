@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +10,7 @@ import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/helper_functions/on_generate_route.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
+import 'package:smile_simulation/features/chat_bot/presentaion/views/chat_bot_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
 import 'core/helper_functions/get_it.dart';
@@ -20,7 +22,7 @@ import 'features/on_boarding/presentation/view/on_boarding_view.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   WidgetsBinding.instance.deferFirstFrame();
-
+  await Firebase.initializeApp();
   await CacheHelper().init();
   LocalNotificationService.initialize();
   await LocalNotificationService().requestNotificationPermission();
@@ -69,6 +71,7 @@ class SmileSimulation extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
       initialRoute:
+          //  MyChatbotView.routeName,
           CacheHelper.sharedPreferences.getBool(isSuccessLogin) == true
               ? BottomNavigationView.routeName
               : CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) ==
