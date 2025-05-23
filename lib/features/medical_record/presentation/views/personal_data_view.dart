@@ -131,7 +131,8 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
                 CustomTextField(
                   title: "الاسم الكامل",
                   readOnly: true,
-                  hintText: data['fullName'],
+                  controller: fullNameController,
+                  hintText: data["fullName"],
                   keyboardType: TextInputType.text,
                 ),
                 const SizedBox(height: 16),

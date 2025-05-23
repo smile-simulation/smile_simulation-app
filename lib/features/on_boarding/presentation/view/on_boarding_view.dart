@@ -5,6 +5,7 @@ import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
+import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/auth/login/presentation/view/login_view.dart';
 import 'package:smile_simulation/features/on_boarding/data/model/on_boarding_model.dart';
 import 'package:smile_simulation/features/on_boarding/presentation/view/widgets/images_shape.dart';
@@ -82,14 +83,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           ],
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          color: AppColors.whiteColor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(45),
-            topRight: Radius.circular(45),
-          ),
-        ),
+      body: CustomBodyScreen(
         child: Column(
           children: [
             ImagesShape(
@@ -111,14 +105,14 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               position: currentIndex.toDouble(),
               decorator: DotsDecorator(
                 size: Size(10.0, 10.0),
-
+        
                 activeSize: Size(16.0, 10.0),
                 color: AppColors.lightGreyColor,
                 activeColor: AppColors.primaryColor,
                 spacing: EdgeInsets.symmetric(horizontal: 4.0),
               ),
             ),
-
+        
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
@@ -166,7 +160,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 ),
                               }
                               : currentIndex = currentIndex + 1;
-
+        
                           setState(() {
                             isOut = !isOut;
                           });
@@ -182,7 +176,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 borderRadius: BorderRadius.circular(30),
                                 color: AppColors.primaryColor,
                               ),
-
+        
                               child: Center(
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,

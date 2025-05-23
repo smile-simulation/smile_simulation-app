@@ -26,7 +26,11 @@ class MedicalRecordManageView extends StatelessWidget {
             personalDataRepo: getIt.get<PersonalDataRepo>(),
           ),
       child: Scaffold(
-        appBar: customAppbar(context, title: 'السجل الطبي'),
+        appBar: customAppbar(
+          context,
+          title: 'السجل الطبي',
+          isBack: CacheHelper().getMap(key: userData)!['role'] == "Doctor",
+        ),
         body: MedicalRecordManageBodyView(),
       ),
     );
@@ -47,62 +51,66 @@ class MedicalRecordManageBodyView extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Container(
-                  height: 48,
-                  padding: EdgeInsetsDirectional.all(4),
-                  decoration: BoxDecoration(
-                    color: AppColors.veryLightGreyColor,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: AppColors.lightGreyColor),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
-                        blurRadius: 6,
-                        spreadRadius: 1,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 20,
-                        backgroundColor: Colors.blue.shade100,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(200),
-                          child:
-                              CacheHelper().getMap(key: userData)!["image"] ==
-                                      null
-                                  ? Image.asset(
-                                    Assets.imagesUser,
-                                    width: 40,
-                                    height: 40,
-                                    fit: BoxFit.cover,
-                                  )
-                                  : Image.network(
-                                    CacheHelper().getMap(
-                                      key: userData,
-                                    )!["image"],
-                                    width: 40,
-                                    height: 40,
-                                    fit: BoxFit.cover,
-                                  ),
+                child: Visibility(
+                  visible:
+                      CacheHelper().getMap(key: userData)!['role'] != "Doctor",
+                  child: Container(
+                    height: 48,
+                    padding: EdgeInsetsDirectional.all(4),
+                    decoration: BoxDecoration(
+                      color: AppColors.veryLightGreyColor,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: AppColors.lightGreyColor),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.05),
+                          blurRadius: 6,
+                          spreadRadius: 1,
+                          offset: const Offset(0, 3),
                         ),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Text(
-                          CacheHelper().getMap(key: userData)!["fullName"],
-                          style: AppTextStyles.subTitle1(context),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Colors.blue.shade100,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(200),
+                            child:
+                                CacheHelper().getMap(key: userData)!["image"] ==
+                                        null
+                                    ? Image.asset(
+                                      Assets.imagesUser,
+                                      width: 40,
+                                      height: 40,
+                                      fit: BoxFit.cover,
+                                    )
+                                    : Image.network(
+                                      CacheHelper().getMap(
+                                        key: userData,
+                                      )!["image"],
+                                      width: 40,
+                                      height: 40,
+                                      fit: BoxFit.cover,
+                                    ),
+                          ),
                         ),
-                      ),
-                      Text(
-                        CacheHelper().getMap(key: userData)!['userName'],
-                        style: AppTextStyles.subTitle1(
-                          context,
-                        ).copyWith(color: AppColors.primaryColor),
-                      ),
-                    ],
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            CacheHelper().getMap(key: userData)!["fullName"],
+                            style: AppTextStyles.subTitle1(context),
+                          ),
+                        ),
+                        Text(
+                          CacheHelper().getMap(key: userData)!['userName'],
+                          style: AppTextStyles.subTitle1(
+                            context,
+                          ).copyWith(color: AppColors.primaryColor),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
