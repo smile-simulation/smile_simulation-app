@@ -26,7 +26,10 @@ Future<void> main() async {
   await LocalNotificationService().requestNotificationPermission();
   Bloc.observer = CustomBlocObserver();
   setupGetIt();
-
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -48,7 +51,7 @@ class SmileSimulation extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Cairo',
         primaryColor: AppColors.primaryColor,
-        scaffoldBackgroundColor: AppColors.primaryColor,
+        scaffoldBackgroundColor: AppColors.whiteColor,
         appBarTheme: const AppBarTheme(
           backgroundColor: AppColors.primaryColor,
           surfaceTintColor: AppColors.primaryColor,
