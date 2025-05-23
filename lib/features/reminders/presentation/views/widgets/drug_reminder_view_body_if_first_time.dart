@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
+import 'package:smile_simulation/features/reminders/data/models/reminder.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_view.dart';
 import 'custome_reminder_button.dart';
 import 'text_setion_in_reminder_feature.dart';
 
 class DrugReminderViewBodyIfFirstTime extends StatelessWidget {
-  final void Function(String reminder) onAddReminder;
+  final void Function(Reminder reminder) onAddReminder;
 
   const DrugReminderViewBodyIfFirstTime({
     super.key,
@@ -45,15 +46,12 @@ class DrugReminderViewBodyIfFirstTime extends StatelessWidget {
                 CustomeReminderButton(
                   text: 'اضافة اول تذكير',
                   onPressed: () async {
-                    // فتح صفحة إضافة دواء
                     final result = await Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => const AddNewDrugView(),
                       ),
                     );
-
-                    // إضافة التذكير بعد العودة
-                    if (result != null && result is String) {
+                    if (result != null && result is Reminder) {
                       onAddReminder(result);
                     }
                   },

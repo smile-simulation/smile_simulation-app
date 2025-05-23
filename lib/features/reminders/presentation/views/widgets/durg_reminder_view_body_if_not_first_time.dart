@@ -3,26 +3,56 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
+import 'package:smile_simulation/features/reminders/data/models/reminder.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/edit_drug_reminder_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_container_for_reminders_features.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_picker_image.dart';
 
-// ✅ Make sure you have this file and screen:
-
-
 class DrugReminderViewBodyIfNotFirstTime extends StatefulWidget {
-  const DrugReminderViewBodyIfNotFirstTime({super.key});
+  final List<Reminder> reminders;
+  final void Function(Reminder) onUpdateReminder;
+  final void Function(String) onDeleteReminder;
+
+  const DrugReminderViewBodyIfNotFirstTime({
+    super.key,
+    required this.reminders,
+    required this.onUpdateReminder,
+    required this.onDeleteReminder,
+  });
 
   @override
   State<DrugReminderViewBodyIfNotFirstTime> createState() =>
-      _AddDrrugReminderViewBodyState();
+      _DrugReminderViewBodyIfNotFirstTimeState();
 }
 
-class _AddDrrugReminderViewBodyState
+class _DrugReminderViewBodyIfNotFirstTimeState
     extends State<DrugReminderViewBodyIfNotFirstTime> {
   bool isSelected = false;
+
+  Future<bool?> _showDeleteConfirmationDialog(BuildContext context, String drugName) {
+    return showDialog<bool>(
+      context: context,
+      builder: (context) => Directionality(
+        textDirection: TextDirection.rtl,
+        child: AlertDialog(
+          title: const Text('تأكيد الحذف'),
+          content: Text('هل أنت متأكد من حذف تذكير الدواء "$drugName"؟'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text('إلغاء'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: const Text('حذف', style: TextStyle(color: Colors.red)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +74,8 @@ class _AddDrrugReminderViewBodyState
                     style: AppTextStyles.headline2(context),
                   ),
                   CustomButton(
-                    title: isSelected == false ? "الغاء" : 'تعديل',
-                    isGreyBackground: isSelected == false,
+                    title: isSelected ? 'تعديل' : 'الغاء',
+                    isGreyBackground: !isSelected,
                     isExtraMinWidth: true,
                     onPressed: () {
                       setState(() {
@@ -56,93 +86,122 @@ class _AddDrrugReminderViewBodyState
                 ],
               ),
             ),
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                CustomContainerForReminderFeature(
-                  color: AppColors.primaryColor,
-                  widget: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+            Expanded(
+              child: ListView.builder(
+                itemCount: widget.reminders.length,
+                itemBuilder: (context, index) {
+                  final reminder = widget.reminders[index];
+                  return Stack(
+                    alignment: Alignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Image.asset(
-                          "assets/images/delete.png",
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(right: isSelected ? 0 : 70),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => EditDrugReminderView(),
-                        ),
-                      );
-                    },
-                    child: CustomContainerForReminderFeature(
-                      widget: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 8,
-                            ),
-                            child: CameraPickerWidget(width: 85, height: 85),
+                      if (isSelected)
+                        CustomContainerForReminderFeature(
+                          color: AppColors.primaryColor,
+                          widget: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: GestureDetector(
+                                  onTap: () async {
+                                    final confirm = await _showDeleteConfirmationDialog(
+                                        context, reminder.drugName);
+                                    if (confirm == true) {
+                                      widget.onDeleteReminder(reminder.id);
+                                    }
+                                  },
+                                  child: Image.asset(
+                                    "assets/images/delete.png",
+                                    color: Colors.white,
+                                    width: 24,
+                                    height: 24,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                        ),
+                      Padding(
+                        padding: EdgeInsets.only(right: isSelected ? 0 : 70),
+                        child: GestureDetector(
+                          onTap: () async {
+                            final result = await Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => EditDrugReminderView(reminder: reminder),
+                              ),
+                            );
+                            if (result != null) {
+                              if (result is Reminder) {
+                                widget.onUpdateReminder(result);
+                              } else if (result is Map && result.containsKey('delete')) {
+                                widget.onDeleteReminder(result['delete']);
+                              }
+                            }
+                          },
+                          child: CustomContainerForReminderFeature(
+                            widget: Row(
                               children: [
-                                Text(
-                                  'اسم الدواء',
-                                  style: AppTextStyles.subTitle1(context)
-                                      .copyWith(color: AppColors.primaryColor),
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 8,
+                                  ),
+                                  child: CameraPickerWidget(width: 85, height: 85),
                                 ),
-                                const SizedBox(height: 18),
-                                Text(
-                                  'مرة واحدة يوميًا (الكمية 1)',
-                                  style: AppTextStyles.subTitle2(context),
-                                ),
-                                const SizedBox(height: 14),
-                                Row(
-                                  children: [
-                                    Text(
-                                      ' قبل تناول الطعام',
-                                      style: AppTextStyles.subTitle2(context),
-                                    ),
-                                    const SizedBox(width: 15),
-                                    Text(
-                                      '  7:00 صباحًا',
-                                      style: AppTextStyles.subTitle2(context),
-                                    ),
-                                  ],
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 16),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        reminder.drugName,
+                                        style: AppTextStyles.subTitle1(context)
+                                            .copyWith(color: AppColors.primaryColor),
+                                      ),
+                                      const SizedBox(height: 18),
+                                      Text(
+                                        '${reminder.frequency} (${reminder.dosage})',
+                                        style: AppTextStyles.subTitle2(context),
+                                      ),
+                                      const SizedBox(height: 14),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            reminder.mealTiming,
+                                            style: AppTextStyles.subTitle2(context),
+                                          ),
+                                          const SizedBox(width: 15),
+                                          Text(
+                                            reminder.time,
+                                            style: AppTextStyles.subTitle2(context),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
                           ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ),
-                ),
-              ],
+                    ],
+                  );
+                },
+              ),
             ),
             const SizedBox(height: 30),
             CustomeReminderButton(
-              text: ' إضافة تذكير جديد',
-              onPressed: () {
-                // Example: you can send reminder info back
-                Navigator.of(context).push(
+              text: 'إضافة تذكير جديد',
+              onPressed: () async {
+                final result = await Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => AddNewDrugView(),
+                    builder: (context) => const AddNewDrugView(),
                   ),
                 );
+                if (result != null && result is Reminder) {
+                  widget.onUpdateReminder(result);
+                }
               },
             ),
           ],

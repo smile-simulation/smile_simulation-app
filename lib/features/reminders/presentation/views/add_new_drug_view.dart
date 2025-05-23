@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
+import 'package:smile_simulation/features/reminders/data/models/reminder.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/date_of_stopping_taking_medicin.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/medicine_time_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/repeat_day_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/time_and_quantity_section.dart';
+import 'package:uuid/uuid.dart';
 
 class AddNewDrugView extends StatelessWidget {
   const AddNewDrugView({super.key});
@@ -17,22 +19,35 @@ class AddNewDrugView extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: customAppbar(context, title: 'اضافة دواء جديد', isBack: true),
-        body: AddNewDrugViewBody(),
+        body: const AddNewDrugViewBody(),
       ),
     );
   }
 }
 
 class AddNewDrugViewBody extends StatefulWidget {
+  const AddNewDrugViewBody({super.key});
+
   @override
-  _AddNewDrugScreenBodyState createState() => _AddNewDrugScreenBodyState();
+  _AddNewDrugViewBodyState createState() => _AddNewDrugViewBodyState();
 }
 
-class _AddNewDrugScreenBodyState extends State<AddNewDrugViewBody> {
+class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
   String? selectedTime;
   List<bool> daysSelected = List.generate(7, (_) => false);
+  String? dosage;
+  String? stopDate;
   final TextEditingController medicineNameController = TextEditingController();
-  final TextEditingController quantityController = TextEditingController();
+  final TextEditingController frequencyController = TextEditingController();
+  final TextEditingController timeController = TextEditingController();
+
+  @override
+  void dispose() {
+    medicineNameController.dispose();
+    frequencyController.dispose();
+    timeController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +59,9 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugViewBody> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                const SizedBox(height: 15),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Text(
                     "اضف الادوية التي تستخدمها الي تنبيهانك الطبية حتي نتمكن من تذكيرك بها اوقاتها المحددة",
                     style: TextStyle(fontSize: 14),
@@ -62,7 +77,7 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugViewBody> {
                     "أثناء تناول الطعام",
                   ],
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 RepeatDaysSection(
                   daysSelected: daysSelected,
                   onChanged: (index, value) {
@@ -71,22 +86,36 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugViewBody> {
                     });
                   },
                 ),
-                SizedBox(height: 16),
-                TimeAndQuantitySection(),
-                SizedBox(height: 16),
-                DateOfStoppingTakkingMedicin(),
-                Spacer(),
+                const SizedBox(height: 16),
+                TimeAndQuantitySection(
+                  frequencyController: frequencyController,
+                  timeController: timeController,
+                  dosage: dosage,
+                  onDosageChanged: (val) => setState(() => dosage = val),
+                ),
+                const SizedBox(height: 16),
+                DateOfStoppingTakingMedicin(
+                  stopDate: stopDate,
+                  onStopDateChanged: (val) => setState(() => stopDate = val),
+                ),
+                const Spacer(),
                 CustomButton(
                   title: 'اضافة الدواء',
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => AddNewDrugView(),
-                      ),
+                    final newReminder = Reminder(
+                      id: const Uuid().v4(),
+                      drugName: medicineNameController.text,
+                      frequency: frequencyController.text,
+                      dosage: dosage ?? 'معلقة',
+                      time: timeController.text,
+                      mealTiming: selectedTime ?? 'قبل تناول الطعام',
+                      stopDate: stopDate ?? 'دواء دائم',
+                      daysSelected: daysSelected,
                     );
+                    Navigator.of(context).pop(newReminder);
                   },
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
               ],
             ),
           ),
