@@ -1,10 +1,13 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import 'package:smile_simulation/features/reminders/data/models/reminder.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_container_for_reminders_features.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_drop_down_container.dart';
 import 'package:uuid/uuid.dart';
@@ -42,6 +45,7 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
   late TextEditingController mealTimingController;
   late String? dosage;
   late String? stopDate;
+  late String? imagePath;
   late List<bool> daysSelected;
   final List<String> dosageItems = ['معلقة', 'حباية', 'نص حباية'];
   final List<String> stopDateItems = ['دواء دائم', 'تاريخ معين'];
@@ -55,6 +59,7 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
     mealTimingController = TextEditingController(text: widget.reminder?.mealTiming ?? '');
     dosage = widget.reminder?.dosage ?? 'معلقة';
     stopDate = widget.reminder?.stopDate ?? 'دواء دائم';
+    imagePath = widget.reminder?.imagePath;
     daysSelected = widget.reminder?.daysSelected ?? List.generate(7, (_) => false);
   }
 
@@ -90,6 +95,15 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
     );
   }
 
+  Future<String?> _saveImage(String? tempPath) async {
+    if (tempPath == null) return null;
+    final directory = await getApplicationDocumentsDirectory();
+    final fileName = '${const Uuid().v4()}.jpg';
+    final newPath = '${directory.path}/$fileName';
+    await File(tempPath).copy(newPath);
+    return newPath;
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -113,16 +127,9 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                       ),
                     ),
                     const SizedBox(height: 18),
-                    Text(
-                      'اسم الدواء',
-                      style: AppTextStyles.subTitle2(context),
-                    ),
-                    const SizedBox(height: 8),
-                    CustomTextField(
-                      hintText: 'اسم الدواء',
-                      keyboardType: TextInputType.text,
-                      controller: drugNameController,
-                      fillColor: Colors.white,
+                    CameraSection(
+                      medicineNameController: drugNameController,
+                      onImagePicked: (path) => setState(() => imagePath = path),
                     ),
                     const SizedBox(height: 18),
                     Text('التكرار', style: AppTextStyles.subTitle2(context)),
@@ -188,7 +195,8 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                         CustomButton(
                           title: 'تعديل البيانات',
                           isMinWidth: true,
-                          onPressed: () {
+                          onPressed: () async {
+                            final savedImagePath = await _saveImage(imagePath);
                             final updatedReminder = Reminder(
                               id: widget.reminder?.id ?? const Uuid().v4(),
                               drugName: drugNameController.text,
@@ -198,6 +206,7 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                               mealTiming: mealTimingController.text,
                               stopDate: stopDate ?? 'دواء دائم',
                               daysSelected: daysSelected,
+                              imagePath: savedImagePath ?? imagePath,
                             );
                             Navigator.of(context).pop(updatedReminder);
                           },

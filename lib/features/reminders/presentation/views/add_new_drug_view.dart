@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
@@ -37,6 +39,7 @@ class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
   List<bool> daysSelected = List.generate(7, (_) => false);
   String? dosage;
   String? stopDate;
+  String? imagePath;
   final TextEditingController medicineNameController = TextEditingController();
   final TextEditingController frequencyController = TextEditingController();
   final TextEditingController timeController = TextEditingController();
@@ -47,6 +50,15 @@ class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
     frequencyController.dispose();
     timeController.dispose();
     super.dispose();
+  }
+
+  Future<String?> _saveImage(String? tempPath) async {
+    if (tempPath == null) return null;
+    final directory = await getApplicationDocumentsDirectory();
+    final fileName = '${const Uuid().v4()}.jpg';
+    final newPath = '${directory.path}/$fileName';
+    await File(tempPath).copy(newPath);
+    return newPath;
   }
 
   @override
@@ -67,7 +79,11 @@ class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
                     style: TextStyle(fontSize: 14),
                   ),
                 ),
-                CameraSection(),
+                CameraSection(
+                  medicineNameController: medicineNameController,
+                  onImagePicked: (path) => setState(() => imagePath = path),
+                ),
+                const SizedBox(height: 16),
                 MedicineTimeSection(
                   selectedTime: selectedTime,
                   onChanged: (val) => setState(() => selectedTime = val),
@@ -99,21 +115,32 @@ class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
                   onStopDateChanged: (val) => setState(() => stopDate = val),
                 ),
                 const Spacer(),
-                CustomButton(
-                  title: 'اضافة الدواء',
-                  onPressed: () {
-                    final newReminder = Reminder(
-                      id: const Uuid().v4(),
-                      drugName: medicineNameController.text,
-                      frequency: frequencyController.text,
-                      dosage: dosage ?? 'معلقة',
-                      time: timeController.text,
-                      mealTiming: selectedTime ?? 'قبل تناول الطعام',
-                      stopDate: stopDate ?? 'دواء دائم',
-                      daysSelected: daysSelected,
-                    );
-                    Navigator.of(context).pop(newReminder);
-                  },
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: CustomButton(
+                    title: 'اضافة الدواء',
+                    onPressed: () async {
+                      if (medicineNameController.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('يرجى إدخال اسم الدواء')),
+                        );
+                        return;
+                      }
+                      final savedImagePath = await _saveImage(imagePath);
+                      final newReminder = Reminder(
+                        id: const Uuid().v4(),
+                        drugName: medicineNameController.text,
+                        frequency: frequencyController.text,
+                        dosage: dosage ?? 'معلقة',
+                        time: timeController.text,
+                        mealTiming: selectedTime ?? 'قبل تناول الطعام',
+                        stopDate: stopDate ?? 'دواء دائم',
+                        daysSelected: daysSelected,
+                        imagePath: savedImagePath,
+                      );
+                      Navigator.of(context).pop(newReminder);
+                    },
+                  ),
                 ),
                 const SizedBox(height: 16),
               ],

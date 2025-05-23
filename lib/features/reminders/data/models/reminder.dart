@@ -9,6 +9,7 @@ class Reminder {
   final String mealTiming;
   final String stopDate;
   final List<bool> daysSelected;
+  final String? imagePath;
 
   Reminder({
     required this.id,
@@ -19,6 +20,7 @@ class Reminder {
     required this.mealTiming,
     required this.stopDate,
     required this.daysSelected,
+    this.imagePath,
   });
 
   Map<String, dynamic> toJson() {
@@ -31,6 +33,7 @@ class Reminder {
       'mealTiming': mealTiming,
       'stopDate': stopDate,
       'daysSelected': daysSelected,
+      'imagePath': imagePath,
     };
   }
 
@@ -44,6 +47,7 @@ class Reminder {
       mealTiming: json['mealTiming'],
       stopDate: json['stopDate'],
       daysSelected: List<bool>.from(json['daysSelected']),
+      imagePath: json['imagePath'],
     );
   }
 

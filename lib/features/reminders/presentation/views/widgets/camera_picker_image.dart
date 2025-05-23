@@ -5,8 +5,14 @@ import 'package:image_picker/image_picker.dart';
 class CameraPickerWidget extends StatefulWidget {
   final double width;
   final double height;
+  final void Function(String?)? onImagePicked;
 
-  const CameraPickerWidget({super.key, this.width = 80, this.height = 80});
+  const CameraPickerWidget({
+    super.key,
+    this.width = 80,
+    this.height = 80,
+    this.onImagePicked,
+  });
 
   @override
   State<CameraPickerWidget> createState() => _CameraPickerWidgetState();
@@ -23,6 +29,7 @@ class _CameraPickerWidgetState extends State<CameraPickerWidget> {
       setState(() {
         _imageFile = File(pickedFile.path);
       });
+      widget.onImagePicked?.call(pickedFile.path);
     }
   }
 
@@ -33,16 +40,15 @@ class _CameraPickerWidgetState extends State<CameraPickerWidget> {
       child: SizedBox(
         width: widget.width,
         height: widget.height,
-        child:
-            _imageFile != null
-                ? Image.file(
-                  _imageFile!,
-                  fit: BoxFit.cover, // الصورة تملأ المكان المحدد
-                )
-                : Image.asset(
-                  'assets/images/camera.png',
-                  fit: BoxFit.cover, // نفس الشيء لصورة الكاميرا
-                ),
+        child: _imageFile != null
+            ? Image.file(
+                _imageFile!,
+                fit: BoxFit.cover,
+              )
+            : Image.asset(
+                'assets/images/camera.png',
+                fit: BoxFit.cover,
+              ),
       ),
     );
   }

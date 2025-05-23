@@ -1,37 +1,15 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'camera_picker_image.dart'; // ✅ استورد الودجت الجديدة
+import 'camera_picker_image.dart';
 
-class CameraSection extends StatefulWidget {
-  const CameraSection({Key? key}) : super(key: key);
+class CameraSection extends StatelessWidget {
+  final TextEditingController medicineNameController;
+  final void Function(String?)? onImagePicked;
 
-  @override
-  State<CameraSection> createState() => _CameraSectionState();
-}
-
-class _CameraSectionState extends State<CameraSection> {
-  final TextEditingController _medicineNameController = TextEditingController();
-  File? _imageFile;
-
-  @override
-  void dispose() {
-    _medicineNameController.dispose();
-    super.dispose();
-  }
-
-  Future<void> _takePicture() async {
-    final pickedFile = await ImagePicker().pickImage(
-      source: ImageSource.camera,
-    );
-    if (pickedFile != null) {
-      setState(() {
-        _imageFile = File(pickedFile.path);
-      });
-    } else {
-      print("لم يتم اختيار صورة.");
-    }
-  }
+  const CameraSection({
+    super.key,
+    required this.medicineNameController,
+    this.onImagePicked,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +20,11 @@ class _CameraSectionState extends State<CameraSection> {
         children: [
           Row(
             children: [
-              // ✅ زر الكاميرا بعد الفصل
-              CameraPickerWidget(),
+              CameraPickerWidget(
+                width: 80,
+                height: 80,
+                onImagePicked: onImagePicked,
+              ),
               const SizedBox(width: 8),
               Expanded(
                 child: Column(
@@ -66,7 +47,7 @@ class _CameraSectionState extends State<CameraSection> {
                         border: Border.all(color: Colors.grey.shade300),
                       ),
                       child: TextField(
-                        controller: _medicineNameController,
+                        controller: medicineNameController,
                         textAlign: TextAlign.right,
                         decoration: const InputDecoration(
                           hintText: 'اسم الدواء',
