@@ -27,7 +27,7 @@ class _DrugReminderViewState extends State<DrugReminderView> {
         appBar: customAppbar(context, title: 'منبه الدواء', isBack: true),
         body: reminders.isEmpty
             ? DrugReminderViewBodyIfNotFirstTime()
-            :  DrugReminderViewBodyIfFirstTime(onAddReminder: addReminder),
+            :  DrugReminderViewBodyIfFirstTime(onAddReminder: addReminder,),
       ),
     );
   }
