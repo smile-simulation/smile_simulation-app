@@ -127,6 +127,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/policies_and_conditions/privacy_policy.md
+    - assets/policies_and_conditions/terms_and_conditions.md
     - assets/
     - assets/fonts/
     - assets/images/

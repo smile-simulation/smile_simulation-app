@@ -71,10 +71,15 @@ class MoreViewBody extends StatelessWidget {
                     MoreActionItemListTile(
                       iconPath: Assets.imagesPrivacyPolicyIcon,
                       title: S.of(context).privacyPolicy,
-                      onTap: () {
+                      onTap: () async {
                         showDialog(
                           context: context,
-                          builder: (context) => PolicyPoliciesDialog(),
+                          builder:
+                              (context) => PolicyPoliciesDialog(
+                                title: "Privacy Policy",
+                                path:
+                                    "assets/policies_and_conditions/privacy_policy.md",
+                              ),
                         );
                       },
                     ),
@@ -82,7 +87,17 @@ class MoreViewBody extends StatelessWidget {
                     MoreActionItemListTile(
                       iconPath: Assets.imagesPrivacyPolicyIcon,
                       title: S.of(context).termsAndConditions,
-                      onTap: () {},
+                      onTap: () async {
+                        showDialog(
+                          context: context,
+                          builder:
+                              (context) => PolicyPoliciesDialog(
+                                title: "Terms And Conditions",
+                                path:
+                                    "assets/policies_and_conditions/terms_and_conditions.md",
+                              ),
+                        );
+                      },
                     ),
                     _buildDivider(),
                     MoreActionItemListTile(

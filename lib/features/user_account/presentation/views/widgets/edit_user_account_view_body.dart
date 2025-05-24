@@ -12,10 +12,12 @@ class EditUserAccountViewBody extends StatelessWidget {
     super.key,
     required this.userName,
     this.userImage,
+    required this.rebuild,
   });
 
   final String userName;
   final String? userImage;
+  final Function() rebuild;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,6 +26,7 @@ class EditUserAccountViewBody extends StatelessWidget {
           currentUser: true,
           userName: userName,
           userImage: userImage,
+          rebuild: rebuild,
         ),
         Expanded(
           child: Container(

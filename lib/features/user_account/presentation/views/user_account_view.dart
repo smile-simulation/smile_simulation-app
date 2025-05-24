@@ -62,6 +62,9 @@ class _UserAccountViewState extends State<UserAccountView> {
           userId: widget.userId,
           userName: widget.userName,
           userImage: widget.userImage,
+          rebuild: () {
+            setState(() {});
+          },
         ),
       ),
     );
