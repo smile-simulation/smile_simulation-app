@@ -27,7 +27,7 @@ class SearchPatients extends StatelessWidget {
                 CustomTextField(
                   hintText: 'ادخل الرقم التعريفي الخاص بالمريض',
                   keyboardType: TextInputType.text,
-                  onSaved: (value) {
+                  onChanged: (value) {
                     userId = value!;
                     logger.d(value);
                   },

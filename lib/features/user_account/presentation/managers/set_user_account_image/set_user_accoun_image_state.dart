@@ -1,26 +1,32 @@
 part of 'set_user_accoun_image_cubit.dart';
 
-sealed class SetUserAccounImageState extends Equatable {
+abstract class SetUserAccounImageState extends Equatable {
   const SetUserAccounImageState();
 
   @override
   List<Object> get props => [];
 }
 
-final class SetUserAccounImageInitial extends SetUserAccounImageState {}
+class SetUserAccounImageInitial extends SetUserAccounImageState {}
 
-final class ImagePickedSuccess extends SetUserAccounImageState {}
+class SetUserAccounImageLoading extends SetUserAccounImageState {}
 
-final class ImagePickedFailture extends SetUserAccounImageState {}
+class SetUserAccounImageSuccess extends SetUserAccounImageState {
+  final String imageLink;
 
-final class ImagePickedLoading extends SetUserAccounImageState {}
+  const SetUserAccounImageSuccess({required this.imageLink});
 
-final class SetUserAccounImageSuccess extends SetUserAccounImageState {}
-
-final class SetUserAccounImageFail extends SetUserAccounImageState {
-  final String errorMsg;
-
-  SetUserAccounImageFail({required this.errorMsg});
+  @override
+  List<Object> get props => [imageLink];
 }
 
-final class SetUserAccounImageLoading extends SetUserAccounImageState {}
+class SetUserAccounImageFail extends SetUserAccounImageState {
+  final String errorMsg;
+
+  const SetUserAccounImageFail({required this.errorMsg});
+
+  @override
+  List<Object> get props => [errorMsg];
+}
+
+class ImagePickedFailture extends SetUserAccounImageState {}

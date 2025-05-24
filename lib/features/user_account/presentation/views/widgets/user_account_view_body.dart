@@ -16,12 +16,13 @@ class UserAccountViewBody extends StatelessWidget {
     required this.userId,
     required this.userName,
     required this.userImage,
+    required this.rebuild,
   });
   final bool currentUser;
   final String userId;
   final String userName;
   final String? userImage;
-
+  final Function() rebuild;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,6 +31,7 @@ class UserAccountViewBody extends StatelessWidget {
           currentUser: currentUser,
           userName: userName,
           userImage: userImage,
+          rebuild: rebuild,
         ),
         MultiBlocProvider(
           providers: [

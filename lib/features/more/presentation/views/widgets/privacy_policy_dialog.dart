@@ -1,11 +1,20 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:markdown_widget/markdown_widget.dart';
+import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
 class PolicyPoliciesDialog extends StatelessWidget {
   final double radius;
-
-  PolicyPoliciesDialog({this.radius = 8});
+  final String title;
+  final String path;
+  const PolicyPoliciesDialog({
+    this.radius = 8,
+    super.key,
+    required this.title,
+    required this.path,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,26 +25,32 @@ class PolicyPoliciesDialog extends StatelessWidget {
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.6,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text(
+              title,
+              style: AppTextStyles.headline2(
+                context,
+              ).copyWith(decoration: TextDecoration.underline),
+            ),
             Expanded(
               child: FutureBuilder<String>(
-                future: rootBundle.loadString(
-                  'assets/policies_and_conditions/privacy_policy.md',
-                ),
+                future: DefaultAssetBundle.of(context).loadString(path),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
-                    if (snapshot.hasError) {
-                      print('Error loading file: ${snapshot.error}');
-                      return Center(child: Text('Error loading policy'));
+                    if (snapshot.hasError || !snapshot.hasData) {
+                      log('Error loading file: ${snapshot.error}');
+                      return const Center(child: Text('Error loading policy'));
                     }
 
                     return MarkdownWidget(
-                      data: '',
+                      padding: EdgeInsets.all(8),
+                      data: snapshot.data!,
                       shrinkWrap: true,
                     );
                   }
 
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 },
               ),
             ),

@@ -16,15 +16,19 @@ class UserAccountHeader extends StatelessWidget {
     required this.currentUser,
     required this.userName,
     required this.userImage,
+    required this.rebuild,
   });
   final bool currentUser;
   final String userName;
   final String? userImage;
+  final Function() rebuild;
   @override
   Widget build(BuildContext context) {
     log("this user image: $userImage");
     return BlocProvider(
-      create: (context) => SetUserAccounImageCubit(getIt<SetUserAccountImageRepoImpl>()),
+      create:
+          (context) =>
+              SetUserAccounImageCubit(getIt<SetUserAccountImageRepoImpl>()),
       child: SizedBox(
         height: 164 + kToolbarHeight + 40,
         child: Column(
@@ -32,7 +36,7 @@ class UserAccountHeader extends StatelessWidget {
             SizedBox(height: kToolbarHeight + 40),
             Stack(
               children: [
-                UserAccountImageBuilder(userImage: userImage),
+                UserAccountImageBuilder(userImage: userImage, rebuild: rebuild),
                 Visibility(visible: currentUser, child: SetUserImageButton()),
               ],
             ),

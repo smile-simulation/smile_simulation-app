@@ -56,10 +56,10 @@ class CustomFlexibleAppBar extends StatelessWidget {
               ).copyWith(color: AppColors.whiteColor),
             ),
           ),
-          InkWell(
-            onTap: () {},
-            child: SvgPicture.asset(Assets.imagesNotification),
-          ),
+          // InkWell(
+          //   onTap: () {},
+          //   child: SvgPicture.asset(Assets.imagesNotification),
+          // ),
           SizedBox(width: 12),
           InkWell(
             onTap: () {
