@@ -17,6 +17,7 @@ import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../main.dart';
 import '../setting_view.dart';
 import 'more_action_item_list_tile.dart';
+import 'privacy_policy_dialog.dart';
 
 class MoreViewBody extends StatelessWidget {
   const MoreViewBody({super.key});
@@ -35,18 +36,18 @@ class MoreViewBody extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   "حول التطبيق",
-                  style: AppTextStyles.headline2(
-                    context,
-                  ).copyWith(color: AppColors.greyColor),
+                  style: AppTextStyles.headline2(context).copyWith(
+                    color: AppColors.greyColor,
+                  ),
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Container(
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(12),
                 ),
-                margin: EdgeInsets.symmetric(horizontal: 16),
+                margin: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
                     MoreActionItemListTile(
@@ -60,13 +61,7 @@ class MoreViewBody extends StatelessWidget {
                         );
                       },
                     ),
-                    Divider(
-                      color: AppColors.meduimLightGrey,
-                      height: 0,
-                      thickness: 1.5,
-                      endIndent: 16,
-                      indent: 16,
-                    ),
+                    _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesSettingsIcon,
                       title: "الإعدادات",
@@ -77,49 +72,36 @@ class MoreViewBody extends StatelessWidget {
                         );
                       },
                     ),
-                    Divider(
-                      color: AppColors.meduimLightGrey,
-                      height: 0,
-                      thickness: 1.5,
-                      endIndent: 16,
-                      indent: 16,
-                    ),
+                    _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesPrivacyPolicyIcon,
                       title: "سياسة الخصوصية",
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => PolicyPoliciesDialog(),
+                        );
+                      },
+                    ),
+                    _buildDivider(),
+                    MoreActionItemListTile(
+                      iconPath: Assets.imagesPrivacyPolicyIcon,
+                      title: "الشروط والاحكام",
                       onTap: () {},
                     ),
-                    Divider(
-                      color: AppColors.meduimLightGrey,
-                      height: 0,
-                      thickness: 1.5,
-                      endIndent: 16,
-                      indent: 16,
-                    ),
+                    _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesRateAppIcon,
                       title: "تقييم التطبيق",
                       onTap: () {},
                     ),
-                    Divider(
-                      color: AppColors.meduimLightGrey,
-                      height: 0,
-                      thickness: 1.5,
-                      endIndent: 16,
-                      indent: 16,
-                    ),
+                    _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesShareIcon,
                       title: "مشاركة التطبيق",
                       onTap: () {},
                     ),
-                    Divider(
-                      color: AppColors.meduimLightGrey,
-                      height: 0,
-                      thickness: 1.5,
-                      endIndent: 16,
-                      indent: 16,
-                    ),
+                    _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesContactUsIcon,
                       title: "تواصل معنا",
@@ -149,22 +131,18 @@ class MoreViewBody extends StatelessWidget {
                       title: "تأكيد",
                       isMinWidth: true,
                       onPressed: () async {
-                        CacheHelper.sharedPreferences.setBool(
-                          isSuccessLogin,
-                          false,
-                        );
+                        CacheHelper.sharedPreferences
+                            .setBool(isSuccessLogin, false);
                         CacheHelper().removeMap(key: personalData);
-          
                         CacheHelper().removeData(key: userData);
                         await customSuccess(
                           context,
                           massage: "تم تسجيل الخروج بنجاح",
                         );
-          
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SmileSimulation(),
+                            builder: (context) => const SmileSimulation(),
                           ),
                           (route) => false,
                         );
@@ -172,7 +150,6 @@ class MoreViewBody extends StatelessWidget {
                     ),
                   ).show();
                 },
-          
                 borderRadius: BorderRadius.circular(12),
                 child: Container(
                   decoration: BoxDecoration(
@@ -180,8 +157,9 @@ class MoreViewBody extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   height: 50,
-                  margin: EdgeInsets.symmetric(horizontal: 16),
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  margin: const EdgeInsets.symmetric(horizontal: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Center(
                     child: Row(
                       children: [
@@ -199,10 +177,21 @@ class MoreViewBody extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 24),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildDivider() {
+    return const Divider(
+      color: AppColors.meduimLightGrey,
+      height: 0,
+      thickness: 1.5,
+      endIndent: 16,
+      indent: 16,
     );
   }
 }

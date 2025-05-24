@@ -17,8 +17,7 @@ class CustomTextField extends StatelessWidget {
     this.borderColor = const Color(0xffF8F8F8),
     this.hintTextColor = AppColors.greyLightColor,
     this.cursorColor = AppColors.primaryColor,
-    this.suffixIconColor = AppColors.greyColor, // 🆕 Default color
-    this.readOnly = false,
+    this.suffixIconColor = AppColors.greyColor,
   });
 
   final String? title;
@@ -29,14 +28,12 @@ class CustomTextField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final bool obscureText;
-  final bool readOnly;
 
-  // Customizable colors
   final Color fillColor;
   final Color borderColor;
   final Color hintTextColor;
   final Color cursorColor;
-  final Color suffixIconColor; // 🆕 New variable
+  final Color suffixIconColor;
 
   @override
   Widget build(BuildContext context) {
