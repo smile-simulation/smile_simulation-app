@@ -2,31 +2,30 @@
 class Assets {
   Assets._();
 
-  static const String assetsImagesAdviceBackground =
-      'assets/images/advice_background.png';
+  static const String assetsImagesAdviceBackground = 'assets/images/advice_background.png';
   static const String fontsCairoBold = 'assets/fonts/Cairo-Bold.ttf';
   static const String fontsCairoMedium = 'assets/fonts/Cairo-Medium.ttf';
   static const String fontsCairoRegular = 'assets/fonts/Cairo-Regular.ttf';
   static const String fontsCairoSemiBold = 'assets/fonts/Cairo-SemiBold.ttf';
   static const String fontsNotoSansSCBold = 'assets/fonts/NotoSansSC-Bold.ttf';
-  static const String fontsNotoSansSCMedium =
-      'assets/fonts/NotoSansSC-Medium.ttf';
-  static const String fontsNotoSansSCRegular =
-      'assets/fonts/NotoSansSC-Regular.ttf';
-  static const String fontsNotoSansSCSemiBold =
-      'assets/fonts/NotoSansSC-SemiBold.ttf';
-  static const String imagesAdviceBackground =
-      'assets/images/advice_background.jpg';
-  static const String imagesBottomNavBarPointer =
-      'assets/images/bottom_nav_bar_pointer.png';
+  static const String fontsNotoSansSCMedium = 'assets/fonts/NotoSansSC-Medium.ttf';
+  static const String fontsNotoSansSCRegular = 'assets/fonts/NotoSansSC-Regular.ttf';
+  static const String fontsNotoSansSCSemiBold = 'assets/fonts/NotoSansSC-SemiBold.ttf';
+  static const String imagesAccountDelete = 'assets/images/account-delete.svg';
+  static const String imagesAdviceBackground = 'assets/images/advice_background.jpg';
+  static const String imagesBottomNavBarPointer = 'assets/images/bottom_nav_bar_pointer.png';
   static const String imagesCamera = 'assets/images/camera.png';
+  static const String imagesChageLanguge = 'assets/images/chage_languge.svg';
+  static const String imagesChagePassword = 'assets/images/chage_password.svg';
   static const String imagesChat = 'assets/images/chat.svg';
   static const String imagesClock = 'assets/images/clock.png';
   static const String imagesComment = 'assets/images/comment.svg';
-  static const String imagesDailyCareImage =
-      'assets/images/daily_care_image.png';
+  static const String imagesContactUsIcon = 'assets/images/contact_us_icon.svg';
+  static const String imagesDailyCareImage = 'assets/images/daily_care_image.png';
   static const String imagesDelete = 'assets/images/delete.png';
   static const String imagesDentalCare = 'assets/images/dental-care.svg';
+  static const String imagesDoctorIcon = 'assets/images/doctor_icon.svg';
+  static const String imagesEditDrugReminder = 'assets/images/edit_drug_reminder.png';
   static const String imagesEllipse1 = 'assets/images/Ellipse1.png';
   static const String imagesEllipse2 = 'assets/images/Ellipse2.png';
   static const String imagesEllipse3 = 'assets/images/Ellipse3.png';
@@ -36,56 +35,45 @@ class Assets {
   static const String imagesHome = 'assets/images/home.svg';
   static const String imagesInput = 'assets/images/input.svg';
   static const String imagesLike = 'assets/images/like.svg';
-  static const String imagesLogoOfChatBot =
-      'assets/images/logo_of_chat_bot.png';
-  static const String imagesManageSignUpBackground =
-      'assets/images/manageSignUpBackground.png';
+  static const String imagesLogoOfChatBot = 'assets/images/logo_of_chat_bot.png';
+  static const String imagesLogoutIcon = 'assets/images/logout_icon.svg';
+  static const String imagesManageSignUpBackground = 'assets/images/manageSignUpBackground.png';
   static const String imagesManageSignup = 'assets/images/manageSignup.png';
   static const String imagesMedical = 'assets/images/medical.svg';
-  static const String imagesMedicalRecordImage =
-      'assets/images/MedicalRecordImage.png';
+  static const String imagesMedicalRecordImage = 'assets/images/MedicalRecordImage.png';
   static const String imagesMore = 'assets/images/more.svg';
   static const String imagesNotification = 'assets/images/notification.svg';
+  static const String imagesNotification2 = 'assets/images/notification2.svg';
   static const String imagesOnBoarding1 = 'assets/images/onBoarding1.png';
   static const String imagesOnBoarding2 = 'assets/images/onBoarding2.png';
   static const String imagesOnBoarding3 = 'assets/images/onBoarding3.png';
   static const String imagesOnBoarding4 = 'assets/images/onBoarding4.png';
   static const String imagesOnBoarding5 = 'assets/images/onBoarding5.png';
-  static const String imagesOnBoardingShap1 =
-      'assets/images/onBoardingShap1.png';
-  static const String imagesOnBoardingShap2 =
-      'assets/images/onBoardingShap2.png';
-  static const String imagesOnBoardingShap3 =
-      'assets/images/onBoardingShap3.png';
-  static const String imagesOnBoardingShap4 =
-      'assets/images/onBoardingShap4.png';
+  static const String imagesOnBoardingShap1 = 'assets/images/onBoardingShap1.png';
+  static const String imagesOnBoardingShap2 = 'assets/images/onBoardingShap2.png';
+  static const String imagesOnBoardingShap3 = 'assets/images/onBoardingShap3.png';
+  static const String imagesOnBoardingShap4 = 'assets/images/onBoardingShap4.png';
   static const String imagesPostImage = 'assets/images/post_image.png';
+  static const String imagesPrivacyPolicyIcon = 'assets/images/privacy_policy_icon.svg';
+  static const String imagesRateAppIcon = 'assets/images/rate_app_icon.svg';
+  static const String imagesRectangle = 'assets/images/Rectangle.png';
   static const String imagesReminder = 'assets/images/reminder.svg';
-  static const String imagesReminderDailyActivities =
-      'assets/images/reminder_daily_activities.png';
-  static const String imagesReminderDrugStimulant =
-      'assets/images/reminder_drug_stimulant.png';
-  static const String imagesReminderOtherTasks =
-      'assets/images/reminder_other_tasks.png';
-  static const String imagesReminderVisitingsDates =
-      'assets/images/reminder_visitings_dates.png';
+  static const String imagesReminderDailyActivities = 'assets/images/reminder_daily_activities.png';
+  static const String imagesReminderDrugStimulant = 'assets/images/reminder_drug_stimulant.png';
+  static const String imagesReminderOtherTasks = 'assets/images/reminder_other_tasks.png';
+  static const String imagesReminderVisitingsDates = 'assets/images/reminder_visitings_dates.png';
+  static const String imagesSa = 'assets/images/sa.svg';
   static const String imagesScanCamera = 'assets/images/scan-camera.svg';
   static const String imagesSearch = 'assets/images/search.svg';
   static const String imagesSearchPachint = 'assets/images/searchPachint.png';
-  static const String imagesSplash = 'assets/images/splash.png';
-  static const String imagesSplashAndroid12Logo =
-      'assets/images/splash_android12_logo.png';
-  static const String imagesUser = 'assets/images/user.png';
-  static const String imagesDoctorIcon = 'assets/images/doctor_icon.svg';
-  static const String imagesUserIcon = 'assets/images/user_icon.svg';
-
-  static const String imagesContactUsIcon = 'assets/images/contact_us_icon.svg';
-  static const String imagesLogoutIcon = 'assets/images/logout_icon.svg';
-  static const String imagesPrivacyPolicyIcon =
-      'assets/images/privacy_policy_icon.svg';
-  static const String imagesRateAppIcon = 'assets/images/rate_app_icon.svg';
   static const String imagesSettingsIcon = 'assets/images/settings_icon.svg';
   static const String imagesShareIcon = 'assets/images/share_icon.svg';
-  static const String imagesUserAccountIcon =
-      'assets/images/user_account_icon.svg';
+  static const String imagesSplash = 'assets/images/splash.png';
+  static const String imagesSplashAndroid12Logo = 'assets/images/splash_android12_logo.png';
+  static const String imagesUkm = 'assets/images/ukm.svg';
+  static const String imagesUser = 'assets/images/user.png';
+  static const String imagesUserAccountIcon = 'assets/images/user_account_icon.svg';
+  static const String imagesUserIcon = 'assets/images/user_icon.svg';
+  static const String imagesYes = 'assets/images/yes.svg';
+
 }

@@ -76,7 +76,10 @@
   "adviceContentError": "محتوى نصيحة غير متاح",
   "logOut": "تسجيل الخروج",
   "changeLanguage": "تغيير اللغة",
-  "noAdvicesExist":"لا يوجد نصائح",
-  "noCategoriesAdvicesExist":"لا يوجد اقسام نصائح حاليا",
-  "smileChat":"اسأل الذكاء الاصطناعي"
+  "noAdvicesExist": "لا يوجد نصائح",
+  "noCategoriesAdvicesExist": "لا يوجد اقسام نصائح حاليا",
+  "smileChat": "اسأل الذكاء الاصطناعي",
+  "language": "اللغة",
+  "arabic": "العربية",
+  "english": "الإنجليزية"
 }

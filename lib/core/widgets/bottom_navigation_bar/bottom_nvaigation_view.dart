@@ -13,13 +13,15 @@ import 'custom_bottom_navigation_bar.dart';
 
 class BottomNavigationView extends StatefulWidget {
   const BottomNavigationView({super.key});
+
   static const String routeName = 'bottomNavigationView';
+
   @override
   State<BottomNavigationView> createState() => _BottomNavigationViewState();
 }
 
 class _BottomNavigationViewState extends State<BottomNavigationView> {
-  int _selectedIndex = 4;
+  int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -36,6 +38,7 @@ class _BottomNavigationViewState extends State<BottomNavigationView> {
         : MedicalRecordManageView(),
     MoreView(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
