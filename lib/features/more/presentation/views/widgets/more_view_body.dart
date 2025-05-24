@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/database/cache/cache_helper.dart';
+import 'package:smile_simulation/core/helper_functions/my_launch_url.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
@@ -75,7 +79,7 @@ class MoreViewBody extends StatelessWidget {
                         showDialog(
                           context: context,
                           builder:
-                              (context) => PolicyPoliciesDialog(
+                              (context) => CustomPoliciesAndConditionsDialog(
                                 title: "Privacy Policy",
                                 path:
                                     "assets/policies_and_conditions/privacy_policy.md",
@@ -91,7 +95,7 @@ class MoreViewBody extends StatelessWidget {
                         showDialog(
                           context: context,
                           builder:
-                              (context) => PolicyPoliciesDialog(
+                              (context) => CustomPoliciesAndConditionsDialog(
                                 title: "Terms And Conditions",
                                 path:
                                     "assets/policies_and_conditions/terms_and_conditions.md",
@@ -103,19 +107,59 @@ class MoreViewBody extends StatelessWidget {
                     MoreActionItemListTile(
                       iconPath: Assets.imagesRateAppIcon,
                       title: S.of(context).rateApp,
-                      onTap: () {},
+                      onTap: () async {
+                        const playStoreUrl =
+                            'https://play.google.com/store/apps/details?id=com.simulation.smile';
+                        const appStoreUrl =
+                            'https://apps.apple.com/app/idYOUR_APP_ID'; // Replace with your App Store ID if available
+
+                        myLaunchUrl(
+                          url: Platform.isAndroid ? playStoreUrl : appStoreUrl,
+                        );
+                      },
                     ),
                     _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesShareIcon,
                       title: S.of(context).shareApp,
-                      onTap: () {},
+                      onTap: () {
+                        const appUrl =
+                            'https://play.google.com/store/apps/details?id=com.simulation.smile';
+                        const message =
+                            'Check out Smile Simulation App! It helps manage dental health with personalized advice and reminders🩵.\n\n Download it here: $appUrl';
+
+                        Share.share(
+                          message,
+                          subject: 'Try Smile Simulation App',
+                        );
+                      },
                     ),
                     _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesContactUsIcon,
                       title: S.of(context).contactUs,
-                      onTap: () {},
+                      onTap: () async {
+                        final emailUrl =
+                            Uri(
+                              scheme: 'mailto',
+                              path: 'MahmoudMagdy176203@gmail.com',
+                              queryParameters: {
+                                'subject': 'Smile Simulation Support',
+                                'body':
+                                    'Hello, I have a question about the app...\n\n\n\nApp ID: com.simulation.smile\nApp Version: 1.0.0\nDevice: ${Platform.operatingSystem}',
+                              },
+                            ).toString();
+
+                        try {
+                          await myLaunchUrl(url: emailUrl);
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Could not open email client: $e'),
+                            ),
+                          );
+                        }
+                      },
                     ),
                   ],
                 ),

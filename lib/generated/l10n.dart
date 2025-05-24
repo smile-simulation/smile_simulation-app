@@ -1400,6 +1400,16 @@ class S {
     );
   }
 
+  /// `About Account`
+  String get aboutAccount {
+    return Intl.message(
+      'About Account',
+      name: 'aboutAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Profile`
   String get profile {
     return Intl.message(
