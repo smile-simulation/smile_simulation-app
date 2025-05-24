@@ -7,8 +7,8 @@ import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
-import '../../../generated/l10n.dart';
-import '../../../main.dart';
+import '../../../../generated/l10n.dart';
+import '../../../../main.dart';
 
 
 

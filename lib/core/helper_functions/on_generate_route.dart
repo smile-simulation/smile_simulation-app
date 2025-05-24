@@ -22,6 +22,7 @@ import 'package:smile_simulation/features/auth/sign_up/presentation/view/manage_
 import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/create_post_view.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/post_view.dart';
+import 'package:smile_simulation/features/more/presentation/manage/cubits/change_password_cubit/change_password_cubit.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
 import '../../features/advices/presentation/views/advices/advice_view.dart';
@@ -36,7 +37,9 @@ import '../../features/medical_record/presentation/manage/cubits/update_personal
 import '../../features/medical_record/presentation/views/health_status_view.dart';
 import '../../features/medical_record/presentation/views/medical_record_view.dart';
 import '../../features/medical_record/presentation/views/personal_data_view.dart';
-import '../../features/more/presentation/language_view.dart';
+import '../../features/more/data/repos/change_password_repos/change_password_repo.dart';
+import '../../features/more/presentation/views/change_password_view.dart';
+import '../../features/more/presentation/views/language_view.dart';
 import '../../features/more/presentation/views/setting_view.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
 
@@ -196,6 +199,19 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => SettingView());
     case LanguageView.routeName:
       return MaterialPageRoute(builder: (_) => LanguageView());
+    case ChangePasswordView.routeName:
+      return MaterialPageRoute(builder: (_) =>
+
+          BlocProvider(
+            child: ChangePasswordView(),
+            create:
+                (context) => ChangePasswordCubit(
+               getIt.get<ChangePasswordRepo>(),
+            ),
+          ),
+
+
+          );
 
     default:
       return MaterialPageRoute(builder: (_) => Container());

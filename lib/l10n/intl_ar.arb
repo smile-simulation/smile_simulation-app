@@ -149,5 +149,11 @@
   "changePassword": "تغيير كلمة المرور",
   "notifications": "الإشعارات",
   "deleteAccountConfirmation": "هل أنت متأكد أنك تريد حذف الحساب ؟",
-  "deleteAccount": "حذف الحساب"
+  "deleteAccount": "حذف الحساب",
+  "confirmDialogTitle": "تأكيد",
+  "save": "حفظ",
+  "changePasswordPrompt": "أنت على وشك تغيير كلمة المرور الخاصة بك. يرجى إدخال كلمة مرور جديدة.",
+  "currentPassword": "كلمة المرور الحالية",
+  "newPassword": "كلمة المرور الجديدة",
+  "confirmNewPassword": "تأكيد كلمة المرور الجديدة"
 }

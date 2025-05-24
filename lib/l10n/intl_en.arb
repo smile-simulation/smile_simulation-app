@@ -134,7 +134,8 @@
   "addSpecialTasksInstructionPart1": "Add your special tasks to your reminders so we can",
   "addSpecialTasksInstructionPart2": "remind you at their specified times",
   "aboutApp": "About the App",
-  "aboutAccount": "About Account",
+
+  "aboutAccount": "About the Account",
   "profile": "Profile",
   "settings": "Settings",
   "privacyPolicy": "Privacy Policy",
@@ -150,5 +151,10 @@
   "notifications": "Notifications",
   "confirmDialogTitle": "Confirm",
   "deleteAccountConfirmation": "Are you sure you want to delete the account?",
-  "deleteAccount": "Delete Account"
+  "deleteAccount": "Delete Account",
+  "save": "Save",
+  "changePasswordPrompt": "You are about to change your password. Please enter a new password.",
+  "currentPassword": "Current Password",
+  "newPassword": "New Password",
+  "confirmNewPassword": "Confirm New Password"
 }
