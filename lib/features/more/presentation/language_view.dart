@@ -7,6 +7,7 @@ import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
+import '../../../generated/l10n.dart';
 import '../../../main.dart';
 
 
@@ -19,7 +20,7 @@ class LanguageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppbar(context, title: "اللغة", isBack: true),
+      appBar: customAppbar(context, title: S.of(context).language, isBack: true),
       body: CustomBodyScreen(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
@@ -29,7 +30,7 @@ class LanguageView extends StatelessWidget {
               const SizedBox(height: 8),
               InkWell(
                 onTap: () => _changeLanguage(context, 'ar'),
-                child: _languageRow(context, "العربية", Assets.imagesSa, localeNotifier.value.languageCode == 'ar'),
+                child: _languageRow(context, S.of(context).arabic, Assets.imagesSa, localeNotifier.value.languageCode == 'ar'),
               ),
               Divider(
                 color: AppColors.meduimLightGrey,
@@ -38,7 +39,7 @@ class LanguageView extends StatelessWidget {
               ),
               InkWell(
                 onTap: () => _changeLanguage(context, 'en'),
-                child: _languageRow(context, "الإنجليزية", Assets.imagesUkm, localeNotifier.value.languageCode == 'en'),
+                child: _languageRow(context, S.of(context).english, Assets.imagesUkm, localeNotifier.value.languageCode == 'en'),
               ),
             ],
           ),
