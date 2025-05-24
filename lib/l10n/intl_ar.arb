@@ -129,5 +129,8 @@
   "addDailyActivitiesInstructionPart1": "أضف الأنشطة اليومية الخاصة بك الى تذكيراتك حتى نتمكن",
   "addDailyActivitiesInstructionPart2": "من تذكيرك بها في أوقاتها المحدد",
   "addFirstReminder": "إضافة أول تذكير",
-  "addNewReminder": "إضافة تذكير جديد"
+  "addNewReminder": "إضافة تذكير جديد",
+  "addSpecialTasksPrompt": "أضف المهام الخاصة بك ... وسوف نذكرك بمواعيدها",
+  "addSpecialTasksInstructionPart1": "أضف مهامك الخاصة إلى تذكيراتك حتى نتمكن",
+  "addSpecialTasksInstructionPart2": "من تذكيرك بها في أوقاتها المحدد"
 }

@@ -129,5 +129,8 @@
   "addDailyActivitiesInstructionPart1": "Add your daily activities to your reminders so we can",
   "addDailyActivitiesInstructionPart2": "remind you at their specified times",
   "addFirstReminder": "Add First Reminder",
-  "addNewReminder": "Add New Reminder"
+  "addNewReminder": "Add New Reminder",
+  "addSpecialTasksPrompt": "Add your special tasks ... and we will remind you of their schedules",
+  "addSpecialTasksInstructionPart1": "Add your special tasks to your reminders so we can",
+  "addSpecialTasksInstructionPart2": "remind you at their specified times"
 }

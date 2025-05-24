@@ -1359,6 +1359,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Add your special tasks ... and we will remind you of their schedules`
+  String get addSpecialTasksPrompt {
+    return Intl.message(
+      'Add your special tasks ... and we will remind you of their schedules',
+      name: 'addSpecialTasksPrompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your special tasks to your reminders so we can`
+  String get addSpecialTasksInstructionPart1 {
+    return Intl.message(
+      'Add your special tasks to your reminders so we can',
+      name: 'addSpecialTasksInstructionPart1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `remind you at their specified times`
+  String get addSpecialTasksInstructionPart2 {
+    return Intl.message(
+      'remind you at their specified times',
+      name: 'addSpecialTasksInstructionPart2',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

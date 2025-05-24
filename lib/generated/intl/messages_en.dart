@@ -48,6 +48,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "addNewReminder":
             MessageLookupByLibrary.simpleMessage("Add New Reminder"),
         "addReminder": MessageLookupByLibrary.simpleMessage("Add New Reminder"),
+        "addSpecialTasksInstructionPart1": MessageLookupByLibrary.simpleMessage(
+            "Add your special tasks to your reminders so we can"),
+        "addSpecialTasksInstructionPart2": MessageLookupByLibrary.simpleMessage(
+            "remind you at their specified times"),
+        "addSpecialTasksPrompt": MessageLookupByLibrary.simpleMessage(
+            "Add your special tasks ... and we will remind you of their schedules"),
         "addVisitInstructionPart1": MessageLookupByLibrary.simpleMessage(
             "Add your medical visits to your reminders so we can"),
         "addVisitInstructionPart2": MessageLookupByLibrary.simpleMessage(
