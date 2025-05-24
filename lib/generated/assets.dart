@@ -56,12 +56,13 @@ class Assets {
   static const String imagesPostImage = 'assets/images/post_image.png';
   static const String imagesPrivacyPolicyIcon = 'assets/images/privacy_policy_icon.svg';
   static const String imagesRateAppIcon = 'assets/images/rate_app_icon.svg';
-  static const String imagesRectangle = 'assets/images/Rectangle 18 (1).png';
+  static const String imagesRectangle = 'assets/images/Rectangle.png';
   static const String imagesReminder = 'assets/images/reminder.svg';
   static const String imagesReminderDailyActivities = 'assets/images/reminder_daily_activities.png';
   static const String imagesReminderDrugStimulant = 'assets/images/reminder_drug_stimulant.png';
   static const String imagesReminderOtherTasks = 'assets/images/reminder_other_tasks.png';
   static const String imagesReminderVisitingsDates = 'assets/images/reminder_visitings_dates.png';
+  static const String imagesSa = 'assets/images/sa.svg';
   static const String imagesScanCamera = 'assets/images/scan-camera.svg';
   static const String imagesSearch = 'assets/images/search.svg';
   static const String imagesSearchPachint = 'assets/images/searchPachint.png';
@@ -69,8 +70,10 @@ class Assets {
   static const String imagesShareIcon = 'assets/images/share_icon.svg';
   static const String imagesSplash = 'assets/images/splash.png';
   static const String imagesSplashAndroid12Logo = 'assets/images/splash_android12_logo.png';
+  static const String imagesUkm = 'assets/images/ukm.svg';
   static const String imagesUser = 'assets/images/user.png';
   static const String imagesUserAccountIcon = 'assets/images/user_account_icon.svg';
   static const String imagesUserIcon = 'assets/images/user_icon.svg';
+  static const String imagesYes = 'assets/images/yes.svg';
 
 }

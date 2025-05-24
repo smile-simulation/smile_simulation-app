@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:smile_simulation/features/more/presentation/language_view.dart';
 import 'package:smile_simulation/features/more/presentation/views/widgets/more_action_item_list_tile.dart';
 import 'package:smile_simulation/features/more/presentation/views/widgets/more_view_body.dart';
 
@@ -75,7 +76,12 @@ class SettingViewBody extends StatelessWidget {
                   MoreActionItemListTile(
                     iconPath: Assets.imagesChageLanguge,
                     title: "تغيير اللغة",
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        LanguageView.routeName,
+                      );
+                    },
                   ),
                   Divider(
                     color: AppColors.meduimLightGrey,
