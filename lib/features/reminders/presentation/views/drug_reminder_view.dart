@@ -70,7 +70,7 @@ class _DrugReminderViewState extends State<DrugReminderView> {
       child: Scaffold(
         appBar: customAppbar(context, title: 'منبه الدواء', isBack: true),
         body: reminders.isEmpty
-            ? DrugReminderViewBodyIfFirstTime(onAddReminder: addReminder)
+            ? DrugReminderViewBodyIfFirstTime(onAddReminder:addReminder )
             : DrugReminderViewBodyIfNotFirstTime(
                 reminders: reminders,
                 onUpdateReminder: updateReminder,
