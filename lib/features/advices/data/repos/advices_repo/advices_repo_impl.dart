@@ -8,12 +8,10 @@ import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/api/end_point.dart';
 import 'package:smile_simulation/core/errors/exceptions.dart';
 import 'package:smile_simulation/core/errors/failure.dart';
-import 'package:smile_simulation/features/advices/data/dummy_data/json_advices_categories.dart';
 import 'package:smile_simulation/features/advices/data/models/advice/advice.dart';
 import 'package:smile_simulation/features/advices/data/models/advices_category/advices_category.dart';
 import 'package:smile_simulation/features/advices/data/repos/advices_repo/advices_repo.dart';
 
-import '../../dummy_data/json_advices.dart';
 
 class AdvicesRepoImpl implements AdvicesRepo {
   final DioConsumer dioConsumer;
@@ -56,8 +54,8 @@ class AdvicesRepoImpl implements AdvicesRepo {
     try {
       var response = await dioConsumer.get(EndPoint.allAdvicesCategories);
       List<AdvicesCategory> advicesCategories = [];
-      // List<dynamic> advicesCategoriesJsonList = response[ApiKeys.data];
-      List<dynamic> advicesCategoriesJsonList = jsonAdvicesCategories;
+      List<dynamic> advicesCategoriesJsonList = response[ApiKeys.data];
+      // List<dynamic> advicesCategoriesJsonList = jsonAdvicesCategories;
 
       for (Map<String, dynamic> advicesCategory in advicesCategoriesJsonList) {
         // log("Json Data: ${advicesCategory.toString()}");

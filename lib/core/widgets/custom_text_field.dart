@@ -18,8 +18,9 @@ class CustomTextField extends StatelessWidget {
     this.hintTextColor = AppColors.greyLightColor,
     this.cursorColor = AppColors.primaryColor,
     this.suffixIconColor = AppColors.greyColor,
+    this.readOnly,
   });
-
+  final bool? readOnly;
   final String? title;
   final String hintText;
   final TextInputType keyboardType;
@@ -47,7 +48,8 @@ class CustomTextField extends StatelessWidget {
           controller: controller,
           cursorColor: cursorColor,
           onSaved: onSaved,
-          validator: validator ??
+          validator:
+              validator ??
               (value) {
                 if (value == null || value.isEmpty) {
                   return 'هذا الحقل مطلوب';
@@ -60,15 +62,16 @@ class CustomTextField extends StatelessWidget {
             filled: true,
             fillColor: fillColor,
             hintText: hintText,
-            hintStyle: AppTextStyles.formLabel(context).copyWith(
-              color: hintTextColor,
-            ),
-            suffixIcon: suffixIcon != null
-                ? IconTheme(
-                    data: IconThemeData(color: suffixIconColor),
-                    child: suffixIcon!,
-                  )
-                : null,
+            hintStyle: AppTextStyles.formLabel(
+              context,
+            ).copyWith(color: hintTextColor),
+            suffixIcon:
+                suffixIcon != null
+                    ? IconTheme(
+                      data: IconThemeData(color: suffixIconColor),
+                      child: suffixIcon!,
+                    )
+                    : null,
             border: _buildOutlineInputBorder(),
             enabledBorder: _buildOutlineInputBorder(),
             focusedBorder: _focusedOutlineInputBorder(),
