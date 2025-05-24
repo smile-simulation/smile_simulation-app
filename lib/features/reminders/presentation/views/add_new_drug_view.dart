@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/widgets/date_of_stopping_taking_medicin.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/widgets/medicine_time_section.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/widgets/repeat_day_section.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/widgets/time_and_quantity_section.dart';
 
-import '../add_drug_reminder_view.dart';
-import 'camera_section.dart';
-import 'date_of_stopping_taking_medicin.dart';
-import 'medicine_time_section.dart';
-import 'repeat_day_section.dart';
-import 'time_and_quantity_section.dart';
+class AddNewDrugView extends StatelessWidget {
+  const AddNewDrugView({super.key});
 
-class AddNewDrugScreenBody extends StatefulWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: customAppbar(context, title: 'اضافة دواء جديد', isBack: true),
+        body: AddNewDrugViewBody(),
+      ),
+    );
+  }
+}
+
+class AddNewDrugViewBody extends StatefulWidget {
   @override
   _AddNewDrugScreenBodyState createState() => _AddNewDrugScreenBodyState();
 }
 
-class _AddNewDrugScreenBodyState extends State<AddNewDrugScreenBody> {
+class _AddNewDrugScreenBodyState extends State<AddNewDrugViewBody> {
   String? selectedTime;
   List<bool> daysSelected = List.generate(7, (_) => false);
   final TextEditingController medicineNameController = TextEditingController();
@@ -32,10 +46,7 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugScreenBody> {
               children: [
                 SizedBox(height: 15),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Text(
                     "اضف الادوية التي تستخدمها الي تنبيهانك الطبية حتي نتمكن من تذكيرك بها اوقاتها المحددة",
                     style: TextStyle(fontSize: 14),
@@ -64,14 +75,13 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugScreenBody> {
                 TimeAndQuantitySection(),
                 SizedBox(height: 16),
                 DateOfStoppingTakkingMedicin(),
-
                 Spacer(),
                 CustomButton(
                   title: 'اضافة الدواء',
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => AddDrugReminderView(),
+                        builder: (context) => AddNewDrugView(),
                       ),
                     );
                   },

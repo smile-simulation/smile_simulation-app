@@ -19,6 +19,10 @@ import 'core/services/local_notification_service.dart';
 import 'features/auth/login/presentation/view/login_view.dart';
 import 'features/on_boarding/presentation/view/on_boarding_view.dart';
 
+ValueNotifier<Locale> localeNotifier = ValueNotifier(
+  Locale(CacheHelper.sharedPreferences.getString('language') ?? 'ar'),
+);
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   WidgetsBinding.instance.deferFirstFrame();
@@ -28,7 +32,10 @@ Future<void> main() async {
   await LocalNotificationService().requestNotificationPermission();
   Bloc.observer = CustomBlocObserver();
   setupGetIt();
-
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -46,38 +53,40 @@ class SmileSimulation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'Cairo',
-        primaryColor: AppColors.primaryColor,
-        scaffoldBackgroundColor: AppColors.primaryColor,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.primaryColor,
-          surfaceTintColor: AppColors.primaryColor,
-          centerTitle: true,
-          elevation: 0,
-        ),
-      ),
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      locale: Locale(isArabic),
-      title: 'Smile Simulation',
-      color: AppColors.primaryColor,
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: onGenerateRoute,
-      initialRoute:
-          //  MyChatbotView.routeName,
-          CacheHelper.sharedPreferences.getBool(isSuccessLogin) == true
+    return ValueListenableBuilder<Locale>(
+      valueListenable: localeNotifier,
+      builder: (context, locale, _) {
+        return MaterialApp(
+          theme: ThemeData(
+            fontFamily: 'Cairo',
+            primaryColor: AppColors.primaryColor,
+            scaffoldBackgroundColor: AppColors.whiteColor,
+            appBarTheme: const AppBarTheme(
+              backgroundColor: AppColors.primaryColor,
+              surfaceTintColor: AppColors.primaryColor,
+              centerTitle: true,
+              elevation: 0,
+            ),
+          ),
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          locale: locale,
+          title: 'Smile Simulation',
+          color: AppColors.primaryColor,
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: onGenerateRoute,
+          initialRoute: CacheHelper.sharedPreferences.getBool(isSuccessLogin) == true
               ? BottomNavigationView.routeName
-              : CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) ==
-                  true
-              ? LoginView.routeName
-              : OnBoardingView.routeName,
+              : CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
+                  ? LoginView.routeName
+                  : OnBoardingView.routeName,
+        );
+      },
     );
   }
 }

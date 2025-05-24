@@ -13,7 +13,7 @@ class AddDailyActivitiesView extends StatelessWidget {
 
       child: Scaffold(
         appBar: customAppbar(context, title: 'الانشطة اليومية', isBack: true),
-        body:AddDailyActivitiesViewBody(),
+        body: AddDailyActivitiesViewBody(),
       ),
     );
   }

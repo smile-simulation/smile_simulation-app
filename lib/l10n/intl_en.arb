@@ -78,5 +78,8 @@
   "changeLanguage": "Change Language",
   "noAdvicesExist": "No advices exist",
   "noCategoriesAdvicesExist": "No categories of advices currently exist",
-  "smileChat":"Smile Chat"
+  "smileChat": "Smile Chat",
+  "language": "Language",
+  "arabic": "Arabic",
+  "english": "English"
 }

@@ -7,6 +7,9 @@ const isSuccessLogin = 'isSuccessLogin';
 const sharedPrefForgetToken = 'sharedPrefForgetToken';
 const userData = 'userData';
 const personalData = 'personalData';
-var logger = Logger();
-String userId = CacheHelper().getMap(key: userData)!['userName'] ?? "";
-String userType = CacheHelper().getMap(key: 'userData')!['role'] ?? "Patient";
+var logger = Logger(
+  printer: PrettyPrinter(),
+  level: Level.debug, // يمكنك تخصيص المستوى حسب الحاجة
+);
+String userId = CacheHelper().getMap(key: userData)?['userName'] ?? "moh";
+String userType = CacheHelper().getMap(key: userData)?['role'] ?? "Patient";

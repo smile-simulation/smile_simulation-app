@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/drug_reminder_view_body.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/widgets/drug_reminder_view_body_if_first_time.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/other_tasking_view_body.dart';
 
 class OtherTasksView extends StatelessWidget {

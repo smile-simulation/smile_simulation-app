@@ -18,7 +18,6 @@ class CustomTextField extends StatelessWidget {
     this.hintTextColor = AppColors.greyLightColor,
     this.cursorColor = AppColors.primaryColor,
     this.suffixIconColor = AppColors.greyColor,
-    this.readOnly = false,
   });
 
   final String? title;
@@ -29,7 +28,6 @@ class CustomTextField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final bool obscureText;
-  final bool readOnly;
 
   final Color fillColor;
   final Color borderColor;
@@ -48,8 +46,7 @@ class CustomTextField extends StatelessWidget {
         TextFormField(
           controller: controller,
           cursorColor: cursorColor,
-          readOnly: readOnly,
-          onChanged: onSaved,
+          onSaved: onSaved,
           validator: validator ??
               (value) {
                 if (value == null || value.isEmpty) {

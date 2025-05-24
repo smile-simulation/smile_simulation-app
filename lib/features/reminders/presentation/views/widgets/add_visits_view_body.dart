@@ -3,7 +3,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_screen.dart';
+import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_container_for_reminders_features.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
 
@@ -114,7 +114,7 @@ class _AddDrrugReminderViewBodyState extends State<AddVisitsViewBody> {
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => AddNewDrugScreen(),
+                          builder: (context) => AddNewDrugView(),
                         ),
                       );
                     },

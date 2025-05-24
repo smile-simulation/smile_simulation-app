@@ -20,17 +20,16 @@ class MedicalRecordView extends StatelessWidget {
       appBar: customAppbar(context, title: 'السجل العلاجي', isBack: true),
       body: Column(
         children: [
-          Padding(
+          Container(
+            color: AppColors.primaryColor,
             padding: const EdgeInsets.all(8.0),
             child: CustomTextField(
               hintText: 'بحث',
               keyboardType: TextInputType.text,
-              suffixIcon: Center(
-                child: SvgPicture.asset(
-                  Assets.imagesSearch,
-                  fit: BoxFit.scaleDown,
-                  color: Colors.grey,
-                ),
+              suffixIcon: SvgPicture.asset(
+                Assets.imagesSearch,
+                fit: BoxFit.scaleDown,
+                color: Colors.grey,
               ),
             ),
           ),
@@ -170,10 +169,12 @@ class _ExpandableTreatmentCardState extends State<ExpandableTreatmentCard> {
       duration: const Duration(milliseconds: 300),
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+
       decoration: BoxDecoration(
         color: const Color(0xFF66BAD0).withOpacity(0.1),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.greyColor),
+
       ),
       child: Column(
         children: [
