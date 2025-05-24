@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aboutAccount":
+            MessageLookupByLibrary.simpleMessage("About the Account"),
         "aboutApp": MessageLookupByLibrary.simpleMessage("About the App"),
         "academicCertificate":
             MessageLookupByLibrary.simpleMessage("Academic certificate"),
@@ -79,17 +81,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change Language"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
+        "changePasswordPrompt": MessageLookupByLibrary.simpleMessage(
+            "You are about to change your password. Please enter a new password."),
         "comment": MessageLookupByLibrary.simpleMessage("Comment"),
         "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
         "comments": MessageLookupByLibrary.simpleMessage("Comments"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirmDialogTitle": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "confirmNewPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm New Password"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "createNewPost":
             MessageLookupByLibrary.simpleMessage("Create a new post"),
         "createPost": MessageLookupByLibrary.simpleMessage("Create new post"),
+        "currentPassword":
+            MessageLookupByLibrary.simpleMessage("Current Password"),
         "dailyActivities":
             MessageLookupByLibrary.simpleMessage("Daily Activities"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
@@ -152,6 +160,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "mohamedHamed": MessageLookupByLibrary.simpleMessage("Mohamed Hamed"),
         "monday": MessageLookupByLibrary.simpleMessage("Monday"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
+        "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
@@ -198,6 +207,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminders": MessageLookupByLibrary.simpleMessage("Reminders"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
         "saturday": MessageLookupByLibrary.simpleMessage("Saturday"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
         "saveData": MessageLookupByLibrary.simpleMessage("Save data"),
         "saveEdits": MessageLookupByLibrary.simpleMessage("Save edits"),
         "searchRecord": MessageLookupByLibrary.simpleMessage("Search history"),

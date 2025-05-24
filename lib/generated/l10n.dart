@@ -1400,6 +1400,16 @@ class S {
     );
   }
 
+  /// `About the Account`
+  String get aboutAccount {
+    return Intl.message(
+      'About the Account',
+      name: 'aboutAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Profile`
   String get profile {
     return Intl.message(
@@ -1555,6 +1565,56 @@ class S {
     return Intl.message(
       'Delete Account',
       name: 'deleteAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are about to change your password. Please enter a new password.`
+  String get changePasswordPrompt {
+    return Intl.message(
+      'You are about to change your password. Please enter a new password.',
+      name: 'changePasswordPrompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Password`
+  String get currentPassword {
+    return Intl.message(
+      'Current Password',
+      name: 'currentPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Password`
+  String get newPassword {
+    return Intl.message(
+      'New Password',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm New Password`
+  String get confirmNewPassword {
+    return Intl.message(
+      'Confirm New Password',
+      name: 'confirmNewPassword',
       desc: '',
       args: [],
     );

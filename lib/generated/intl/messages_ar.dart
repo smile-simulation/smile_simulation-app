@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aboutAccount": MessageLookupByLibrary.simpleMessage("حول الحساب"),
         "aboutApp": MessageLookupByLibrary.simpleMessage("حول التطبيق"),
         "academicCertificate":
             MessageLookupByLibrary.simpleMessage("الشهادة الأكاديمية"),
@@ -78,16 +79,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "changePasswordPrompt": MessageLookupByLibrary.simpleMessage(
+            "أنت على وشك تغيير كلمة المرور الخاصة بك. يرجى إدخال كلمة مرور جديدة."),
         "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
         "commentCount": MessageLookupByLibrary.simpleMessage("تعليقاً"),
         "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
         "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "confirmDialogTitle": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "confirmNewPassword":
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور الجديدة"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "createNewPost":
             MessageLookupByLibrary.simpleMessage("قم بإنشاء مشاركة جديدة"),
         "createPost": MessageLookupByLibrary.simpleMessage("إنشاء منشور جديد"),
+        "currentPassword":
+            MessageLookupByLibrary.simpleMessage("كلمة المرور الحالية"),
         "dailyActivities":
             MessageLookupByLibrary.simpleMessage("الأنشطة اليومية"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
@@ -149,6 +157,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "mohamedHamed": MessageLookupByLibrary.simpleMessage("محمد حامد"),
         "monday": MessageLookupByLibrary.simpleMessage("إثنين"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
+        "newPassword":
+            MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "noAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "noAdvicesExist": MessageLookupByLibrary.simpleMessage("لا يوجد نصائح"),
@@ -193,6 +203,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
         "saturday": MessageLookupByLibrary.simpleMessage("سبت"),
+        "save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "saveData": MessageLookupByLibrary.simpleMessage("حفظ البيانات"),
         "saveEdits": MessageLookupByLibrary.simpleMessage("حفظ التعديلات"),
         "searchRecord": MessageLookupByLibrary.simpleMessage("سجل البحث"),

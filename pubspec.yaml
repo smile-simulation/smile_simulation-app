@@ -76,7 +76,9 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   path_provider: ^2.1.5
-  
+
+  firebase_ai: ^2.0.0
+  markdown_widget: ^2.3.2+8
 
 
 

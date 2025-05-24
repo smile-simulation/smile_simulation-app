@@ -1,7 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:smile_simulation/features/more/presentation/language_view.dart';
+import 'package:smile_simulation/features/more/presentation/views/language_view.dart';
 import 'package:smile_simulation/features/more/presentation/views/widgets/more_action_item_list_tile.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
@@ -10,6 +10,11 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_body_screen.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../generated/assets.dart';
+import '../../../../user_account/presentation/views/user_account_view.dart';
+import '../change_password_view.dart';
+
+
+
 
 class SettingViewBody extends StatelessWidget {
   const SettingViewBody({super.key});
@@ -55,8 +60,15 @@ class SettingViewBody extends StatelessWidget {
                   ),
                   MoreActionItemListTile(
                     iconPath: Assets.imagesChagePassword,
+
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        ChangePasswordView.routeName,
+                      );
+                    },
                     title: S.of(context).changePassword,
-                    onTap: () {},
+
                   ),
                   Divider(
                     color: AppColors.meduimLightGrey,
