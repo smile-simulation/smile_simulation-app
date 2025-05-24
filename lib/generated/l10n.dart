@@ -1400,10 +1400,12 @@ class S {
     );
   }
 
+
   /// `About the Account`
   String get aboutAccount {
     return Intl.message(
       'About the Account',
+
       name: 'aboutAccount',
       desc: '',
       args: [],
