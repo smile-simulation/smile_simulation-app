@@ -49,10 +49,7 @@ class _CameraSectionState extends State<CameraSection> {
               children: [
                 Text(
                   S.of(context).medicineName,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.right,
                 ),
                 const SizedBox(height: 6),
@@ -65,7 +62,7 @@ class _CameraSectionState extends State<CameraSection> {
                   ),
                   child: TextField(
                     controller: _medicineNameController,
-                    textAlign: TextAlign.right,
+                    // textAlign: TextAlign.right,
                     decoration: InputDecoration(
                       hintText: S.of(context).medicineName,
                       hintStyle: TextStyle(color: Colors.grey),

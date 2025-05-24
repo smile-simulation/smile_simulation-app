@@ -37,7 +37,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "remind you at their specified times"),
         "addMedicinePrompt": MessageLookupByLibrary.simpleMessage(
             "Add the medicines you take ... and we will remind you of their schedules"),
+        "addNewReminder":
+            MessageLookupByLibrary.simpleMessage("Add New Reminder"),
         "addReminder": MessageLookupByLibrary.simpleMessage("Add New Reminder"),
+        "addVisitInstructionPart1": MessageLookupByLibrary.simpleMessage(
+            "Add your medical visits to your reminders so we can"),
+        "addVisitInstructionPart2": MessageLookupByLibrary.simpleMessage(
+            "remind you at their specified times"),
+        "addVisitPrompt": MessageLookupByLibrary.simpleMessage(
+            "Add your medical visit ... and we will remind you of its schedule"),
+        "addVisitSchedulesInstruction": MessageLookupByLibrary.simpleMessage(
+            "Add your medical visit schedules so we can remind you at their specified times."),
         "adviceContentError":
             MessageLookupByLibrary.simpleMessage("Advice Content Not Valid"),
         "adviceTitleError":
@@ -63,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "createPost": MessageLookupByLibrary.simpleMessage("Create new post"),
         "dailyActivities":
             MessageLookupByLibrary.simpleMessage("Daily Activities"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
         "deleteMedicine":
             MessageLookupByLibrary.simpleMessage("Delete Medicine"),
@@ -178,6 +189,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Upload your ID card"),
         "verificationCode":
             MessageLookupByLibrary.simpleMessage("Verification code"),
+        "visitAddress": MessageLookupByLibrary.simpleMessage("Visit Address"),
+        "visitName": MessageLookupByLibrary.simpleMessage("Visit Name"),
         "visitSchedules":
             MessageLookupByLibrary.simpleMessage("Visit Schedules"),
         "wednesday": MessageLookupByLibrary.simpleMessage("Wednesday"),

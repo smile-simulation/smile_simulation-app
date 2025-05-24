@@ -37,7 +37,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "من تذكيرك بها في أوقاتها المحددة"),
         "addMedicinePrompt": MessageLookupByLibrary.simpleMessage(
             "أضف الأدوية التي تتناولها ... وسوف نذكرك بمواعيدها"),
+        "addNewReminder":
+            MessageLookupByLibrary.simpleMessage("إضافة تذكير جديد"),
         "addReminder": MessageLookupByLibrary.simpleMessage("إضافة تذكير جديد"),
+        "addVisitInstructionPart1": MessageLookupByLibrary.simpleMessage(
+            "أضف الزيارات الطبية الخاصة بك الى تذكيراتك حتى نتمكن"),
+        "addVisitInstructionPart2": MessageLookupByLibrary.simpleMessage(
+            "من تذكيرك بها في أوقاتها المحدد"),
+        "addVisitPrompt": MessageLookupByLibrary.simpleMessage(
+            "أضف زيارتك الطبية ... وسوف نذكرك بمواعيدها"),
+        "addVisitSchedulesInstruction": MessageLookupByLibrary.simpleMessage(
+            "أضف مواعيد زياراتك الطبية حتى نتمكن من تذكيرك بها في أوقاتها المحددة."),
         "adviceContentError":
             MessageLookupByLibrary.simpleMessage("محتوى نصيحة غير متاح"),
         "adviceTitleError":
@@ -62,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "createPost": MessageLookupByLibrary.simpleMessage("إنشاء منشور جديد"),
         "dailyActivities":
             MessageLookupByLibrary.simpleMessage("الأنشطة اليومية"),
+        "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
         "deleteMedicine": MessageLookupByLibrary.simpleMessage("حذف الدواء"),
         "deletePost": MessageLookupByLibrary.simpleMessage("حذف المنشور"),
@@ -175,6 +186,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "uploadIDCard":
             MessageLookupByLibrary.simpleMessage("قم برفع الكارنيه الخاص بك"),
         "verificationCode": MessageLookupByLibrary.simpleMessage("رمز التحقق"),
+        "visitAddress": MessageLookupByLibrary.simpleMessage("عنوان الزيارة"),
+        "visitName": MessageLookupByLibrary.simpleMessage("اسم الزيارة"),
         "visitSchedules":
             MessageLookupByLibrary.simpleMessage("مواعيد الزيارات"),
         "wednesday": MessageLookupByLibrary.simpleMessage("أربعاء"),

@@ -1249,6 +1249,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Add your medical visit ... and we will remind you of its schedule`
+  String get addVisitPrompt {
+    return Intl.message(
+      'Add your medical visit ... and we will remind you of its schedule',
+      name: 'addVisitPrompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your medical visits to your reminders so we can`
+  String get addVisitInstructionPart1 {
+    return Intl.message(
+      'Add your medical visits to your reminders so we can',
+      name: 'addVisitInstructionPart1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `remind you at their specified times`
+  String get addVisitInstructionPart2 {
+    return Intl.message(
+      'remind you at their specified times',
+      name: 'addVisitInstructionPart2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your medical visit schedules so we can remind you at their specified times.`
+  String get addVisitSchedulesInstruction {
+    return Intl.message(
+      'Add your medical visit schedules so we can remind you at their specified times.',
+      name: 'addVisitSchedulesInstruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Visit Name`
+  String get visitName {
+    return Intl.message(
+      'Visit Name',
+      name: 'visitName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Visit Address`
+  String get visitAddress {
+    return Intl.message(
+      'Visit Address',
+      name: 'visitAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Reminder`
+  String get addNewReminder {
+    return Intl.message(
+      'Add New Reminder',
+      name: 'addNewReminder',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

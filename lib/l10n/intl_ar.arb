@@ -118,5 +118,13 @@
   "addMedicineInstructionPart1": "أضف الأدوية التي تستخدمها إلى تنبيهاتك الطبية حتى نتمكن",
   "addMedicineInstructionPart2": "من تذكيرك بها في أوقاتها المحددة",
   "addFirstReminder": "إضافة أول تذكير",
-  "deleteMedicine": "حذف الدواء"
+  "deleteMedicine": "حذف الدواء",
+  "addVisitPrompt": "أضف زيارتك الطبية ... وسوف نذكرك بمواعيدها",
+  "addVisitInstructionPart1": "أضف الزيارات الطبية الخاصة بك الى تذكيراتك حتى نتمكن",
+  "addVisitInstructionPart2": "من تذكيرك بها في أوقاتها المحدد",
+  "addVisitSchedulesInstruction": "أضف مواعيد زياراتك الطبية حتى نتمكن من تذكيرك بها في أوقاتها المحددة.",
+  "visitName": "اسم الزيارة",
+  "visitAddress": "عنوان الزيارة",
+  "date": "التاريخ",
+  "addNewReminder": "إضافة تذكير جديد"
 }

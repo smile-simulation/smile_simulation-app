@@ -118,5 +118,13 @@
   "addMedicineInstructionPart1": "Add the medicines you use to your medical reminders so we can",
   "addMedicineInstructionPart2": "remind you at their specified times",
   "addFirstReminder": "Add First Reminder",
-  "deleteMedicine": "Delete Medicine"
+  "deleteMedicine": "Delete Medicine",
+  "addVisitPrompt": "Add your medical visit ... and we will remind you of its schedule",
+  "addVisitInstructionPart1": "Add your medical visits to your reminders so we can",
+  "addVisitInstructionPart2": "remind you at their specified times",
+  "addVisitSchedulesInstruction": "Add your medical visit schedules so we can remind you at their specified times.",
+  "visitName": "Visit Name",
+  "visitAddress": "Visit Address",
+  "date": "Date",
+  "addNewReminder": "Add New Reminder"
 }
