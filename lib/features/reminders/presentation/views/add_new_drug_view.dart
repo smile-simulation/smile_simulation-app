@@ -38,23 +38,20 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: CustomBodyScreen(
+    return CustomBodyScreen(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.only(bottom: 16),
         child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 8,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Text(
                 S.of(context).addMedicineInstruction,
-                style: TextStyle(fontSize: 14),
+                style: const TextStyle(fontSize: 14),
               ),
             ),
-            CameraSection(),
+            const CameraSection(),
             MedicineTimeSection(
               selectedTime: selectedTime,
               onChanged: (val) => setState(() => selectedTime = val),
@@ -64,7 +61,7 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugViewBody> {
                 S.of(context).duringMeal,
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             RepeatDaysSection(
               daysSelected: daysSelected,
               onChanged: (index, value) {
@@ -73,20 +70,17 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugViewBody> {
                 });
               },
             ),
-            SizedBox(height: 16),
-            TimeAndQuantitySection(),
-            SizedBox(height: 16),
-            DateOfStoppingTakkingMedicin(),
-            Spacer(),
+            const SizedBox(height: 16),
+            const TimeAndQuantitySection(),
+            const SizedBox(height: 16),
+            const DateOfStoppingTakkingMedicin(),
+            const SizedBox(height: 32),
             CustomButton(
               title: S.of(context).addMedicineButton,
               onPressed: () {
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(builder: (context) => AddNewDrugView()),
-                // );
+                // تنفيذ العملية المطلوبة عند الضغط
               },
             ),
-            SizedBox(height: 16),
           ],
         ),
       ),

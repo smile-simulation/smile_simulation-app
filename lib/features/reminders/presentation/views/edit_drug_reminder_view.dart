@@ -13,7 +13,11 @@ class EditDrugReminderView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppbar(context, title: 'منبه الدواء', isBack: true),
+      appBar: customAppbar(
+        context,
+        title: S.of(context).medicineReminder,
+        isBack: true,
+      ),
       body: const EditDrugReminderViewBody(),
     );
   }

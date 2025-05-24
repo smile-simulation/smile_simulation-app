@@ -8,6 +8,7 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 import 'package:smile_simulation/generated/assets.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 import '../../../../../core/helper_functions/custom_error.dart';
 import '../../../../../core/widgets/custom_button.dart';
@@ -32,10 +33,10 @@ class MoreViewBody extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
-                  "حول التطبيق",
-                  style: AppTextStyles.headline2(context).copyWith(
-                    color: AppColors.greyColor,
-                  ),
+                  S.of(context).aboutApp,
+                  style: AppTextStyles.headline2(
+                    context,
+                  ).copyWith(color: AppColors.greyColor),
                 ),
               ),
               const SizedBox(height: 24),
@@ -49,7 +50,7 @@ class MoreViewBody extends StatelessWidget {
                   children: [
                     MoreActionItemListTile(
                       iconPath: Assets.imagesUserAccountIcon,
-                      title: "الملف الشخصي",
+                      title: S.of(context).profile,
                       onTap: () {
                         Navigator.pushNamed(
                           context,
@@ -61,18 +62,15 @@ class MoreViewBody extends StatelessWidget {
                     _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesSettingsIcon,
-                      title: "الإعدادات",
+                      title: S.of(context).settings,
                       onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          SettingView.routeName,
-                        );
+                        Navigator.pushNamed(context, SettingView.routeName);
                       },
                     ),
                     _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesPrivacyPolicyIcon,
-                      title: "سياسة الخصوصية",
+                      title: S.of(context).privacyPolicy,
                       onTap: () {
                         showDialog(
                           context: context,
@@ -83,25 +81,25 @@ class MoreViewBody extends StatelessWidget {
                     _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesPrivacyPolicyIcon,
-                      title: "الشروط والاحكام",
+                      title: S.of(context).termsAndConditions,
                       onTap: () {},
                     ),
                     _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesRateAppIcon,
-                      title: "تقييم التطبيق",
+                      title: S.of(context).rateApp,
                       onTap: () {},
                     ),
                     _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesShareIcon,
-                      title: "مشاركة التطبيق",
+                      title: S.of(context).shareApp,
                       onTap: () {},
                     ),
                     _buildDivider(),
                     MoreActionItemListTile(
                       iconPath: Assets.imagesContactUsIcon,
-                      title: "تواصل معنا",
+                      title: S.of(context).contactUs,
                       onTap: () {},
                     ),
                   ],
@@ -114,10 +112,10 @@ class MoreViewBody extends StatelessWidget {
                     context: context,
                     dialogType: DialogType.warning,
                     animType: AnimType.topSlide,
-                    title: "تأكيد",
-                    desc: "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+                    title: S.of(context).confirm,
+                    desc: S.of(context).logoutConfirmation,
                     btnCancel: CustomButton(
-                      title: "إلغاء",
+                      title: S.of(context).cancel,
                       isSecondary: true,
                       isMinWidth: true,
                       onPressed: () {
@@ -125,16 +123,18 @@ class MoreViewBody extends StatelessWidget {
                       },
                     ),
                     btnOk: CustomButton(
-                      title: "تأكيد",
+                      title: S.of(context).confirm,
                       isMinWidth: true,
                       onPressed: () async {
-                        CacheHelper.sharedPreferences
-                            .setBool(isSuccessLogin, false);
+                        CacheHelper.sharedPreferences.setBool(
+                          isSuccessLogin,
+                          false,
+                        );
                         CacheHelper().removeMap(key: personalData);
                         CacheHelper().removeData(key: userData);
                         await customSuccess(
                           context,
-                          massage: "تم تسجيل الخروج بنجاح",
+                          massage: S.of(context).logoutSuccess,
                         );
                         Navigator.pushAndRemoveUntil(
                           context,
@@ -155,15 +155,17 @@ class MoreViewBody extends StatelessWidget {
                   ),
                   height: 50,
                   margin: const EdgeInsets.symmetric(horizontal: 16),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
                   child: Center(
                     child: Row(
                       children: [
                         SvgPicture.asset(Assets.imagesLogoutIcon),
                         const SizedBox(width: 16),
                         Text(
-                          "تسجيل الخروج",
+                          S.of(context).logout,
                           style: AppTextStyles.subTitle1(context).copyWith(
                             fontFamily: "NotoSansSC",
                             color: AppColors.grayHeavyText_1Color,

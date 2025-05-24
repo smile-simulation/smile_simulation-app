@@ -3,6 +3,7 @@ import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/add_daily_activities_view_body.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/text_setion_in_reminder_feature.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class DailyActivitiesViewBody extends StatelessWidget {
   const DailyActivitiesViewBody({super.key});
@@ -32,15 +33,13 @@ class DailyActivitiesViewBody extends StatelessWidget {
                       ),
                     ),
                     TextSetionInReminderFeature(
-                      text1:
-                          'أضف الأنشطة اليومية الخاصة بك ... وسوف نذكرك بمواعيدها',
-                      text2:
-                          'أضف  الأنشطة اليومية الخاصة بك الى تذكيراتك حتى نتمكن',
-                      text3: 'من تذكيرك بها في أوقاتها المحدد',
+                      text1: S.of(context).addDailyActivitiesPrompt,
+                      text2: S.of(context).addDailyActivitiesInstructionPart1,
+                      text3: S.of(context).addDailyActivitiesInstructionPart2,
                     ),
                     SizedBox(height: 50),
                     CustomeReminderButton(
-                      text: 'اضافة اول تذكير',
+                      text: S.of(context).addFirstReminder,
                       onPressed: () {
                         Navigator.maybeOf(context)?.push(
                           MaterialPageRoute(

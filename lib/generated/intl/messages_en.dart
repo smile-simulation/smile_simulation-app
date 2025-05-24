@@ -22,8 +22,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aboutApp": MessageLookupByLibrary.simpleMessage("About the App"),
         "academicCertificate":
             MessageLookupByLibrary.simpleMessage("Academic certificate"),
+        "addDailyActivitiesInstructionPart1":
+            MessageLookupByLibrary.simpleMessage(
+                "Add your daily activities to your reminders so we can"),
+        "addDailyActivitiesInstructionPart2":
+            MessageLookupByLibrary.simpleMessage(
+                "remind you at their specified times"),
+        "addDailyActivitiesPrompt": MessageLookupByLibrary.simpleMessage(
+            "Add your daily activities ... and we will remind you of their schedules"),
         "addFirstReminder":
             MessageLookupByLibrary.simpleMessage("Add First Reminder"),
         "addMedicine": MessageLookupByLibrary.simpleMessage("Add New Medicine"),
@@ -37,7 +46,23 @@ class MessageLookup extends MessageLookupByLibrary {
             "remind you at their specified times"),
         "addMedicinePrompt": MessageLookupByLibrary.simpleMessage(
             "Add the medicines you take ... and we will remind you of their schedules"),
+        "addNewReminder":
+            MessageLookupByLibrary.simpleMessage("Add New Reminder"),
         "addReminder": MessageLookupByLibrary.simpleMessage("Add New Reminder"),
+        "addSpecialTasksInstructionPart1": MessageLookupByLibrary.simpleMessage(
+            "Add your special tasks to your reminders so we can"),
+        "addSpecialTasksInstructionPart2": MessageLookupByLibrary.simpleMessage(
+            "remind you at their specified times"),
+        "addSpecialTasksPrompt": MessageLookupByLibrary.simpleMessage(
+            "Add your special tasks ... and we will remind you of their schedules"),
+        "addVisitInstructionPart1": MessageLookupByLibrary.simpleMessage(
+            "Add your medical visits to your reminders so we can"),
+        "addVisitInstructionPart2": MessageLookupByLibrary.simpleMessage(
+            "remind you at their specified times"),
+        "addVisitPrompt": MessageLookupByLibrary.simpleMessage(
+            "Add your medical visit ... and we will remind you of its schedule"),
+        "addVisitSchedulesInstruction": MessageLookupByLibrary.simpleMessage(
+            "Add your medical visit schedules so we can remind you at their specified times."),
         "adviceContentError":
             MessageLookupByLibrary.simpleMessage("Advice Content Not Valid"),
         "adviceTitleError":
@@ -52,23 +77,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "changeLanguage":
             MessageLookupByLibrary.simpleMessage("Change Language"),
+        "changePassword":
+            MessageLookupByLibrary.simpleMessage("Change Password"),
         "comment": MessageLookupByLibrary.simpleMessage("Comment"),
         "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
         "comments": MessageLookupByLibrary.simpleMessage("Comments"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "confirmDialogTitle": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "createNewPost":
             MessageLookupByLibrary.simpleMessage("Create a new post"),
         "createPost": MessageLookupByLibrary.simpleMessage("Create new post"),
         "dailyActivities":
             MessageLookupByLibrary.simpleMessage("Daily Activities"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
+        "deleteAccountConfirmation": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete the account?"),
         "deleteMedicine":
             MessageLookupByLibrary.simpleMessage("Delete Medicine"),
         "deletePost": MessageLookupByLibrary.simpleMessage("Delete post"),
         "duringMeal": MessageLookupByLibrary.simpleMessage("During Meal"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "editPersonalInfo":
+            MessageLookupByLibrary.simpleMessage("Edit Personal Information"),
         "editPost": MessageLookupByLibrary.simpleMessage("Edit post"),
         "editUserInformation":
             MessageLookupByLibrary.simpleMessage("Edit personal information"),
@@ -101,6 +136,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "location": MessageLookupByLibrary.simpleMessage("Location"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "logout": MessageLookupByLibrary.simpleMessage("Log Out"),
+        "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to log out?"),
+        "logoutSuccess":
+            MessageLookupByLibrary.simpleMessage("Logged out successfully"),
         "male": MessageLookupByLibrary.simpleMessage("Male"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("Medical record"),
         "medicineName": MessageLookupByLibrary.simpleMessage("Medicine Name"),
@@ -119,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No advices exist"),
         "noCategoriesAdvicesExist": MessageLookupByLibrary.simpleMessage(
             "No categories of advices currently exist"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "A comprehensive forum that helps you discover medical advice and professional answers in one place.\nGet support and advice from dental experts and fellow patients easily."),
@@ -142,8 +183,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "posts": MessageLookupByLibrary.simpleMessage("Posts"),
         "practicalExperience":
             MessageLookupByLibrary.simpleMessage("Practical experience"),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "publish": MessageLookupByLibrary.simpleMessage("Publish"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
+        "rateApp": MessageLookupByLibrary.simpleMessage("Rate the App"),
         "registerAsDoctor":
             MessageLookupByLibrary.simpleMessage("Register as a doctor"),
         "registerAsUser":
@@ -157,6 +201,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "saveData": MessageLookupByLibrary.simpleMessage("Save data"),
         "saveEdits": MessageLookupByLibrary.simpleMessage("Save edits"),
         "searchRecord": MessageLookupByLibrary.simpleMessage("Search history"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "shareApp": MessageLookupByLibrary.simpleMessage("Share the App"),
         "showAll": MessageLookupByLibrary.simpleMessage("Show All"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
         "signInWith": MessageLookupByLibrary.simpleMessage("Sign in with"),
@@ -170,6 +216,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "stopDate": MessageLookupByLibrary.simpleMessage("Medicine Stop Date"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
         "sunday": MessageLookupByLibrary.simpleMessage("Sunday"),
+        "termsAndConditions":
+            MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "thursday": MessageLookupByLibrary.simpleMessage("Thursday"),
         "time": MessageLookupByLibrary.simpleMessage("Time"),
         "toDaysAdvice": MessageLookupByLibrary.simpleMessage("Today\'s Advice"),
@@ -178,6 +226,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Upload your ID card"),
         "verificationCode":
             MessageLookupByLibrary.simpleMessage("Verification code"),
+        "visitAddress": MessageLookupByLibrary.simpleMessage("Visit Address"),
+        "visitName": MessageLookupByLibrary.simpleMessage("Visit Name"),
         "visitSchedules":
             MessageLookupByLibrary.simpleMessage("Visit Schedules"),
         "wednesday": MessageLookupByLibrary.simpleMessage("Wednesday"),

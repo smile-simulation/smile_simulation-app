@@ -10,124 +10,144 @@ import 'package:smile_simulation/features/reminders/presentation/views/widgets/c
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_picker_image.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-// ✅ Make sure you have this file and screen:
-
 class DrugReminderViewBodyIfNotFirstTime extends StatefulWidget {
   const DrugReminderViewBodyIfNotFirstTime({super.key});
 
   @override
   State<DrugReminderViewBodyIfNotFirstTime> createState() =>
-      _AddDrrugReminderViewBodyState();
+      _DrugReminderViewBodyState();
 }
 
-class _AddDrrugReminderViewBodyState
+class _DrugReminderViewBodyState
     extends State<DrugReminderViewBodyIfNotFirstTime> {
   bool isSelected = false;
-
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: CustomBodyScreen(
+    bool isArabic = Localizations.localeOf(context).languageCode == 'ar';
+    return CustomBodyScreen(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 8,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    S.of(context).medicineReminders,
-                    style: AppTextStyles.headline2(context),
-                  ),
-                  CustomButton(
-                    title:
-                        isSelected == false
-                            ? S.of(context).cancel
-                            : S.of(context).edit,
-                    isGreyBackground: isSelected == false,
-                    isExtraMinWidth: true,
-                    onPressed: () {
-                      setState(() {
-                        isSelected = !isSelected;
-                      });
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Stack(
-              alignment: Alignment.center,
+            /// Header Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomContainerForReminderFeature(
-                  color: AppColors.primaryColor,
-                  widget: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Image.asset(
-                          "assets/images/delete.png",
-                          color: Colors.white,
+                Text(
+                  S.of(context).medicineReminders,
+                  style: AppTextStyles.headline2(context),
+                ),
+                CustomButton(
+                  title:
+                      !isSelected ? S.of(context).edit : S.of(context).cancel,
+                  isGreyBackground: !isSelected,
+                  isExtraMinWidth: true,
+                  onPressed: () {
+                    setState(() {
+                      isSelected = !isSelected;
+                    });
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+
+            /// Reminder Card with Delete Option
+            Stack(
+              children: [
+                if (isSelected)
+                  Positioned.fill(
+                    child: PositionedDirectional(
+                      start: 0,
+                      top: 0,
+                      bottom: 0,
+                      
+                      child: CustomContainerForReminderFeature(
+                        color: AppColors.primaryColor,
+                        widget: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                "assets/images/delete.png",
+                                color: Colors.white,
+                                width: 28,
+                                height: 28,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(right: isSelected ? 0 : 70),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => EditDrugReminderView(),
-                        ),
-                      );
-                    },
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => EditDrugReminderView(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    margin:
+                        isArabic
+                            ? EdgeInsets.only(right: isSelected ? 70 : 0)
+                            : EdgeInsets.only(left: isSelected ? 70 : 0),
                     child: CustomContainerForReminderFeature(
                       widget: Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 8,
-                            ),
+                            padding: const EdgeInsets.all(12.0),
                             child: CameraPickerWidget(width: 85, height: 85),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  S.of(context).medicineName,
-                                  style: AppTextStyles.subTitle1(
-                                    context,
-                                  ).copyWith(color: AppColors.primaryColor),
-                                ),
-                                const SizedBox(height: 18),
-                                Text(
-                                  'مرة واحدة يوميًا (الكمية 1)',
-                                  style: AppTextStyles.subTitle2(context),
-                                ),
-                                const SizedBox(height: 14),
-                                Row(
-                                  children: [
-                                    Text(
-                                      ' قبل تناول الطعام',
-                                      style: AppTextStyles.subTitle2(context),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 12.0,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    S.of(context).medicineName,
+                                    style: AppTextStyles.subTitle1(
+                                      context,
+                                    ).copyWith(
+                                      color: AppColors.primaryColor,
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                    const SizedBox(width: 15),
-                                    Text(
-                                      '  7:00 صباحًا',
-                                      style: AppTextStyles.subTitle2(context),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    'مرة واحدة يوميًا (الكمية 1)',
+                                    style: AppTextStyles.subTitle2(context),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            '7:00 صباحًا',
+                                            style: AppTextStyles.subTitle2(
+                                              context,
+                                            ),
+                                          ),
+                                          Text(
+                                            'قبل تناول الطعام',
+                                            style: AppTextStyles.subTitle2(
+                                              context,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -137,11 +157,13 @@ class _AddDrrugReminderViewBodyState
                 ),
               ],
             ),
-            const SizedBox(height: 30),
+
+            const SizedBox(height: 40),
+
+            /// Add New Reminder Button
             CustomeReminderButton(
               text: S.of(context).addReminder,
               onPressed: () {
-                // Example: you can send reminder info back
                 Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => AddNewDrugView()),
                 );

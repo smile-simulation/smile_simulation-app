@@ -1230,6 +1230,116 @@ class S {
     );
   }
 
+  /// `Delete Medicine`
+  String get deleteMedicine {
+    return Intl.message(
+      'Delete Medicine',
+      name: 'deleteMedicine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your medical visit ... and we will remind you of its schedule`
+  String get addVisitPrompt {
+    return Intl.message(
+      'Add your medical visit ... and we will remind you of its schedule',
+      name: 'addVisitPrompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your medical visits to your reminders so we can`
+  String get addVisitInstructionPart1 {
+    return Intl.message(
+      'Add your medical visits to your reminders so we can',
+      name: 'addVisitInstructionPart1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `remind you at their specified times`
+  String get addVisitInstructionPart2 {
+    return Intl.message(
+      'remind you at their specified times',
+      name: 'addVisitInstructionPart2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your medical visit schedules so we can remind you at their specified times.`
+  String get addVisitSchedulesInstruction {
+    return Intl.message(
+      'Add your medical visit schedules so we can remind you at their specified times.',
+      name: 'addVisitSchedulesInstruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Visit Name`
+  String get visitName {
+    return Intl.message(
+      'Visit Name',
+      name: 'visitName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Visit Address`
+  String get visitAddress {
+    return Intl.message(
+      'Visit Address',
+      name: 'visitAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your daily activities ... and we will remind you of their schedules`
+  String get addDailyActivitiesPrompt {
+    return Intl.message(
+      'Add your daily activities ... and we will remind you of their schedules',
+      name: 'addDailyActivitiesPrompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your daily activities to your reminders so we can`
+  String get addDailyActivitiesInstructionPart1 {
+    return Intl.message(
+      'Add your daily activities to your reminders so we can',
+      name: 'addDailyActivitiesInstructionPart1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `remind you at their specified times`
+  String get addDailyActivitiesInstructionPart2 {
+    return Intl.message(
+      'remind you at their specified times',
+      name: 'addDailyActivitiesInstructionPart2',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Add First Reminder`
   String get addFirstReminder {
     return Intl.message(
@@ -1240,11 +1350,211 @@ class S {
     );
   }
 
-  /// `Delete Medicine`
-  String get deleteMedicine {
+  /// `Add New Reminder`
+  String get addNewReminder {
     return Intl.message(
-      'Delete Medicine',
-      name: 'deleteMedicine',
+      'Add New Reminder',
+      name: 'addNewReminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your special tasks ... and we will remind you of their schedules`
+  String get addSpecialTasksPrompt {
+    return Intl.message(
+      'Add your special tasks ... and we will remind you of their schedules',
+      name: 'addSpecialTasksPrompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your special tasks to your reminders so we can`
+  String get addSpecialTasksInstructionPart1 {
+    return Intl.message(
+      'Add your special tasks to your reminders so we can',
+      name: 'addSpecialTasksInstructionPart1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `remind you at their specified times`
+  String get addSpecialTasksInstructionPart2 {
+    return Intl.message(
+      'remind you at their specified times',
+      name: 'addSpecialTasksInstructionPart2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About the App`
+  String get aboutApp {
+    return Intl.message(
+      'About the App',
+      name: 'aboutApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message(
+      'Profile',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyPolicy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms and Conditions`
+  String get termsAndConditions {
+    return Intl.message(
+      'Terms and Conditions',
+      name: 'termsAndConditions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rate the App`
+  String get rateApp {
+    return Intl.message(
+      'Rate the App',
+      name: 'rateApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share the App`
+  String get shareApp {
+    return Intl.message(
+      'Share the App',
+      name: 'shareApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Us`
+  String get contactUs {
+    return Intl.message(
+      'Contact Us',
+      name: 'contactUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to log out?`
+  String get logoutConfirmation {
+    return Intl.message(
+      'Are you sure you want to log out?',
+      name: 'logoutConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log Out`
+  String get logout {
+    return Intl.message(
+      'Log Out',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logged out successfully`
+  String get logoutSuccess {
+    return Intl.message(
+      'Logged out successfully',
+      name: 'logoutSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Personal Information`
+  String get editPersonalInfo {
+    return Intl.message(
+      'Edit Personal Information',
+      name: 'editPersonalInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get changePassword {
+    return Intl.message(
+      'Change Password',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirmDialogTitle {
+    return Intl.message(
+      'Confirm',
+      name: 'confirmDialogTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete the account?`
+  String get deleteAccountConfirmation {
+    return Intl.message(
+      'Are you sure you want to delete the account?',
+      name: 'deleteAccountConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Account`
+  String get deleteAccount {
+    return Intl.message(
+      'Delete Account',
+      name: 'deleteAccount',
       desc: '',
       args: [],
     );
