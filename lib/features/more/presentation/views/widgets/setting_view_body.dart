@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smile_simulation/features/more/presentation/language_view.dart';
 import 'package:smile_simulation/features/more/presentation/views/widgets/more_action_item_list_tile.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
@@ -10,13 +11,8 @@ import '../../../../../core/widgets/custom_body_screen.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../generated/assets.dart';
 
-
-
-
 class SettingViewBody extends StatelessWidget {
-  const SettingViewBody({
-    super.key,
-  });
+  const SettingViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +26,7 @@ class SettingViewBody extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                "حول الحساب",
+                S.of(context).aboutApp,
                 style: AppTextStyles.headline2(
                   context,
                 ).copyWith(color: AppColors.greyColor),
@@ -47,10 +43,8 @@ class SettingViewBody extends StatelessWidget {
                 children: [
                   MoreActionItemListTile(
                     iconPath: Assets.imagesUserAccountIcon,
-                    title: "تعديل البيانات الشخصية",
-                    onTap: () {
-
-                    },
+                    title: S.of(context).editPersonalInfo,
+                    onTap: () {},
                   ),
                   Divider(
                     color: AppColors.meduimLightGrey,
@@ -61,7 +55,7 @@ class SettingViewBody extends StatelessWidget {
                   ),
                   MoreActionItemListTile(
                     iconPath: Assets.imagesChagePassword,
-                    title: "تغيير كلمة المرور",
+                    title: S.of(context).changePassword,
                     onTap: () {},
                   ),
                   Divider(
@@ -73,12 +67,9 @@ class SettingViewBody extends StatelessWidget {
                   ),
                   MoreActionItemListTile(
                     iconPath: Assets.imagesChageLanguge,
-                    title: "تغيير اللغة",
+                    title: S.of(context).changeLanguage,
                     onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        LanguageView.routeName,
-                      );
+                      Navigator.pushNamed(context, LanguageView.routeName);
                     },
                   ),
                   Divider(
@@ -90,7 +81,7 @@ class SettingViewBody extends StatelessWidget {
                   ),
                   MoreActionItemListTile(
                     iconPath: Assets.imagesNotification2,
-                    title: "الإشعارات",
+                    title: S.of(context).notifications,
                     trailing: Switch(
                       value: true,
                       onChanged: (value) {},
@@ -102,9 +93,7 @@ class SettingViewBody extends StatelessWidget {
 
                       activeColor: AppColors.primaryColor,
 
-                      activeTrackColor: AppColors.primaryColor.withOpacity(
-                        0.3,
-                      ),
+                      activeTrackColor: AppColors.primaryColor.withOpacity(0.3),
                     ),
                     onTap: () {},
                   ),
@@ -118,10 +107,10 @@ class SettingViewBody extends StatelessWidget {
                   context: context,
                   dialogType: DialogType.warning,
                   animType: AnimType.topSlide,
-                  title: "تأكيد",
-                  desc: "هل أنت متأكد أنك تريد حذف الحساب ؟",
+                  title: S.of(context).confirm,
+                  desc: S.of(context).deleteAccountConfirmation,
                   btnCancel: CustomButton(
-                    title: "إلغاء",
+                    title: S.of(context).cancel,
                     isSecondary: true,
                     isMinWidth: true,
                     onPressed: () {
@@ -129,7 +118,7 @@ class SettingViewBody extends StatelessWidget {
                     },
                   ),
                   btnOk: CustomButton(
-                    title: "تأكيد",
+                    title: S.of(context).confirm,
                     isMinWidth: true,
                     onPressed: () async {},
                   ),
@@ -154,7 +143,7 @@ class SettingViewBody extends StatelessWidget {
                       ),
                       const SizedBox(width: 16),
                       Text(
-                        "حذف الحساب",
+                        S.of(context).deleteAccount,
                         style: AppTextStyles.subTitle1(context).copyWith(
                           fontFamily: "NotoSansSC",
                           color: AppColors.grayHeavyText_1Color,

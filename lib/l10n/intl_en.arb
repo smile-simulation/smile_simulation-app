@@ -132,5 +132,22 @@
   "addNewReminder": "Add New Reminder",
   "addSpecialTasksPrompt": "Add your special tasks ... and we will remind you of their schedules",
   "addSpecialTasksInstructionPart1": "Add your special tasks to your reminders so we can",
-  "addSpecialTasksInstructionPart2": "remind you at their specified times"
+  "addSpecialTasksInstructionPart2": "remind you at their specified times",
+  "aboutApp": "About the App",
+  "profile": "Profile",
+  "settings": "Settings",
+  "privacyPolicy": "Privacy Policy",
+  "termsAndConditions": "Terms and Conditions",
+  "rateApp": "Rate the App",
+  "shareApp": "Share the App",
+  "contactUs": "Contact Us",
+  "logoutConfirmation": "Are you sure you want to log out?",
+  "logout": "Log Out",
+  "logoutSuccess": "Logged out successfully",
+  "editPersonalInfo": "Edit Personal Information",
+  "changePassword": "Change Password",
+  "notifications": "Notifications",
+  "confirmDialogTitle": "Confirm",
+  "deleteAccountConfirmation": "Are you sure you want to delete the account?",
+  "deleteAccount": "Delete Account"
 }

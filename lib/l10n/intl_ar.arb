@@ -132,5 +132,21 @@
   "addNewReminder": "إضافة تذكير جديد",
   "addSpecialTasksPrompt": "أضف المهام الخاصة بك ... وسوف نذكرك بمواعيدها",
   "addSpecialTasksInstructionPart1": "أضف مهامك الخاصة إلى تذكيراتك حتى نتمكن",
-  "addSpecialTasksInstructionPart2": "من تذكيرك بها في أوقاتها المحدد"
+  "addSpecialTasksInstructionPart2": "من تذكيرك بها في أوقاتها المحدد",
+  "aboutApp": "حول التطبيق",
+  "profile": "الملف الشخصي",
+  "settings": "الإعدادات",
+  "privacyPolicy": "سياسة الخصوصية",
+  "termsAndConditions": "الشروط والاحكام",
+  "rateApp": "تقييم التطبيق",
+  "shareApp": "مشاركة التطبيق",
+  "contactUs": "تواصل معنا",
+  "logoutConfirmation": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+  "logout": "تسجيل الخروج",
+  "logoutSuccess": "تم تسجيل الخروج بنجاح",
+  "editPersonalInfo": "تعديل البيانات الشخصية",
+  "changePassword": "تغيير كلمة المرور",
+  "notifications": "الإشعارات",
+  "deleteAccountConfirmation": "هل أنت متأكد أنك تريد حذف الحساب ؟",
+  "deleteAccount": "حذف الحساب"
 }

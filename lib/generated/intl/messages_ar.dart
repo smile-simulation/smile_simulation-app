@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aboutApp": MessageLookupByLibrary.simpleMessage("حول التطبيق"),
         "academicCertificate":
             MessageLookupByLibrary.simpleMessage("الشهادة الأكاديمية"),
         "addDailyActivitiesInstructionPart1":
@@ -75,12 +76,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "beforeMeal": MessageLookupByLibrary.simpleMessage("قبل تناول الطعام"),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
         "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
+        "changePassword":
+            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
         "commentCount": MessageLookupByLibrary.simpleMessage("تعليقاً"),
         "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
         "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "createNewPost":
             MessageLookupByLibrary.simpleMessage("قم بإنشاء مشاركة جديدة"),
         "createPost": MessageLookupByLibrary.simpleMessage("إنشاء منشور جديد"),
@@ -88,11 +92,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الأنشطة اليومية"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+        "deleteAccountConfirmation": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد أنك تريد حذف الحساب ؟"),
         "deleteMedicine": MessageLookupByLibrary.simpleMessage("حذف الدواء"),
         "deletePost": MessageLookupByLibrary.simpleMessage("حذف المنشور"),
         "duringMeal":
             MessageLookupByLibrary.simpleMessage("أثناء تناول الطعام"),
         "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
+        "editPersonalInfo":
+            MessageLookupByLibrary.simpleMessage("تعديل البيانات الشخصية"),
         "editPost": MessageLookupByLibrary.simpleMessage("تعديل المنشور"),
         "editUserInformation":
             MessageLookupByLibrary.simpleMessage("تعديل المعلومات الشخصية"),
@@ -124,6 +133,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "location": MessageLookupByLibrary.simpleMessage("العنوان"),
         "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد أنك تريد تسجيل الخروج؟"),
+        "logoutSuccess":
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج بنجاح"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("السجل الطبي"),
         "medicineName": MessageLookupByLibrary.simpleMessage("اسم الدواء"),
@@ -140,6 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noAdvicesExist": MessageLookupByLibrary.simpleMessage("لا يوجد نصائح"),
         "noCategoriesAdvicesExist":
             MessageLookupByLibrary.simpleMessage("لا يوجد اقسام نصائح حاليا"),
+        "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "منتدى شامل يساعدك على اكتشاف نصائح طبية وإجابات احترافية في مكان واحد.\nاحصل على الدعم والمشورة من خبراء الأسنان وزملائك المرضى بسهولة."),
@@ -162,8 +177,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "posts": MessageLookupByLibrary.simpleMessage("المنشورات"),
         "practicalExperience":
             MessageLookupByLibrary.simpleMessage("الخبرة العملية"),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
+        "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "publish": MessageLookupByLibrary.simpleMessage("نشر"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
+        "rateApp": MessageLookupByLibrary.simpleMessage("تقييم التطبيق"),
         "registerAsDoctor":
             MessageLookupByLibrary.simpleMessage("التسجيل كطبيب"),
         "registerAsUser":
@@ -178,6 +196,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "saveData": MessageLookupByLibrary.simpleMessage("حفظ البيانات"),
         "saveEdits": MessageLookupByLibrary.simpleMessage("حفظ التعديلات"),
         "searchRecord": MessageLookupByLibrary.simpleMessage("سجل البحث"),
+        "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+        "shareApp": MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
         "showAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "signInWith":
@@ -193,6 +213,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تاريخ التوقف عن الدواء"),
         "success": MessageLookupByLibrary.simpleMessage("نجاح"),
         "sunday": MessageLookupByLibrary.simpleMessage("أحد"),
+        "termsAndConditions":
+            MessageLookupByLibrary.simpleMessage("الشروط والاحكام"),
         "thursday": MessageLookupByLibrary.simpleMessage("خميس"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),
         "toDaysAdvice": MessageLookupByLibrary.simpleMessage("نصيحة اليوم"),
