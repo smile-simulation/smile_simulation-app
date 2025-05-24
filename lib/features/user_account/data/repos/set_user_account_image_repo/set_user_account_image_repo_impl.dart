@@ -7,6 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
+import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 
 import 'package:smile_simulation/core/errors/exceptions.dart';
 import 'package:smile_simulation/core/errors/failure.dart';
@@ -20,7 +21,7 @@ class SetUserAccountImageRepoImpl implements SetUserAccountImageRepo {
   SetUserAccountImageRepoImpl({required this.dioConsumer});
 
   @override
-  Future<Either<Failure, Uint8List>> setUserAccountImage({
+  Future<Either<Failure, void>> setUserAccountImage({
     required File image,
   }) async {
     try {
@@ -35,10 +36,11 @@ class SetUserAccountImageRepoImpl implements SetUserAccountImageRepo {
           ),
         },
       );
-      Uint8List bytesImage = await image.readAsBytes();
-      String message = response[ApiKeys.message];
+      // Uint8List bytesImage = await image.readAsBytes();
+      String message = response[ApiKeys.data];
+      cacheNewImage(imageLinke: response['data']);
       log(message);
-      return Right(bytesImage);
+      return Right(null);
     } on ServerException catch (e) {
       logger.e("Exception in Add post: ${e.errorModel.message}");
       return Left(ServerFailure(e.errorModel.message!));
@@ -46,5 +48,12 @@ class SetUserAccountImageRepoImpl implements SetUserAccountImageRepo {
       logger.e("Exception in Add post: $e");
       return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
     }
+  }
+
+  Future<void> cacheNewImage({required String imageLinke}) async {
+    Map<String, dynamic> oldUserMap =
+        await CacheHelper().getMap(key: userData)!;
+    oldUserMap['image'] = imageLinke;
+    await CacheHelper().saveMap(key: userData, value: oldUserMap);
   }
 }

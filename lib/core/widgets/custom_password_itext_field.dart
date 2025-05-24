@@ -35,7 +35,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
         return validatorOfPassword(value);
       },
       obscureText: _obscureText,
-      onSaved: widget.onSaved,
+      onChanged: widget.onSaved,
       hintText: widget.hintText,
       title: widget.title,
       suffixIcon: IconButton(

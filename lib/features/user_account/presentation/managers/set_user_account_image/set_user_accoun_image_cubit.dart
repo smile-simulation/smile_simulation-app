@@ -13,8 +13,9 @@ class SetUserAccounImageCubit extends Cubit<SetUserAccounImageState> {
   SetUserAccounImageCubit(this.setUserAccountImageRepo)
     : super(SetUserAccounImageInitial());
   final SetUserAccountImageRepoImpl setUserAccountImageRepo;
-  Uint8List? bytesImage;
+  // Uint8List? bytesImage;
   Future<void> setUserAccountImage() async {
+    emit(SetUserAccounImageLoading());
     File? image = await pickImage();
 
     if (image != null) {
@@ -26,7 +27,7 @@ class SetUserAccounImageCubit extends Cubit<SetUserAccounImageState> {
           emit(SetUserAccounImageFail(errorMsg: fail.errorMessage));
         },
         (success) {
-          bytesImage = success;
+          // bytesImage = success;
           emit(SetUserAccounImageSuccess());
         },
       );
@@ -34,7 +35,7 @@ class SetUserAccounImageCubit extends Cubit<SetUserAccounImageState> {
   }
 
   Future<File?> pickImage() async {
-    emit(ImagePickedLoading());
+    // emit(ImagePickedLoading());
     XFile? pickedFile = await ImagePicker().pickImage(
       source: ImageSource.gallery,
     );
