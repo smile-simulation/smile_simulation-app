@@ -1230,16 +1230,6 @@ class S {
     );
   }
 
-  /// `Add First Reminder`
-  String get addFirstReminder {
-    return Intl.message(
-      'Add First Reminder',
-      name: 'addFirstReminder',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Delete Medicine`
   String get deleteMedicine {
     return Intl.message(
@@ -1315,6 +1305,46 @@ class S {
     return Intl.message(
       'Date',
       name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your daily activities ... and we will remind you of their schedules`
+  String get addDailyActivitiesPrompt {
+    return Intl.message(
+      'Add your daily activities ... and we will remind you of their schedules',
+      name: 'addDailyActivitiesPrompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your daily activities to your reminders so we can`
+  String get addDailyActivitiesInstructionPart1 {
+    return Intl.message(
+      'Add your daily activities to your reminders so we can',
+      name: 'addDailyActivitiesInstructionPart1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `remind you at their specified times`
+  String get addDailyActivitiesInstructionPart2 {
+    return Intl.message(
+      'remind you at their specified times',
+      name: 'addDailyActivitiesInstructionPart2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add First Reminder`
+  String get addFirstReminder {
+    return Intl.message(
+      'Add First Reminder',
+      name: 'addFirstReminder',
       desc: '',
       args: [],
     );

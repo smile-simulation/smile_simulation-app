@@ -24,6 +24,14 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "academicCertificate":
             MessageLookupByLibrary.simpleMessage("الشهادة الأكاديمية"),
+        "addDailyActivitiesInstructionPart1":
+            MessageLookupByLibrary.simpleMessage(
+                "أضف الأنشطة اليومية الخاصة بك الى تذكيراتك حتى نتمكن"),
+        "addDailyActivitiesInstructionPart2":
+            MessageLookupByLibrary.simpleMessage(
+                "من تذكيرك بها في أوقاتها المحدد"),
+        "addDailyActivitiesPrompt": MessageLookupByLibrary.simpleMessage(
+            "أضف الأنشطة اليومية الخاصة بك ... وسوف نذكرك بمواعيدها"),
         "addFirstReminder":
             MessageLookupByLibrary.simpleMessage("إضافة أول تذكير"),
         "addMedicine": MessageLookupByLibrary.simpleMessage("إضافة دواء جديد"),
