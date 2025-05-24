@@ -36,6 +36,7 @@ import '../../features/medical_record/presentation/manage/cubits/update_personal
 import '../../features/medical_record/presentation/views/health_status_view.dart';
 import '../../features/medical_record/presentation/views/medical_record_view.dart';
 import '../../features/medical_record/presentation/views/personal_data_view.dart';
+import '../../features/more/presentation/views/setting_view.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -189,6 +190,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
     case AddMedicalRecordView.routeName:
       return MaterialPageRoute(builder: (_) => AddMedicalRecordView());
+
+    case SettingView.routeName:
+      return MaterialPageRoute(builder: (_) => SettingView());
+
     default:
       return MaterialPageRoute(builder: (_) => Container());
   }

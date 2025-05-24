@@ -1,4 +1,6 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/database/cache/cache_helper.dart';
@@ -10,6 +12,10 @@ import 'package:smile_simulation/features/auth/login/presentation/view/login_vie
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
+import '../../../../../core/helper_functions/custom_error.dart';
+import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../main.dart';
+import '../setting_view.dart';
 import 'more_action_item_list_tile.dart';
 
 class MoreViewBody extends StatelessWidget {
@@ -17,69 +23,184 @@ class MoreViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppbar(context, title: "المزيد", isBack: false),
-      body: CustomBodyScreen(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                "المزيد من الاعدادات",
-                style: AppTextStyles.headline2(
-                  context,
-                ).copyWith(color: AppColors.greyColor),
+    return CustomBodyScreen(
+      child: Container(
+        color: AppColors.veryLightGreyColor,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  "حول التطبيق",
+                  style: AppTextStyles.headline2(
+                    context,
+                  ).copyWith(color: AppColors.greyColor),
+                ),
               ),
-            ),
-            SizedBox(height: 16),
-            MoreActionItemListTile(
-              iconPath: Assets.imagesUserAccountIcon,
-              title: "الملف الشخصي",
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  UserAccountView.routeName,
-                  arguments: true,
-                );
-              },
-            ),
-            MoreActionItemListTile(
-              iconPath: Assets.imagesSettingsIcon,
-              title: "الإعدادات",
-              onTap: () {},
-            ),
-            MoreActionItemListTile(
-              iconPath: Assets.imagesPrivacyPolicyIcon,
-              title: "سياسة الخصوصية",
-              onTap: () {},
-            ),
-            MoreActionItemListTile(
-              iconPath: Assets.imagesRateAppIcon,
-              title: "تقييم التطبيق",
-              onTap: () {},
-            ),
-            MoreActionItemListTile(
-              iconPath: Assets.imagesShareIcon,
-              title: "مشاركة التطبيق",
-              onTap: () {},
-            ),
-            MoreActionItemListTile(
-              iconPath: Assets.imagesContactUsIcon,
-              title: "تواصل معنا",
-              onTap: () {},
-            ),
-            MoreActionItemListTile(
-              iconPath: Assets.imagesLogoutIcon,
-              title: "تسجيل الخروج",
-              onTap: () {
-                CacheHelper().removeData(key: ApiKeys.token);
-                CacheHelper().removeMap(key: personalData);
-                Navigator.pushReplacementNamed(context, LoginView.routeName);
-              },
-            ),
-          ],
+              SizedBox(height: 24),
+              Container(
+                decoration: BoxDecoration(
+                  color: AppColors.whiteColor,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    MoreActionItemListTile(
+                      iconPath: Assets.imagesUserAccountIcon,
+                      title: "الملف الشخصي",
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          UserAccountView.routeName,
+                          arguments: true,
+                        );
+                      },
+                    ),
+                    Divider(
+                      color: AppColors.meduimLightGrey,
+                      height: 0,
+                      thickness: 1.5,
+                      endIndent: 16,
+                      indent: 16,
+                    ),
+                    MoreActionItemListTile(
+                      iconPath: Assets.imagesSettingsIcon,
+                      title: "الإعدادات",
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          SettingView.routeName,
+                        );
+                      },
+                    ),
+                    Divider(
+                      color: AppColors.meduimLightGrey,
+                      height: 0,
+                      thickness: 1.5,
+                      endIndent: 16,
+                      indent: 16,
+                    ),
+                    MoreActionItemListTile(
+                      iconPath: Assets.imagesPrivacyPolicyIcon,
+                      title: "سياسة الخصوصية",
+                      onTap: () {},
+                    ),
+                    Divider(
+                      color: AppColors.meduimLightGrey,
+                      height: 0,
+                      thickness: 1.5,
+                      endIndent: 16,
+                      indent: 16,
+                    ),
+                    MoreActionItemListTile(
+                      iconPath: Assets.imagesRateAppIcon,
+                      title: "تقييم التطبيق",
+                      onTap: () {},
+                    ),
+                    Divider(
+                      color: AppColors.meduimLightGrey,
+                      height: 0,
+                      thickness: 1.5,
+                      endIndent: 16,
+                      indent: 16,
+                    ),
+                    MoreActionItemListTile(
+                      iconPath: Assets.imagesShareIcon,
+                      title: "مشاركة التطبيق",
+                      onTap: () {},
+                    ),
+                    Divider(
+                      color: AppColors.meduimLightGrey,
+                      height: 0,
+                      thickness: 1.5,
+                      endIndent: 16,
+                      indent: 16,
+                    ),
+                    MoreActionItemListTile(
+                      iconPath: Assets.imagesContactUsIcon,
+                      title: "تواصل معنا",
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 12),
+              InkWell(
+                onTap: () {
+                  AwesomeDialog(
+                    context: context,
+                    dialogType: DialogType.warning,
+                    animType: AnimType.topSlide,
+                    title: "تأكيد",
+                    desc: "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+                    btnCancel: CustomButton(
+                      title: "إلغاء",
+                      isSecondary: true,
+                      isMinWidth: true,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    btnOk: CustomButton(
+                      title: "تأكيد",
+                      isMinWidth: true,
+                      onPressed: () async {
+                        CacheHelper.sharedPreferences.setBool(
+                          isSuccessLogin,
+                          false,
+                        );
+                        CacheHelper().removeMap(key: personalData);
+          
+                        CacheHelper().removeData(key: userData);
+                        await customSuccess(
+                          context,
+                          massage: "تم تسجيل الخروج بنجاح",
+                        );
+          
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SmileSimulation(),
+                          ),
+                          (route) => false,
+                        );
+                      },
+                    ),
+                  ).show();
+                },
+          
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.whiteColor,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  height: 50,
+                  margin: EdgeInsets.symmetric(horizontal: 16),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Center(
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(Assets.imagesLogoutIcon),
+                        const SizedBox(width: 16),
+                        Text(
+                          "تسجيل الخروج",
+                          style: AppTextStyles.subTitle1(context).copyWith(
+                            fontFamily: "NotoSansSC",
+                            color: AppColors.grayHeavyText_1Color,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
