@@ -22,136 +22,229 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "academicCertificate": MessageLookupByLibrary.simpleMessage(
-      "Academic certificate",
-    ),
-    "adviceContentError": MessageLookupByLibrary.simpleMessage(
-      "Advice Content Not Valid",
-    ),
-    "adviceTitleError": MessageLookupByLibrary.simpleMessage(
-      "Advice Title Not Valid",
-    ),
-    "advices": MessageLookupByLibrary.simpleMessage("Advices"),
-    "advicesCategories": MessageLookupByLibrary.simpleMessage(
-      "Advice categories",
-    ),
-    "age": MessageLookupByLibrary.simpleMessage("Age"),
-    "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
-    "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
-    "comment": MessageLookupByLibrary.simpleMessage("Comment"),
-    "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
-    "comments": MessageLookupByLibrary.simpleMessage("Comments"),
-    "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
-    "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
-    "createNewPost": MessageLookupByLibrary.simpleMessage("Create a new post"),
-    "createPost": MessageLookupByLibrary.simpleMessage("Create new post"),
-    "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
-    "deletePost": MessageLookupByLibrary.simpleMessage("Delete post"),
-    "editPost": MessageLookupByLibrary.simpleMessage("Edit post"),
-    "editUserInformation": MessageLookupByLibrary.simpleMessage(
-      "Edit personal information",
-    ),
-    "email": MessageLookupByLibrary.simpleMessage("Email"),
-    "english": MessageLookupByLibrary.simpleMessage("English"),
-    "enterEmail": MessageLookupByLibrary.simpleMessage(
-      "Please enter the email address registered with your account to send the code.",
-    ),
-    "enterNewPassword": MessageLookupByLibrary.simpleMessage(
-      "Please enter a new password consisting of 8 letters and numbers.",
-    ),
-    "enterPersonalInfo": MessageLookupByLibrary.simpleMessage(
-      "Enter your personal information",
-    ),
-    "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
-      "Please enter the 6-digit verification code sent to you.",
-    ),
-    "error": MessageLookupByLibrary.simpleMessage("Error"),
-    "female": MessageLookupByLibrary.simpleMessage("Female"),
-    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot password?"),
-    "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
-    "gender": MessageLookupByLibrary.simpleMessage("Gender"),
-    "generalAdvices": MessageLookupByLibrary.simpleMessage("General Advices"),
-    "home": MessageLookupByLibrary.simpleMessage("Home"),
-    "imageError": MessageLookupByLibrary.simpleMessage("Image Not Valid"),
-    "language": MessageLookupByLibrary.simpleMessage("Language"),
-    "like": MessageLookupByLibrary.simpleMessage("Like"),
-    "likeCount": MessageLookupByLibrary.simpleMessage("Likes"),
-    "location": MessageLookupByLibrary.simpleMessage("Location"),
-    "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
-    "login": MessageLookupByLibrary.simpleMessage("Login"),
-    "male": MessageLookupByLibrary.simpleMessage("Male"),
-    "medicalRecord": MessageLookupByLibrary.simpleMessage("Medical record"),
-    "mohamedHamed": MessageLookupByLibrary.simpleMessage("Mohamed Hamed"),
-    "more": MessageLookupByLibrary.simpleMessage("More"),
-    "next": MessageLookupByLibrary.simpleMessage("Next"),
-    "noAccount": MessageLookupByLibrary.simpleMessage(
-      "Don\'t have an account?",
-    ),
-    "noAdvicesExist": MessageLookupByLibrary.simpleMessage("No advices exist"),
-    "noCategoriesAdvicesExist": MessageLookupByLibrary.simpleMessage(
-      "No categories of advices currently exist",
-    ),
-    "ok": MessageLookupByLibrary.simpleMessage("Ok"),
-    "onBoarding1": MessageLookupByLibrary.simpleMessage(
-      "A comprehensive forum that helps you discover medical advice and professional answers in one place.\nGet support and advice from dental experts and fellow patients easily.",
-    ),
-    "onBoarding2": MessageLookupByLibrary.simpleMessage(
-      "All your medical information in one place, from diagnosis to treatment. Track your medical condition step by step.",
-    ),
-    "onBoarding3": MessageLookupByLibrary.simpleMessage(
-      "Everything you need from practical advice to ensure perfect oral and dental health.",
-    ),
-    "onBoarding4": MessageLookupByLibrary.simpleMessage(
-      "Managing your time has become easier. Make your dental health a priority.",
-    ),
-    "onBoarding5": MessageLookupByLibrary.simpleMessage(
-      "A fast and secure chat to solve all your oral health-related questions.",
-    ),
-    "password": MessageLookupByLibrary.simpleMessage("Password"),
-    "personal_info": MessageLookupByLibrary.simpleMessage(
-      "Personal information",
-    ),
-    "post": MessageLookupByLibrary.simpleMessage("Post"),
-    "postContent": MessageLookupByLibrary.simpleMessage("Post content..."),
-    "posts": MessageLookupByLibrary.simpleMessage("Posts"),
-    "practicalExperience": MessageLookupByLibrary.simpleMessage(
-      "Practical experience",
-    ),
-    "publish": MessageLookupByLibrary.simpleMessage("Publish"),
-    "registerAsDoctor": MessageLookupByLibrary.simpleMessage(
-      "Register as a doctor",
-    ),
-    "registerAsUser": MessageLookupByLibrary.simpleMessage(
-      "Register as a user",
-    ),
-    "registerNow": MessageLookupByLibrary.simpleMessage("Register now"),
-    "rememberPassword": MessageLookupByLibrary.simpleMessage(
-      "Remember password?",
-    ),
-    "reminders": MessageLookupByLibrary.simpleMessage("Reminders"),
-    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
-    "saveData": MessageLookupByLibrary.simpleMessage("Save data"),
-    "saveEdits": MessageLookupByLibrary.simpleMessage("Save edits"),
-    "searchRecord": MessageLookupByLibrary.simpleMessage("Search history"),
-    "showAll": MessageLookupByLibrary.simpleMessage("Show All"),
-    "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
-    "signInWith": MessageLookupByLibrary.simpleMessage("Sign in with"),
-    "skip": MessageLookupByLibrary.simpleMessage("Skip"),
-    "smileChat": MessageLookupByLibrary.simpleMessage("Smile Chat"),
-    "specialization": MessageLookupByLibrary.simpleMessage("Specialization"),
-    "start": MessageLookupByLibrary.simpleMessage("Start"),
-    "success": MessageLookupByLibrary.simpleMessage("Success"),
-    "toDaysAdvice": MessageLookupByLibrary.simpleMessage("Today\'s Advice"),
-    "uploadIDCard": MessageLookupByLibrary.simpleMessage("Upload your ID card"),
-    "verificationCode": MessageLookupByLibrary.simpleMessage(
-      "Verification code",
-    ),
-    "welcomeBack": MessageLookupByLibrary.simpleMessage(
-      "Welcome back! Log in to continue",
-    ),
-    "welcomeMsg": MessageLookupByLibrary.simpleMessage("Welcome"),
-    "yearsOfExperience": MessageLookupByLibrary.simpleMessage(
-      "Years of experience",
-    ),
-  };
+        "aboutAccount":
+            MessageLookupByLibrary.simpleMessage("About the Account"),
+        "aboutApp": MessageLookupByLibrary.simpleMessage("About the App"),
+        "academicCertificate":
+            MessageLookupByLibrary.simpleMessage("Academic certificate"),
+        "addDailyActivitiesInstructionPart1":
+            MessageLookupByLibrary.simpleMessage(
+                "Add your daily activities to your reminders so we can"),
+        "addDailyActivitiesInstructionPart2":
+            MessageLookupByLibrary.simpleMessage(
+                "remind you at their specified times"),
+        "addDailyActivitiesPrompt": MessageLookupByLibrary.simpleMessage(
+            "Add your daily activities ... and we will remind you of their schedules"),
+        "addFirstReminder":
+            MessageLookupByLibrary.simpleMessage("Add First Reminder"),
+        "addMedicine": MessageLookupByLibrary.simpleMessage("Add New Medicine"),
+        "addMedicineButton":
+            MessageLookupByLibrary.simpleMessage("Add Medicine"),
+        "addMedicineInstruction": MessageLookupByLibrary.simpleMessage(
+            "Add the medicines you use to your medical reminders so we can remind you at their specified times"),
+        "addMedicineInstructionPart1": MessageLookupByLibrary.simpleMessage(
+            "Add the medicines you use to your medical reminders so we can"),
+        "addMedicineInstructionPart2": MessageLookupByLibrary.simpleMessage(
+            "remind you at their specified times"),
+        "addMedicinePrompt": MessageLookupByLibrary.simpleMessage(
+            "Add the medicines you take ... and we will remind you of their schedules"),
+        "addNewReminder":
+            MessageLookupByLibrary.simpleMessage("Add New Reminder"),
+        "addReminder": MessageLookupByLibrary.simpleMessage("Add New Reminder"),
+        "addSpecialTasksInstructionPart1": MessageLookupByLibrary.simpleMessage(
+            "Add your special tasks to your reminders so we can"),
+        "addSpecialTasksInstructionPart2": MessageLookupByLibrary.simpleMessage(
+            "remind you at their specified times"),
+        "addSpecialTasksPrompt": MessageLookupByLibrary.simpleMessage(
+            "Add your special tasks ... and we will remind you of their schedules"),
+        "addVisitInstructionPart1": MessageLookupByLibrary.simpleMessage(
+            "Add your medical visits to your reminders so we can"),
+        "addVisitInstructionPart2": MessageLookupByLibrary.simpleMessage(
+            "remind you at their specified times"),
+        "addVisitPrompt": MessageLookupByLibrary.simpleMessage(
+            "Add your medical visit ... and we will remind you of its schedule"),
+        "addVisitSchedulesInstruction": MessageLookupByLibrary.simpleMessage(
+            "Add your medical visit schedules so we can remind you at their specified times."),
+        "adviceContentError":
+            MessageLookupByLibrary.simpleMessage("Advice Content Not Valid"),
+        "adviceTitleError":
+            MessageLookupByLibrary.simpleMessage("Advice Title Not Valid"),
+        "advices": MessageLookupByLibrary.simpleMessage("Advices"),
+        "advicesCategories":
+            MessageLookupByLibrary.simpleMessage("Advice categories"),
+        "afterMeal": MessageLookupByLibrary.simpleMessage("After Meal"),
+        "age": MessageLookupByLibrary.simpleMessage("Age"),
+        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "beforeMeal": MessageLookupByLibrary.simpleMessage("Before Meal"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "changeLanguage":
+            MessageLookupByLibrary.simpleMessage("Change Language"),
+        "changePassword":
+            MessageLookupByLibrary.simpleMessage("Change Password"),
+        "changePasswordPrompt": MessageLookupByLibrary.simpleMessage(
+            "You are about to change your password. Please enter a new password."),
+        "comment": MessageLookupByLibrary.simpleMessage("Comment"),
+        "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
+        "comments": MessageLookupByLibrary.simpleMessage("Comments"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "confirmDialogTitle": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "confirmNewPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm New Password"),
+        "confirmPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm password"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
+        "createNewPost":
+            MessageLookupByLibrary.simpleMessage("Create a new post"),
+        "createPost": MessageLookupByLibrary.simpleMessage("Create new post"),
+        "currentPassword":
+            MessageLookupByLibrary.simpleMessage("Current Password"),
+        "dailyActivities":
+            MessageLookupByLibrary.simpleMessage("Daily Activities"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
+        "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
+        "deleteAccountConfirmation": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete the account?"),
+        "deleteMedicine":
+            MessageLookupByLibrary.simpleMessage("Delete Medicine"),
+        "deletePost": MessageLookupByLibrary.simpleMessage("Delete post"),
+        "duringMeal": MessageLookupByLibrary.simpleMessage("During Meal"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "editPersonalInfo":
+            MessageLookupByLibrary.simpleMessage("Edit Personal Information"),
+        "editPost": MessageLookupByLibrary.simpleMessage("Edit post"),
+        "editUserInformation":
+            MessageLookupByLibrary.simpleMessage("Edit personal information"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
+        "enterEmail": MessageLookupByLibrary.simpleMessage(
+            "Please enter the email address registered with your account to send the code."),
+        "enterNewPassword": MessageLookupByLibrary.simpleMessage(
+            "Please enter a new password consisting of 8 letters and numbers."),
+        "enterPersonalInfo": MessageLookupByLibrary.simpleMessage(
+            "Enter your personal information"),
+        "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
+            "Please enter the 6-digit verification code sent to you."),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "female": MessageLookupByLibrary.simpleMessage("Female"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot password?"),
+        "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),
+        "friday": MessageLookupByLibrary.simpleMessage("Friday"),
+        "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
+        "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+        "generalAdvices":
+            MessageLookupByLibrary.simpleMessage("General Advices"),
+        "halfPill": MessageLookupByLibrary.simpleMessage("Half Pill"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "imageError": MessageLookupByLibrary.simpleMessage("Image Not Valid"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "like": MessageLookupByLibrary.simpleMessage("Like"),
+        "likeCount": MessageLookupByLibrary.simpleMessage("Likes"),
+        "location": MessageLookupByLibrary.simpleMessage("Location"),
+        "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "logout": MessageLookupByLibrary.simpleMessage("Log Out"),
+        "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to log out?"),
+        "logoutSuccess":
+            MessageLookupByLibrary.simpleMessage("Logged out successfully"),
+        "male": MessageLookupByLibrary.simpleMessage("Male"),
+        "medicalRecord": MessageLookupByLibrary.simpleMessage("Medical record"),
+        "medicineName": MessageLookupByLibrary.simpleMessage("Medicine Name"),
+        "medicineReminder":
+            MessageLookupByLibrary.simpleMessage("Medicine Reminder"),
+        "medicineReminders":
+            MessageLookupByLibrary.simpleMessage("Medicine Reminders"),
+        "medicineTime": MessageLookupByLibrary.simpleMessage("Medicine Time"),
+        "mohamedHamed": MessageLookupByLibrary.simpleMessage("Mohamed Hamed"),
+        "monday": MessageLookupByLibrary.simpleMessage("Monday"),
+        "more": MessageLookupByLibrary.simpleMessage("More"),
+        "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "noAccount":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "noAdvicesExist":
+            MessageLookupByLibrary.simpleMessage("No advices exist"),
+        "noCategoriesAdvicesExist": MessageLookupByLibrary.simpleMessage(
+            "No categories of advices currently exist"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+        "onBoarding1": MessageLookupByLibrary.simpleMessage(
+            "A comprehensive forum that helps you discover medical advice and professional answers in one place.\nGet support and advice from dental experts and fellow patients easily."),
+        "onBoarding2": MessageLookupByLibrary.simpleMessage(
+            "All your medical information in one place, from diagnosis to treatment. Track your medical condition step by step."),
+        "onBoarding3": MessageLookupByLibrary.simpleMessage(
+            "Everything you need from practical advice to ensure perfect oral and dental health."),
+        "onBoarding4": MessageLookupByLibrary.simpleMessage(
+            "Managing your time has become easier. Make your dental health a priority."),
+        "onBoarding5": MessageLookupByLibrary.simpleMessage(
+            "A fast and secure chat to solve all your oral health-related questions."),
+        "otherTasks": MessageLookupByLibrary.simpleMessage("Other Tasks"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "permanentMedicine":
+            MessageLookupByLibrary.simpleMessage("Permanent Medicine"),
+        "personal_info":
+            MessageLookupByLibrary.simpleMessage("Personal information"),
+        "pill": MessageLookupByLibrary.simpleMessage("Pill"),
+        "post": MessageLookupByLibrary.simpleMessage("Post"),
+        "postContent": MessageLookupByLibrary.simpleMessage("Post content..."),
+        "posts": MessageLookupByLibrary.simpleMessage("Posts"),
+        "practicalExperience":
+            MessageLookupByLibrary.simpleMessage("Practical experience"),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "publish": MessageLookupByLibrary.simpleMessage("Publish"),
+        "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
+        "rateApp": MessageLookupByLibrary.simpleMessage("Rate the App"),
+        "registerAsDoctor":
+            MessageLookupByLibrary.simpleMessage("Register as a doctor"),
+        "registerAsUser":
+            MessageLookupByLibrary.simpleMessage("Register as a user"),
+        "registerNow": MessageLookupByLibrary.simpleMessage("Register now"),
+        "rememberPassword":
+            MessageLookupByLibrary.simpleMessage("Remember password?"),
+        "reminders": MessageLookupByLibrary.simpleMessage("Reminders"),
+        "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
+        "saturday": MessageLookupByLibrary.simpleMessage("Saturday"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "saveData": MessageLookupByLibrary.simpleMessage("Save data"),
+        "saveEdits": MessageLookupByLibrary.simpleMessage("Save edits"),
+        "searchRecord": MessageLookupByLibrary.simpleMessage("Search history"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "shareApp": MessageLookupByLibrary.simpleMessage("Share the App"),
+        "showAll": MessageLookupByLibrary.simpleMessage("Show All"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "signInWith": MessageLookupByLibrary.simpleMessage("Sign in with"),
+        "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+        "smileChat": MessageLookupByLibrary.simpleMessage("Smile Chat"),
+        "specialization":
+            MessageLookupByLibrary.simpleMessage("Specialization"),
+        "specificDate": MessageLookupByLibrary.simpleMessage("Specific Date"),
+        "spoon": MessageLookupByLibrary.simpleMessage("Spoon"),
+        "start": MessageLookupByLibrary.simpleMessage("Start"),
+        "stopDate": MessageLookupByLibrary.simpleMessage("Medicine Stop Date"),
+        "success": MessageLookupByLibrary.simpleMessage("Success"),
+        "sunday": MessageLookupByLibrary.simpleMessage("Sunday"),
+        "termsAndConditions":
+            MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
+        "thursday": MessageLookupByLibrary.simpleMessage("Thursday"),
+        "time": MessageLookupByLibrary.simpleMessage("Time"),
+        "toDaysAdvice": MessageLookupByLibrary.simpleMessage("Today\'s Advice"),
+        "tuesday": MessageLookupByLibrary.simpleMessage("Tuesday"),
+        "uploadIDCard":
+            MessageLookupByLibrary.simpleMessage("Upload your ID card"),
+        "verificationCode":
+            MessageLookupByLibrary.simpleMessage("Verification code"),
+        "visitAddress": MessageLookupByLibrary.simpleMessage("Visit Address"),
+        "visitName": MessageLookupByLibrary.simpleMessage("Visit Name"),
+        "visitSchedules":
+            MessageLookupByLibrary.simpleMessage("Visit Schedules"),
+        "wednesday": MessageLookupByLibrary.simpleMessage("Wednesday"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage(
+            "Welcome back! Log in to continue"),
+        "welcomeMsg": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "yearsOfExperience":
+            MessageLookupByLibrary.simpleMessage("Years of experience")
+      };
 }

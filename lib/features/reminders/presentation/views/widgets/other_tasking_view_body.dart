@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_view.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/text_setion_in_reminder_feature.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class OtherTaskingViewBody extends StatelessWidget {
   const OtherTaskingViewBody({super.key});
@@ -33,19 +32,17 @@ class OtherTaskingViewBody extends StatelessWidget {
                   ),
                 ),
                 TextSetionInReminderFeature(
-                  text1: 'أضف المهام الخاصة بك ... وسوف نذكرك بمواعيدها',
-                  text2: 'أضف مهامك الخاصة إلى تذكيراتك حتى نتمكن         .',
-                  text3: 'من تذكيرك بها في أوقاتها المحدد',
+                  text1: S.of(context).addSpecialTasksPrompt,
+                  text2: S.of(context).addSpecialTasksInstructionPart1,
+                  text3: S.of(context).addSpecialTasksInstructionPart2,
                 ),
                 SizedBox(height: 50),
                 CustomeReminderButton(
-                  text: 'اضافة اول تذكير',
+                  text: S.of(context).addFirstReminder,
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => AddNewDrugView(),
-                      ),
-                    );
+                    // Navigator.of(context).push(
+                    //   MaterialPageRoute(builder: (context) => AddNewDrugView()),
+                    // );
                   },
                 ),
               ],

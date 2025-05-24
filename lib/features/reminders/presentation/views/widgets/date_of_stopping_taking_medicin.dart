@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_drop_down_container.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class DateOfStoppingTakkingMedicin extends StatefulWidget {
   const DateOfStoppingTakkingMedicin({super.key});
@@ -20,17 +21,17 @@ class _DateOfStoppingTakkingMedicinState
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "تاريخ التوقف عن الدواء",
+          Text(
+            S.of(context).stopDate,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             textAlign: TextAlign.right,
           ),
           const SizedBox(height: 12),
           CustomDropdownContainer(
-            hint: "دواء دائم",
+            hint: S.of(context).permanentMedicine,
             value: stopDate,
             items:
-                ["دواء دائم", "تاريخ معين"]
+                [S.of(context).permanentMedicine, S.of(context).specificDate]
                     .map((e) => DropdownMenuItem(value: e, child: Text(e)))
                     .toList(),
             onChanged: (val) => setState(() => stopDate = val),

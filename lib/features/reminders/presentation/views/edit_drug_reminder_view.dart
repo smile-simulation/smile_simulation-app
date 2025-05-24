@@ -5,18 +5,20 @@ import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_container_for_reminders_features.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class EditDrugReminderView extends StatelessWidget {
   const EditDrugReminderView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: customAppbar(context, title: 'منبه الدواء', isBack: true),
-        body: const EditDrugReminderViewBody(),
+    return Scaffold(
+      appBar: customAppbar(
+        context,
+        title: S.of(context).medicineReminder,
+        isBack: true,
       ),
+      body: const EditDrugReminderViewBody(),
     );
   }
 }
@@ -49,19 +51,22 @@ class EditDrugReminderViewBody extends StatelessWidget {
                     ),
                     SizedBox(height: 18),
                     Text(
-                      ' اسم الدواء',
+                      S.of(context).medicineName,
                       style: AppTextStyles.subTitle2(context),
                     ),
                     SizedBox(height: 8),
 
                     CustomTextField(
-                      hintText: 'اسم الدواء',
+                      hintText: S.of(context).medicineName,
                       keyboardType: TextInputType.text,
                       controller: TextEditingController(),
                       fillColor: Colors.white,
                     ),
                     SizedBox(height: 18),
-                    Text(' التكرار', style: AppTextStyles.subTitle2(context)),
+                    Text(
+                      S.of(context).frequency,
+                      style: AppTextStyles.subTitle2(context),
+                    ),
 
                     SizedBox(height: 8),
 
@@ -75,11 +80,14 @@ class EditDrugReminderViewBody extends StatelessWidget {
 
                     SizedBox(height: 18),
 
-                    Text(' الكمية', style: AppTextStyles.subTitle2(context)),
+                    Text(
+                      S.of(context).quantity,
+                      style: AppTextStyles.subTitle2(context),
+                    ),
                     SizedBox(height: 8),
 
                     CustomTextField(
-                      hintText: '1 قرص',
+                      hintText: "1 ${S.of(context).pill}",
                       keyboardType: TextInputType.text,
                       controller: TextEditingController(),
                       // suffixIcon: const Icon(Icons.access_time),
@@ -87,7 +95,7 @@ class EditDrugReminderViewBody extends StatelessWidget {
                     ),
                     SizedBox(height: 18),
                     Text(
-                      'وقت التنبيه',
+                      S.of(context).medicineTime,
                       style: AppTextStyles.subTitle2(context),
                     ),
                     SizedBox(height: 8),
@@ -101,13 +109,13 @@ class EditDrugReminderViewBody extends StatelessWidget {
                     ),
                     SizedBox(height: 18),
                     Text(
-                      'وقت تناول الدواء:',
+                      S.of(context).medicineTime,
                       style: AppTextStyles.subTitle2(context),
                     ),
                     SizedBox(height: 8),
 
                     CustomTextField(
-                      hintText: 'قبل تناول الطعام',
+                      hintText: S.of(context).beforeMeal,
                       keyboardType: TextInputType.text,
                       controller: TextEditingController(),
                       // suffixIcon: const Icon(Icons.access_time),
@@ -115,13 +123,13 @@ class EditDrugReminderViewBody extends StatelessWidget {
                     ),
                     SizedBox(height: 18),
                     Text(
-                      'تاريخ التوقف عن الدواء',
+                      S.of(context).stopDate,
                       style: AppTextStyles.subTitle2(context),
                     ),
                     SizedBox(height: 8),
 
                     CustomTextField(
-                      hintText: 'دواء مدى الحياة',
+                      hintText: S.of(context).permanentMedicine,
                       keyboardType: TextInputType.text,
                       controller: TextEditingController(),
                       // suffixIcon: const Icon(Icons.access_time),
@@ -131,13 +139,13 @@ class EditDrugReminderViewBody extends StatelessWidget {
                     Row(
                       children: [
                         CustomButton(
-                          title: 'تعديل البيانات',
+                          title: S.of(context).saveEdits,
                           isMinWidth: true,
                           onPressed: () {},
                         ),
                         const SizedBox(width: 40),
                         CustomButton(
-                          title: 'حذف الدواء',
+                          title: S.of(context).deleteMedicine,
                           isMinWidth: true,
                           onPressed: () {},
                         ),

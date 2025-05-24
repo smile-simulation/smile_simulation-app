@@ -17,10 +17,10 @@ class CustomTextField extends StatelessWidget {
     this.borderColor = const Color(0xffF8F8F8),
     this.hintTextColor = AppColors.greyLightColor,
     this.cursorColor = AppColors.primaryColor,
-    this.suffixIconColor = AppColors.greyColor, // 🆕 Default color
-    this.readOnly = false,
+    this.suffixIconColor = AppColors.greyColor,
+    this.readOnly,
   });
-
+  final bool? readOnly;
   final String? title;
   final String hintText;
   final TextInputType keyboardType;
@@ -29,14 +29,12 @@ class CustomTextField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final bool obscureText;
-  final bool readOnly;
 
-  // Customizable colors
   final Color fillColor;
   final Color borderColor;
   final Color hintTextColor;
   final Color cursorColor;
-  final Color suffixIconColor; // 🆕 New variable
+  final Color suffixIconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +48,8 @@ class CustomTextField extends StatelessWidget {
           controller: controller,
           cursorColor: cursorColor,
           onSaved: onSaved,
-          validator: validator ??
+          validator:
+              validator ??
               (value) {
                 if (value == null || value.isEmpty) {
                   return 'هذا الحقل مطلوب';
@@ -63,15 +62,16 @@ class CustomTextField extends StatelessWidget {
             filled: true,
             fillColor: fillColor,
             hintText: hintText,
-            hintStyle: AppTextStyles.formLabel(context).copyWith(
-              color: hintTextColor,
-            ),
-            suffixIcon: suffixIcon != null
-                ? IconTheme(
-                    data: IconThemeData(color: suffixIconColor),
-                    child: suffixIcon!,
-                  )
-                : null,
+            hintStyle: AppTextStyles.formLabel(
+              context,
+            ).copyWith(color: hintTextColor),
+            suffixIcon:
+                suffixIcon != null
+                    ? IconTheme(
+                      data: IconThemeData(color: suffixIconColor),
+                      child: suffixIcon!,
+                    )
+                    : null,
             border: _buildOutlineInputBorder(),
             enabledBorder: _buildOutlineInputBorder(),
             focusedBorder: _focusedOutlineInputBorder(),

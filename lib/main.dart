@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +25,7 @@ ValueNotifier<Locale> localeNotifier = ValueNotifier(
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   WidgetsBinding.instance.deferFirstFrame();
-
+  await Firebase.initializeApp();
   await CacheHelper().init();
   LocalNotificationService.initialize();
   await LocalNotificationService().requestNotificationPermission();
@@ -66,7 +67,7 @@ class SmileSimulation extends StatelessWidget {
               elevation: 0,
             ),
           ),
-          localizationsDelegates: [
+          localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,

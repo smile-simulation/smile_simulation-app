@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "458288767239",
+    "project_id": "final-project-9d757",
+    "storage_bucket": "final-project-9d757.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458288767239:android:9ec61000f9c8fc0df4e5a2",
+        "android_client_info": {
+          "package_name": "com.simulation.smile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXi-bnFv9avCmDnOWCt5yDyNUGrk0zryLU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
