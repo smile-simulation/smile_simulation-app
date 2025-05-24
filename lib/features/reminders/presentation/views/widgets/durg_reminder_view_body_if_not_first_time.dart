@@ -8,9 +8,9 @@ import 'package:smile_simulation/features/reminders/presentation/views/edit_drug
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_container_for_reminders_features.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_picker_image.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 // ✅ Make sure you have this file and screen:
-
 
 class DrugReminderViewBodyIfNotFirstTime extends StatefulWidget {
   const DrugReminderViewBodyIfNotFirstTime({super.key});
@@ -40,11 +40,14 @@ class _AddDrrugReminderViewBodyState
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'منبهات الأدوية',
+                    S.of(context).medicineReminders,
                     style: AppTextStyles.headline2(context),
                   ),
                   CustomButton(
-                    title: isSelected == false ? "الغاء" : 'تعديل',
+                    title:
+                        isSelected == false
+                            ? S.of(context).cancel
+                            : S.of(context).edit,
                     isGreyBackground: isSelected == false,
                     isExtraMinWidth: true,
                     onPressed: () {
@@ -100,9 +103,10 @@ class _AddDrrugReminderViewBodyState
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'اسم الدواء',
-                                  style: AppTextStyles.subTitle1(context)
-                                      .copyWith(color: AppColors.primaryColor),
+                                  S.of(context).medicineName,
+                                  style: AppTextStyles.subTitle1(
+                                    context,
+                                  ).copyWith(color: AppColors.primaryColor),
                                 ),
                                 const SizedBox(height: 18),
                                 Text(
@@ -135,13 +139,11 @@ class _AddDrrugReminderViewBodyState
             ),
             const SizedBox(height: 30),
             CustomeReminderButton(
-              text: ' إضافة تذكير جديد',
+              text: S.of(context).addReminder,
               onPressed: () {
                 // Example: you can send reminder info back
                 Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => AddNewDrugView(),
-                  ),
+                  MaterialPageRoute(builder: (context) => AddNewDrugView()),
                 );
               },
             ),

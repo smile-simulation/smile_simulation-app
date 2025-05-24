@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/add_daily_activities_view_body.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/add_new_daily_activities_body.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/add_new_visiting_date_body.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/text_setion_in_reminder_feature.dart';
 

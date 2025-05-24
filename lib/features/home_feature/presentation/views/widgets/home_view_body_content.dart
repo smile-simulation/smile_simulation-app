@@ -1,9 +1,7 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-import 'package:smile_simulation/features/chat_bot/presentaion/views/chat_bot.dart';
 import 'package:smile_simulation/features/chat_bot/presentaion/views/chat_bot_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 

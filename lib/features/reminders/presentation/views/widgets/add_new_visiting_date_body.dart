@@ -4,10 +4,7 @@ import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/add_visists_view.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_drop_down_container.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
 
 class AddNewVisitingDateBody extends StatelessWidget {
   const AddNewVisitingDateBody({super.key});

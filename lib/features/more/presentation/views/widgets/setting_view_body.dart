@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smile_simulation/features/more/presentation/language_view.dart';
 import 'package:smile_simulation/features/more/presentation/views/widgets/more_action_item_list_tile.dart';
-import 'package:smile_simulation/features/more/presentation/views/widgets/more_view_body.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_body_screen.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../generated/assets.dart';
-import '../../../../user_account/presentation/views/user_account_view.dart';
 
 
 

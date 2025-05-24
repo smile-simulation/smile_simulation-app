@@ -7,13 +7,10 @@ class VisitingDatesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: customAppbar(context, title: 'مواعيد الزيارات', isBack: true),
-
-        body: const VisitingDatesViewBody(),
-      ),
+    return Scaffold(
+      appBar: customAppbar(context, title: 'مواعيد الزيارات', isBack: true),
+    
+      body: const VisitingDatesViewBody(),
     );
   }
 }

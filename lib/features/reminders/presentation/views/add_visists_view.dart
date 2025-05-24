@@ -7,13 +7,9 @@ class AddVisistsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-
-      child: Scaffold(
-        appBar: customAppbar(context, title: ' مواعيد الزيارات ', isBack: true),
-        body: AddVisitsViewBody(),
-      ),
+    return Scaffold(
+      appBar: customAppbar(context, title: ' مواعيد الزيارات ', isBack: true),
+      body: AddVisitsViewBody(),
     );
   }
 }

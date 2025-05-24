@@ -7,17 +7,14 @@ class DailyActivitiesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar:customAppbar(context, title: 'الأنشطة اليومية', isBack: true),
-        // appBar: AppBar(
-        //   title: const Text('الأنشطة اليومية'),
-        //   centerTitle: true,
-        //   backgroundColor: Colors.blue,
-        // ),
-        body: const DailyActivitiesViewBody(),
-      ),
+    return Scaffold(
+      appBar: customAppbar(context, title: 'الأنشطة اليومية', isBack: true),
+      // appBar: AppBar(
+      //   title: const Text('الأنشطة اليومية'),
+      //   centerTitle: true,
+      //   backgroundColor: Colors.blue,
+      // ),
+      body: const DailyActivitiesViewBody(),
     );
   }
 }

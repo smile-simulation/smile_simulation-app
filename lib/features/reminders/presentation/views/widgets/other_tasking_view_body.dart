@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_view.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/text_setion_in_reminder_feature.dart';
 

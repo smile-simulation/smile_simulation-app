@@ -7,18 +7,20 @@ import 'package:smile_simulation/features/reminders/presentation/views/widgets/d
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/medicine_time_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/repeat_day_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/time_and_quantity_section.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class AddNewDrugView extends StatelessWidget {
   const AddNewDrugView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: customAppbar(context, title: 'اضافة دواء جديد', isBack: true),
-        body: AddNewDrugViewBody(),
+    return Scaffold(
+      appBar: customAppbar(
+        context,
+        title: S.of(context).addMedicine,
+        isBack: true,
       ),
+      body: AddNewDrugViewBody(),
     );
   }
 }
@@ -36,62 +38,58 @@ class _AddNewDrugScreenBodyState extends State<AddNewDrugViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          child: CustomBodyScreen(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Text(
-                    "اضف الادوية التي تستخدمها الي تنبيهانك الطبية حتي نتمكن من تذكيرك بها اوقاتها المحددة",
-                    style: TextStyle(fontSize: 14),
-                  ),
-                ),
-                CameraSection(),
-                MedicineTimeSection(
-                  selectedTime: selectedTime,
-                  onChanged: (val) => setState(() => selectedTime = val),
-                  items: const [
-                    "قبل تناول الطعام",
-                    "بعد تناول الطعام",
-                    "أثناء تناول الطعام",
-                  ],
-                ),
-                SizedBox(height: 16),
-                RepeatDaysSection(
-                  daysSelected: daysSelected,
-                  onChanged: (index, value) {
-                    setState(() {
-                      daysSelected[index] = value;
-                    });
-                  },
-                ),
-                SizedBox(height: 16),
-                TimeAndQuantitySection(),
-                SizedBox(height: 16),
-                DateOfStoppingTakkingMedicin(),
-                Spacer(),
-                CustomButton(
-                  title: 'اضافة الدواء',
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => AddNewDrugView(),
-                      ),
-                    );
-                  },
-                ),
-                SizedBox(height: 16),
+    return Expanded(
+      child: CustomBodyScreen(
+        child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 8,
+              ),
+              child: Text(
+                S.of(context).addMedicineInstruction,
+                style: TextStyle(fontSize: 14),
+              ),
+            ),
+            CameraSection(),
+            MedicineTimeSection(
+              selectedTime: selectedTime,
+              onChanged: (val) => setState(() => selectedTime = val),
+              items: [
+                S.of(context).beforeMeal,
+                S.of(context).afterMeal,
+                S.of(context).duringMeal,
               ],
             ),
-          ),
+            SizedBox(height: 16),
+            RepeatDaysSection(
+              daysSelected: daysSelected,
+              onChanged: (index, value) {
+                setState(() {
+                  daysSelected[index] = value;
+                });
+              },
+            ),
+            SizedBox(height: 16),
+            TimeAndQuantitySection(),
+            SizedBox(height: 16),
+            DateOfStoppingTakkingMedicin(),
+            Spacer(),
+            CustomButton(
+              title: S.of(context).addMedicineButton,
+              onPressed: () {
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(builder: (context) => AddNewDrugView()),
+                // );
+              },
+            ),
+            SizedBox(height: 16),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

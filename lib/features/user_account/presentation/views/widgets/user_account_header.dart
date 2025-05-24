@@ -8,7 +8,6 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/features/user_account/presentation/managers/set_user_account_image/set_user_accoun_image_cubit.dart';
 import '../../../data/repos/set_user_account_image_repo/set_user_account_image_repo_impl.dart';
 import 'set_user_image_button.dart';
-import 'user_account_image.dart';
 import 'user_account_image_builder.dart';
 
 class UserAccountHeader extends StatelessWidget {
