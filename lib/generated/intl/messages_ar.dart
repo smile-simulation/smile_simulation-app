@@ -138,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
         "generalAdvices": MessageLookupByLibrary.simpleMessage("نصائح عامة"),
         "halfPill": MessageLookupByLibrary.simpleMessage("نص حباية"),
+        "healthStatus": MessageLookupByLibrary.simpleMessage("الحالة الصحية"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "imageError": MessageLookupByLibrary.simpleMessage("الصورة غير صالحة"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
@@ -184,6 +185,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "otherTasks": MessageLookupByLibrary.simpleMessage("مهام أخرى"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "permanentMedicine": MessageLookupByLibrary.simpleMessage("دواء دائم"),
+        "personalData":
+            MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
         "pill": MessageLookupByLibrary.simpleMessage("حباية"),
@@ -236,6 +239,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "thursday": MessageLookupByLibrary.simpleMessage("خميس"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),
         "toDaysAdvice": MessageLookupByLibrary.simpleMessage("نصيحة اليوم"),
+        "treatmentHistory":
+            MessageLookupByLibrary.simpleMessage("السجل العلاجي"),
         "tuesday": MessageLookupByLibrary.simpleMessage("ثلاثاء"),
         "uploadIDCard":
             MessageLookupByLibrary.simpleMessage("قم برفع الكارنيه الخاص بك"),
