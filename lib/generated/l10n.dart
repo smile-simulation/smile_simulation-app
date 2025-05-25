@@ -1400,12 +1400,10 @@ class S {
     );
   }
 
-
   /// `About the Account`
   String get aboutAccount {
     return Intl.message(
       'About the Account',
-
       name: 'aboutAccount',
       desc: '',
       args: [],
@@ -1617,6 +1615,46 @@ class S {
     return Intl.message(
       'Confirm New Password',
       name: 'confirmNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By creating an account, you are agreeing to our `
+  String get agreeToTermsPrefix {
+    return Intl.message(
+      'By creating an account, you are agreeing to our ',
+      name: 'agreeToTermsPrefix',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Agree to Privacy Policy and Terms & Conditions`
+  String get agreeToTermsAndPrivacy {
+    return Intl.message(
+      'Agree to Privacy Policy and Terms & Conditions',
+      name: 'agreeToTermsAndPrivacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please agree to the Privacy Policy and Terms & Conditions`
+  String get pleaseAgreeToTermsAndPrivacy {
+    return Intl.message(
+      'Please agree to the Privacy Policy and Terms & Conditions',
+      name: 'pleaseAgreeToTermsAndPrivacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `and`
+  String get and {
+    return Intl.message(
+      'and',
+      name: 'and',
       desc: '',
       args: [],
     );

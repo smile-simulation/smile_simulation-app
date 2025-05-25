@@ -155,5 +155,9 @@
   "changePasswordPrompt": "أنت على وشك تغيير كلمة المرور الخاصة بك. يرجى إدخال كلمة مرور جديدة.",
   "currentPassword": "كلمة المرور الحالية",
   "newPassword": "كلمة المرور الجديدة",
-  "confirmNewPassword": "تأكيد كلمة المرور الجديدة"
+  "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+  "agreeToTermsPrefix": "من خلال إنشاء حساب، فإنك توافق على ",
+  "agreeToTermsAndPrivacy": "الموافقة على سياسة الخصوصية والشروط والأحكام",
+  "pleaseAgreeToTermsAndPrivacy": "برجاء الموافقة على سياسات الخصوصية والشروط والأحكام",
+  "and":"و"
 }

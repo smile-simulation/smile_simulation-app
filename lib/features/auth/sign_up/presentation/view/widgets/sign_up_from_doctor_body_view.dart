@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/features/auth/sign_up/presentation/view/widgets/terms_of_use.dart';
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/widgets/upload_id_section_from_sign_up_from_doctor_view.dart';
 
 import '../../../../../../constant.dart';
@@ -33,6 +34,7 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
   File card = File('');
 
   bool isCorrect = false;
+  bool checkedPrivacyAndConditions = false;
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
@@ -121,6 +123,14 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
                             );
                             return;
                           }
+                          if (!checkedPrivacyAndConditions) {
+                            customError(
+                              context,
+                              massage:
+                                  S.of(context).pleaseAgreeToTermsAndPrivacy,
+                            );
+                            return;
+                          }
 
                           Navigator.pushNamed(
                             context,
@@ -142,7 +152,15 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
                       }
                     },
                   ),
-
+                  TermsOfUse(
+                    onCkecked: () {
+                      setState(() {
+                        checkedPrivacyAndConditions =
+                            !checkedPrivacyAndConditions;
+                      });
+                    },
+                    value: checkedPrivacyAndConditions,
+                  ),
                   SizedBox(height: 16),
                 ],
               ),

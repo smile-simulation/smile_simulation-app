@@ -11,6 +11,7 @@ import '../../../../../../generated/l10n.dart';
 import '../../manage/cubits/sign_up_user_cubit/sign_up_user_state.dart';
 import 'gender_section_from_sign_up_view.dart';
 import 'input_section_from_sign_up_from_user_view.dart';
+import 'terms_of_use.dart';
 
 class SignUpFromUserBodyView extends StatefulWidget {
   const SignUpFromUserBodyView({super.key});
@@ -26,6 +27,8 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
       TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
+
+  bool checkedPrivacyAndConditions = false;
 
   int gender = 2;
 
@@ -109,6 +112,14 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
                             );
                             return;
                           }
+                          if (!checkedPrivacyAndConditions) {
+                            customError(
+                              context,
+                              massage:
+                                  S.of(context).pleaseAgreeToTermsAndPrivacy,
+                            );
+                            return;
+                          }
 
                           context.read<SignUpUserCubit>().signUpFromUser(
                             email: emailController.text.trim(),
@@ -126,6 +137,15 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
                         setState(() {});
                       }
                     },
+                  ),
+                  TermsOfUse(
+                    onCkecked: () {
+                      setState(() {
+                        checkedPrivacyAndConditions =
+                            !checkedPrivacyAndConditions;
+                      });
+                    },
+                    value: checkedPrivacyAndConditions,
                   ),
                   SizedBox(height: 16),
                 ],
