@@ -24,7 +24,6 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "aboutAccount":
             MessageLookupByLibrary.simpleMessage("About the Account"),
-
         "aboutApp": MessageLookupByLibrary.simpleMessage("About the App"),
         "academicCertificate":
             MessageLookupByLibrary.simpleMessage("Academic certificate"),
@@ -75,6 +74,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Advice categories"),
         "afterMeal": MessageLookupByLibrary.simpleMessage("After Meal"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
+        "agreeToTermsAndPrivacy": MessageLookupByLibrary.simpleMessage(
+            "Agree to Privacy Policy and Terms & Conditions"),
+        "agreeToTermsPrefix": MessageLookupByLibrary.simpleMessage(
+            "By creating an account, you are agreeing to our "),
+        "and": MessageLookupByLibrary.simpleMessage("and"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "beforeMeal": MessageLookupByLibrary.simpleMessage("Before Meal"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -188,6 +192,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "personal_info":
             MessageLookupByLibrary.simpleMessage("Personal information"),
         "pill": MessageLookupByLibrary.simpleMessage("Pill"),
+        "pleaseAgreeToTermsAndPrivacy": MessageLookupByLibrary.simpleMessage(
+            "Please agree to the Privacy Policy and Terms & Conditions"),
         "post": MessageLookupByLibrary.simpleMessage("Post"),
         "postContent": MessageLookupByLibrary.simpleMessage("Post content..."),
         "posts": MessageLookupByLibrary.simpleMessage("Posts"),

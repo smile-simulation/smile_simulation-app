@@ -73,6 +73,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اقسام النصائح"),
         "afterMeal": MessageLookupByLibrary.simpleMessage("بعد تناول الطعام"),
         "age": MessageLookupByLibrary.simpleMessage("السن"),
+        "agreeToTermsAndPrivacy": MessageLookupByLibrary.simpleMessage(
+            "الموافقة على سياسة الخصوصية والشروط والأحكام"),
+        "agreeToTermsPrefix": MessageLookupByLibrary.simpleMessage(
+            "من خلال إنشاء حساب، فإنك توافق على "),
+        "and": MessageLookupByLibrary.simpleMessage("و"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "beforeMeal": MessageLookupByLibrary.simpleMessage("قبل تناول الطعام"),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
@@ -182,6 +187,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "personal_info":
             MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
         "pill": MessageLookupByLibrary.simpleMessage("حباية"),
+        "pleaseAgreeToTermsAndPrivacy": MessageLookupByLibrary.simpleMessage(
+            "برجاء الموافقة على سياسات الخصوصية والشروط والأحكام"),
         "post": MessageLookupByLibrary.simpleMessage("المنشور"),
         "postContent": MessageLookupByLibrary.simpleMessage("محتوى المنشور..."),
         "posts": MessageLookupByLibrary.simpleMessage("المنشورات"),

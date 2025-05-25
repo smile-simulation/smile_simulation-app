@@ -82,7 +82,7 @@ class MoreViewBody extends StatelessWidget {
                               (context) => CustomPoliciesAndConditionsDialog(
                                 title: "Privacy Policy",
                                 path:
-                                    "assets/policies_and_conditions/privacy_policy.md",
+                                    "assets/policies_and_conditions/privacy_policy.md", 
                               ),
                         );
                       },

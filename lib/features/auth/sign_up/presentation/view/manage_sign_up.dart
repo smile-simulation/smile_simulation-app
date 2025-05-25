@@ -44,7 +44,7 @@ class ManageSignUpView extends StatelessWidget {
             child: CustomButton(
               title: S.of(context).registerAsDoctor,
               onPressed: () {
-                Navigator.pushNamed(context, SignUpFromDoctorView.routeName);
+                Navigator.pushNamed(context, SignUpFromDoctorView.routeName); 
               },
             ),
           ),
