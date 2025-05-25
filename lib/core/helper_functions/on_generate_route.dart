@@ -23,6 +23,7 @@ import 'package:smile_simulation/features/home_feature/data/models/post_model.da
 import 'package:smile_simulation/features/home_feature/presentation/views/create_post_view.dart';
 import 'package:smile_simulation/features/home_feature/presentation/views/post_view.dart';
 import 'package:smile_simulation/features/more/presentation/manage/cubits/change_password_cubit/change_password_cubit.dart';
+import 'package:smile_simulation/features/more/presentation/manage/cubits/delete_account_cubit/delete_account_cubit.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 
 import '../../features/advices/presentation/views/advices/advice_view.dart';
@@ -38,6 +39,7 @@ import '../../features/medical_record/presentation/views/health_status_view.dart
 import '../../features/medical_record/presentation/views/medical_record_view.dart';
 import '../../features/medical_record/presentation/views/personal_data_view.dart';
 import '../../features/more/data/repos/change_password_repos/change_password_repo.dart';
+import '../../features/more/data/repos/delete_account_repos/delete_account_repo.dart';
 import '../../features/more/presentation/views/change_password_view.dart';
 import '../../features/more/presentation/views/language_view.dart';
 import '../../features/more/presentation/views/setting_view.dart';
@@ -196,22 +198,27 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => AddMedicalRecordView());
 
     case SettingView.routeName:
-      return MaterialPageRoute(builder: (_) => SettingView());
+      return MaterialPageRoute(
+        builder:
+            (_) => BlocProvider(
+              child: SettingView(),
+              create:
+                  (context) =>
+                      DeleteAccountCubit(getIt.get<DeleteAccountRepo>()),
+            ),
+      );
     case LanguageView.routeName:
       return MaterialPageRoute(builder: (_) => LanguageView());
     case ChangePasswordView.routeName:
-      return MaterialPageRoute(builder: (_) =>
-
-          BlocProvider(
-            child: ChangePasswordView(),
-            create:
-                (context) => ChangePasswordCubit(
-               getIt.get<ChangePasswordRepo>(),
+      return MaterialPageRoute(
+        builder:
+            (_) => BlocProvider(
+              child: ChangePasswordView(),
+              create:
+                  (context) =>
+                      ChangePasswordCubit(getIt.get<ChangePasswordRepo>()),
             ),
-          ),
-
-
-          );
+      );
 
     default:
       return MaterialPageRoute(builder: (_) => Container());

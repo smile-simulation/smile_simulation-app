@@ -12,6 +12,7 @@ import 'package:smile_simulation/features/home_feature/data/repos/comments_repo/
 import 'package:smile_simulation/features/home_feature/data/repos/posts_repo/posts_repo_implement.dart';
 import 'package:smile_simulation/features/medical_record/data/repos/personal_data_repos/personal_data_repo_impl.dart';
 import 'package:smile_simulation/features/more/data/repos/change_password_repos/change_password_repo_impl.dart';
+import 'package:smile_simulation/features/more/data/repos/delete_account_repos/delete_account_repo.dart';
 import 'package:smile_simulation/features/more/presentation/manage/cubits/change_password_cubit/change_password_cubit.dart';
 import 'package:smile_simulation/features/user_account/data/repos/set_user_account_image_repo/set_user_account_image_repo_impl.dart';
 import 'package:smile_simulation/features/user_account/data/repos/user_details/user_details_repo_impl.dart';
@@ -21,6 +22,7 @@ import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo_impl.dart';
 import '../../features/medical_record/data/repos/personal_data_repos/personal_data_repo.dart';
 import '../../features/more/data/repos/change_password_repos/change_password_repo.dart';
+import '../../features/more/data/repos/delete_account_repos/delete_account_repo_impl.dart';
 
 final getIt = GetIt.instance;
 
@@ -58,5 +60,8 @@ void setupGetIt() {
   );
   getIt.registerSingleton<ChangePasswordRepo>(
     ChangePasswordRepoImpl(dioConsumer: getIt<DioConsumer>()),
+  );
+  getIt.registerSingleton<DeleteAccountRepo>(
+    DeleteAccountRepoImpl(dioConsumer: getIt<DioConsumer>()),
   );
 }
