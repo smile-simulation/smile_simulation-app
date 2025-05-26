@@ -159,5 +159,8 @@
   "agreeToTermsPrefix": "من خلال إنشاء حساب، فإنك توافق على ",
   "agreeToTermsAndPrivacy": "الموافقة على سياسة الخصوصية والشروط والأحكام",
   "pleaseAgreeToTermsAndPrivacy": "برجاء الموافقة على سياسات الخصوصية والشروط والأحكام",
-  "and":"و"
+  "and":"و",
+  "personalData": "البيانات الشخصية",
+  "healthStatus": "الحالة الصحية",
+  "treatmentHistory": "السجل العلاجي"
 }

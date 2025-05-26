@@ -1,7 +1,7 @@
 import 'package:logger/logger.dart';
 import 'core/database/cache/cache_helper.dart';
 
-const String isArabic = 'ar';
+ String isArabic = CacheHelper.sharedPreferences.getString('language') ?? 'ar';
 const isOnboardingViewSeen = 'isOnboardingViewSeen';
 const isSuccessLogin = 'isSuccessLogin';
 const sharedPrefForgetToken = 'sharedPrefForgetToken';

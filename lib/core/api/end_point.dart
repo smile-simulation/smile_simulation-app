@@ -6,6 +6,7 @@ class EndPoint {
   static String forgetPassword = "Account/ForgetPassword";
   static String resetPassword = "Account/ResetPassword";
   static String changePassword = "Account/ChangePassword";
+  static String deleteAccount = "UserManagement/DeleteAccountByEmail?email=";
   static String verifyOTP = "Account/VerifyOTP";
   static String allAdvices = "Advice";
   static String post = "post";

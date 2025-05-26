@@ -141,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "generalAdvices":
             MessageLookupByLibrary.simpleMessage("General Advices"),
         "halfPill": MessageLookupByLibrary.simpleMessage("Half Pill"),
+        "healthStatus": MessageLookupByLibrary.simpleMessage("Health Status"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "imageError": MessageLookupByLibrary.simpleMessage("Image Not Valid"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -189,6 +190,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "permanentMedicine":
             MessageLookupByLibrary.simpleMessage("Permanent Medicine"),
+        "personalData": MessageLookupByLibrary.simpleMessage("Personal Data"),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("Personal information"),
         "pill": MessageLookupByLibrary.simpleMessage("Pill"),
@@ -238,6 +240,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "thursday": MessageLookupByLibrary.simpleMessage("Thursday"),
         "time": MessageLookupByLibrary.simpleMessage("Time"),
         "toDaysAdvice": MessageLookupByLibrary.simpleMessage("Today\'s Advice"),
+        "treatmentHistory":
+            MessageLookupByLibrary.simpleMessage("Treatment History"),
         "tuesday": MessageLookupByLibrary.simpleMessage("Tuesday"),
         "uploadIDCard":
             MessageLookupByLibrary.simpleMessage("Upload your ID card"),

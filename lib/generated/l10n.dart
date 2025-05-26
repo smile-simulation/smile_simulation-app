@@ -1659,6 +1659,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Personal Data`
+  String get personalData {
+    return Intl.message(
+      'Personal Data',
+      name: 'personalData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Health Status`
+  String get healthStatus {
+    return Intl.message(
+      'Health Status',
+      name: 'healthStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Treatment History`
+  String get treatmentHistory {
+    return Intl.message(
+      'Treatment History',
+      name: 'treatmentHistory',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
