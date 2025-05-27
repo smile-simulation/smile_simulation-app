@@ -10,8 +10,6 @@ import 'package:smile_simulation/generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../main.dart';
 
-
-
 class LanguageView extends StatelessWidget {
   const LanguageView({super.key});
 
@@ -20,7 +18,11 @@ class LanguageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppbar(context, title: S.of(context).language, isBack: true),
+      appBar: customAppbar(
+        context,
+        title: S.of(context).language,
+        isBack: true,
+      ),
       body: CustomBodyScreen(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
@@ -30,7 +32,12 @@ class LanguageView extends StatelessWidget {
               const SizedBox(height: 8),
               InkWell(
                 onTap: () => _changeLanguage(context, 'ar'),
-                child: _languageRow(context, S.of(context).arabic, Assets.imagesSa, localeNotifier.value.languageCode == 'ar'),
+                child: _languageRow(
+                  context,
+                  S.of(context).arabic,
+                  Assets.imagesSa,
+                  localeNotifier.value.languageCode == 'ar',
+                ),
               ),
               Divider(
                 color: AppColors.meduimLightGrey,
@@ -39,7 +46,12 @@ class LanguageView extends StatelessWidget {
               ),
               InkWell(
                 onTap: () => _changeLanguage(context, 'en'),
-                child: _languageRow(context, S.of(context).english, Assets.imagesUkm, localeNotifier.value.languageCode == 'en'),
+                child: _languageRow(
+                  context,
+                  S.of(context).english,
+                  Assets.imagesUkm,
+                  localeNotifier.value.languageCode == 'en',
+                ),
               ),
             ],
           ),
@@ -48,21 +60,19 @@ class LanguageView extends StatelessWidget {
     );
   }
 
-  Widget _languageRow(BuildContext context, String title, String icon, bool selected) {
+  Widget _languageRow(
+    BuildContext context,
+    String title,
+    String icon,
+    bool selected,
+  ) {
     return Container(
       height: 54,
       child: Row(
         children: [
-          SvgPicture.asset(
-            icon,
-            width: 24,
-            height: 24,
-          ),
+          SvgPicture.asset(icon, width: 24, height: 24),
           const SizedBox(width: 16),
-          Text(
-            title,
-            style: AppTextStyles.headline3(context),
-          ),
+          Text(title, style: AppTextStyles.headline3(context)),
           const Spacer(),
           Visibility(
             visible: selected,
@@ -74,7 +84,7 @@ class LanguageView extends StatelessWidget {
   }
 
   void _changeLanguage(BuildContext context, String languageCode) async {
-    await CacheHelper().saveData(key: 'language', value: languageCode);
+    await CacheHelper.sharedPreferences.setString('language', languageCode);
     localeNotifier.value = Locale(languageCode);
   }
 }

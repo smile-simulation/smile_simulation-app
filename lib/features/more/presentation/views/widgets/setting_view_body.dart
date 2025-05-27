@@ -24,179 +24,185 @@ class SettingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<DeleteAccountCubit , DeleteAccountState>(
+    return BlocConsumer<DeleteAccountCubit, DeleteAccountState>(
       listener: (context, state) async {
         if (state is DeleteAccountFailure) {
           await customError(context, massage: state.message);
         }
         if (state is DeleteAccountSuccess) {
           await customSuccess(context, massage: state.message);
-          CacheHelper.sharedPreferences.clear();
-          Navigator.pushNamedAndRemoveUntil(
+
+          CacheHelper.sharedPreferences.setBool(isSuccessLogin, false);
+          CacheHelper().removeMap(key: personalData);
+          CacheHelper().removeData(key: userData);
+          Navigator.pushAndRemoveUntil(
             context,
-            UserAccountView.routeName,
+            MaterialPageRoute(builder: (context) => const SmileSimulation()),
             (route) => false,
           );
         }
       },
       builder:
-      (context, state) =>  CustomBodyScreen(
-        child: Container(
-          color: AppColors.veryLightGreyColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  S.of(context).aboutApp,
-                  style: AppTextStyles.headline2(
-                    context,
-                  ).copyWith(color: AppColors.greyColor),
-                ),
-              ),
-              SizedBox(height: 24),
-              Container(
-                decoration: BoxDecoration(
-                  color: AppColors.whiteColor,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                margin: EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  children: [
-                    MoreActionItemListTile(
-                      iconPath: Assets.imagesUserAccountIcon,
-                      title: S.of(context).editPersonalInfo,
-                      onTap: () {},
+          (context, state) => CustomBodyScreen(
+            child: Container(
+              color: AppColors.veryLightGreyColor,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(
+                      S.of(context).aboutAccount,
+                      style: AppTextStyles.headline2(
+                        context,
+                      ).copyWith(color: AppColors.greyColor),
                     ),
-                    Divider(
-                      color: AppColors.meduimLightGrey,
-                      height: 0,
-                      thickness: 1.5,
-                      endIndent: 16,
-                      indent: 16,
-                    ),
-                    MoreActionItemListTile(
-                      iconPath: Assets.imagesChagePassword,
-
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          ChangePasswordView.routeName,
-                        );
-                      },
-                      title: S.of(context).changePassword,
-                    ),
-                    Divider(
-                      color: AppColors.meduimLightGrey,
-                      height: 0,
-                      thickness: 1.5,
-                      endIndent: 16,
-                      indent: 16,
-                    ),
-                    MoreActionItemListTile(
-                      iconPath: Assets.imagesChageLanguge,
-                      title: S.of(context).changeLanguage,
-                      onTap: () {
-                        Navigator.pushNamed(context, LanguageView.routeName);
-                      },
-                    ),
-                    Divider(
-                      color: AppColors.meduimLightGrey,
-                      height: 0,
-                      thickness: 1.5,
-                      endIndent: 16,
-                      indent: 16,
-                    ),
-                    MoreActionItemListTile(
-                      iconPath: Assets.imagesNotification2,
-                      title: S.of(context).notifications,
-                      trailing: Switch(
-                        value: true,
-                        onChanged: (value) {},
-                        focusColor: AppColors.whiteColor,
-                        inactiveThumbColor: AppColors.whiteColor,
-                        inactiveTrackColor: AppColors.primaryColor.withOpacity(
-                          0.3,
-                        ),
-
-                        activeColor: AppColors.primaryColor,
-
-                        activeTrackColor: AppColors.primaryColor.withOpacity(0.3),
-                      ),
-                      onTap: () {},
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 12),
-              InkWell(
-                onTap: () {
-
-                  AwesomeDialog(
-                    context: context,
-                    dialogType: DialogType.warning,
-                    animType: AnimType.topSlide,
-                    title: S.of(context).confirm,
-                    desc: S.of(context).deleteAccountConfirmation,
-                    btnCancel: CustomButton(
-                      isLoading: state is DeleteAccountLoading,
-                      title: S.of(context).cancel,
-                      isSecondary: true,
-                      isMinWidth: true,
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    btnOk: CustomButton(
-
-                      title: S.of(context).confirm,
-                      isMinWidth: true,
-                      onPressed: ()  {
-
-                         context.read<DeleteAccountCubit>().deleteAccount(
-                          email: CacheHelper().getMap(key: userData)!['email'],
-                        );
-
-                      },
-                    ),
-                  ).show();
-                },
-
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.whiteColor,
-                    borderRadius: BorderRadius.circular(12),
                   ),
-                  height: 50,
-                  margin: EdgeInsets.symmetric(horizontal: 16),
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Center(
-                    child: Row(
+                  SizedBox(height: 24),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.whiteColor,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    margin: EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
                       children: [
-                        SvgPicture.asset(
-                          Assets.imagesAccountDelete,
-                          color: AppColors.redColor,
+                        MoreActionItemListTile(
+                          iconPath: Assets.imagesUserAccountIcon,
+                          title: S.of(context).editPersonalInfo,
+                          onTap: () {},
                         ),
-                        const SizedBox(width: 16),
-                        Text(
-                          S.of(context).deleteAccount,
-                          style: AppTextStyles.subTitle1(context).copyWith(
-                            fontFamily: "NotoSansSC",
-                            color: AppColors.grayHeavyText_1Color,
+                        Divider(
+                          color: AppColors.meduimLightGrey,
+                          height: 0,
+                          thickness: 1.5,
+                          endIndent: 16,
+                          indent: 16,
+                        ),
+                        MoreActionItemListTile(
+                          iconPath: Assets.imagesChagePassword,
+
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              ChangePasswordView.routeName,
+                            );
+                          },
+                          title: S.of(context).changePassword,
+                        ),
+                        Divider(
+                          color: AppColors.meduimLightGrey,
+                          height: 0,
+                          thickness: 1.5,
+                          endIndent: 16,
+                          indent: 16,
+                        ),
+                        MoreActionItemListTile(
+                          iconPath: Assets.imagesChageLanguge,
+                          title: S.of(context).changeLanguage,
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              LanguageView.routeName,
+                            );
+                          },
+                        ),
+                        Divider(
+                          color: AppColors.meduimLightGrey,
+                          height: 0,
+                          thickness: 1.5,
+                          endIndent: 16,
+                          indent: 16,
+                        ),
+                        MoreActionItemListTile(
+                          iconPath: Assets.imagesNotification2,
+                          title: S.of(context).notifications,
+                          trailing: Switch(
+                            value: true,
+                            onChanged: (value) {},
+                            focusColor: AppColors.whiteColor,
+                            inactiveThumbColor: AppColors.whiteColor,
+                            inactiveTrackColor: AppColors.primaryColor
+                                .withOpacity(0.3),
+
+                            activeColor: AppColors.primaryColor,
+
+                            activeTrackColor: AppColors.primaryColor
+                                .withOpacity(0.3),
                           ),
+                          onTap: () {},
                         ),
                       ],
                     ),
                   ),
-                ),
+                  const SizedBox(height: 12),
+                  InkWell(
+                    onTap: () {
+                      AwesomeDialog(
+                        context: context,
+                        dialogType: DialogType.warning,
+                        animType: AnimType.topSlide,
+                        title: S.of(context).confirm,
+                        desc: S.of(context).deleteAccountConfirmation,
+                        btnCancel: CustomButton(
+                          isLoading: state is DeleteAccountLoading,
+                          title: S.of(context).cancel,
+                          isSecondary: true,
+                          isMinWidth: true,
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                        btnOk: CustomButton(
+                          title: S.of(context).confirm,
+                          isMinWidth: true,
+                          onPressed: () {
+                            context.read<DeleteAccountCubit>().deleteAccount(
+                              email:
+                                  CacheHelper().getMap(key: userData)!['email'],
+                            );
+                          },
+                        ),
+                      ).show();
+                    },
+
+                    borderRadius: BorderRadius.circular(12),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.whiteColor,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      height: 50,
+                      margin: EdgeInsets.symmetric(horizontal: 16),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 8,
+                      ),
+                      child: Center(
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              Assets.imagesAccountDelete,
+                              color: AppColors.redColor,
+                            ),
+                            const SizedBox(width: 16),
+                            Text(
+                              S.of(context).deleteAccount,
+                              style: AppTextStyles.subTitle1(context).copyWith(
+                                fontFamily: "NotoSansSC",
+                                color: AppColors.grayHeavyText_1Color,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
     );
   }
 }

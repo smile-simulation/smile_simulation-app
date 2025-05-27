@@ -6,6 +6,8 @@ import 'package:markdown_widget/markdown_widget.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class CustomPoliciesAndConditionsDialog extends StatelessWidget {
   final double radius;
   final String title;
@@ -25,8 +27,14 @@ class CustomPoliciesAndConditionsDialog extends StatelessWidget {
       ),
       child: Directionality(
         textDirection: TextDirection.ltr,
-        child: SizedBox(
+        child: Container(
           height: MediaQuery.of(context).size.height * 0.6,
+
+
+          decoration: BoxDecoration(
+            color: AppColors.whiteColor,
+            borderRadius: BorderRadius.circular(radius),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -39,26 +47,29 @@ class CustomPoliciesAndConditionsDialog extends StatelessWidget {
               ),
               SizedBox(height: 8),
               Expanded(
-                child: FutureBuilder<String>(
-                  future: DefaultAssetBundle.of(context).loadString(path),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done) {
-                      if (snapshot.hasError || !snapshot.hasData) {
-                        log('Error loading file: ${snapshot.error}');
-                        return const Center(
-                          child: Text('Error loading policy'),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric( horizontal:  8.0),
+                  child: FutureBuilder<String>(
+                    future: DefaultAssetBundle.of(context).loadString(path),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        if (snapshot.hasError || !snapshot.hasData) {
+                          log('Error loading file: ${snapshot.error}');
+                          return const Center(
+                            child: Text('Error loading policy'),
+                          );
+                        }
+
+                        return MarkdownWidget(
+                          padding: EdgeInsets.all(8),
+                          data: snapshot.data!,
+                          shrinkWrap: true,
                         );
                       }
 
-                      return MarkdownWidget(
-                        padding: EdgeInsets.all(8),
-                        data: snapshot.data!,
-                        shrinkWrap: true,
-                      );
-                    }
-
-                    return const Center(child: CircularProgressIndicator());
-                  },
+                      return const Center(child: CircularProgressIndicator());
+                    },
+                  ),
                 ),
               ),
               TextButton(
@@ -78,7 +89,7 @@ class CustomPoliciesAndConditionsDialog extends StatelessWidget {
                   height: 50,
                   width: double.infinity,
                   child: Text(
-                    "CLOSE",
+                    S.of(context).close,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

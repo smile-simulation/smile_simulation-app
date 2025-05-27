@@ -6,6 +6,8 @@ import 'package:smile_simulation/features/auth/sign_up/presentation/view/sign_up
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
+import '../../../../../constant.dart';
+import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../generated/l10n.dart';
 
 class ManageSignUpView extends StatelessWidget {
@@ -17,10 +19,55 @@ class ManageSignUpView extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: AppColors.whiteColor,
-      appBar: customAppbar(context, isBack: true),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent ,
+        leading:
+         IconButton(
+          onPressed:
+
+                  () {
+                Navigator.pop(context);
+              },
+          icon: Icon(
+            Icons.arrow_back_ios_new_outlined,
+            color: AppColors.whiteColor,
+          ),
+        ),
+
+        title:
+      Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Visibility(
+              visible: isArabic == 'ar',
+              child: Text(
+                'Smile',
+                style: AppTextStyles.headline1(
+                  context,
+                ).copyWith(color: AppColors.whiteColor),
+              ),
+            ),
+            Text(
+              ' simulation ',
+              style: AppTextStyles.headline1(context).copyWith(
+                color: AppColors.lightGreyColor,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            Visibility(
+              visible: isArabic == 'en',
+              child: Text(
+                'Smile',
+                style: AppTextStyles.headline1(
+                  context,
+                ).copyWith(color: AppColors.whiteColor),
+              ),
+            ),
+          ],
+        ),
+      ),
 
       body: Column(
-        spacing: 16,
         children: [
           Expanded(
             child: Stack(

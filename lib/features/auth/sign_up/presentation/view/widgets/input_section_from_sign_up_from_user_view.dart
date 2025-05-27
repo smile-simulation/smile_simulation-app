@@ -23,6 +23,7 @@ class InputSectionFromSignUpFromUserView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 16,
       children: [
         CustomTextField(
           controller: nameController,

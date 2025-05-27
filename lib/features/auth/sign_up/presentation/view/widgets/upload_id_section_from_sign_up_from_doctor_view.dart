@@ -115,13 +115,13 @@ class _UploadIDSectionFromSignUpFromDoctorViewState
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Align(
-          alignment:
-              isArabic == 'ar' ? Alignment.centerRight : Alignment.centerLeft,
-          child: Text(
-            S.of(context).uploadIDCard,
-            style: AppTextStyles.formLabel(context),
-          ),
+        Row(
+          children: [
+            Text(
+              S.of(context).uploadIDCard,
+              style: AppTextStyles.formLabel(context),
+            ),
+          ],
         ),
         const SizedBox(height: 12),
         GestureDetector(
