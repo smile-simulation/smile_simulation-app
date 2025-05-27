@@ -66,17 +66,15 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
                 spacing: 16,
                 children: [
                   SizedBox(height: 16),
-                  Align(
-                    alignment:
-                        isArabic == 'ar'
-                            ? Alignment.centerRight
-                            : Alignment.centerLeft,
-                    child: Text(
-                      S.of(context).registerNow,
-                      style: AppTextStyles.headline1(
-                        context,
-                      ).copyWith(color: Color(0xFF4F4F4F)),
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        S.of(context).registerNow,
+                        style: AppTextStyles.headline1(
+                          context,
+                        ).copyWith(color: Color(0xFF4F4F4F)),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 24),
                   InputSectionFromSignUpFromDoctorView(
@@ -101,6 +99,15 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
                         isCorrect = isDoctor;
                       });
                     },
+                  ),
+                  TermsOfUse(
+                    onCkecked: () {
+                      setState(() {
+                        checkedPrivacyAndConditions =
+                        !checkedPrivacyAndConditions;
+                      });
+                    },
+                    value: checkedPrivacyAndConditions,
                   ),
                   CustomButton(
                     title: S.of(context).registerNow,
@@ -152,15 +159,7 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
                       }
                     },
                   ),
-                  TermsOfUse(
-                    onCkecked: () {
-                      setState(() {
-                        checkedPrivacyAndConditions =
-                            !checkedPrivacyAndConditions;
-                      });
-                    },
-                    value: checkedPrivacyAndConditions,
-                  ),
+
                   SizedBox(height: 16),
                 ],
               ),

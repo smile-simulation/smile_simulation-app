@@ -78,7 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Agree to Privacy Policy and Terms & Conditions"),
         "agreeToTermsPrefix": MessageLookupByLibrary.simpleMessage(
             "By creating an account, you are agreeing to our "),
-        "and": MessageLookupByLibrary.simpleMessage("and"),
+        "and": MessageLookupByLibrary.simpleMessage(" and "),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "beforeMeal": MessageLookupByLibrary.simpleMessage("Before Meal"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -88,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "changePasswordPrompt": MessageLookupByLibrary.simpleMessage(
             "You are about to change your password. Please enter a new password."),
+        "close": MessageLookupByLibrary.simpleMessage("Close"),
         "comment": MessageLookupByLibrary.simpleMessage("Comment"),
         "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
         "comments": MessageLookupByLibrary.simpleMessage("Comments"),

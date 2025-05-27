@@ -65,17 +65,15 @@ class _SignUpFromDoctorSubsidiaryBodyViewState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 16),
-              Align(
-                alignment:
-                    isArabic == 'ar'
-                        ? Alignment.centerRight
-                        : Alignment.centerLeft,
-                child: Text(
-                  S.of(context).enterPersonalInfo,
-                  style: AppTextStyles.headline1(
-                    context,
-                  ).copyWith(color: const Color(0xFF4F4F4F)),
-                ),
+              Row(
+                children: [
+                  Text(
+                    S.of(context).enterPersonalInfo,
+                    style: AppTextStyles.headline1(
+                      context,
+                    ).copyWith(color: const Color(0xFF4F4F4F)),
+                  ),
+                ],
               ),
               const SizedBox(height: 8),
               InputSectionFromSignUpFromDoctorSubsidiary(

@@ -77,22 +77,21 @@ class _LogInViewBodyState extends State<LogInViewBody> {
                     emailController: emailController,
                     passwordController: passwordController,
                   ),
-                  Align(
-                    alignment:
-                        isArabic == 'ar'
-                            ? Alignment.centerLeft
-                            : Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, ForgetView.routeName);
-                      },
-                      child: Text(
-                        S.of(context).forgotPassword,
-                        style: AppTextStyles.caption1(
-                          context,
-                        ).copyWith(color: AppColors.primaryColor),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, ForgetView.routeName);
+                        },
+                        child: Text(
+                          S.of(context).forgotPassword,
+                          style: AppTextStyles.caption1(
+                            context,
+                          ).copyWith(color: AppColors.primaryColor),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                   SizedBox(),
                   CustomButton(

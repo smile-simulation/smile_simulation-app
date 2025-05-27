@@ -159,17 +159,9 @@
   "agreeToTermsPrefix": "من خلال إنشاء حساب، فإنك توافق على ",
   "agreeToTermsAndPrivacy": "الموافقة على سياسة الخصوصية والشروط والأحكام",
   "pleaseAgreeToTermsAndPrivacy": "برجاء الموافقة على سياسات الخصوصية والشروط والأحكام",
-  "and":"و",
+  "and":" و ",
   "personalData": "البيانات الشخصية",
   "healthStatus": "الحالة الصحية",
   "treatmentHistory": "السجل العلاجي",
-      "selectTime": "اختر الوقت",
-  "invalidTimeFormat": "تنسيق الوقت غير صالح. يرجى اختيار وقت صحيح.",
-  "timeInput": "حقل إدخال الوقت",
-  "deleteReminder": "حذف التذكير",
-  "reminderDeleted": "تم حذف التذكير بنجاح",
-  "undo": "تراجع",
-  "confirmDeletion": "تأكيد الحذف",
-  "deleteReminderConfirmation": "هل أنت متأكد أنك تريد حذف هذا التذكير؟"
-
+  "close": "إغلاق"
 }

@@ -1650,10 +1650,10 @@ class S {
     );
   }
 
-  /// `and`
+  /// ` and `
   String get and {
     return Intl.message(
-      'and',
+      ' and ',
       name: 'and',
       desc: '',
       args: [],
@@ -1685,6 +1685,16 @@ class S {
     return Intl.message(
       'Treatment History',
       name: 'treatmentHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message(
+      'Close',
+      name: 'close',
       desc: '',
       args: [],
     );
