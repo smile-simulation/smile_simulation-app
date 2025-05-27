@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_drop_down_container.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class MedicineTimeSection extends StatelessWidget {
   final String? selectedTime;
   final Function(String?) onChanged;
   final List<String> items;
-  final String title;
+  final String? title;
 
   const MedicineTimeSection({
     Key? key,
     required this.selectedTime,
     required this.onChanged,
     required this.items,
-    this.title = "وقت تناول الدواء",
+    this.title,
   }) : super(key: key);
 
   @override
@@ -23,13 +24,13 @@ class MedicineTimeSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            title,
+            title ?? S.of(context).medicineTime,
             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             textAlign: TextAlign.right,
           ),
           const SizedBox(height: 12),
           CustomDropdownContainer(
-            hint: "قبل تناول الطعام",
+            hint: S.of(context).beforeMeal,
             value: selectedTime,
             onChanged: onChanged,
             items:

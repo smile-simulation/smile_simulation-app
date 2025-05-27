@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' show DateFormat;
+
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_drop_down_container.dart';
 
 class TimeAndQuantitySection extends StatefulWidget {
@@ -47,10 +49,39 @@ class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
     );
   }
 
+  Future<void> _selectTime(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+      builder: (context, child) => Directionality(
+        textDirection: TextDirection.rtl,
+        child: child!,
+      ),
+    );
+    if (picked != null && mounted) {
+      final now = DateTime.now();
+      final selectedTime = DateTime(now.year, now.month, now.day, picked.hour, picked.minute);
+      final formattedTime = DateFormat.jm('ar').format(selectedTime);
+      setState(() {
+        widget.timeController.text = formattedTime;
+      });
+    }
+  }
+
+  bool _isValidTime(String time) {
+    try {
+      DateFormat.jm('ar').parse(time);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
+        // Time section
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.4,
           child: Padding(
@@ -59,7 +90,7 @@ class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "الوقت",
+                  'الوقت',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.right,
                 ),
@@ -73,20 +104,32 @@ class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
                   ),
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: Center(
-                    child: TextFormField(
-                      controller: widget.timeController,
-                      decoration: InputDecoration(
-                        labelText: 'الوقت',
-                        labelStyle: const TextStyle(color: Colors.grey, fontSize: 14),
-                        border: InputBorder.none,
-                        suffixIcon: Image.asset(
-                          'assets/images/clock.png',
-                          width: 20,
-                          height: 20,
+                    child: Semantics(
+                      label: 'إدخال الوقت',
+                      child: TextFormField(
+                        controller: widget.timeController,
+                        readOnly: true,
+                        onTap: () => _selectTime(context),
+                        decoration: InputDecoration(
+                          labelText: 'الوقت',
+                          labelStyle: const TextStyle(color: Colors.grey, fontSize: 14),
+                          border: InputBorder.none,
+                          suffixIcon: Image.asset(
+                            'assets/images/clock.png',
+                            width: 20,
+                            height: 20,
+                            semanticLabel: 'اختر الوقت',
+                          ),
                         ),
+                        keyboardType: TextInputType.datetime,
+                        style: const TextStyle(height: 1.3, color: Colors.grey),
+                        validator: (value) {
+                          if (value != null && value.isNotEmpty && !_isValidTime(value)) {
+                            return 'تنسيق الوقت غير صحيح';
+                          }
+                          return null;
+                        },
                       ),
-                      keyboardType: TextInputType.datetime,
-                      style: const TextStyle(height: 1.3, color: Colors.grey),
                     ),
                   ),
                 ),
@@ -94,6 +137,8 @@ class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
             ),
           ),
         ),
+
+        // Quantity section
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.4,
           child: Padding(
@@ -102,13 +147,13 @@ class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "الكمية",
+                  'الكمية',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.right,
                 ),
                 const SizedBox(height: 12),
                 CustomDropdownContainer(
-                  hint: "الكمية",
+                  hint: 'الكمية',
                   value: widget.dosage,
                   items: items
                       .map((e) => DropdownMenuItem<String>(value: e, child: Text(e)))
@@ -119,6 +164,8 @@ class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
             ),
           ),
         ),
+
+        // Delete icon
         Padding(
           padding: const EdgeInsets.fromLTRB(10, 40, 0, 0),
           child: GestureDetector(
@@ -130,10 +177,14 @@ class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
                     }
                   }
                 : null,
-            child: Image.asset(
-              'assets/images/delete.png',
-              width: 40,
-              height: 40,
+            child: Tooltip(
+              message: 'حذف التذكير',
+              child: Image.asset(
+                'assets/images/delete.png',
+                width: 40,
+                height: 40,
+                semanticLabel: 'حذف التذكير',
+              ),
             ),
           ),
         ),

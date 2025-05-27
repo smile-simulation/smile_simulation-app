@@ -1,17 +1,14 @@
 import 'dart:developer';
 import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/api/api_keys.dart';
 import 'package:smile_simulation/core/api/dio_consumer.dart';
-
+import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/errors/exceptions.dart';
 import 'package:smile_simulation/core/errors/failure.dart';
 import 'package:smile_simulation/core/helper_functions/generate_random.dart';
-
 import 'set_user_account_image_repo.dart';
 
 class SetUserAccountImageRepoImpl implements SetUserAccountImageRepo {
@@ -20,7 +17,7 @@ class SetUserAccountImageRepoImpl implements SetUserAccountImageRepo {
   SetUserAccountImageRepoImpl({required this.dioConsumer});
 
   @override
-  Future<Either<Failure, Uint8List>> setUserAccountImage({
+  Future<Either<Failure, String>> setUserAccountImage({
     required File image,
   }) async {
     try {
@@ -30,15 +27,14 @@ class SetUserAccountImageRepoImpl implements SetUserAccountImageRepo {
         data: {
           "Image": await MultipartFile.fromFile(
             image.path,
-            filename:
-                "${generateRandomString(sizeOfCode: 6)}userAccountImage.jpg",
+            filename: "${generateRandomString(sizeOfCode: 6)}userAccountImage.jpg",
           ),
         },
       );
-      Uint8List bytesImage = await image.readAsBytes();
-      String message = response[ApiKeys.message];
-      log(message);
-      return Right(bytesImage);
+      String imageLink = response[ApiKeys.data];
+      await cacheNewImage(imageLinke: imageLink);
+      log("Image updated: $imageLink");
+      return Right(imageLink);
     } on ServerException catch (e) {
       logger.e("Exception in Add post: ${e.errorModel.message}");
       return Left(ServerFailure(e.errorModel.message!));
@@ -46,5 +42,11 @@ class SetUserAccountImageRepoImpl implements SetUserAccountImageRepo {
       logger.e("Exception in Add post: $e");
       return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
     }
+  }
+
+  Future<void> cacheNewImage({required String imageLinke}) async {
+    Map<String, dynamic> oldUserMap = await CacheHelper().getMap(key: userData)!;
+    oldUserMap['image'] = imageLinke;
+    await CacheHelper().saveMap(key: userData, value: oldUserMap);
   }
 }

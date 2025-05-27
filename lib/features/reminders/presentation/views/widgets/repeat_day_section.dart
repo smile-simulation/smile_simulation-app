@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class RepeatDaysSection extends StatelessWidget {
   final List<bool> daysSelected;
@@ -13,15 +14,23 @@ class RepeatDaysSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final days = ["أحد", "إثنين", "ثلاثاء", "أربعاء", "خميس", "جمعة", "سبت"];
+    final days = [
+      S.of(context).sunday,
+      S.of(context).monday,
+      S.of(context).tuesday,
+      S.of(context).wednesday,
+      S.of(context).thursday,
+      S.of(context).friday,
+      S.of(context).saturday,
+    ];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
+        Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            "التكرار",
+            S.of(context).frequency,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             textAlign: TextAlign.right,
           ),

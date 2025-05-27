@@ -6,63 +6,43 @@ import 'package:smile_simulation/features/reminders/presentation/views/widgets/c
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/darily_activities_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/drug_reminder_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/other_tasks_view.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class RemindersView extends StatelessWidget {
   const RemindersView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: customAppbar(context, title: 'التذكيرات'),
-        body: RemindersViewBody(),
-      ),
+    return Scaffold(
+      appBar: customAppbar(context, title: S.of(context).reminders),
+      body: RemindersViewBody(),
     );
   }
 }
 
 class RemindersViewBody extends StatelessWidget {
-  RemindersViewBody({super.key});
-
-  final List<Map<String, String>> items = [
-    {
-      "title": "منبه الدواء",
-      "image": "assets/images/reminder_drug_stimulant.png",
-    },
-    {
-      "title": "مواعيد الزيارات",
-      "image": "assets/images/reminder_visitings_dates.png",
-    },
-    {
-      "title": "الأنشطة اليومية",
-      "image": "assets/images/reminder_daily_activities.png",
-    },
-    {
-      "title": "مهام أخرى",
-      "image": "assets/images/reminder_other_tasks.png",
-    },
-  ];
+  const RemindersViewBody({super.key});
 
   void _navigateToView(BuildContext context, String title) {
+    final s = S.of(context);
     Widget destinationView;
     switch (title) {
-      case "منبه الدواء":
+      case String sTitle when sTitle == s.medicineReminder:
         destinationView = DrugReminderView();
         break;
-      case "مواعيد الزيارات":
+      case String sTitle when sTitle == s.visitSchedules:
         destinationView = VisitingDatesView();
         break;
-      case "الأنشطة اليومية":
+      case String sTitle when sTitle == s.dailyActivities:
         destinationView = DailyActivitiesView();
         break;
-      case "مهام أخرى":
+      case String sTitle when sTitle == s.otherTasks:
         destinationView = OtherTasksView();
         break;
       default:
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('No view defined for $title')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('No view defined for $title')));
         return;
     }
 
@@ -74,6 +54,26 @@ class RemindersViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context); // نحصل على الترجمة هنا
+    final List<Map<String, String>> items = [
+      {
+        "title": s.medicineReminder,
+        "image": "assets/images/reminder_drug_stimulant.png",
+      },
+      {
+        "title": s.visitSchedules,
+        "image": "assets/images/reminder_visitings_dates.png",
+      },
+      {
+        "title": s.dailyActivities,
+        "image": "assets/images/reminder_daily_activities.png",
+      },
+      {
+        "title": s.otherTasks,
+        "image": "assets/images/reminder_other_tasks.png",
+      },
+    ];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -86,15 +86,16 @@ class RemindersViewBody extends StatelessWidget {
                 mainAxisSpacing: 12,
                 crossAxisSpacing: 12,
                 childAspectRatio: 3 / 2.5,
-                children: items.map((item) {
-                  return InkWell(
-                    onTap: () => _navigateToView(context, item["title"]!),
-                    child: CustomcardScreen(
-                      title: item["title"]!,
-                      imagePath: item["image"]!,
-                    ),
-                  );
-                }).toList(),
+                children:
+                    items.map((item) {
+                      return InkWell(
+                        onTap: () => _navigateToView(context, item["title"]!),
+                        child: CustomcardScreen(
+                          title: item["title"]!,
+                          imagePath: item["image"]!,
+                        ),
+                      );
+                    }).toList(),
               ),
             ),
           ),

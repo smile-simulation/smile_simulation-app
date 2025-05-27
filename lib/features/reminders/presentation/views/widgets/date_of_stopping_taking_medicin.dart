@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_drop_down_container.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class DateOfStoppingTakingMedicin extends StatefulWidget {
   final String? stopDate;
@@ -27,8 +28,8 @@ class _DateOfStoppingTakingMedicinState
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "تاريخ التوقف عن الدواء",
+          Text(
+            S.of(context).stopDate,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             textAlign: TextAlign.right,
           ),

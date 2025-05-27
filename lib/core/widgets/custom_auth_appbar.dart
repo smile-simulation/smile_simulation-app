@@ -11,7 +11,6 @@ AppBar customAppbar(
   Function()? goBack,
 }) {
   return AppBar(
-    backgroundColor: Colors.transparent,
     leading:
         isBack
             ? IconButton(

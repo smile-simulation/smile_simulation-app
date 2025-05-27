@@ -14,12 +14,14 @@ class DrugReminderViewBodyIfNotFirstTime extends StatefulWidget {
   final List<Reminder> reminders;
   final void Function(Reminder) onUpdateReminder;
   final void Function(String) onDeleteReminder;
+  final VoidCallback onClearAllReminders;
 
   const DrugReminderViewBodyIfNotFirstTime({
     super.key,
     required this.reminders,
     required this.onUpdateReminder,
     required this.onDeleteReminder,
+    required this.onClearAllReminders,
   });
 
   @override
@@ -54,6 +56,29 @@ class _DrugReminderViewBodyIfNotFirstTimeState
     );
   }
 
+  Future<bool?> _showClearAllConfirmationDialog(BuildContext context) {
+    return showDialog<bool>(
+      context: context,
+      builder: (context) => Directionality(
+        textDirection: TextDirection.rtl,
+        child: AlertDialog(
+          title: const Text('تأكيد حذف جميع التذكيرات'),
+          content: const Text('هل أنت متأكد من حذف جميع تذكيرات الأدوية؟ سيتم حذف جميع الصور المرتبطة أيضًا.'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text('إلغاء'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: const Text('حذف الكل', style: TextStyle(color: Colors.red)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -73,15 +98,31 @@ class _DrugReminderViewBodyIfNotFirstTimeState
                     'منبهات الأدوية',
                     style: AppTextStyles.headline2(context),
                   ),
-                  CustomButton(
-                    title: isSelected ? 'تعديل' : 'الغاء',
-                    isGreyBackground: !isSelected,
-                    isExtraMinWidth: true,
-                    onPressed: () {
-                      setState(() {
-                        isSelected = !isSelected;
-                      });
-                    },
+                  Row(
+                    children: [
+                      CustomButton(
+                        title: isSelected ? 'تعديل' : 'إلغاء',
+                        isGreyBackground: !isSelected,
+                        isExtraMinWidth: true,
+                        onPressed: () {
+                          setState(() {
+                            isSelected = !isSelected;
+                          });
+                        },
+                      ),
+                      const SizedBox(width: 8),
+                      CustomButton(
+                        title: 'حذف الكل',
+                        isGreyBackground: true,
+                        isExtraMinWidth: true,
+                        onPressed: () async {
+                          final confirm = await _showClearAllConfirmationDialog(context);
+                          if (confirm == true) {
+                            widget.onClearAllReminders();
+                          }
+                        },
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -140,66 +181,88 @@ class _DrugReminderViewBodyIfNotFirstTimeState
                           },
                           child: CustomContainerForReminderFeature(
                             widget: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 8,
-                                  ),
-                                  child: reminder.imagePath != null &&
-                                          File(reminder.imagePath!).existsSync()
-                                      ? Image.file(
-                                          File(reminder.imagePath!),
-                                          width: 85,
-                                          height: 85,
-                                          fit: BoxFit.cover,
-                                        )
-                                      : Container(
-                                          width: 85,
-                                          height: 85,
-                                          color: Colors.grey.shade200,
-                                          child: const Icon(
-                                            Icons.image,
-                                            color: Colors.grey,
-                                          ),
-                                        ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 16),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        reminder.drugName.isEmpty
-                                            ? 'دواء غير مسمى'
-                                            : reminder.drugName,
-                                        style: AppTextStyles.subTitle1(context)
-                                            .copyWith(color: AppColors.primaryColor),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 16,
+                                        vertical: 8,
                                       ),
-                                      const SizedBox(height: 18),
-                                      Text(
-                                        '${reminder.frequency.isEmpty ? 'غير محدد' : reminder.frequency} (${reminder.dosage})',
-                                        style: AppTextStyles.subTitle2(context),
-                                      ),
-                                      const SizedBox(height: 14),
-                                      Row(
+                                      child: reminder.imagePath != null &&
+                                              File(reminder.imagePath!).existsSync()
+                                          ? Image.file(
+                                              File(reminder.imagePath!),
+                                              width: 85,
+                                              height: 85,
+                                              fit: BoxFit.cover,
+                                            )
+                                          : Container(
+                                              width: 85,
+                                              height: 85,
+                                              color: Colors.grey.shade200,
+                                              child: const Icon(
+                                                Icons.image,
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(vertical: 16),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            reminder.mealTiming.isEmpty
-                                                ? 'غير محدد'
-                                                : reminder.mealTiming,
+                                            reminder.drugName.isEmpty
+                                                ? 'دواء غير مسمى'
+                                                : reminder.drugName,
+                                            style: AppTextStyles.subTitle1(context)
+                                                .copyWith(color: AppColors.primaryColor),
+                                          ),
+                                          const SizedBox(height: 18),
+                                          Text(
+                                            '${reminder.frequency.isEmpty ? 'غير محدد' : reminder.frequency} (${reminder.dosage})',
                                             style: AppTextStyles.subTitle2(context),
                                           ),
-                                          const SizedBox(width: 15),
-                                          Text(
-                                            reminder.time.isEmpty
-                                                ? 'غير محدد'
-                                                : reminder.time,
-                                            style: AppTextStyles.subTitle2(context),
+                                          const SizedBox(height: 14),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                reminder.mealTiming.isEmpty
+                                                    ? 'غير محدد'
+                                                    : reminder.mealTiming,
+                                                style: AppTextStyles.subTitle2(context),
+                                              ),
+                                              const SizedBox(width: 15),
+                                              Text(
+                                                reminder.time.isEmpty
+                                                    ? 'غير محدد'
+                                                    : reminder.time,
+                                                style: AppTextStyles.subTitle2(context),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
-                                    ],
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16),
+                                  child: IconButton(
+                                    icon: const Icon(
+                                      Icons.delete,
+                                      color: Colors.red,
+                                      size: 24,
+                                    ),
+                                    onPressed: () async {
+                                      final confirm = await _showDeleteConfirmationDialog(
+                                          context, reminder.drugName);
+                                      if (confirm == true) {
+                                        widget.onDeleteReminder(reminder.id);
+                                      }
+                                    },
                                   ),
                                 ),
                               ],

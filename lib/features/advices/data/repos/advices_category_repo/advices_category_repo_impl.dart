@@ -5,7 +5,6 @@ import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/api/end_point.dart';
 import 'package:smile_simulation/core/errors/exceptions.dart';
 import 'package:smile_simulation/core/errors/failure.dart';
-import 'package:smile_simulation/features/advices/data/dummy_data/json_advices.dart';
 
 import '../../models/advice/advice.dart';
 import 'advices_category_repo.dart';

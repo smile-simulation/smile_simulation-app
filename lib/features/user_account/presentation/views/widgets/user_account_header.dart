@@ -8,7 +8,6 @@ import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/features/user_account/presentation/managers/set_user_account_image/set_user_accoun_image_cubit.dart';
 import '../../../data/repos/set_user_account_image_repo/set_user_account_image_repo_impl.dart';
 import 'set_user_image_button.dart';
-import 'user_account_image.dart';
 import 'user_account_image_builder.dart';
 
 class UserAccountHeader extends StatelessWidget {
@@ -17,15 +16,19 @@ class UserAccountHeader extends StatelessWidget {
     required this.currentUser,
     required this.userName,
     required this.userImage,
+    required this.rebuild,
   });
   final bool currentUser;
   final String userName;
   final String? userImage;
+  final Function() rebuild;
   @override
   Widget build(BuildContext context) {
     log("this user image: $userImage");
     return BlocProvider(
-      create: (context) => SetUserAccounImageCubit(getIt<SetUserAccountImageRepoImpl>()),
+      create:
+          (context) =>
+              SetUserAccounImageCubit(getIt<SetUserAccountImageRepoImpl>()),
       child: SizedBox(
         height: 164 + kToolbarHeight + 40,
         child: Column(
@@ -33,7 +36,7 @@ class UserAccountHeader extends StatelessWidget {
             SizedBox(height: kToolbarHeight + 40),
             Stack(
               children: [
-                UserAccountImageBuilder(userImage: userImage),
+                UserAccountImageBuilder(userImage: userImage, rebuild: rebuild),
                 Visibility(visible: currentUser, child: SetUserImageButton()),
               ],
             ),
