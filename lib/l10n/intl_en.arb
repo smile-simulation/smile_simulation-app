@@ -159,8 +159,9 @@
   "agreeToTermsPrefix": "By creating an account, you are agreeing to our ",
   "agreeToTermsAndPrivacy": "Agree to Privacy Policy and Terms & Conditions",
   "pleaseAgreeToTermsAndPrivacy": "Please agree to the Privacy Policy and Terms & Conditions",
-  "and": "and",
+  "and": " and ",
   "personalData": "Personal Data",
   "healthStatus": "Health Status",
-  "treatmentHistory": "Treatment History"
+  "treatmentHistory": "Treatment History",
+  "close": "Close"
 }

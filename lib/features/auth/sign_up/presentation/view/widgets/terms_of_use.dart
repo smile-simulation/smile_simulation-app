@@ -25,7 +25,7 @@ class TermsOfUse extends StatelessWidget {
             softWrap: true,
             text: TextSpan(
               text: S.of(context).agreeToTermsPrefix,
-              style: AppTextStyles.bodyText1(
+              style: AppTextStyles.bodyText2(
                 context,
               ).copyWith(color: AppColors.blackColor),
               children: [

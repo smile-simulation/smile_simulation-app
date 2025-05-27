@@ -77,7 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "الموافقة على سياسة الخصوصية والشروط والأحكام"),
         "agreeToTermsPrefix": MessageLookupByLibrary.simpleMessage(
             "من خلال إنشاء حساب، فإنك توافق على "),
-        "and": MessageLookupByLibrary.simpleMessage("و"),
+        "and": MessageLookupByLibrary.simpleMessage(" و "),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "beforeMeal": MessageLookupByLibrary.simpleMessage("قبل تناول الطعام"),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
@@ -86,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "changePasswordPrompt": MessageLookupByLibrary.simpleMessage(
             "أنت على وشك تغيير كلمة المرور الخاصة بك. يرجى إدخال كلمة مرور جديدة."),
+        "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
         "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
         "commentCount": MessageLookupByLibrary.simpleMessage("تعليقاً"),
         "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
