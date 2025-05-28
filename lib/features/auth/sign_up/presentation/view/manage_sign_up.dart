@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
-import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/sign_up_from_doctor_view.dart';
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';

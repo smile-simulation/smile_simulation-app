@@ -1,9 +1,7 @@
 import 'dart:io';
-import 'dart:typed_data';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import '../../../data/repos/set_user_account_image_repo/set_user_account_image_repo_impl.dart';
 
 part 'set_user_accoun_image_state.dart';

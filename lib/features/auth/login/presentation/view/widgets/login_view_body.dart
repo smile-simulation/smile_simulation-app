@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/features/auth/login/presentation/manage/cubits/login_cubit/login_cubit.dart';
 
-import '../../../../../../constant.dart';
 import '../../../../../../core/utils/app_text_styles.dart';
 import '../../../../../../core/widgets/custom_body_screen.dart';
 import '../../../../../../core/widgets/custom_button.dart';

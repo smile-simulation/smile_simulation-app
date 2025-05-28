@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/widgets/terms_of_use.dart';
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/widgets/upload_id_section_from_sign_up_from_doctor_view.dart';
 
-import '../../../../../../constant.dart';
 import '../../../../../../core/helper_functions/custom_error.dart';
 import '../../../../../../core/utils/app_text_styles.dart';
 import '../../../../../../core/widgets/custom_body_screen.dart';
