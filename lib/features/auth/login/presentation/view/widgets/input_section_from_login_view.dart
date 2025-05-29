@@ -11,8 +11,10 @@ class InputSectionFromLogInView extends StatelessWidget {
     required this.emailController,
     required this.passwordController,
   });
+
   final TextEditingController emailController;
   final TextEditingController passwordController;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,7 +26,7 @@ class InputSectionFromLogInView extends StatelessWidget {
           hintText: "example@gmail.com",
           keyboardType: TextInputType.emailAddress,
           validator: (value) {
-            return validatorOfEmail(value);
+            return validatorOfEmail(context, value);
           },
         ),
         CustomPasswordTextField(

@@ -32,7 +32,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
       controller: widget.controller,
       keyboardType: TextInputType.visiblePassword,
       validator: (value) {
-        return validatorOfPassword(value);
+        return validatorOfPassword(context, value);
       },
       obscureText: _obscureText,
       onChanged: widget.onSaved,

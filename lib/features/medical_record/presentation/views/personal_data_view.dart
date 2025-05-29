@@ -142,7 +142,7 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
                   hintText: "ادخل رقم الهاتف",
                   keyboardType: TextInputType.phone,
                   validator: (value) {
-                    return validatorOfPhone(value);
+                    return validatorOfPhone(context, value);
                   },
                 ),
                 const SizedBox(height: 16),
@@ -152,7 +152,7 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
                   hintText: "ادخل السن",
                   keyboardType: TextInputType.number,
                   validator: (value) {
-                    return validatorOfAge(value);
+                    return validatorOfAge(context, value);
                   },
                 ),
                 const SizedBox(height: 16),
