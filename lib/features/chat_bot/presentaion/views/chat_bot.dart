@@ -1,5 +1,7 @@
 import 'dart:developer';
+
 import 'package:firebase_ai/firebase_ai.dart';
+
 import 'firebase_ai_options.dart'; // Your secondary project's FirebaseOptions
 
 class ChatbotService {

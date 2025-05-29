@@ -2,17 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_drop_down_container.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-class DateOfStoppingTakkingMedicin extends StatefulWidget {
-  const DateOfStoppingTakkingMedicin({super.key});
+class DateOfStoppingTakingMedicin extends StatefulWidget {
+  final String? stopDate;
+  final void Function(String?) onStopDateChanged;
+
+  const DateOfStoppingTakingMedicin({
+    super.key,
+    required this.stopDate,
+    required this.onStopDateChanged,
+  });
 
   @override
-  State<DateOfStoppingTakkingMedicin> createState() =>
-      _DateOfStoppingTakkingMedicinState();
+  State<DateOfStoppingTakingMedicin> createState() =>
+      _DateOfStoppingTakingMedicinState();
 }
 
-class _DateOfStoppingTakkingMedicinState
-    extends State<DateOfStoppingTakkingMedicin> {
-  String? stopDate;
+class _DateOfStoppingTakingMedicinState
+    extends State<DateOfStoppingTakingMedicin> {
+  final List<String> items = ['دواء دائم', 'تاريخ معين'];
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +35,10 @@ class _DateOfStoppingTakkingMedicinState
           ),
           const SizedBox(height: 12),
           CustomDropdownContainer(
-            hint: S.of(context).permanentMedicine,
-            value: stopDate,
-            items:
-                [S.of(context).permanentMedicine, S.of(context).specificDate]
-                    .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-                    .toList(),
-            onChanged: (val) => setState(() => stopDate = val),
+            hint: "دواء دائم",
+            value: widget.stopDate,
+            items: items.map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
+            onChanged: widget.onStopDateChanged,
           ),
         ],
       ),

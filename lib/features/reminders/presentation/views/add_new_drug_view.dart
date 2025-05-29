@@ -1,89 +1,153 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
+import 'package:smile_simulation/features/reminders/data/models/reminder.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/date_of_stopping_taking_medicin.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/medicine_time_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/repeat_day_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/time_and_quantity_section.dart';
-import 'package:smile_simulation/generated/l10n.dart';
+import 'package:uuid/uuid.dart';
 
 class AddNewDrugView extends StatelessWidget {
   const AddNewDrugView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppbar(
-        context,
-        title: S.of(context).addMedicine,
-        isBack: true,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: customAppbar(context, title: 'اضافة دواء جديد', isBack: true),
+        body: const AddNewDrugViewBody(),
       ),
-      body: AddNewDrugViewBody(),
     );
   }
 }
 
 class AddNewDrugViewBody extends StatefulWidget {
+  const AddNewDrugViewBody({super.key});
+
   @override
-  _AddNewDrugScreenBodyState createState() => _AddNewDrugScreenBodyState();
+  _AddNewDrugViewBodyState createState() => _AddNewDrugViewBodyState();
 }
 
-class _AddNewDrugScreenBodyState extends State<AddNewDrugViewBody> {
+class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
   String? selectedTime;
   List<bool> daysSelected = List.generate(7, (_) => false);
+  String? dosage;
+  String? stopDate;
+  String? imagePath;
   final TextEditingController medicineNameController = TextEditingController();
-  final TextEditingController quantityController = TextEditingController();
+  final TextEditingController frequencyController = TextEditingController();
+  final TextEditingController timeController = TextEditingController();
+
+  @override
+  void dispose() {
+    medicineNameController.dispose();
+    frequencyController.dispose();
+    timeController.dispose();
+    super.dispose();
+  }
+
+  Future<String?> _saveImage(String? tempPath) async {
+    if (tempPath == null) return null;
+    final directory = await getApplicationDocumentsDirectory();
+    final fileName = '${const Uuid().v4()}.jpg';
+    final newPath = '${directory.path}/$fileName';
+    await File(tempPath).copy(newPath);
+    return newPath;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return CustomBodyScreen(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.only(bottom: 16),
-        child: Column(
-          children: [
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Text(
-                S.of(context).addMedicineInstruction,
-                style: const TextStyle(fontSize: 14),
-              ),
-            ),
-            const CameraSection(),
-            MedicineTimeSection(
-              selectedTime: selectedTime,
-              onChanged: (val) => setState(() => selectedTime = val),
-              items: [
-                S.of(context).beforeMeal,
-                S.of(context).afterMeal,
-                S.of(context).duringMeal,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: CustomBodyScreen(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 15),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Text(
+                    "اضف الادوية التي تستخدمها الي تنبيهانك الطبية حتي نتمكن من تذكيرك بها اوقاتها المحددة",
+                    style: TextStyle(fontSize: 14),
+                  ),
+                ),
+                CameraSection(
+                  medicineNameController: medicineNameController,
+                  onImagePicked: (path) => setState(() => imagePath = path),
+                ),
+                const SizedBox(height: 16),
+                MedicineTimeSection(
+                  selectedTime: selectedTime,
+                  onChanged: (val) => setState(() => selectedTime = val),
+                  items: const [
+                    "قبل تناول الطعام",
+                    "بعد تناول الطعام",
+                    "أثناء تناول الطعام",
+                  ],
+                ),
+                const SizedBox(height: 16),
+                RepeatDaysSection(
+                  daysSelected: daysSelected,
+                  onChanged: (index, value) {
+                    setState(() {
+                      daysSelected[index] = value;
+                    });
+                  },
+                ),
+                const SizedBox(height: 16),
+                TimeAndQuantitySection(
+                  frequencyController: frequencyController,
+                  timeController: timeController,
+                  dosage: dosage,
+                  onDosageChanged: (val) => setState(() => dosage = val),
+                ),
+                const SizedBox(height: 16),
+                DateOfStoppingTakingMedicin(
+                  stopDate: stopDate,
+                  onStopDateChanged: (val) => setState(() => stopDate = val),
+                ),
+                const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: CustomButton(
+                    title: 'اضافة الدواء',
+                    onPressed: () async {
+                      if (medicineNameController.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('يرجى إدخال اسم الدواء')),
+                        );
+                        return;
+                      }
+                      final savedImagePath = await _saveImage(imagePath);
+                      final newReminder = Reminder(
+                        id: const Uuid().v4(),
+                        drugName: medicineNameController.text,
+                        frequency: frequencyController.text,
+                        dosage: dosage ?? 'معلقة',
+                        time: timeController.text,
+                        mealTiming: selectedTime ?? 'قبل تناول الطعام',
+                        stopDate: stopDate ?? 'دواء دائم',
+                        daysSelected: daysSelected,
+                        imagePath: savedImagePath,
+                      );
+                      Navigator.of(context).pop(newReminder);
+                    },
+                  ),
+                ),
+                const SizedBox(height: 16),
               ],
             ),
-            const SizedBox(height: 16),
-            RepeatDaysSection(
-              daysSelected: daysSelected,
-              onChanged: (index, value) {
-                setState(() {
-                  daysSelected[index] = value;
-                });
-              },
-            ),
-            const SizedBox(height: 16),
-            const TimeAndQuantitySection(),
-            const SizedBox(height: 16),
-            const DateOfStoppingTakkingMedicin(),
-            const SizedBox(height: 32),
-            CustomButton(
-              title: S.of(context).addMedicineButton,
-              onPressed: () {
-                // تنفيذ العملية المطلوبة عند الضغط
-              },
-            ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }
