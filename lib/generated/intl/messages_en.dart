@@ -74,6 +74,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Advice categories"),
         "afterMeal": MessageLookupByLibrary.simpleMessage("After Meal"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
+        "age_empty":
+            MessageLookupByLibrary.simpleMessage("Please enter the age"),
+        "age_max": MessageLookupByLibrary.simpleMessage(
+            "Age must be 70 years or less"),
+        "age_min": MessageLookupByLibrary.simpleMessage(
+            "Age must be 12 years or more"),
+        "age_valid": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid age number"),
         "agreeToTermsAndPrivacy": MessageLookupByLibrary.simpleMessage(
             "Agree to Privacy Policy and Terms & Conditions"),
         "agreeToTermsPrefix": MessageLookupByLibrary.simpleMessage(
@@ -122,6 +130,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "editUserInformation":
             MessageLookupByLibrary.simpleMessage("Edit personal information"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "email_empty":
+            MessageLookupByLibrary.simpleMessage("Please enter the email"),
+        "email_invalid":
+            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "enterEmail": MessageLookupByLibrary.simpleMessage(
             "Please enter the email address registered with your account to send the code."),
@@ -133,6 +145,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please enter the 6-digit verification code sent to you."),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
+        "field_required":
+            MessageLookupByLibrary.simpleMessage("This field is required"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),
@@ -167,6 +181,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "mohamedHamed": MessageLookupByLibrary.simpleMessage("Mohamed Hamed"),
         "monday": MessageLookupByLibrary.simpleMessage("Monday"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
+        "name_empty":
+            MessageLookupByLibrary.simpleMessage("Please enter the name"),
+        "name_full":
+            MessageLookupByLibrary.simpleMessage("Please enter the full name"),
+        "name_valid":
+            MessageLookupByLibrary.simpleMessage("Enter a valid name"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noAccount":
@@ -189,11 +209,29 @@ class MessageLookup extends MessageLookupByLibrary {
             "A fast and secure chat to solve all your oral health-related questions."),
         "otherTasks": MessageLookupByLibrary.simpleMessage("Other Tasks"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "password_empty":
+            MessageLookupByLibrary.simpleMessage("Password is required"),
+        "password_lowercase": MessageLookupByLibrary.simpleMessage(
+            "Must contain at least one lowercase letter [a-z]"),
+        "password_min_length": MessageLookupByLibrary.simpleMessage(
+            "Must be at least 8 characters"),
+        "password_number": MessageLookupByLibrary.simpleMessage(
+            "Must contain at least one number [0-9]"),
+        "password_special": MessageLookupByLibrary.simpleMessage(
+            "Must contain at least one special character [@-#-..]"),
+        "password_uppercase": MessageLookupByLibrary.simpleMessage(
+            "Must contain at least one uppercase letter [A-Z]"),
         "permanentMedicine":
             MessageLookupByLibrary.simpleMessage("Permanent Medicine"),
         "personalData": MessageLookupByLibrary.simpleMessage("Personal Data"),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("Personal information"),
+        "phone_empty":
+            MessageLookupByLibrary.simpleMessage("Enter phone number"),
+        "phone_valid":
+            MessageLookupByLibrary.simpleMessage("Enter a valid phone number"),
+        "phone_valid2":
+            MessageLookupByLibrary.simpleMessage("Enter a valid phone number"),
         "pill": MessageLookupByLibrary.simpleMessage("Pill"),
         "pleaseAgreeToTermsAndPrivacy": MessageLookupByLibrary.simpleMessage(
             "Please agree to the Privacy Policy and Terms & Conditions"),

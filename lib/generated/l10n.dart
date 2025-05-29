@@ -1699,6 +1699,196 @@ class S {
       args: [],
     );
   }
+
+  /// `Please enter the email`
+  String get email_empty {
+    return Intl.message(
+      'Please enter the email',
+      name: 'email_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email`
+  String get email_invalid {
+    return Intl.message(
+      'Please enter a valid email',
+      name: 'email_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is required`
+  String get password_empty {
+    return Intl.message(
+      'Password is required',
+      name: 'password_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Must contain at least one uppercase letter [A-Z]`
+  String get password_uppercase {
+    return Intl.message(
+      'Must contain at least one uppercase letter [A-Z]',
+      name: 'password_uppercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Must contain at least one lowercase letter [a-z]`
+  String get password_lowercase {
+    return Intl.message(
+      'Must contain at least one lowercase letter [a-z]',
+      name: 'password_lowercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Must contain at least one number [0-9]`
+  String get password_number {
+    return Intl.message(
+      'Must contain at least one number [0-9]',
+      name: 'password_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Must contain at least one special character [@-#-..]`
+  String get password_special {
+    return Intl.message(
+      'Must contain at least one special character [@-#-..]',
+      name: 'password_special',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Must be at least 8 characters`
+  String get password_min_length {
+    return Intl.message(
+      'Must be at least 8 characters',
+      name: 'password_min_length',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the name`
+  String get name_empty {
+    return Intl.message(
+      'Please enter the name',
+      name: 'name_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the full name`
+  String get name_full {
+    return Intl.message(
+      'Please enter the full name',
+      name: 'name_full',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a valid name`
+  String get name_valid {
+    return Intl.message(
+      'Enter a valid name',
+      name: 'name_valid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the age`
+  String get age_empty {
+    return Intl.message(
+      'Please enter the age',
+      name: 'age_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid age number`
+  String get age_valid {
+    return Intl.message(
+      'Please enter a valid age number',
+      name: 'age_valid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Age must be 12 years or more`
+  String get age_min {
+    return Intl.message(
+      'Age must be 12 years or more',
+      name: 'age_min',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Age must be 70 years or less`
+  String get age_max {
+    return Intl.message(
+      'Age must be 70 years or less',
+      name: 'age_max',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter phone number`
+  String get phone_empty {
+    return Intl.message(
+      'Enter phone number',
+      name: 'phone_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a valid phone number`
+  String get phone_valid {
+    return Intl.message(
+      'Enter a valid phone number',
+      name: 'phone_valid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a valid phone number`
+  String get phone_valid2 {
+    return Intl.message(
+      'Enter a valid phone number',
+      name: 'phone_valid2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This field is required`
+  String get field_required {
+    return Intl.message(
+      'This field is required',
+      name: 'field_required',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

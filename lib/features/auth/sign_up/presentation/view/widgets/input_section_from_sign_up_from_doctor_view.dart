@@ -13,10 +13,12 @@ class InputSectionFromSignUpFromDoctorView extends StatelessWidget {
     required this.passwordController,
     required this.confirmPasswordController,
   });
+
   final TextEditingController nameController;
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final TextEditingController confirmPasswordController;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,7 +30,7 @@ class InputSectionFromSignUpFromDoctorView extends StatelessWidget {
           hintText: "Mohamed Ahmed",
           keyboardType: TextInputType.text,
           validator: (value) {
-            return validatorOfName(value);
+            return validatorOfName(context, value);
           },
         ),
         CustomTextField(
@@ -37,7 +39,7 @@ class InputSectionFromSignUpFromDoctorView extends StatelessWidget {
           hintText: "example@gmail.com",
           keyboardType: TextInputType.emailAddress,
           validator: (value) {
-            return validatorOfEmail(value);
+            return validatorOfEmail(context, value);
           },
         ),
         CustomPasswordTextField(
