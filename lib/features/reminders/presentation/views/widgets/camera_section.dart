@@ -1,81 +1,69 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:smile_simulation/generated/l10n.dart';
-import 'camera_picker_image.dart'; // ✅ استورد الودجت الجديدة
+import 'camera_picker_image.dart';
 
-class CameraSection extends StatefulWidget {
-  const CameraSection({Key? key}) : super(key: key);
+class CameraSection extends StatelessWidget {
+  final TextEditingController medicineNameController;
+  final void Function(String?)? onImagePicked;
 
-  @override
-  State<CameraSection> createState() => _CameraSectionState();
-}
-
-class _CameraSectionState extends State<CameraSection> {
-  final TextEditingController _medicineNameController = TextEditingController();
-  File? _imageFile;
-
-  @override
-  void dispose() {
-    _medicineNameController.dispose();
-    super.dispose();
-  }
-
-  Future<void> _takePicture() async {
-    final pickedFile = await ImagePicker().pickImage(
-      source: ImageSource.camera,
-    );
-    if (pickedFile != null) {
-      setState(() {
-        _imageFile = File(pickedFile.path);
-      });
-    } else {
-      print("لم يتم اختيار صورة.");
-    }
-  }
+  const CameraSection({
+    super.key,
+    required this.medicineNameController,
+    this.onImagePicked,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          // ✅ زر الكاميرا بعد الفصل
-          CameraPickerWidget(),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  S.of(context).medicineName,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.right,
-                ),
-                const SizedBox(height: 6),
-                Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(4),
-                    border: Border.all(color: Colors.grey.shade300),
-                  ),
-                  child: TextField(
-                    controller: _medicineNameController,
-                    // textAlign: TextAlign.right,
-                    decoration: InputDecoration(
-                      hintText: S.of(context).medicineName,
-                      hintStyle: TextStyle(color: Colors.grey),
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 8,
+          Row(
+            children: [
+              CameraPickerWidget(
+                width: 80,
+                height: 80,
+                onImagePicked: onImagePicked,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'اسم الدواء',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
-                      border: InputBorder.none,
+                      textAlign: TextAlign.right,
                     ),
-                  ),
+                    const SizedBox(height: 6),
+                    Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(4),
+                        border: Border.all(color: Colors.grey.shade300),
+                      ),
+                      child: TextField(
+                        controller: medicineNameController,
+                        textAlign: TextAlign.right,
+                        decoration: const InputDecoration(
+                          hintText: 'اسم الدواء',
+                          hintStyle: TextStyle(color: Colors.grey),
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
