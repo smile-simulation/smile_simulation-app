@@ -117,8 +117,8 @@ class _LogInViewBodyState extends State<LogInViewBody> {
 
                   SizedBox(height: 12),
 
-                  LogInWithMediaSection(),
-                  SizedBox(height: 90),
+                  // LogInWithMediaSection(),
+                  // SizedBox(height: 90),
                 ],
               ),
             ),

@@ -77,6 +77,22 @@ String? validatorOfAge(context, String? value) {
   }
 }
 
+String? validatorOfAddress(context, String? value) {
+  if (value == null || value.isEmpty) {
+    return S.of(context).address_empty;
+  } else if (value.length < 5) {
+    return S.of(context).address_valid;
+  } else if (value.length > 100) {
+    return S.of(context).address_valid;
+  } else if (value.contains(RegExp(r'[0-9]'))) {
+    return S.of(context).address_valid;
+  } else if (value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+    return S.of(context).address_valid;
+  } else {
+    return null;
+  }
+}
+
 String? validatorOfPhone(context, String? value) {
   if (value == null || value.isEmpty) {
     return S.of(context).phone_empty;

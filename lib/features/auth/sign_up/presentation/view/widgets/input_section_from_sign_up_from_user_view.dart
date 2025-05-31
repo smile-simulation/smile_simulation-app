@@ -12,6 +12,7 @@ class InputSectionFromSignUpFromUserView extends StatelessWidget {
     required this.passwordController,
     required this.confirmPasswordController,
     required this.ageController,
+    required this.addressController,
   });
 
   final TextEditingController nameController;
@@ -19,6 +20,7 @@ class InputSectionFromSignUpFromUserView extends StatelessWidget {
   final TextEditingController passwordController;
   final TextEditingController confirmPasswordController;
   final TextEditingController ageController;
+  final TextEditingController addressController;
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +52,15 @@ class InputSectionFromSignUpFromUserView extends StatelessWidget {
           keyboardType: TextInputType.number,
           validator: (value) {
             return validatorOfAge(context, value);
+          },
+        ),
+        CustomTextField(
+          controller: addressController,
+          title: S.of(context).address,
+          hintText: "123 Main St, City, Country",
+          keyboardType: TextInputType.text,
+          validator: (value) {
+            return validatorOfAddress(context, value);
           },
         ),
         CustomPasswordTextField(

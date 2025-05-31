@@ -90,6 +90,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
               child: SignUpFromDoctorSubsidiaryView(
                 name: args['name'],
                 email: args['email'],
+                address: args['address'],
                 password: args['password'],
                 confirmPassword: args['confirmPassword'],
                 gender: args['gender'],

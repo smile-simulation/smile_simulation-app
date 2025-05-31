@@ -12,6 +12,7 @@ class SignUpUserCubit extends Cubit<SignUpUserState> {
     required String password,
     required String confirmPassword,
     required String fullName,
+    required String address,
     required int age,
     required String image,
     required String gender,
@@ -20,6 +21,7 @@ class SignUpUserCubit extends Cubit<SignUpUserState> {
     final result = await signUpRepo.signUpFromUser(
       fullName: fullName,
       age: age,
+      address: address,
       email: email,
       password: password,
       confirmPassword: confirmPassword,

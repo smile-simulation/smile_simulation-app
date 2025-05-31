@@ -23,6 +23,7 @@ class SignUpRepoImpl extends SignUpRepo {
     required String password,
     required String confirmPassword,
     required String fullName,
+    required String address,
     required int age,
     required String image,
     required String gender,
@@ -32,6 +33,7 @@ class SignUpRepoImpl extends SignUpRepo {
         EndPoint.signUpUser,
         data: {
           ApiKeys.fullName: fullName,
+          ApiKeys.address: address,
           ApiKeys.age: age,
           ApiKeys.email: email,
           ApiKeys.password: password,
@@ -57,6 +59,7 @@ class SignUpRepoImpl extends SignUpRepo {
     required String password,
     required String confirmPassword,
     required String fullName,
+    required String address,
     required int experience,
     required File card,
     required String gender,
@@ -69,6 +72,7 @@ class SignUpRepoImpl extends SignUpRepo {
         EndPoint.signUpDoctor,
         data: {
           ApiKeys.fullName: fullName,
+          ApiKeys.address: address,
           ApiKeys.experience: experience,
           ApiKeys.email: email,
           ApiKeys.password: password,

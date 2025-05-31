@@ -65,6 +65,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Add your medical visit ... and we will remind you of its schedule"),
         "addVisitSchedulesInstruction": MessageLookupByLibrary.simpleMessage(
             "Add your medical visit schedules so we can remind you at their specified times."),
+        "address": MessageLookupByLibrary.simpleMessage("Address"),
+        "address_empty":
+            MessageLookupByLibrary.simpleMessage("Please enter the address"),
+        "address_valid":
+            MessageLookupByLibrary.simpleMessage("Enter a valid address"),
         "adviceContentError":
             MessageLookupByLibrary.simpleMessage("Advice Content Not Valid"),
         "adviceTitleError":
@@ -116,6 +121,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Daily Activities"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
+        "degree_bachelor": MessageLookupByLibrary.simpleMessage("Bachelor\'s"),
+        "degree_dentistry": MessageLookupByLibrary.simpleMessage("Dentistry"),
+        "degree_master": MessageLookupByLibrary.simpleMessage("Master\'s"),
+        "degree_oral_surgery":
+            MessageLookupByLibrary.simpleMessage("Oral Surgery"),
+        "degree_orthodontics":
+            MessageLookupByLibrary.simpleMessage("Orthodontics"),
+        "degree_phd": MessageLookupByLibrary.simpleMessage("PhD"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
         "deleteAccountConfirmation": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to delete the account?"),

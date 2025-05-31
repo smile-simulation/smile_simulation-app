@@ -26,6 +26,7 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   final TextEditingController nameController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
 
   bool checkedPrivacyAndConditions = false;
@@ -38,6 +39,7 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
   @override
   void dispose() {
     emailController.dispose();
+    addressController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
     nameController.dispose();
@@ -62,7 +64,8 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
                 spacing: 16,
                 children: [
                   SizedBox(height: 16),
-                  Row(children: [
+                  Row(
+                    children: [
                       Text(
                         S.of(context).registerNow,
                         style: AppTextStyles.headline1(
@@ -75,6 +78,7 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
                   InputSectionFromSignUpFromUserView(
                     emailController: emailController,
                     passwordController: passwordController,
+                    addressController: addressController,
                     confirmPasswordController: confirmPasswordController,
                     nameController: nameController,
                     ageController: ageController,
@@ -92,7 +96,7 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
                     onCkecked: () {
                       setState(() {
                         checkedPrivacyAndConditions =
-                        !checkedPrivacyAndConditions;
+                            !checkedPrivacyAndConditions;
                       });
                     },
                     value: checkedPrivacyAndConditions,
@@ -137,6 +141,7 @@ class _SignUpFromUserBodyViewState extends State<SignUpFromUserBodyView> {
                             age: int.tryParse(ageController.text.trim()) ?? 0,
                             image: '',
                             gender: gender == 0 ? 'male' : 'female',
+                            address: addressController.text.trim(),
                           );
                         });
                       } else {

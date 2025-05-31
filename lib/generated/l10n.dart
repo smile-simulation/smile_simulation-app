@@ -270,6 +270,76 @@ class S {
     );
   }
 
+  /// `Bachelor's`
+  String get degree_bachelor {
+    return Intl.message(
+      'Bachelor\'s',
+      name: 'degree_bachelor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Master's`
+  String get degree_master {
+    return Intl.message(
+      'Master\'s',
+      name: 'degree_master',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PhD`
+  String get degree_phd {
+    return Intl.message(
+      'PhD',
+      name: 'degree_phd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dentistry`
+  String get degree_dentistry {
+    return Intl.message(
+      'Dentistry',
+      name: 'degree_dentistry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Orthodontics`
+  String get degree_orthodontics {
+    return Intl.message(
+      'Orthodontics',
+      name: 'degree_orthodontics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oral Surgery`
+  String get degree_oral_surgery {
+    return Intl.message(
+      'Oral Surgery',
+      name: 'degree_oral_surgery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message(
+      'Address',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Verification code`
   String get verificationCode {
     return Intl.message(
@@ -1845,6 +1915,26 @@ class S {
     return Intl.message(
       'Age must be 70 years or less',
       name: 'age_max',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the address`
+  String get address_empty {
+    return Intl.message(
+      'Please enter the address',
+      name: 'address_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a valid address`
+  String get address_valid {
+    return Intl.message(
+      'Enter a valid address',
+      name: 'address_valid',
       desc: '',
       args: [],
     );
