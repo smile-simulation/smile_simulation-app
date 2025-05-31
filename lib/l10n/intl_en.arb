@@ -191,5 +191,15 @@
   "phone_empty": "Enter phone number",
   "phone_valid": "Enter a valid phone number",
   "phone_valid2": "Enter a valid phone number",
-  "field_required": "This field is required"
+  "field_required": "This field is required",
+  "job_title": "Job Title",
+  "enter_job": "Enter Job",
+  "marital_status": "Marital Status",
+  "single": "Single",
+  "married": "Married",
+  "enter_age": "Enter Age",
+  "phone": "Phone Number",
+  "full_name": "Full Name",
+  "error_try_again": "An Error Occurred, Try Again",
+  "data_updated_success": "Data Updated Successfully"
 }

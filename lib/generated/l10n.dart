@@ -1979,6 +1979,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Job Title`
+  String get job_title {
+    return Intl.message(
+      'Job Title',
+      name: 'job_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Job`
+  String get enter_job {
+    return Intl.message(
+      'Enter Job',
+      name: 'enter_job',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Marital Status`
+  String get marital_status {
+    return Intl.message(
+      'Marital Status',
+      name: 'marital_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Single`
+  String get single {
+    return Intl.message(
+      'Single',
+      name: 'single',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Married`
+  String get married {
+    return Intl.message(
+      'Married',
+      name: 'married',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Age`
+  String get enter_age {
+    return Intl.message(
+      'Enter Age',
+      name: 'enter_age',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phone {
+    return Intl.message(
+      'Phone Number',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get full_name {
+    return Intl.message(
+      'Full Name',
+      name: 'full_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An Error Occurred, Try Again`
+  String get error_try_again {
+    return Intl.message(
+      'An Error Occurred, Try Again',
+      name: 'error_try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Data Updated Successfully`
+  String get data_updated_success {
+    return Intl.message(
+      'Data Updated Successfully',
+      name: 'data_updated_success',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

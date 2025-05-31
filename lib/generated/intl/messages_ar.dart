@@ -116,6 +116,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("كلمة المرور الحالية"),
         "dailyActivities":
             MessageLookupByLibrary.simpleMessage("الأنشطة اليومية"),
+        "data_updated_success":
+            MessageLookupByLibrary.simpleMessage("تم تعديل البيانات بنجاح"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
         "degree_bachelor": MessageLookupByLibrary.simpleMessage("بكالوريوس"),
@@ -153,7 +155,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("قم بتسجيل بياناتك الشخصية"),
         "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
             "من فضلك أدخل رمز التحقق المكون من 6 أرقام المرسل إليك."),
+        "enter_age": MessageLookupByLibrary.simpleMessage("ادخل السن"),
+        "enter_job": MessageLookupByLibrary.simpleMessage("ادخل الوظيفة"),
         "error": MessageLookupByLibrary.simpleMessage("خطأ"),
+        "error_try_again":
+            MessageLookupByLibrary.simpleMessage("حدث خطاء حاول مره اخره"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
         "field_required":
             MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
@@ -162,12 +168,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "frequency": MessageLookupByLibrary.simpleMessage("التكرار"),
         "friday": MessageLookupByLibrary.simpleMessage("جمعة"),
         "fullName": MessageLookupByLibrary.simpleMessage("الاسم بالكامل"),
+        "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
         "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
         "generalAdvices": MessageLookupByLibrary.simpleMessage("نصائح عامة"),
         "halfPill": MessageLookupByLibrary.simpleMessage("نص حباية"),
         "healthStatus": MessageLookupByLibrary.simpleMessage("الحالة الصحية"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "imageError": MessageLookupByLibrary.simpleMessage("الصورة غير صالحة"),
+        "job_title": MessageLookupByLibrary.simpleMessage("الوظيفة"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "like": MessageLookupByLibrary.simpleMessage("أعجبني"),
         "likeCount": MessageLookupByLibrary.simpleMessage("إعجاباً"),
@@ -180,6 +188,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "logoutSuccess":
             MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج بنجاح"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
+        "marital_status":
+            MessageLookupByLibrary.simpleMessage("الحالة الإجتماعية"),
+        "married": MessageLookupByLibrary.simpleMessage("متزوج"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("السجل الطبي"),
         "medicineName": MessageLookupByLibrary.simpleMessage("اسم الدواء"),
         "medicineReminder": MessageLookupByLibrary.simpleMessage("منبه الدواء"),
@@ -232,6 +243,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
+        "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "phone_empty": MessageLookupByLibrary.simpleMessage("إدخال رقم الهاتف"),
         "phone_valid":
             MessageLookupByLibrary.simpleMessage("ادخال رقم الهاتف صحيح"),
@@ -271,6 +283,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "signInWith":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام"),
+        "single": MessageLookupByLibrary.simpleMessage("أعزب"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "smileChat":
             MessageLookupByLibrary.simpleMessage("اسأل الذكاء الاصطناعي"),

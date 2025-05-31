@@ -189,7 +189,7 @@ class MoreViewBody extends StatelessWidget {
                           isSuccessLogin,
                           false,
                         );
-                        CacheHelper().removeMap(key: personalData);
+                        //CacheHelper().removeMap(key: personalData);
                         CacheHelper().removeData(key: userData);
                         await customSuccess(
                           context,

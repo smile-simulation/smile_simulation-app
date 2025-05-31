@@ -27,7 +27,6 @@
   "degree_dentistry": "طب الأسنان",
   "degree_orthodontics": "تقويم الأسنان",
   "degree_oral_surgery": "جراحة الفم",
-
   "verificationCode": "رمز التحقق",
   "resetPassword": "إعادة تعيين كلمة المرور",
   "rememberPassword": "تذكر كلمة المرور؟",
@@ -192,5 +191,17 @@
   "phone_empty": "إدخال رقم الهاتف",
   "phone_valid": "ادخال رقم الهاتف صحيح",
   "phone_valid2": "إدخال رقم الهاتف صحيح",
-  "field_required": "هذا الحقل مطلوب"
+  "field_required": "هذا الحقل مطلوب",
+  "job_title": "الوظيفة",
+  "enter_job": "ادخل الوظيفة",
+  "marital_status": "الحالة الإجتماعية",
+  "single": "أعزب",
+  "married": "متزوج",
+  "enter_age": "ادخل السن",
+  "phone": "رقم الهاتف",
+  "full_name": "الاسم الكامل",
+  "error_try_again": "حدث خطاء حاول مره اخره",
+  "data_updated_success": "تم تعديل البيانات بنجاح"
+
+
 }

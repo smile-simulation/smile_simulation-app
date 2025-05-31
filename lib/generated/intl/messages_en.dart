@@ -119,6 +119,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Current Password"),
         "dailyActivities":
             MessageLookupByLibrary.simpleMessage("Daily Activities"),
+        "data_updated_success":
+            MessageLookupByLibrary.simpleMessage("Data Updated Successfully"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
         "degree_bachelor": MessageLookupByLibrary.simpleMessage("Bachelor\'s"),
@@ -156,7 +158,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Enter your personal information"),
         "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
             "Please enter the 6-digit verification code sent to you."),
+        "enter_age": MessageLookupByLibrary.simpleMessage("Enter Age"),
+        "enter_job": MessageLookupByLibrary.simpleMessage("Enter Job"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "error_try_again": MessageLookupByLibrary.simpleMessage(
+            "An Error Occurred, Try Again"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "field_required":
             MessageLookupByLibrary.simpleMessage("This field is required"),
@@ -165,6 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),
         "friday": MessageLookupByLibrary.simpleMessage("Friday"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
+        "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
         "generalAdvices":
             MessageLookupByLibrary.simpleMessage("General Advices"),
@@ -172,6 +179,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "healthStatus": MessageLookupByLibrary.simpleMessage("Health Status"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "imageError": MessageLookupByLibrary.simpleMessage("Image Not Valid"),
+        "job_title": MessageLookupByLibrary.simpleMessage("Job Title"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "like": MessageLookupByLibrary.simpleMessage("Like"),
         "likeCount": MessageLookupByLibrary.simpleMessage("Likes"),
@@ -184,6 +192,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "logoutSuccess":
             MessageLookupByLibrary.simpleMessage("Logged out successfully"),
         "male": MessageLookupByLibrary.simpleMessage("Male"),
+        "marital_status":
+            MessageLookupByLibrary.simpleMessage("Marital Status"),
+        "married": MessageLookupByLibrary.simpleMessage("Married"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("Medical record"),
         "medicineName": MessageLookupByLibrary.simpleMessage("Medicine Name"),
         "medicineReminder":
@@ -239,6 +250,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "personalData": MessageLookupByLibrary.simpleMessage("Personal Data"),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("Personal information"),
+        "phone": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "phone_empty":
             MessageLookupByLibrary.simpleMessage("Enter phone number"),
         "phone_valid":
@@ -277,6 +289,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "showAll": MessageLookupByLibrary.simpleMessage("Show All"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
         "signInWith": MessageLookupByLibrary.simpleMessage("Sign in with"),
+        "single": MessageLookupByLibrary.simpleMessage("Single"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "smileChat": MessageLookupByLibrary.simpleMessage("Smile Chat"),
         "specialization":

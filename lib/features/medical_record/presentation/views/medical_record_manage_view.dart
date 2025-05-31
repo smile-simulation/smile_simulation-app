@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/features/medical_record/presentation/views/personal_data_view.dart';
-
 import '../../../../constant.dart';
 import '../../../../core/database/cache/cache_helper.dart';
-import '../../../../core/helper_functions/get_it.dart';
 import '../../../../core/widgets/custom_body_screen.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
-import '../../data/repos/personal_data_repos/personal_data_repo.dart';
-import '../manage/cubits/get_personal_data_cubit/get_personal_data_cubit.dart';
 import 'health_status_view.dart';
 import 'medical_record_view.dart';
 
@@ -21,19 +16,13 @@ class MedicalRecordManageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create:
-          (context) => GetPersonalDataCubit(
-            personalDataRepo: getIt.get<PersonalDataRepo>(),
-          ),
-      child: Scaffold(
-        appBar: customAppbar(
-          context,
-          title: S.of(context).medicalRecord,
-          isBack: CacheHelper().getMap(key: userData)!['role'] == "Doctor",
-        ),
-        body: MedicalRecordManageBodyView(),
+    return Scaffold(
+      appBar: customAppbar(
+        context,
+        title: S.of(context).medicalRecord,
+        isBack: CacheHelper().getMap(key: userData)!['role'] == "Doctor",
       ),
+      body: MedicalRecordManageBodyView(),
     );
   }
 }
@@ -43,7 +32,6 @@ class MedicalRecordManageBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<GetPersonalDataCubit>().getPersonalData(userName: userId);
     return CustomBodyScreen(
       child: SingleChildScrollView(
         child: Column(
