@@ -17,6 +17,7 @@ abstract class SignUpRepo {
     required String confirmPassword,
     required String fullName,
     required int age,
+    required String address,
     required String image,
     required String gender,
   });
@@ -26,6 +27,7 @@ abstract class SignUpRepo {
     required String password,
     required String confirmPassword,
     required String fullName,
+    required String address,
     required int experience,
     required File card,
     required String gender,

@@ -270,6 +270,16 @@ class S {
     );
   }
 
+  /// `Address`
+  String get address {
+    return Intl.message(
+      'Address',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Verification code`
   String get verificationCode {
     return Intl.message(
@@ -1845,6 +1855,26 @@ class S {
     return Intl.message(
       'Age must be 70 years or less',
       name: 'age_max',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the address`
+  String get address_empty {
+    return Intl.message(
+      'Please enter the address',
+      name: 'address_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a valid address`
+  String get address_valid {
+    return Intl.message(
+      'Enter a valid address',
+      name: 'address_valid',
       desc: '',
       args: [],
     );

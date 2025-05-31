@@ -64,6 +64,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "أضف زيارتك الطبية ... وسوف نذكرك بمواعيدها"),
         "addVisitSchedulesInstruction": MessageLookupByLibrary.simpleMessage(
             "أضف مواعيد زياراتك الطبية حتى نتمكن من تذكيرك بها في أوقاتها المحددة."),
+        "address": MessageLookupByLibrary.simpleMessage("العنوان"),
+        "address_empty":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال العنوان"),
+        "address_valid":
+            MessageLookupByLibrary.simpleMessage("ادخل عنوان صحيح"),
         "adviceContentError":
             MessageLookupByLibrary.simpleMessage("محتوى نصيحة غير متاح"),
         "adviceTitleError":

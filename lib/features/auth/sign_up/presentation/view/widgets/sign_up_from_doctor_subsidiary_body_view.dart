@@ -23,6 +23,7 @@ class SignUpFromDoctorSubsidiaryBodyView extends StatefulWidget {
     required this.gender,
     required this.cardImage,
     required this.isCorrect,
+    required this.address,
   });
 
   final String name;
@@ -30,6 +31,7 @@ class SignUpFromDoctorSubsidiaryBodyView extends StatefulWidget {
   final String password;
   final String confirmPassword;
   final int gender;
+  final String address;
 
   final File cardImage;
   final bool isCorrect;
@@ -111,6 +113,7 @@ class _SignUpFromDoctorSubsidiaryBodyViewState
                         specialization: specializationController.text,
                         image: File(''),
                         card: widget.cardImage,
+                        address: widget.address,
                       );
                     },
                   ),
@@ -134,6 +137,7 @@ class _SignUpFromDoctorSubsidiaryBodyViewState
                         specialization: specializationController.text,
                         image: File(''),
                         card: widget.cardImage,
+                        address: widget.address,
                       );
                     },
                     child: Text(
