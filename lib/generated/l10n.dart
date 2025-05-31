@@ -270,6 +270,66 @@ class S {
     );
   }
 
+  /// `Bachelor's`
+  String get degree_bachelor {
+    return Intl.message(
+      'Bachelor\'s',
+      name: 'degree_bachelor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Master's`
+  String get degree_master {
+    return Intl.message(
+      'Master\'s',
+      name: 'degree_master',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PhD`
+  String get degree_phd {
+    return Intl.message(
+      'PhD',
+      name: 'degree_phd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dentistry`
+  String get degree_dentistry {
+    return Intl.message(
+      'Dentistry',
+      name: 'degree_dentistry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Orthodontics`
+  String get degree_orthodontics {
+    return Intl.message(
+      'Orthodontics',
+      name: 'degree_orthodontics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oral Surgery`
+  String get degree_oral_surgery {
+    return Intl.message(
+      'Oral Surgery',
+      name: 'degree_oral_surgery',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Address`
   String get address {
     return Intl.message(

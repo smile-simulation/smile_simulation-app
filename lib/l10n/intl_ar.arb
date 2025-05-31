@@ -21,6 +21,13 @@
   "gender": "الجنس",
   "male": "ذكر",
   "female": "أنثى",
+  "degree_bachelor": "بكالوريوس",
+  "degree_master": "ماجستير",
+  "degree_phd": "دكتوراه",
+  "degree_dentistry": "طب الأسنان",
+  "degree_orthodontics": "تقويم الأسنان",
+  "degree_oral_surgery": "جراحة الفم",
+
   "verificationCode": "رمز التحقق",
   "resetPassword": "إعادة تعيين كلمة المرور",
   "rememberPassword": "تذكر كلمة المرور؟",

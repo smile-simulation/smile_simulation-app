@@ -82,6 +82,7 @@ class _SignUpFromDoctorSubsidiaryBodyViewState
                 qualificationController: qualificationController,
                 specializationController: specializationController,
                 experienceController: experienceController,
+                context: context,
               ),
               const Spacer(),
               Row(

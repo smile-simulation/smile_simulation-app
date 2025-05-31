@@ -121,6 +121,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Daily Activities"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
+        "degree_bachelor": MessageLookupByLibrary.simpleMessage("Bachelor\'s"),
+        "degree_dentistry": MessageLookupByLibrary.simpleMessage("Dentistry"),
+        "degree_master": MessageLookupByLibrary.simpleMessage("Master\'s"),
+        "degree_oral_surgery":
+            MessageLookupByLibrary.simpleMessage("Oral Surgery"),
+        "degree_orthodontics":
+            MessageLookupByLibrary.simpleMessage("Orthodontics"),
+        "degree_phd": MessageLookupByLibrary.simpleMessage("PhD"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
         "deleteAccountConfirmation": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to delete the account?"),

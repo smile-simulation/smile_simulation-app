@@ -118,6 +118,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الأنشطة اليومية"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+        "degree_bachelor": MessageLookupByLibrary.simpleMessage("بكالوريوس"),
+        "degree_dentistry": MessageLookupByLibrary.simpleMessage("طب الأسنان"),
+        "degree_master": MessageLookupByLibrary.simpleMessage("ماجستير"),
+        "degree_oral_surgery":
+            MessageLookupByLibrary.simpleMessage("جراحة الفم"),
+        "degree_orthodontics":
+            MessageLookupByLibrary.simpleMessage("تقويم الأسنان"),
+        "degree_phd": MessageLookupByLibrary.simpleMessage("دكتوراه"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "deleteAccountConfirmation": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد أنك تريد حذف الحساب ؟"),
