@@ -64,6 +64,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "أضف زيارتك الطبية ... وسوف نذكرك بمواعيدها"),
         "addVisitSchedulesInstruction": MessageLookupByLibrary.simpleMessage(
             "أضف مواعيد زياراتك الطبية حتى نتمكن من تذكيرك بها في أوقاتها المحددة."),
+        "address": MessageLookupByLibrary.simpleMessage("العنوان"),
+        "address_empty":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال العنوان"),
+        "address_valid":
+            MessageLookupByLibrary.simpleMessage("ادخل عنوان صحيح"),
         "adviceContentError":
             MessageLookupByLibrary.simpleMessage("محتوى نصيحة غير متاح"),
         "adviceTitleError":
@@ -73,6 +78,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اقسام النصائح"),
         "afterMeal": MessageLookupByLibrary.simpleMessage("بعد تناول الطعام"),
         "age": MessageLookupByLibrary.simpleMessage("السن"),
+        "age_empty": MessageLookupByLibrary.simpleMessage("يرجى إدخال العمر"),
+        "age_max": MessageLookupByLibrary.simpleMessage(
+            "يجب أن يكون العمر 70 سنة أو أقل"),
+        "age_min": MessageLookupByLibrary.simpleMessage(
+            "يجب أن يكون العمر 12 سنة أو أكثر"),
+        "age_valid":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم صالح للعمر"),
         "agreeToTermsAndPrivacy": MessageLookupByLibrary.simpleMessage(
             "الموافقة على سياسة الخصوصية والشروط والأحكام"),
         "agreeToTermsPrefix": MessageLookupByLibrary.simpleMessage(
@@ -106,6 +118,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الأنشطة اليومية"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+        "degree_bachelor": MessageLookupByLibrary.simpleMessage("بكالوريوس"),
+        "degree_dentistry": MessageLookupByLibrary.simpleMessage("طب الأسنان"),
+        "degree_master": MessageLookupByLibrary.simpleMessage("ماجستير"),
+        "degree_oral_surgery":
+            MessageLookupByLibrary.simpleMessage("جراحة الفم"),
+        "degree_orthodontics":
+            MessageLookupByLibrary.simpleMessage("تقويم الأسنان"),
+        "degree_phd": MessageLookupByLibrary.simpleMessage("دكتوراه"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "deleteAccountConfirmation": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد أنك تريد حذف الحساب ؟"),
@@ -120,6 +140,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "editUserInformation":
             MessageLookupByLibrary.simpleMessage("تعديل المعلومات الشخصية"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "email_empty": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال البريد الإلكتروني"),
+        "email_invalid": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال بريد إلكتروني صالح"),
         "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
         "enterEmail": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال البريد الإلكتروني المسجل بحسابك لارسال الكود."),
@@ -131,6 +155,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "من فضلك أدخل رمز التحقق المكون من 6 أرقام المرسل إليك."),
         "error": MessageLookupByLibrary.simpleMessage("خطأ"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
+        "field_required":
+            MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور؟"),
         "frequency": MessageLookupByLibrary.simpleMessage("التكرار"),
@@ -164,6 +190,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "mohamedHamed": MessageLookupByLibrary.simpleMessage("محمد حامد"),
         "monday": MessageLookupByLibrary.simpleMessage("إثنين"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
+        "name_empty": MessageLookupByLibrary.simpleMessage("يرجى إدخال الاسم"),
+        "name_full":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال الاسم بالكامل"),
+        "name_valid": MessageLookupByLibrary.simpleMessage("ادخل اسم صحيح"),
         "newPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
@@ -185,11 +215,28 @@ class MessageLookup extends MessageLookupByLibrary {
             "دردشة سريعة وآمنة لحل جميع أسئلتك المتعلقة بصحة الفم."),
         "otherTasks": MessageLookupByLibrary.simpleMessage("مهام أخرى"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "password_empty":
+            MessageLookupByLibrary.simpleMessage("يجب إدخال كلمة المرور"),
+        "password_lowercase": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي على حرف صغير واحد على الأقل [a-z]"),
+        "password_min_length": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تكون على الأقل 8 أحرف"),
+        "password_number": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي على رقم واحد على الأقل [0-9]"),
+        "password_special": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي على رمز خاص واحد على الأقل [@-#-..]"),
+        "password_uppercase": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي على حرف كبير واحد على الأقل [A-Z]"),
         "permanentMedicine": MessageLookupByLibrary.simpleMessage("دواء دائم"),
         "personalData":
             MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
+        "phone_empty": MessageLookupByLibrary.simpleMessage("إدخال رقم الهاتف"),
+        "phone_valid":
+            MessageLookupByLibrary.simpleMessage("ادخال رقم الهاتف صحيح"),
+        "phone_valid2":
+            MessageLookupByLibrary.simpleMessage("إدخال رقم الهاتف صحيح"),
         "pill": MessageLookupByLibrary.simpleMessage("حباية"),
         "pleaseAgreeToTermsAndPrivacy": MessageLookupByLibrary.simpleMessage(
             "برجاء الموافقة على سياسات الخصوصية والشروط والأحكام"),

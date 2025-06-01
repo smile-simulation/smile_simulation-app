@@ -28,7 +28,7 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   final TextEditingController nameController = TextEditingController();
-
+  final TextEditingController addressController = TextEditingController();
   int gender = 2;
 
   File card = File('');
@@ -43,6 +43,7 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    addressController.dispose();
     confirmPasswordController.dispose();
     nameController.dispose();
 
@@ -79,6 +80,7 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
                   SizedBox(height: 24),
                   InputSectionFromSignUpFromDoctorView(
                     emailController: emailController,
+                    addressController: addressController,
                     passwordController: passwordController,
                     confirmPasswordController: confirmPasswordController,
                     nameController: nameController,
@@ -104,7 +106,7 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
                     onCkecked: () {
                       setState(() {
                         checkedPrivacyAndConditions =
-                        !checkedPrivacyAndConditions;
+                            !checkedPrivacyAndConditions;
                       });
                     },
                     value: checkedPrivacyAndConditions,
@@ -149,6 +151,7 @@ class _SignUpFromDoctorBodyViewState extends State<SignUpFromDoctorBodyView> {
                               'gender': gender,
                               'card': card,
                               'isCorrect': isCorrect,
+                              'address': addressController.text,
                             },
                             SignUpFromDoctorSubsidiaryView.routeName,
                           );

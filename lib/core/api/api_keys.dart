@@ -5,6 +5,7 @@ class ApiKeys {
   static String data = "data";
   static String fullName = "FullName";
   static String age = "Age";
+  static String address = "Address";
   static String gender = "Gender";
   static String image = "Image";
   static String email = "Email";

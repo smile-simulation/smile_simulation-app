@@ -23,6 +23,7 @@ class SignUpFromDoctorSubsidiaryView extends StatelessWidget {
     required this.cardImage,
     required this.isCorrect,
     required this.confirmPassword,
+    required this.address,
   });
 
   final String name;
@@ -30,6 +31,7 @@ class SignUpFromDoctorSubsidiaryView extends StatelessWidget {
   final String password;
   final String confirmPassword;
   final int gender;
+  final String address;
 
   final File cardImage;
   final bool isCorrect;
@@ -64,6 +66,7 @@ class SignUpFromDoctorSubsidiaryView extends StatelessWidget {
             gender: gender,
             cardImage: cardImage,
             isCorrect: isCorrect,
+            address: address,
           );
         },
       ),

@@ -142,7 +142,10 @@ class _ForgotViewState extends State<ForgetView> {
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         validator: (value) {
-                                          return validatorOfEmail(value);
+                                          return validatorOfEmail(
+                                            context,
+                                            value,
+                                          );
                                         },
                                       ),
                                     ]
