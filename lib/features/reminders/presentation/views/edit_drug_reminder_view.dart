@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' show DateFormat;
 import 'package:path_provider/path_provider.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
@@ -61,6 +62,12 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
     stopDate = widget.reminder?.stopDate ?? 'دواء دائم';
     imagePath = widget.reminder?.imagePath;
     daysSelected = widget.reminder?.daysSelected ?? List.generate(7, (_) => false);
+
+    // Validate initial time
+    if (timeController.text.isNotEmpty && !_isValidTime(timeController.text)) {
+      print('Invalid initial time: ${timeController.text}');
+      timeController.text = ''; // Clear invalid time
+    }
   }
 
   @override
@@ -104,6 +111,60 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
     return newPath;
   }
 
+  Future<void> _selectTime(BuildContext context) async {
+    TimeOfDay initialTime = TimeOfDay.now();
+    if (timeController.text.isNotEmpty) {
+      try {
+        final parsedTime = DateFormat.jm('ar').parse(timeController.text);
+        initialTime = TimeOfDay.fromDateTime(parsedTime);
+      } catch (e) {
+        print('Error parsing initial time: ${timeController.text}, error: $e');
+        // Use default time if parsing fails
+      }
+    }
+
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: initialTime,
+      builder: (context, child) => Directionality(
+        textDirection: TextDirection.rtl,
+        child: MediaQuery(
+          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+          child: child!,
+        ),
+      ),
+    );
+    if (picked != null && mounted) {
+      final now = DateTime.now();
+      final selectedTime = DateTime(now.year, now.month, now.day, picked.hour, picked.minute);
+      final formattedTime = DateFormat.jm('ar').format(selectedTime);
+      setState(() {
+        timeController.text = formattedTime;
+        print('Selected edited time: $formattedTime'); // Debug log
+      });
+    }
+  }
+
+  bool _isValidTime(String time) {
+    if (time.isEmpty) {
+      print('Time is empty'); // Debug log
+      return false;
+    }
+    // Accept both Western and Arabic digits
+    final timePattern = RegExp(r'^[0-9٠-٩]{1,2}:[0-9٠-٩]{2}\s*(?:ص|م)$');
+    if (!timePattern.hasMatch(time)) {
+      print('Invalid time format: $time'); // Debug log
+      return false;
+    }
+    try {
+      DateFormat.jm('ar').parse(time);
+      return true;
+    } catch (e) {
+      print('Time parsing error: $e'); // Debug log
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -118,14 +179,6 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CustomContainerForReminderFeature(
-                      widget: Image.asset(
-                        'assets/images/edit_drug_reminder.png',
-                        height: screenHeight * 0.2,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
                     const SizedBox(height: 18),
                     CameraSection(
                       medicineNameController: drugNameController,
@@ -139,6 +192,7 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                       keyboardType: TextInputType.text,
                       controller: frequencyController,
                       fillColor: Colors.white,
+                      borderColor: Colors.grey.shade300,
                     ),
                     const SizedBox(height: 18),
                     Text('الكمية', style: AppTextStyles.subTitle2(context)),
@@ -152,22 +206,51 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                       onChanged: (val) => setState(() => dosage = val),
                     ),
                     const SizedBox(height: 18),
-                    Text(
-                      'وقت التنبيه',
-                      style: AppTextStyles.subTitle2(context),
-                    ),
+                    Text('وقت التنبيه', style: AppTextStyles.subTitle2(context)),
                     const SizedBox(height: 8),
-                    CustomTextField(
-                      hintText: '8:30 صباحًا',
-                      keyboardType: TextInputType.datetime,
-                      controller: timeController,
-                      fillColor: Colors.white,
+                    Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(4),
+                        border: Border.all(color: Colors.grey.shade300),
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: Center(
+                        child: Semantics(
+                          label: 'إدخال الوقت',
+                          child: TextFormField(
+                            controller: timeController,
+                            readOnly: true,
+                            keyboardType: TextInputType.none,
+                            onTap: () => _selectTime(context),
+                            decoration: InputDecoration(
+                              labelText: 'الوقت',
+                              labelStyle: const TextStyle(color: Colors.grey, fontSize: 14),
+                              border: InputBorder.none,
+                              suffixIcon: Image.asset(
+                                'assets/images/clock.png',
+                                width: 20,
+                                height: 20,
+                                semanticLabel: 'اختر الوقت',
+                              ),
+                            ),
+                            style: const TextStyle(height: 1.3, color: Colors.grey),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'الرجاء إدخال الوقت';
+                              }
+                              if (!_isValidTime(value)) {
+                                return 'تنسيق الوقت غير صحيح';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 18),
-                    Text(
-                      'وقت تناول الدواء:',
-                      style: AppTextStyles.subTitle2(context),
-                    ),
+                    Text('وقت تناول الدواء:', style: AppTextStyles.subTitle2(context)),
                     const SizedBox(height: 8),
                     CustomTextField(
                       hintText: 'قبل تناول الطعام',
@@ -176,10 +259,7 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                       fillColor: Colors.white,
                     ),
                     const SizedBox(height: 18),
-                    Text(
-                      'تاريخ التوقف عن الدواء',
-                      style: AppTextStyles.subTitle2(context),
-                    ),
+                    Text('تاريخ التوقف عن الدواء', style: AppTextStyles.subTitle2(context)),
                     const SizedBox(height: 8),
                     CustomDropdownContainer(
                       hint: 'دواء دائم',
@@ -191,36 +271,47 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                     ),
                     const SizedBox(height: 24),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        CustomButton(
-                          title: 'تعديل البيانات',
-                          isMinWidth: true,
-                          onPressed: () async {
-                            final savedImagePath = await _saveImage(imagePath);
-                            final updatedReminder = Reminder(
-                              id: widget.reminder?.id ?? const Uuid().v4(),
-                              drugName: drugNameController.text,
-                              frequency: frequencyController.text,
-                              dosage: dosage ?? 'معلقة',
-                              time: timeController.text,
-                              mealTiming: mealTimingController.text,
-                              stopDate: stopDate ?? 'دواء دائم',
-                              daysSelected: daysSelected,
-                              imagePath: savedImagePath ?? imagePath,
-                            );
-                            Navigator.of(context).pop(updatedReminder);
-                          },
+                        Expanded(
+                          child: CustomButton(
+                            title: 'تعديل البيانات',
+                            isMinWidth: true,
+                            onPressed: () async {
+                              if (timeController.text.isEmpty || !_isValidTime(timeController.text)) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(content: Text('الرجاء إدخال وقت صحيح')),
+                                );
+                                return;
+                              }
+                              final savedImagePath = await _saveImage(imagePath);
+                              final updatedReminder = Reminder(
+                                id: widget.reminder?.id ?? const Uuid().v4(),
+                                drugName: drugNameController.text,
+                                frequency: frequencyController.text,
+                                dosage: dosage ?? 'معلقة',
+                                time: timeController.text,
+                                mealTiming: mealTimingController.text,
+                                stopDate: stopDate ?? 'دواء دائم',
+                                daysSelected: daysSelected,
+                                imagePath: savedImagePath ?? imagePath,
+                              );
+                              Navigator.of(context).pop(updatedReminder);
+                            },
+                          ),
                         ),
-                        const SizedBox(width: 40),
-                        CustomButton(
-                          title: 'حذف الدواء',
-                          isMinWidth: true,
-                          onPressed: () async {
-                            final confirm = await _showDeleteConfirmationDialog(context);
-                            if (confirm == true && widget.reminder != null) {
-                              Navigator.of(context).pop({'delete': widget.reminder!.id});
-                            }
-                          },
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: CustomButton(
+                            title: 'حذف الدواء',
+                            isMinWidth: true,
+                            onPressed: () async {
+                              final confirm = await _showDeleteConfirmationDialog(context);
+                              if (confirm == true && widget.reminder != null) {
+                                Navigator.of(context).pop({'delete': widget.reminder!.id});
+                              }
+                            },
+                          ),
                         ),
                       ],
                     ),
