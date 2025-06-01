@@ -8,6 +8,7 @@ import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/widgets/custom_body_screen.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
+import '../../../../main.dart';
 import 'health_status_view.dart';
 import 'medical_record_view.dart';
 
@@ -111,7 +112,7 @@ class MedicalRecordManageBodyView extends StatelessWidget {
                 Row(
                   children: [
                     Transform.scale(
-                      scaleX: isArabic == 'ar' ? 1 : -1,
+                      scaleX: CacheHelper.sharedPreferences.getString('language') == 'ar' ? 1 : -1,
                       scaleY: 1,
                       child: Image.asset(
                         Assets.imagesMedicalRecordImage,
@@ -157,8 +158,8 @@ class MedicalRecordManageBodyView extends StatelessWidget {
                           padding: EdgeInsets.only(
                             top: 75.0,
                             bottom: 75,
-                            right: isArabic == "ar" ? 85 : 0,
-                            left: isArabic == "ar" ? 0 : 85,
+                            right: CacheHelper.sharedPreferences.getString('language') == "ar" ? 85 : 0,
+                            left: CacheHelper.sharedPreferences.getString('language') == "ar" ? 0 : 85,
                           ),
                           child: InkWell(
                             onTap: () {

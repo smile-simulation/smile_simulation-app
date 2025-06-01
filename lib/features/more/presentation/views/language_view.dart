@@ -36,7 +36,7 @@ class LanguageView extends StatelessWidget {
                   context,
                   S.of(context).arabic,
                   Assets.imagesSa,
-                  localeNotifier.value.languageCode == 'ar',
+                  isArabic.value.languageCode == 'ar',
                 ),
               ),
               Divider(
@@ -50,7 +50,7 @@ class LanguageView extends StatelessWidget {
                   context,
                   S.of(context).english,
                   Assets.imagesUkm,
-                  localeNotifier.value.languageCode == 'en',
+                  isArabic.value.languageCode == 'en',
                 ),
               ),
             ],
@@ -85,6 +85,6 @@ class LanguageView extends StatelessWidget {
 
   void _changeLanguage(BuildContext context, String languageCode) async {
     await CacheHelper.sharedPreferences.setString('language', languageCode);
-    localeNotifier.value = Locale(languageCode);
+    isArabic.value = Locale(languageCode);
   }
 }

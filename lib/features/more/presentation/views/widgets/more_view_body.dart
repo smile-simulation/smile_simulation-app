@@ -82,7 +82,7 @@ class MoreViewBody extends StatelessWidget {
                               (context) => CustomPoliciesAndConditionsDialog(
                                 title: "Privacy Policy",
                                 path:
-                                    "assets/policies_and_conditions/privacy_policy.md", 
+                                    "assets/policies_and_conditions/privacy_policy.md",
                               ),
                         );
                       },
@@ -221,7 +221,17 @@ class MoreViewBody extends StatelessWidget {
                   child: Center(
                     child: Row(
                       children: [
-                        SvgPicture.asset(Assets.imagesLogoutIcon),
+                        Transform.scale(
+                          scaleX:
+                              CacheHelper.sharedPreferences.getString(
+                                        'language',
+                                      ) ==
+                                      'ar'
+                                  ? 1
+                                  : -1,
+                          scaleY: 1,
+                          child: SvgPicture.asset(Assets.imagesLogoutIcon),
+                        ),
                         const SizedBox(width: 16),
                         Text(
                           S.of(context).logout,
