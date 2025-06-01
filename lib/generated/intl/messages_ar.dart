@@ -90,14 +90,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "agreeToTermsPrefix": MessageLookupByLibrary.simpleMessage(
             "من خلال إنشاء حساب، فإنك توافق على "),
         "and": MessageLookupByLibrary.simpleMessage(" و "),
+        "anemia": MessageLookupByLibrary.simpleMessage("فقر الدم"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "beforeMeal": MessageLookupByLibrary.simpleMessage("قبل تناول الطعام"),
+        "breastfeeding": MessageLookupByLibrary.simpleMessage("مرضعه"),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
         "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "changePasswordPrompt": MessageLookupByLibrary.simpleMessage(
             "أنت على وشك تغيير كلمة المرور الخاصة بك. يرجى إدخال كلمة مرور جديدة."),
+        "chronic_diseases_question":
+            MessageLookupByLibrary.simpleMessage("هل تعاني من أي أمراض مزمنة؟"),
         "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
         "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
         "commentCount": MessageLookupByLibrary.simpleMessage("تعليقاً"),
@@ -133,6 +137,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل أنت متأكد أنك تريد حذف الحساب ؟"),
         "deleteMedicine": MessageLookupByLibrary.simpleMessage("حذف الدواء"),
         "deletePost": MessageLookupByLibrary.simpleMessage("حذف المنشور"),
+        "diabetes": MessageLookupByLibrary.simpleMessage("السكر"),
+        "drug_allergy_error":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال حساسية الأدوية"),
+        "drug_allergy_question": MessageLookupByLibrary.simpleMessage(
+            "هل لديك حساسية تجاه أي أدوية أو مواد طبية؟"),
         "duringMeal":
             MessageLookupByLibrary.simpleMessage("أثناء تناول الطعام"),
         "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
@@ -160,6 +169,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "error": MessageLookupByLibrary.simpleMessage("خطأ"),
         "error_try_again":
             MessageLookupByLibrary.simpleMessage("حدث خطاء حاول مره اخره"),
+        "family_history_question":
+            MessageLookupByLibrary.simpleMessage("هل يوجد تاريخ أسري للمرض?"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
         "field_required":
             MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
@@ -173,9 +184,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "generalAdvices": MessageLookupByLibrary.simpleMessage("نصائح عامة"),
         "halfPill": MessageLookupByLibrary.simpleMessage("نص حباية"),
         "healthStatus": MessageLookupByLibrary.simpleMessage("الحالة الصحية"),
+        "heart_disease": MessageLookupByLibrary.simpleMessage("القلب"),
+        "hepatitis": MessageLookupByLibrary.simpleMessage("فيروس A,B,C"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "hypertension": MessageLookupByLibrary.simpleMessage("الضغط"),
         "imageError": MessageLookupByLibrary.simpleMessage("الصورة غير صالحة"),
         "job_title": MessageLookupByLibrary.simpleMessage("الوظيفة"),
+        "kidney_disease": MessageLookupByLibrary.simpleMessage("فشل كلوي"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "like": MessageLookupByLibrary.simpleMessage("أعجبني"),
         "likeCount": MessageLookupByLibrary.simpleMessage("إعجاباً"),
@@ -208,10 +223,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "newPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "no": MessageLookupByLibrary.simpleMessage("لا"),
         "noAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "noAdvicesExist": MessageLookupByLibrary.simpleMessage("لا يوجد نصائح"),
         "noCategoriesAdvicesExist":
             MessageLookupByLibrary.simpleMessage("لا يوجد اقسام نصائح حاليا"),
+        "not_applicable": MessageLookupByLibrary.simpleMessage("لا ينطبق"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
@@ -225,6 +242,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding5": MessageLookupByLibrary.simpleMessage(
             "دردشة سريعة وآمنة لحل جميع أسئلتك المتعلقة بصحة الفم."),
         "otherTasks": MessageLookupByLibrary.simpleMessage("مهام أخرى"),
+        "other_diseases": MessageLookupByLibrary.simpleMessage("أخرى"),
+        "other_diseases_description_error":
+            MessageLookupByLibrary.simpleMessage(
+                "يرجى إدخال وصف الأمراض الأخرى"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "password_empty":
             MessageLookupByLibrary.simpleMessage("يجب إدخال كلمة المرور"),
@@ -257,6 +278,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "posts": MessageLookupByLibrary.simpleMessage("المنشورات"),
         "practicalExperience":
             MessageLookupByLibrary.simpleMessage("الخبرة العملية"),
+        "pregnancy_question":
+            MessageLookupByLibrary.simpleMessage("هل هناك حالات حمل أو رضاعة؟"),
+        "pregnant": MessageLookupByLibrary.simpleMessage("حامل"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
         "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "publish": MessageLookupByLibrary.simpleMessage("نشر"),
@@ -287,6 +311,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "smileChat":
             MessageLookupByLibrary.simpleMessage("اسأل الذكاء الاصطناعي"),
+        "smoking_question":
+            MessageLookupByLibrary.simpleMessage("هل أنت مدخن؟"),
         "specialization": MessageLookupByLibrary.simpleMessage("التخصص"),
         "specificDate": MessageLookupByLibrary.simpleMessage("تاريخ معين"),
         "spoon": MessageLookupByLibrary.simpleMessage("معلقة"),
@@ -295,9 +321,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تاريخ التوقف عن الدواء"),
         "success": MessageLookupByLibrary.simpleMessage("نجاح"),
         "sunday": MessageLookupByLibrary.simpleMessage("أحد"),
+        "surgery_question": MessageLookupByLibrary.simpleMessage(
+            "هل خضعت لأي عمليات جراحية سابقاً؟"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("الشروط والاحكام"),
         "thursday": MessageLookupByLibrary.simpleMessage("خميس"),
+        "thyroid_disease": MessageLookupByLibrary.simpleMessage("غدة درقية"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),
         "toDaysAdvice": MessageLookupByLibrary.simpleMessage("نصيحة اليوم"),
         "treatmentHistory":
@@ -314,7 +343,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeBack": MessageLookupByLibrary.simpleMessage(
             "مرحبًا بك! سجل دخولك للمتابعة"),
         "welcomeMsg": MessageLookupByLibrary.simpleMessage("مرحبًا"),
+        "write_here": MessageLookupByLibrary.simpleMessage("اكتبها..."),
         "yearsOfExperience":
-            MessageLookupByLibrary.simpleMessage("عدد سنوات الخبرة")
+            MessageLookupByLibrary.simpleMessage("عدد سنوات الخبرة"),
+        "yes": MessageLookupByLibrary.simpleMessage("نعم")
       };
 }

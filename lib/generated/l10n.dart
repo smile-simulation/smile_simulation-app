@@ -2079,6 +2079,226 @@ class S {
       args: [],
     );
   }
+
+  /// `Do you suffer from any chronic diseases?`
+  String get chronic_diseases_question {
+    return Intl.message(
+      'Do you suffer from any chronic diseases?',
+      name: 'chronic_diseases_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hypertension`
+  String get hypertension {
+    return Intl.message(
+      'Hypertension',
+      name: 'hypertension',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Diabetes`
+  String get diabetes {
+    return Intl.message(
+      'Diabetes',
+      name: 'diabetes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hepatitis A,B,C`
+  String get hepatitis {
+    return Intl.message(
+      'Hepatitis A,B,C',
+      name: 'hepatitis',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Heart Disease`
+  String get heart_disease {
+    return Intl.message(
+      'Heart Disease',
+      name: 'heart_disease',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Anemia`
+  String get anemia {
+    return Intl.message(
+      'Anemia',
+      name: 'anemia',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thyroid Disease`
+  String get thyroid_disease {
+    return Intl.message(
+      'Thyroid Disease',
+      name: 'thyroid_disease',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kidney Disease`
+  String get kidney_disease {
+    return Intl.message(
+      'Kidney Disease',
+      name: 'kidney_disease',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Other`
+  String get other_diseases {
+    return Intl.message(
+      'Other',
+      name: 'other_diseases',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write here...`
+  String get write_here {
+    return Intl.message(
+      'Write here...',
+      name: 'write_here',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you have any allergies to medications or medical substances?`
+  String get drug_allergy_question {
+    return Intl.message(
+      'Do you have any allergies to medications or medical substances?',
+      name: 'drug_allergy_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get yes {
+    return Intl.message(
+      'Yes',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No`
+  String get no {
+    return Intl.message(
+      'No',
+      name: 'no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Have you undergone any previous surgeries?`
+  String get surgery_question {
+    return Intl.message(
+      'Have you undergone any previous surgeries?',
+      name: 'surgery_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you a smoker?`
+  String get smoking_question {
+    return Intl.message(
+      'Are you a smoker?',
+      name: 'smoking_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are there any pregnancy or breastfeeding conditions?`
+  String get pregnancy_question {
+    return Intl.message(
+      'Are there any pregnancy or breastfeeding conditions?',
+      name: 'pregnancy_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pregnant`
+  String get pregnant {
+    return Intl.message(
+      'Pregnant',
+      name: 'pregnant',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Breastfeeding`
+  String get breastfeeding {
+    return Intl.message(
+      'Breastfeeding',
+      name: 'breastfeeding',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not Applicable`
+  String get not_applicable {
+    return Intl.message(
+      'Not Applicable',
+      name: 'not_applicable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Is there a family history of the disease?`
+  String get family_history_question {
+    return Intl.message(
+      'Is there a family history of the disease?',
+      name: 'family_history_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a description of other diseases`
+  String get other_diseases_description_error {
+    return Intl.message(
+      'Please enter a description of other diseases',
+      name: 'other_diseases_description_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the medication allergy`
+  String get drug_allergy_error {
+    return Intl.message(
+      'Please enter the medication allergy',
+      name: 'drug_allergy_error',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

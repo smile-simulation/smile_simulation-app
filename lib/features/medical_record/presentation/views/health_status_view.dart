@@ -46,7 +46,9 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
       'فقر الدم': user['hasAnemia'] ?? false,
       'غدة درقية': user['hasThyroidDisease'] ?? false,
       'فشل كلوي': user['hasKidneyDisease'] ?? false,
-      'أخرى': user['otherChronicDiseasesDescription'] != null,
+      'أخرى':
+          user['otherChronicDiseasesDescription'] != null &&
+          user['otherChronicDiseasesDescription'].isNotEmpty,
     };
     otherChronicDiseasesDescriptionController = TextEditingController(
       text: user['otherChronicDiseasesDescription'] ?? '',
@@ -65,7 +67,11 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppbar(context, title: "الحالة الصحية", isBack: true),
+      appBar: customAppbar(
+        context,
+        title: S.of(context).healthStatus,
+        isBack: true,
+      ),
       body: BlocListener<UpdateHealthStatusCubit, UpdateHealthStatusState>(
         listener: (context, state) {
           if (state is UpdateHealthStatusSuccess) {
@@ -105,18 +111,18 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
               children: [
                 const SizedBox(height: 32),
                 Text(
-                  "هل تعاني من أي أمراض مزمنة؟",
+                  S.of(context).chronic_diseases_question,
                   style: AppTextStyles.subTitle1(context),
                 ),
                 const SizedBox(height: 12),
                 SizedBox(
-                  height: 110,
+                  height: 130,
                   child: GridView.count(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     padding: EdgeInsets.zero,
-                    crossAxisCount: 3,
-                    childAspectRatio: 2 / 0.5,
+                    crossAxisCount: 2,
+                    childAspectRatio: 2 / 0.3,
                     crossAxisSpacing: 0,
                     mainAxisSpacing: 8,
                     children:
@@ -132,19 +138,34 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                         ? (val) {
                                           setState(() {
                                             diseases[key] = val!;
-                                            if (key == 'أخرى') {
-                                              diseases[key] =
-                                                  true; // تأكد من تفعيل الخيار "أخرى"
-                                            }
-                                            if (key != 'أخرى' && val == false) {
+                                            if (key == 'أخرى' && !val) {
                                               otherChronicDiseasesDescriptionController
                                                   .clear();
                                             }
                                           });
                                         }
-                                        : null, // تعطيل التفاعل
+                                        : null,
                               ),
-                              Text(key, style: AppTextStyles.caption1(context)),
+                              Text(
+                                key == 'الضغط'
+                                    ? S.of(context).hypertension
+                                    : key == 'السكر'
+                                    ? S.of(context).diabetes
+                                    : key == 'فيروس A,B,C'
+                                    ? S.of(context).hepatitis
+                                    : key == 'القلب'
+                                    ? S.of(context).heart_disease
+                                    : key == 'فقر الدم'
+                                    ? S.of(context).anemia
+                                    : key == 'غدة درقية'
+                                    ? S.of(context).thyroid_disease
+                                    : key == 'فشل كلوي'
+                                    ? S.of(context).kidney_disease
+                                    : key == 'أخرى'
+                                    ? S.of(context).other_diseases
+                                    : key,
+                                style: AppTextStyles.listItem(context),
+                              ),
                             ],
                           );
                         }).toList(),
@@ -156,9 +177,8 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                     padding: const EdgeInsets.only(right: 24.0),
                     child: TextFormField(
                       controller: otherChronicDiseasesDescriptionController,
-                      maxLines: 3,
                       decoration: InputDecoration(
-                        hintText: 'اكتبها...',
+                        hintText: S.of(context).write_here,
                         contentPadding: EdgeInsets.symmetric(horizontal: 8),
                       ),
                       readOnly: !isEditable, // تعطيل التعديل
@@ -167,7 +187,7 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  "هل لديك حساسية تجاه أي أدوية أو مواد طبية؟",
+                  S.of(context).drug_allergy_question,
                   style: AppTextStyles.subTitle1(context),
                 ),
                 Row(
@@ -183,9 +203,12 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                   hasAllergy = true;
                                 });
                               }
-                              : null, // تعطيل التفاعل
+                              : null,
                     ),
-                    const Text("نعم"),
+                    Text(
+                      S.of(context).yes,
+                      style: AppTextStyles.bodyText1(context),
+                    ),
                   ],
                 ),
                 Row(
@@ -201,9 +224,12 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                   hasAllergy = false;
                                 });
                               }
-                              : null, // تعطيل التفاعل
+                              : null,
                     ),
-                    const Text("لا"),
+                    Text(
+                      S.of(context).no,
+                      style: AppTextStyles.bodyText1(context),
+                    ),
                   ],
                 ),
                 Visibility(
@@ -212,8 +238,8 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                     padding: const EdgeInsets.only(right: 24.0),
                     child: TextFormField(
                       controller: drugAllergyController,
-                      decoration: const InputDecoration(
-                        hintText: 'اكتبها...',
+                      decoration: InputDecoration(
+                        hintText: S.of(context).write_here,
                         contentPadding: EdgeInsets.symmetric(horizontal: 8),
                       ),
                       readOnly: !isEditable, // تعطيل التعديل
@@ -222,7 +248,7 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  "هل خضعت لأي عمليات جراحية سابقاً؟",
+                  S.of(context).surgery_question,
                   style: AppTextStyles.subTitle1(context),
                 ),
                 Row(
@@ -238,9 +264,12 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                   hadSurgery = true;
                                 });
                               }
-                              : null, // تعطيل التفاعل
+                              : null,
                     ),
-                    const Text("نعم"),
+                    Text(
+                      S.of(context).yes,
+                      style: AppTextStyles.bodyText1(context),
+                    ),
                   ],
                 ),
                 Row(
@@ -256,13 +285,19 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                   hadSurgery = false;
                                 });
                               }
-                              : null, // تعطيل التفاعل
+                              : null,
                     ),
-                    const Text("لا"),
+                    Text(
+                      S.of(context).no,
+                      style: AppTextStyles.bodyText1(context),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 16),
-                Text("هل أنت مدخن؟", style: AppTextStyles.subTitle1(context)),
+                Text(
+                  S.of(context).smoking_question,
+                  style: AppTextStyles.subTitle1(context),
+                ),
                 Row(
                   children: [
                     Radio(
@@ -276,9 +311,12 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                   isSmoker = true;
                                 });
                               }
-                              : null, // تعطيل التفاعل
+                              : null,
                     ),
-                    const Text("نعم"),
+                    Text(
+                      S.of(context).yes,
+                      style: AppTextStyles.bodyText1(context),
+                    ),
                   ],
                 ),
                 Row(
@@ -294,14 +332,17 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                   isSmoker = false;
                                 });
                               }
-                              : null, // تعطيل التفاعل
+                              : null,
                     ),
-                    const Text("لا"),
+                    Text(
+                      S.of(context).no,
+                      style: AppTextStyles.bodyText1(context),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  "هل هناك حالات حمل أو رضاعة؟",
+                  S.of(context).pregnancy_question,
                   style: AppTextStyles.subTitle1(context),
                 ),
                 Row(
@@ -317,15 +358,18 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                   pregnancyStatus = val.toString();
                                 });
                               }
-                              : null, // تعطيل التفاعل
+                              : null,
                     ),
-                    const Text("حامل"),
+                    Text(
+                      S.of(context).pregnant,
+                      style: AppTextStyles.bodyText1(context),
+                    ),
                   ],
                 ),
                 Row(
                   children: [
                     Radio(
-                      value: 'مرضعه',
+                      value: 'مرضع',
                       groupValue: pregnancyStatus,
                       activeColor: AppColors.primaryColor,
                       onChanged:
@@ -335,15 +379,18 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                   pregnancyStatus = val.toString();
                                 });
                               }
-                              : null, // تعطيل التفاعل
+                              : null,
                     ),
-                    const Text("مرضعه"),
+                    Text(
+                      S.of(context).breastfeeding,
+                      style: AppTextStyles.bodyText1(context),
+                    ),
                   ],
                 ),
                 Row(
                   children: [
                     Radio(
-                      value: 'لا ينطبق',
+                      value: 'لاينطبق',
                       groupValue: pregnancyStatus,
                       activeColor: AppColors.primaryColor,
                       onChanged:
@@ -353,14 +400,18 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                   pregnancyStatus = val.toString();
                                 });
                               }
-                              : null, // تعطيل التفاعل
+                              : null,
                     ),
-                    const Text("لا ينطبق"),
+                    Text(
+                      S.of(context).not_applicable,
+                      style: AppTextStyles.bodyText1(context),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  "هل يوجد تاريخ أسري للمرض؟",
+                  S.of(context).family_history_question,
+
                   style: AppTextStyles.subTitle1(context),
                 ),
                 Row(
@@ -376,9 +427,12 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                   hasFamilyHistory = true;
                                 });
                               }
-                              : null, // تعطيل التفاعل
+                              : null,
                     ),
-                    const Text("نعم"),
+                    Text(
+                      S.of(context).yes,
+                      style: AppTextStyles.bodyText1(context),
+                    ),
                   ],
                 ),
                 Row(
@@ -394,9 +448,12 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                   hasFamilyHistory = false;
                                 });
                               }
-                              : null, // تعطيل التفاعل
+                              : null,
                     ),
-                    const Text("لا"),
+                    Text(
+                      S.of(context).no,
+                      style: AppTextStyles.bodyText1(context),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 12),
@@ -405,12 +462,39 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomButton(
+                        isLoading:
+                            context.watch<UpdateHealthStatusCubit>().state
+                                is UpdateHealthStatusLoading,
                         isMinWidth: true,
-                        title: "حفظ التعديلات",
+                        title: S.of(context).saveEdits,
                         onPressed: () {
+                          if (otherChronicDiseasesDescriptionController
+                                  .text
+                                  .isEmpty &&
+                              diseases['أخرى'] == true) {
+                            customError(
+                              context,
+                              massage:
+                                  S
+                                      .of(context)
+                                      .other_diseases_description_error,
+                            );
+                            return;
+                          }
+                          if (drugAllergyController.text.isEmpty &&
+                              hasAllergy) {
+                            customError(
+                              context,
+                              massage: S.of(context).drug_allergy_error,
+                            );
+                            return;
+                          }
                           context
                               .read<UpdateHealthStatusCubit>()
                               .updateHealthStatus(
+                                userName: user['userName'],
+
+                                isSmoker: isSmoker,
                                 hasHypertension: diseases['الضغط'] ?? false,
                                 hasDiabetes: diseases['السكر'] ?? false,
                                 hasHeartDisease: diseases['القلب'] ?? false,
@@ -420,33 +504,33 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
                                 hasAnemia: diseases['فقر الدم'] ?? false,
                                 hasThyroidDisease:
                                     diseases['غدة درقية'] ?? false,
-                                familyMedicalHistory: hasFamilyHistory,
+                                hasHepatitis: diseases['فيروس A,B,C'] ?? false,
+
                                 otherChronicDiseasesDescription:
                                     otherChronicDiseasesDescriptionController
-                                        .text,
+                                        .text
+                                        .trim(),
                                 drug_Allergy:
                                     hasAllergy
                                         ? drugAllergyController.text
                                         : "",
-                                isSmoker: isSmoker,
-                                pregnancyAndBreastfeeding: pregnancyStatus,
-                                userName: user['userName'],
                                 has_Surgical_Currency: hadSurgery,
-                                hasHepatitis: diseases['فيروس A,B,C'] ?? false,
+                                familyMedicalHistory: hasFamilyHistory,
+                                pregnancyAndBreastfeeding: pregnancyStatus,
                               );
                         },
                       ),
                       CustomButton(
                         isMinWidth: true,
                         isSecondary: true,
-                        title: "إلغاء",
+                        title: S.of(context).cancel,
                         onPressed: () {
                           Navigator.pop(context);
                         },
                       ),
                     ],
                   ),
-                const SizedBox(height: 32),
+                const SizedBox(height: 16),
               ],
             ),
           ),

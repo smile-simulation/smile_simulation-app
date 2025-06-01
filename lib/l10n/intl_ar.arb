@@ -201,7 +201,28 @@
   "phone": "رقم الهاتف",
   "full_name": "الاسم الكامل",
   "error_try_again": "حدث خطاء حاول مره اخره",
-  "data_updated_success": "تم تعديل البيانات بنجاح"
-
+  "data_updated_success": "تم تعديل البيانات بنجاح",
+  "chronic_diseases_question": "هل تعاني من أي أمراض مزمنة؟",
+  "hypertension": "الضغط",
+  "diabetes": "السكر",
+  "hepatitis": "فيروس A,B,C",
+  "heart_disease": "القلب",
+  "anemia": "فقر الدم",
+  "thyroid_disease": "غدة درقية",
+  "kidney_disease": "فشل كلوي",
+  "other_diseases": "أخرى",
+  "write_here": "اكتبها...",
+  "drug_allergy_question": "هل لديك حساسية تجاه أي أدوية أو مواد طبية؟",
+  "yes": "نعم",
+  "no": "لا",
+  "surgery_question": "هل خضعت لأي عمليات جراحية سابقاً؟",
+  "smoking_question": "هل أنت مدخن؟",
+  "pregnancy_question": "هل هناك حالات حمل أو رضاعة؟",
+  "pregnant": "حامل",
+  "breastfeeding": "مرضعه",
+  "not_applicable": "لا ينطبق",
+  "family_history_question": "هل يوجد تاريخ أسري للمرض?",
+  "other_diseases_description_error": "يرجى إدخال وصف الأمراض الأخرى",
+  "drug_allergy_error": "يرجى إدخال حساسية الأدوية"
 
 }

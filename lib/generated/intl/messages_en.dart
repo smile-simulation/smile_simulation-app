@@ -92,8 +92,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "agreeToTermsPrefix": MessageLookupByLibrary.simpleMessage(
             "By creating an account, you are agreeing to our "),
         "and": MessageLookupByLibrary.simpleMessage(" and "),
+        "anemia": MessageLookupByLibrary.simpleMessage("Anemia"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "beforeMeal": MessageLookupByLibrary.simpleMessage("Before Meal"),
+        "breastfeeding": MessageLookupByLibrary.simpleMessage("Breastfeeding"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "changeLanguage":
             MessageLookupByLibrary.simpleMessage("Change Language"),
@@ -101,6 +103,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "changePasswordPrompt": MessageLookupByLibrary.simpleMessage(
             "You are about to change your password. Please enter a new password."),
+        "chronic_diseases_question": MessageLookupByLibrary.simpleMessage(
+            "Do you suffer from any chronic diseases?"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "comment": MessageLookupByLibrary.simpleMessage("Comment"),
         "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
@@ -137,6 +141,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteMedicine":
             MessageLookupByLibrary.simpleMessage("Delete Medicine"),
         "deletePost": MessageLookupByLibrary.simpleMessage("Delete post"),
+        "diabetes": MessageLookupByLibrary.simpleMessage("Diabetes"),
+        "drug_allergy_error": MessageLookupByLibrary.simpleMessage(
+            "Please enter the medication allergy"),
+        "drug_allergy_question": MessageLookupByLibrary.simpleMessage(
+            "Do you have any allergies to medications or medical substances?"),
         "duringMeal": MessageLookupByLibrary.simpleMessage("During Meal"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "editPersonalInfo":
@@ -163,6 +172,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "error_try_again": MessageLookupByLibrary.simpleMessage(
             "An Error Occurred, Try Again"),
+        "family_history_question": MessageLookupByLibrary.simpleMessage(
+            "Is there a family history of the disease?"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "field_required":
             MessageLookupByLibrary.simpleMessage("This field is required"),
@@ -177,9 +188,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("General Advices"),
         "halfPill": MessageLookupByLibrary.simpleMessage("Half Pill"),
         "healthStatus": MessageLookupByLibrary.simpleMessage("Health Status"),
+        "heart_disease": MessageLookupByLibrary.simpleMessage("Heart Disease"),
+        "hepatitis": MessageLookupByLibrary.simpleMessage("Hepatitis A,B,C"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "hypertension": MessageLookupByLibrary.simpleMessage("Hypertension"),
         "imageError": MessageLookupByLibrary.simpleMessage("Image Not Valid"),
         "job_title": MessageLookupByLibrary.simpleMessage("Job Title"),
+        "kidney_disease":
+            MessageLookupByLibrary.simpleMessage("Kidney Disease"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "like": MessageLookupByLibrary.simpleMessage("Like"),
         "likeCount": MessageLookupByLibrary.simpleMessage("Likes"),
@@ -213,12 +229,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter a valid name"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "no": MessageLookupByLibrary.simpleMessage("No"),
         "noAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "noAdvicesExist":
             MessageLookupByLibrary.simpleMessage("No advices exist"),
         "noCategoriesAdvicesExist": MessageLookupByLibrary.simpleMessage(
             "No categories of advices currently exist"),
+        "not_applicable":
+            MessageLookupByLibrary.simpleMessage("Not Applicable"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
@@ -232,6 +251,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding5": MessageLookupByLibrary.simpleMessage(
             "A fast and secure chat to solve all your oral health-related questions."),
         "otherTasks": MessageLookupByLibrary.simpleMessage("Other Tasks"),
+        "other_diseases": MessageLookupByLibrary.simpleMessage("Other"),
+        "other_diseases_description_error":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a description of other diseases"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "password_empty":
             MessageLookupByLibrary.simpleMessage("Password is required"),
@@ -265,6 +288,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "posts": MessageLookupByLibrary.simpleMessage("Posts"),
         "practicalExperience":
             MessageLookupByLibrary.simpleMessage("Practical experience"),
+        "pregnancy_question": MessageLookupByLibrary.simpleMessage(
+            "Are there any pregnancy or breastfeeding conditions?"),
+        "pregnant": MessageLookupByLibrary.simpleMessage("Pregnant"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "publish": MessageLookupByLibrary.simpleMessage("Publish"),
@@ -292,6 +318,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "single": MessageLookupByLibrary.simpleMessage("Single"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "smileChat": MessageLookupByLibrary.simpleMessage("Smile Chat"),
+        "smoking_question":
+            MessageLookupByLibrary.simpleMessage("Are you a smoker?"),
         "specialization":
             MessageLookupByLibrary.simpleMessage("Specialization"),
         "specificDate": MessageLookupByLibrary.simpleMessage("Specific Date"),
@@ -300,9 +328,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "stopDate": MessageLookupByLibrary.simpleMessage("Medicine Stop Date"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
         "sunday": MessageLookupByLibrary.simpleMessage("Sunday"),
+        "surgery_question": MessageLookupByLibrary.simpleMessage(
+            "Have you undergone any previous surgeries?"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "thursday": MessageLookupByLibrary.simpleMessage("Thursday"),
+        "thyroid_disease":
+            MessageLookupByLibrary.simpleMessage("Thyroid Disease"),
         "time": MessageLookupByLibrary.simpleMessage("Time"),
         "toDaysAdvice": MessageLookupByLibrary.simpleMessage("Today\'s Advice"),
         "treatmentHistory":
@@ -320,7 +352,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeBack": MessageLookupByLibrary.simpleMessage(
             "Welcome back! Log in to continue"),
         "welcomeMsg": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "write_here": MessageLookupByLibrary.simpleMessage("Write here..."),
         "yearsOfExperience":
-            MessageLookupByLibrary.simpleMessage("Years of experience")
+            MessageLookupByLibrary.simpleMessage("Years of experience"),
+        "yes": MessageLookupByLibrary.simpleMessage("Yes")
       };
 }
