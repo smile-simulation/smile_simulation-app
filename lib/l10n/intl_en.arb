@@ -48,6 +48,7 @@
   "ok": "Ok",
   "error": "Error",
   "success": "Success",
+  "warning": "Warning",
   "like": "Like",
   "likeCount": "Likes",
   "comment": "Comment",
@@ -223,5 +224,7 @@
   "not_applicable": "Not Applicable",
   "family_history_question": "Is there a family history of the disease?",
   "other_diseases_description_error": "Please enter a description of other diseases",
-  "drug_allergy_error": "Please enter the medication allergy"
+  "drug_allergy_error": "Please enter the medication allergy",
+  "comingSoon": "Coming Soon",
+  "thisFeatureIsComingSoon": "This feature is coming soon"
 }

@@ -48,6 +48,7 @@
   "ok": "حسنا",
   "error": "خطأ",
   "success": "نجاح",
+  "warning": "تحذير",
   "like": "أعجبني",
   "likeCount": "إعجاباً",
   "comment": "تعليق",
@@ -223,6 +224,7 @@
   "not_applicable": "لا ينطبق",
   "family_history_question": "هل يوجد تاريخ أسري للمرض?",
   "other_diseases_description_error": "يرجى إدخال وصف الأمراض الأخرى",
-  "drug_allergy_error": "يرجى إدخال حساسية الأدوية"
-
+  "drug_allergy_error": "يرجى إدخال حساسية الأدوية",
+  "comingSoon": "قريباً",
+  "thisFeatureIsComingSoon": "هذه الميزة قادمة قريباً"
 }

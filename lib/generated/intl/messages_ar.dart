@@ -103,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "chronic_diseases_question":
             MessageLookupByLibrary.simpleMessage("هل تعاني من أي أمراض مزمنة؟"),
         "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
+        "comingSoon": MessageLookupByLibrary.simpleMessage("قريباً"),
         "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
         "commentCount": MessageLookupByLibrary.simpleMessage("تعليقاً"),
         "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
@@ -325,6 +326,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل خضعت لأي عمليات جراحية سابقاً؟"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("الشروط والاحكام"),
+        "thisFeatureIsComingSoon":
+            MessageLookupByLibrary.simpleMessage("هذه الميزة قادمة قريباً"),
         "thursday": MessageLookupByLibrary.simpleMessage("خميس"),
         "thyroid_disease": MessageLookupByLibrary.simpleMessage("غدة درقية"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),
@@ -339,6 +342,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "visitName": MessageLookupByLibrary.simpleMessage("اسم الزيارة"),
         "visitSchedules":
             MessageLookupByLibrary.simpleMessage("مواعيد الزيارات"),
+        "warning": MessageLookupByLibrary.simpleMessage("تحذير"),
         "wednesday": MessageLookupByLibrary.simpleMessage("أربعاء"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage(
             "مرحبًا بك! سجل دخولك للمتابعة"),

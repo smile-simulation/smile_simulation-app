@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
@@ -193,10 +194,21 @@ class MedicalRecordManageBodyView extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.pushNamed(
-                              context,
-                              MedicalRecordView.routeName,
+                            AwesomeDialog(
+                              context: context,
+                              dialogType: DialogType.info,
+                              animType: AnimType.scale,
+                              title: S.of(context).comingSoon,
+                              desc: S.of(context).thisFeatureIsComingSoon,
+                              btnOkOnPress: () {},
+
+                            ).show(
+
                             );
+                            // Navigator.pushNamed(
+                            //   context,
+                            //   MedicalRecordView.routeName,
+                            // );
                           },
                           child: Column(
                             children: [

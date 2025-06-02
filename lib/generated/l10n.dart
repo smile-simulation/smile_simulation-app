@@ -540,6 +540,16 @@ class S {
     );
   }
 
+  /// `Warning`
+  String get warning {
+    return Intl.message(
+      'Warning',
+      name: 'warning',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Like`
   String get like {
     return Intl.message(
@@ -2295,6 +2305,26 @@ class S {
     return Intl.message(
       'Please enter the medication allergy',
       name: 'drug_allergy_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coming Soon`
+  String get comingSoon {
+    return Intl.message(
+      'Coming Soon',
+      name: 'comingSoon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This feature is coming soon`
+  String get thisFeatureIsComingSoon {
+    return Intl.message(
+      'This feature is coming soon',
+      name: 'thisFeatureIsComingSoon',
       desc: '',
       args: [],
     );

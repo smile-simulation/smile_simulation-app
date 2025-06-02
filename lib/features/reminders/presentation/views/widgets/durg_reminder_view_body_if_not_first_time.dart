@@ -10,6 +10,8 @@ import 'package:smile_simulation/features/reminders/presentation/views/edit_drug
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_container_for_reminders_features.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
 
+import '../../../../../core/helper_functions/custom_error.dart';
+
 class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
   final List<Reminder> reminders;
   final void Function(Reminder) onUpdateReminder;
@@ -52,7 +54,12 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
       context: context,
       builder: (context) => Directionality(
         textDirection: TextDirection.rtl,
-        child: AlertDialog(
+        child:
+
+
+
+
+        AlertDialog(
           title: const Text('تأكيد حذف جميع التذكيرات'),
           content: const Text('هل أنت متأكد من حذف جميع تذكيرات الأدوية؟ سيتم حذف جميع الصور المرتبطة أيضًا.'),
           actions: [
@@ -92,6 +99,14 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
                     isExtraMinWidth: true,
                     onPressed: () async {
                       final confirm = await _showClearAllConfirmationDialog(context);
+                      // final confirm = await customWarning(
+                      //   context,
+                      //   massage: '',
+                      //
+                      //
+                      // );
+
+
                       if (confirm == true) {
                         onClearAllReminders();
                       }

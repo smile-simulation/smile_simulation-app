@@ -36,7 +36,7 @@ class _MedicalHistoryViewState extends State<HealthStatusView> {
   @override
   void initState() {
     super.initState();
-    isEditable = userType == "Patient";
+    isEditable = userType == "Doctor";
     user = CacheHelper().getMap(key: userData)!;
     diseases = {
       'الضغط': user['hasHypertension'] ?? false,

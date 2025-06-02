@@ -106,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "chronic_diseases_question": MessageLookupByLibrary.simpleMessage(
             "Do you suffer from any chronic diseases?"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "comingSoon": MessageLookupByLibrary.simpleMessage("Coming Soon"),
         "comment": MessageLookupByLibrary.simpleMessage("Comment"),
         "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
         "comments": MessageLookupByLibrary.simpleMessage("Comments"),
@@ -332,6 +333,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Have you undergone any previous surgeries?"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
+        "thisFeatureIsComingSoon":
+            MessageLookupByLibrary.simpleMessage("This feature is coming soon"),
         "thursday": MessageLookupByLibrary.simpleMessage("Thursday"),
         "thyroid_disease":
             MessageLookupByLibrary.simpleMessage("Thyroid Disease"),
@@ -348,6 +351,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "visitName": MessageLookupByLibrary.simpleMessage("Visit Name"),
         "visitSchedules":
             MessageLookupByLibrary.simpleMessage("Visit Schedules"),
+        "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "wednesday": MessageLookupByLibrary.simpleMessage("Wednesday"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage(
             "Welcome back! Log in to continue"),
