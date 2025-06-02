@@ -33,7 +33,9 @@ import '../../features/auth/login/presentation/view/forgot_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_subsidiary_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_doctor_view.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
+import '../../features/medical_record/data/repos/health_status_repos/health_status_repo.dart';
 import '../../features/medical_record/data/repos/personal_data_repos/personal_data_repo.dart';
+import '../../features/medical_record/presentation/manage/cubits/update_health_status_cubit/update_health_status_cubit.dart';
 import '../../features/medical_record/presentation/manage/cubits/update_personal_data_cubit/update_personal_data_cubit.dart';
 import '../../features/medical_record/presentation/views/health_status_view.dart';
 import '../../features/medical_record/presentation/views/medical_record_view.dart';
@@ -181,7 +183,19 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
             ),
       );
     case HealthStatusView.routeName:
-      return MaterialPageRoute(builder: (_) => const HealthStatusView());
+      return MaterialPageRoute(builder: (_) =>
+
+          BlocProvider(
+            child:   HealthStatusView(),
+            create:
+                (context) => UpdateHealthStatusCubit(
+                  healthStatusRepo: getIt.get<HealthStatusRepo>(),
+            ),
+          ),
+
+
+
+        );
     case MedicalRecordView.routeName:
       return MaterialPageRoute(builder: (_) => const MedicalRecordView());
 

@@ -8,6 +8,7 @@ import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/helper_functions/custom_error.dart';
 import '../../../../core/helper_functions/validator.dart';
 import '../../../../core/widgets/custom_auth_appbar.dart';
+import '../../../../generated/l10n.dart';
 import '../../../auth/sign_up/presentation/view/widgets/gender_section_from_sign_up_view.dart';
 import '../manage/cubits/update_personal_data_cubit/update_personal_data_cubit.dart';
 import '../manage/cubits/update_personal_data_cubit/update_personal_data_state.dart';
@@ -21,7 +22,11 @@ class PersonalDataView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppbar(context, title: "البيانات الشخصية", isBack: true),
+      appBar: customAppbar(
+        context,
+        title: S.of(context).personal_info,
+        isBack: true,
+      ),
       body: const PersonalDataBodyView(),
     );
   }
@@ -44,7 +49,6 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
   int marital = 2;
 
   late Map<String, dynamic> user;
-  late Map<String, dynamic> data;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
@@ -52,26 +56,25 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
   void initState() {
     super.initState();
     user = CacheHelper().getMap(key: userData)!;
-    data = CacheHelper().getMap(key: personalData)!;
 
-    fullNameController = TextEditingController(text: data['fullName'] ?? '');
+    fullNameController = TextEditingController(text: user['fullName'] ?? '');
     phoneNumberController = TextEditingController(
-      text: data['phoneNumber'] ?? '',
+      text: user['phoneNumber'] ?? '',
     );
-    ageController = TextEditingController(text: data['age']?.toString() ?? '');
-    jobController = TextEditingController(text: data['job'] ?? '');
+    ageController = TextEditingController(text: user['age']?.toString() ?? '');
+    jobController = TextEditingController(text: user['jop'] ?? '');
 
     gender =
-        data['gender'] == "Male"
+        user['gender'] == "Male"
             ? 1
-            : data['gender'] == "Female"
+            : user['gender'] == "Female"
             ? 0
             : 2;
 
     marital =
-        data['maritalStatus'] == "متزوج"
+        user['maritalStatus'] == "متزوج"
             ? 1
-            : data['maritalStatus'] == "اعزب"
+            : user['maritalStatus'] == "اعزب"
             ? 0
             : 2;
   }
@@ -93,10 +96,13 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
         child: BlocListener<UpdatePersonalDataCubit, UpdatePersonalDataState>(
           listener: (context, state) {
             if (state is UpdatePersonalDataSuccess) {
-              customSuccess(context, massage: "تم تعديل البيانات بنجاح");
+              customSuccess(
+                context,
+                massage: S.of(context).data_updated_success,
+              );
 
               CacheHelper().saveMap(
-                key: personalData,
+                key: userData,
                 value: {
                   "userName": user['userName'],
                   "fullName": user['fullName'],
@@ -109,7 +115,7 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
                           : gender == 1
                           ? "Male"
                           : "Female",
-                  "job": jobController.text,
+                  "jop": jobController.text,
                   "maritalStatus":
                       marital == 2
                           ? ""
@@ -119,7 +125,7 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
                 },
               );
             } else if (state is UpdatePersonalDataFailure) {
-              customError(context, massage: "حدث خطاء حاول مره اخره");
+              customError(context, massage: S.of(context).error_try_again);
             }
           },
           child: Form(
@@ -129,17 +135,17 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
               children: [
                 const SizedBox(height: 24),
                 CustomTextField(
-                  title: "الاسم الكامل",
+                  title: S.of(context).full_name,
                   readOnly: true,
                   controller: fullNameController,
-                  hintText: data["fullName"],
+                  hintText: user["fullName"],
                   keyboardType: TextInputType.text,
                 ),
                 const SizedBox(height: 16),
                 CustomTextField(
-                  title: "رقم الهاتف",
+                  title: S.of(context).phone,
                   controller: phoneNumberController,
-                  hintText: "ادخل رقم الهاتف",
+                  hintText: S.of(context).phone_empty,
                   keyboardType: TextInputType.phone,
                   validator: (value) {
                     return validatorOfPhone(context, value);
@@ -147,9 +153,9 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
                 ),
                 const SizedBox(height: 16),
                 CustomTextField(
-                  title: "السن",
+                  title: S.of(context).age,
                   controller: ageController,
-                  hintText: "ادخل السن",
+                  hintText: S.of(context).enter_age,
                   keyboardType: TextInputType.number,
                   validator: (value) {
                     return validatorOfAge(context, value);
@@ -184,9 +190,9 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
                 ),
                 const SizedBox(height: 16),
                 CustomTextField(
-                  title: "الوظيفة",
+                  title: S.of(context).job_title,
                   controller: jobController,
-                  hintText: "ادخل الوظيفة",
+                  hintText: S.of(context).enter_job,
                   keyboardType: TextInputType.text,
                 ),
                 const SizedBox(height: 58),
@@ -198,7 +204,7 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
                       isLoading:
                           context.watch<UpdatePersonalDataCubit>().state
                               is UpdatePersonalDataLoading,
-                      title: "حفظ التعديلات",
+                      title: S.of(context).saveEdits,
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           autovalidateMode = AutovalidateMode.disabled;
@@ -236,7 +242,7 @@ class _PersonalDataBodyViewState extends State<PersonalDataBodyView> {
                     CustomButton(
                       isMinWidth: true,
                       isSecondary: true,
-                      title: "إلغاء",
+                      title: S.of(context).cancel,
                       onPressed: () {
                         Navigator.of(context).pop();
                       },

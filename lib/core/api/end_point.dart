@@ -16,4 +16,5 @@ class EndPoint {
   static String allAdvicesCategories = "AdviceCategory";
   static String getPersonalData = "User/GetPatientPersonalData?UserName=";
   static String updatePersonalData = "User/EditPatientPersonalData?UserName=";
+  static String updateHealthStatus = "User/EditPatientHealthConditionData/";
 }

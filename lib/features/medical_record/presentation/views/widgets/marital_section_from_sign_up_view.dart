@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
+import '../../../../../generated/l10n.dart';
+
 enum Marital { single, married }
 
 class MaritalSectionFromSignUpView extends StatefulWidget {
   const MaritalSectionFromSignUpView({
     super.key,
     required this.onSelected,
-    this.initialValue, // ✅ القيمة المبدئية
+    this.initialValue,
   });
 
   final Function(String) onSelected;
@@ -37,13 +39,13 @@ class _MaritalSectionState extends State<MaritalSectionFromSignUpView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("الحالة الإجتماعية", style: AppTextStyles.formLabel(context)),
+        Text(S.of(context).marital_status , style: AppTextStyles.formLabel(context)),
         Row(
           children: <Widget>[
             Expanded(
               child: RadioListTile<Marital>(
                 contentPadding: EdgeInsets.zero,
-                title: Text("أعزب", style: AppTextStyles.formLabel(context)),
+                title: Text( S.of(context).single, style: AppTextStyles.formLabel(context)),
                 value: Marital.single,
                 groupValue: _selectedMarital,
                 activeColor: AppColors.primaryColor,
@@ -58,7 +60,7 @@ class _MaritalSectionState extends State<MaritalSectionFromSignUpView> {
             Expanded(
               child: RadioListTile<Marital>(
                 contentPadding: EdgeInsets.zero,
-                title: Text("متزوج", style: AppTextStyles.formLabel(context)),
+                title: Text(S.of(context).married, style: AppTextStyles.formLabel(context)),
                 value: Marital.married,
                 groupValue: _selectedMarital,
                 activeColor: AppColors.primaryColor,
