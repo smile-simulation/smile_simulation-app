@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +36,6 @@ class _UserAccountViewBodyContentState
     extends State<UserAccountViewBodyContent> {
   @override
   void initState() {
-    log("The USER ID: ${widget.userId}");
     context.read<GetUserPostsCubit>().getUserPostsByUserId(
       userId: widget.userId ?? CacheHelper().getMap(key: 'userData')!['userId'],
     );
@@ -76,7 +74,7 @@ class _UserAccountViewBodyContentState
               child: PostSectionsTitle(title: S.of(context).posts),
             ),
             CustomSliverSizedBox(height: 16),
-            PostsSliverListView(),
+            PostsSliverListView(currentUser: widget.currentUser),
           ],
         ),
       ),

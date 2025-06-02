@@ -7,4 +7,5 @@ import '../../../../home_feature/data/models/post_model.dart';
 abstract class UserDetailsRepo {
   Future<Either<Failure, User>> getUserDetails({required String token});
   Future<Either<Failure, List<PostModel>>> getPosts({required String userId});
+  Future<Either<Failure, String>> removePost({required int postId});
 }

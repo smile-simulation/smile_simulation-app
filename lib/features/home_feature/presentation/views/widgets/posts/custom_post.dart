@@ -6,6 +6,7 @@ import 'package:smile_simulation/features/home_feature/data/models/post_model.da
 import 'package:smile_simulation/features/home_feature/data/repos/posts_repo/posts_repo_implement.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/post_details_cubit/post_details_cubit.dart';
 
+import '../../../../../user_account/presentation/managers/get_user_posts_cubit/get_user_posts_cubit.dart';
 import 'custom_post_builder.dart';
 
 class CustomPost extends StatelessWidget {
@@ -14,8 +15,10 @@ class CustomPost extends StatelessWidget {
     required this.currentUser,
     this.clickablePostImage = true,
     required this.post,
+    this.getUserPostsCubit,
   });
 
+  final GetUserPostsCubit? getUserPostsCubit;
   final bool currentUser;
   final bool clickablePostImage;
   final PostModel post;
@@ -30,6 +33,7 @@ class CustomPost extends StatelessWidget {
       child:
       // PostSkeleton(),
       CustomPostBuilder(
+        getUserPostsCubit: getUserPostsCubit,
         currentUser: currentUser,
         clickablePostImage: clickablePostImage,
       ),

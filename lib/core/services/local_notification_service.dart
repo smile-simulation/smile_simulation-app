@@ -79,6 +79,7 @@ class LocalNotificationService {
         importance: Importance.max,
         playSound: true,
       );
+      
       const AndroidNotificationChannel reminderChannel =
           AndroidNotificationChannel(
             'reminder_channel',

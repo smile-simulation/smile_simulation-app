@@ -9,9 +9,7 @@ import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/widgets/custom_body_screen.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
-import '../../../../main.dart';
 import 'health_status_view.dart';
-import 'medical_record_view.dart';
 
 class MedicalRecordManageView extends StatelessWidget {
   const MedicalRecordManageView({super.key});
