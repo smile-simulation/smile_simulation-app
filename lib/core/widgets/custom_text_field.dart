@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
-
-import '../../generated/l10n.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -12,6 +11,7 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.suffixIcon,
     this.onChanged,
+    this.onTap,
     this.obscureText = false,
     this.title,
     this.validator,
@@ -20,8 +20,9 @@ class CustomTextField extends StatelessWidget {
     this.hintTextColor = AppColors.greyLightColor,
     this.cursorColor = AppColors.primaryColor,
     this.suffixIconColor = AppColors.greyColor,
-    this.readOnly,
+    this.readOnly = false,
   });
+
   final bool? readOnly;
   final String? title;
   final String hintText;
@@ -29,9 +30,9 @@ class CustomTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextEditingController? controller;
   final void Function(String?)? onChanged;
+  final void Function()? onTap; // Added onTap
   final String? Function(String?)? validator;
   final bool obscureText;
-
   final Color fillColor;
   final Color borderColor;
   final Color hintTextColor;
@@ -50,8 +51,8 @@ class CustomTextField extends StatelessWidget {
           controller: controller,
           cursorColor: cursorColor,
           onChanged: onChanged,
-          validator:
-              validator ??
+          onTap: onTap, // Pass onTap to TextFormField
+          validator: validator ??
               (value) {
                 if (value == null || value.isEmpty) {
                   return S.of(context).field_required;
@@ -60,20 +61,19 @@ class CustomTextField extends StatelessWidget {
               },
           keyboardType: keyboardType,
           obscureText: obscureText,
+          readOnly: readOnly ?? false,
           decoration: InputDecoration(
             filled: true,
             fillColor: fillColor,
             hintText: hintText,
-            hintStyle: AppTextStyles.formLabel(
-              context,
-            ).copyWith(color: hintTextColor),
-            suffixIcon:
-                suffixIcon != null
-                    ? IconTheme(
-                      data: IconThemeData(color: suffixIconColor),
-                      child: suffixIcon!,
-                    )
-                    : null,
+            hintStyle: AppTextStyles.formLabel(context)
+                .copyWith(color: hintTextColor),
+            suffixIcon: suffixIcon != null
+                ? IconTheme(
+                    data: IconThemeData(color: suffixIconColor),
+                    child: suffixIcon!,
+                  )
+                : null,
             border: _buildOutlineInputBorder(),
             enabledBorder: _buildOutlineInputBorder(),
             focusedBorder: _focusedOutlineInputBorder(),

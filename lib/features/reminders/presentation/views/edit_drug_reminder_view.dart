@@ -7,14 +7,14 @@ import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
-import 'package:smile_simulation/features/reminders/data/models/reminder.dart';
+import 'package:smile_simulation/features/reminders/data/models/drug_reminder.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_container_for_reminders_features.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_drop_down_container.dart';
 import 'package:uuid/uuid.dart';
 
 class EditDrugReminderView extends StatelessWidget {
-  final Reminder? reminder;
+  final DrugReminder? reminder;
 
   const EditDrugReminderView({super.key, this.reminder});
 
@@ -31,7 +31,7 @@ class EditDrugReminderView extends StatelessWidget {
 }
 
 class EditDrugReminderViewBody extends StatefulWidget {
-  final Reminder? reminder;
+  final DrugReminder? reminder;
 
   const EditDrugReminderViewBody({super.key, this.reminder});
 
@@ -256,7 +256,7 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                       hintText: 'قبل تناول الطعام',
                       keyboardType: TextInputType.text,
                       controller: mealTimingController,
-                      fillColor: Colors.white,
+                      fillColor: Colors.white, 
                     ),
                     const SizedBox(height: 18),
                     Text('تاريخ التوقف عن الدواء', style: AppTextStyles.subTitle2(context)),
@@ -285,7 +285,7 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                                 return;
                               }
                               final savedImagePath = await _saveImage(imagePath);
-                              final updatedReminder = Reminder(
+                              final updatedReminder = DrugReminder(
                                 id: widget.reminder?.id ?? const Uuid().v4(),
                                 drugName: drugNameController.text,
                                 frequency: frequencyController.text,
