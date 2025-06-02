@@ -11,7 +11,6 @@ import '../../../../../../generated/assets.dart';
 import '../../../../../../generated/l10n.dart';
 import '../forgot_view.dart';
 import 'input_section_from_login_view.dart';
-import 'login_with_media_section.dart';
 
 class LogInViewBody extends StatefulWidget {
   const LogInViewBody({super.key});

@@ -5,7 +5,6 @@ import 'package:smile_simulation/features/auth/sign_up/presentation/view/sign_up
 import 'package:smile_simulation/features/auth/sign_up/presentation/view/sign_up_from_user_view.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
-import '../../../../../constant.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../../main.dart';

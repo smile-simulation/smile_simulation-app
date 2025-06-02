@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/features/medical_record/presentation/manage/cubits/update_health_status_cubit/update_health_status_state.dart';
 import '../../../../data/repos/health_status_repos/health_status_repo.dart';
-import '../../../../data/repos/personal_data_repos/personal_data_repo.dart';
 
 class UpdateHealthStatusCubit extends Cubit<UpdateHealthStatusState> {
   UpdateHealthStatusCubit({required this.healthStatusRepo})
