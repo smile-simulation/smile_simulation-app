@@ -92,8 +92,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "agreeToTermsPrefix": MessageLookupByLibrary.simpleMessage(
             "By creating an account, you are agreeing to our "),
         "and": MessageLookupByLibrary.simpleMessage(" and "),
+        "anemia": MessageLookupByLibrary.simpleMessage("Anemia"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "beforeMeal": MessageLookupByLibrary.simpleMessage("Before Meal"),
+        "breastfeeding": MessageLookupByLibrary.simpleMessage("Breastfeeding"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "changeLanguage":
             MessageLookupByLibrary.simpleMessage("Change Language"),
@@ -101,7 +103,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "changePasswordPrompt": MessageLookupByLibrary.simpleMessage(
             "You are about to change your password. Please enter a new password."),
+        "chronic_diseases_question": MessageLookupByLibrary.simpleMessage(
+            "Do you suffer from any chronic diseases?"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "comingSoon": MessageLookupByLibrary.simpleMessage("Coming Soon"),
         "comment": MessageLookupByLibrary.simpleMessage("Comment"),
         "commentCount": MessageLookupByLibrary.simpleMessage("Comments"),
         "comments": MessageLookupByLibrary.simpleMessage("Comments"),
@@ -119,6 +124,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Current Password"),
         "dailyActivities":
             MessageLookupByLibrary.simpleMessage("Daily Activities"),
+        "data_updated_success":
+            MessageLookupByLibrary.simpleMessage("Data Updated Successfully"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
         "degree_bachelor": MessageLookupByLibrary.simpleMessage("Bachelor\'s"),
@@ -135,6 +142,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteMedicine":
             MessageLookupByLibrary.simpleMessage("Delete Medicine"),
         "deletePost": MessageLookupByLibrary.simpleMessage("Delete post"),
+        "diabetes": MessageLookupByLibrary.simpleMessage("Diabetes"),
+        "drug_allergy_error": MessageLookupByLibrary.simpleMessage(
+            "Please enter the medication allergy"),
+        "drug_allergy_question": MessageLookupByLibrary.simpleMessage(
+            "Do you have any allergies to medications or medical substances?"),
         "duringMeal": MessageLookupByLibrary.simpleMessage("During Meal"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "editPersonalInfo":
@@ -156,7 +168,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Enter your personal information"),
         "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
             "Please enter the 6-digit verification code sent to you."),
+        "enter_age": MessageLookupByLibrary.simpleMessage("Enter Age"),
+        "enter_job": MessageLookupByLibrary.simpleMessage("Enter Job"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "error_try_again": MessageLookupByLibrary.simpleMessage(
+            "An Error Occurred, Try Again"),
+        "family_history_question": MessageLookupByLibrary.simpleMessage(
+            "Is there a family history of the disease?"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "field_required":
             MessageLookupByLibrary.simpleMessage("This field is required"),
@@ -165,13 +183,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),
         "friday": MessageLookupByLibrary.simpleMessage("Friday"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
+        "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
         "generalAdvices":
             MessageLookupByLibrary.simpleMessage("General Advices"),
         "halfPill": MessageLookupByLibrary.simpleMessage("Half Pill"),
         "healthStatus": MessageLookupByLibrary.simpleMessage("Health Status"),
+        "heart_disease": MessageLookupByLibrary.simpleMessage("Heart Disease"),
+        "hepatitis": MessageLookupByLibrary.simpleMessage("Hepatitis A,B,C"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "hypertension": MessageLookupByLibrary.simpleMessage("Hypertension"),
         "imageError": MessageLookupByLibrary.simpleMessage("Image Not Valid"),
+        "job_title": MessageLookupByLibrary.simpleMessage("Job Title"),
+        "kidney_disease":
+            MessageLookupByLibrary.simpleMessage("Kidney Disease"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "like": MessageLookupByLibrary.simpleMessage("Like"),
         "likeCount": MessageLookupByLibrary.simpleMessage("Likes"),
@@ -184,6 +209,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "logoutSuccess":
             MessageLookupByLibrary.simpleMessage("Logged out successfully"),
         "male": MessageLookupByLibrary.simpleMessage("Male"),
+        "marital_status":
+            MessageLookupByLibrary.simpleMessage("Marital Status"),
+        "married": MessageLookupByLibrary.simpleMessage("Married"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("Medical record"),
         "medicineName": MessageLookupByLibrary.simpleMessage("Medicine Name"),
         "medicineReminder":
@@ -202,12 +230,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter a valid name"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "no": MessageLookupByLibrary.simpleMessage("No"),
         "noAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "noAdvicesExist":
             MessageLookupByLibrary.simpleMessage("No advices exist"),
         "noCategoriesAdvicesExist": MessageLookupByLibrary.simpleMessage(
             "No categories of advices currently exist"),
+        "not_applicable":
+            MessageLookupByLibrary.simpleMessage("Not Applicable"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
@@ -221,6 +252,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding5": MessageLookupByLibrary.simpleMessage(
             "A fast and secure chat to solve all your oral health-related questions."),
         "otherTasks": MessageLookupByLibrary.simpleMessage("Other Tasks"),
+        "other_diseases": MessageLookupByLibrary.simpleMessage("Other"),
+        "other_diseases_description_error":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a description of other diseases"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "password_empty":
             MessageLookupByLibrary.simpleMessage("Password is required"),
@@ -239,6 +274,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "personalData": MessageLookupByLibrary.simpleMessage("Personal Data"),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("Personal information"),
+        "phone": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "phone_empty":
             MessageLookupByLibrary.simpleMessage("Enter phone number"),
         "phone_valid":
@@ -253,6 +289,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "posts": MessageLookupByLibrary.simpleMessage("Posts"),
         "practicalExperience":
             MessageLookupByLibrary.simpleMessage("Practical experience"),
+        "pregnancy_question": MessageLookupByLibrary.simpleMessage(
+            "Are there any pregnancy or breastfeeding conditions?"),
+        "pregnant": MessageLookupByLibrary.simpleMessage("Pregnant"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "publish": MessageLookupByLibrary.simpleMessage("Publish"),
@@ -277,8 +316,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "showAll": MessageLookupByLibrary.simpleMessage("Show All"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
         "signInWith": MessageLookupByLibrary.simpleMessage("Sign in with"),
+        "single": MessageLookupByLibrary.simpleMessage("Single"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "smileChat": MessageLookupByLibrary.simpleMessage("Smile Chat"),
+        "smoking_question":
+            MessageLookupByLibrary.simpleMessage("Are you a smoker?"),
         "specialization":
             MessageLookupByLibrary.simpleMessage("Specialization"),
         "specificDate": MessageLookupByLibrary.simpleMessage("Specific Date"),
@@ -287,9 +329,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "stopDate": MessageLookupByLibrary.simpleMessage("Medicine Stop Date"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
         "sunday": MessageLookupByLibrary.simpleMessage("Sunday"),
+        "surgery_question": MessageLookupByLibrary.simpleMessage(
+            "Have you undergone any previous surgeries?"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
+        "thisFeatureIsComingSoon":
+            MessageLookupByLibrary.simpleMessage("This feature is coming soon"),
         "thursday": MessageLookupByLibrary.simpleMessage("Thursday"),
+        "thyroid_disease":
+            MessageLookupByLibrary.simpleMessage("Thyroid Disease"),
         "time": MessageLookupByLibrary.simpleMessage("Time"),
         "toDaysAdvice": MessageLookupByLibrary.simpleMessage("Today\'s Advice"),
         "treatmentHistory":
@@ -303,11 +351,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "visitName": MessageLookupByLibrary.simpleMessage("Visit Name"),
         "visitSchedules":
             MessageLookupByLibrary.simpleMessage("Visit Schedules"),
+        "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "wednesday": MessageLookupByLibrary.simpleMessage("Wednesday"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage(
             "Welcome back! Log in to continue"),
         "welcomeMsg": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "write_here": MessageLookupByLibrary.simpleMessage("Write here..."),
         "yearsOfExperience":
-            MessageLookupByLibrary.simpleMessage("Years of experience")
+            MessageLookupByLibrary.simpleMessage("Years of experience"),
+        "yes": MessageLookupByLibrary.simpleMessage("Yes")
       };
 }

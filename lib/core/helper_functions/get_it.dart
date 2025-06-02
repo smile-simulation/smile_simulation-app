@@ -19,6 +19,8 @@ import '../../features/auth/login/data/repos/forget_repos/forget_password_repo.d
 import '../../features/auth/login/data/repos/forget_repos/forget_password_repo_impl.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo_impl.dart';
+import '../../features/medical_record/data/repos/health_status_repos/health_status_repo.dart';
+import '../../features/medical_record/data/repos/health_status_repos/health_status_repo_impl.dart';
 import '../../features/medical_record/data/repos/personal_data_repos/personal_data_repo.dart';
 import '../../features/more/data/repos/change_password_repos/change_password_repo.dart';
 import '../../features/more/data/repos/delete_account_repos/delete_account_repo_impl.dart';
@@ -50,6 +52,9 @@ void setupGetIt() {
   );
   getIt.registerSingleton<PersonalDataRepo>(
     PersonalDataRepoImpl(dioConsumer: getIt<DioConsumer>()),
+  );
+  getIt.registerSingleton<HealthStatusRepo>(
+    HealthStatusRepoImpl(dioConsumer: getIt<DioConsumer>()),
   );
   getIt.registerSingleton<UserDetailsRepoImpl>(
     UserDetailsRepoImpl(dioConsumer: getIt<DioConsumer>()),

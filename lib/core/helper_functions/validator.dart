@@ -95,8 +95,8 @@ String? validatorOfAddress(context, String? value) {
 
 String? validatorOfPhone(context, String? value) {
   if (value == null || value.isEmpty) {
-    return S.of(context).phone_empty;
-  } else if (value.length < 10) {
+    return null;
+  } else if (value.length <= 10) {
     return S.of(context).phone_valid;
   } else if (value.length > 11) {
     return S.of(context).phone_valid;

@@ -18,7 +18,7 @@ import 'core/services/local_notification_service.dart';
 import 'features/auth/login/presentation/view/login_view.dart';
 import 'features/on_boarding/presentation/view/on_boarding_view.dart';
 
-ValueNotifier<Locale> localeNotifier = ValueNotifier(
+ValueNotifier<Locale> isArabic = ValueNotifier(
   Locale(CacheHelper.sharedPreferences.getString('language') ?? 'ar'),
 );
 
@@ -53,7 +53,7 @@ class SmileSimulation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Locale>(
-      valueListenable: localeNotifier,
+      valueListenable: isArabic,
       builder: (context, locale, _) {
         return MaterialApp(
           theme: ThemeData(

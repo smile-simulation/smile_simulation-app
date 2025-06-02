@@ -32,7 +32,7 @@ class SettingViewBody extends StatelessWidget {
           await customSuccess(context, massage: state.message);
 
           CacheHelper.sharedPreferences.setBool(isSuccessLogin, false);
-          CacheHelper().removeMap(key: personalData);
+         // CacheHelper().removeMap(key: personalData);
           CacheHelper().removeData(key: userData);
           Navigator.pushAndRemoveUntil(
             context,

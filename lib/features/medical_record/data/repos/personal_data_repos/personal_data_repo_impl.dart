@@ -16,24 +16,6 @@ class PersonalDataRepoImpl extends PersonalDataRepo {
   final DioConsumer dioConsumer;
 
   @override
-  Future<Either<Failure, PersonaDataModel>> getPersonalData({
-    required String userName,
-  }) async {
-    try {
-      var response = await dioConsumer.get(EndPoint.getPersonalData + userName);
-      log(response.toString());
-      CacheHelper().saveMap(key: personalData, value: response["data"]);
-      return Right(PersonaDataModel.fromJson(response));
-    } on ServerException catch (e) {
-      logger.e("Exception in PersonalData: ${e.errorModel.message}");
-      return Left(ServerFailure(e.errorModel.message!));
-    } catch (e) {
-      logger.e("Exception in PersonalData: $e");
-      return Left(ServerFailure('حدث خطأ غير متوقع في التسجيل'));
-    }
-  }
-
-  @override
   Future<Either<Failure, PersonaDataModel>> updatePersonalData({
     required String userName,
     required String fullName,
