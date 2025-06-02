@@ -347,6 +347,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeBack": MessageLookupByLibrary.simpleMessage(
             "مرحبًا بك! سجل دخولك للمتابعة"),
         "welcomeMsg": MessageLookupByLibrary.simpleMessage("مرحبًا"),
+        "writeSomething": MessageLookupByLibrary.simpleMessage("اكتب شيئاً"),
         "write_here": MessageLookupByLibrary.simpleMessage("اكتبها..."),
         "yearsOfExperience":
             MessageLookupByLibrary.simpleMessage("عدد سنوات الخبرة"),

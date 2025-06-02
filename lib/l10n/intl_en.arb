@@ -226,5 +226,6 @@
   "other_diseases_description_error": "Please enter a description of other diseases",
   "drug_allergy_error": "Please enter the medication allergy",
   "comingSoon": "Coming Soon",
-  "thisFeatureIsComingSoon": "This feature is coming soon"
+  "thisFeatureIsComingSoon": "This feature is coming soon",
+  "writeSomething": "Write Some Thing"
 }

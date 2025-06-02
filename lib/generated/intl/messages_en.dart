@@ -356,6 +356,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeBack": MessageLookupByLibrary.simpleMessage(
             "Welcome back! Log in to continue"),
         "welcomeMsg": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "writeSomething":
+            MessageLookupByLibrary.simpleMessage("Write Some Thing"),
         "write_here": MessageLookupByLibrary.simpleMessage("Write here..."),
         "yearsOfExperience":
             MessageLookupByLibrary.simpleMessage("Years of experience"),
