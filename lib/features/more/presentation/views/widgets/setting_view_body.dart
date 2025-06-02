@@ -15,7 +15,6 @@ import '../../../../../core/widgets/custom_body_screen.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../main.dart';
-import '../../../../user_account/presentation/views/user_account_view.dart';
 import '../../manage/cubits/delete_account_cubit/delete_account_cubit.dart';
 import '../change_password_view.dart';
 

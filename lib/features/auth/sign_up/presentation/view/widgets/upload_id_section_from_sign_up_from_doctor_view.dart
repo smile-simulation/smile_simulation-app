@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../../../../../constant.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_text_styles.dart';
 import '../../../../../../generated/assets.dart';

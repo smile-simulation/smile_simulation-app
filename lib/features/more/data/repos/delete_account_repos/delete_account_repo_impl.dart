@@ -1,13 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/errors/failure.dart';
-import 'package:smile_simulation/features/auth/login/data/models/forget_model/forget_model.dart';
 import '../../../../../../constant.dart';
-import '../../../../../../core/api/api_keys.dart';
 import '../../../../../../core/api/dio_consumer.dart';
 import '../../../../../../core/api/end_point.dart';
 import '../../../../../../core/errors/exceptions.dart';
-import '../../models/change_password_model/change_password_model.dart';
 import '../../models/delete_account_model/delete_account_model.dart';
 import 'delete_account_repo.dart';
 

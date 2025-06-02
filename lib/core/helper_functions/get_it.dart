@@ -13,7 +13,6 @@ import 'package:smile_simulation/features/home_feature/data/repos/posts_repo/pos
 import 'package:smile_simulation/features/medical_record/data/repos/personal_data_repos/personal_data_repo_impl.dart';
 import 'package:smile_simulation/features/more/data/repos/change_password_repos/change_password_repo_impl.dart';
 import 'package:smile_simulation/features/more/data/repos/delete_account_repos/delete_account_repo.dart';
-import 'package:smile_simulation/features/more/presentation/manage/cubits/change_password_cubit/change_password_cubit.dart';
 import 'package:smile_simulation/features/user_account/data/repos/set_user_account_image_repo/set_user_account_image_repo_impl.dart';
 import 'package:smile_simulation/features/user_account/data/repos/user_details/user_details_repo_impl.dart';
 import '../../features/auth/login/data/repos/forget_repos/forget_password_repo.dart';

@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smile_simulation/constant.dart';
+import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/helper_functions/format_date_time_ago.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
@@ -78,7 +80,8 @@ class PostHeader extends StatelessWidget {
             ],
           ),
           Spacer(),
-          currentUser
+          CacheHelper().getMap(key: userData)!["email"] ==
+                  "7oooooda2017@gmail.com"
               ? IconButton(
                 onPressed: () {},
 
@@ -89,7 +92,7 @@ class PostHeader extends StatelessWidget {
                 ),
               )
               : SizedBox(),
-          Spacer(),
+
           (post.publisherRole == "Doctor")
               ? SvgPicture.asset(Assets.imagesDoctorIcon, width: 16)
               : SvgPicture.asset(Assets.imagesUserIcon, width: 16),
