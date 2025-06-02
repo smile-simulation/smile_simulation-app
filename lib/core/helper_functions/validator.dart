@@ -1,6 +1,8 @@
-String? validatorOfEmail(String? value) {
+import '../../generated/l10n.dart';
+
+String? validatorOfEmail(context, String? value) {
   if (value == null || value.isEmpty) {
-    return "يرجى إدخال البريد الإلكتروني";
+    return S.of(context).email_empty;
   } else if (value.contains(
     RegExp(
       r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
@@ -8,32 +10,32 @@ String? validatorOfEmail(String? value) {
   )) {
     return null;
   } else {
-    return "يرجى إدخال بريد إلكتروني صالح";
+    return S.of(context).email_invalid;
   }
 }
 
-String? validatorOfPassword(String? value) {
+String? validatorOfPassword(context, String? value) {
   RegExp regex = RegExp(
     r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{8,}$',
   );
   if (value == null || value.isEmpty) {
-    return 'يجب إدخال كلمة المرور';
+    return S.of(context).password_empty;
   } else {
     if (!regex.hasMatch(value)) {
       if (!RegExp(r'[A-Z]').hasMatch(value)) {
-        return 'يجب أن تحتوي على حرف كبير واحد على الأقل [A-Z]';
+        return S.of(context).password_uppercase;
       }
       if (!RegExp(r'[a-z]').hasMatch(value)) {
-        return 'يجب أن تحتوي على حرف صغير واحد على الأقل [a-z]';
+        return S.of(context).password_lowercase;
       }
       if (!RegExp(r'[0-9]').hasMatch(value)) {
-        return 'يجب أن تحتوي على رقم واحد على الأقل [0-9]';
+        return S.of(context).password_number;
       }
       if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
-        return 'يجب أن تحتوي على رمز خاص واحد على الأقل [@-#-..]';
+        return S.of(context).password_special;
       }
       if (value.length < 8) {
-        return 'يجب أن تكون على الأقل 8 أحرف';
+        return S.of(context).password_min_length;
       }
       return null;
     } else {
@@ -42,46 +44,62 @@ String? validatorOfPassword(String? value) {
   }
 }
 
-String? validatorOfName(String? value) {
+String? validatorOfName(context, String? value) {
   if (value == null || value.isEmpty) {
-    return "يرجى إدخال الاسم";
+    return S.of(context).name_empty;
   } else if (value.length < 3) {
-    return "يرجى إدخال الاسم بالكامل";
+    return S.of(context).name_full;
   } else if (value is int) {
-    return "ادخل اسم صحيح";
+    return S.of(context).name_valid;
     ;
   } else if (value.contains(RegExp(r'[0-9]'))) {
-    return "ادخل اسم صحيح";
+    return S.of(context).name_valid;
     ;
   } else if (value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-    return "ادخل اسم صحيح";
+    return S.of(context).name_valid;
     ;
   } else {
     return null;
   }
 }
 
-String? validatorOfAge(String? value) {
+String? validatorOfAge(context, String? value) {
   if (value == null || value.isEmpty) {
-    return "يرجى إدخال العمر";
+    return S.of(context).age_empty;
   } else if (int.tryParse(value) == null) {
-    return "يرجى إدخال رقم صالح للعمر";
-  } else if (int.parse(value) < 18) {
-    return "يجب أن يكون العمر 18 سنة أو أكثر";
+    return S.of(context).age_valid;
+  } else if (int.parse(value) < 12) {
+    return S.of(context).age_min;
   } else if (int.parse(value) > 70) {
-    return "يجب أن يكون العمر 70 سنة او اقل";
+    return S.of(context).age_max;
   } else {
     return null;
   }
 }
 
-String? validatorOfPhone(String? value) {
+String? validatorOfAddress(context, String? value) {
   if (value == null || value.isEmpty) {
-    return " إدخال رقم الهاتف";
+    return S.of(context).address_empty;
+  } else if (value.length < 5) {
+    return S.of(context).address_valid;
+  } else if (value.length > 100) {
+    return S.of(context).address_valid;
+  } else if (value.contains(RegExp(r'[0-9]'))) {
+    return S.of(context).address_valid;
+  } else if (value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+    return S.of(context).address_valid;
+  } else {
+    return null;
+  }
+}
+
+String? validatorOfPhone(context, String? value) {
+  if (value == null || value.isEmpty) {
+    return S.of(context).phone_empty;
   } else if (value.length < 10) {
-    return "ادخال رقم الهاتف صحيح";
+    return S.of(context).phone_valid;
   } else if (value.length > 11) {
-    return "إدخال رقم الهاتف صحيح";
+    return S.of(context).phone_valid;
   } else {
     return null;
   }

@@ -9,12 +9,14 @@ class InputSectionFromSignUpFromDoctorSubsidiary extends StatefulWidget {
   final TextEditingController qualificationController;
   final TextEditingController specializationController;
   final TextEditingController experienceController;
+  final BuildContext context;
 
   const InputSectionFromSignUpFromDoctorSubsidiary({
     super.key,
     required this.qualificationController,
     required this.specializationController,
     required this.experienceController,
+    required this.context,
   });
 
   @override
@@ -26,14 +28,23 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
     extends State<InputSectionFromSignUpFromDoctorSubsidiary> {
   String? selectedDegree;
   String? selectedSpecialty;
+  late List<String> degrees;
+  late List<String> specialties;
 
-  final List<String> degrees = ['بكالوريوس', 'ماجستير', 'دكتوراه'];
-  final List<String> specialties = [
-    'طب الأسنان',
-    'تقويم الأسنان',
-    'جراحة الفم',
-  ];
-
+  @override
+  void initState() {
+    super.initState();
+    degrees = [
+      S.of(widget.context).degree_bachelor,
+      S.of(widget.context).degree_master,
+      S.of(widget.context).degree_phd,
+    ];
+    specialties = [
+      S.of(widget.context).degree_dentistry,
+      S.of(widget.context).degree_orthodontics,
+      S.of(widget.context).degree_oral_surgery,
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     return Column(

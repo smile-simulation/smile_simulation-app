@@ -3,15 +3,12 @@ import java.io.FileInputStream
 
 plugins {
     id("com.android.application")
-    // START: FlutterFire Configuration
-    id("com.google.gms.google-services")
-    // END: FlutterFire Configuration
+    id("com.google.gms.google-services") // Firebase
     id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-// Load keystore properties if file exists
+// Load keystore properties
 val keystoreProperties = Properties()
 val keystorePropertiesFile = rootProject.file("key.properties")
 if (keystorePropertiesFile.exists()) {
@@ -38,7 +35,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-        isCoreLibraryDesugaringEnabled = true // local notification support
+        isCoreLibraryDesugaringEnabled = true // Supports local notifications
     }
 
     kotlinOptions {
@@ -48,7 +45,7 @@ android {
     defaultConfig {
         applicationId = "com.simulation.smile"
         minSdkVersion(23)
-        targetSdkVersion(33)
+        targetSdkVersion(33) // Android 13
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         multiDexEnabled = true
@@ -77,4 +74,6 @@ dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
     implementation("androidx.window:window:1.0.0")
     implementation("androidx.window:window-java:1.0.0")
+    // Add ML Kit Text Recognition if using native integration
+    implementation("com.google.mlkit:text-recognition:16.0.0")
 }

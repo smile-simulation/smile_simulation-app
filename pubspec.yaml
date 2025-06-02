@@ -82,6 +82,8 @@ dependencies:
   firebase_ai: ^2.0.0
   markdown_widget: ^2.3.2+8
   timezone: ^0.10.0
+  flutter_timezone: ^4.1.1
+  
   
 
 

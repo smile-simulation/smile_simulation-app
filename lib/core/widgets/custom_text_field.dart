@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 
+import '../../generated/l10n.dart';
+
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
@@ -52,7 +54,7 @@ class CustomTextField extends StatelessWidget {
               validator ??
               (value) {
                 if (value == null || value.isEmpty) {
-                  return 'هذا الحقل مطلوب';
+                  return S.of(context).field_required;
                 }
                 return null;
               },

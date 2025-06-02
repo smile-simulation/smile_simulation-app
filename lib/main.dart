@@ -28,7 +28,7 @@ Future<void> main() async {
   await Firebase.initializeApp();
   await CacheHelper().init();
   LocalNotificationService.initialize();
-  await LocalNotificationService().requestNotificationPermission();
+  await LocalNotificationService.requestNotificationPermission();
   Bloc.observer = CustomBlocObserver();
   setupGetIt();
   SystemChrome.setPreferredOrientations([
