@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,13 +50,6 @@ class _UserAccountViewState extends State<UserAccountView> {
           },
         ),
 
-        // AppBar(
-        //   backgroundColor: AppColors.primaryColor,
-        //   foregroundColor: AppColors.whiteColor,
-        //   shadowColor: AppColors.transparent,
-        //   elevation: 0,
-        //   scrolledUnderElevation: 0,
-        // ),
         extendBodyBehindAppBar: true,
         backgroundColor: AppColors.primaryColor,
         body: UserAccountViewBody(

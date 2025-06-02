@@ -24,7 +24,6 @@ class UserAccountHeader extends StatelessWidget {
   final Function() rebuild;
   @override
   Widget build(BuildContext context) {
-    log("this user image: $userImage");
     return BlocProvider(
       create:
           (context) =>
@@ -36,7 +35,11 @@ class UserAccountHeader extends StatelessWidget {
             SizedBox(height: kToolbarHeight + 40),
             Stack(
               children: [
-                UserAccountImageBuilder(userImage: userImage, rebuild: rebuild),
+                UserAccountImageBuilder(
+                  userImage: userImage,
+                  rebuild: rebuild,
+                  currentUser: currentUser,
+                ),
                 Visibility(visible: currentUser, child: SetUserImageButton()),
               ],
             ),

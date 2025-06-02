@@ -50,4 +50,18 @@ class UserDetailsRepoImpl implements UserDetailsRepo {
       return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
     }
   }
+
+  @override
+  Future<Either<Failure, String>> removePost({required int postId}) async {
+    try {
+      var response = await dioConsumer.delete("${EndPoint.post}/$postId");
+      return Right(response[ApiKeys.message]);
+    } on ServerException catch (e) {
+      logger.e("Exception in Get Posts: ${e.errorModel.message}");
+      return Left(ServerFailure(e.errorModel.message!));
+    } catch (e) {
+      logger.e("Exception in Get Posts: $e");
+      return Left(ServerFailure('حدث خطأ غير متوقع في استعادة البيانات'));
+    }
+  }
 }

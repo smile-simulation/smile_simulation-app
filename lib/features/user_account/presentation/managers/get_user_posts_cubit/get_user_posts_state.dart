@@ -22,3 +22,17 @@ final class GetUserPostFailture extends GetUserPostsState {
 }
 
 final class GetUserPostLoading extends GetUserPostsState {}
+
+final class RemovePostSuccess extends GetUserPostsState {
+  final String message;
+
+  RemovePostSuccess({required this.message});
+}
+
+final class RemovePostFailture extends GetUserPostsState {
+  final String errorMsg;
+
+  RemovePostFailture({required this.errorMsg});
+}
+
+final class RemovePostLoading extends GetUserPostsState {}
