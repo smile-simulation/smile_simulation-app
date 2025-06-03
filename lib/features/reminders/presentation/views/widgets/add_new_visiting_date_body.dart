@@ -162,11 +162,11 @@ class _AddNewVisitingDateBodyState extends State<AddNewVisitingDateBody> {
                     style: AppTextStyles.style16W400(context),
                   ),
                   SizedBox(height: screenHeight * 0.06),
-                  CameraSection(
-                    medicineNameController: nameController,
-                    onImagePicked: (path) => setState(() => imagePath = path),
-                  ),
-                  SizedBox(height: screenHeight * 0.03),
+                  // CameraSection(
+                  //   medicineNameController: nameController,
+                  //   onImagePicked: (path) => setState(() => imagePath = path),
+                  // ),
+                  // SizedBox(height: screenHeight * 0.03),
                   Text(
                     S.of(context).visitName,
                     style: AppTextStyles.subTitle2(context),
@@ -255,6 +255,7 @@ class _AddNewVisitingDateBodyState extends State<AddNewVisitingDateBody> {
                                 time: timeController.text,
                                 imagePath: savedImagePath ?? imagePath,
                               );
+                              log('Returning new reminder: ${updatedReminder.toJson()}');
                               Navigator.of(context).pop(updatedReminder);
                             }
                           },

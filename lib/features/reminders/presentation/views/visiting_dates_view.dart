@@ -11,7 +11,6 @@ import 'package:smile_simulation/features/reminders/presentation/views/widgets/v
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/visiting_dates_view_body_if_not_first_time.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 import 'package:timezone/timezone.dart' as tz;
-import 'package:uuid/uuid.dart';
 
 class VisitingDatesView extends StatefulWidget {
   const VisitingDatesView({super.key});
@@ -46,7 +45,17 @@ class _VisitingDatesViewState extends State<VisitingDatesView> {
       return;
     }
     try {
-      final parsedDateTime = DateFormat('yyyy-MM-dd HH:mm').parse('${reminder.date} ${reminder.time}');
+      final dateFormat = DateFormat('yyyy-MM-dd');
+      final timeFormat = DateFormat.jm('ar');
+      final date = dateFormat.parse(reminder.date);
+      final time = timeFormat.parse(reminder.time);
+      final parsedDateTime = DateTime(
+        date.year,
+        date.month,
+        date.day,
+        time.hour,
+        time.minute,
+      );
       final notificationId = reminder.id.hashCode.abs();
       final scheduledDate = tz.TZDateTime.from(parsedDateTime, tz.local);
       if (scheduledDate.isAfter(tz.TZDateTime.now(tz.local))) {
@@ -60,6 +69,8 @@ class _VisitingDatesViewState extends State<VisitingDatesView> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('تم جدولة التذكير بنجاح')),
         );
+      } else {
+        log('Scheduled date is in the past: $scheduledDate');
       }
     } catch (e) {
       log('Error scheduling notification: $e');
@@ -83,19 +94,25 @@ class _VisitingDatesViewState extends State<VisitingDatesView> {
     final reminderJson = prefs.getString('visitReminders');
     log('Loading visit reminders: $reminderJson');
     if (reminderJson != null) {
-      setState(() {
-        reminders = VisitReminder.fromJsonList(reminderJson);
-      });
-      for (var reminder in reminders) {
-        await _scheduleNotification(reminder);
+      try {
+        setState(() {
+          reminders = VisitReminder.fromJsonList(reminderJson);
+        });
+        log('Loaded ${reminders.length} reminders');
+        for (var reminder in reminders) {
+          await _scheduleNotification(reminder);
+        }
+      } catch (e) {
+        log('Error loading reminders: $e');
       }
     }
   }
 
   Future<void> _saveReminders() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('visitReminders', VisitReminder.toJsonList(reminders));
-    log('Saved visit reminders: ${VisitReminder.toJsonList(reminders)}');
+    final json = VisitReminder.toJsonList(reminders);
+    await prefs.setString('visitReminders', json);
+    log('Saved visit reminders: $json');
   }
 
   void addReminder(VisitReminder reminder) {
@@ -165,20 +182,19 @@ class _VisitingDatesViewState extends State<VisitingDatesView> {
 
   @override
   Widget build(BuildContext context) {
+    log('Building VisitingDatesView with ${reminders.length} reminders');
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
         backgroundColor: AppColors.greyLightColor,
         appBar: customAppbar(context, title: S.of(context).visitSchedules, isBack: true),
         body: reminders.isEmpty
-            ? VisitingDatesViewBodyIfFirstTime(
-                onAddReminder: addReminder,
-              )
+            ? VisitingDatesViewBodyIfFirstTime(onAddReminder: addReminder)
             : VisitingDatesViewBodyIfNotFirstTime(
                 reminders: reminders,
                 onUpdateReminder: updateReminder,
                 onDeleteReminder: deleteReminder,
-                onClearAllReminders: clearAllReminders, visits: [],
+                onClearAllReminders: clearAllReminders,
               ),
       ),
     );
