@@ -49,7 +49,12 @@ class Assets {
   static const String imagesOnBoardingShap4 = 'assets/images/onBoardingShap4.png';
   static const String imagesPrivacyPolicyIcon = 'assets/images/privacy_policy_icon.svg';
   static const String imagesRateAppIcon = 'assets/images/rate_app_icon.svg';
+  static const String imagesRectangle = 'assets/images/Rectangle.png';
   static const String imagesReminder = 'assets/images/reminder.svg';
+  static const String imagesReminderDailyActivities = 'assets/images/reminder_daily_activities.png';
+  static const String imagesReminderDrugStimulant = 'assets/images/reminder_drug_stimulant.png';
+  static const String imagesReminderOtherTasks = 'assets/images/reminder_other_tasks.png';
+  static const String imagesReminderVisitingsDates = 'assets/images/reminder_visitings_dates.png';
   static const String imagesSa = 'assets/images/sa.svg';
   static const String imagesScanCamera = 'assets/images/scan-camera.svg';
   static const String imagesSearch = 'assets/images/search.svg';
