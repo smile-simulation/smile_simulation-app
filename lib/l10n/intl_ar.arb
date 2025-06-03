@@ -226,5 +226,6 @@
   "other_diseases_description_error": "يرجى إدخال وصف الأمراض الأخرى",
   "drug_allergy_error": "يرجى إدخال حساسية الأدوية",
   "comingSoon": "قريباً",
-  "thisFeatureIsComingSoon": "هذه الميزة قادمة قريباً"
+  "thisFeatureIsComingSoon": "هذه الميزة قادمة قريباً",
+  "writeSomething": "اكتب شيئاً"
 }

@@ -105,7 +105,7 @@ class PostHeader extends StatelessWidget {
                           MediaQuery.of(context).size.height * 0.22;
                       return moreActionsPostsBottomSheet(
                         height: height,
-                        PostId: post.id!,
+                        post: post,
                         getUserPostsCubit: getUserPostsCubit,
                       );
                     },
