@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 
 import '../../../../constant.dart';
+import '../../../../core/helper_functions/custom_error.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_body_screen.dart';
@@ -33,14 +34,15 @@ class SearchPatients extends StatelessWidget {
                   },
                   suffixIcon: GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const MedicalRecordManageView();
-                          },
-                        ),
-                      );
+                      comingSoon(context);
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) {
+                      //       return const MedicalRecordManageView();
+                      //     },
+                      //   ),
+                      // );
                     },
                     child: SvgPicture.asset(
                       Assets.imagesSearch,

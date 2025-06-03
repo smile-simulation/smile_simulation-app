@@ -32,7 +32,7 @@ class SettingViewBody extends StatelessWidget {
           await customSuccess(context, massage: state.message);
 
           CacheHelper.sharedPreferences.setBool(isSuccessLogin, false);
-         // CacheHelper().removeMap(key: personalData);
+          // CacheHelper().removeMap(key: personalData);
           CacheHelper().removeData(key: userData);
           Navigator.pushAndRemoveUntil(
             context,
@@ -70,7 +70,9 @@ class SettingViewBody extends StatelessWidget {
                         MoreActionItemListTile(
                           iconPath: Assets.imagesUserAccountIcon,
                           title: S.of(context).editPersonalInfo,
-                          onTap: () {},
+                          onTap: () {
+                            comingSoon(context);
+                          },
                         ),
                         Divider(
                           color: AppColors.meduimLightGrey,
@@ -107,31 +109,31 @@ class SettingViewBody extends StatelessWidget {
                             );
                           },
                         ),
-                        Divider(
-                          color: AppColors.meduimLightGrey,
-                          height: 0,
-                          thickness: 1.5,
-                          endIndent: 16,
-                          indent: 16,
-                        ),
-                        MoreActionItemListTile(
-                          iconPath: Assets.imagesNotification2,
-                          title: S.of(context).notifications,
-                          trailing: Switch(
-                            value: true,
-                            onChanged: (value) {},
-                            focusColor: AppColors.whiteColor,
-                            inactiveThumbColor: AppColors.whiteColor,
-                            inactiveTrackColor: AppColors.primaryColor
-                                .withOpacity(0.3),
-
-                            activeColor: AppColors.primaryColor,
-
-                            activeTrackColor: AppColors.primaryColor
-                                .withOpacity(0.3),
-                          ),
-                          onTap: () {},
-                        ),
+                        // Divider(
+                        //   color: AppColors.meduimLightGrey,
+                        //   height: 0,
+                        //   thickness: 1.5,
+                        //   endIndent: 16,
+                        //   indent: 16,
+                        // ),
+                        // MoreActionItemListTile(
+                        //   iconPath: Assets.imagesNotification2,
+                        //   title: S.of(context).notifications,
+                        //   trailing: Switch(
+                        //     value: true,
+                        //     onChanged: (value) {},
+                        //     focusColor: AppColors.whiteColor,
+                        //     inactiveThumbColor: AppColors.whiteColor,
+                        //     inactiveTrackColor: AppColors.primaryColor
+                        //         .withOpacity(0.3),
+                        //
+                        //     activeColor: AppColors.primaryColor,
+                        //
+                        //     activeTrackColor: AppColors.primaryColor
+                        //         .withOpacity(0.3),
+                        //   ),
+                        //   onTap: () {},
+                        // ),
                       ],
                     ),
                   ),
