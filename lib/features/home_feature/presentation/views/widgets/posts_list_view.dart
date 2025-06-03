@@ -2,10 +2,11 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_simulation/features/home_feature/presentation/views/widgets/posts/widgets_skeletons/post_skeleton/post_skeleton.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../cubits/posts_cubit/posts_cubit.dart';
 import 'posts/custom_post.dart';
+import 'posts/widgets_skeletons/post_skeleton/post_skeleton.dart';
 
 class PostsListView extends StatefulWidget {
   const PostsListView({
@@ -83,7 +84,21 @@ class _PostsListViewState extends State<PostsListView> {
         }
 
         if (state is PostsError) {
-          return const Center(child: Text("خطأ في تحميل المنشورات"));
+          return Center(child: Text('مشكلة فى تحميل المنشورات'));
+        }
+
+        // هنا نضيف شرط لما تكون القائمة فاضية
+        if (posts.isEmpty) {
+          return Center(
+            child: Text(
+              S.of(context).noPostsExist,
+              style: TextStyle(
+                color: AppColors.primaryColor,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          );
         }
 
         return RefreshIndicator(
@@ -106,7 +121,6 @@ class _PostsListViewState extends State<PostsListView> {
                 }
 
                 final post = posts[index];
-                // return PostSkeleton();
                 return CustomPost(
                   clickablePostImage: widget.clickablePostImage,
                   currentUser: widget.currentUser,

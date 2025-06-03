@@ -910,6 +910,16 @@ class S {
     );
   }
 
+  /// `No Posts Exist`
+  String get noPostsExist {
+    return Intl.message(
+      'No Posts Exist',
+      name: 'noPostsExist',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `No categories of advices currently exist`
   String get noCategoriesAdvicesExist {
     return Intl.message(
@@ -2335,6 +2345,46 @@ class S {
     return Intl.message(
       'Write Some Thing',
       name: 'writeSomething',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No internet connection`
+  String get no_internet_title {
+    return Intl.message(
+      'No internet connection',
+      name: 'no_internet_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your connection for Smile Simulation`
+  String get no_internet_description {
+    return Intl.message(
+      'Please check your connection for Smile Simulation',
+      name: 'no_internet_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try again`
+  String get retry {
+    return Intl.message(
+      'Try again',
+      name: 'retry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loading Posts Error`
+  String get loadingPostsError {
+    return Intl.message(
+      'Loading Posts Error',
+      name: 'loadingPostsError',
       desc: '',
       args: [],
     );

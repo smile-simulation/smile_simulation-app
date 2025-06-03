@@ -85,6 +85,7 @@
   "logOut": "تسجيل الخروج",
   "changeLanguage": "تغيير اللغة",
   "noAdvicesExist": "لا يوجد نصائح",
+  "noPostsExist": "لا يوجد منشورات",
   "noCategoriesAdvicesExist": "لا يوجد اقسام نصائح حاليا",
   "smileChat": "اسأل الذكاء الاصطناعي",
   "language": "اللغة",
@@ -227,5 +228,9 @@
   "drug_allergy_error": "يرجى إدخال حساسية الأدوية",
   "comingSoon": "قريباً",
   "thisFeatureIsComingSoon": "هذه الميزة قادمة قريباً",
-  "writeSomething": "اكتب شيئاً"
+  "writeSomething": "اكتب شيئاً",
+  "no_internet_title": "لا يوجد اتصال بالإنترنت",
+  "no_internet_description": "يرجى التحقق من اتصالك لتطبيق Smile Simulation",
+  "retry": "حاول مرة أخرى",
+  "loadingPostsError":"مشكلة فى تحميل المنشورات"
 }

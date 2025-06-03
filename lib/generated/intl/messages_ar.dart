@@ -195,6 +195,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "like": MessageLookupByLibrary.simpleMessage("أعجبني"),
         "likeCount": MessageLookupByLibrary.simpleMessage("إعجاباً"),
+        "loadingPostsError":
+            MessageLookupByLibrary.simpleMessage("مشكلة فى تحميل المنشورات"),
         "location": MessageLookupByLibrary.simpleMessage("العنوان"),
         "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -229,6 +231,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "noAdvicesExist": MessageLookupByLibrary.simpleMessage("لا يوجد نصائح"),
         "noCategoriesAdvicesExist":
             MessageLookupByLibrary.simpleMessage("لا يوجد اقسام نصائح حاليا"),
+        "noPostsExist": MessageLookupByLibrary.simpleMessage("لا يوجد منشورات"),
+        "no_internet_description": MessageLookupByLibrary.simpleMessage(
+            "يرجى التحقق من اتصالك لتطبيق Smile Simulation"),
+        "no_internet_title":
+            MessageLookupByLibrary.simpleMessage("لا يوجد اتصال بالإنترنت"),
         "not_applicable": MessageLookupByLibrary.simpleMessage("لا ينطبق"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
@@ -297,6 +304,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminders": MessageLookupByLibrary.simpleMessage("التذكيرات"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
+        "retry": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
         "saturday": MessageLookupByLibrary.simpleMessage("سبت"),
         "save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "saveData": MessageLookupByLibrary.simpleMessage("حفظ البيانات"),

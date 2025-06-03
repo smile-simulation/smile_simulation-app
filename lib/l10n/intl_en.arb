@@ -85,6 +85,7 @@
   "logOut": "Log Out",
   "changeLanguage": "Change Language",
   "noAdvicesExist": "No advices exist",
+  "noPostsExist": "No Posts Exist",
   "noCategoriesAdvicesExist": "No categories of advices currently exist",
   "smileChat": "Smile Chat",
   "language": "Language",
@@ -227,5 +228,9 @@
   "drug_allergy_error": "Please enter the medication allergy",
   "comingSoon": "Coming Soon",
   "thisFeatureIsComingSoon": "This feature is coming soon",
-  "writeSomething": "Write Some Thing"
+  "writeSomething": "Write Some Thing",
+  "no_internet_title": "No internet connection",
+  "no_internet_description": "Please check your connection for Smile Simulation",
+  "retry": "Try again",
+  "loadingPostsError":"Loading Posts Error"
 }

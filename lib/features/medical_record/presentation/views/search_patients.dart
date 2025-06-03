@@ -9,7 +9,6 @@ import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_body_screen.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../generated/assets.dart';
-import 'medical_record_manage_view.dart';
 
 class SearchPatients extends StatelessWidget {
   const SearchPatients({super.key});
