@@ -5,7 +5,6 @@ import 'package:smile_simulation/generated/l10n.dart';
 import 'package:smile_simulation/main.dart'; // هذا المسار حسب gen-l10n
 
 import 'package:http/http.dart' as http;
-import 'package:connectivity_plus/connectivity_plus.dart';
 
 class NoInternetScreen extends StatefulWidget {
   const NoInternetScreen({super.key});
@@ -26,10 +25,12 @@ class _NoInternetScreenState extends State<NoInternetScreen> {
 
     // Step 2: Verify actual internet access
     try {
-      final response = await http.get(Uri.parse('https://www.google.com')).timeout(
-        const Duration(seconds: 5),
-        onTimeout: () => http.Response('Timeout', 408),
-      );
+      final response = await http
+          .get(Uri.parse('https://www.google.com'))
+          .timeout(
+            const Duration(seconds: 5),
+            onTimeout: () => http.Response('Timeout', 408),
+          );
       return response.statusCode == 200;
     } catch (e) {
       return false;
@@ -52,11 +53,7 @@ class _NoInternetScreenState extends State<NoInternetScreen> {
                 height: 100,
               ),
               const SizedBox(height: 30),
-              Icon(
-                Icons.wifi_off,
-                color: AppColors.primaryColor,
-                size: 80,
-              ),
+              Icon(Icons.wifi_off, color: AppColors.primaryColor, size: 80),
               const SizedBox(height: 20),
               Text(
                 local.no_internet_title,
@@ -77,47 +74,54 @@ class _NoInternetScreenState extends State<NoInternetScreen> {
               ),
               const SizedBox(height: 30),
               ElevatedButton(
-                onPressed: _isChecking
-                    ? null
-                    : () async {
-                        setState(() {
-                          _isChecking = true;
-                        });
-                        final hasInternet = await _checkConnectivity();
-                        setState(() {
-                          _isChecking = false;
-                        });
-                        if (hasInternet) {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SmileSimulation(),
-                            ),
-                          );
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(local.no_internet_description),
-                              backgroundColor: AppColors.primaryColor,
-                            ),
-                          );
-                        }
-                      },
+                onPressed:
+                    _isChecking
+                        ? null
+                        : () async {
+                          setState(() {
+                            _isChecking = true;
+                          });
+                          final hasInternet = await _checkConnectivity();
+                          setState(() {
+                            _isChecking = false;
+                          });
+                          if (hasInternet) {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SmileSimulation(),
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(local.no_internet_description),
+                                backgroundColor: AppColors.primaryColor,
+                              ),
+                            );
+                          }
+                        },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 12,
+                  ),
                 ),
-                child: _isChecking
-                    ? const CircularProgressIndicator(
-                        color: Colors.white,
-                      )
-                    : Text(
-                        local.retry,
-                        style: const TextStyle(fontSize: 16),
-                      ),
+                child:
+                    _isChecking
+                        ? const CircularProgressIndicator(color: Colors.white)
+                        : Text(
+                          local.retry,
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: AppColors.whiteColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
               ),
             ],
           ),

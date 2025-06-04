@@ -45,7 +45,7 @@ android {
     defaultConfig {
         applicationId = "com.simulation.smile"
         minSdkVersion(23)
-        targetSdkVersion(33) // Android 13
+        targetSdkVersion(35) // Android 13
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         multiDexEnabled = true
