@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/user_details_list_tile.dart';
+import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
+import 'package:smile_simulation/features/home_feature/presentation/views/edit_post_view.dart';
 import 'package:smile_simulation/features/user_account/presentation/managers/get_user_posts_cubit/get_user_posts_cubit.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
@@ -10,12 +12,12 @@ class moreActionsPostsBottomSheet extends StatelessWidget {
   const moreActionsPostsBottomSheet({
     super.key,
     required this.height,
-    required this.PostId,
     this.getUserPostsCubit,
+    required this.post,
   });
 
   final double height;
-  final int PostId;
+  final PostModel post;
 
   final GetUserPostsCubit? getUserPostsCubit;
   @override
@@ -62,11 +64,24 @@ class moreActionsPostsBottomSheet extends StatelessWidget {
                   icon: Icons.delete,
                   iconColor: AppColors.redColor,
                   onTap: () {
-                    getUserPostsCubit!.removePostById(postId: PostId);
+                    getUserPostsCubit!.removePostById(postId: post.id!);
                   },
                 ),
                 const SizedBox(height: 16),
-                CustomListTile(title: S.of(context).editPost, icon: Icons.edit),
+                CustomListTile(
+                  title: S.of(context).editPost,
+                  icon: Icons.edit,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return EditPostView(post: post);
+                        },
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
           );

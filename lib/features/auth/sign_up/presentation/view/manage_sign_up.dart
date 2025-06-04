@@ -19,22 +19,18 @@ class ManageSignUpView extends StatelessWidget {
       extendBodyBehindAppBar: true,
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent ,
-        leading:
-         IconButton(
-          onPressed:
-
-                  () {
-                Navigator.pop(context);
-              },
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: Icon(
             Icons.arrow_back_ios_new_outlined,
             color: AppColors.whiteColor,
           ),
         ),
 
-        title:
-      Row(
+        title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Visibility(
@@ -90,7 +86,7 @@ class ManageSignUpView extends StatelessWidget {
             child: CustomButton(
               title: S.of(context).registerAsDoctor,
               onPressed: () {
-                Navigator.pushNamed(context, SignUpFromDoctorView.routeName); 
+                Navigator.pushNamed(context, SignUpFromDoctorView.routeName);
               },
             ),
           ),
