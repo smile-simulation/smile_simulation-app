@@ -6,8 +6,8 @@
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
-    <uses-permission android:name="android.permission.INTERNET" /> 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORKirmingham_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <!-- Visibility for API 30+ -->
@@ -79,8 +79,11 @@
             android:name="com.dexterous.flutterlocalnotifications.ForegroundService"
             android:exported="false"
             android:stopWithTask="false"
-            android:foregroundServiceType="mediaPlayback|location|dataSync" />
-            <!-- NOTE: replace `foregroundServiceType` with what your service needs -->
+            android:foregroundServiceType="dataSync">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
     </application>
-
 </manifest>

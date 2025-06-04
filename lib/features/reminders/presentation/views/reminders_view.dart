@@ -90,10 +90,11 @@ class RemindersViewBody extends StatelessWidget {
                 childAspectRatio: 3 / 2.5,
                 children:
                     items.map((item) {
-                      return InkWell(
-                        onTap: () => comingSoon(context),
+                      return InkWell(onTap: () =>
 
-                        //_navigateToView(context, item["title"]!),
+                          //comingSoon(context),
+
+                        _navigateToView(context, item["title"]!),
                         child: CustomcardScreen(
                           title: item["title"]!,
                           imagePath: item["image"]!,
