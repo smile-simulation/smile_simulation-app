@@ -9,7 +9,6 @@ import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import 'package:smile_simulation/features/reminders/data/models/drug_reminder.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_container_for_reminders_features.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_drop_down_container.dart';
 import 'package:uuid/uuid.dart';
 

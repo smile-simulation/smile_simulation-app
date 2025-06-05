@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import '../../../../../core/errors/failure.dart';
 import '../../models/health_status_models/Health_status_model.dart';
-import '../../models/personal_data_models/Persona_data_model.dart';
 
 abstract class HealthStatusRepo {
   Future<Either<Failure, HealthStatusModel>> updateHealthStatus({

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
+import 'package:smile_simulation/features/user_account/presentation/managers/get_user_posts_cubit/get_user_posts_cubit.dart';
 
 import '../../../../data/models/post_model.dart';
 import '../../../cubits/post_details_cubit/post_details_cubit.dart';
@@ -14,10 +15,13 @@ class CustomPostBuilder extends StatelessWidget {
     super.key,
     required this.currentUser,
     required this.clickablePostImage,
+    this.getUserPostsCubit,
   });
 
   final bool currentUser;
   final bool clickablePostImage;
+
+  final GetUserPostsCubit? getUserPostsCubit;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,9 @@ class CustomPostBuilder extends StatelessWidget {
         PostModel post = cubit.post;
         return InkWell(
           onTap: () {
-            Navigator.pushNamed(context, PostView.routeName, arguments: post); 
+            if (!currentUser) {
+              Navigator.pushNamed(context, PostView.routeName, arguments: post);
+            }
           },
           child: Card(
             child: Container(
@@ -43,6 +49,7 @@ class CustomPostBuilder extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   PostHeader(
+                    getUserPostsCubit: getUserPostsCubit,
                     currentUser: currentUser,
                     clickablePostImage: clickablePostImage,
                     post: context.read<PostDetailsCubit>().post,

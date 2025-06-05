@@ -2329,6 +2329,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Write Some Thing`
+  String get writeSomething {
+    return Intl.message(
+      'Write Some Thing',
+      name: 'writeSomething',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

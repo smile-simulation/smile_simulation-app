@@ -3,6 +3,8 @@ class Assets {
   Assets._();
 
   static const String assetsImagesAdviceBackground = 'assets/images/advice_background.png';
+  static const String assetsPoliciesAndConditionsPrivacyPolicy = 'assets/policies_and_conditions/privacy_policy.md';
+  static const String assetsPoliciesAndConditionsTermsAndConditions = 'assets/policies_and_conditions/terms_and_conditions.md';
   static const String fontsCairoBold = 'assets/fonts/Cairo-Bold.ttf';
   static const String fontsCairoMedium = 'assets/fonts/Cairo-Medium.ttf';
   static const String fontsCairoRegular = 'assets/fonts/Cairo-Regular.ttf';
@@ -75,5 +77,7 @@ class Assets {
   static const String imagesUserAccountIcon = 'assets/images/user_account_icon.svg';
   static const String imagesUserIcon = 'assets/images/user_icon.svg';
   static const String imagesYes = 'assets/images/yes.svg';
+  static const String policiesAndConditionsPrivacyPolicy = 'assets/policies_and_conditions/privacy_policy.md';
+  static const String policiesAndConditionsTermsAndConditions = 'assets/policies_and_conditions/terms_and_conditions.md';
 
 }

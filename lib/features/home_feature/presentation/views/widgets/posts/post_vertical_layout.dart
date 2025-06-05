@@ -17,14 +17,16 @@ class PostVerticalLayout extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Visibility(
-          visible: cubit.post.postImage != null,
-          child: Container(
-            alignment: Alignment.center,
-            width: double.infinity,
-            child: CustomPostImage(),
-          ),
-        ),
+        cubit.post.postImage != null
+            ? Visibility(
+              visible: cubit.post.postImage != null,
+              child: Container(
+                alignment: Alignment.center,
+                width: double.infinity,
+                child: CustomPostImage(imageLink: cubit.post.postImage!),
+              ),
+            )
+            : SizedBox(),
         const SizedBox(height: 16),
 
         /// Might Have Errors

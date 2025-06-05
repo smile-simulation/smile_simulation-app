@@ -52,18 +52,24 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
-            if (signingConfigs.findByName("release") != null) {
-                signingConfig = signingConfigs.getByName("release")
-            }
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+    getByName("release") {
+        if (signingConfigs.findByName("release") != null) {
+            signingConfig = signingConfigs.getByName("release")
         }
+        isMinifyEnabled = true
+        isShrinkResources = true
+        proguardFiles(
+            getDefaultProguardFile("proguard-android-optimize.txt"),
+            "proguard-rules.pro"
+        )
     }
+
+    getByName("debug") {
+        // Optional: you can also set applicationIdSuffix here for clarity
+        // applicationIdSuffix = ".debug"
+    }
+}
+
 }
 
 flutter {

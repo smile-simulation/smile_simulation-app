@@ -11,9 +11,11 @@ class UserAccountImageBuilder extends StatefulWidget {
     super.key,
     required this.userImage,
     required this.rebuild,
+    required this.currentUser,
   });
   final Function() rebuild;
   final String? userImage;
+  final bool currentUser;
 
   @override
   State<UserAccountImageBuilder> createState() =>
@@ -35,11 +37,20 @@ class _UserAccountImageBuilderState extends State<UserAccountImageBuilder> {
         }
       },
       builder: (context, state) {
-        String? currentImage =
-            state is SetUserAccounImageSuccess
-                ? state.imageLink
-                : CacheHelper().getMap(key: userData)?["image"] ??
-                    widget.userImage;
+        String? currentImage;
+
+        if (state is SetUserAccounImageSuccess) {
+          currentImage = state.imageLink;
+        } else {
+          if (widget.currentUser) {
+            currentImage =
+                widget.userImage ??
+                CacheHelper().getMap(key: userData)?["image"];
+          } else {
+            currentImage = widget.userImage;
+          }
+        }
+
         return state is SetUserAccounImageLoading
             ? CustomLoadingShimmer(
               SkeletonWidget: UserAccountImage(userImage: widget.userImage),

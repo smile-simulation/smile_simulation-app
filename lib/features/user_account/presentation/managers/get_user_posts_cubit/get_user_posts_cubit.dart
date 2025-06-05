@@ -10,6 +10,7 @@ class GetUserPostsCubit extends Cubit<GetUserPostsState> {
   GetUserPostsCubit(this.userDetailsRepo) : super(GetUserPostsInitial());
   final UserDetailsRepoImpl userDetailsRepo;
   Future<void> getUserPostsByUserId({required String userId}) async {
+    emit(GetUserPostLoading());
     var result = await userDetailsRepo.getPosts(userId: userId);
     result.fold(
       (fail) {
@@ -17,6 +18,19 @@ class GetUserPostsCubit extends Cubit<GetUserPostsState> {
       },
       (success) {
         emit(GetUserPostSuccess(posts: success));
+      },
+    );
+  }
+
+  Future<void> removePostById({required int postId}) async {
+    emit(RemovePostLoading());
+    var result = await userDetailsRepo.removePost(postId: postId);
+    result.fold(
+      (fail) {
+        emit(RemovePostFailture(errorMsg: fail.errorMessage));
+      },
+      (success) {
+        emit(RemovePostSuccess(message: success));
       },
     );
   }

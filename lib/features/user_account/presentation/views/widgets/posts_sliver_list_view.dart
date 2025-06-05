@@ -5,8 +5,8 @@ import 'package:smile_simulation/features/user_account/presentation/managers/get
 import '../../../../home_feature/presentation/views/widgets/posts/custom_post.dart';
 
 class PostsSliverListView extends StatelessWidget {
-  const PostsSliverListView({super.key});
-
+  const PostsSliverListView({super.key, required this.currentUser});
+  final bool currentUser;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetUserPostsCubit, GetUserPostsState>(
@@ -21,8 +21,8 @@ class PostsSliverListView extends StatelessWidget {
               final post = posts[index];
               return CustomPost(
                 clickablePostImage: false,
-
-                currentUser: true,
+                getUserPostsCubit: context.read<GetUserPostsCubit>(),
+                currentUser: currentUser,
                 post: post,
               );
             },

@@ -9,6 +9,8 @@ import 'package:smile_simulation/features/auth/login/data/repos/login_repo/login
 import 'package:smile_simulation/features/auth/login/data/repos/login_repo/login_repo_impl.dart';
 import 'package:smile_simulation/features/home_feature/data/repos/comments_repo/comments_repo.dart';
 import 'package:smile_simulation/features/home_feature/data/repos/comments_repo/comments_repo_impl.dart';
+import 'package:smile_simulation/features/home_feature/data/repos/edit_post_repo/edit_post_repo.dart';
+import 'package:smile_simulation/features/home_feature/data/repos/edit_post_repo/edit_post_repo_impl.dart';
 import 'package:smile_simulation/features/home_feature/data/repos/posts_repo/posts_repo_implement.dart';
 import 'package:smile_simulation/features/medical_record/data/repos/personal_data_repos/personal_data_repo_impl.dart';
 import 'package:smile_simulation/features/more/data/repos/change_password_repos/change_password_repo_impl.dart';
@@ -67,5 +69,8 @@ void setupGetIt() {
   );
   getIt.registerSingleton<DeleteAccountRepo>(
     DeleteAccountRepoImpl(dioConsumer: getIt<DioConsumer>()),
+  );
+  getIt.registerSingleton<EditPostRepo>(
+    EditPostRepoImpl(dioConsumer: getIt<DioConsumer>()),
   );
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
+import '../../../cubits/post_details_cubit/post_details_cubit.dart';
 import 'custom_post_image.dart';
 import 'post_interactions.dart';
 import 'post_text.dart';
@@ -32,7 +34,10 @@ class PostHorizontalLayout extends StatelessWidget {
             ),
             if (post.postImage != null) SizedBox(width: 8),
             if (post.postImage != null)
-              Expanded(flex: 4, child: CustomPostImage()),
+              Expanded(
+                flex: 4,
+                child: CustomPostImage(imageLink: post.postImage!),
+              ),
           ],
         ),
         const SizedBox(height: 6),

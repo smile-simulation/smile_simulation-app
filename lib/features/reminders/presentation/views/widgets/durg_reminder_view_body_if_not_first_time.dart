@@ -10,7 +10,6 @@ import 'package:smile_simulation/features/reminders/presentation/views/edit_drug
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_container_for_reminders_features.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
 
-import '../../../../../core/helper_functions/custom_error.dart';
 
 class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
   final List<DrugReminder> reminders;

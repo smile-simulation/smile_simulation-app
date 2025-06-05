@@ -1,15 +1,11 @@
-import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:smile_simulation/features/medical_record/data/models/health_status_models/Health_status_model.dart';
-import 'package:smile_simulation/features/medical_record/data/repos/personal_data_repos/personal_data_repo.dart';
 import '../../../../../constant.dart';
 import '../../../../../core/api/dio_consumer.dart';
 import '../../../../../core/api/end_point.dart';
-import '../../../../../core/database/cache/cache_helper.dart';
 import '../../../../../core/errors/exceptions.dart';
 import '../../../../../core/errors/failure.dart';
-import '../../models/personal_data_models/Persona_data_model.dart';
 import 'health_status_repo.dart';
 
 class HealthStatusRepoImpl extends HealthStatusRepo {

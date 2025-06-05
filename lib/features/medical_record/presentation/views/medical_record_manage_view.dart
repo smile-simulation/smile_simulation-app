@@ -6,12 +6,11 @@ import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/features/medical_record/presentation/views/personal_data_view.dart';
 import '../../../../constant.dart';
 import '../../../../core/database/cache/cache_helper.dart';
+import '../../../../core/helper_functions/custom_error.dart';
 import '../../../../core/widgets/custom_body_screen.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
-import '../../../../main.dart';
 import 'health_status_view.dart';
-import 'medical_record_view.dart';
 
 class MedicalRecordManageView extends StatelessWidget {
   const MedicalRecordManageView({super.key});
@@ -113,7 +112,11 @@ class MedicalRecordManageBodyView extends StatelessWidget {
                 Row(
                   children: [
                     Transform.scale(
-                      scaleX: CacheHelper.sharedPreferences.getString('language') == 'ar' ? 1 : -1,
+                      scaleX:
+                          CacheHelper.sharedPreferences.getString('language') ==
+                                  'ar'
+                              ? 1
+                              : -1,
                       scaleY: 1,
                       child: Image.asset(
                         Assets.imagesMedicalRecordImage,
@@ -159,8 +162,20 @@ class MedicalRecordManageBodyView extends StatelessWidget {
                           padding: EdgeInsets.only(
                             top: 75.0,
                             bottom: 75,
-                            right: CacheHelper.sharedPreferences.getString('language') == "ar" ? 85 : 0,
-                            left: CacheHelper.sharedPreferences.getString('language') == "ar" ? 0 : 85,
+                            right:
+                                CacheHelper.sharedPreferences.getString(
+                                          'language',
+                                        ) ==
+                                        "ar"
+                                    ? 85
+                                    : 0,
+                            left:
+                                CacheHelper.sharedPreferences.getString(
+                                          'language',
+                                        ) ==
+                                        "ar"
+                                    ? 0
+                                    : 85,
                           ),
                           child: InkWell(
                             onTap: () {
@@ -194,17 +209,7 @@ class MedicalRecordManageBodyView extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
-                            AwesomeDialog(
-                              context: context,
-                              dialogType: DialogType.info,
-                              animType: AnimType.scale,
-                              title: S.of(context).comingSoon,
-                              desc: S.of(context).thisFeatureIsComingSoon,
-                              btnOkOnPress: () {},
-
-                            ).show(
-
-                            );
+                            comingSoon(context);
                             // Navigator.pushNamed(
                             //   context,
                             //   MedicalRecordView.routeName,
