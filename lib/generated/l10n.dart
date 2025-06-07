@@ -100,6 +100,16 @@ class S {
     );
   }
 
+  /// `⚠️ Smile Simulation is an educational AI simulation app and is not a substitute for real medical care.`
+  String get onBoarding6 {
+    return Intl.message(
+      '⚠️ Smile Simulation is an educational AI simulation app and is not a substitute for real medical care.',
+      name: 'onBoarding6',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Skip`
   String get skip {
     return Intl.message(

@@ -32,6 +32,11 @@ class OnBoardingData {
         shape: Assets.imagesOnBoardingShap4,
         description: S.of(context).onBoarding5,
       ),
+      OnBoardingModel(
+        image: Assets.imagesOnbording6,
+        shape: Assets.imagesOnBoardingShap1,
+        description: S.of(context).onBoarding6,
+      ),
     ];
   }
 }
