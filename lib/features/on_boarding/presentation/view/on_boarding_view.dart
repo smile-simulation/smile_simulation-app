@@ -12,7 +12,6 @@ import 'package:smile_simulation/features/on_boarding/presentation/view/widgets/
 import 'package:smile_simulation/features/on_boarding/presentation/view/widgets/title_and_description.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-import '../../../../main.dart';
 import '../../data/on_boarding_data.dart';
 
 class OnBoardingView extends StatefulWidget {

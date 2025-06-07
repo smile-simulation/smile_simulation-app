@@ -200,6 +200,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "like": MessageLookupByLibrary.simpleMessage("Like"),
         "likeCount": MessageLookupByLibrary.simpleMessage("Likes"),
+        "loadingPostsError":
+            MessageLookupByLibrary.simpleMessage("Loading Posts Error"),
         "location": MessageLookupByLibrary.simpleMessage("Location"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -237,6 +239,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No advices exist"),
         "noCategoriesAdvicesExist": MessageLookupByLibrary.simpleMessage(
             "No categories of advices currently exist"),
+        "noPostsExist": MessageLookupByLibrary.simpleMessage("No Posts Exist"),
+        "no_internet_description": MessageLookupByLibrary.simpleMessage(
+            "Please check your connection for Smile Simulation"),
+        "no_internet_title":
+            MessageLookupByLibrary.simpleMessage("No internet connection"),
         "not_applicable":
             MessageLookupByLibrary.simpleMessage("Not Applicable"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
@@ -308,6 +315,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Remember password?"),
         "reminders": MessageLookupByLibrary.simpleMessage("Reminders"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
+        "retry": MessageLookupByLibrary.simpleMessage("Try again"),
         "saturday": MessageLookupByLibrary.simpleMessage("Saturday"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "saveData": MessageLookupByLibrary.simpleMessage("Save data"),
