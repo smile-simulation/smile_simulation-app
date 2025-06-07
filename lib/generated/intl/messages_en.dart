@@ -251,6 +251,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Managing your time has become easier. Make your dental health a priority."),
         "onBoarding5": MessageLookupByLibrary.simpleMessage(
             "A fast and secure chat to solve all your oral health-related questions."),
+        "onBoarding6": MessageLookupByLibrary.simpleMessage(
+            "⚠️ Smile Simulation is an educational AI simulation app and is not a substitute for real medical care."),
         "otherTasks": MessageLookupByLibrary.simpleMessage("Other Tasks"),
         "other_diseases": MessageLookupByLibrary.simpleMessage("Other"),
         "other_diseases_description_error":
