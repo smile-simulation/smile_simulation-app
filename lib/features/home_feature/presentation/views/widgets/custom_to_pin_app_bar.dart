@@ -4,7 +4,6 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
 import '../../../../../core/helper_functions/custom_error.dart';
-import '../../../../search_feature/presentation/views/searchview.dart';
 import 'clickable_search_bar.dart';
 
 class CustomToPinAppBar extends StatelessWidget implements PreferredSizeWidget {

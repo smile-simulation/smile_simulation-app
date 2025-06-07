@@ -55,6 +55,7 @@ class Assets {
   static const String imagesOnBoardingShap2 = 'assets/images/onBoardingShap2.png';
   static const String imagesOnBoardingShap3 = 'assets/images/onBoardingShap3.png';
   static const String imagesOnBoardingShap4 = 'assets/images/onBoardingShap4.png';
+  static const String imagesOnbording6 = 'assets/images/onbording6.png';
   static const String imagesPostImage = 'assets/images/post_image.png';
   static const String imagesPrivacyPolicyIcon = 'assets/images/privacy_policy_icon.svg';
   static const String imagesRateAppIcon = 'assets/images/rate_app_icon.svg';

@@ -12,7 +12,6 @@ import 'package:smile_simulation/features/on_boarding/presentation/view/widgets/
 import 'package:smile_simulation/features/on_boarding/presentation/view/widgets/title_and_description.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-import '../../../../main.dart';
 import '../../data/on_boarding_data.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -93,7 +92,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             ),
             SizedBox(height: 30),
             DotsIndicator(
-              dotsCount: 5,
+              dotsCount: 6,
               animate: true,
               position: currentIndex.toDouble(),
               decorator: DotsDecorator(
@@ -112,14 +111,14 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Visibility(
-                    visible: currentIndex != 4,
+                    visible: currentIndex != 5,
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
                           isOut = !isOut;
                         });
                         Timer(const Duration(milliseconds: 300), () {
-                          currentIndex = 4;
+                          currentIndex =5;
                           setState(() {
                             isOut = !isOut;
                           });
@@ -139,9 +138,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                         isOut = !isOut;
                       });
                       Timer(
-                        Duration(milliseconds: currentIndex == 4 ? 0 : 300),
+                        Duration(milliseconds: currentIndex == 5 ? 0 : 300),
                         () {
-                          currentIndex == 4
+                          currentIndex == 5
                               ? {
                                 Navigator.pushReplacementNamed(
                                   context,
@@ -161,7 +160,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       );
                     },
                     child:
-                        currentIndex == 4
+                        currentIndex == 5
                             ? Container(
                               width: 130,
                               height: 45,
