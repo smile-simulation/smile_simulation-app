@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
-import 'package:smile_simulation/features/reminders/data/models/reminder.dart';
+import 'package:smile_simulation/features/reminders/data/models/drug_reminder.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_view.dart';
 import 'custome_reminder_button.dart';
 import 'text_setion_in_reminder_feature.dart';
 
 class DrugReminderViewBodyIfFirstTime extends StatelessWidget {
-  final void Function(Reminder reminder) onAddReminder;
+  final void Function(DrugReminder reminder) onAddReminder;
 
   const DrugReminderViewBodyIfFirstTime({
     super.key,
@@ -51,7 +51,7 @@ class DrugReminderViewBodyIfFirstTime extends StatelessWidget {
                         builder: (context) => const AddNewDrugView(),
                       ),
                     );
-                    if (result != null && result is Reminder) {
+                    if (result != null && result is DrugReminder) {
                       onAddReminder(result);
                     }
                   },

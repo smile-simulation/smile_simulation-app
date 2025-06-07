@@ -41,10 +41,11 @@ Future<void> customSuccess(
     ),
   ).show();
 }
+
 Future<void> customWarning(
-    BuildContext context, {
-      required String massage,
-    }) async {
+  BuildContext context, {
+  required String massage,
+}) async {
   await AwesomeDialog(
     context: context,
     animType: AnimType.scale,
@@ -58,7 +59,7 @@ Future<void> customWarning(
         Navigator.pop(context);
       },
     ),
-    btnCancel:CustomButton(
+    btnCancel: CustomButton(
       isMinWidth: true,
       isSecondary: true,
       title: S.of(context).cancel,
@@ -66,5 +67,16 @@ Future<void> customWarning(
         Navigator.pop(context);
       },
     ),
+  ).show();
+}
+
+Future<void> comingSoon(BuildContext context) async {
+  await AwesomeDialog(
+    context: context,
+    dialogType: DialogType.info,
+    animType: AnimType.scale,
+    title: S.of(context).comingSoon,
+    desc: S.of(context).thisFeatureIsComingSoon,
+    btnOkOnPress: () {},
   ).show();
 }

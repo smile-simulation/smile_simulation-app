@@ -4,7 +4,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
-import 'package:smile_simulation/features/reminders/data/models/reminder.dart';
+import 'package:smile_simulation/features/reminders/data/models/drug_reminder.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/edit_drug_reminder_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_container_for_reminders_features.dart';
@@ -12,8 +12,8 @@ import 'package:smile_simulation/features/reminders/presentation/views/widgets/c
 
 
 class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
-  final List<Reminder> reminders;
-  final void Function(Reminder) onUpdateReminder;
+  final List<DrugReminder> reminders;
+  final void Function(DrugReminder) onUpdateReminder;
   final void Function(String) onDeleteReminder;
   final VoidCallback onClearAllReminders;
 
@@ -129,7 +129,7 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
                           ),
                         );
                         if (result != null) {
-                          if (result is Reminder) {
+                          if (result is DrugReminder) {
                             onUpdateReminder(result);
                           } else if (result is Map && result.containsKey('delete')) {
                             onDeleteReminder(result['delete']);
@@ -219,7 +219,7 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
                     builder: (context) => const AddNewDrugView(),
                   ),
                 );
-                if (result != null && result is Reminder) {
+                if (result != null && result is DrugReminder) {
                   onUpdateReminder(result);
                 }
               },

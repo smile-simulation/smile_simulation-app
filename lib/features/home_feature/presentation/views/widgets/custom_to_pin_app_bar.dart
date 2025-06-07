@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
+import '../../../../../core/helper_functions/custom_error.dart';
 import '../../../../search_feature/presentation/views/searchview.dart';
 import 'clickable_search_bar.dart';
 
@@ -22,11 +23,12 @@ class CustomToPinAppBar extends StatelessWidget implements PreferredSizeWidget {
           Expanded(child: ClickableSearchBar()),
           SizedBox(width: 16),
           InkWell(
-            onTap: () {
-              Navigator.of(
-                context,
-              ).push(MaterialPageRoute(builder: (context) => SearchView()));
-            },
+             onTap: () => comingSoon(context),
+            // onTap: () {
+            //   Navigator.of(
+            //     context,
+            //   ).push(MaterialPageRoute(builder: (context) => SearchView()));
+            // },
             child: SvgPicture.asset(Assets.imagesSearch),
           ),
         ],
