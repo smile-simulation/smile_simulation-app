@@ -7,10 +7,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smile_simulation/core/services/local_notification_service.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
-import 'package:smile_simulation/features/reminders/data/models/reminder.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/drug_reminder_view_body_if_first_time.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/durg_reminder_view_body_if_not_first_time.dart';
+import 'package:smile_simulation/features/reminders/data/models/drug_reminder.dart';
+
 import 'package:timezone/timezone.dart' as tz;
+
+import 'widgets/drug_reminder_view_body_if_first_time.dart';
+import 'widgets/durg_reminder_view_body_if_not_first_time.dart';
 
 class DrugReminderView extends StatefulWidget {
   const DrugReminderView({super.key});
@@ -20,17 +22,17 @@ class DrugReminderView extends StatefulWidget {
 }
 
 class _DrugReminderViewState extends State<DrugReminderView> {
-  List<Reminder> reminders = [];
+  List<DrugReminder> reminders = [];
 
   @override
   void initState() {
     super.initState();
     _loadReminders();
     log('Navigated to DrugReminderView, triggering test notification');
-    LocalNotificationService.showTestNotification();
+    // LocalNotificationService.showTestNotification();
   }
 
-  Future<void> _scheduleNotification(Reminder reminder) async {
+  Future<void> _scheduleNotification(DrugReminder reminder) async {
     log(
       'Attempting to schedule notification for reminder: ${reminder.toJson()}',
     );
@@ -74,14 +76,15 @@ class _DrugReminderViewState extends State<DrugReminderView> {
           log(
             'Scheduling notification ID $notificationId for day $i at $scheduledDate',
           );
-          log("Magdi log");
-          await LocalNotificationService.scheduleReminderNotification(
+
+          await LocalNotificationService.scheduleNotification(
             id: notificationId,
             title: 'تذكير الدواء: ${reminder.drugName}',
             body:
                 'تناول ${reminder.dosage.isNotEmpty ? reminder.dosage : "الجرعة"} ${reminder.mealTiming.isNotEmpty ? reminder.mealTiming : ""}',
-            scheduledDate: scheduledDate,
+            dateTime: scheduledDate,
             payload: reminder.id,
+            isRepeating: true, // Set to true for weekly repeating notifications
           );
         } else {
           log('Day $i not selected, skipping');
@@ -108,9 +111,12 @@ class _DrugReminderViewState extends State<DrugReminderView> {
       hour,
       minute,
     );
-    final targetDay = (dayOfWeek + 1) % 7; // 0=Monday
-    while (scheduledDate.weekday != (targetDay == 0 ? 7 : targetDay) ||
-        scheduledDate.isBefore(now)) {
+    // Map dayOfWeek (0=Sunday, 1=Monday, ..., 6=Saturday) to DateTime.weekday (1=Monday, ..., 7=Sunday)
+    final targetDay =
+        dayOfWeek == 0
+            ? 7
+            : dayOfWeek; // Sunday (0) maps to 7, others shift down by 1
+    while (scheduledDate.weekday != targetDay || scheduledDate.isBefore(now)) {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
     }
     log('Calculated next instance for day $dayOfWeek: $scheduledDate');
@@ -136,7 +142,7 @@ class _DrugReminderViewState extends State<DrugReminderView> {
     log('Loading reminders: $reminderJson');
     if (reminderJson != null) {
       setState(() {
-        reminders = Reminder.fromJsonList(reminderJson);
+        reminders = DrugReminder.fromJsonList(reminderJson);
       });
       // for (var reminder in reminders) {
       //   await _scheduleNotification(reminder);
@@ -146,11 +152,11 @@ class _DrugReminderViewState extends State<DrugReminderView> {
 
   Future<void> _saveReminders() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('reminders', Reminder.toJsonList(reminders));
-    log('Saved reminders: ${Reminder.toJsonList(reminders)}');
+    await prefs.setString('reminders', DrugReminder.toJsonList(reminders));
+    log('Saved reminders: ${DrugReminder.toJsonList(reminders)}');
   }
 
-  void addReminder(Reminder reminder) {
+  void addReminder(DrugReminder reminder) {
     log('Adding reminder: ${reminder.toJson()}');
     setState(() {
       reminders.add(reminder);
@@ -159,7 +165,7 @@ class _DrugReminderViewState extends State<DrugReminderView> {
     _scheduleNotification(reminder);
   }
 
-  void updateReminder(Reminder updatedReminder) {
+  void updateReminder(DrugReminder updatedReminder) {
     log('Updating reminder: ${updatedReminder.toJson()}');
     setState(() {
       final index = reminders.indexWhere((r) => r.id == updatedReminder.id);
@@ -179,7 +185,7 @@ class _DrugReminderViewState extends State<DrugReminderView> {
     final reminder = reminders.firstWhere(
       (r) => r.id == id,
       orElse:
-          () => Reminder(
+          () => DrugReminder(
             id: '',
             drugName: '',
             frequency: '',

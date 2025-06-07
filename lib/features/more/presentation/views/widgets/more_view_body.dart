@@ -10,6 +10,7 @@ import 'package:smile_simulation/core/helper_functions/my_launch_url.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
+import 'package:smile_simulation/features/about_us/presentaion/views/about_us_view.dart';
 import 'package:smile_simulation/features/user_account/presentation/views/user_account_view.dart';
 import 'package:smile_simulation/generated/assets.dart';
 import 'package:smile_simulation/generated/l10n.dart';
@@ -61,6 +62,14 @@ class MoreViewBody extends StatelessWidget {
                           UserAccountView.routeName,
                           arguments: true,
                         );
+                      },
+                    ),
+                    _buildDivider(),
+                    MoreActionItemListTile(
+                      iconPath: Assets.imagesSettingsIcon,
+                      title: S.of(context).aboutUs,
+                      onTap: () {
+                        Navigator.pushNamed(context, AboutUsView.routeName);
                       },
                     ),
                     _buildDivider(),

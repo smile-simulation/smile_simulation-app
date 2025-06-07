@@ -7,7 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
-import 'package:smile_simulation/features/reminders/data/models/reminder.dart';
+import 'package:smile_simulation/features/reminders/data/models/drug_reminder.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/date_of_stopping_taking_medicin.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/medicine_time_section.dart';
@@ -16,7 +16,7 @@ import 'package:smile_simulation/features/reminders/presentation/views/widgets/t
 import 'package:uuid/uuid.dart';
 
 class AddNewDrugView extends StatelessWidget {
-  final Function(Reminder)? onAddReminder;
+  final Function(DrugReminder)? onAddReminder;
   const AddNewDrugView({super.key, this.onAddReminder});
 
   @override
@@ -32,7 +32,7 @@ class AddNewDrugView extends StatelessWidget {
 }
 
 class AddNewDrugViewBody extends StatefulWidget {
-  final Function(Reminder)? onAddReminder;
+  final Function(DrugReminder)? onAddReminder;
   const AddNewDrugViewBody({super.key, this.onAddReminder});
 
   @override
@@ -189,7 +189,7 @@ class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
                     }
 
                     final savedImagePath = await _saveImage(imagePath);
-                    final newReminder = Reminder(
+                    final newReminder = DrugReminder(
                       id: const Uuid().v4(),
                       drugName: medicineNameController.text,
                       frequency: frequencyController.text,

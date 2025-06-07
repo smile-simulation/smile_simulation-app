@@ -24,6 +24,28 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "aboutAccount": MessageLookupByLibrary.simpleMessage("حول الحساب"),
         "aboutApp": MessageLookupByLibrary.simpleMessage("حول التطبيق"),
+        "aboutUs": MessageLookupByLibrary.simpleMessage("معلومات عنا"),
+        "aboutUsContact": MessageLookupByLibrary.simpleMessage("تواصل معنا:"),
+        "aboutUsDescription1": MessageLookupByLibrary.simpleMessage(
+            "تطبيق Smile Simulation هو تطبيق جوّال تم تطويره كمشروع تخرج من قِبل مجموعة من طلاب كلية الحاسبات والذكاء الاصطناعي."),
+        "aboutUsDescription2": MessageLookupByLibrary.simpleMessage(
+            "يهدف التطبيق إلى استكشاف كيف يمكن للتكنولوجيا الحديثة أن تدعم التوعية بصحة الفم والأسنان بطريقة تفاعلية. التطبيق لأغراض تعليمية فقط."),
+        "aboutUsDevelopedBy":
+            MessageLookupByLibrary.simpleMessage("تم تطويره بواسطة:"),
+        "aboutUsEmail": MessageLookupByLibrary.simpleMessage(
+            "MahmoudMagdy176203@gmail.com"),
+        "aboutUsFaculty": MessageLookupByLibrary.simpleMessage(
+            "كلية الحاسبات والذكاء الاصطناعي"),
+        "aboutUsGraduationYear":
+            MessageLookupByLibrary.simpleMessage("سنة التخرج: 2025"),
+        "aboutUsSupervisor": MessageLookupByLibrary.simpleMessage(
+            "المشرف على المشروع: د. أحمد يونس"),
+        "aboutUsTeamTitle":
+            MessageLookupByLibrary.simpleMessage("أعضاء الفريق"),
+        "aboutUsWarningText": MessageLookupByLibrary.simpleMessage(
+            "هذا التطبيق لا يُقدّم نصائح طبية حقيقية أو تشخيصًا. هو أداة تعليمية محاكاة ولا يُستخدم كبديل للعناية الطبية الحقيقية."),
+        "aboutUsWarningTitle":
+            MessageLookupByLibrary.simpleMessage("تنويه مهم"),
         "academicCertificate":
             MessageLookupByLibrary.simpleMessage("الشهادة الأكاديمية"),
         "addDailyActivitiesInstructionPart1":
@@ -91,6 +113,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "من خلال إنشاء حساب، فإنك توافق على "),
         "and": MessageLookupByLibrary.simpleMessage(" و "),
         "anemia": MessageLookupByLibrary.simpleMessage("فقر الدم"),
+        "appName": MessageLookupByLibrary.simpleMessage("Smile Simulation"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "beforeMeal": MessageLookupByLibrary.simpleMessage("قبل تناول الطعام"),
         "breastfeeding": MessageLookupByLibrary.simpleMessage("مرضعه"),
@@ -249,6 +272,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "إدارة وقتك أصبحت أسهل، اجعل صحة أسنانك أولوية."),
         "onBoarding5": MessageLookupByLibrary.simpleMessage(
             "دردشة سريعة وآمنة لحل جميع أسئلتك المتعلقة بصحة الفم."),
+        "onBoarding6": MessageLookupByLibrary.simpleMessage(
+            "⚠️ Smile Simulation هو تطبيق محاكاة الذكاء الاصطناعي التعليمي ولا يعد بديلاً عن الرعاية الطبية الحقيقية."),
         "otherTasks": MessageLookupByLibrary.simpleMessage("مهام أخرى"),
         "other_diseases": MessageLookupByLibrary.simpleMessage("أخرى"),
         "other_diseases_description_error":
@@ -332,6 +357,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "sunday": MessageLookupByLibrary.simpleMessage("أحد"),
         "surgery_question": MessageLookupByLibrary.simpleMessage(
             "هل خضعت لأي عمليات جراحية سابقاً؟"),
+        "teamAIChatRole": MessageLookupByLibrary.simpleMessage(
+            "• دمج تقنيات Ollama وLangChain وتخصيص النماذج باستخدام هندسة البرومبت."),
+        "teamAsmaa": MessageLookupByLibrary.simpleMessage(
+            "أسماء عصمت قاسم – مطورة شات ذكي"),
+        "teamBackendRole": MessageLookupByLibrary.simpleMessage(
+            "• تصميم قواعد البيانات، إنشاء واجهات API، وضمان أمان واستقرار السيرفرات."),
+        "teamBaher": MessageLookupByLibrary.simpleMessage(
+            "باهر حمادة عبد الرؤوف – مطور شات ذكي"),
+        "teamFatma": MessageLookupByLibrary.simpleMessage(
+            "فاطمة الزهراء أسامة أحمد – مطورة Backend (.NET و SQL)"),
+        "teamFrontendRole": MessageLookupByLibrary.simpleMessage(
+            "• تطوير الواجهات الأمامية، تحسين الأداء، واختبار الاستخدام."),
+        "teamHanan": MessageLookupByLibrary.simpleMessage(
+            "حنان فوزي محمود – مصممة واجهات المستخدم UI/UX"),
+        "teamHananRole": MessageLookupByLibrary.simpleMessage(
+            "• تصميم واجهات مستخدم جذابة وسهلة الاستخدام تتماشى مع أهداف المشروع واحتياجات المستخدمين."),
+        "teamMahmoud": MessageLookupByLibrary.simpleMessage(
+            "محمود مجدي زغلول – قائد الفريق ومطور Flutter"),
+        "teamMahmoudRole": MessageLookupByLibrary.simpleMessage(
+            "• تنسيق المشروع، متابعة التقدم، والمساهمة في تطوير واجهات المستخدم باستخدام Flutter."),
+        "teamMohamedHamed": MessageLookupByLibrary.simpleMessage(
+            "محمد حامد – مطور واجهات Flutter"),
+        "teamMohamedRoshdy": MessageLookupByLibrary.simpleMessage(
+            "محمد رشدي إبراهيم – مطور واجهات Flutter"),
+        "teamMostafa": MessageLookupByLibrary.simpleMessage(
+            "مصطفى أبو حميد محمود أحمد – مطور Backend (.NET و SQL)"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("الشروط والاحكام"),
         "thisFeatureIsComingSoon":

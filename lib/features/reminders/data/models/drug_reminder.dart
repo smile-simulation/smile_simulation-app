@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class Reminder {
+class DrugReminder {
   final String id;
   final String drugName;
   final String frequency;
@@ -11,7 +11,7 @@ class Reminder {
   final List<bool> daysSelected;
   final String? imagePath;
 
-  Reminder({
+  DrugReminder({
     required this.id,
     required this.drugName,
     required this.frequency,
@@ -37,8 +37,8 @@ class Reminder {
     };
   }
 
-  factory Reminder.fromJson(Map<String, dynamic> json) {
-    return Reminder(
+  factory DrugReminder.fromJson(Map<String, dynamic> json) {
+    return DrugReminder(
       id: json['id'],
       drugName: json['drugName'],
       frequency: json['frequency'],
@@ -51,12 +51,12 @@ class Reminder {
     );
   }
 
-  static List<Reminder> fromJsonList(String jsonString) {
+  static List<DrugReminder> fromJsonList(String jsonString) {
     final List<dynamic> jsonList = jsonDecode(jsonString);
-    return jsonList.map((json) => Reminder.fromJson(json)).toList();
+    return jsonList.map((json) => DrugReminder.fromJson(json)).toList();
   }
 
-  static String toJsonList(List<Reminder> reminders) {
+  static String toJsonList(List<DrugReminder> reminders) {
     return jsonEncode(reminders.map((r) => r.toJson()).toList());
   }
 }
