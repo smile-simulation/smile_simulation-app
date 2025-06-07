@@ -8,7 +8,6 @@ import 'package:smile_simulation/core/services/local_notification_service.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/features/reminders/data/models/drug_reminder.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/drug_reminder_view_body_if_first_time.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/durg_reminder_view_body_if_not_first_time.dart';
 import 'package:timezone/timezone.dart' as tz;
