@@ -79,7 +79,7 @@ class LocalNotificationService {
         importance: Importance.max,
         playSound: true,
       );
-      
+
       const AndroidNotificationChannel reminderChannel =
           AndroidNotificationChannel(
             'reminder_channel',
@@ -194,6 +194,90 @@ class LocalNotificationService {
       title: 'Test Notification',
       body: 'This is a test notification from Smile Simulation',
       payload: 'test',
+    );
+  }
+
+  static Future<void> showScheduledNotification({
+    required DateTime dateTime,
+    required String body,
+    required String title,
+  }) async {
+    const AndroidNotificationDetails android = AndroidNotificationDetails(
+      'scheduled_notification',
+      'id_3',
+      importance: Importance.max,
+      priority: Priority.high,
+    );
+
+    const NotificationDetails details = NotificationDetails(android: android);
+
+    // Initialize timezone if not already done elsewhere
+    tz.initializeTimeZones();
+    final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
+    tz.setLocalLocation(tz.getLocation(currentTimeZone));
+
+    final tz.TZDateTime tzDateTime = tz.TZDateTime.from(dateTime, tz.local);
+
+    log('Scheduled for: $tzDateTime (${tz.local.name})');
+
+    await flutterLocalNotificationsPlugin.zonedSchedule(
+      2,
+      title,
+      body,
+      tzDateTime,
+      details,
+      payload: 'zonedSchedule',
+      androidScheduleMode: AndroidScheduleMode.exact,
+    );
+  }
+
+  static Future<void> scheduleNotification({
+    required DateTime dateTime,
+    required String title,
+    required String body,
+    required String payload,
+    bool isRepeating = false,
+    int id = 0,
+  }) async {
+    // Initialize timezones
+    tz.initializeTimeZones();
+    final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
+    tz.setLocalLocation(tz.getLocation(currentTimeZone));
+
+    // تحويل DateTime إلى TZDateTime
+    tz.TZDateTime tzDateTime = tz.TZDateTime.from(dateTime, tz.local);
+
+    // لو الوقت عدى والتكرار مطلوب، زوده أسبوع
+    if (isRepeating && tzDateTime.isBefore(tz.TZDateTime.now(tz.local))) {
+      tzDateTime = tzDateTime.add(const Duration(days: 7));
+    }
+
+    const NotificationDetails notificationDetails = NotificationDetails(
+      android: AndroidNotificationDetails(
+        'unified_channel',
+        'Unified Notifications',
+        channelDescription: 'Handles both one-time and repeating notifications',
+        importance: Importance.max,
+        priority: Priority.high,
+        playSound: true,
+      ),
+      iOS: DarwinNotificationDetails(),
+    );
+
+    await flutterLocalNotificationsPlugin.zonedSchedule(
+      id,
+      title,
+      body,
+      tzDateTime,
+      notificationDetails,
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      payload: payload,
+      matchDateTimeComponents:
+          isRepeating ? DateTimeComponents.dayOfWeekAndTime : null,
+    );
+
+    log(
+      'Scheduled ${isRepeating ? "repeating" : "one-time"} notification for $tzDateTime',
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/services/local_notification_service.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/l10n.dart';
+import 'package:timezone/timezone.dart';
 
 import 'posts_list_view.dart';
 
@@ -22,11 +24,43 @@ class HomeViewBodyContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            S.of(context).posts,
-            style: AppTextStyles.headline2(
-              context,
-            ).copyWith(color: AppColors.blackColor),
+          Row(
+            children: [
+              Text(
+                S.of(context).posts,
+                style: AppTextStyles.headline2(
+                  context,
+                ).copyWith(color: AppColors.blackColor),
+              ),
+
+              Spacer(),
+              TextButton(
+                onPressed: () async {
+                  TimeOfDay? pickedTime = await showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                  );
+                  if (pickedTime != null) {
+                    final now = DateTime.now();
+                    final dateTime = DateTime(
+                      now.year,
+                      now.month,
+                      now.day,
+                      pickedTime.hour,
+                      pickedTime.minute,
+                    );
+
+                    LocalNotificationService.scheduleNotification(
+                      dateTime: dateTime,
+                      title: "هذا اشعار مجدول",
+                      body: 'هذا الاشعار مجدول لوقت معين ',
+                      payload: '',
+                    );
+                  }
+                },
+                child: Text("data"),
+              ),
+            ],
           ),
           const SizedBox(height: 8),
           const Expanded(child: PostsListView(currentUser: false)),
