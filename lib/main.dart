@@ -59,7 +59,7 @@ class ConnectivityAppWrapper extends StatefulWidget {
 
 class _ConnectivityAppWrapperState extends State<ConnectivityAppWrapper> with WidgetsBindingObserver {
   late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription;
-  bool hasInternet = false;
+  bool hasInternet = true;
   List<ConnectivityResult> _lastResult = [ConnectivityResult.none];
 
   @override
