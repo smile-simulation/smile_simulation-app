@@ -273,7 +273,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding5": MessageLookupByLibrary.simpleMessage(
             "دردشة سريعة وآمنة لحل جميع أسئلتك المتعلقة بصحة الفم."),
         "onBoarding6": MessageLookupByLibrary.simpleMessage(
-            "⚠️ Smile Simulation هو تطبيق محاكاة الذكاء الاصطناعي التعليمي ولا يعد بديلاً عن الرعاية الطبية الحقيقية."),
+            "⚠️ Smile Simulation هو مشروع تخرج لمحاكاة استخدام تكنولوجيا الحديثة ولا يعد بديلاً عن الرعاية الطبية الحقيقية."),
         "otherTasks": MessageLookupByLibrary.simpleMessage("مهام أخرى"),
         "other_diseases": MessageLookupByLibrary.simpleMessage("أخرى"),
         "other_diseases_description_error":
