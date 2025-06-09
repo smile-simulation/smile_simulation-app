@@ -8,10 +8,11 @@ import 'package:smile_simulation/core/services/local_notification_service.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/features/reminders/data/models/drug_reminder.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/add_new_drug_view.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/drug_reminder_view_body_if_first_time.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/durg_reminder_view_body_if_not_first_time.dart';
+
 import 'package:timezone/timezone.dart' as tz;
+
+import 'widgets/drug_reminder_view_body_if_first_time.dart';
+import 'widgets/durg_reminder_view_body_if_not_first_time.dart';
 
 class DrugReminderView extends StatefulWidget {
   const DrugReminderView({super.key});
@@ -28,11 +29,13 @@ class _DrugReminderViewState extends State<DrugReminderView> {
     super.initState();
     _loadReminders();
     log('Navigated to DrugReminderView, triggering test notification');
-    LocalNotificationService.showTestNotification();
+    // LocalNotificationService.showTestNotification();
   }
 
   Future<void> _scheduleNotification(DrugReminder reminder) async {
-    log('Attempting to schedule notification for reminder: ${reminder.toJson()}');
+    log(
+      'Attempting to schedule notification for reminder: ${reminder.toJson()}',
+    );
 
     // Validate inputs
     if (reminder.drugName.isEmpty) {
@@ -73,14 +76,15 @@ class _DrugReminderViewState extends State<DrugReminderView> {
           log(
             'Scheduling notification ID $notificationId for day $i at $scheduledDate',
           );
-          log("Magdi log");
-          await LocalNotificationService.scheduleReminderNotification(
+
+          await LocalNotificationService.scheduleNotification(
             id: notificationId,
             title: 'تذكير الدواء: ${reminder.drugName}',
             body:
                 'تناول ${reminder.dosage.isNotEmpty ? reminder.dosage : "الجرعة"} ${reminder.mealTiming.isNotEmpty ? reminder.mealTiming : ""}',
-            scheduledDate: scheduledDate,
+            dateTime: scheduledDate,
             payload: reminder.id,
+            isRepeating: true, // Set to true for weekly repeating notifications
           );
         } else {
           log('Day $i not selected, skipping');
@@ -107,9 +111,12 @@ class _DrugReminderViewState extends State<DrugReminderView> {
       hour,
       minute,
     );
-    final targetDay = (dayOfWeek + 1) % 7; // 0=Monday
-    while (scheduledDate.weekday != (targetDay == 0 ? 7 : targetDay) ||
-        scheduledDate.isBefore(now)) {
+    // Map dayOfWeek (0=Sunday, 1=Monday, ..., 6=Saturday) to DateTime.weekday (1=Monday, ..., 7=Sunday)
+    final targetDay =
+        dayOfWeek == 0
+            ? 7
+            : dayOfWeek; // Sunday (0) maps to 7, others shift down by 1
+    while (scheduledDate.weekday != targetDay || scheduledDate.isBefore(now)) {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
     }
     log('Calculated next instance for day $dayOfWeek: $scheduledDate');
@@ -177,16 +184,17 @@ class _DrugReminderViewState extends State<DrugReminderView> {
     log('Deleting reminder ID: $id');
     final reminder = reminders.firstWhere(
       (r) => r.id == id,
-      orElse: () => DrugReminder(
-        id: '',
-        drugName: '',
-        frequency: '',
-        dosage: '',
-        time: '',
-        mealTiming: '',
-        stopDate: '',
-        daysSelected: [],
-      ),
+      orElse:
+          () => DrugReminder(
+            id: '',
+            drugName: '',
+            frequency: '',
+            dosage: '',
+            time: '',
+            mealTiming: '',
+            stopDate: '',
+            daysSelected: [],
+          ),
     );
     if (reminder.imagePath != null && File(reminder.imagePath!).existsSync()) {
       try {

@@ -87,6 +87,7 @@
   "logOut": "Log Out",
   "changeLanguage": "Change Language",
   "noAdvicesExist": "No advices exist",
+  "noPostsExist": "No Posts Exist",
   "noCategoriesAdvicesExist": "No categories of advices currently exist",
   "smileChat": "Smile Chat",
   "language": "Language",
@@ -229,5 +230,41 @@
   "drug_allergy_error": "Please enter the medication allergy",
   "comingSoon": "Coming Soon",
   "thisFeatureIsComingSoon": "This feature is coming soon",
-  "writeSomething": "Write Some Thing"
+  "writeSomething": "Write Some Thing",
+  "no_internet_title": "No internet connection",
+  "no_internet_description": "Please check your connection for Smile Simulation",
+  "retry": "Try again",
+  "loadingPostsError":"Loading Posts Error",
+  "aboutUs":"About Us",
+  "appName": "Smile Simulation",
+  "aboutUsDescription1": "Smile Simulation is a mobile application developed as part of a graduation project by a group of Computer Science students at the Faculty of Computers and Artificial Intelligence.",
+  "aboutUsDescription2": "The app is created to explore how modern technologies can support oral health education in an interactive way. It is for educational purposes only.",
+  "aboutUsWarningTitle": "Important Notice",
+  "aboutUsWarningText": "This app does not provide real medical advice or diagnosis. It is a simulated educational tool and should not be used as a substitute for real dental care.",
+  "aboutUsDevelopedBy": "Developed by:",
+  "aboutUsFaculty": "Faculty of Computers and Artificial Intelligence",
+  "aboutUsGraduationYear": "Graduation Year: 2025",
+  "aboutUsSupervisor": "Project Supervisor: Dr. Ahmed Younis",
+  "aboutUsContact": "Contact Us:",
+  "aboutUsEmail": "MahmoudMagdy176203@gmail.com",
+  
+  "aboutUsTeamTitle": "Team Members",
+  "teamMahmoud": "Mahmoud Magdy Zaghloul – Team Leader & Flutter Developer",
+  "teamMahmoudRole": "• Project coordination, progress monitoring, and UI development using Flutter.",
+  
+  "teamHanan": "Hanan Fawzy Mahmoud – UI/UX Designer",
+  "teamHananRole": "• Designing user-friendly interfaces that align with project goals and user needs.",
+  
+  "teamMohamedRoshdy": "Mohamed Roshdy Ibrahim – Flutter Developer",
+  "teamMohamedHamed": "Mohamed Hamed – Flutter Developer",
+  "teamFrontendRole": "• Frontend development, performance optimization, and usability testing.",
+  
+  "teamMostafa": "Mostafa Abu Humaid Mahmoud Ahmed – Backend Developer (.NET & SQL)",
+  "teamFatma": "Fatma Al-Zahraa Osama Ahmed – Backend Developer (.NET & SQL)",
+  "teamBackendRole": "• API creation, database design, and server management for stability and security.",
+  
+  "teamBaher": "Baher Hamada Abdel-Raouf – AI Chat Developer",
+  "teamAsmaa": "Asmaa Esmat Qassem – AI Chat Developer",
+  "teamAIChatRole": "• AI chat integration using OLLAMA, LangChain, and prompt engineering."
+
 }

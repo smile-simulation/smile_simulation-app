@@ -25,6 +25,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutAccount":
             MessageLookupByLibrary.simpleMessage("About the Account"),
         "aboutApp": MessageLookupByLibrary.simpleMessage("About the App"),
+        "aboutUs": MessageLookupByLibrary.simpleMessage("About Us"),
+        "aboutUsContact": MessageLookupByLibrary.simpleMessage("Contact Us:"),
+        "aboutUsDescription1": MessageLookupByLibrary.simpleMessage(
+            "Smile Simulation is a mobile application developed as part of a graduation project by a group of Computer Science students at the Faculty of Computers and Artificial Intelligence."),
+        "aboutUsDescription2": MessageLookupByLibrary.simpleMessage(
+            "The app is created to explore how modern technologies can support oral health education in an interactive way. It is for educational purposes only."),
+        "aboutUsDevelopedBy":
+            MessageLookupByLibrary.simpleMessage("Developed by:"),
+        "aboutUsEmail": MessageLookupByLibrary.simpleMessage(
+            "MahmoudMagdy176203@gmail.com"),
+        "aboutUsFaculty": MessageLookupByLibrary.simpleMessage(
+            "Faculty of Computers and Artificial Intelligence"),
+        "aboutUsGraduationYear":
+            MessageLookupByLibrary.simpleMessage("Graduation Year: 2025"),
+        "aboutUsSupervisor": MessageLookupByLibrary.simpleMessage(
+            "Project Supervisor: Dr. Ahmed Younis"),
+        "aboutUsTeamTitle":
+            MessageLookupByLibrary.simpleMessage("Team Members"),
+        "aboutUsWarningText": MessageLookupByLibrary.simpleMessage(
+            "This app does not provide real medical advice or diagnosis. It is a simulated educational tool and should not be used as a substitute for real dental care."),
+        "aboutUsWarningTitle":
+            MessageLookupByLibrary.simpleMessage("Important Notice"),
         "academicCertificate":
             MessageLookupByLibrary.simpleMessage("Academic certificate"),
         "addDailyActivitiesInstructionPart1":
@@ -93,6 +115,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "By creating an account, you are agreeing to our "),
         "and": MessageLookupByLibrary.simpleMessage(" and "),
         "anemia": MessageLookupByLibrary.simpleMessage("Anemia"),
+        "appName": MessageLookupByLibrary.simpleMessage("Smile Simulation"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "beforeMeal": MessageLookupByLibrary.simpleMessage("Before Meal"),
         "breastfeeding": MessageLookupByLibrary.simpleMessage("Breastfeeding"),
@@ -200,6 +223,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "like": MessageLookupByLibrary.simpleMessage("Like"),
         "likeCount": MessageLookupByLibrary.simpleMessage("Likes"),
+        "loadingPostsError":
+            MessageLookupByLibrary.simpleMessage("Loading Posts Error"),
         "location": MessageLookupByLibrary.simpleMessage("Location"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -237,6 +262,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No advices exist"),
         "noCategoriesAdvicesExist": MessageLookupByLibrary.simpleMessage(
             "No categories of advices currently exist"),
+        "noPostsExist": MessageLookupByLibrary.simpleMessage("No Posts Exist"),
+        "no_internet_description": MessageLookupByLibrary.simpleMessage(
+            "Please check your connection for Smile Simulation"),
+        "no_internet_title":
+            MessageLookupByLibrary.simpleMessage("No internet connection"),
         "not_applicable":
             MessageLookupByLibrary.simpleMessage("Not Applicable"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
@@ -308,6 +338,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Remember password?"),
         "reminders": MessageLookupByLibrary.simpleMessage("Reminders"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
+        "retry": MessageLookupByLibrary.simpleMessage("Try again"),
         "saturday": MessageLookupByLibrary.simpleMessage("Saturday"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "saveData": MessageLookupByLibrary.simpleMessage("Save data"),
@@ -333,6 +364,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "sunday": MessageLookupByLibrary.simpleMessage("Sunday"),
         "surgery_question": MessageLookupByLibrary.simpleMessage(
             "Have you undergone any previous surgeries?"),
+        "teamAIChatRole": MessageLookupByLibrary.simpleMessage(
+            "• AI chat integration using OLLAMA, LangChain, and prompt engineering."),
+        "teamAsmaa": MessageLookupByLibrary.simpleMessage(
+            "Asmaa Esmat Qassem – AI Chat Developer"),
+        "teamBackendRole": MessageLookupByLibrary.simpleMessage(
+            "• API creation, database design, and server management for stability and security."),
+        "teamBaher": MessageLookupByLibrary.simpleMessage(
+            "Baher Hamada Abdel-Raouf – AI Chat Developer"),
+        "teamFatma": MessageLookupByLibrary.simpleMessage(
+            "Fatma Al-Zahraa Osama Ahmed – Backend Developer (.NET & SQL)"),
+        "teamFrontendRole": MessageLookupByLibrary.simpleMessage(
+            "• Frontend development, performance optimization, and usability testing."),
+        "teamHanan": MessageLookupByLibrary.simpleMessage(
+            "Hanan Fawzy Mahmoud – UI/UX Designer"),
+        "teamHananRole": MessageLookupByLibrary.simpleMessage(
+            "• Designing user-friendly interfaces that align with project goals and user needs."),
+        "teamMahmoud": MessageLookupByLibrary.simpleMessage(
+            "Mahmoud Magdy Zaghloul – Team Leader & Flutter Developer"),
+        "teamMahmoudRole": MessageLookupByLibrary.simpleMessage(
+            "• Project coordination, progress monitoring, and UI development using Flutter."),
+        "teamMohamedHamed": MessageLookupByLibrary.simpleMessage(
+            "Mohamed Hamed – Flutter Developer"),
+        "teamMohamedRoshdy": MessageLookupByLibrary.simpleMessage(
+            "Mohamed Roshdy Ibrahim – Flutter Developer"),
+        "teamMostafa": MessageLookupByLibrary.simpleMessage(
+            "Mostafa Abu Humaid Mahmoud Ahmed – Backend Developer (.NET & SQL)"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "thisFeatureIsComingSoon":

@@ -920,6 +920,16 @@ class S {
     );
   }
 
+  /// `No Posts Exist`
+  String get noPostsExist {
+    return Intl.message(
+      'No Posts Exist',
+      name: 'noPostsExist',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `No categories of advices currently exist`
   String get noCategoriesAdvicesExist {
     return Intl.message(
@@ -2345,6 +2355,306 @@ class S {
     return Intl.message(
       'Write Some Thing',
       name: 'writeSomething',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No internet connection`
+  String get no_internet_title {
+    return Intl.message(
+      'No internet connection',
+      name: 'no_internet_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your connection for Smile Simulation`
+  String get no_internet_description {
+    return Intl.message(
+      'Please check your connection for Smile Simulation',
+      name: 'no_internet_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try again`
+  String get retry {
+    return Intl.message(
+      'Try again',
+      name: 'retry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loading Posts Error`
+  String get loadingPostsError {
+    return Intl.message(
+      'Loading Posts Error',
+      name: 'loadingPostsError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About Us`
+  String get aboutUs {
+    return Intl.message(
+      'About Us',
+      name: 'aboutUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Smile Simulation`
+  String get appName {
+    return Intl.message(
+      'Smile Simulation',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Smile Simulation is a mobile application developed as part of a graduation project by a group of Computer Science students at the Faculty of Computers and Artificial Intelligence.`
+  String get aboutUsDescription1 {
+    return Intl.message(
+      'Smile Simulation is a mobile application developed as part of a graduation project by a group of Computer Science students at the Faculty of Computers and Artificial Intelligence.',
+      name: 'aboutUsDescription1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The app is created to explore how modern technologies can support oral health education in an interactive way. It is for educational purposes only.`
+  String get aboutUsDescription2 {
+    return Intl.message(
+      'The app is created to explore how modern technologies can support oral health education in an interactive way. It is for educational purposes only.',
+      name: 'aboutUsDescription2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Important Notice`
+  String get aboutUsWarningTitle {
+    return Intl.message(
+      'Important Notice',
+      name: 'aboutUsWarningTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This app does not provide real medical advice or diagnosis. It is a simulated educational tool and should not be used as a substitute for real dental care.`
+  String get aboutUsWarningText {
+    return Intl.message(
+      'This app does not provide real medical advice or diagnosis. It is a simulated educational tool and should not be used as a substitute for real dental care.',
+      name: 'aboutUsWarningText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Developed by:`
+  String get aboutUsDevelopedBy {
+    return Intl.message(
+      'Developed by:',
+      name: 'aboutUsDevelopedBy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Faculty of Computers and Artificial Intelligence`
+  String get aboutUsFaculty {
+    return Intl.message(
+      'Faculty of Computers and Artificial Intelligence',
+      name: 'aboutUsFaculty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Graduation Year: 2025`
+  String get aboutUsGraduationYear {
+    return Intl.message(
+      'Graduation Year: 2025',
+      name: 'aboutUsGraduationYear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Project Supervisor: Dr. Ahmed Younis`
+  String get aboutUsSupervisor {
+    return Intl.message(
+      'Project Supervisor: Dr. Ahmed Younis',
+      name: 'aboutUsSupervisor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Us:`
+  String get aboutUsContact {
+    return Intl.message(
+      'Contact Us:',
+      name: 'aboutUsContact',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `MahmoudMagdy176203@gmail.com`
+  String get aboutUsEmail {
+    return Intl.message(
+      'MahmoudMagdy176203@gmail.com',
+      name: 'aboutUsEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Team Members`
+  String get aboutUsTeamTitle {
+    return Intl.message(
+      'Team Members',
+      name: 'aboutUsTeamTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mahmoud Magdy Zaghloul – Team Leader & Flutter Developer`
+  String get teamMahmoud {
+    return Intl.message(
+      'Mahmoud Magdy Zaghloul – Team Leader & Flutter Developer',
+      name: 'teamMahmoud',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Project coordination, progress monitoring, and UI development using Flutter.`
+  String get teamMahmoudRole {
+    return Intl.message(
+      '• Project coordination, progress monitoring, and UI development using Flutter.',
+      name: 'teamMahmoudRole',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hanan Fawzy Mahmoud – UI/UX Designer`
+  String get teamHanan {
+    return Intl.message(
+      'Hanan Fawzy Mahmoud – UI/UX Designer',
+      name: 'teamHanan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Designing user-friendly interfaces that align with project goals and user needs.`
+  String get teamHananRole {
+    return Intl.message(
+      '• Designing user-friendly interfaces that align with project goals and user needs.',
+      name: 'teamHananRole',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mohamed Roshdy Ibrahim – Flutter Developer`
+  String get teamMohamedRoshdy {
+    return Intl.message(
+      'Mohamed Roshdy Ibrahim – Flutter Developer',
+      name: 'teamMohamedRoshdy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mohamed Hamed – Flutter Developer`
+  String get teamMohamedHamed {
+    return Intl.message(
+      'Mohamed Hamed – Flutter Developer',
+      name: 'teamMohamedHamed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Frontend development, performance optimization, and usability testing.`
+  String get teamFrontendRole {
+    return Intl.message(
+      '• Frontend development, performance optimization, and usability testing.',
+      name: 'teamFrontendRole',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mostafa Abu Humaid Mahmoud Ahmed – Backend Developer (.NET & SQL)`
+  String get teamMostafa {
+    return Intl.message(
+      'Mostafa Abu Humaid Mahmoud Ahmed – Backend Developer (.NET & SQL)',
+      name: 'teamMostafa',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fatma Al-Zahraa Osama Ahmed – Backend Developer (.NET & SQL)`
+  String get teamFatma {
+    return Intl.message(
+      'Fatma Al-Zahraa Osama Ahmed – Backend Developer (.NET & SQL)',
+      name: 'teamFatma',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• API creation, database design, and server management for stability and security.`
+  String get teamBackendRole {
+    return Intl.message(
+      '• API creation, database design, and server management for stability and security.',
+      name: 'teamBackendRole',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Baher Hamada Abdel-Raouf – AI Chat Developer`
+  String get teamBaher {
+    return Intl.message(
+      'Baher Hamada Abdel-Raouf – AI Chat Developer',
+      name: 'teamBaher',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Asmaa Esmat Qassem – AI Chat Developer`
+  String get teamAsmaa {
+    return Intl.message(
+      'Asmaa Esmat Qassem – AI Chat Developer',
+      name: 'teamAsmaa',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• AI chat integration using OLLAMA, LangChain, and prompt engineering.`
+  String get teamAIChatRole {
+    return Intl.message(
+      '• AI chat integration using OLLAMA, LangChain, and prompt engineering.',
+      name: 'teamAIChatRole',
       desc: '',
       args: [],
     );
