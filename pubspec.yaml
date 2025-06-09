@@ -135,6 +135,8 @@ flutter:
   assets:
     - assets/policies_and_conditions/privacy_policy.md
     - assets/policies_and_conditions/terms_and_conditions.md
+    - assets/policies_and_conditions/privacy_policy_ar.md
+    - assets/policies_and_conditions/terms_and_conditions_ar.md
     - assets/
     - assets/fonts/
     - assets/images/
