@@ -27,6 +27,9 @@ class MoreViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+    print(myLocale.languageCode); // مثال: "en" أو "ar"
+
     return CustomBodyScreen(
       child: Container(
         color: AppColors.veryLightGreyColor,
@@ -89,9 +92,11 @@ class MoreViewBody extends StatelessWidget {
                           context: context,
                           builder:
                               (context) => CustomPoliciesAndConditionsDialog(
-                                title: "Privacy Policy",
+                                title: S.of(context).privacyPolicy,
                                 path:
-                                    "assets/policies_and_conditions/privacy_policy.md",
+                                    myLocale.languageCode == 'en'
+                                        ? "assets/policies_and_conditions/privacy_policy.md"
+                                        : "assets/policies_and_conditions/privacy_policy_ar.md",
                               ),
                         );
                       },
@@ -105,9 +110,11 @@ class MoreViewBody extends StatelessWidget {
                           context: context,
                           builder:
                               (context) => CustomPoliciesAndConditionsDialog(
-                                title: "Terms And Conditions",
+                                title: S.of(context).termsAndConditions,
                                 path:
-                                    "assets/policies_and_conditions/terms_and_conditions.md",
+                                    myLocale.languageCode == 'en'
+                                        ? "assets/policies_and_conditions/terms_and_conditions.md"
+                                        : "assets/policies_and_conditions/terms_and_conditions_ar.md",
                               ),
                         );
                       },
