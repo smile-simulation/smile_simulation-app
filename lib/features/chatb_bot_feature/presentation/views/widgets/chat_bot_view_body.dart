@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/features/chat_bot/presentaion/views/chat_bot.dart';
+import '../../../../../generated/assets.dart';
 import 'chat_bot_text_field.dart';
 import 'chat_loading_message.dart';
 import 'chat_messaage.dart';
@@ -58,12 +59,22 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
   }
 
   @override
+  @override
   Widget build(BuildContext context) {
     return CustomBodyScreen(
       child: Column(
         children: [
           Expanded(
-            child: ListView.builder(
+            child: (_messages.isEmpty && !_isLoading)
+                ? Center(
+              child: Image.asset(
+               Assets.imagesChatAi,
+                width: 300,
+                fit: BoxFit.cover,
+
+              ),
+            )
+                : ListView.builder(
               itemCount: _messages.length + (_isLoading ? 1 : 0),
               itemBuilder: (context, index) {
                 if (_isLoading && index == _messages.length) {

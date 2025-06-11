@@ -20,6 +20,7 @@ class Assets {
   static const String imagesChageLanguge = 'assets/images/chage_languge.svg';
   static const String imagesChagePassword = 'assets/images/chage_password.svg';
   static const String imagesChat = 'assets/images/chat.svg';
+  static const String imagesChatAi = 'assets/images/chat_ai.gif';
   static const String imagesClock = 'assets/images/clock.png';
   static const String imagesComment = 'assets/images/comment.svg';
   static const String imagesContactUsIcon = 'assets/images/contact_us_icon.svg';
