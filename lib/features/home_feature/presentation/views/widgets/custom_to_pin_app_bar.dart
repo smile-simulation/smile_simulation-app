@@ -4,6 +4,7 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
 import '../../../../../core/helper_functions/custom_error.dart';
+import '../../../../chatb_bot_feature/presentation/views/chat_bot_view.dart';
 import 'clickable_search_bar.dart';
 
 class CustomToPinAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -22,14 +23,14 @@ class CustomToPinAppBar extends StatelessWidget implements PreferredSizeWidget {
           Expanded(child: ClickableSearchBar()),
           SizedBox(width: 16),
           InkWell(
-             onTap: () => comingSoon(context),
-            // onTap: () {
-            //   Navigator.of(
-            //     context,
-            //   ).push(MaterialPageRoute(builder: (context) => SearchView()));
-            // },
-            child: SvgPicture.asset(Assets.imagesSearch),
+            onTap: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => ChatBotView()));
+            },
+            child: SvgPicture.asset(Assets.imagesChat),
           ),
+
         ],
       ),
     );
