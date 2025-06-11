@@ -13,8 +13,8 @@ class EditDataButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        comingSoon(context);
-        // Navigator.pushNamed(context, EditUserAccountView.routeName);
+       // comingSoon(context);
+         Navigator.pushNamed(context, EditUserAccountView.routeName);
       },
       child: Container(
         padding: EdgeInsets.all(10),
