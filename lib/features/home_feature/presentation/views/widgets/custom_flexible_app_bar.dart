@@ -7,6 +7,7 @@ import 'package:smile_simulation/features/user_account/presentation/views/user_a
 import 'package:smile_simulation/generated/l10n.dart';
 import '../../../../../constant.dart';
 import '../../../../../core/database/cache/cache_helper.dart';
+import '../../../../../core/helper_functions/custom_error.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../chatb_bot_feature/presentation/views/chat_bot_view.dart';
 import 'custom_to_pin_app_bar.dart';
@@ -62,12 +63,13 @@ class CustomFlexibleAppBar extends StatelessWidget {
           // ),
           SizedBox(width: 12),
           InkWell(
-            onTap: () {
-              Navigator.of(
-                context,
-              ).push(MaterialPageRoute(builder: (context) => ChatBotView()));
-            },
-            child: SvgPicture.asset(Assets.imagesChat),
+            onTap: () => comingSoon(context),
+            // onTap: () {
+            //   Navigator.of(
+            //     context,
+            //   ).push(MaterialPageRoute(builder: (context) => SearchView()));
+            // },
+            child: SvgPicture.asset(Assets.imagesSearch),
           ),
         ],
       ),

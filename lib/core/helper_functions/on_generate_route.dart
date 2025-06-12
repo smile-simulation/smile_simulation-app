@@ -47,6 +47,7 @@ import '../../features/more/presentation/views/change_password_view.dart';
 import '../../features/more/presentation/views/language_view.dart';
 import '../../features/more/presentation/views/setting_view.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
+import '../../features/user_account/presentation/views/edit_profile.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -236,6 +237,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) {
           return AboutUsView();
+        },
+      );
+    case EditProfileView.routeName:
+      return MaterialPageRoute(
+        builder: (context) {
+          return EditProfileView();
         },
       );
     default:
