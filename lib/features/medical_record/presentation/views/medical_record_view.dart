@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_button.dart';
@@ -174,7 +175,6 @@ class _ExpandableTreatmentCardState extends State<ExpandableTreatmentCard> {
         color: const Color(0xFF66BAD0).withOpacity(0.1),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.greyColor),
-
       ),
       child: Column(
         children: [
@@ -372,7 +372,7 @@ class TreatmentDetailsSection extends StatelessWidget {
                         CustomButton(
                           isMinWidth: true,
                           isSecondary: true,
-                          title: "إلغاء",
+                          title: S.of(context).cancel,
                           onPressed: () {},
                         ),
                       ],

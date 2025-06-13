@@ -33,9 +33,9 @@ class _VisitingDatesViewState extends State<VisitingDatesView> {
   Future<void> _scheduleNotification(VisitReminder reminder) async {
     log('Attempting to schedule notification for visit: ${reminder.toJson()}');
     if (reminder.name.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('يرجى إدخال اسم الزيارة')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('يرجى إدخال اسم الزيارة')));
       return;
     }
     if (reminder.date.isEmpty || reminder.time.isEmpty) {
@@ -66,24 +66,26 @@ class _VisitingDatesViewState extends State<VisitingDatesView> {
           scheduledDate: scheduledDate,
           payload: reminder.id,
         );
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('تم جدولة التذكير بنجاح')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text('تم جدولة التذكير بنجاح')));
       } else {
         log('Scheduled date is in the past: $scheduledDate');
       }
     } catch (e) {
       log('Error scheduling notification: $e');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('فشل في جدولة التذكير: $e')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('فشل في جدولة التذكير: $e')));
     }
   }
 
   Future<void> _cancelNotifications(String reminderId) async {
     log('Canceling notifications for visit ID: $reminderId');
     try {
-      await LocalNotificationService.cancelNotification(reminderId.hashCode.abs());
+      await LocalNotificationService.cancelNotification(
+        reminderId.hashCode.abs(),
+      );
     } catch (e) {
       log('Error canceling notifications: $e');
     }
@@ -163,7 +165,8 @@ class _VisitingDatesViewState extends State<VisitingDatesView> {
   Future<void> clearAllReminders() async {
     log('Clearing all visit reminders');
     for (var reminder in reminders) {
-      if (reminder.imagePath != null && File(reminder.imagePath!).existsSync()) {
+      if (reminder.imagePath != null &&
+          File(reminder.imagePath!).existsSync()) {
         try {
           await File(reminder.imagePath!).delete();
           log('Deleted image: ${reminder.imagePath}');
@@ -183,20 +186,22 @@ class _VisitingDatesViewState extends State<VisitingDatesView> {
   @override
   Widget build(BuildContext context) {
     log('Building VisitingDatesView with ${reminders.length} reminders');
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        backgroundColor: AppColors.greyLightColor,
-        appBar: customAppbar(context, title: S.of(context).visitSchedules, isBack: true),
-        body: reminders.isEmpty
-            ? VisitingDatesViewBodyIfFirstTime(onAddReminder: addReminder)
-            : VisitingDatesViewBodyIfNotFirstTime(
+    return Scaffold(
+      backgroundColor: AppColors.greyLightColor,
+      appBar: customAppbar(
+        context,
+        title: S.of(context).visitSchedules,
+        isBack: true,
+      ),
+      body:
+          reminders.isEmpty
+              ? VisitingDatesViewBodyIfFirstTime(onAddReminder: addReminder)
+              : VisitingDatesViewBodyIfNotFirstTime(
                 reminders: reminders,
                 onUpdateReminder: updateReminder,
                 onDeleteReminder: deleteReminder,
                 onClearAllReminders: clearAllReminders,
               ),
-      ),
     );
   }
 }

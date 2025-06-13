@@ -9,20 +9,23 @@ class ChatBotView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primaryColor,
-      appBar: AppBar(
-        title: Text(
-          '${S.of(context).smileChat}، ',
-          overflow: TextOverflow.ellipsis,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        backgroundColor: AppColors.primaryColor,
+        appBar: AppBar(
+          title: Text(
+            '${S.of(context).smileChat}، ',
+            overflow: TextOverflow.ellipsis,
 
-          style: AppTextStyles.headline2(context),
+            style: AppTextStyles.headline2(context),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          foregroundColor: AppColors.whiteColor,
         ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        foregroundColor: AppColors.whiteColor,
+        body: ChatBotViewBody(),
       ),
-      body: ChatBotViewBody(),
     );
   }
 }

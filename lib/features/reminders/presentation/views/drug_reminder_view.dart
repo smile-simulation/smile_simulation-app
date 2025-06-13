@@ -234,21 +234,18 @@ class _DrugReminderViewState extends State<DrugReminderView> {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        backgroundColor: AppColors.greyLightColor,
-        appBar: customAppbar(context, title: 'منبهات الدواء', isBack: true),
-        body:
-            reminders.isEmpty
-                ? DrugReminderViewBodyIfFirstTime(onAddReminder: addReminder)
-                : DrugReminderViewBodyIfNotFirstTime(
-                  reminders: reminders,
-                  onUpdateReminder: updateReminder,
-                  onDeleteReminder: deleteReminder,
-                  onClearAllReminders: clearAllReminders,
-                ),
-      ),
+    return Scaffold(
+      backgroundColor: AppColors.greyLightColor,
+      appBar: customAppbar(context, title: 'منبهات الدواء', isBack: true),
+      body:
+          reminders.isEmpty
+              ? DrugReminderViewBodyIfFirstTime(onAddReminder: addReminder)
+              : DrugReminderViewBodyIfNotFirstTime(
+                reminders: reminders,
+                onUpdateReminder: updateReminder,
+                onDeleteReminder: deleteReminder,
+                onClearAllReminders: clearAllReminders,
+              ),
     );
   }
 }

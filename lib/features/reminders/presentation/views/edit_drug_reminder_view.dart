@@ -10,6 +10,7 @@ import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import 'package:smile_simulation/features/reminders/data/models/drug_reminder.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/camera_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_drop_down_container.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 import 'package:uuid/uuid.dart';
 
 class EditDrugReminderView extends StatelessWidget {
@@ -19,12 +20,13 @@ class EditDrugReminderView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: customAppbar(context, title: 'منبه الدواء', isBack: true),
-        body: EditDrugReminderViewBody(reminder: reminder),
+    return Scaffold(
+      appBar: customAppbar(
+        context,
+        title: S.of(context).medicineReminder,
+        isBack: true,
       ),
+      body: EditDrugReminderViewBody(reminder: reminder),
     );
   }
 }
@@ -35,7 +37,8 @@ class EditDrugReminderViewBody extends StatefulWidget {
   const EditDrugReminderViewBody({super.key, this.reminder});
 
   @override
-  State<EditDrugReminderViewBody> createState() => _EditDrugReminderViewBodyState();
+  State<EditDrugReminderViewBody> createState() =>
+      _EditDrugReminderViewBodyState();
 }
 
 class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
@@ -47,20 +50,25 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
   late String? stopDate;
   late String? imagePath;
   late List<bool> daysSelected;
-  final List<String> dosageItems = ['معلقة', 'حباية', 'نص حباية'];
-  final List<String> stopDateItems = ['دواء دائم', 'تاريخ معين'];
 
   @override
   void initState() {
     super.initState();
-    drugNameController = TextEditingController(text: widget.reminder?.drugName ?? '');
-    frequencyController = TextEditingController(text: widget.reminder?.frequency ?? '');
+    drugNameController = TextEditingController(
+      text: widget.reminder?.drugName ?? '',
+    );
+    frequencyController = TextEditingController(
+      text: widget.reminder?.frequency ?? '',
+    );
     timeController = TextEditingController(text: widget.reminder?.time ?? '');
-    mealTimingController = TextEditingController(text: widget.reminder?.mealTiming ?? '');
+    mealTimingController = TextEditingController(
+      text: widget.reminder?.mealTiming ?? '',
+    );
     dosage = widget.reminder?.dosage ?? 'معلقة';
     stopDate = widget.reminder?.stopDate ?? 'دواء دائم';
     imagePath = widget.reminder?.imagePath;
-    daysSelected = widget.reminder?.daysSelected ?? List.generate(7, (_) => false);
+    daysSelected =
+        widget.reminder?.daysSelected ?? List.generate(7, (_) => false);
 
     // Validate initial time
     if (timeController.text.isNotEmpty && !_isValidTime(timeController.text)) {
@@ -81,23 +89,23 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
   Future<bool?> _showDeleteConfirmationDialog(BuildContext context) {
     return showDialog<bool>(
       context: context,
-      builder: (context) => Directionality(
-        textDirection: TextDirection.rtl,
-        child: AlertDialog(
-          title: const Text('تأكيد الحذف'),
-          content: Text('هل أنت متأكد من حذف تذكير الدواء "${drugNameController.text}"؟'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('إلغاء'),
+      builder:
+          (context) => AlertDialog(
+            title: const Text('تأكيد الحذف'),
+            content: Text(
+              'هل أنت متأكد من حذف تذكير الدواء "${drugNameController.text}"؟',
             ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child: const Text('حذف', style: TextStyle(color: Colors.red)),
-            ),
-          ],
-        ),
-      ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(S.of(context).cancel),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text('حذف', style: TextStyle(color: Colors.red)),
+              ),
+            ],
+          ),
     );
   }
 
@@ -125,17 +133,21 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
       initialTime: initialTime,
-      builder: (context, child) => Directionality(
-        textDirection: TextDirection.rtl,
-        child: MediaQuery(
-          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
-          child: child!,
-        ),
-      ),
+      builder:
+          (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+            child: child!,
+          ),
     );
     if (picked != null && mounted) {
       final now = DateTime.now();
-      final selectedTime = DateTime(now.year, now.month, now.day, picked.hour, picked.minute);
+      final selectedTime = DateTime(
+        now.year,
+        now.month,
+        now.day,
+        picked.hour,
+        picked.minute,
+      );
       final formattedTime = DateFormat.jm('ar').format(selectedTime);
       setState(() {
         timeController.text = formattedTime;
@@ -167,6 +179,15 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+    final List<String> dosageItems = [
+      S.of(context).spoon,
+      S.of(context).pill,
+      S.of(context).halfPill,
+    ];
+    final List<String> stopDateItems = [
+      S.of(context).permanentMedicine,
+      S.of(context).specificDate,
+    ];
 
     return Column(
       children: [
@@ -184,7 +205,10 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                       onImagePicked: (path) => setState(() => imagePath = path),
                     ),
                     const SizedBox(height: 18),
-                    Text('التكرار', style: AppTextStyles.subTitle2(context)),
+                    Text(
+                      S.of(context).frequency,
+                      style: AppTextStyles.subTitle2(context),
+                    ),
                     const SizedBox(height: 8),
                     CustomTextField(
                       hintText: '3 مرات يوميا',
@@ -199,13 +223,20 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                     CustomDropdownContainer(
                       hint: 'الكمية',
                       value: dosage,
-                      items: dosageItems
-                          .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-                          .toList(),
+                      items:
+                          dosageItems
+                              .map(
+                                (e) =>
+                                    DropdownMenuItem(value: e, child: Text(e)),
+                              )
+                              .toList(),
                       onChanged: (val) => setState(() => dosage = val),
                     ),
                     const SizedBox(height: 18),
-                    Text('وقت التنبيه', style: AppTextStyles.subTitle2(context)),
+                    Text(
+                      'وقت التنبيه',
+                      style: AppTextStyles.subTitle2(context),
+                    ),
                     const SizedBox(height: 8),
                     Container(
                       height: 50,
@@ -225,7 +256,10 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                             onTap: () => _selectTime(context),
                             decoration: InputDecoration(
                               labelText: 'الوقت',
-                              labelStyle: const TextStyle(color: Colors.grey, fontSize: 14),
+                              labelStyle: const TextStyle(
+                                color: Colors.grey,
+                                fontSize: 14,
+                              ),
                               border: InputBorder.none,
                               suffixIcon: Image.asset(
                                 'assets/images/clock.png',
@@ -234,7 +268,10 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                                 semanticLabel: 'اختر الوقت',
                               ),
                             ),
-                            style: const TextStyle(height: 1.3, color: Colors.grey),
+                            style: const TextStyle(
+                              height: 1.3,
+                              color: Colors.grey,
+                            ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'الرجاء إدخال الوقت';
@@ -249,23 +286,33 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                       ),
                     ),
                     const SizedBox(height: 18),
-                    Text('وقت تناول الدواء:', style: AppTextStyles.subTitle2(context)),
+                    Text(
+                      '${S.of(context).medicineTime}:',
+                      style: AppTextStyles.subTitle2(context),
+                    ),
                     const SizedBox(height: 8),
                     CustomTextField(
-                      hintText: 'قبل تناول الطعام',
+                      hintText: S.of(context).beforeMeal,
                       keyboardType: TextInputType.text,
                       controller: mealTimingController,
-                      fillColor: Colors.white, 
+                      fillColor: Colors.white,
                     ),
                     const SizedBox(height: 18),
-                    Text('تاريخ التوقف عن الدواء', style: AppTextStyles.subTitle2(context)),
+                    Text(
+                      'تاريخ التوقف عن الدواء',
+                      style: AppTextStyles.subTitle2(context),
+                    ),
                     const SizedBox(height: 8),
                     CustomDropdownContainer(
                       hint: 'دواء دائم',
                       value: stopDate,
-                      items: stopDateItems
-                          .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-                          .toList(),
+                      items:
+                          stopDateItems
+                              .map(
+                                (e) =>
+                                    DropdownMenuItem(value: e, child: Text(e)),
+                              )
+                              .toList(),
                       onChanged: (val) => setState(() => stopDate = val),
                     ),
                     const SizedBox(height: 24),
@@ -274,16 +321,21 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                       children: [
                         Expanded(
                           child: CustomButton(
-                            title: 'تعديل البيانات',
+                            title: S.of(context).edit,
                             isMinWidth: true,
                             onPressed: () async {
-                              if (timeController.text.isEmpty || !_isValidTime(timeController.text)) {
+                              if (timeController.text.isEmpty ||
+                                  !_isValidTime(timeController.text)) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text('الرجاء إدخال وقت صحيح')),
+                                  const SnackBar(
+                                    content: Text('الرجاء إدخال وقت صحيح'),
+                                  ),
                                 );
                                 return;
                               }
-                              final savedImagePath = await _saveImage(imagePath);
+                              final savedImagePath = await _saveImage(
+                                imagePath,
+                              );
                               final updatedReminder = DrugReminder(
                                 id: widget.reminder?.id ?? const Uuid().v4(),
                                 drugName: drugNameController.text,
@@ -302,12 +354,15 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
                         const SizedBox(width: 16),
                         Expanded(
                           child: CustomButton(
-                            title: 'حذف الدواء',
+                            title: S.of(context).deleteMedicine,
                             isMinWidth: true,
                             onPressed: () async {
-                              final confirm = await _showDeleteConfirmationDialog(context);
+                              final confirm =
+                                  await _showDeleteConfirmationDialog(context);
                               if (confirm == true && widget.reminder != null) {
-                                Navigator.of(context).pop({'delete': widget.reminder!.id});
+                                Navigator.of(
+                                  context,
+                                ).pop({'delete': widget.reminder!.id});
                               }
                             },
                           ),

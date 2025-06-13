@@ -9,7 +9,7 @@ import 'package:smile_simulation/features/reminders/presentation/views/add_new_d
 import 'package:smile_simulation/features/reminders/presentation/views/edit_drug_reminder_view.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custom_container_for_reminders_features.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_reminder_button.dart';
-
+import 'package:smile_simulation/generated/l10n.dart';
 
 class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
   final List<DrugReminder> reminders;
@@ -25,54 +25,55 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
     required this.onClearAllReminders,
   });
 
-  Future<bool?> _showDeleteConfirmationDialog(BuildContext context, String drugName) {
+  Future<bool?> _showDeleteConfirmationDialog(
+    BuildContext context,
+    String drugName,
+  ) {
     return showDialog<bool>(
       context: context,
-      builder: (context) => Directionality(
-        textDirection: TextDirection.rtl,
-        child: AlertDialog(
-          title: const Text('تأكيد الحذف'),
-          content: Text('هل أنت متأكد من حذف تذكير الدواء "${drugName.isEmpty ? 'غير مسمى' : drugName}"؟'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('إلغاء'),
+      builder:
+          (context) => AlertDialog(
+            title: const Text('تأكيد الحذف'),
+            content: Text(
+              'هل أنت متأكد من حذف تذكير الدواء "${drugName.isEmpty ? 'غير مسمى' : drugName}"؟',
             ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child: const Text('حذف', style: TextStyle(color: Colors.red)),
-            ),
-          ],
-        ),
-      ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(S.of(context).cancel),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text('حذف', style: TextStyle(color: Colors.red)),
+              ),
+            ],
+          ),
     );
   }
 
   Future<bool?> _showClearAllConfirmationDialog(BuildContext context) {
     return showDialog<bool>(
       context: context,
-      builder: (context) => Directionality(
-        textDirection: TextDirection.rtl,
-        child:
-
-
-
-
-        AlertDialog(
-          title: const Text('تأكيد حذف جميع التذكيرات'),
-          content: const Text('هل أنت متأكد من حذف جميع تذكيرات الأدوية؟ سيتم حذف جميع الصور المرتبطة أيضًا.'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('إلغاء'),
+      builder:
+          (context) => AlertDialog(
+            title: const Text('تأكيد حذف جميع التذكيرات'),
+            content: const Text(
+              'هل أنت متأكد من حذف جميع تذكيرات الأدوية؟ سيتم حذف جميع الصور المرتبطة أيضًا.',
             ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child: const Text('حذف الكل', style: TextStyle(color: Colors.red)),
-            ),
-          ],
-        ),
-      ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(S.of(context).cancel),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text(
+                  'حذف الكل',
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
+            ],
+          ),
     );
   }
 
@@ -84,12 +85,15 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 30.0,
+                vertical: 8,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'منبهات الأدوية',
+                    S.of(context).medicineReminders,
                     style: AppTextStyles.headline2(context),
                   ),
                   CustomButton(
@@ -97,14 +101,15 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
                     isGreyBackground: true,
                     isExtraMinWidth: true,
                     onPressed: () async {
-                      final confirm = await _showClearAllConfirmationDialog(context);
+                      final confirm = await _showClearAllConfirmationDialog(
+                        context,
+                      );
                       // final confirm = await customWarning(
                       //   context,
                       //   massage: '',
                       //
                       //
                       // );
-
 
                       if (confirm == true) {
                         onClearAllReminders();
@@ -120,18 +125,24 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final reminder = reminders[index];
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 8,
+                    ),
                     child: GestureDetector(
                       onTap: () async {
                         final result = await Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => EditDrugReminderView(reminder: reminder),
+                            builder:
+                                (context) =>
+                                    EditDrugReminderView(reminder: reminder),
                           ),
                         );
                         if (result != null) {
                           if (result is DrugReminder) {
                             onUpdateReminder(result);
-                          } else if (result is Map && result.containsKey('delete')) {
+                          } else if (result is Map &&
+                              result.containsKey('delete')) {
                             onDeleteReminder(result['delete']);
                           }
                         }
@@ -143,31 +154,48 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
                             Row(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                                  child: reminder.imagePath != null &&
-                                          File(reminder.imagePath!).existsSync()
-                                      ? Image.file(
-                                          File(reminder.imagePath!),
-                                          width: 50,
-                                          height: 50,
-                                          fit: BoxFit.cover,
-                                        )
-                                      : Container(
-                                          width: 85,
-                                          height: 85,
-                                          color: Colors.grey.shade200,
-                                          child: const Icon(Icons.image, color: Colors.grey),
-                                        ),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 8,
+                                  ),
+                                  child:
+                                      reminder.imagePath != null &&
+                                              File(
+                                                reminder.imagePath!,
+                                              ).existsSync()
+                                          ? Image.file(
+                                            File(reminder.imagePath!),
+                                            width: 50,
+                                            height: 50,
+                                            fit: BoxFit.cover,
+                                          )
+                                          : Container(
+                                            width: 85,
+                                            height: 85,
+                                            color: Colors.grey.shade200,
+                                            child: const Icon(
+                                              Icons.image,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 16),
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 16,
+                                  ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        reminder.drugName.isEmpty ? 'دواء غير مسمى' : reminder.drugName,
-                                        style: AppTextStyles.subTitle1(context)
-                                            .copyWith(color: AppColors.primaryColor),
+                                        reminder.drugName.isEmpty
+                                            ? 'دواء غير مسمى'
+                                            : reminder.drugName,
+                                        style: AppTextStyles.subTitle1(
+                                          context,
+                                        ).copyWith(
+                                          color: AppColors.primaryColor,
+                                        ),
                                       ),
                                       const SizedBox(height: 18),
                                       Text(
@@ -178,13 +206,21 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
                                       Row(
                                         children: [
                                           Text(
-                                            reminder.mealTiming.isEmpty ? 'غير محدد' : reminder.mealTiming,
-                                            style: AppTextStyles.subTitle2(context),
+                                            reminder.mealTiming.isEmpty
+                                                ? 'غير محدد'
+                                                : reminder.mealTiming,
+                                            style: AppTextStyles.subTitle2(
+                                              context,
+                                            ),
                                           ),
                                           const SizedBox(width: 15),
                                           Text(
-                                            reminder.time.isEmpty ? 'غير محدد' : reminder.time,
-                                            style: AppTextStyles.subTitle2(context),
+                                            reminder.time.isEmpty
+                                                ? 'غير محدد'
+                                                : reminder.time,
+                                            style: AppTextStyles.subTitle2(
+                                              context,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -194,9 +230,17 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
                               ],
                             ),
                             IconButton(
-                              icon: const Icon(Icons.delete, color: Colors.red, size: 24),
+                              icon: const Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                                size: 24,
+                              ),
                               onPressed: () async {
-                                final confirm = await _showDeleteConfirmationDialog(context, reminder.drugName);
+                                final confirm =
+                                    await _showDeleteConfirmationDialog(
+                                      context,
+                                      reminder.drugName,
+                                    );
                                 if (confirm == true) {
                                   onDeleteReminder(reminder.id);
                                 }
@@ -212,7 +256,7 @@ class DrugReminderViewBodyIfNotFirstTime extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             CustomeReminderButton(
-              text: 'إضافة تذكير جديد',
+              text: S.of(context).addReminder,
               onPressed: () async {
                 final result = await Navigator.of(context).push(
                   MaterialPageRoute(

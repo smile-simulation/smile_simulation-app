@@ -102,7 +102,7 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
                   ),
                 ],
                 border: Border.all(color: Colors.transparent),
-              ),
+              ), 
               child: ChatBotTextField(
                 controller: _controller,
                 onSendMessage: _sendMessage,
