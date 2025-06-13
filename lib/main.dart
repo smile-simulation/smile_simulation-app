@@ -138,7 +138,9 @@ class SmileSimulation extends StatelessWidget {
       valueListenable: isArabic,
       builder: (context, locale, _) {
         return MaterialApp(
+
           theme: ThemeData(
+          
             fontFamily: 'Cairo',
             primaryColor: AppColors.primaryColor,
             scaffoldBackgroundColor: AppColors.whiteColor,

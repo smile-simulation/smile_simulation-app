@@ -4,15 +4,14 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 class ChatBotTextField extends StatelessWidget {
   final TextEditingController controller;
   final Function() onSendMessage;
-  ChatBotTextField({
-    required this.controller,
-    required this.onSendMessage,
-  });
+  ChatBotTextField({required this.controller, required this.onSendMessage});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      cursorColor: AppColors.primaryColor,
+      
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
