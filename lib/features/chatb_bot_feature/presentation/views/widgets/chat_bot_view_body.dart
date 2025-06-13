@@ -7,7 +7,6 @@ import 'chat_bot_text_field.dart';
 import 'chat_loading_message.dart';
 import 'chat_messaage.dart';
 
-
 class ChatBotViewBody extends StatefulWidget {
   @override
   _ChatBotViewBodyState createState() => _ChatBotViewBodyState();
@@ -16,8 +15,17 @@ class ChatBotViewBody extends StatefulWidget {
 class _ChatBotViewBodyState extends State<ChatBotViewBody> {
   final TextEditingController _controller = TextEditingController();
   final List<ChatMessage> _messages = [];
-  final ChatbotService _chatbotService = ChatbotService(); // Initialize ChatbotService
+  final ChatbotService _chatbotService =
+      ChatbotService(); // Initialize ChatbotService
   bool _isLoading = false;
+  final ScrollController _scrollController = ScrollController();
+  void _scrollToEnd() {
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.easeOut,
+    );
+  }
 
   @override
   void initState() {
@@ -43,6 +51,7 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
       setState(() {
         _messages.add(ChatMessage(text: response, isUserMessage: false));
         _isLoading = false;
+        
       });
     } catch (e) {
       setState(() {
@@ -65,27 +74,28 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
       child: Column(
         children: [
           Expanded(
-            child: (_messages.isEmpty && !_isLoading)
-                ? Center(
-              child: Image.asset(
-               Assets.imagesChatAi,
-                width: 300,
-                fit: BoxFit.cover,
-
-              ),
-            )
-                : ListView.builder(
-              itemCount: _messages.length + (_isLoading ? 1 : 0),
-              itemBuilder: (context, index) {
-                if (_isLoading && index == _messages.length) {
-                  return ChatLoadingMessage();
-                }
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: _messages[index],
-                );
-              },
-            ),
+            child:
+                (_messages.isEmpty && !_isLoading)
+                    ? Center(
+                      child: Image.asset(
+                        Assets.imagesChatAi,
+                        width: 300,
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                    : ListView.builder(
+                      controller: _scrollController,
+                      itemCount: _messages.length + (_isLoading ? 1 : 0),
+                      itemBuilder: (context, index) {
+                        if (_isLoading && index == _messages.length) {
+                          return ChatLoadingMessage();
+                        }
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          child: _messages[index],
+                        );
+                      },
+                    ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -102,10 +112,11 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
                   ),
                 ],
                 border: Border.all(color: Colors.transparent),
-              ), 
+              ),
               child: ChatBotTextField(
                 controller: _controller,
                 onSendMessage: _sendMessage,
+                scrollToEnd: _scrollToEnd,
               ),
             ),
           ),
