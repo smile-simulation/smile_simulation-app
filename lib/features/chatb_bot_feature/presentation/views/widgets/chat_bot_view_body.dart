@@ -27,13 +27,14 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
     );
   }
 
+
   @override
   void initState() {
     super.initState();
     _chatbotService.initialize(); // Initialize ChatbotService
   }
 
-  void _sendMessage() async {
+  Future<void> _sendMessage() async {
     final message = _controller.text;
     if (message.isEmpty) return;
 
@@ -41,6 +42,7 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
       _messages.add(ChatMessage(text: message, isUserMessage: true));
       _isLoading = true; // Show loading indicator
     });
+    WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToEnd());
 
     _controller.clear();
 
@@ -51,7 +53,6 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
       setState(() {
         _messages.add(ChatMessage(text: response, isUserMessage: false));
         _isLoading = false;
-        
       });
     } catch (e) {
       setState(() {
@@ -68,55 +69,72 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
   }
 
   @override
-  @override
   Widget build(BuildContext context) {
     return CustomBodyScreen(
-      child: Column(
+      child: Stack(
         children: [
-          Expanded(
-            child:
-                (_messages.isEmpty && !_isLoading)
-                    ? Center(
-                      child: Image.asset(
-                        Assets.imagesChatAi,
-                        width: 300,
-                        fit: BoxFit.cover,
-                      ),
-                    )
-                    : ListView.builder(
-                      controller: _scrollController,
-                      itemCount: _messages.length + (_isLoading ? 1 : 0),
-                      itemBuilder: (context, index) {
-                        if (_isLoading && index == _messages.length) {
-                          return ChatLoadingMessage();
-                        }
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: _messages[index],
-                        );
-                      },
-                    ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.lightGreyColor,
-                    blurRadius: 10,
-                    spreadRadius: 3,
-                    offset: Offset(5, 5),
-                  ),
-                ],
-                border: Border.all(color: Colors.transparent),
+          Column(
+            children: [
+              Expanded(
+                child:
+                    (_messages.isEmpty && !_isLoading)
+                        ? Center(
+                          child: Image.asset(
+                            Assets.imagesChatAi,
+                            width: 300,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                        : ListView.builder(
+                          controller: _scrollController,
+                          itemCount: _messages.length + (_isLoading ? 1 : 0),
+                          itemBuilder: (context, index) {
+                            if (_isLoading && index == _messages.length) {
+                              return ChatLoadingMessage();
+                            }
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: _messages[index],
+                            );
+                          },
+                        ),
               ),
-              child: ChatBotTextField(
-                controller: _controller,
-                onSendMessage: _sendMessage,
-                scrollToEnd: _scrollToEnd,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.lightGreyColor,
+                        blurRadius: 10,
+                        spreadRadius: 3,
+                        offset: Offset(5, 5),
+                      ),
+                    ],
+                    border: Border.all(color: Colors.transparent),
+                  ),
+                  child: ChatBotTextField(
+                    controller: _controller,
+                    onSendMessage: _sendMessage,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          // ✅ زرار Scroll للأسفل
+          Visibility(
+            visible: _messages.isNotEmpty,
+            child: Positioned(
+              bottom: 70,
+              right: 16,
+              child: FloatingActionButton(
+                mini: true,
+                backgroundColor: AppColors.primaryColor, // أو اللون اللي تفضله
+                onPressed: _scrollToEnd,
+                child: Icon(Icons.arrow_downward, color: Colors.white),
               ),
             ),
           ),

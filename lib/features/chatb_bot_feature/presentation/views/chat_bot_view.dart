@@ -15,7 +15,7 @@ class ChatBotView extends StatelessWidget {
         backgroundColor: AppColors.primaryColor,
         appBar: AppBar(
           title: Text(
-            '${S.of(context).smileChat}، ',
+            'Smile Bot',
             overflow: TextOverflow.ellipsis,
 
             style: AppTextStyles.headline2(context),
