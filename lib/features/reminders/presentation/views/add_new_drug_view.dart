@@ -13,6 +13,7 @@ import 'package:smile_simulation/features/reminders/presentation/views/widgets/d
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/medicine_time_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/repeat_day_section.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/time_and_quantity_section.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 import 'package:uuid/uuid.dart';
 
 class AddNewDrugView extends StatelessWidget {
@@ -21,12 +22,13 @@ class AddNewDrugView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: customAppbar(context, title: 'إضافة دواء جديد', isBack: true),
-        body: AddNewDrugViewBody(onAddReminder: onAddReminder),
+    return Scaffold(
+      appBar: customAppbar(
+        context,
+        title: S.of(context).addMedicine,
+        isBack: true,
       ),
+      body: AddNewDrugViewBody(onAddReminder: onAddReminder),
     );
   }
 }
@@ -83,9 +85,9 @@ class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
       },
     );
     if (selected != null) {
-      final formattedTime = DateFormat.jm('ar').format(
-        DateTime(2025, 1, 1, selected.hour, selected.minute),
-      );
+      final formattedTime = DateFormat.jm(
+        'ar',
+      ).format(DateTime(2025, 1, 1, selected.hour, selected.minute));
       setState(() {
         timeController.text = formattedTime;
       });
@@ -114,10 +116,10 @@ class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 15),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Text(
-                  "اضف الادوية التي تستخدمها الي تنبيهانك الطبية حتي نتمكن من تذكيرك بها اوقاتها المحددة",
+                  S.of(context).addMedicinePrompt,
                   style: TextStyle(fontSize: 14),
                 ),
               ),
@@ -129,10 +131,10 @@ class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
               MedicineTimeSection(
                 selectedTime: selectedTime,
                 onChanged: (val) => setState(() => selectedTime = val),
-                items: const [
-                  "قبل تناول الطعام",
-                  "بعد تناول الطعام",
-                  "أثناء تناول الطعام",
+                items: [
+                  S.of(context).beforeMeal,
+                  S.of(context).afterMeal,
+                  S.of(context).duringMeal,
                 ],
               ),
               const SizedBox(height: 16),
@@ -183,7 +185,9 @@ class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
                     }
                     if (daysSelected.every((selected) => !selected)) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('يرجى اختيار يوم واحد على الأقل')),
+                        const SnackBar(
+                          content: Text('يرجى اختيار يوم واحد على الأقل'),
+                        ),
                       );
                       return;
                     }
@@ -193,7 +197,7 @@ class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
                       id: const Uuid().v4(),
                       drugName: medicineNameController.text,
                       frequency: frequencyController.text,
-                      dosage: dosage ?? 'معلقة',
+                      dosage: dosage ?? S.of(context).spoon,
                       time: timeController.text,
                       mealTiming: selectedTime ?? 'قبل تناول الطعام',
                       stopDate: stopDate ?? 'دواء دائم',

@@ -4,6 +4,8 @@ import 'package:intl/intl.dart' show DateFormat;
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/custome_drop_down_container.dart';
 import 'dart:developer';
 
+import 'package:smile_simulation/generated/l10n.dart';
+
 class TimeAndQuantitySection extends StatefulWidget {
   final TextEditingController frequencyController;
   final TextEditingController timeController;
@@ -27,28 +29,24 @@ class TimeAndQuantitySection extends StatefulWidget {
 }
 
 class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
-  final List<String> items = ['معلقة', 'حباية', 'نص حباية'];
-
   Future<bool?> _showDeleteConfirmationDialog(BuildContext context) {
     return showDialog<bool>(
       context: context,
-      builder: (context) => Directionality(
-        textDirection: TextDirection.rtl,
-        child: AlertDialog(
-          title: const Text('تأكيد الحذف'),
-          content: const Text('هل أنت متأكد من حذف هذا التذكير؟'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('إلغاء'),
-            ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child: const Text('حذف', style: TextStyle(color: Colors.red)),
-            ),
-          ],
-        ),
-      ),
+      builder:
+          (context) => AlertDialog(
+            title: const Text('تأكيد الحذف'),
+            content: const Text('هل أنت متأكد من حذف هذا التذكير؟'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(S.of(context).cancel),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text('حذف', style: TextStyle(color: Colors.red)),
+              ),
+            ],
+          ),
     );
   }
 
@@ -69,6 +67,11 @@ class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> items = [
+      S.of(context).spoon,
+      S.of(context).pill,
+      S.of(context).halfPill,
+    ];
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Row(
@@ -105,7 +108,10 @@ class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
                           onTap: widget.onTimeTap,
                           decoration: InputDecoration(
                             labelText: 'الوقت',
-                            labelStyle: const TextStyle(color: Colors.grey, fontSize: 14),
+                            labelStyle: const TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14,
+                            ),
                             border: InputBorder.none,
                             suffixIcon: Image.asset(
                               'assets/images/clock.png',
@@ -114,7 +120,10 @@ class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
                               semanticLabel: 'اختر الوقت',
                             ),
                           ),
-                          style: const TextStyle(height: 1.3, color: Colors.grey),
+                          style: const TextStyle(
+                            height: 1.3,
+                            color: Colors.grey,
+                          ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'الرجاء إدخال الوقت';
@@ -149,9 +158,15 @@ class _TimeAndQuantitySectionState extends State<TimeAndQuantitySection> {
                   CustomDropdownContainer(
                     hint: 'الكمية',
                     value: widget.dosage,
-                    items: items
-                        .map((e) => DropdownMenuItem<String>(value: e, child: Text(e)))
-                        .toList(),
+                    items:
+                        items
+                            .map(
+                              (e) => DropdownMenuItem<String>(
+                                value: e,
+                                child: Text(e),
+                              ),
+                            )
+                            .toList(),
                     onChanged: widget.onDosageChanged,
                   ),
                 ],

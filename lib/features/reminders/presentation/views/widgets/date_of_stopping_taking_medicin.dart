@@ -19,10 +19,12 @@ class DateOfStoppingTakingMedicin extends StatefulWidget {
 
 class _DateOfStoppingTakingMedicinState
     extends State<DateOfStoppingTakingMedicin> {
-  final List<String> items = ['دواء دائم', 'تاريخ معين'];
-
   @override
   Widget build(BuildContext context) {
+    final List<String> items = [
+      S.of(context).permanentMedicine,
+      S.of(context).specificDate,
+    ];
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -37,7 +39,10 @@ class _DateOfStoppingTakingMedicinState
           CustomDropdownContainer(
             hint: "دواء دائم",
             value: widget.stopDate,
-            items: items.map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
+            items:
+                items
+                    .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+                    .toList(),
             onChanged: widget.onStopDateChanged,
           ),
         ],

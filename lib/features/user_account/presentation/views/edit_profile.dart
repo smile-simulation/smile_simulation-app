@@ -14,6 +14,7 @@ class EditProfileView extends StatelessWidget {
   const EditProfileView({Key? key}) : super(key: key);
     static const  routeName = 'edit_profile_view';
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
