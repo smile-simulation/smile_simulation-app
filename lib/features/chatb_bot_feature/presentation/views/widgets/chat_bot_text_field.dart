@@ -3,14 +3,15 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 
 class ChatBotTextField extends StatelessWidget {
   final TextEditingController controller;
-  final VoidCallback onSendMessage;
-
+  final Function() onSendMessage;
   ChatBotTextField({required this.controller, required this.onSendMessage});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      cursorColor: AppColors.primaryColor,
+      
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
@@ -24,7 +25,9 @@ class ChatBotTextField extends StatelessWidget {
         hintStyle: TextStyle(color: AppColors.greyColor),
         suffixIcon: IconButton(
           icon: Icon(Icons.send, color: AppColors.primaryColor),
-          onPressed: onSendMessage,
+          onPressed: () async {
+            await onSendMessage();
+          },
         ),
       ),
     );

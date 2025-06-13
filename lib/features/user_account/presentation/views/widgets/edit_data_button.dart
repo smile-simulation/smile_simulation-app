@@ -16,6 +16,7 @@ class EditDataButton extends StatelessWidget {
       onTap: () {
        // comingSoon(context);
          Navigator.pushNamed(context, EditProfileView.routeName);
+
       },
       child: Container(
         padding: EdgeInsets.all(10),

@@ -33,51 +33,55 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
     extends State<VisitingDatesViewBodyIfNotFirstTime> {
   bool isEditMode = false;
 
-  Future<bool?> _showDeleteConfirmationDialog(BuildContext context, String name) {
+  Future<bool?> _showDeleteConfirmationDialog(
+    BuildContext context,
+    String name,
+  ) {
     return showDialog<bool>(
       context: context,
-      builder: (context) => Directionality(
-        textDirection: TextDirection.rtl,
-        child: AlertDialog(
-          title: const Text('تأكيد الحذف'),
-          content: Text(
-            'هل أنت متأكد من حذف تذكير الزيارة "${name.isEmpty ? 'غير مسمى' : name}"؟',
+      builder:
+          (context) => AlertDialog(
+            title: const Text('تأكيد الحذف'),
+            content: Text(
+              'هل أنت متأكد من حذف تذكير الزيارة "${name.isEmpty ? 'غير مسمى' : name}"؟',
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(S.of(context).cancel),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text('حذف', style: TextStyle(color: Colors.red)),
+              ),
+            ],
           ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('إلغاء'),
-            ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child: const Text('حذف', style: TextStyle(color: Colors.red)),
-            ),
-          ],
-        ),
-      ),
     );
   }
 
   Future<bool?> _showDeleteAllConfirmationDialog(BuildContext context) {
     return showDialog<bool>(
       context: context,
-      builder: (context) => Directionality(
-        textDirection: TextDirection.rtl,
-        child: AlertDialog(
-          title: const Text('تأكيد حذف جميع التذكيرات'),
-          content: const Text('هل أنت متأكد من حذف جميع تذكيرات الزيارات؟ لا يمكن التراجع عن هذا الإجراء.'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('إلغاء'),
+      builder:
+          (context) => AlertDialog(
+            title: const Text('تأكيد حذف جميع التذكيرات'),
+            content: const Text(
+              'هل أنت متأكد من حذف جميع تذكيرات الزيارات؟ لا يمكن التراجع عن هذا الإجراء.',
             ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child: const Text('حذف الكل', style: TextStyle(color: Colors.red)),
-            ),
-          ],
-        ),
-      ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(S.of(context).cancel),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text(
+                  'حذف الكل',
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
+            ],
+          ),
     );
   }
 
@@ -104,7 +108,9 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
                   isGreyBackground: true,
                   isExtraMinWidth: true,
                   onPressed: () async {
-                    final confirm = await _showDeleteAllConfirmationDialog(context);
+                    final confirm = await _showDeleteAllConfirmationDialog(
+                      context,
+                    );
                     if (confirm == true) {
                       widget.onClearAllReminders();
                     }
@@ -131,7 +137,9 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
                         child: GestureDetector(
                           onTap: () async {
                             final confirm = await _showDeleteConfirmationDialog(
-                                context, reminder.name);
+                              context,
+                              reminder.name,
+                            );
                             if (confirm == true) {
                               widget.onDeleteReminder(reminder.id);
                             }
@@ -154,20 +162,25 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
                         ),
                       ),
                     Container(
-                      margin: isArabic
-                          ? EdgeInsets.only(right: isEditMode ? 70 : 0)
-                          : EdgeInsets.only(left: isEditMode ? 70 : 0),
+                      margin:
+                          isArabic
+                              ? EdgeInsets.only(right: isEditMode ? 70 : 0)
+                              : EdgeInsets.only(left: isEditMode ? 70 : 0),
                       child: GestureDetector(
                         onTap: () async {
                           final result = await Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => AddNewVisitingDateBody(reminder: reminder),
+                              builder:
+                                  (context) => AddNewVisitingDateBody(
+                                    reminder: reminder,
+                                  ),
                             ),
                           );
                           if (result != null) {
                             if (result is VisitReminder) {
                               widget.onUpdateReminder(result);
-                            } else if (result is Map && result.containsKey('delete')) {
+                            } else if (result is Map &&
+                                result.containsKey('delete')) {
                               widget.onDeleteReminder(result['delete']);
                             }
                           }
@@ -196,7 +209,10 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
                                         width: 50,
                                         height: 50,
                                         color: Colors.grey.shade200,
-                                        child: const Icon(Icons.image, color: Colors.grey),
+                                        child: const Icon(
+                                          Icons.image,
+                                          color: Colors.grey,
+                                        ),
                                       ),
                                     const SizedBox(width: 16),
                                     Expanded(
@@ -204,7 +220,9 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
                                         reminder.name.isEmpty
                                             ? 'زيارة غير مسماة'
                                             : reminder.name,
-                                        style: AppTextStyles.subTitle1(context).copyWith(
+                                        style: AppTextStyles.subTitle1(
+                                          context,
+                                        ).copyWith(
                                           color: AppColors.primaryColor,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -214,14 +232,19 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
                                 ),
                                 const SizedBox(height: 18),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      reminder.date.isEmpty ? 'غير محدد' : reminder.date,
+                                      reminder.date.isEmpty
+                                          ? 'غير محدد'
+                                          : reminder.date,
                                       style: AppTextStyles.subTitle2(context),
                                     ),
                                     Text(
-                                      reminder.time.isEmpty ? 'غير محدد' : reminder.time,
+                                      reminder.time.isEmpty
+                                          ? 'غير محدد'
+                                          : reminder.time,
                                       style: AppTextStyles.subTitle2(context),
                                     ),
                                   ],

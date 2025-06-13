@@ -8,7 +8,6 @@ import 'package:smile_simulation/features/reminders/presentation/views/drug_remi
 import 'package:smile_simulation/features/reminders/presentation/views/other_tasks_view.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-import '../../../../core/helper_functions/custom_error.dart';
 
 class RemindersView extends StatelessWidget {
   const RemindersView({super.key});
@@ -90,11 +89,11 @@ class RemindersViewBody extends StatelessWidget {
                 childAspectRatio: 3 / 2.5,
                 children:
                     items.map((item) {
-                      return InkWell(onTap: () =>
-
-                          comingSoon(context),
-
-                        // _navigateToView(context, item["title"]!),
+                      return InkWell(
+                        onTap:
+                            () =>
+                            // comingSoon(context),
+                            _navigateToView(context, item["title"]!),
                         child: CustomcardScreen(
                           title: item["title"]!,
                           imagePath: item["image"]!,

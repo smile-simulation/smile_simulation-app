@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
@@ -16,6 +15,9 @@ import '../managers/edit_profile_cubit/edit_profile_cubit.dart';
 import '../managers/edit_profile_cubit/edit_profile_state.dart';
 
 class EditProfileView extends StatelessWidget {
+  const EditProfileView({Key? key}) : super(key: key);
+    static const  routeName = 'edit_profile_view';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,6 +175,7 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
           ),
         ),
 
+      )
       ),
     )
     );

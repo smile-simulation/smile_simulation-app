@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 import 'camera_picker_image.dart';
 
 class CameraSection extends StatelessWidget {
@@ -30,8 +31,8 @@ class CameraSection extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'اسم الدواء',
+                    Text(
+                      S.of(context).medicineName,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -49,8 +50,8 @@ class CameraSection extends StatelessWidget {
                       child: TextField(
                         controller: medicineNameController,
                         textAlign: TextAlign.right,
-                        decoration: const InputDecoration(
-                          hintText: 'اسم الدواء',
+                        decoration: InputDecoration(
+                          hintText: S.of(context).medicineName,
                           hintStyle: TextStyle(color: Colors.grey),
                           contentPadding: EdgeInsets.symmetric(
                             horizontal: 16,

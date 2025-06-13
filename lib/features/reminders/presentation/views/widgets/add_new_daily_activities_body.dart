@@ -6,7 +6,7 @@ import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/core/widgets/custom_button.dart';
 import 'package:smile_simulation/core/widgets/custom_text_field.dart';
 import 'package:smile_simulation/features/reminders/presentation/views/widgets/add_new_visiting_date_body.dart';
-import 'package:smile_simulation/features/reminders/presentation/views/widgets/visiting_dates_view_body_if_not_first_time.dart';
+import 'package:smile_simulation/generated/l10n.dart';
 
 class AddNewDailActivitiesBody extends StatelessWidget {
   const AddNewDailActivitiesBody({super.key});
@@ -16,7 +16,11 @@ class AddNewDailActivitiesBody extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: customAppbar(context, title: ' الأنشطة اليومية', isBack: true),
+      appBar: customAppbar(
+        context,
+        title: S.of(context).dailyActivities,
+        isBack: true,
+      ),
       body: CustomBodyScreen(
         child: SingleChildScrollView(
           // keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
