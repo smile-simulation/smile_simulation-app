@@ -301,6 +301,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Must contain at least one special character [@-#-..]"),
         "password_uppercase": MessageLookupByLibrary.simpleMessage(
             "Must contain at least one uppercase letter [A-Z]"),
+        "patientIdHint": MessageLookupByLibrary.simpleMessage(
+            "Enter the Patient ID to view the full medical record."),
+        "patientIdPlaceholder":
+            MessageLookupByLibrary.simpleMessage("Enter the Patient ID"),
         "permanentMedicine":
             MessageLookupByLibrary.simpleMessage("Permanent Medicine"),
         "personalData": MessageLookupByLibrary.simpleMessage("Personal Data"),
