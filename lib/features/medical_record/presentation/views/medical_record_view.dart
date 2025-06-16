@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,15 +10,18 @@ import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/helper_functions/custom_error.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../generated/assets.dart';
+import '../../data/models/medical_record_models/medical_record_model.dart';
 import '../../data/repos/medical_record_repos/medical_record_repo_empl.dart';
 import '../manage/cubits/medical_record_cubits/medical_record_cubit.dart';
 import '../manage/cubits/medical_record_cubits/medical_record_state.dart';
+import 'medical_record_manage_view.dart';
 
 class MedicalRecordView extends StatelessWidget {
   const MedicalRecordView({super.key});
@@ -37,16 +42,30 @@ class MedicalRecordView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: BlocConsumer<MedicalRecordCubit, MedicalRecordState>(
               listener: (context, state) {
-                if (state is DeleteMedicalRecordSuccess) {
+                if (state is AddMedicalRecordSuccess) {
                   WidgetsBinding.instance.addPostFrameCallback((_) {
-                    customSuccess(context, massage: state.message);
+                    customSuccess(context, massage: state.response.message);
                     context.read<MedicalRecordCubit>().fetchMedicalRecords(
                       userId,
                     );
                   });
-                } else if (state is DeleteMedicalRecordFailure) {
+                } else if (state is DeleteMedicalRecordSuccess) {
                   WidgetsBinding.instance.addPostFrameCallback((_) {
-                    customError(context, massage: state.message);
+                    customSuccess(context, massage: "تم حذف السجل بنجاح");
+                    context.read<MedicalRecordCubit>().fetchMedicalRecords(
+                      userId,
+                    );
+                  });
+                } else if (state is DeleteMedicalRecordFailure ||
+                    state is MedicalRecordFailure) {
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    customError(
+                      context,
+                      massage:
+                          state is DeleteMedicalRecordFailure
+                              ? state.message
+                              : (state as MedicalRecordFailure).message,
+                    );
                   });
                 }
                 // TODO: implement listener
@@ -148,7 +167,6 @@ class MedicalRecordView extends StatelessWidget {
                                         'additionalNotes':
                                             record.additionalNotes,
                                         'historyId': record.id,
-                                        // افتراض وجود historyId
                                       },
                                     ),
                                   )
@@ -230,42 +248,53 @@ class _ExpandableTreatmentCardState extends State<ExpandableTreatmentCard> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'الدكتور: ',
-                          style: AppTextStyles.subTitle1(context).copyWith(
-                            fontFamily: "NotoSansSC",
-                            color: AppColors.primaryColor,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'التاريخ: ',
+                            style: AppTextStyles.subTitle1(context).copyWith(
+                              fontFamily: "NotoSansSC",
+                              color: AppColors.primaryColor,
+                            ),
                           ),
-                        ),
-                        TextSpan(
-                          text: widget.doctorName,
-                          style: AppTextStyles.subTitle1(context).copyWith(
-                            fontFamily: "NotoSansSC",
-                            color: AppColors.blackColor,
+                          TextSpan(
+                            text: widget.date,
+                            style: AppTextStyles.subTitle1(context).copyWith(
+                              fontFamily: "NotoSansSC",
+                              color: AppColors.blackColor,
+                            ),
                           ),
-                        ),
-                        const TextSpan(text: '   '),
-                        TextSpan(
-                          text: 'التاريخ: ',
-                          style: AppTextStyles.subTitle1(context).copyWith(
-                            fontFamily: "NotoSansSC",
-                            color: AppColors.primaryColor,
-                          ),
-                        ),
-                        TextSpan(
-                          text: widget.date,
-                          style: AppTextStyles.subTitle1(context).copyWith(
-                            fontFamily: "NotoSansSC",
-                            color: AppColors.blackColor,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
+
+                    const SizedBox(width: 4),
+
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'الدكتور: ',
+                            style: AppTextStyles.subTitle1(context).copyWith(
+                              fontFamily: "NotoSansSC",
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
+                          TextSpan(
+                            text: widget.doctorName,
+                            style: AppTextStyles.subTitle1(context).copyWith(
+                              fontFamily: "NotoSansSC",
+                              color: AppColors.blackColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
                 Container(
                   width: 24,
@@ -640,24 +669,201 @@ class TreatmentDetailsSection extends StatelessWidget {
   }
 }
 
-class AddMedicalRecordView extends StatelessWidget {
+class AddMedicalRecordView extends StatefulWidget {
   static const routeName = 'AddMedicalRecordView';
 
   const AddMedicalRecordView({super.key});
 
   @override
+  State<AddMedicalRecordView> createState() => _AddMedicalRecordViewState();
+}
+
+class _AddMedicalRecordViewState extends State<AddMedicalRecordView> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppbar(context, title: 'إضافة سجل علاجي', isBack: true),
-      body: CustomBodyScreen(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
-            child: TreatmentDetailsSection(
-              isEditMode: true,
-              onSave: () {
-                Navigator.pop(context);
-              },
+    return BlocProvider(
+      create: (context) => MedicalRecordCubit(MedicalRecordRepositoryImpl()),
+      child: Scaffold(
+        appBar: customAppbar(context, title: 'إضافة سجل علاجي', isBack: true),
+        body: AddMedicalRecordBodyView(),
+      ),
+    );
+  }
+}
+
+class AddMedicalRecordBodyView extends StatefulWidget {
+  const AddMedicalRecordBodyView({super.key});
+
+  @override
+  State<AddMedicalRecordBodyView> createState() =>
+      _AddMedicalRecordBodyViewState();
+}
+
+class _AddMedicalRecordBodyViewState extends State<AddMedicalRecordBodyView> {
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _additionalNotesController =
+      TextEditingController();
+  final List<File> _files = [];
+  Map<String, bool> _procedureSelections = {
+    'تنظيف': false,
+    'خلع': false,
+    'حشو': false,
+    'تركيب': false,
+    'علاج_عصب': false,
+    'أخرى': false,
+  };
+
+  Future<void> _pickFiles() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      allowMultiple: true,
+    );
+    if (result != null) {
+      setState(() {
+        _files.addAll(result.paths.map((path) => File(path!)).toList());
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomBodyScreen(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: const Color(0xFFE7F6FA),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "الإجراء الطبي:",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children:
+                        _procedureSelections.entries.map((entry) {
+                          return CheckboxListTile(
+                            title: Text(entry.key),
+                            value: entry.value,
+                            onChanged: (val) {
+                              setState(() {
+                                _procedureSelections[entry.key] = val!;
+                              });
+                            },
+                          );
+                        }).toList(),
+                  ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    "الملفات:",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 6),
+                  if (_files.isEmpty)
+                    const Text("لا يوجد", style: TextStyle(color: Colors.grey)),
+                  if (_files.isNotEmpty)
+                    Wrap(
+                      children:
+                          _files
+                              .map(
+                                (file) => Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Text(file.path.split('/').last),
+                                ),
+                              )
+                              .toList(),
+                    ),
+                  ElevatedButton(
+                    onPressed: _pickFiles,
+                    child: Text('اختر ملفات'),
+                  ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    "تفاصيل إضافية / ملاحظات:",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 6),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: TextField(
+                      maxLines: 3,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "التفاصيل الإضافية...",
+                      ),
+                      controller: _additionalNotesController,
+                      enabled: true,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomButton(
+                        isMinWidth: true,
+                        title: "حفظ التعديلات",
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            final cubit = context.read<MedicalRecordCubit>();
+                            cubit.addMedicalRecord(
+                              doctorId:
+                                  CacheHelper().getMap(
+                                    key: userData,
+                                  )?['userId'] ??
+                                  "",
+                              username: userId,
+                              prescription: _additionalNotesController.text,
+                              procedureSelectionsCleaning:
+                                  _procedureSelections['تنظيف']!,
+                              procedureSelectionsExtraction:
+                                  _procedureSelections['خلع']!,
+                              procedureSelectionsFilling:
+                                  _procedureSelections['حشو']!,
+                              procedureSelectionsInstallation:
+                                  _procedureSelections['تركيب']!,
+                              procedureSelectionsNerveTreatment:
+                                  _procedureSelections['علاج_عصب']!,
+                              procedureSelectionsOther:
+                                  _procedureSelections['أخرى']!,
+                              procedureSelectionsBridgeInstallation:
+                                  _procedureSelections['تنظيف']!,
+                              // تصحيح هنا
+                              procedureSelectionsPhotos:
+                                  _procedureSelections['تنظيف']!,
+                              // تصحيح هنا
+                              procedureSelectionsOtherDescription: "",
+                              files: _files,
+                              additionalNotes: _additionalNotesController.text,
+                            );
+                            Navigator.pop(context);
+                          }
+                        },
+                      ),
+                      CustomButton(
+                        isMinWidth: true,
+                        isSecondary: true,
+                        title: S.of(context).cancel,
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
