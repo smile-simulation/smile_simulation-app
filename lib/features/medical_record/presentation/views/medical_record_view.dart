@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
 import 'package:smile_simulation/generated/l10n.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../../../../core/helper_functions/custom_error.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../generated/assets.dart';
+import '../../data/repos/medical_record_repos/medical_record_repo_empl.dart';
+import '../manage/cubits/medical_record_cubits/medical_record_cubit.dart';
+import '../manage/cubits/medical_record_cubits/medical_record_state.dart';
 
 class MedicalRecordView extends StatelessWidget {
   const MedicalRecordView({super.key});
@@ -17,130 +23,141 @@ class MedicalRecordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppbar(context, title: 'السجل العلاجي', isBack: true),
-      body: Column(
-        children: [
-          Container(
-            color: AppColors.primaryColor,
-            padding: const EdgeInsets.all(8.0),
-            child: CustomTextField(
-              hintText: 'بحث',
-              keyboardType: TextInputType.text,
-              suffixIcon: SvgPicture.asset(
-                Assets.imagesSearch,
-                fit: BoxFit.scaleDown,
-                color: Colors.grey,
-              ),
-            ),
-          ),
-          Expanded(
-            child: CustomBodyScreen(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Stack(
-                  alignment: Alignment.bottomLeft,
-                  children: [
-                    ListView(
-                      children: [
-                        const SizedBox(height: 20),
-
-                        Container(
-                          height: 48,
-                          padding: EdgeInsetsDirectional.all(4),
-                          decoration: BoxDecoration(
-                            color: AppColors.veryLightGreyColor,
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: AppColors.lightGreyColor),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.05),
-                                blurRadius: 6,
-                                spreadRadius: 1,
-                                offset: const Offset(0, 3),
+    return BlocProvider(
+      create:
+          (context) =>
+              MedicalRecordCubit(MedicalRecordRepositoryImpl())
+                ..fetchMedicalRecords(userId),
+      child: Scaffold(
+        appBar: customAppbar(context, title: 'السجل العلاجي', isBack: true),
+        body: CustomBodyScreen(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: BlocBuilder<MedicalRecordCubit, MedicalRecordState>(
+              builder: (context, state) {
+                if (state is MedicalRecordLoading) {
+                  return const Center(child: CircularProgressIndicator(
+                    color:  AppColors.primaryColor ,
+                  ));
+                } else if (state is MedicalRecordFailure) {
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    customError(context, massage: state.message);
+                  });
+                  return const SizedBox.shrink();
+                } else if (state is MedicalRecordSuccess) {
+                  final records = state.records;
+                  return Stack(
+                    alignment: Alignment.bottomLeft,
+                    children: [
+                      ListView(
+                        children: [
+                          const SizedBox(height: 20),
+                          Container(
+                            height: 48,
+                            padding: const EdgeInsetsDirectional.all(4),
+                            decoration: BoxDecoration(
+                              color: AppColors.veryLightGreyColor,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: AppColors.lightGreyColor,
                               ),
-                            ],
-                          ),
-                          child: Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 20,
-                                backgroundColor: Colors.blue.shade100,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(200),
-                                  child: Image.asset(
-                                    Assets.imagesUser,
-                                    width: 40,
-                                    height: 40,
-                                    fit: BoxFit.fill,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.05),
+                                  blurRadius: 6,
+                                  spreadRadius: 1,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                            ),
+                            child: Row(
+                              children: [
+                                CircleAvatar(
+                                  radius: 20,
+                                  backgroundColor: Colors.blue.shade100,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(200),
+                                    child: Image.asset(
+                                      Assets.imagesUser,
+                                      width: 40,
+                                      height: 40,
+                                      fit: BoxFit.fill,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  'محمد فوزي محمود',
-                                  style: AppTextStyles.subTitle1(context),
+                                const SizedBox(width: 10),
+                                Expanded(
+                                  child: Text(
+                                    records.isNotEmpty
+                                        ? records[0].patientName
+                                        : 'غير معروف',
+                                    style: AppTextStyles.subTitle1(context),
+                                  ),
                                 ),
-                              ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
                               Text(
-                                '#34251',
-                                style: AppTextStyles.subTitle1(
+                                'السجل العلاجي',
+                                style: AppTextStyles.headline3(
                                   context,
-                                ).copyWith(color: AppColors.primaryColor),
+                                ).copyWith(fontFamily: 'NotoSansSC'),
                               ),
+                              const SizedBox(width: 8),
+                              const Text('🧑‍⚕️'),
                             ],
                           ),
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              'السجل العلاجي',
-                              style: AppTextStyles.headline3(
+                          const SizedBox(height: 12),
+                          ...records
+                              .map(
+                                (record) => ExpandableTreatmentCard(
+                                  doctorName: record.doctorName,
+                                  date: record.date,
+                                  recordData: {
+                                    'prescription': record.prescription,
+                                    'procedureSelections':
+                                        record.procedureSelections,
+                                    'fileUrls': record.fileUrls,
+                                    'additionalNotes': record.additionalNotes,
+                                  },
+                                ),
+                              )
+                              .toList(),
+                        ],
+                      ),
+                      Visibility(
+                        visible: userType == 'Doctor',
+                        child: Positioned(
+                          bottom: 20,
+                          child: FloatingActionButton(
+                            backgroundColor: AppColors.primaryColor,
+                            shape: const CircleBorder(),
+                            mini: true,
+                            onPressed: () {
+                              Navigator.pushNamed(
                                 context,
-                              ).copyWith(fontFamily: 'NotoSansSC'),
+                                AddMedicalRecordView.routeName,
+                              );
+                            },
+                            child: const Icon(
+                              Icons.add,
+                              color: AppColors.whiteColor,
                             ),
-                            SizedBox(width: 8),
-                            Text('🧑‍⚕️'),
-                          ],
-                        ),
-                        const SizedBox(height: 12),
-                        ExpandableTreatmentCard(
-                          doctorName: 'محمود علي محمد',
-                          date: '19/1/2025',
-                        ),
-                        ExpandableTreatmentCard(
-                          doctorName: 'محمود علي محمد',
-                          date: '12/5/2024',
-                        ),
-                      ],
-                    ),
-                    Visibility(
-                      visible: userType == 'Doctor',
-                      child: Positioned(
-                        bottom: 20,
-                        child: FloatingActionButton(
-                          backgroundColor: AppColors.primaryColor,
-                          shape: const CircleBorder(),
-                          mini: true,
-                          onPressed: () {
-                            Navigator.pushNamed(
-                              context,
-                              AddMedicalRecordView.routeName,
-                            );
-                          },
-                          child: Icon(Icons.add, color: AppColors.whiteColor),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
+                    ],
+                  );
+                }
+                return const SizedBox.shrink();
+              },
             ),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -149,11 +166,13 @@ class MedicalRecordView extends StatelessWidget {
 class ExpandableTreatmentCard extends StatefulWidget {
   final String doctorName;
   final String date;
+  final Map<String, dynamic>? recordData;
 
   const ExpandableTreatmentCard({
     super.key,
     required this.doctorName,
     required this.date,
+    this.recordData,
   });
 
   @override
@@ -170,7 +189,6 @@ class _ExpandableTreatmentCardState extends State<ExpandableTreatmentCard> {
       duration: const Duration(milliseconds: 300),
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-
       decoration: BoxDecoration(
         color: const Color(0xFF66BAD0).withOpacity(0.1),
         borderRadius: BorderRadius.circular(16),
@@ -228,7 +246,6 @@ class _ExpandableTreatmentCardState extends State<ExpandableTreatmentCard> {
                     color: AppColors.primaryColor,
                     borderRadius: BorderRadius.circular(8),
                   ),
-
                   child: Center(
                     child: Icon(
                       isExpanded
@@ -242,18 +259,29 @@ class _ExpandableTreatmentCardState extends State<ExpandableTreatmentCard> {
             ),
           ),
           if (isExpanded) const SizedBox(height: 12),
-          if (isExpanded) _buildExpandedContent(),
+          if (isExpanded) _buildExpandedContent(context),
         ],
       ),
     );
   }
 
-  Widget _buildExpandedContent() {
+  Widget _buildExpandedContent(BuildContext context) {
+    final recordData = widget.recordData ?? {};
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Divider(color: AppColors.greyColor),
-        TreatmentDetailsSection(),
+        TreatmentDetailsSection(
+          isEditMode: userType == 'Doctor',
+          existingData: recordData,
+          onSave: () {
+            Navigator.pushNamed(
+              context,
+              EditMedicalRecordView.routeName,
+              arguments: recordData,
+            );
+          },
+        ),
       ],
     );
   }
@@ -273,6 +301,11 @@ class TreatmentDetailsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final procedureSelections = existingData?['procedureSelections'] ?? {};
+    final fileUrls = existingData?['fileUrls'] ?? [];
+    final prescription = existingData?['prescription'] ?? '';
+    final additionalNotes = existingData?['additionalNotes'] ?? '';
+
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -291,44 +324,42 @@ class TreatmentDetailsSection extends StatelessWidget {
             spacing: 8,
             runSpacing: 8,
             children: [
-              _buildCheckbox("تنظيف", true),
-              _buildCheckbox("خلع", false),
-              _buildCheckbox("حشو", false),
-              _buildCheckbox("تركيب", false),
-              _buildCheckbox("علاج عصب", false),
-              _buildCheckbox("أخرى", false),
-              _buildCheckbox("[----]", false),
+              _buildCheckbox("تنظيف", procedureSelections['تنظيف'] ?? false),
+              _buildCheckbox("خلع", procedureSelections['خلع'] ?? false),
+              _buildCheckbox("حشو", procedureSelections['حشو'] ?? false),
+              _buildCheckbox("تركيب", procedureSelections['تركيب'] ?? false),
+              _buildCheckbox(
+                "علاج عصب",
+                procedureSelections['علاج_عصب'] ?? false,
+              ),
+              _buildCheckbox("أخرى", procedureSelections['أخرى'] ?? false),
+              _buildCheckbox(
+                "[----]",
+                procedureSelections['otherDescription'] != null,
+              ),
             ],
           ),
           const SizedBox(height: 16),
-          const Text("الروشتة:", style: TextStyle(fontWeight: FontWeight.bold)),
-          const SizedBox(height: 8),
-          _buildPrescriptionBox("Medicine1", "مرة يومياً", "14 يوم"),
-          const SizedBox(height: 4),
-          _buildPrescriptionBox("Medicine2", "مرتين يومياً", "أسبوع واحد"),
-          const SizedBox(height: 16),
+          // const Text("الروشتة:", style: TextStyle(fontWeight: FontWeight.bold)),
+          // const SizedBox(height: 8),
+          // if (prescription.isNotEmpty)
+          //   _buildPrescriptionBox(prescription.split(',')[0], "مرة يومياً", "14 يوم"),
+          // const SizedBox(height: 16),
           const Text("الملفات:", style: TextStyle(fontWeight: FontWeight.bold)),
           const SizedBox(height: 6),
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF6DC4DA),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: const Icon(Icons.image, color: Colors.white),
-              ),
-              const SizedBox(width: 12),
-              Column(
-                children: [
-                  _buildDownloadFile("1_ملف"),
-                  const SizedBox(height: 12),
-                  _buildDownloadFile("2_ملف"),
-                ],
-              ),
-            ],
-          ),
+          if (fileUrls.isEmpty)
+            const Text("لا يوجد", style: TextStyle(color: Colors.grey)),
+          if (fileUrls.isNotEmpty)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:
+                  fileUrls
+                      .map(
+                        (url) => _buildDownloadableFile(url, context: context),
+                      )
+                      .toList()
+                      .cast<Widget>(),
+            ),
           const SizedBox(height: 16),
           const Text(
             "تفاصيل إضافية / ملاحظات:",
@@ -341,12 +372,14 @@ class TreatmentDetailsSection extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: const TextField(
+            child: TextField(
               maxLines: 3,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: "التفاصيل الإضافية...",
               ),
+              controller: TextEditingController(text: additionalNotes),
+              enabled: isEditMode,
             ),
           ),
           const SizedBox(height: 12),
@@ -359,15 +392,8 @@ class TreatmentDetailsSection extends StatelessWidget {
                       children: [
                         CustomButton(
                           isMinWidth: true,
-
                           title: "حفظ التعديلات",
-                          onPressed: () {
-                            Navigator.pushNamed(
-                              context,
-                              EditMedicalRecordView.routeName,
-                              arguments: existingData,
-                            );
-                          },
+                          onPressed: onSave ?? () {},
                         ),
                         CustomButton(
                           isMinWidth: true,
@@ -382,15 +408,8 @@ class TreatmentDetailsSection extends StatelessWidget {
                       children: [
                         CustomButton(
                           isMinWidth: true,
-
                           title: "تعديل البيانات",
-                          onPressed: () {
-                            Navigator.pushNamed(
-                              context,
-                              EditMedicalRecordView.routeName,
-                              arguments: existingData,
-                            );
-                          },
+                          onPressed: onSave ?? () {},
                         ),
                         CustomButton(
                           isMinWidth: true,
@@ -412,7 +431,7 @@ class TreatmentDetailsSection extends StatelessWidget {
       children: [
         Checkbox(
           value: isChecked,
-          onChanged: (_) {},
+          onChanged: null,
           activeColor: const Color(0xFF6DC4DA),
         ),
         Text(label),
@@ -449,14 +468,103 @@ class TreatmentDetailsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildDownloadFile(String label) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(label),
-        const SizedBox(width: 4),
-        const Icon(Icons.download, size: 18, color: Colors.grey),
-      ],
+  Widget _buildDownloadableFile(String url, {required BuildContext context}) {
+    final fileName = url.split('/').last;
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+          context: context,
+          builder:
+              (context) => AlertDialog(
+                backgroundColor: AppColors.whiteColor,
+                titlePadding: const EdgeInsets.all(0),
+                title: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('محتوى الملف:'),
+                    ),
+                    const Spacer(),
+                    IconButton(
+                      icon: const Icon(Icons.close),
+                      color: AppColors.redColor,
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                ),
+                content: SizedBox(
+                  width: double.maxFinite,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // عرض الصورة إذا كان الرابط يشير إلى صورة
+                        if (url.toLowerCase().endsWith('.jpg') ||
+                            url.toLowerCase().endsWith('.jpeg') ||
+                            url.toLowerCase().endsWith('.png'))
+                          Image.network(
+                            url,
+                            fit: BoxFit.contain,
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) return child;
+                              return Center(
+                                child: const CircularProgressIndicator(
+                                  color: AppColors.primaryColor,
+                                ),
+                              );
+                            },
+                            errorBuilder: (context, error, stackTrace) {
+                              return const Text('فشل في تحميل الصورة');
+                            },
+                          ),
+                        // إذا كان ملفًا آخر (مثل PDF أو غيره)، عرض رابط للفتح
+                        if (!url.toLowerCase().endsWith('.jpg') &&
+                            !url.toLowerCase().endsWith('.jpeg') &&
+                            !url.toLowerCase().endsWith('.png'))
+                          GestureDetector(
+                            onTap: () async {
+                              if (await canLaunchUrl(Uri.parse(url))) {
+                                await launchUrl(Uri.parse(url));
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('لا يمكن فتح الملف'),
+                                  ),
+                                );
+                              }
+                            },
+                            child: Text(
+                              'فتح الملف: $url',
+                              style: const TextStyle(
+                                color: Colors.blue,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4.0),
+        child: Text(
+          fileName,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+
+          style: const TextStyle(
+            color: Colors.blue,
+            decoration: TextDecoration.underline,
+          ),
+        ),
+      ),
     );
   }
 }
@@ -477,7 +585,7 @@ class AddMedicalRecordView extends StatelessWidget {
             child: TreatmentDetailsSection(
               isEditMode: true,
               onSave: () {
-                // تنفيذ الحفظ هنا
+                Navigator.pop(context);
               },
             ),
           ),
@@ -506,7 +614,7 @@ class EditMedicalRecordView extends StatelessWidget {
               isEditMode: true,
               existingData: recordData,
               onSave: () {
-                // تنفيذ التحديث هنا
+                Navigator.pop(context);
               },
             ),
           ),
