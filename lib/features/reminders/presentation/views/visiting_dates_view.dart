@@ -27,7 +27,7 @@ class _VisitingDatesViewState extends State<VisitingDatesView> {
     super.initState();
     _loadReminders();
     log('Navigated to VisitingDatesView, triggering test notification');
-    LocalNotificationService.showTestNotification();
+    // LocalNotificationService.showTestNotification();
   }
 
   Future<void> _scheduleNotification(VisitReminder reminder) async {
@@ -138,7 +138,7 @@ class _VisitingDatesViewState extends State<VisitingDatesView> {
     });
     _saveReminders();
     _cancelNotifications(updatedReminder.id);
-    _scheduleNotification(updatedReminder);
+    // _scheduleNotification(updatedReminder);
   }
 
   void deleteReminder(String id) async {

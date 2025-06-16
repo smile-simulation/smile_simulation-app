@@ -51,7 +51,9 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
                 child: Text(S.of(context).cancel),
               ),
               TextButton(
-                onPressed: () => Navigator.of(context).pop(true),
+                onPressed: () {
+                  Navigator.of(context).pop(true);
+                },
                 child: const Text('حذف', style: TextStyle(color: Colors.red)),
               ),
             ],
@@ -147,7 +149,7 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
                           child: CustomContainerForReminderFeature(
                             color: AppColors.redColor,
                             widget: const Padding(
-                              padding: EdgeInsets.all(16.0),
+                              padding: EdgeInsets.all(16),
                               child: Row(
                                 children: [
                                   ImageIcon(
@@ -161,99 +163,151 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
                           ),
                         ),
                       ),
-                    Container(
-                      margin:
-                          isArabic
-                              ? EdgeInsets.only(right: isEditMode ? 70 : 0)
-                              : EdgeInsets.only(left: isEditMode ? 70 : 0),
-                      child: GestureDetector(
-                        onTap: () async {
-                          final result = await Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder:
-                                  (context) => AddNewVisitingDateBody(
-                                    reminder: reminder,
-                                  ),
-                            ),
-                          );
-                          if (result != null) {
-                            if (result is VisitReminder) {
-                              widget.onUpdateReminder(result);
-                            } else if (result is Map &&
-                                result.containsKey('delete')) {
-                              widget.onDeleteReminder(result['delete']);
-                            }
-                          }
-                        },
-                        child: CustomContainerForReminderFeature(
-                          widget: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 15,
-                              vertical: 32,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
+
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        double screenWidth = constraints.maxWidth;
+                        double imageSize =
+                            screenWidth * 0.12; // 12% of screen width
+                        double sideMargin = isEditMode ? screenWidth * 0.18 : 0;
+
+                        return Container(
+                          margin:
+                              isArabic
+                                  ? EdgeInsets.only(right: sideMargin)
+                                  : EdgeInsets.only(left: sideMargin),
+                          child: GestureDetector(
+                            onTap: () async {
+                              final result = await Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder:
+                                      (context) => AddNewVisitingDateBody(
+                                        reminder: reminder,
+                                      ),
+                                ),
+                              );
+                              if (result != null) {
+                                if (result is VisitReminder) {
+                                  widget.onUpdateReminder(result);
+                                } else if (result is Map &&
+                                    result.containsKey('delete')) {
+                                  widget.onDeleteReminder(result['delete']);
+                                }
+                              }
+                            },
+                            child: CustomContainerForReminderFeature(
+                              widget: Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: screenWidth * 0.04,
+                                  vertical: screenWidth * 0.06,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    if (reminder.imagePath != null &&
-                                        File(reminder.imagePath!).existsSync())
-                                      Image.file(
-                                        File(reminder.imagePath!),
-                                        width: 50,
-                                        height: 50,
-                                        fit: BoxFit.cover,
-                                      )
-                                    else
-                                      Container(
-                                        width: 50,
-                                        height: 50,
-                                        color: Colors.grey.shade200,
-                                        child: const Icon(
-                                          Icons.image,
-                                          color: Colors.grey,
+                                    Row(
+                                      children: [
+                                        if (reminder.imagePath != null &&
+                                            File(
+                                              reminder.imagePath!,
+                                            ).existsSync())
+                                          Image.file(
+                                            File(reminder.imagePath!),
+                                            width: imageSize,
+                                            height: imageSize,
+                                            fit: BoxFit.cover,
+                                          )
+                                        else
+                                          Container(
+                                            width: imageSize,
+                                            height: imageSize,
+                                            color: Colors.grey.shade200,
+                                            child: const Icon(
+                                              Icons.image,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                        SizedBox(width: screenWidth * 0.04),
+                                        Expanded(
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                reminder.name.isEmpty
+                                                    ? 'زيارة غير مسماة'
+                                                    : reminder.name,
+                                                style: AppTextStyles.subTitle1(
+                                                  context,
+                                                ).copyWith(
+                                                  color: AppColors.primaryColor,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                              Spacer(),
+                                              IconButton(
+                                                onPressed: () async {
+                                                  final confirm =
+                                                      await _showDeleteConfirmationDialog(
+                                                        context,
+                                                        reminder.date.isEmpty
+                                                            ? 'غير محدد'
+                                                            : reminder.date,
+                                                      );
+                                                  if (confirm == true) {
+                                                    widget.onDeleteReminder(
+                                                      reminder.id,
+                                                    ); // 💥 Actual delete
+                                                  }
+                                                },
+
+                                                icon: const Icon(
+                                                  Icons.delete,
+                                                  color: Colors.red,
+                                                  size: 24,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    const SizedBox(width: 16),
-                                    Expanded(
-                                      child: Text(
-                                        reminder.name.isEmpty
-                                            ? 'زيارة غير مسماة'
-                                            : reminder.name,
-                                        style: AppTextStyles.subTitle1(
-                                          context,
-                                        ).copyWith(
-                                          color: AppColors.primaryColor,
-                                          fontWeight: FontWeight.bold,
+                                      ],
+                                    ),
+                                    SizedBox(height: screenWidth * 0.05),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            reminder.date.isEmpty
+                                                ? 'غير محدد'
+                                                : reminder.date,
+                                            style: AppTextStyles.subTitle2(
+                                              context,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
                                         ),
-                                      ),
+                                        SizedBox(width: 10),
+                                        Expanded(
+                                          child: Text(
+                                            reminder.time.isEmpty
+                                                ? 'غير محدد'
+                                                : reminder.time,
+                                            style: AppTextStyles.subTitle2(
+                                              context,
+                                            ),
+                                            textAlign: TextAlign.end,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
-                                const SizedBox(height: 18),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      reminder.date.isEmpty
-                                          ? 'غير محدد'
-                                          : reminder.date,
-                                      style: AppTextStyles.subTitle2(context),
-                                    ),
-                                    Text(
-                                      reminder.time.isEmpty
-                                          ? 'غير محدد'
-                                          : reminder.time,
-                                      style: AppTextStyles.subTitle2(context),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
-                      ),
+                        );
+                      },
                     ),
                   ],
                 );
