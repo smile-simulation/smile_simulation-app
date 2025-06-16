@@ -8,6 +8,25 @@ class MedicalRecordCubit extends Cubit<MedicalRecordState> {
 
   MedicalRecordCubit(this.repository) : super(MedicalRecordInitial());
 
+  void deleteMedicalRecord({ required int historyId,
+    required String username}
+      ) async {
+    emit(DeleteMedicalRecordLoading());
+    try {
+      final response = await repository.deleteMedicalRecord(
+        historyId,
+        username
+      );
+      emit( DeleteMedicalRecordSuccess(
+
+         response.message
+
+      ));
+    } catch (e) {
+      emit(DeleteMedicalRecordFailure(e.toString()));
+    }
+  }
+
   void fetchMedicalRecords(String patientId) async {
     emit(MedicalRecordLoading());
     final records = await repository.fetchMedicalRecords(patientId);

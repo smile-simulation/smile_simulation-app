@@ -15,3 +15,16 @@ class MedicalRecordFailure extends MedicalRecordState {
   final String message;
   MedicalRecordFailure(this.message);
 }
+
+class DeleteMedicalRecordLoading extends MedicalRecordState {}
+
+class DeleteMedicalRecordSuccess extends MedicalRecordState {
+  final String message;
+  DeleteMedicalRecordSuccess(this.message);
+}
+
+class DeleteMedicalRecordFailure extends MedicalRecordState {
+  final String message;
+  DeleteMedicalRecordFailure(this.message);
+}
+
