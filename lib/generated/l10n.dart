@@ -2679,6 +2679,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Not Valid Date of birth`
+  String get errorDateOfBirth {
+    return Intl.message(
+      'Not Valid Date of birth',
+      name: 'errorDateOfBirth',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

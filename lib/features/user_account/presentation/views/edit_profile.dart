@@ -1,7 +1,9 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
@@ -45,7 +47,7 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
   late TextEditingController ageController;
 
   late TextEditingController birthDayController;
-
+  late DateTime? dateOfBirt;
   late TextEditingController addressController;
 
   // late TextEditingController qualificationController;
@@ -66,7 +68,9 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
     ageController = TextEditingController(text: user['age']?.toString() ?? '');
     nameController = TextEditingController(text: user['fullName'] ?? '');
     addressController = TextEditingController(text: user['address'] ?? '');
-    birthDayController = TextEditingController(text: user['birthDay'] ?? '') ;
+    birthDayController = TextEditingController(text: user['birthDay'] ?? '');
+    log(user['birthDay'].toString());
+    dateOfBirt = DateTime.tryParse(birthDayController.text);
     // qualificationController = TextEditingController(
     //   text: user['qualification'] ?? '',
     // );
@@ -83,6 +87,22 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
             : user['gender'] == "Female"
             ? 0
             : 2;
+  }
+
+  Future<void> _pickDate() async {
+    final pickedDate = await showDatePicker(
+      context: context,
+      initialDate: dateOfBirt ?? DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (pickedDate != null) {
+      setState(() {
+        dateOfBirt = pickedDate;
+        birthDayController.text = DateFormat('DD-MM-YYYY').format(pickedDate);
+      });
+    }
   }
 
   @override
@@ -107,22 +127,33 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
               context,
               massage: S.of(context).data_updated_success,
             );
-            CacheHelper().saveMap(
-              key: userData,
-              value: {
-                "fullName": nameController.text.trim(),
-                "birthDay": birthDayController.text,
-                "address": addressController.text,
-                "age": int.tryParse(ageController.text) ?? 0,
-                "gender":
-                    gender == 2
-                        ? ""
-                        : gender == 1
-                        ? "Male"
-                        : "Female",
+            Map<String, dynamic> map = CacheHelper().getMap(key: userData)!;
+            map["fullName"] = nameController.text.trim();
+            map["address"] = addressController.text;
+            map["age"] = int.tryParse(ageController.text) ?? 0;
+            map["gender"] =
+                gender == 2
+                    ? ""
+                    : gender == 1
+                    ? "Male"
+                    : "Female";
 
-              },
-            );
+            CacheHelper().saveMap(key: userData, value: map);
+            // CacheHelper().saveMap(
+            //   key: userData,
+            //   value: {
+            //     "fullName": nameController.text.trim(),
+            //     "birthDay": birthDayController.text,
+            //     "address": addressController.text,
+            //     "age": int.tryParse(ageController.text) ?? 0,
+            //     "gender":
+            //         gender == 2
+            //             ? ""
+            //             : gender == 1
+            //             ? "Male"
+            //             : "Female",
+            //   },
+            // );
           } else if (state is EditProfileFailure) {
             customError(context, massage: S.of(context).error_try_again);
           }
@@ -144,7 +175,6 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
                         userImage:
                             CacheHelper().getMap(key: userData)?["image"],
                       ),
-
                     ],
                   ),
                   const SizedBox(height: 16),
@@ -179,16 +209,43 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
                     },
                   ),
                   const SizedBox(height: 16),
-                  CustomTextField(
-                    title: "S.of(context).birth_day",
-                    controller: birthDayController,
-                    hintText: "S.of(context).enter_birth_day",
-                    keyboardType: TextInputType.datetime,
-                    validator:
-                        (value) =>
-                            value!.isEmpty
-                                ? "S.of(context).required_field "
-                                : null,
+                  // CustomTextField(
+                  //   title: "S.of(context).birth_day",
+                  //   controller: birthDayController,
+                  //   hintText: "S.of(context).enter_birth_day",
+                  //   keyboardType: TextInputType.datetime,
+                  //   validator:
+                  //       (value) =>
+                  //           value!.isEmpty
+                  //               ? "S.of(context).required_field "
+                  //               : null,
+                  // ),
+                  // CustomButton(
+                  //   title: "date",
+                  //   onPressed: () async {
+                  //     dateOfBirt =
+                  //         await showDatePicker(
+                  //           context: context,
+                  //           firstDate: DateTime(2023),
+                  //           lastDate: DateTime(2025, 12, 31),
+                  //         ) ??
+                  //         DateTime.now();
+                  //   },
+                  // ),
+                  Row(
+                    children: [
+                      Icon(Icons.calendar_today, color: Colors.grey[700]),
+                      const SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: _pickDate,
+                        child: Text(
+                          dateOfBirt != null
+                              ? DateFormat('yyyy-MM-dd').format(dateOfBirt!)
+                              : 'Select Birth Date',
+                          style: TextStyle(fontSize: 16, color: Colors.black87),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 16),
                   CustomTextField(
@@ -217,6 +274,7 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
                             : null,
                   ),
                   const SizedBox(height: 16),
+
                   // Visibility(
                   //   visible:
                   //       CacheHelper().getMap(key: userData)?["userType"] ==
@@ -232,7 +290,6 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
                   //     ),
                   //   ),
                   // ),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -243,18 +300,22 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
                               context.watch<EditProfileCubit>().state
                                   is EditProfileLoading,
                           title: S.of(context).saveEdits,
+
                           onPressed: () {
-                            if (formKey.currentState!.validate()) {
+                            if (dateOfBirt == null) {
+                              customError(
+                                context,
+                                massage: S.of(context).errorDateOfBirth,
+                              );
+                            }
+                            else if (formKey.currentState!.validate()) {
                               autovalidateMode = AutovalidateMode.disabled;
                               final cubit = context.read<EditProfileCubit>();
-                              String? imagePath =
-                                  CacheHelper().getMap(key: userData)?["image"];
                               cubit.editProfile(
                                 fullName: nameController.text,
-                                age: "33",
+                                age: ageController.text,
                                 qualification: "",
                                 experience: "",
-                                birthDay: birthDayController.text,
                                 address: addressController.text,
                                 gender:
                                     gender == 2
@@ -264,12 +325,7 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
                                         : "Female",
                                 // 0 أو 1
                                 specialization: "",
-                                image:
-                                    imagePath != null && imagePath.isNotEmpty
-                                        ? File(imagePath)
-                                        : File(
-                                          '',
-                                        ), // إذا لم يكن هناك صورة، استخدم ملف فارغ
+                                birthDay: dateOfBirt!,
                               );
                             } else {
                               autovalidateMode = AutovalidateMode.always;

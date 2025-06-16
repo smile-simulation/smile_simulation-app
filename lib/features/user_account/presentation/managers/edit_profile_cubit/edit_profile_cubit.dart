@@ -21,8 +21,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
 
     required String specialization,
     required String address,
-    required String birthDay,
-    required File image,
+    required DateTime birthDay,
   }) async {
     emit(EditProfileLoading());
     final result = await editProfileRepo.updateProfile(
@@ -35,7 +34,6 @@ class EditProfileCubit extends Cubit<EditProfileState> {
       specialization: specialization,
       address: address,
       birthDay: birthDay,
-      image: image,
     );
 
     result.fold(

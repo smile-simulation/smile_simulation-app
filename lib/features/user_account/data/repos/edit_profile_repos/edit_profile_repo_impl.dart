@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
@@ -25,22 +26,21 @@ class EditProfileRepoImpl extends EditProfileRepo {
 
     required String specialization,
     required String address,
-    required String birthDay,
-    required File image,
+    required DateTime birthDay,
   }) async {
+    log("day: ${birthDay}");
     try {
       final response = await dioConsumer.put(
         EndPoint.editProfile,
         data: {
           "FullName": fullName,
           "Age ": age,
-          "Image": image,
           "Gender": gender,
           "Experience": experience,
           "Qualification": qualification,
           "Specialization": specialization,
           "Address": address,
-          "BirthDay": birthDay,
+          "BirthDay": "${birthDay.year}-${birthDay.month}-${birthDay.day}",
         },
         formData: true,
       );
