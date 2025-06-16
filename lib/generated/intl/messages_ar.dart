@@ -292,6 +292,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "يجب أن تحتوي على رمز خاص واحد على الأقل [@-#-..]"),
         "password_uppercase": MessageLookupByLibrary.simpleMessage(
             "يجب أن تحتوي على حرف كبير واحد على الأقل [A-Z]"),
+        "patientIdHint": MessageLookupByLibrary.simpleMessage(
+            "قم بإدخال الرقم التعريفي الخاص بالمريض لعرض السجل الطبي الكامل الخاص به."),
+        "patientIdPlaceholder": MessageLookupByLibrary.simpleMessage(
+            "ادخل الرقم التعريفي الخاص بالمريض"),
         "permanentMedicine": MessageLookupByLibrary.simpleMessage("دواء دائم"),
         "personalData":
             MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),

@@ -178,7 +178,7 @@ class _EditDrugReminderViewBodyState extends State<EditDrugReminderViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
+    // final screenHeight = MediaQuery.of(context).size.height;
     final List<String> dosageItems = [
       S.of(context).spoon,
       S.of(context).pill,

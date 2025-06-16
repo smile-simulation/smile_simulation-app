@@ -65,14 +65,14 @@ class RemindersViewBody extends StatelessWidget {
         "title": s.visitSchedules,
         "image": "assets/images/reminder_visitings_dates.png",
       },
-      {
-        "title": s.dailyActivities,
-        "image": "assets/images/reminder_daily_activities.png",
-      },
-      {
-        "title": s.otherTasks,
-        "image": "assets/images/reminder_other_tasks.png",
-      },
+      // {
+      //   "title": s.dailyActivities,
+      //   "image": "assets/images/reminder_daily_activities.png",
+      // },
+      // {
+      //   "title": s.otherTasks,
+      //   "image": "assets/images/reminder_other_tasks.png",
+      // },
     ];
 
     return Column(

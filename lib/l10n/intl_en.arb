@@ -265,6 +265,8 @@
   
   "teamBaher": "Baher Hamada Abdel-Raouf – AI Chat Developer",
   "teamAsmaa": "Asmaa Esmat Qassem – AI Chat Developer",
-  "teamAIChatRole": "• AI chat integration using OLLAMA, LangChain, and prompt engineering."
+  "teamAIChatRole": "• AI chat integration using OLLAMA, LangChain, and prompt engineering.",
+  "patientIdPlaceholder" : "Enter the Patient ID",
+  "patientIdHint" : "Enter the Patient ID to view the full medical record."
 
 }
