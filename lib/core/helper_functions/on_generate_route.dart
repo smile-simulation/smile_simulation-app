@@ -47,6 +47,8 @@ import '../../features/more/presentation/views/change_password_view.dart';
 import '../../features/more/presentation/views/language_view.dart';
 import '../../features/more/presentation/views/setting_view.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
+import '../../features/user_account/data/repos/edit_profile_repos/edit_profile_repo.dart';
+import '../../features/user_account/presentation/managers/edit_profile_cubit/edit_profile_cubit.dart';
 import '../../features/user_account/presentation/views/edit_profile.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -242,7 +244,13 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case EditProfileView.routeName:
       return MaterialPageRoute(
         builder: (context) {
-          return EditProfileView();
+          return BlocProvider(
+            child: EditProfileView(),
+            create:
+                (context) => EditProfileCubit(
+                  editProfileRepo: getIt.get<EditProfileRepo>(),
+                ),
+          );
         },
       );
     default:

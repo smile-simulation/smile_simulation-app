@@ -2659,6 +2659,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Enter the Patient ID`
+  String get patientIdPlaceholder {
+    return Intl.message(
+      'Enter the Patient ID',
+      name: 'patientIdPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the Patient ID to view the full medical record.`
+  String get patientIdHint {
+    return Intl.message(
+      'Enter the Patient ID to view the full medical record.',
+      name: 'patientIdHint',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
