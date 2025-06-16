@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/generated/assets.dart';
 
-import '../../../../../core/helper_functions/custom_error.dart';
 import '../../../../chatb_bot_feature/presentation/views/chat_bot_view.dart';
 import 'clickable_search_bar.dart';
 
