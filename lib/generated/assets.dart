@@ -4,7 +4,9 @@ class Assets {
 
   static const String assetsImagesAdviceBackground = 'assets/images/advice_background.png';
   static const String assetsPoliciesAndConditionsPrivacyPolicy = 'assets/policies_and_conditions/privacy_policy.md';
+  static const String assetsPoliciesAndConditionsPrivacyPolicyAr = 'assets/policies_and_conditions/privacy_policy_ar.md';
   static const String assetsPoliciesAndConditionsTermsAndConditions = 'assets/policies_and_conditions/terms_and_conditions.md';
+  static const String assetsPoliciesAndConditionsTermsAndConditionsAr = 'assets/policies_and_conditions/terms_and_conditions_ar.md';
   static const String fontsCairoBold = 'assets/fonts/Cairo-Bold.ttf';
   static const String fontsCairoMedium = 'assets/fonts/Cairo-Medium.ttf';
   static const String fontsCairoRegular = 'assets/fonts/Cairo-Regular.ttf';
@@ -49,9 +51,14 @@ class Assets {
   static const String imagesNotification2 = 'assets/images/notification2.svg';
   static const String imagesOnBoarding1 = 'assets/images/onBoarding1.png';
   static const String imagesOnBoarding2 = 'assets/images/onBoarding2.png';
+  static const String imagesOnBoarding222 = 'assets/images/onBoarding222.gif';
   static const String imagesOnBoarding3 = 'assets/images/onBoarding3.png';
+  static const String imagesOnBoarding33 = 'assets/images/onBoarding33.gif';
   static const String imagesOnBoarding4 = 'assets/images/onBoarding4.png';
+  static const String imagesOnBoarding44 = 'assets/images/onBoarding44.gif';
   static const String imagesOnBoarding5 = 'assets/images/onBoarding5.png';
+  static const String imagesOnBoarding55 = 'assets/images/onBoarding55.gif';
+  static const String imagesOnBoarding66 = 'assets/images/onBoarding66.gif';
   static const String imagesOnBoardingShap1 = 'assets/images/onBoardingShap1.png';
   static const String imagesOnBoardingShap2 = 'assets/images/onBoardingShap2.png';
   static const String imagesOnBoardingShap3 = 'assets/images/onBoardingShap3.png';
@@ -80,6 +87,8 @@ class Assets {
   static const String imagesUserIcon = 'assets/images/user_icon.svg';
   static const String imagesYes = 'assets/images/yes.svg';
   static const String policiesAndConditionsPrivacyPolicy = 'assets/policies_and_conditions/privacy_policy.md';
+  static const String policiesAndConditionsPrivacyPolicyAr = 'assets/policies_and_conditions/privacy_policy_ar.md';
   static const String policiesAndConditionsTermsAndConditions = 'assets/policies_and_conditions/terms_and_conditions.md';
+  static const String policiesAndConditionsTermsAndConditionsAr = 'assets/policies_and_conditions/terms_and_conditions_ar.md';
 
 }

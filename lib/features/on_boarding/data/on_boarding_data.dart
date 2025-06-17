@@ -13,22 +13,22 @@ class OnBoardingData {
         description: S.of(context).onBoarding1,
       ),
       OnBoardingModel(
-        image: Assets.imagesOnBoarding2,
+        image: Assets.imagesOnBoarding222,
         shape: Assets.imagesOnBoardingShap1,
         description: S.of(context).onBoarding2,
       ),
       OnBoardingModel(
-        image: Assets.imagesOnBoarding3,
+        image: Assets.imagesOnBoarding66,
         shape: Assets.imagesOnBoardingShap2,
         description: S.of(context).onBoarding3,
       ),
       OnBoardingModel(
-        image: Assets.imagesOnBoarding4,
+        image: Assets.imagesOnBoarding44,
         shape: Assets.imagesOnBoardingShap3,
         description: S.of(context).onBoarding4,
       ),
       OnBoardingModel(
-        image: Assets.imagesOnBoarding5,
+        image: Assets.imagesOnBoarding55,
         shape: Assets.imagesOnBoardingShap4,
         description: S.of(context).onBoarding5,
       ),

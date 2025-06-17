@@ -81,7 +81,7 @@ class _ChatBotViewBodyState extends State<ChatBotViewBody> {
                         ? Center(
                           child: Image.asset(
                             Assets.imagesChatAi,
-                            width: 300,
+                            width: 250,
                             fit: BoxFit.cover,
                           ),
                         )

@@ -73,9 +73,17 @@ class ManageSignUpView extends StatelessWidget {
                   width: double.infinity,
                   fit: BoxFit.fill,
                 ),
-                Image.asset(
-                  Assets.imagesManageSignup,
-                  height: MediaQuery.of(context).size.height / 1.7,
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(24),
+                    bottomRight: Radius.circular(24)
+                  ),
+                  child: Image.asset(
+                    Assets.imagesOnBoarding33,
+                    width: 200,
+                    height: MediaQuery.of(context).size.height / 1.6,
+                    fit: BoxFit.fitHeight,
+                  ),
                 ),
               ],
             ),

@@ -154,11 +154,7 @@ class _AddNewDrugViewBodyState extends State<AddNewDrugViewBody> {
                 onDosageChanged: (val) => setState(() => dosage = val),
                 onTimeTap: _selectTime,
               ),
-              const SizedBox(height: 16),
-              DateOfStoppingTakingMedicin(
-                stopDate: stopDate,
-                onStopDateChanged: (val) => setState(() => stopDate = val),
-              ),
+
               const SizedBox(height: 60),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
