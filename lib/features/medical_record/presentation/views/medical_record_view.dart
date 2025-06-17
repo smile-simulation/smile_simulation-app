@@ -3,8 +3,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:intl/intl.dart';
 import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/widgets/custom_auth_appbar.dart';
 import 'package:smile_simulation/core/widgets/custom_body_screen.dart';
@@ -15,13 +13,11 @@ import '../../../../core/helper_functions/custom_error.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_button.dart';
-import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../generated/assets.dart';
-import '../../data/models/medical_record_models/medical_record_model.dart';
 import '../../data/repos/medical_record_repos/medical_record_repo_empl.dart';
 import '../manage/cubits/medical_record_cubits/medical_record_cubit.dart';
 import '../manage/cubits/medical_record_cubits/medical_record_state.dart';
-import 'medical_record_manage_view.dart';
+
 
 class MedicalRecordView extends StatelessWidget {
   const MedicalRecordView({super.key});
@@ -36,7 +32,7 @@ class MedicalRecordView extends StatelessWidget {
               MedicalRecordCubit(MedicalRecordRepositoryImpl())
                 ..fetchMedicalRecords(userId),
       child: Scaffold(
-        appBar: customAppbar(context, title: 'السجل العلاجي', isBack: true),
+        appBar: customAppbar(context, title: S.of(context).medicalRecord, isBack: true),
         body: CustomBodyScreen(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -51,7 +47,7 @@ class MedicalRecordView extends StatelessWidget {
                   });
                 } else if (state is DeleteMedicalRecordSuccess) {
                   WidgetsBinding.instance.addPostFrameCallback((_) {
-                    customSuccess(context, massage: "تم حذف السجل بنجاح");
+                    customSuccess(context, massage: S.of(context).record_deleted_success);
                     context.read<MedicalRecordCubit>().fetchMedicalRecords(
                       userId,
                     );
@@ -132,7 +128,7 @@ class MedicalRecordView extends StatelessWidget {
                                       child: Text(
                                         records.isNotEmpty
                                             ? records[0].patientName
-                                            : 'غير معروف',
+                                            : S.of(context).unknown,
                                         style: AppTextStyles.subTitle1(context),
                                       ),
                                     ),
@@ -144,7 +140,7 @@ class MedicalRecordView extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'السجل العلاجي',
+                                    S.of(context).medicalRecord,
                                     style: AppTextStyles.headline3(
                                       context,
                                     ).copyWith(fontFamily: 'NotoSansSC'),
@@ -255,7 +251,7 @@ class _ExpandableTreatmentCardState extends State<ExpandableTreatmentCard> {
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: 'التاريخ: ',
+                            text: '${S.of(context).date}: ',
                             style: AppTextStyles.subTitle1(context).copyWith(
                               fontFamily: "NotoSansSC",
                               color: AppColors.primaryColor,
@@ -278,7 +274,7 @@ class _ExpandableTreatmentCardState extends State<ExpandableTreatmentCard> {
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: 'الدكتور: ',
+                            text: '${S.of(context).doctor}: ',
                             style: AppTextStyles.subTitle1(context).copyWith(
                               fontFamily: "NotoSansSC",
                               color: AppColors.primaryColor,
@@ -375,8 +371,8 @@ class TreatmentDetailsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "الإجراء الطبي:",
+           Text(
+           S.of(context).medical_procedure,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
@@ -384,15 +380,15 @@ class TreatmentDetailsSection extends StatelessWidget {
             spacing: 8,
             runSpacing: 8,
             children: [
-              _buildCheckbox("تنظيف", procedureSelections['تنظيف'] ?? false),
-              _buildCheckbox("خلع", procedureSelections['خلع'] ?? false),
-              _buildCheckbox("حشو", procedureSelections['حشو'] ?? false),
-              _buildCheckbox("تركيب", procedureSelections['تركيب'] ?? false),
+              _buildCheckbox(S.of(context).cleaning, procedureSelections['تنظيف'] ?? false),
+              _buildCheckbox(S.of(context).extraction, procedureSelections['خلع'] ?? false),
+              _buildCheckbox(S.of(context).filling, procedureSelections['حشو'] ?? false),
+              _buildCheckbox(S.of(context).installation, procedureSelections['تركيب'] ?? false),
               _buildCheckbox(
-                "علاج عصب",
+                S.of(context).root_treatment,
                 procedureSelections['علاج_عصب'] ?? false,
               ),
-              _buildCheckbox("أخرى", procedureSelections['أخرى'] ?? false),
+              _buildCheckbox(S.of(context).other, procedureSelections['أخرى'] ?? false),
               _buildCheckbox(
                 "[----]",
                 procedureSelections['otherDescription'] != null,
@@ -409,10 +405,10 @@ class TreatmentDetailsSection extends StatelessWidget {
           //     "14 يوم",
           //   ),
           // const SizedBox(height: 16),
-          const Text("الملفات:", style: TextStyle(fontWeight: FontWeight.bold)),
+           Text(S.of(context).files, style: TextStyle(fontWeight: FontWeight.bold)),
           const SizedBox(height: 6),
           if (fileUrls.isEmpty)
-            const Text("لا يوجد", style: TextStyle(color: Colors.grey)),
+             Text(S.of(context).none, style: TextStyle(color: Colors.grey)),
           if (fileUrls.isNotEmpty)
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -425,8 +421,8 @@ class TreatmentDetailsSection extends StatelessWidget {
                       .cast<Widget>(),
             ),
           const SizedBox(height: 16),
-          const Text(
-            "تفاصيل إضافية / ملاحظات:",
+           Text(
+            S.of(context).additional_details_notes,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
@@ -440,7 +436,7 @@ class TreatmentDetailsSection extends StatelessWidget {
               maxLines: 3,
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: "التفاصيل الإضافية...",
+                hintText: S.of(context).additional_details_placeholder,
               ),
               controller: TextEditingController(text: additionalNotes),
               enabled: isEditMode,
@@ -456,7 +452,7 @@ class TreatmentDetailsSection extends StatelessWidget {
                       children: [
                         CustomButton(
                           isMinWidth: true,
-                          title: "حفظ التعديلات",
+                          title: S.of(context).save_edits,
                           onPressed: onSave ?? () {},
                         ),
                         CustomButton(
@@ -474,23 +470,23 @@ class TreatmentDetailsSection extends StatelessWidget {
                       children: [
                         CustomButton(
                           isMinWidth: true,
-                          title: "تعديل البيانات",
+                          title: S.of(context).edit_data,
                           onPressed: onSave ?? () {},
                         ),
                         CustomButton(
                           isMinWidth: true,
                           isSecondary: true,
-                          title: "حذف السجل",
+                          title: S.of(context).delete_record,
                           onPressed: () {
                             AwesomeDialog(
                               context: context,
                               dialogType: DialogType.question,
                               animType: AnimType.scale,
-                              title: "هل تريد حذف السجل؟",
-                              desc: "سيتم حذف السجل بشكل نهائي",
+                              title: S.of(context).delete_record_confirmation,
+                              desc: S.of(context).delete_record_warning,
                               btnOk: CustomButton(
                                 isMinWidth: true,
-                                title: "نعم",
+                                title: S.of(context).yes,
                                 onPressed: () async {
                                   if (historyId != null) {
                                     context
@@ -502,8 +498,10 @@ class TreatmentDetailsSection extends StatelessWidget {
                                     Navigator.pop(context);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text('معرف السجل غير موجود'),
+                                       SnackBar(
+                                        content: Text(
+                                          S.of(context).record_id_not_found,
+                                        ),
                                       ),
                                     );
                                   }
@@ -512,7 +510,7 @@ class TreatmentDetailsSection extends StatelessWidget {
                               btnCancel: CustomButton(
                                 isMinWidth: true,
                                 isSecondary: true,
-                                title: "لا",
+                                title: S.of(context).no,
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
@@ -544,34 +542,6 @@ class TreatmentDetailsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildPrescriptionBox(String name, String dosage, String duration) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Text.rich(
-        TextSpan(
-          style: const TextStyle(fontSize: 14),
-          children: [
-            const TextSpan(text: "الدواء: "),
-            TextSpan(
-              text: "$name  ",
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            const TextSpan(text: "الجرعة: "),
-            TextSpan(
-              text: "$dosage  ",
-              style: TextStyle(color: Colors.blue[800]),
-            ),
-            const TextSpan(text: "مدة العلاج: "),
-            TextSpan(text: duration, style: TextStyle(color: Colors.blue[800])),
-          ],
-        ),
-      ),
-    );
-  }
 
   Widget _buildDownloadableFile(String url, {required BuildContext context}) {
     final fileName = url.split('/').last;
@@ -587,7 +557,9 @@ class TreatmentDetailsSection extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('محتوى الملف:'),
+                      child: Text(
+                        S.of(context).file_content,
+                      ),
                     ),
                     const Spacer(),
                     IconButton(
@@ -621,7 +593,9 @@ class TreatmentDetailsSection extends StatelessWidget {
                               );
                             },
                             errorBuilder: (context, error, stackTrace) {
-                              return const Text('فشل في تحميل الصورة');
+                              return  Text(
+                                S.of(context).image_load_failed,
+                              );
                             },
                           ),
                         if (!url.toLowerCase().endsWith('.jpg') &&
@@ -633,8 +607,10 @@ class TreatmentDetailsSection extends StatelessWidget {
                                 await launchUrl(Uri.parse(url));
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('لا يمكن فتح الملف'),
+                                   SnackBar(
+                                    content: Text(
+                                      S.of(context).cannot_open_file,
+                                    ),
                                   ),
                                 );
                               }
@@ -685,7 +661,7 @@ class _AddMedicalRecordViewState extends State<AddMedicalRecordView> {
     return BlocProvider(
       create: (context) => MedicalRecordCubit(MedicalRecordRepositoryImpl()),
       child: Scaffold(
-        appBar: customAppbar(context, title: 'إضافة سجل علاجي', isBack: true),
+        appBar: customAppbar(context, title: S.of(context).add_medical_record, isBack: true),
         body: AddMedicalRecordBodyView(),
       ),
     );
@@ -742,8 +718,8 @@ class _AddMedicalRecordBodyViewState extends State<AddMedicalRecordBodyView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "الإجراء الطبي:",
+                   Text(
+                    S.of(context).medical_procedure,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
@@ -764,13 +740,13 @@ class _AddMedicalRecordBodyViewState extends State<AddMedicalRecordBodyView> {
                         }).toList(),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    "الملفات:",
+                   Text(
+                    S.of(context).files,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 6),
                   if (_files.isEmpty)
-                    const Text("لا يوجد", style: TextStyle(color: Colors.grey)),
+                     Text(S.of(context).none, style: TextStyle(color: Colors.grey)),
                   if (_files.isNotEmpty)
                     Wrap(
                       children:
@@ -785,11 +761,14 @@ class _AddMedicalRecordBodyViewState extends State<AddMedicalRecordBodyView> {
                     ),
                   ElevatedButton(
                     onPressed: _pickFiles,
-                    child: Text('اختر ملفات'),
+                    child: Text(
+                      S.of(context).choose_files,
+                      style: const TextStyle(color: Colors.white),
+                    ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    "تفاصيل إضافية / ملاحظات:",
+                   Text(
+                   S.of(context).additional_details_notes,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 6),
@@ -803,7 +782,7 @@ class _AddMedicalRecordBodyViewState extends State<AddMedicalRecordBodyView> {
                       maxLines: 3,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: "التفاصيل الإضافية...",
+                        hintText: S.of(context).additional_details_placeholder,
                       ),
                       controller: _additionalNotesController,
                       enabled: true,
@@ -815,7 +794,7 @@ class _AddMedicalRecordBodyViewState extends State<AddMedicalRecordBodyView> {
                     children: [
                       CustomButton(
                         isMinWidth: true,
-                        title: "حفظ التعديلات",
+                        title:  S.of(context).save_edits,
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             final cubit = context.read<MedicalRecordCubit>();

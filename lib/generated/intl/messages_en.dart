@@ -87,6 +87,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Add your medical visit ... and we will remind you of its schedule"),
         "addVisitSchedulesInstruction": MessageLookupByLibrary.simpleMessage(
             "Add your medical visit schedules so we can remind you at their specified times."),
+        "add_medical_record":
+            MessageLookupByLibrary.simpleMessage("Add medical record"),
+        "additional_details_notes":
+            MessageLookupByLibrary.simpleMessage("Additional details / notes:"),
+        "additional_details_placeholder":
+            MessageLookupByLibrary.simpleMessage("Additional details..."),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "address_empty":
             MessageLookupByLibrary.simpleMessage("Please enter the address"),
@@ -120,14 +126,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "beforeMeal": MessageLookupByLibrary.simpleMessage("Before Meal"),
         "breastfeeding": MessageLookupByLibrary.simpleMessage("Breastfeeding"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "cannot_open_file":
+            MessageLookupByLibrary.simpleMessage("Cannot open file"),
         "changeLanguage":
             MessageLookupByLibrary.simpleMessage("Change Language"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "changePasswordPrompt": MessageLookupByLibrary.simpleMessage(
             "You are about to change your password. Please enter a new password."),
+        "choose_files": MessageLookupByLibrary.simpleMessage("Choose files"),
         "chronic_diseases_question": MessageLookupByLibrary.simpleMessage(
             "Do you suffer from any chronic diseases?"),
+        "cleaning": MessageLookupByLibrary.simpleMessage("Cleaning"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "comingSoon": MessageLookupByLibrary.simpleMessage("Coming Soon"),
         "comment": MessageLookupByLibrary.simpleMessage("Comment"),
@@ -165,7 +175,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteMedicine":
             MessageLookupByLibrary.simpleMessage("Delete Medicine"),
         "deletePost": MessageLookupByLibrary.simpleMessage("Delete post"),
+        "delete_record": MessageLookupByLibrary.simpleMessage("Delete record"),
+        "delete_record_confirmation": MessageLookupByLibrary.simpleMessage(
+            "Do you want to delete the record?"),
+        "delete_record_warning": MessageLookupByLibrary.simpleMessage(
+            "The record will be deleted permanently"),
         "diabetes": MessageLookupByLibrary.simpleMessage("Diabetes"),
+        "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
         "drug_allergy_error": MessageLookupByLibrary.simpleMessage(
             "Please enter the medication allergy"),
         "drug_allergy_question": MessageLookupByLibrary.simpleMessage(
@@ -177,6 +193,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "editPost": MessageLookupByLibrary.simpleMessage("Edit post"),
         "editUserInformation":
             MessageLookupByLibrary.simpleMessage("Edit personal information"),
+        "edit_data": MessageLookupByLibrary.simpleMessage("Edit data"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "email_empty":
             MessageLookupByLibrary.simpleMessage("Please enter the email"),
@@ -196,11 +213,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "error_try_again": MessageLookupByLibrary.simpleMessage(
             "An Error Occurred, Try Again"),
+        "extraction": MessageLookupByLibrary.simpleMessage("Extraction"),
         "family_history_question": MessageLookupByLibrary.simpleMessage(
             "Is there a family history of the disease?"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "field_required":
             MessageLookupByLibrary.simpleMessage("This field is required"),
+        "file_content": MessageLookupByLibrary.simpleMessage("File content:"),
+        "files": MessageLookupByLibrary.simpleMessage("Files:"),
+        "filling": MessageLookupByLibrary.simpleMessage("Filling"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),
@@ -217,6 +238,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "hypertension": MessageLookupByLibrary.simpleMessage("Hypertension"),
         "imageError": MessageLookupByLibrary.simpleMessage("Image Not Valid"),
+        "image_load_failed":
+            MessageLookupByLibrary.simpleMessage("Failed to load image"),
+        "installation": MessageLookupByLibrary.simpleMessage("Installation"),
         "job_title": MessageLookupByLibrary.simpleMessage("Job Title"),
         "kidney_disease":
             MessageLookupByLibrary.simpleMessage("Kidney Disease"),
@@ -238,6 +262,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Marital Status"),
         "married": MessageLookupByLibrary.simpleMessage("Married"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("Medical record"),
+        "medical_procedure":
+            MessageLookupByLibrary.simpleMessage("Medical procedure:"),
         "medicineName": MessageLookupByLibrary.simpleMessage("Medicine Name"),
         "medicineReminder":
             MessageLookupByLibrary.simpleMessage("Medicine Reminder"),
@@ -267,6 +293,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please check your connection for Smile Simulation"),
         "no_internet_title":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
+        "none": MessageLookupByLibrary.simpleMessage("None"),
         "not_applicable":
             MessageLookupByLibrary.simpleMessage("Not Applicable"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
@@ -283,6 +310,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "A fast and secure chat to solve all your oral health-related questions."),
         "onBoarding6": MessageLookupByLibrary.simpleMessage(
             "⚠️ Smile Simulation is an educational AI simulation app and is not a substitute for real medical care."),
+        "open_file": MessageLookupByLibrary.simpleMessage("Open file:"),
+        "other": MessageLookupByLibrary.simpleMessage("Other"),
         "otherTasks": MessageLookupByLibrary.simpleMessage("Other Tasks"),
         "other_diseases": MessageLookupByLibrary.simpleMessage("Other"),
         "other_diseases_description_error":
@@ -333,6 +362,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "publish": MessageLookupByLibrary.simpleMessage("Publish"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "rateApp": MessageLookupByLibrary.simpleMessage("Rate the App"),
+        "record_deleted_success":
+            MessageLookupByLibrary.simpleMessage("Record deleted successfully"),
+        "record_id_not_found":
+            MessageLookupByLibrary.simpleMessage("Record ID not found"),
         "registerAsDoctor":
             MessageLookupByLibrary.simpleMessage("Register as a doctor"),
         "registerAsUser":
@@ -343,10 +376,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminders": MessageLookupByLibrary.simpleMessage("Reminders"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
         "retry": MessageLookupByLibrary.simpleMessage("Try again"),
+        "root_treatment":
+            MessageLookupByLibrary.simpleMessage("Root canal treatment"),
         "saturday": MessageLookupByLibrary.simpleMessage("Saturday"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "saveData": MessageLookupByLibrary.simpleMessage("Save data"),
         "saveEdits": MessageLookupByLibrary.simpleMessage("Save edits"),
+        "save_edits": MessageLookupByLibrary.simpleMessage("Save edits"),
         "searchRecord": MessageLookupByLibrary.simpleMessage("Search history"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "shareApp": MessageLookupByLibrary.simpleMessage("Share the App"),
@@ -406,6 +442,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "treatmentHistory":
             MessageLookupByLibrary.simpleMessage("Treatment History"),
         "tuesday": MessageLookupByLibrary.simpleMessage("Tuesday"),
+        "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
         "uploadIDCard":
             MessageLookupByLibrary.simpleMessage("Upload your ID card"),
         "verificationCode":
