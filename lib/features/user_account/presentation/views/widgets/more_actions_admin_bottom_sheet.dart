@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
+import 'package:smile_simulation/core/widgets/bottom_navigation_bar/bottom_nvaigation_view.dart';
 import 'package:smile_simulation/core/widgets/user_details_list_tile.dart';
 import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
 import 'package:smile_simulation/features/home_feature/presentation/cubits/posts_cubit/posts_cubit.dart';
@@ -27,12 +28,27 @@ class MoreActionsAdminBottomShet extends StatelessWidget {
       child: BlocConsumer<PostsCubit, PostsState>(
         listener: (context, state) async {
           if (state is RemovePostSuccess) {
-            // await postsCubit.refreshPosts();
-            await context.read<PostsCubit>().fetchPosts();
-            Navigator.pop(context);
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => BottomNavigationView()),
+              (route) => false, // امسح كل اللي قبل
+            );
           }
         },
         builder: (context, state) {
+          if (state is RemovePostLoading) {
+            return Container(
+              width: double.infinity,
+              height: height,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
+                color: AppColors.whiteColor,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(45)),
+              ),
+              child: CircularProgressIndicator(color: AppColors.primaryColor),
+            );
+          }
           return Container(
             width: double.infinity,
             height: height,

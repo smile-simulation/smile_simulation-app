@@ -16,6 +16,7 @@ class UserAccountViewBody extends StatelessWidget {
     required this.userImage,
     required this.rebuild,
   });
+  
   final bool currentUser;
   final String userId;
   final String userName;
