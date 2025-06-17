@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:smile_simulation/core/widgets/custom_loading_shimmer.dart';
@@ -27,8 +26,7 @@ class UserAccountImage extends StatelessWidget {
               )
               : CircleAvatar(
                 radius: 20,
-                backgroundColor:
-                    Colors.grey[200], // Or any neutral background
+                backgroundColor: Colors.grey[200], // Or any neutral background
                 child: ClipOval(
                   child: CachedNetworkImage(
                     imageUrl: userImage!,
@@ -39,8 +37,7 @@ class UserAccountImage extends StatelessWidget {
                         (context, url) => CustomLoadingShimmer(
                           SkeletonWidget: UserImageSkeleton(),
                         ),
-                    errorWidget:
-                        (context, url, error) => Icon(Icons.error),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
                 ),
               ),

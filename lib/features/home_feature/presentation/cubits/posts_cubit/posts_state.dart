@@ -28,3 +28,17 @@ class PostsError extends PostsState {
   @override
   List<Object?> get props => [errorMsg];
 }
+
+final class RemovePostSuccess extends PostsState {
+  final String message;
+
+  RemovePostSuccess({required this.message});
+}
+
+final class RemovePostFailture extends PostsState {
+  final String errorMsg;
+
+  RemovePostFailture({required this.errorMsg});
+}
+
+final class RemovePostLoading extends PostsState {}

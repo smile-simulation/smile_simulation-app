@@ -30,6 +30,7 @@ class UserAccountViewBody extends StatelessWidget {
           userName: userName,
           userImage: userImage,
           rebuild: rebuild,
+          userId: userId,
         ),
         MultiBlocProvider(
           providers: [

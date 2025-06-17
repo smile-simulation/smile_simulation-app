@@ -1,19 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smile_simulation/constant.dart';
+import 'package:smile_simulation/core/api/dio_consumer.dart';
 import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/helper_functions/format_date_time_ago.dart';
 import 'package:smile_simulation/core/helper_functions/show_modal_bottom_sheet.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/features/home_feature/data/models/post_model.dart';
-import 'package:smile_simulation/features/user_account/presentation/managers/get_user_posts_cubit/get_user_posts_cubit.dart';
-import 'package:smile_simulation/generated/l10n.dart';
+import 'package:smile_simulation/features/home_feature/data/repos/posts_repo/posts_repo_implement.dart';
+import 'package:smile_simulation/features/home_feature/presentation/cubits/posts_cubit/posts_cubit.dart';
+import 'package:smile_simulation/features/user_account/presentation/views/widgets/more_actions_admin_bottom_sheet.dart';
 
 import '../../../../../../generated/assets.dart';
 import '../../../../../user_account/presentation/views/user_account_view.dart';
-import '../../../../../user_account/presentation/views/widgets/more_actions_posts_bottom_sheet.dart';
 
 class PostHeader extends StatelessWidget {
   const PostHeader({
@@ -21,13 +24,11 @@ class PostHeader extends StatelessWidget {
     required this.currentUser,
     this.clickablePostImage = true,
     required this.post,
-    this.getUserPostsCubit,
   });
 
   final PostModel post;
   final bool currentUser;
   final bool clickablePostImage;
-  final GetUserPostsCubit? getUserPostsCubit;
 
   @override
   Widget build(BuildContext context) {
@@ -87,14 +88,11 @@ class PostHeader extends StatelessWidget {
             ],
           ),
           Spacer(),
-          CacheHelper().getMap(key: userData)!["email"] ==
-                  "7oooooda2017@gmail.com"
-              ? TextButton(
-                onPressed: () {},
-                child: Text(S.of(context).deletePost),
-              )
-              : SizedBox(),
-          currentUser
+          ((CacheHelper().getMap(key: userData)!["email"] ==
+                      "7oooooda2017@gmail.com") ||
+                  (currentUser ||
+                      post.publisherId ==
+                          CacheHelper().getMap(key: userData)!["userId"]))
               ? IconButton(
                 onPressed: () {
                   customShowModalBottomSheet(
@@ -102,10 +100,21 @@ class PostHeader extends StatelessWidget {
                     builder: (p0) {
                       final double height =
                           MediaQuery.of(context).size.height * 0.22;
-                      return moreActionsPostsBottomSheet(
-                        height: height,
-                        post: post,
-                        getUserPostsCubit: getUserPostsCubit,
+                      return BlocProvider(
+                        create: (context) {
+                          return PostsCubit(
+                            PostsRepoImplement(
+                              dioConsumer: DioConsumer(dio: Dio()),
+                            ),
+                          );
+                        },
+                        child: MoreActionsAdminBottomShet(
+                          height: height,
+                          post: post,
+                          update:
+                              (CacheHelper().getMap(key: userData)!["email"] !=
+                                  "7oooooda2017@gmail.com"),
+                        ),
                       );
                     },
                   );

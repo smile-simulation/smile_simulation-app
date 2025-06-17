@@ -1,8 +1,6 @@
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:smile_simulation/features/medical_record/data/models/health_status_models/Health_status_model.dart';
 import '../../../../../constant.dart';
 import '../../../../../core/api/dio_consumer.dart';
 import '../../../../../core/api/end_point.dart';

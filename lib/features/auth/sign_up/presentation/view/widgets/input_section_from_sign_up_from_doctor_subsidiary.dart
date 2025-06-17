@@ -33,6 +33,8 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
 
   @override
   void initState() {
+    selectedDegree = widget.qualificationController.text;
+    selectedSpecialty = widget.specializationController.text;
     super.initState();
     degrees = [
       S.of(widget.context).degree_bachelor,
@@ -45,6 +47,7 @@ class _InputSectionFromSignUpFromDoctorSubsidiaryState
       S.of(widget.context).degree_oral_surgery,
     ];
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
