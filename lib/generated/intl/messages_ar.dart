@@ -208,6 +208,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_age": MessageLookupByLibrary.simpleMessage("ادخل السن"),
         "enter_job": MessageLookupByLibrary.simpleMessage("ادخل الوظيفة"),
         "error": MessageLookupByLibrary.simpleMessage("خطأ"),
+        "errorDateOfBirth":
+            MessageLookupByLibrary.simpleMessage("تاريخ ميلاد غير صحيح"),
         "error_try_again":
             MessageLookupByLibrary.simpleMessage("حدث خطاء حاول مره اخره"),
         "extraction": MessageLookupByLibrary.simpleMessage("خلع"),

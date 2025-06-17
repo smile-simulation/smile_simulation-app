@@ -262,6 +262,9 @@
   "teamAIChatRole": "• AI chat integration using OLLAMA, LangChain, and prompt engineering.",
   "patientIdPlaceholder": "Enter the Patient ID",
   "patientIdHint": "Enter the Patient ID to view the full medical record.",
+
+  "errorDateOfBirth": "Not Valid Date of birth"
+
   "record_deleted_success": "Record deleted successfully",
   "unknown": "Unknown",
   "doctor": "Doctor",
@@ -288,4 +291,5 @@
   "open_file": "Open file:",
   "add_medical_record": "Add medical record",
   "choose_files": "Choose files"
+
 }

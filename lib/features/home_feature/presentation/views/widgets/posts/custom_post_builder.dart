@@ -49,7 +49,6 @@ class CustomPostBuilder extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   PostHeader(
-                    getUserPostsCubit: getUserPostsCubit,
                     currentUser: currentUser,
                     clickablePostImage: clickablePostImage,
                     post: context.read<PostDetailsCubit>().post,

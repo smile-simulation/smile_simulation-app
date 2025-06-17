@@ -12,10 +12,12 @@ class UserAccountImageBuilder extends StatefulWidget {
     required this.userImage,
     required this.rebuild,
     required this.currentUser,
+    required this.userId,
   });
   final Function() rebuild;
   final String? userImage;
   final bool currentUser;
+  final String userId;
 
   @override
   State<UserAccountImageBuilder> createState() =>

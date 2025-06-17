@@ -262,6 +262,9 @@
   "teamAIChatRole": "• دمج تقنيات Ollama وLangChain وتخصيص النماذج باستخدام هندسة البرومبت.",
   "patientIdPlaceholder" : "ادخل الرقم التعريفي الخاص بالمريض",
   "patientIdHint" : "قم بإدخال الرقم التعريفي الخاص بالمريض لعرض السجل الطبي الكامل الخاص به.",
+
+  "errorDateOfBirth": "تاريخ ميلاد غير صحيح"
+
   "record_deleted_success": "تم حذف السجل بنجاح",
   "unknown": "غير معروف",
   "doctor": "الدكتور",

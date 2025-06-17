@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import '../../../../../core/errors/failure.dart';
@@ -14,7 +13,6 @@ abstract class EditProfileRepo {
 
     required String specialization,
     required String address,
-    required String birthDay,
-    required File image,
+    required DateTime birthDay,
   });
 }

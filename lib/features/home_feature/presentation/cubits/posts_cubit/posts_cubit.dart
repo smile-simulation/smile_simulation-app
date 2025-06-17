@@ -1,5 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/core/api/dio_consumer.dart';
+import 'package:smile_simulation/features/user_account/data/repos/user_details/user_details_repo_impl.dart';
 import '../../../data/models/post_model.dart';
 import '../../../data/repos/posts_repo/posts_repo_implement.dart';
 
@@ -82,5 +85,20 @@ class PostsCubit extends Cubit<PostsState> {
     posts.clear();
     emit(PostsLoading());
     await fetchPosts(isInitialLoad: true);
+  }
+
+  Future<void> removePostById({required int postId}) async {
+    emit(RemovePostLoading());
+    var result = await UserDetailsRepoImpl(
+      dioConsumer: DioConsumer(dio: Dio()),
+    ).removePost(postId: postId);
+    result.fold(
+      (fail) {
+        emit(RemovePostFailture(errorMsg: fail.errorMessage));
+      },
+      (success) {
+        emit(RemovePostSuccess(message: success));
+      },
+    );
   }
 }
