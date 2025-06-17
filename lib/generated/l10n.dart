@@ -2685,6 +2685,262 @@ class S {
     return Intl.message(
       'Not Valid Date of birth',
       name: 'errorDateOfBirth',
+
+  /// `Record deleted successfully`
+  String get record_deleted_success {
+    return Intl.message(
+      'Record deleted successfully',
+      name: 'record_deleted_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown`
+  String get unknown {
+    return Intl.message(
+      'Unknown',
+      name: 'unknown',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doctor`
+  String get doctor {
+    return Intl.message(
+      'Doctor',
+      name: 'doctor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medical procedure:`
+  String get medical_procedure {
+    return Intl.message(
+      'Medical procedure:',
+      name: 'medical_procedure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cleaning`
+  String get cleaning {
+    return Intl.message(
+      'Cleaning',
+      name: 'cleaning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Extraction`
+  String get extraction {
+    return Intl.message(
+      'Extraction',
+      name: 'extraction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filling`
+  String get filling {
+    return Intl.message(
+      'Filling',
+      name: 'filling',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Installation`
+  String get installation {
+    return Intl.message(
+      'Installation',
+      name: 'installation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Root canal treatment`
+  String get root_treatment {
+    return Intl.message(
+      'Root canal treatment',
+      name: 'root_treatment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Other`
+  String get other {
+    return Intl.message(
+      'Other',
+      name: 'other',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Files:`
+  String get files {
+    return Intl.message(
+      'Files:',
+      name: 'files',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `None`
+  String get none {
+    return Intl.message(
+      'None',
+      name: 'none',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Additional details / notes:`
+  String get additional_details_notes {
+    return Intl.message(
+      'Additional details / notes:',
+      name: 'additional_details_notes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Additional details...`
+  String get additional_details_placeholder {
+    return Intl.message(
+      'Additional details...',
+      name: 'additional_details_placeholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save edits`
+  String get save_edits {
+    return Intl.message(
+      'Save edits',
+      name: 'save_edits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit data`
+  String get edit_data {
+    return Intl.message(
+      'Edit data',
+      name: 'edit_data',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete record`
+  String get delete_record {
+    return Intl.message(
+      'Delete record',
+      name: 'delete_record',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to delete the record?`
+  String get delete_record_confirmation {
+    return Intl.message(
+      'Do you want to delete the record?',
+      name: 'delete_record_confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The record will be deleted permanently`
+  String get delete_record_warning {
+    return Intl.message(
+      'The record will be deleted permanently',
+      name: 'delete_record_warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Record ID not found`
+  String get record_id_not_found {
+    return Intl.message(
+      'Record ID not found',
+      name: 'record_id_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `File content:`
+  String get file_content {
+    return Intl.message(
+      'File content:',
+      name: 'file_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to load image`
+  String get image_load_failed {
+    return Intl.message(
+      'Failed to load image',
+      name: 'image_load_failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cannot open file`
+  String get cannot_open_file {
+    return Intl.message(
+      'Cannot open file',
+      name: 'cannot_open_file',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open file:`
+  String get open_file {
+    return Intl.message(
+      'Open file:',
+      name: 'open_file',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add medical record`
+  String get add_medical_record {
+    return Intl.message(
+      'Add medical record',
+      name: 'add_medical_record',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose files`
+  String get choose_files {
+    return Intl.message(
+      'Choose files',
+      name: 'choose_files',
       desc: '',
       args: [],
     );

@@ -86,6 +86,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "أضف زيارتك الطبية ... وسوف نذكرك بمواعيدها"),
         "addVisitSchedulesInstruction": MessageLookupByLibrary.simpleMessage(
             "أضف مواعيد زياراتك الطبية حتى نتمكن من تذكيرك بها في أوقاتها المحددة."),
+        "add_medical_record":
+            MessageLookupByLibrary.simpleMessage("إضافة سجل علاجي"),
+        "additional_details_notes":
+            MessageLookupByLibrary.simpleMessage("تفاصيل إضافية / ملاحظات:"),
+        "additional_details_placeholder":
+            MessageLookupByLibrary.simpleMessage("التفاصيل الإضافية..."),
         "address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "address_empty":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال العنوان"),
@@ -118,13 +124,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "beforeMeal": MessageLookupByLibrary.simpleMessage("قبل تناول الطعام"),
         "breastfeeding": MessageLookupByLibrary.simpleMessage("مرضعه"),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+        "cannot_open_file":
+            MessageLookupByLibrary.simpleMessage("لا يمكن فتح الملف"),
         "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "changePasswordPrompt": MessageLookupByLibrary.simpleMessage(
             "أنت على وشك تغيير كلمة المرور الخاصة بك. يرجى إدخال كلمة مرور جديدة."),
+        "choose_files": MessageLookupByLibrary.simpleMessage("اختر ملفات"),
         "chronic_diseases_question":
             MessageLookupByLibrary.simpleMessage("هل تعاني من أي أمراض مزمنة؟"),
+        "cleaning": MessageLookupByLibrary.simpleMessage("تنظيف"),
         "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
         "comingSoon": MessageLookupByLibrary.simpleMessage("قريباً"),
         "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
@@ -161,7 +171,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل أنت متأكد أنك تريد حذف الحساب ؟"),
         "deleteMedicine": MessageLookupByLibrary.simpleMessage("حذف الدواء"),
         "deletePost": MessageLookupByLibrary.simpleMessage("حذف المنشور"),
+        "delete_record": MessageLookupByLibrary.simpleMessage("حذف السجل"),
+        "delete_record_confirmation":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف السجل؟"),
+        "delete_record_warning":
+            MessageLookupByLibrary.simpleMessage("سيتم حذف السجل بشكل نهائي"),
         "diabetes": MessageLookupByLibrary.simpleMessage("السكر"),
+        "doctor": MessageLookupByLibrary.simpleMessage("الدكتور"),
         "drug_allergy_error":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال حساسية الأدوية"),
         "drug_allergy_question": MessageLookupByLibrary.simpleMessage(
@@ -174,6 +190,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "editPost": MessageLookupByLibrary.simpleMessage("تعديل المنشور"),
         "editUserInformation":
             MessageLookupByLibrary.simpleMessage("تعديل المعلومات الشخصية"),
+        "edit_data": MessageLookupByLibrary.simpleMessage("تعديل البيانات"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "email_empty": MessageLookupByLibrary.simpleMessage(
             "يرجى إدخال البريد الإلكتروني"),
@@ -195,11 +212,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تاريخ ميلاد غير صحيح"),
         "error_try_again":
             MessageLookupByLibrary.simpleMessage("حدث خطاء حاول مره اخره"),
+        "extraction": MessageLookupByLibrary.simpleMessage("خلع"),
         "family_history_question":
             MessageLookupByLibrary.simpleMessage("هل يوجد تاريخ أسري للمرض?"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
         "field_required":
             MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
+        "file_content": MessageLookupByLibrary.simpleMessage("محتوى الملف:"),
+        "files": MessageLookupByLibrary.simpleMessage("الملفات:"),
+        "filling": MessageLookupByLibrary.simpleMessage("حشو"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور؟"),
         "frequency": MessageLookupByLibrary.simpleMessage("التكرار"),
@@ -215,6 +236,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "hypertension": MessageLookupByLibrary.simpleMessage("الضغط"),
         "imageError": MessageLookupByLibrary.simpleMessage("الصورة غير صالحة"),
+        "image_load_failed":
+            MessageLookupByLibrary.simpleMessage("فشل في تحميل الصورة"),
+        "installation": MessageLookupByLibrary.simpleMessage("تركيب"),
         "job_title": MessageLookupByLibrary.simpleMessage("الوظيفة"),
         "kidney_disease": MessageLookupByLibrary.simpleMessage("فشل كلوي"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
@@ -235,6 +259,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الحالة الإجتماعية"),
         "married": MessageLookupByLibrary.simpleMessage("متزوج"),
         "medicalRecord": MessageLookupByLibrary.simpleMessage("السجل الطبي"),
+        "medical_procedure":
+            MessageLookupByLibrary.simpleMessage("الإجراء الطبي:"),
         "medicineName": MessageLookupByLibrary.simpleMessage("اسم الدواء"),
         "medicineReminder": MessageLookupByLibrary.simpleMessage("منبه الدواء"),
         "medicineReminders":
@@ -261,6 +287,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "يرجى التحقق من اتصالك لتطبيق Smile Simulation"),
         "no_internet_title":
             MessageLookupByLibrary.simpleMessage("لا يوجد اتصال بالإنترنت"),
+        "none": MessageLookupByLibrary.simpleMessage("لا يوجد"),
         "not_applicable": MessageLookupByLibrary.simpleMessage("لا ينطبق"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
@@ -276,6 +303,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "دردشة سريعة وآمنة لحل جميع أسئلتك المتعلقة بصحة الفم."),
         "onBoarding6": MessageLookupByLibrary.simpleMessage(
             "⚠️ Smile Simulation هو مشروع تخرج لمحاكاة استخدام تكنولوجيا الحديثة ولا يعد بديلاً عن الرعاية الطبية الحقيقية."),
+        "open_file": MessageLookupByLibrary.simpleMessage("فتح الملف:"),
+        "other": MessageLookupByLibrary.simpleMessage("أخرى"),
         "otherTasks": MessageLookupByLibrary.simpleMessage("مهام أخرى"),
         "other_diseases": MessageLookupByLibrary.simpleMessage("أخرى"),
         "other_diseases_description_error":
@@ -325,6 +354,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "publish": MessageLookupByLibrary.simpleMessage("نشر"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "rateApp": MessageLookupByLibrary.simpleMessage("تقييم التطبيق"),
+        "record_deleted_success":
+            MessageLookupByLibrary.simpleMessage("تم حذف السجل بنجاح"),
+        "record_id_not_found":
+            MessageLookupByLibrary.simpleMessage("معرف السجل غير موجود"),
         "registerAsDoctor":
             MessageLookupByLibrary.simpleMessage("التسجيل كطبيب"),
         "registerAsUser":
@@ -336,10 +369,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
         "retry": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
+        "root_treatment": MessageLookupByLibrary.simpleMessage("علاج عصب"),
         "saturday": MessageLookupByLibrary.simpleMessage("سبت"),
         "save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "saveData": MessageLookupByLibrary.simpleMessage("حفظ البيانات"),
         "saveEdits": MessageLookupByLibrary.simpleMessage("حفظ التعديلات"),
+        "save_edits": MessageLookupByLibrary.simpleMessage("حفظ التعديلات"),
         "searchRecord": MessageLookupByLibrary.simpleMessage("سجل البحث"),
         "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
         "shareApp": MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
@@ -400,6 +435,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "treatmentHistory":
             MessageLookupByLibrary.simpleMessage("السجل العلاجي"),
         "tuesday": MessageLookupByLibrary.simpleMessage("ثلاثاء"),
+        "unknown": MessageLookupByLibrary.simpleMessage("غير معروف"),
         "uploadIDCard":
             MessageLookupByLibrary.simpleMessage("قم برفع الكارنيه الخاص بك"),
         "verificationCode": MessageLookupByLibrary.simpleMessage("رمز التحقق"),

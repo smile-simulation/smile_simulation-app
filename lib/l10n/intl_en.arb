@@ -262,5 +262,34 @@
   "teamAIChatRole": "• AI chat integration using OLLAMA, LangChain, and prompt engineering.",
   "patientIdPlaceholder": "Enter the Patient ID",
   "patientIdHint": "Enter the Patient ID to view the full medical record.",
+
   "errorDateOfBirth": "Not Valid Date of birth"
+
+  "record_deleted_success": "Record deleted successfully",
+  "unknown": "Unknown",
+  "doctor": "Doctor",
+  "medical_procedure": "Medical procedure:",
+  "cleaning": "Cleaning",
+  "extraction": "Extraction",
+  "filling": "Filling",
+  "installation": "Installation",
+  "root_treatment": "Root canal treatment",
+  "other": "Other",
+  "files": "Files:",
+  "none": "None",
+  "additional_details_notes": "Additional details / notes:",
+  "additional_details_placeholder": "Additional details...",
+  "save_edits": "Save edits",
+  "edit_data": "Edit data",
+  "delete_record": "Delete record",
+  "delete_record_confirmation": "Do you want to delete the record?",
+  "delete_record_warning": "The record will be deleted permanently",
+  "record_id_not_found": "Record ID not found",
+  "file_content": "File content:",
+  "image_load_failed": "Failed to load image",
+  "cannot_open_file": "Cannot open file",
+  "open_file": "Open file:",
+  "add_medical_record": "Add medical record",
+  "choose_files": "Choose files"
+
 }
