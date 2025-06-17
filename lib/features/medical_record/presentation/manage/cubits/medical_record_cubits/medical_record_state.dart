@@ -28,3 +28,24 @@ class DeleteMedicalRecordFailure extends MedicalRecordState {
   DeleteMedicalRecordFailure(this.message);
 }
 
+ class AddMedicalRecordSuccess extends MedicalRecordState {
+   final AddMedicalRecordResponse response;
+
+   AddMedicalRecordSuccess(this.response);
+
+}
+
+class EditMedicalRecordSuccess extends MedicalRecordState {
+
+
+  EditMedicalRecordSuccess();
+}
+
+ class EditMedicalRecordFailure extends MedicalRecordState {
+  final String message;
+  EditMedicalRecordFailure(this.message);
+}
+class EditMedicalRecordLoading extends MedicalRecordState {
+
+}
+

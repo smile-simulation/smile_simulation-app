@@ -261,5 +261,35 @@
   "teamAsmaa": "أسماء عصمت قاسم – مطورة شات ذكي",
   "teamAIChatRole": "• دمج تقنيات Ollama وLangChain وتخصيص النماذج باستخدام هندسة البرومبت.",
   "patientIdPlaceholder" : "ادخل الرقم التعريفي الخاص بالمريض",
-  "patientIdHint" : "قم بإدخال الرقم التعريفي الخاص بالمريض لعرض السجل الطبي الكامل الخاص به."
+  "patientIdHint" : "قم بإدخال الرقم التعريفي الخاص بالمريض لعرض السجل الطبي الكامل الخاص به.",
+  "record_deleted_success": "تم حذف السجل بنجاح",
+  "unknown": "غير معروف",
+  "doctor": "الدكتور",
+  "medical_procedure": "الإجراء الطبي:",
+  "cleaning": "تنظيف",
+  "extraction": "خلع",
+  "filling": "حشو",
+  "installation": "تركيب",
+  "root_treatment": "علاج عصب",
+  "other": "أخرى",
+  "files": "الملفات:",
+  "none": "لا يوجد",
+  "additional_details_notes": "تفاصيل إضافية / ملاحظات:",
+  "additional_details_placeholder": "التفاصيل الإضافية...",
+  "save_edits": "حفظ التعديلات",
+  "edit_data": "تعديل البيانات",
+  "delete_record": "حذف السجل",
+  "delete_record_confirmation": "هل تريد حذف السجل؟",
+  "delete_record_warning": "سيتم حذف السجل بشكل نهائي",
+
+  "record_id_not_found": "معرف السجل غير موجود",
+
+  "file_content": "محتوى الملف:",
+  "image_load_failed": "فشل في تحميل الصورة",
+  "cannot_open_file": "لا يمكن فتح الملف",
+  "open_file": "فتح الملف:",
+  "add_medical_record": "إضافة سجل علاجي",
+  "choose_files": "اختر ملفات"
+
+
 }
