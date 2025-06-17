@@ -2685,6 +2685,10 @@ class S {
     return Intl.message(
       'Not Valid Date of birth',
       name: 'errorDateOfBirth',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Record deleted successfully`
   String get record_deleted_success {
