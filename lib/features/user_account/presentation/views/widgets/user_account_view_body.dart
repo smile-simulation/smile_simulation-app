@@ -16,6 +16,7 @@ class UserAccountViewBody extends StatelessWidget {
     required this.userImage,
     required this.rebuild,
   });
+  
   final bool currentUser;
   final String userId;
   final String userName;
@@ -30,6 +31,7 @@ class UserAccountViewBody extends StatelessWidget {
           userName: userName,
           userImage: userImage,
           rebuild: rebuild,
+          userId: userId,
         ),
         MultiBlocProvider(
           providers: [

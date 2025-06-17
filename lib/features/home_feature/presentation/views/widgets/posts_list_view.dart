@@ -65,7 +65,14 @@ class _PostsListViewState extends State<PostsListView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PostsCubit, PostsState>(
+    return BlocConsumer<PostsCubit, PostsState>(
+      listener: (BuildContext context, PostsState state) {
+        if (state is RemovePostSuccess) {
+          log(state.toString());
+          context.read<PostsCubit>().refreshPosts();
+        }
+      },
+
       builder: (context, state) {
         log(state.toString());
 

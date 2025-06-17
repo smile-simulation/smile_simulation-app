@@ -1,7 +1,6 @@
-import 'dart:io';
+import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
-import 'package:smile_simulation/features/medical_record/data/models/health_status_models/Health_status_model.dart';
 import '../../../../../constant.dart';
 import '../../../../../core/api/dio_consumer.dart';
 import '../../../../../core/api/end_point.dart';
@@ -25,22 +24,21 @@ class EditProfileRepoImpl extends EditProfileRepo {
 
     required String specialization,
     required String address,
-    required String birthDay,
-    required File image,
+    required DateTime birthDay,
   }) async {
+    log("day: ${birthDay}");
     try {
       final response = await dioConsumer.put(
         EndPoint.editProfile,
         data: {
           "FullName": fullName,
           "Age ": age,
-          "Image": image,
           "Gender": gender,
           "Experience": experience,
           "Qualification": qualification,
           "Specialization": specialization,
           "Address": address,
-          "BirthDay": birthDay,
+          "BirthDay": "${birthDay.year}-${birthDay.month}-${birthDay.day}",
         },
         formData: true,
       );

@@ -3,7 +3,6 @@ import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/utils/app_text_styles.dart';
 import 'package:smile_simulation/generated/l10n.dart';
 
-import '../../../../../core/helper_functions/custom_error.dart';
 import '../edit_profile.dart';
 
 

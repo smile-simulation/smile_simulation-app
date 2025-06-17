@@ -211,6 +211,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_age": MessageLookupByLibrary.simpleMessage("Enter Age"),
         "enter_job": MessageLookupByLibrary.simpleMessage("Enter Job"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "errorDateOfBirth":
+            MessageLookupByLibrary.simpleMessage("Not Valid Date of birth"),
         "error_try_again": MessageLookupByLibrary.simpleMessage(
             "An Error Occurred, Try Again"),
         "extraction": MessageLookupByLibrary.simpleMessage("Extraction"),

@@ -2680,6 +2680,12 @@ class S {
     );
   }
 
+  /// `Not Valid Date of birth`
+  String get errorDateOfBirth {
+    return Intl.message(
+      'Not Valid Date of birth',
+      name: 'errorDateOfBirth',
+
   /// `Record deleted successfully`
   String get record_deleted_success {
     return Intl.message(

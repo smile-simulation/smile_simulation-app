@@ -15,11 +15,11 @@ class moreActionsPostsBottomSheet extends StatelessWidget {
     this.getUserPostsCubit,
     required this.post,
   });
-
   final double height;
   final PostModel post;
 
   final GetUserPostsCubit? getUserPostsCubit;
+
   @override
   Widget build(BuildContext context) {
     if (getUserPostsCubit == null) {
@@ -34,7 +34,6 @@ class moreActionsPostsBottomSheet extends StatelessWidget {
             await getUserPostsCubit!.getUserPostsByUserId(
               userId: CacheHelper().getMap(key: 'userData')!['userId'],
             );
-            // await context.read<PostsCubit>().refreshPosts();
             Navigator.pop(context);
           }
         },

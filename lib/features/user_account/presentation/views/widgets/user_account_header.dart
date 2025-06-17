@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/core/helper_functions/get_it.dart';
@@ -16,10 +15,12 @@ class UserAccountHeader extends StatelessWidget {
     required this.userName,
     required this.userImage,
     required this.rebuild,
+    required this.userId,
   });
   final bool currentUser;
   final String userName;
   final String? userImage;
+  final String userId;
   final Function() rebuild;
   @override
   Widget build(BuildContext context) {
@@ -38,6 +39,7 @@ class UserAccountHeader extends StatelessWidget {
                   userImage: userImage,
                   rebuild: rebuild,
                   currentUser: currentUser,
+                  userId: userId,
                 ),
                 Visibility(visible: currentUser, child: SetUserImageButton()),
               ],

@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_simulation/constant.dart';
 import 'package:smile_simulation/core/database/cache/cache_helper.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 import 'package:smile_simulation/core/widgets/custom_sliver_sized_box.dart';
@@ -57,13 +57,39 @@ class _UserAccountViewBodyContentState
         child: CustomScrollView(
           // crossAxisAlignment: CrossAxisAlignment.start,
           slivers: [
-            SliverToBoxAdapter(child: UserAccountTitle()),
-            CustomSliverSizedBox(height: 16),
-            SliverToBoxAdapter(child: UserDetailsSection()),
-            CustomSliverSizedBox(height: 16),
             SliverToBoxAdapter(
               child: Visibility(
-                visible: widget.currentUser,
+                visible:
+                    (widget.currentUser ||
+                        widget.userId ==
+                            CacheHelper().getMap(key: userData)!["userId"]),
+                child: UserAccountTitle(),
+              ),
+            ),
+            CustomSliverSizedBox(
+              height:
+                  (widget.currentUser ||
+                          widget.userId ==
+                              CacheHelper().getMap(key: userData)!["userId"])
+                      ? 16
+                      : 0,
+            ),
+            SliverToBoxAdapter(
+              child: Visibility(
+                visible:
+                    (widget.currentUser ||
+                        widget.userId ==
+                            CacheHelper().getMap(key: userData)!["userId"]),
+                child: UserDetailsSection(),
+              ),
+            ),
+            CustomSliverSizedBox(height: widget.currentUser ? 16 : 0),
+            SliverToBoxAdapter(
+              child: Visibility(
+                visible:
+                    (widget.currentUser ||
+                        widget.userId ==
+                            CacheHelper().getMap(key: userData)!["userId"]),
                 child: Column(
                   children: [EditDataButton(), SizedBox(height: 16), AddPost()],
                 ),
