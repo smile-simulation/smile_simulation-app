@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_simulation/features/medical_record/presentation/manage/cubits/update_health_status_cubit/update_health_status_state.dart';
+import '../../../../data/models/health_status_models/Health_status_model.dart';
 import '../../../../data/repos/health_status_repos/health_status_repo.dart';
 
 class UpdateHealthStatusCubit extends Cubit<UpdateHealthStatusState> {
@@ -47,6 +48,38 @@ class UpdateHealthStatusCubit extends Cubit<UpdateHealthStatusState> {
     result.fold(
       (l) => emit(UpdateHealthStatusFailure(l.errorMessage)),
       (r) => emit(UpdateHealthStatusSuccess(r)),
+    );
+  }
+}
+
+abstract class FetchHealthStatusState {}
+
+class FetchHealthStatusInitial extends FetchHealthStatusState {}
+
+class FetchHealthStatusLoading extends FetchHealthStatusState {}
+
+class FetchHealthStatusSuccess extends FetchHealthStatusState {
+  final HealthStatusModel dataModel;
+  FetchHealthStatusSuccess(this.dataModel);
+}
+
+class FetchHealthStatusFailure extends FetchHealthStatusState {
+  final String message;
+  FetchHealthStatusFailure(this.message);
+}
+
+class FetchHealthStatusCubit extends Cubit<FetchHealthStatusState> {
+  FetchHealthStatusCubit({required this.healthStatusRepo})
+      : super(FetchHealthStatusInitial());
+
+  final HealthStatusRepo healthStatusRepo;
+
+  Future<void> fetchHealthStatus({required String userName}) async {
+    emit(FetchHealthStatusLoading());
+    final result = await healthStatusRepo.fetchHealthStatus(userName: userName);
+    result.fold(
+          (l) => emit(FetchHealthStatusFailure(l.errorMessage)),
+          (r) => emit(FetchHealthStatusSuccess(r)),
     );
   }
 }
