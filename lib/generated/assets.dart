@@ -15,6 +15,7 @@ class Assets {
   static const String fontsNotoSansSCMedium = 'assets/fonts/NotoSansSC-Medium.ttf';
   static const String fontsNotoSansSCRegular = 'assets/fonts/NotoSansSC-Regular.ttf';
   static const String fontsNotoSansSCSemiBold = 'assets/fonts/NotoSansSC-SemiBold.ttf';
+  static const String imagesAboutUs = 'assets/images/aboutUs.svg';
   static const String imagesAccountDelete = 'assets/images/account-delete.svg';
   static const String imagesAdviceBackground = 'assets/images/advice_background.jpg';
   static const String imagesBottomNavBarPointer = 'assets/images/bottom_nav_bar_pointer.png';

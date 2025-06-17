@@ -131,6 +131,7 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
             Map<String, dynamic> map = CacheHelper().getMap(key: userData)!;
             map["fullName"] = nameController.text.trim();
             map["address"] = addressController.text;
+            map["birthDay"] = birthDayController.text;
             map["age"] = int.tryParse(ageController.text) ?? 0;
             map["gender"] =
                 gender == 2

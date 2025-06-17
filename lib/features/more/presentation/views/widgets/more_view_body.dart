@@ -68,14 +68,7 @@ class MoreViewBody extends StatelessWidget {
                       },
                     ),
                     _buildDivider(),
-                    MoreActionItemListTile(
-                      iconPath: Assets.imagesSettingsIcon,
-                      title: S.of(context).aboutUs,
-                      onTap: () {
-                        Navigator.pushNamed(context, AboutUsView.routeName);
-                      },
-                    ),
-                    _buildDivider(),
+
                     MoreActionItemListTile(
                       iconPath: Assets.imagesSettingsIcon,
                       title: S.of(context).settings,
@@ -148,6 +141,14 @@ class MoreViewBody extends StatelessWidget {
                           message,
                           subject: 'Try Smile Simulation App',
                         );
+                      },
+                    ),
+                    _buildDivider(),
+                    MoreActionItemListTile(
+                      iconPath: Assets.imagesAboutUs,
+                      title: S.of(context).aboutUs,
+                      onTap: () {
+                        Navigator.pushNamed(context, AboutUsView.routeName);
                       },
                     ),
                     _buildDivider(),

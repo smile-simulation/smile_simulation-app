@@ -151,13 +151,16 @@ class _ForgotViewState extends State<ForgetView> {
                                     ]
                                     : index == 1
                                     ? [
-                                      PinInputStyles.buildPinInput(
-                                        onCompleted: (pin) {
-                                          Opt = pin ?? "";
-                                          print(pin);
+                                      Directionality(
+                                        textDirection: TextDirection.ltr,
+                                        child: PinInputStyles.buildPinInput(
+                                          onCompleted: (pin) {
+                                            Opt = pin ?? "";
+                                            print(pin);
 
-                                          ;
-                                        },
+                                            ;
+                                          },
+                                        ),
                                       ),
                                     ]
                                     : [
