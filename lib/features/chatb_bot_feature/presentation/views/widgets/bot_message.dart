@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:smile_simulation/core/utils/app_colors.dart';
 
 class ChatBotMessage extends StatelessWidget {
@@ -28,7 +29,7 @@ class ChatBotMessage extends StatelessWidget {
 
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(8, 8, 2, 8),
+                padding: const EdgeInsets.fromLTRB(8, 8, 2, 0),
                 child: Container(
                   decoration: BoxDecoration(
                     color: AppColors.meduimLightGrey,
@@ -55,19 +56,6 @@ class ChatBotMessage extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(width: 8),
-              Icon(
-                Icons.thumb_up_alt_outlined,
-                color: AppColors.grayHeavyText_1Color,
-                size: 18,
-              ),
-              SizedBox(width: 8),
-              Icon(
-                Icons.thumb_down_alt_outlined,
-                color: AppColors.grayHeavyText_1Color,
-                size: 18,
-              ),
-              SizedBox(width: 8),
               IconButton(
                 onPressed: () {
                   Clipboard.setData(
@@ -83,11 +71,18 @@ class ChatBotMessage extends StatelessWidget {
                   size: 18,
                 ),
               ),
-              SizedBox(width: 8),
-              Icon(
-                Icons.share_outlined,
-                color: AppColors.grayHeavyText_1Color,
-                size: 18,
+
+              IconButton(
+                onPressed: () {
+                  String message =
+                      '$text \n\n تم المشاركه من تطبيق Smile Simulation 🩵';
+                  Share.share(message, subject: 'Try Smile Simulation App');
+                },
+                icon: Icon(
+                  Icons.share_outlined,
+                  color: AppColors.primaryColor,
+                  size: 18,
+                ),
               ),
             ],
           ),

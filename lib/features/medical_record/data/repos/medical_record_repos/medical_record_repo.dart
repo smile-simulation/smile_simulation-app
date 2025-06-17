@@ -8,6 +8,7 @@ abstract class MedicalRecordRepository {
 
   Future<DeleteMedicalRecordResponse> deleteMedicalRecord(int historyId
       , String username);
+  Future<void> editMedicalRecord(int id, Map<String, dynamic> data);
 
   Future<AddMedicalRecordResponse> addMedicalRecord(
       String doctorId,

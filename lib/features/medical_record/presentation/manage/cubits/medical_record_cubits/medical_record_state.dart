@@ -35,3 +35,17 @@ class DeleteMedicalRecordFailure extends MedicalRecordState {
 
 }
 
+class EditMedicalRecordSuccess extends MedicalRecordState {
+
+
+  EditMedicalRecordSuccess();
+}
+
+ class EditMedicalRecordFailure extends MedicalRecordState {
+  final String message;
+  EditMedicalRecordFailure(this.message);
+}
+class EditMedicalRecordLoading extends MedicalRecordState {
+
+}
+

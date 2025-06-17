@@ -329,13 +329,14 @@ class _ExpandableTreatmentCardState extends State<ExpandableTreatmentCard> {
       children: [
         Divider(color: AppColors.greyColor),
         TreatmentDetailsSection(
-          isEditMode: userType == 'Doctor',
           existingData: recordData,
           onSave: () {
-            Navigator.pushNamed(
+            Navigator.push(
               context,
-              EditMedicalRecordView.routeName,
-              arguments: recordData,
+              MaterialPageRoute(
+                builder:
+                    (context) => EditMedicalRecordView(recordData: recordData),
+              ),
             );
           },
         ),
@@ -447,7 +448,7 @@ class TreatmentDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Visibility(
-            //visible: userType == "Doctor",
+            visible: userType == "Doctor",
             child:
                 isEditMode
                     ? Row(
@@ -872,7 +873,7 @@ class _AddMedicalRecordBodyViewState extends State<AddMedicalRecordBodyView> {
   }
 }
 
-class EditMedicalRecordView extends StatelessWidget {
+class EditMedicalRecordView extends StatefulWidget {
   static const routeName = 'EditMedicalRecordView';
 
   final Map<String, dynamic> recordData;
@@ -880,21 +881,188 @@ class EditMedicalRecordView extends StatelessWidget {
   const EditMedicalRecordView({super.key, required this.recordData});
 
   @override
+  State<EditMedicalRecordView> createState() => _EditMedicalRecordViewState();
+}
+class _EditMedicalRecordViewState extends State<EditMedicalRecordView> {
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _additionalNotesController = TextEditingController();
+  final List<File> _files = [];
+  Map<String, bool> _procedureSelections = {
+    'تنظيف': false,
+    'خلع': false,
+    'حشو': false,
+    'تركيب': false,
+    'علاج_عصب': false,
+    'أخرى': false,
+  };
+
+  @override
+  void initState() {
+    super.initState();
+    _additionalNotesController.text = widget.recordData['additionalNotes'] ?? '';
+    final existingSelections = widget.recordData['procedureSelections'] ?? {};
+    _procedureSelections = {
+      'تنظيف': existingSelections['تنظيف'] ?? false,
+      'خلع': existingSelections['خلع'] ?? false,
+      'حشو': existingSelections['حشو'] ?? false,
+      'تركيب': existingSelections['تركيب'] ?? false,
+      'علاج_عصب': existingSelections['علاج_عصب'] ?? false,
+      'أخرى': existingSelections['أخرى'] ?? false,
+    };
+  }
+
+  @override
+  void dispose() {
+    _additionalNotesController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _pickFiles() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: true);
+    if (result != null) {
+      setState(() {
+        _files.addAll(result.paths.map((path) => File(path!)).toList());
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppbar(context, title: 'تعديل السجل العلاجي', isBack: true),
-      body: CustomBodyScreen(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
-            child: TreatmentDetailsSection(
-              isEditMode: true,
-              existingData: recordData,
-              onSave: () {
+    return BlocProvider(
+      create: (context) => MedicalRecordCubit(MedicalRecordRepositoryImpl()),
+      child: Scaffold(
+        appBar: customAppbar(context, title: 'تعديل السجل العلاجي', isBack: true),
+        body: BlocConsumer<MedicalRecordCubit, MedicalRecordState>(
+          listener: (context, state) {
+            if (state is EditMedicalRecordSuccess) {
+              WidgetsBinding.instance.addPostFrameCallback((_) async {
+                final cubit = context.read<MedicalRecordCubit>();
+                cubit.fetchMedicalRecords(
+                  userId,
+                );
+
+                await customSuccess(context, massage: 'تم تعديل السجل الطبي بنجاح');
+          // إعادة جلب السجلات
                 Navigator.pop(context);
-              },
-            ),
-          ),
+              });
+            } else if (state is EditMedicalRecordFailure) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                customError(context, massage: state.message);
+              });
+            }
+          },
+          builder: (context, state) {
+            return CustomBodyScreen(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: SingleChildScrollView(
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFE7F6FA),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text("الإجراء الطبي:", style: TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 8),
+                          Wrap(
+                            spacing: 8,
+                            runSpacing: 8,
+                            children: _procedureSelections.entries.map((entry) {
+                              return CheckboxListTile(
+                                title: Text(entry.key),
+                                value: entry.value,
+                                onChanged: (val) => setState(() => _procedureSelections[entry.key] = val!),
+                              );
+                            }).toList(),
+                          ),
+                          const SizedBox(height: 16),
+                          const Text("الملفات:", style: TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 6),
+                          if (_files.isEmpty && (widget.recordData['fileUrls'] ?? []).isEmpty)
+                            const Text("لا يوجد", style: TextStyle(color: Colors.grey)),
+                          if ((widget.recordData['fileUrls'] ?? []).isNotEmpty)
+                            Wrap(
+                              children: (widget.recordData['fileUrls'] as List?)
+                                  ?.map((url) => Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Text(url.split('/').last),
+                              ))
+                                  .toList() ?? [],
+                            ),
+                          if (_files.isNotEmpty)
+                            Wrap(
+                              children: _files
+                                  .map((file) => Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Text(file.path.split('/').last),
+                              ))
+                                  .toList(),
+                            ),
+                          ElevatedButton(
+                            onPressed: _pickFiles,
+                            child: Text('اختر ملفات'),
+                          ),
+                          const SizedBox(height: 16),
+                          const Text("تفاصيل إضافية / ملاحظات:", style: TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 6),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: TextField(
+                              maxLines: 3,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "التفاصيل الإضافية...",
+                              ),
+                              controller: _additionalNotesController,
+                              enabled: true,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              CustomButton(
+                                isLoading: state is EditMedicalRecordLoading,
+                                isMinWidth: true,
+                                title: "حفظ التعديلات",
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    final cubit = context.read<MedicalRecordCubit>();
+                                    final id = widget.recordData['historyId'] as int;
+                                    cubit.editMedicalRecord(id, {
+                                      'prescription': _additionalNotesController.text,
+                                      'procedureSelections': _procedureSelections,
+                                      'files': _files,
+                                      'additionalNotes': _additionalNotesController.text,
+                                    });
+                                  }
+                                },
+                              ),
+                              CustomButton(
+                                isMinWidth: true,
+                                isSecondary: true,
+                                title: S.of(context).cancel,
+                                onPressed: () => Navigator.pop(context),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

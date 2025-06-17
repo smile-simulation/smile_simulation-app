@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../data/models/medical_record_models/medical_record_model.dart';
@@ -24,6 +25,17 @@ class MedicalRecordCubit extends Cubit<MedicalRecordState> {
       emit(DeleteMedicalRecordSuccess(response.message));
     } catch (e) {
       emit(DeleteMedicalRecordFailure(e.toString()));
+    }
+  }
+
+  Future<void> editMedicalRecord(int id, Map<String, dynamic> data) async {
+    emit(EditMedicalRecordLoading());
+    try {
+
+      await repository.editMedicalRecord(id, data);
+      emit(EditMedicalRecordSuccess());
+    } catch (e) {
+      emit(EditMedicalRecordFailure(e.toString()));
     }
   }
 
