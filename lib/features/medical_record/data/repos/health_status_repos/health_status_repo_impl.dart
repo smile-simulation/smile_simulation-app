@@ -61,4 +61,19 @@ class HealthStatusRepoImpl extends HealthStatusRepo {
       return Left(ServerFailure('حدث خطأ غير متوقع أثناء تحديث البيانات'));
     }
   }
+  @override
+  Future<Either<Failure, HealthStatusModel>> fetchHealthStatus({required String userName}) async {
+    try {
+      final response = await dioConsumer.get(
+        'http://smilesimulation.runasp.net/api/User/GetPatientHealthConditionData/$userName',
+      );
+      return Right(HealthStatusModel.fromJson(response));
+    } on ServerException catch (e) {
+      logger.e("Exception in fetchHealthStatus: ${e.errorModel.message}");
+      return Left(ServerFailure(e.errorModel.message!));
+    } catch (e) {
+      logger.e("Exception in fetchHealthStatus: $e");
+      return Left(ServerFailure('حدث خطأ غير متوقع أثناء جلب البيانات'));
+    }
+  }
 }

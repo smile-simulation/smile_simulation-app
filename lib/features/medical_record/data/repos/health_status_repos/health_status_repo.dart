@@ -20,4 +20,5 @@ abstract class HealthStatusRepo {
     required String drug_Allergy,
     required String pregnancyAndBreastfeeding,
   });
+  Future<Either<Failure, HealthStatusModel>> fetchHealthStatus({required String userName});
 }

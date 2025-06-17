@@ -8,5 +8,3 @@ const sharedPrefForgetToken = 'sharedPrefForgetToken';
 const userData = 'userData';
 var logger = Logger(printer: PrettyPrinter(), level: Level.debug);
 String userId = CacheHelper().getMap(key: userData)?['userName'] ?? "";
-String userType = CacheHelper().getMap(key: userData)?['role'] ?? "Patient";
-

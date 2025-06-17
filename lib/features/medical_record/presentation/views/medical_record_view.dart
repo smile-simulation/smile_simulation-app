@@ -170,7 +170,7 @@ class MedicalRecordView extends StatelessWidget {
                             ],
                           ),
                           Visibility(
-                            visible: userType == 'Doctor',
+                            visible: CacheHelper().getMap(key: userData)!['role'] == "Doctor",
                             child: Positioned(
                               bottom: 20,
                               child: FloatingActionButton(
@@ -444,7 +444,7 @@ class TreatmentDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Visibility(
-            visible: userType == "Doctor",
+            visible: CacheHelper().getMap(key: userData)!['role'] == "Doctor",
             child:
                 isEditMode
                     ? Row(
