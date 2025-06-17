@@ -1140,70 +1140,70 @@ class S {
     );
   }
 
-  /// `Sunday`
+  /// `Sun`
   String get sunday {
     return Intl.message(
-      'Sunday',
+      'Sun',
       name: 'sunday',
       desc: '',
       args: [],
     );
   }
 
-  /// `Monday`
+  /// `Mon`
   String get monday {
     return Intl.message(
-      'Monday',
+      'Mon',
       name: 'monday',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tuesday`
+  /// `Tue`
   String get tuesday {
     return Intl.message(
-      'Tuesday',
+      'Tue',
       name: 'tuesday',
       desc: '',
       args: [],
     );
   }
 
-  /// `Wednesday`
+  /// `Wed`
   String get wednesday {
     return Intl.message(
-      'Wednesday',
+      'Wed',
       name: 'wednesday',
       desc: '',
       args: [],
     );
   }
 
-  /// `Thursday`
+  /// `Thu`
   String get thursday {
     return Intl.message(
-      'Thursday',
+      'Thu',
       name: 'thursday',
       desc: '',
       args: [],
     );
   }
 
-  /// `Friday`
+  /// `Fri`
   String get friday {
     return Intl.message(
-      'Friday',
+      'Fri',
       name: 'friday',
       desc: '',
       args: [],
     );
   }
 
-  /// `Saturday`
+  /// `Sat`
   String get saturday {
     return Intl.message(
-      'Saturday',
+      'Sat',
       name: 'saturday',
       desc: '',
       args: [],

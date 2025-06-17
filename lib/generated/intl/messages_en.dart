@@ -227,7 +227,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),
-        "friday": MessageLookupByLibrary.simpleMessage("Friday"),
+        "friday": MessageLookupByLibrary.simpleMessage("Fri"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
         "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
@@ -273,7 +273,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Medicine Reminders"),
         "medicineTime": MessageLookupByLibrary.simpleMessage("Medicine Time"),
         "mohamedHamed": MessageLookupByLibrary.simpleMessage("Mohamed Hamed"),
-        "monday": MessageLookupByLibrary.simpleMessage("Monday"),
+        "monday": MessageLookupByLibrary.simpleMessage("Mon"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "name_empty":
             MessageLookupByLibrary.simpleMessage("Please enter the name"),
@@ -380,7 +380,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "retry": MessageLookupByLibrary.simpleMessage("Try again"),
         "root_treatment":
             MessageLookupByLibrary.simpleMessage("Root canal treatment"),
-        "saturday": MessageLookupByLibrary.simpleMessage("Saturday"),
+        "saturday": MessageLookupByLibrary.simpleMessage("Sat"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "saveData": MessageLookupByLibrary.simpleMessage("Save data"),
         "saveEdits": MessageLookupByLibrary.simpleMessage("Save edits"),
@@ -403,7 +403,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "start": MessageLookupByLibrary.simpleMessage("Start"),
         "stopDate": MessageLookupByLibrary.simpleMessage("Medicine Stop Date"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
-        "sunday": MessageLookupByLibrary.simpleMessage("Sunday"),
+        "sunday": MessageLookupByLibrary.simpleMessage("Sun"),
         "surgery_question": MessageLookupByLibrary.simpleMessage(
             "Have you undergone any previous surgeries?"),
         "teamAIChatRole": MessageLookupByLibrary.simpleMessage(
@@ -436,14 +436,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "thisFeatureIsComingSoon":
             MessageLookupByLibrary.simpleMessage("This feature is coming soon"),
-        "thursday": MessageLookupByLibrary.simpleMessage("Thursday"),
+        "thursday": MessageLookupByLibrary.simpleMessage("Thu"),
         "thyroid_disease":
             MessageLookupByLibrary.simpleMessage("Thyroid Disease"),
         "time": MessageLookupByLibrary.simpleMessage("Time"),
         "toDaysAdvice": MessageLookupByLibrary.simpleMessage("Today\'s Advice"),
         "treatmentHistory":
             MessageLookupByLibrary.simpleMessage("Treatment History"),
-        "tuesday": MessageLookupByLibrary.simpleMessage("Tuesday"),
+        "tuesday": MessageLookupByLibrary.simpleMessage("Tue"),
         "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
         "uploadIDCard":
             MessageLookupByLibrary.simpleMessage("Upload your ID card"),
@@ -454,7 +454,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "visitSchedules":
             MessageLookupByLibrary.simpleMessage("Visit Schedules"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
-        "wednesday": MessageLookupByLibrary.simpleMessage("Wednesday"),
+        "wednesday": MessageLookupByLibrary.simpleMessage("Wed"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage(
             "Welcome back! Log in to continue"),
         "welcomeMsg": MessageLookupByLibrary.simpleMessage("Welcome"),

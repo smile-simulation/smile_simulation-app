@@ -18,7 +18,6 @@ import '../../data/repos/medical_record_repos/medical_record_repo_empl.dart';
 import '../manage/cubits/medical_record_cubits/medical_record_cubit.dart';
 import '../manage/cubits/medical_record_cubits/medical_record_state.dart';
 
-
 class MedicalRecordView extends StatelessWidget {
   const MedicalRecordView({super.key});
 
@@ -32,7 +31,11 @@ class MedicalRecordView extends StatelessWidget {
               MedicalRecordCubit(MedicalRecordRepositoryImpl())
                 ..fetchMedicalRecords(userId),
       child: Scaffold(
-        appBar: customAppbar(context, title: S.of(context).medicalRecord, isBack: true),
+        appBar: customAppbar(
+          context,
+          title: S.of(context).medicalRecord,
+          isBack: true,
+        ),
         body: CustomBodyScreen(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -47,7 +50,10 @@ class MedicalRecordView extends StatelessWidget {
                   });
                 } else if (state is DeleteMedicalRecordSuccess) {
                   WidgetsBinding.instance.addPostFrameCallback((_) {
-                    customSuccess(context, massage: S.of(context).record_deleted_success);
+                    customSuccess(
+                      context,
+                      massage: S.of(context).record_deleted_success,
+                    );
                     context.read<MedicalRecordCubit>().fetchMedicalRecords(
                       userId,
                     );
@@ -170,7 +176,9 @@ class MedicalRecordView extends StatelessWidget {
                             ],
                           ),
                           Visibility(
-                            visible: CacheHelper().getMap(key: userData)!['role'] == "Doctor",
+                            visible:
+                                CacheHelper().getMap(key: userData)!['role'] ==
+                                "Doctor",
                             child: Positioned(
                               bottom: 20,
                               child: FloatingActionButton(
@@ -244,53 +252,59 @@ class _ExpandableTreatmentCardState extends State<ExpandableTreatmentCard> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: '${S.of(context).date}: ',
-                            style: AppTextStyles.subTitle1(context).copyWith(
-                              fontFamily: "NotoSansSC",
-                              color: AppColors.primaryColor,
+                Expanded(
+                  child: Column(
+                    children: [
+                      Text.rich(
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: '${S.of(context).date} : ',
+                              style: AppTextStyles.subTitle1(context).copyWith(
+                                fontFamily: "NotoSansSC",
+                                color: AppColors.primaryColor,
+                              ),
                             ),
-                          ),
-                          TextSpan(
-                            text: widget.date,
-                            style: AppTextStyles.subTitle1(context).copyWith(
-                              fontFamily: "NotoSansSC",
-                              color: AppColors.blackColor,
+                            TextSpan(
+                              text: widget.date,
+                              style: AppTextStyles.subTitle1(context).copyWith(
+                                fontFamily: "NotoSansSC",
+                                color: AppColors.blackColor,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
 
-                    const SizedBox(width: 4),
+                      const SizedBox(width: 4),
 
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: '${S.of(context).doctor}: ',
-                            style: AppTextStyles.subTitle1(context).copyWith(
-                              fontFamily: "NotoSansSC",
-                              color: AppColors.primaryColor,
+                      Text.rich(
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        TextSpan(
+                          children: [
+
+                            TextSpan(
+                              text: '  ${S.of(context).doctor} : ',
+                              style: AppTextStyles.subTitle1(context).copyWith(
+                                fontFamily: "NotoSansSC",
+                                color: AppColors.primaryColor,
+                              ),
                             ),
-                          ),
-                          TextSpan(
-                            text: widget.doctorName,
-                            style: AppTextStyles.subTitle1(context).copyWith(
-                              fontFamily: "NotoSansSC",
-                              color: AppColors.blackColor,
+                            TextSpan(
+                              text: widget.doctorName,
+                              style: AppTextStyles.subTitle1(context).copyWith(
+                                fontFamily: "NotoSansSC",
+                                color: AppColors.blackColor,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Container(
                   width: 24,
@@ -371,8 +385,8 @@ class TreatmentDetailsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Text(
-           S.of(context).medical_procedure,
+          Text(
+            S.of(context).medical_procedure,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
@@ -380,15 +394,30 @@ class TreatmentDetailsSection extends StatelessWidget {
             spacing: 8,
             runSpacing: 8,
             children: [
-              _buildCheckbox(S.of(context).cleaning, procedureSelections['تنظيف'] ?? false),
-              _buildCheckbox(S.of(context).extraction, procedureSelections['خلع'] ?? false),
-              _buildCheckbox(S.of(context).filling, procedureSelections['حشو'] ?? false),
-              _buildCheckbox(S.of(context).installation, procedureSelections['تركيب'] ?? false),
+              _buildCheckbox(
+                S.of(context).cleaning,
+                procedureSelections['تنظيف'] ?? false,
+              ),
+              _buildCheckbox(
+                S.of(context).extraction,
+                procedureSelections['خلع'] ?? false,
+              ),
+              _buildCheckbox(
+                S.of(context).filling,
+                procedureSelections['حشو'] ?? false,
+              ),
+              _buildCheckbox(
+                S.of(context).installation,
+                procedureSelections['تركيب'] ?? false,
+              ),
               _buildCheckbox(
                 S.of(context).root_treatment,
                 procedureSelections['علاج_عصب'] ?? false,
               ),
-              _buildCheckbox(S.of(context).other, procedureSelections['أخرى'] ?? false),
+              _buildCheckbox(
+                S.of(context).other,
+                procedureSelections['أخرى'] ?? false,
+              ),
               _buildCheckbox(
                 "[----]",
                 procedureSelections['otherDescription'] != null,
@@ -405,10 +434,13 @@ class TreatmentDetailsSection extends StatelessWidget {
           //     "14 يوم",
           //   ),
           // const SizedBox(height: 16),
-           Text(S.of(context).files, style: TextStyle(fontWeight: FontWeight.bold)),
+          Text(
+            S.of(context).files,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 6),
           if (fileUrls.isEmpty)
-             Text(S.of(context).none, style: TextStyle(color: Colors.grey)),
+            Text(S.of(context).none, style: TextStyle(color: Colors.grey)),
           if (fileUrls.isNotEmpty)
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -421,7 +453,7 @@ class TreatmentDetailsSection extends StatelessWidget {
                       .cast<Widget>(),
             ),
           const SizedBox(height: 16),
-           Text(
+          Text(
             S.of(context).additional_details_notes,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
@@ -498,7 +530,7 @@ class TreatmentDetailsSection extends StatelessWidget {
                                     Navigator.pop(context);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                       SnackBar(
+                                      SnackBar(
                                         content: Text(
                                           S.of(context).record_id_not_found,
                                         ),
@@ -542,7 +574,6 @@ class TreatmentDetailsSection extends StatelessWidget {
     );
   }
 
-
   Widget _buildDownloadableFile(String url, {required BuildContext context}) {
     final fileName = url.split('/').last;
     return GestureDetector(
@@ -557,9 +588,7 @@ class TreatmentDetailsSection extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        S.of(context).file_content,
-                      ),
+                      child: Text(S.of(context).file_content),
                     ),
                     const Spacer(),
                     IconButton(
@@ -593,9 +622,7 @@ class TreatmentDetailsSection extends StatelessWidget {
                               );
                             },
                             errorBuilder: (context, error, stackTrace) {
-                              return  Text(
-                                S.of(context).image_load_failed,
-                              );
+                              return Text(S.of(context).image_load_failed);
                             },
                           ),
                         if (!url.toLowerCase().endsWith('.jpg') &&
@@ -607,7 +634,7 @@ class TreatmentDetailsSection extends StatelessWidget {
                                 await launchUrl(Uri.parse(url));
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                   SnackBar(
+                                  SnackBar(
                                     content: Text(
                                       S.of(context).cannot_open_file,
                                     ),
@@ -661,7 +688,11 @@ class _AddMedicalRecordViewState extends State<AddMedicalRecordView> {
     return BlocProvider(
       create: (context) => MedicalRecordCubit(MedicalRecordRepositoryImpl()),
       child: Scaffold(
-        appBar: customAppbar(context, title: S.of(context).add_medical_record, isBack: true),
+        appBar: customAppbar(
+          context,
+          title: S.of(context).add_medical_record,
+          isBack: true,
+        ),
         body: AddMedicalRecordBodyView(),
       ),
     );
@@ -718,7 +749,7 @@ class _AddMedicalRecordBodyViewState extends State<AddMedicalRecordBodyView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   Text(
+                  Text(
                     S.of(context).medical_procedure,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
@@ -740,13 +771,16 @@ class _AddMedicalRecordBodyViewState extends State<AddMedicalRecordBodyView> {
                         }).toList(),
                   ),
                   const SizedBox(height: 16),
-                   Text(
+                  Text(
                     S.of(context).files,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 6),
                   if (_files.isEmpty)
-                     Text(S.of(context).none, style: TextStyle(color: Colors.grey)),
+                    Text(
+                      S.of(context).none,
+                      style: TextStyle(color: Colors.grey),
+                    ),
                   if (_files.isNotEmpty)
                     Wrap(
                       children:
@@ -767,8 +801,8 @@ class _AddMedicalRecordBodyViewState extends State<AddMedicalRecordBodyView> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                   Text(
-                   S.of(context).additional_details_notes,
+                  Text(
+                    S.of(context).additional_details_notes,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 6),
@@ -794,7 +828,7 @@ class _AddMedicalRecordBodyViewState extends State<AddMedicalRecordBodyView> {
                     children: [
                       CustomButton(
                         isMinWidth: true,
-                        title:  S.of(context).save_edits,
+                        title: S.of(context).save_edits,
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             final cubit = context.read<MedicalRecordCubit>();
@@ -862,9 +896,11 @@ class EditMedicalRecordView extends StatefulWidget {
   @override
   State<EditMedicalRecordView> createState() => _EditMedicalRecordViewState();
 }
+
 class _EditMedicalRecordViewState extends State<EditMedicalRecordView> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _additionalNotesController = TextEditingController();
+  final TextEditingController _additionalNotesController =
+      TextEditingController();
   final List<File> _files = [];
   Map<String, bool> _procedureSelections = {
     'تنظيف': false,
@@ -878,7 +914,8 @@ class _EditMedicalRecordViewState extends State<EditMedicalRecordView> {
   @override
   void initState() {
     super.initState();
-    _additionalNotesController.text = widget.recordData['additionalNotes'] ?? '';
+    _additionalNotesController.text =
+        widget.recordData['additionalNotes'] ?? '';
     final existingSelections = widget.recordData['procedureSelections'] ?? {};
     _procedureSelections = {
       'تنظيف': existingSelections['تنظيف'] ?? false,
@@ -897,7 +934,9 @@ class _EditMedicalRecordViewState extends State<EditMedicalRecordView> {
   }
 
   Future<void> _pickFiles() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: true);
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      allowMultiple: true,
+    );
     if (result != null) {
       setState(() {
         _files.addAll(result.paths.map((path) => File(path!)).toList());
@@ -910,18 +949,23 @@ class _EditMedicalRecordViewState extends State<EditMedicalRecordView> {
     return BlocProvider(
       create: (context) => MedicalRecordCubit(MedicalRecordRepositoryImpl()),
       child: Scaffold(
-        appBar: customAppbar(context, title: 'تعديل السجل العلاجي', isBack: true),
+        appBar: customAppbar(
+          context,
+          title: 'تعديل السجل العلاجي',
+          isBack: true,
+        ),
         body: BlocConsumer<MedicalRecordCubit, MedicalRecordState>(
           listener: (context, state) {
             if (state is EditMedicalRecordSuccess) {
               WidgetsBinding.instance.addPostFrameCallback((_) async {
                 final cubit = context.read<MedicalRecordCubit>();
-                cubit.fetchMedicalRecords(
-                  userId,
-                );
+                cubit.fetchMedicalRecords(userId);
 
-                await customSuccess(context, massage: 'تم تعديل السجل الطبي بنجاح');
-          // إعادة جلب السجلات
+                await customSuccess(
+                  context,
+                  massage: 'تم تعديل السجل الطبي بنجاح',
+                );
+                // إعادة جلب السجلات
                 Navigator.pop(context);
               });
             } else if (state is EditMedicalRecordFailure) {
@@ -946,48 +990,76 @@ class _EditMedicalRecordViewState extends State<EditMedicalRecordView> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text("الإجراء الطبي:", style: TextStyle(fontWeight: FontWeight.bold)),
+                          const Text(
+                            "الإجراء الطبي:",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                           const SizedBox(height: 8),
                           Wrap(
                             spacing: 8,
                             runSpacing: 8,
-                            children: _procedureSelections.entries.map((entry) {
-                              return CheckboxListTile(
-                                title: Text(entry.key),
-                                value: entry.value,
-                                onChanged: (val) => setState(() => _procedureSelections[entry.key] = val!),
-                              );
-                            }).toList(),
+                            children:
+                                _procedureSelections.entries.map((entry) {
+                                  return CheckboxListTile(
+                                    title: Text(entry.key),
+                                    value: entry.value,
+                                    onChanged:
+                                        (val) => setState(
+                                          () =>
+                                              _procedureSelections[entry.key] =
+                                                  val!,
+                                        ),
+                                  );
+                                }).toList(),
                           ),
                           const SizedBox(height: 16),
-                          const Text("الملفات:", style: TextStyle(fontWeight: FontWeight.bold)),
+                          const Text(
+                            "الملفات:",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                           const SizedBox(height: 6),
-                          if (_files.isEmpty && (widget.recordData['fileUrls'] ?? []).isEmpty)
-                            const Text("لا يوجد", style: TextStyle(color: Colors.grey)),
+                          if (_files.isEmpty &&
+                              (widget.recordData['fileUrls'] ?? []).isEmpty)
+                            const Text(
+                              "لا يوجد",
+                              style: TextStyle(color: Colors.grey),
+                            ),
                           if ((widget.recordData['fileUrls'] ?? []).isNotEmpty)
                             Wrap(
-                              children: (widget.recordData['fileUrls'] as List?)
-                                  ?.map((url) => Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Text(url.split('/').last),
-                              ))
-                                  .toList() ?? [],
+                              children:
+                                  (widget.recordData['fileUrls'] as List?)
+                                      ?.map(
+                                        (url) => Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: Text(url.split('/').last),
+                                        ),
+                                      )
+                                      .toList() ??
+                                  [],
                             ),
                           if (_files.isNotEmpty)
                             Wrap(
-                              children: _files
-                                  .map((file) => Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Text(file.path.split('/').last),
-                              ))
-                                  .toList(),
+                              children:
+                                  _files
+                                      .map(
+                                        (file) => Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: Text(
+                                            file.path.split('/').last,
+                                          ),
+                                        ),
+                                      )
+                                      .toList(),
                             ),
                           ElevatedButton(
                             onPressed: _pickFiles,
                             child: Text('اختر ملفات'),
                           ),
                           const SizedBox(height: 16),
-                          const Text("تفاصيل إضافية / ملاحظات:", style: TextStyle(fontWeight: FontWeight.bold)),
+                          const Text(
+                            "تفاصيل إضافية / ملاحظات:",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                           const SizedBox(height: 6),
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -1015,13 +1087,18 @@ class _EditMedicalRecordViewState extends State<EditMedicalRecordView> {
                                 title: "حفظ التعديلات",
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
-                                    final cubit = context.read<MedicalRecordCubit>();
-                                    final id = widget.recordData['historyId'] as int;
+                                    final cubit =
+                                        context.read<MedicalRecordCubit>();
+                                    final id =
+                                        widget.recordData['historyId'] as int;
                                     cubit.editMedicalRecord(id, {
-                                      'prescription': _additionalNotesController.text,
-                                      'procedureSelections': _procedureSelections,
+                                      'prescription':
+                                          _additionalNotesController.text,
+                                      'procedureSelections':
+                                          _procedureSelections,
                                       'files': _files,
-                                      'additionalNotes': _additionalNotesController.text,
+                                      'additionalNotes':
+                                          _additionalNotesController.text,
                                     });
                                   }
                                 },

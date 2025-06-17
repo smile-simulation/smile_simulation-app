@@ -64,7 +64,7 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
     super.initState();
     final user = CacheHelper().getMap(key: userData) ?? {};
 
-    ageController = TextEditingController(text: user['age']?.toString());
+   ageController = TextEditingController(text: user['age']?.toString());
     nameController = TextEditingController(text: user['fullName']);
     addressController = TextEditingController(text: user['address']);
     birthDayController = TextEditingController(text: user['birthDay']);
@@ -275,16 +275,16 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
                 ),
                 const SizedBox(height: 16),
 
-                Visibility(
-                  visible:
-                      CacheHelper().getMap(key: userData)?["role"] == "Doctor",
-                  child: InputSectionFromSignUpFromDoctorSubsidiary(
-                    qualificationController: qualificationController,
-                    specializationController: specializationController,
-                    experienceController: experienceController,
-                    context: context,
-                  ),
-                ),
+                // Visibility(
+                //   visible:
+                //       CacheHelper().getMap(key: userData)?["role"] == "Doctor",
+                //   child: InputSectionFromSignUpFromDoctorSubsidiary(
+                //     qualificationController: qualificationController,
+                //     specializationController: specializationController,
+                //     experienceController: experienceController,
+                //     context: context,
+                //   ),
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -301,7 +301,7 @@ class _EditProfileBodyViewState extends State<EditProfileBodyView> {
                           final cubit = context.read<EditProfileCubit>();
                           cubit.editProfile(
                             fullName: nameController.text,
-                            age: ageController.text,
+                            age: "",
                             qualification: qualificationController.text,
                             experience: experienceController.text,
                             address: addressController.text,

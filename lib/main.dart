@@ -57,7 +57,8 @@ class ConnectivityAppWrapper extends StatefulWidget {
   _ConnectivityAppWrapperState createState() => _ConnectivityAppWrapperState();
 }
 
-class _ConnectivityAppWrapperState extends State<ConnectivityAppWrapper> with WidgetsBindingObserver {
+class _ConnectivityAppWrapperState extends State<ConnectivityAppWrapper>
+    with WidgetsBindingObserver {
   late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription;
   bool hasInternet = true;
   List<ConnectivityResult> _lastResult = [ConnectivityResult.none];
@@ -67,17 +68,16 @@ class _ConnectivityAppWrapperState extends State<ConnectivityAppWrapper> with Wi
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _checkConnectivity();
-    _connectivitySubscription = Connectivity()
-        .onConnectivityChanged
-        .debounceTime(const Duration(milliseconds: 500)) // Debounce rapid events
-        .listen(
-          (List<ConnectivityResult> result) {
-            if (result.toString() != _lastResult.toString()) {
-              _lastResult = result;
-              _checkConnectivity();
-            }
-          },
-        );
+    _connectivitySubscription = Connectivity().onConnectivityChanged
+        .debounceTime(
+          const Duration(milliseconds: 500),
+        ) // Debounce rapid events
+        .listen((List<ConnectivityResult> result) {
+          if (result.toString() != _lastResult.toString()) {
+            _lastResult = result;
+            _checkConnectivity();
+          }
+        });
   }
 
   @override
@@ -107,12 +107,15 @@ class _ConnectivityAppWrapperState extends State<ConnectivityAppWrapper> with Wi
     try {
       final response = await Dio()
           .get('https://www.google.com')
-          .timeout(const Duration(seconds: 5), onTimeout: () {
-        return Response(
-          requestOptions: RequestOptions(path: 'https://www.google.com'),
-          statusCode: 408,
-        );
-      });
+          .timeout(
+            const Duration(seconds: 5),
+            onTimeout: () {
+              return Response(
+                requestOptions: RequestOptions(path: 'https://www.google.com'),
+                statusCode: 408,
+              );
+            },
+          );
       setState(() {
         hasInternet = response.statusCode == 200;
       });
@@ -138,9 +141,7 @@ class SmileSimulation extends StatelessWidget {
       valueListenable: isArabic,
       builder: (context, locale, _) {
         return MaterialApp(
-
           theme: ThemeData(
-          
             fontFamily: 'Cairo',
             primaryColor: AppColors.primaryColor,
             scaffoldBackgroundColor: AppColors.whiteColor,
@@ -163,9 +164,13 @@ class SmileSimulation extends StatelessWidget {
           color: AppColors.primaryColor,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: onGenerateRoute,
-          initialRoute: CacheHelper.sharedPreferences.getBool(isSuccessLogin) == true
-              ? BottomNavigationView.routeName
-              : CacheHelper.sharedPreferences.getBool(isOnboardingViewSeen) == true
+          initialRoute:
+              CacheHelper.sharedPreferences.getBool(isSuccessLogin) == true
+                  ? BottomNavigationView.routeName
+                  : CacheHelper.sharedPreferences.getBool(
+                        isOnboardingViewSeen,
+                      ) ==
+                      true
                   ? LoginView.routeName
                   : OnBoardingView.routeName,
         );

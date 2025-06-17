@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:smile_simulation/core/utils/app_colors.dart';
 
 import '../../../data/model/on_boarding_model.dart';
 
@@ -39,11 +40,23 @@ class ImagesShape extends StatelessWidget {
 
               right: isOut ? 700 : 32,
               left: isOut ? -700 : 32,
-              child: Image.asset(
-                onBoardingData[currentIndex].image,
-                fit: BoxFit.fill,
-                width: 310,
-                height: 200,
+              child: Container(
+               decoration: BoxDecoration(
+                 borderRadius: BorderRadius.circular(12),
+                 border: Border.all(
+                   color: currentIndex ==0 ||currentIndex ==5 ||currentIndex ==4 ||currentIndex ==2? AppColors.transparent : AppColors.primaryColor
+                 )
+               ),
+
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(
+                    onBoardingData[currentIndex].image,
+                    fit: BoxFit.fill,
+                    width: 310,
+                    height: 200,
+                  ),
+                ),
               ),
             ),
           ],
