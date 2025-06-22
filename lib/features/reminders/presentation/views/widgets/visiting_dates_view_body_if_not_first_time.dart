@@ -106,7 +106,7 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
                   style: AppTextStyles.headline2(context),
                 ),
                 CustomButton(
-                  title: S.of(context).deleteMedicine,
+                  title: "حذف الكل",
                   isGreyBackground: true,
                   isExtraMinWidth: true,
                   onPressed: () async {
@@ -217,15 +217,7 @@ class _VisitingDatesViewBodyIfNotFirstTimeState
                                             fit: BoxFit.cover,
                                           )
                                         else
-                                          Container(
-                                            width: imageSize,
-                                            height: imageSize,
-                                            color: Colors.grey.shade200,
-                                            child: const Icon(
-                                              Icons.image,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
+                                    SizedBox(),
                                         SizedBox(width: screenWidth * 0.04),
                                         Expanded(
                                           child: Row(
