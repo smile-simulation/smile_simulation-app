@@ -44,7 +44,9 @@ class MoreActionItemListTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
 
-            child: Center(child: SvgPicture.asset(iconPath)),
+            child: Center(child: SvgPicture.asset(iconPath,
+            color: AppColors.primaryColor,
+            )),
           ),
         ),
       ),
