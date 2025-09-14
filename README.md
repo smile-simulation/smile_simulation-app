@@ -1,6 +1,6 @@
 # Smile Simulation - Dental Health Management System
 
-![1](https://github.com/user-attachments/assets/3c9ebe99-9a8c-433c-8d2d-f12683fe7ae1)
+![4](https://github.com/user-attachments/assets/9859f202-63fd-4e58-9eb0-03e3201b2dfb)
 ***for more photos scroll down***
 
 ## Project Overview
@@ -48,7 +48,7 @@
 
 ---
 ![11](https://github.com/user-attachments/assets/9985c04b-d1ef-4eb5-9929-6b3fd2ddc9ef)
-![12](https://github.com/user-attachments/assets/0ff68d72-70bd-48e0-8efe-4ef1ba43b34c)
+![1](https://github.com/user-attachments/assets/3c9ebe99-9a8c-433c-8d2d-f12683fe7ae1)
 ![13](https://github.com/user-attachments/assets/93b3b9a7-01e8-4886-97a9-62c2373f4517)
 ![9](https://github.com/user-attachments/assets/c0c531ca-324c-4794-8e2d-5247e33481f0)
 ![10](https://github.com/user-attachments/assets/a5aa6542-fb5e-4c70-904a-aefe5c4a9fb3)
@@ -58,5 +58,5 @@
 ![6](https://github.com/user-attachments/assets/68638f0d-4f5c-4263-8f5f-5321ef7cf8c7)
 ![3](https://github.com/user-attachments/assets/21059029-f1d8-4feb-9bbe-4bca522b57bf)
 ![2](https://github.com/user-attachments/assets/a5ac8872-6ac8-4210-96eb-fb4eaf4dee5c)
-![4](https://github.com/user-attachments/assets/9859f202-63fd-4e58-9eb0-03e3201b2dfb)
+
 
